@@ -183,13 +183,25 @@
                 
   <div class="section" id="word-normalisation">
 <h1><span class="section-number">2. </span>Word Normalisation<a class="headerlink" href="#word-normalisation" title="Permalink to this headline">¶</a></h1>
+<p><strong>Word normalisation</strong> tries to represent words in a unique way. This includes:</p>
 <ul class="simple">
-<li><p>Correction of words</p></li>
-<li><p>Stemming</p></li>
-<li><p>Lemmatisation</p></li>
+<li><p>Character case: In most of the NLP tasks it should not be distinguished whether a word or characters of a word are written in upper or lower case.<a class="footnote-reference brackets" href="#f1" id="id1">1</a></p></li>
+<li><p>Word correction: Spelling mistakes shall be corrected, such that only correct words constitute the vocabulary</p></li>
+<li><p>In case of spelling ambiguities, all words shall be mapped to a unique spelling (i.e. valid spellings due to German Rechtschreibreform)</p></li>
+<li><p>In many NLP tasks different forms shall not be distinguished. For example in Information Retrieval (Web Search) the temporal form of a verb should be ignored as well as singular or plural of nouns.</p></li>
 </ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Example</p>
+<p>Consider a search-engine like <a class="reference external" href="https://www.google.com/">google</a>. If you enter your query-words, you like to get the same results independent of the wordform. E.g. the query <code class="docutils literal notranslate"><span class="pre">video</span> <span class="pre">encoding</span></code> shall provide the same result as <code class="docutils literal notranslate"><span class="pre">encode</span> <span class="pre">videos</span></code>. For this all words of the query and all words in the index of the search-engine must be normalised to a unique form. This normalisation does not only provide better results, but it also reduces memory- and time-complexity, because the index is much smaller than without normalisation</p>
+</div>
 <div class="toctree-wrapper compound">
 </div>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>An exception is e.g. the task of Part-Of-Speech Tagging in German. Here, the case may provide helpful information.</p>
+</dd>
+</dl>
 </div>
 
     <script type="text/x-thebe-config">

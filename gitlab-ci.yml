@@ -1,0 +1,11 @@
+image: registry.gitlab.com/pages/hugo:0.26
+
+pages:
+  script:
+  - hugo 
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
