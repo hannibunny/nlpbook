@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+	  "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<html lang="en" dir="ltr">
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+    <TITLE>German addresses are blocked - www.gutenberg.org
+    </TITLE>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+  </HEAD>
+  <body>
+
+<font color="red">    
+  <h1 align="center">Your IP Address in Germany is Blocked from www.gutenberg.org</h1>
+</font>
+
+  <p>We apologize for this inconvenience.  Your IP address has been automatically blocked from accessing the Project Gutenberg website, www.gutenberg.org.  This is because the geoIP database shows your address is in the country of Germany.</p>
+
+  <h2>Diagnostic information:</h2>
+    <code>
+      <p>
+	Blocked at germany.shtml<br />
+	Your IP address: 84.133.41.186<br />
+	Referrer URL (if available): (none)<br />
+	Browser: Python-urllib/3.7<br />
+	Date:  Wednesday, 09-Sep-2020 09:55:14 GMT</p>
+</code>
+  
+<h2>Why did this block occur?</h2>
+<p>A Court in Germany ordered that access to certain items in the Project Gutenberg collection are blocked from Germany. Project Gutenberg believes the Court has no jurisdiction over the matter, but until the issue is resolved, it will comply.</p>
+
+<p>For more information about the German court case, and the reason for blocking all of Germany rather than single items, visit <a href="https://cand.pglaf.org/germany/index.html">PGLAF's information page about the German lawsuit</a>.
+
+<p>For more information about the legal advice Project Gutenberg has received concerning international issues, visit <a href="https://cand.pglaf.org/index.html">PGLAF's International Copyright Guidance for Project Gutenberg</a>
+  
+  <h2>This page in German</h2>
+
+  <p>Automated translation (via Google Translate): <a href="https://translate.google.com/translate?sl=auto&tl=de&u=http%3A%2F%2Fblock.pglaf.org%2Fgermany.shtml">translate.google.com</a>
+
+  <h2>How can I get unblocked?</h2>
+
+<p>All IP addresses in Germany are blocked.  This block will remain in place until legal guidance changes.
+</p>
+
+<h2>If your IP address lookup is incorrect</h2>
+
+<p>Use the <a href="https://www.maxmind.com/en/geoip-demo">Maxmind GeoIP demo</a> to verify status of your IP address.  Project Gutenberg updates its listing of IP addresses approximately monthly.</p>
+
+<p>Occasionally, the website mis-applies a block from a previous visitor. Because blocks are applied momentarily, you should try again later to visit <a href="https://www.gutenberg.org">https://www.gutenberg.org</a> if Maxmind shows your address as being outside of Germany.<p>
+
+<p>If your IP address is shown by Maxmind to be outside of Germany and you were momentarily blocked, another issue is that some Web browsers erroneously cache the block.  Trying a different Web browser might help.  Or, clearing the history of your visits to the site.</p>
+
+<h2>I have other questions or need to report an error</h2>
+
+   <p>Please email the diagnostic information above to <pre>help2020 @ pglaf.org</pre> (removing the spaces around the @) and we will try to help.  The software we use sometimes flags "false positives" -- that is, blocks that should not have occurred.  Apologies if this happened, because human users outside of Germany who are making use of the eBooks or other site features should almost never be blocked.</p>
+
+     <hr />
+  <p><i>Most recently updated: January 28, 2020.</i></p>
+
+  </body>
+</html>

@@ -1,0 +1,27 @@
+
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		
+« The History of R (updated for 2020) |
+	Main
+MLOPS with R and GitHub ActionsWith thanks to the kind folks at Lander Analytics, video from my New York R Conference talk earlier this month is now available to view. The slides are also available for download in PDF format.In my talk, I described how I automated the deployment of a Shiny app using GitHub Actions. If you're new to GitHub Actions, it's pretty simple to set up a continuous deployment process:In my case, I used Actions to create an on-demand cluster of VMs in Azure Machine Learning service, to train R models on the cluster with the azuremlsdk package, to deploy the trained model as an HTTP endpoint in Azure Container Instances, and to update the Shiny app which calls out to that endpoint.In the talk, I demonstrate the process in action (the demo starts at the 14:30 mark in the video below). I used Visual Studio Code to edit the app.R file in repository, and then pushed the changes to GitHub. That immediately triggered the action to deploy the updated file via SSH to the Shiny Server, running in a remote VM. Similarly, changes to the data file or to the R script files implementing the logistic regression model would trigger the model to be retrained in the cluster, and re-deploy the endpoint to deliver new predictions from the updated model.I've provided the complete GitHub repository implementing the app, the models, and the Actions at github.com/revodavid/mlops-r-gha. If you want to try it out yourself, all you need to do is clone the repo, follow the instructions to add secrets to your repository and set up the Shiny VM, and then trigger the Actions to build everything. The repository also includes links to references and other resources, including how to create a free Azure subscription with credits you can use to test everything out. If you have any questions you suggestions, please feel free to add an issue to the repository!GitHub (revodavid): MLOPS with R: An end-to-end process for building machine learning applications
+Posted by David Smith at 09:30 in Microsoft, mlops, R  | Permalink
+ You can follow this conversation by subscribing to the comment feed for this post.I have been a loyal user of MRAN R. Thank you for providing a great product. However, it has been more than two months since you mentioned that MRAN R was being tested. Can you please provide us with more details? I think a clear message is very important to the current users. If MRAN is decided to be abandoned, it's better to let us know instead of dragging us. Thanks.
+		Posted by:
+		Jason |
+		August 31, 2020 at 20:45
+I hear you Jason. MRO 4.0 it's definitely coming. I've reached out to the product team to get an update on the schedule.
+		Posted by:
+		David Smith |
+		September 01, 2020 at 14:39
+This is only a preview. Your comment has not yet been posted.The letters and numbers you entered did not match the image. Please try again.As a final step before posting your comment, enter the letters and numbers you see in the image below. This prevents automated programs from posting comments.Having trouble reading this image? View an alternate.
+            				    (You can use HTML tags like <b> <i> and <ul> to style your text.)
+            				
+                                (Name and email address are required. Email address will not be displayed with the comment.)
+                            
+                            
+
+Name is required to post a comment
+
+
+Please enter a valid email address
+Please enable JavaScript if you would like to comment on this blog.

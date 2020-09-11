@@ -1,0 +1,11 @@
+# Book settings
+title: Natural Language Processing Lecture
+author: Prof. Dr. Johannes Maucher
+logo: hdmlogo.eps
+
+parse:
+  myst_extended_syntax: true
+
+latex:
+  latex_documents:
+    targetname: nlpbook.tex

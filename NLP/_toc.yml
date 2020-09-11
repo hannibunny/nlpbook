@@ -1,0 +1,16 @@
+- file: intro
+  numbered: True
+  sections:
+    - file: 01access/01access
+      sections:
+        - file: 01access/01AccessTextFromFile.ipynb
+        - file: 01access/02crawlHTMLcontent.ipynb
+        - file: 01access/03crawlWebSites.ipynb
+        - file: 01access/04crawlRSSFeeds.ipynb
+        - file: 01access/05RegularExpressions.ipynb
+        - file: 01access/06accessTweets.ipynb
+    - file: 02normalisation/02normalisation
+      sections:
+        - file: 02normalisation/01LevenstheinDistance.ipynb
+    - file: 03postagging/03postagging
+  

@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Introduction &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Access and Preprocess Text" href="01access/01access.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/hdmlogo.eps" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="#">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01access/01access.html">
+   1. Access and Preprocess Text
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02normalisation/02normalisation.html">
+   2. Word Normalisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03postagging/03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-nlp">
+   What is NLP?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nlp-process-chain-and-lecture-contents">
+   NLP Process Chain and Lecture Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-challenge-of-ambiguity">
+   The challenge of ambiguity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-popular-nlp-applications">
+   Some popular NLP applications
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Author: Prof. Dr. Johannes Maucher</p></li>
+<li><p>Institution: Stuttgart Media University</p></li>
+<li><p>Document Version: 0.1</p></li>
+<li><p>Last Update: 09.09.2020</p></li>
+</ul>
+<div class="section" id="what-is-nlp">
+<h2>What is NLP?<a class="headerlink" href="#what-is-nlp" title="Permalink to this headline">¶</a></h2>
+<p>Natural Language Processing (NLP) strieves to build computers, such that they can understand and generate natural language. Since computers usually only understand formal languages (programming languages, assembler, etc), NLP techniques must provide the transformation from natural language to a formal language and vice versa.</p>
+<figure align="center">
+<img width="300" src="https://maucher.home.hdm-stuttgart.de/Pics/NLUnderstandingGeneration.jpg">
+<figcaption>Transformation between natural and formal language</figcaption>
+</figure>
+<p>This lecture focuses on the direction from natural language to formal language. However, in the later chapters also techniques for automatic language generation are explained. In any case, only natural language in written form is considered. Speech recognition, i.e. the process of transforming speech audio signals into written text, is not in the scope of this lecture.</p>
+<p>As a science NLP is a subfield of Artificial Intelligence, which itself belongs to Computer Science. In the past linguistic knowledge has been a key-komponent for NLP.</p>
+<figure align="center">
+<img width="300" src="https://maucher.home.hdm-stuttgart.de/Pics/NLPundAndereWissenschaften.jpg">
+<figcaption>Sciences, used by NLP</figcaption>
+</figure>
+<p>The old approach of NLP, the so called <strong>Rule-based-approach</strong> can be described by representing linguistic rules in a formal language and <strong>parsing</strong> text according to this rule. In this way, e.g. the syntactic structure of sentences can be derived and from the syntactic structure semantics are infered.</p>
+<p>The enormous success of NLP during the last few years is based on <strong>Data-based-approaches</strong>, which increasingly substitute the old Rule-based-approach. The idea of this approach is to learn language statistics from large amounts of digitally available texts (<strong>copora</strong>). For this, modern <strong>Machine Learning (ML)</strong> techniques, such as Deep Neural Networks are applied. The learned statistics can then be applied e.g. for <em>Part-of-Speech-Tagging</em>, <em>Named-Entity-Recognition</em>, <em>Text Summarisation</em>, <em>Semantic Analysis</em>, <em>Language Translation</em>, <em>Text Generation</em>, <em>Question-Answering</em>, <em>Dialog-Systems</em> and many other NLP tasks.</p>
+<p>As the picture below describes, Rule-based-approaches require expert-knowledge of the linguists, whereas Data-based approaches require large amount of data, ML-algorithms and performant Hardware.</p>
+<figure align="center">
+<img width="500" src="https://maucher.home.hdm-stuttgart.de/Pics/RegelVsDatenAnsatz.png">
+<figcaption>Rule-based and data-based approach</figcaption>
+</figure>
+<p>The following statement of Fred Jelinek expresses the increasing dominance of Data-based-approaches:</p>
+<blockquote class="epigraph">
+<div><p>Every time I fire a linguist, the performance of the speech recognizer goes up.</p>
+<p class="attribution">—Fred Jelinek<a class="footnote-reference brackets" href="#f1" id="id1">1</a></p>
+</div></blockquote>
+<div class="dropdown admonition">
+<p class="admonition-title">Example</p>
+<p>Consider the NLP task Spam Classification. In a Rule-based approach one would define rules like <em>if text contains Viagra then class=spam</em>, <em>if sender address is part of a given black-list then class=spam</em>, etc. In a Data-based-approach such rules are not required. Instead a large corpus of e-mails labeled with either <em>spam</em> or <em>ham</em> is required. A Machine Learning Algorithm, like e.g. a Naive Bayes Classifier, will learn a statistical model from the given training data. The learned model can then be applied for spam-classification.</p>
+</div>
+</div>
+<div class="section" id="nlp-process-chain-and-lecture-contents">
+<h2>NLP Process Chain and Lecture Contents<a class="headerlink" href="#nlp-process-chain-and-lecture-contents" title="Permalink to this headline">¶</a></h2>
+<p>In order to realize NLP tasks one usually has to implement a chain of processing steps for accessing, storing and preprocessing before the task specific model can be learned and applied. The following figure sketches an entire processing chain in general.</p>
+<figure align="center">
+<img width="800" src="https://maucher.home.hdm-stuttgart.de/Pics/nlpProcessChain.png">
+<figcaption>NLP Processing Chain</figcaption>
+</figure>
+<p>This processing chain defines the <strong>content of this lecture</strong>:</p>
+<ol class="simple">
+<li><p>Methods for <strong>accessing text</strong> from different types of sources</p></li>
+<li><p>Text <strong>preprocessing</strong> like segmentation, normalisation, POS-tagging, etc</p></li>
+<li><p>Models for <strong>representing words and texts</strong>.</p></li>
+<li><p>Statistical <strong>Language Models</strong>.</p></li>
+<li><p>Architectures for implementing <strong>NLP tasks</strong> such as word-completion, auto-correction, information retrieval, document classification, automatic translation, automatic text generation, etc.</p></li>
+</ol>
+<p>The lecture has a practical focus, i.e. for most of the techniques the implementation in Python is demonstrated.</p>
+</div>
+<div class="section" id="the-challenge-of-ambiguity">
+<h2>The challenge of ambiguity<a class="headerlink" href="#the-challenge-of-ambiguity" title="Permalink to this headline">¶</a></h2>
+<p>In contrast to many formal languages (programming languages), natural language is ambiguous on different levels:</p>
+<ul class="simple">
+<li><p>Segmentation: Shall <em>Stamford Bridge</em> be segmentated into 2 words? Is <em>Web 2.0</em> one expression?…</p></li>
+<li><p>Homonyms (ball) and Synonyms (bike and bycicle)</p></li>
+<li><p>Part-of-Speech: Is <em>love</em> a verb, an adjective or a noun?</p></li>
+<li><p>Syntax: The sentence <em>John saw the man on the mountain with a telescope</em> has multiple syntax trees.</p></li>
+<li><p>Semantic: <em>We saw her dug</em> (<em>Wir sahen ihre Ente</em> oder <em>Wir sahen, wie sie sich geduckt hat</em>)</p></li>
+<li><p>Ambiguity of pronouns, e.g. <em>The bottle fell into the glass. It broke.</em></p></li>
+</ul>
+</div>
+<div class="section" id="some-popular-nlp-applications">
+<h2>Some popular NLP applications<a class="headerlink" href="#some-popular-nlp-applications" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Spam Filter / Document Classification</p></li>
+<li><p>Sentiment Analysis / Trend Analysis</p></li>
+<li><p>Automatic Correction of Words and Syntax (e.g. in Word)</p></li>
+<li><p>Auto completion (WhatsApp, Search Engine)</p></li>
+<li><p>Information Retrieval / Web Search</p></li>
+<li><p>Automatic Text Generation: <a class="reference external" href="https://www.retresco.de">Sportberichterstellung</a>, <a class="reference external" href="https://www.spektrum.de/news/kuenstliche-intelligenz-der-textgenerator-gpt-3-als-sprachtalent/1756796">Open AI’s GPT</a>.</p></li>
+<li><p>Text Summarisation</p></li>
+<li><p>Automatic Translation</p></li>
+<li><p>Question Answering, Dialogue Systems, Digital Assitants, Chatbots</p></li>
+<li><p>Personal Profiling, e.g. for employment <a class="reference external" href="https://www.zeit.de/2018/35/kuenstliche-intelligenz-vorstellungsgespraech-interview-test">ZEIT-Artikel zum automatischen Recruiting</a></p></li>
+<li><p>Political orientation, e.g. for election campaigns <a class="reference external" href="https://www.tagesanzeiger.ch/ausland/europa/diese-firma-weiss-was-sie-denken/story/17474918">Cambridge Analytica and Michael Kosinski</a></p></li>
+<li><p>Recommender Systems</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Frederick Jelinek (18 November 1932 – 14 September 2010) was a Czech-American researcher in information theory, automatic speech recognition, and natural language processing.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='right-next' id="next-link" href="01access/01access.html" title="next page"><span class="section-number">1. </span>Access and Preprocess Text</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>
