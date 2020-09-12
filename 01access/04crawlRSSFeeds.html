@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>1.4. Access RSS Feed &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.5. Regular expressions in Python" href="05RegularExpressions.html" />
+    <link rel="prev" title="1.3. Download HTML Files" href="03crawlWebSites.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hdmlogo.eps" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="01access.html">
+   1. Access and Preprocess Text
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01AccessTextFromFile.html">
+     1.1. Access and Analyse Contents of Textfiles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02crawlHTMLcontent.html">
+     1.2. Access Contents of HTML Page
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03crawlWebSites.html">
+     1.3. Download HTML Files
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.4. Access RSS Feed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05RegularExpressions.html">
+     1.5. Regular expressions in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06accessTweets.html">
+     1.6. Access Tweets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02normalisation/02normalisation.html">
+   2. Word Normalisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03postagging/03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/01access/04crawlRSSFeeds.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feedparser">
+   1.4.1. Feedparser
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-category-and-language-of-feeds">
+   1.4.2. Define category and language of feeds
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="access-rss-feed">
+<h1><span class="section-number">1.4. </span>Access RSS Feed<a class="headerlink" href="#access-rss-feed" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Author:      Johannes Maucher</p></li>
+<li><p>Last update: 2020-09-09</p></li>
+</ul>
+<p>This notebook demonstrates how the contents of an RSS feed can be extracted and saved to a file. For each of the parsed feeds</p>
+<ol class="simple">
+<li><p>the short-texts of all current posts are stored in a single file. The file-name is the time <code class="docutils literal notranslate"><span class="pre">hh:mm</span></code> when the feed was parsed. I.e for each new parsing of a feed a new file with the short-texts of all current posts is allocated. The name of the folder, which contains these files, contains the current date and the name of the feed.</p></li>
+<li><p>for each post the .html page, which contains the full message is stored (optionally).</p></li>
+<li><p>for each post the raw-text of the .html page, which contains the full message is stored (optionally.)</p></li>
+</ol>
+<div class="section" id="feedparser">
+<h2><span class="section-number">1.4.1. </span>Feedparser<a class="headerlink" href="#feedparser" title="Permalink to this headline">¶</a></h2>
+<p>The contents of a RSS feeds can easily parsed by the python <a class="reference external" href="https://pypi.python.org/pypi/feedparser">feedparser</a> package. This package must be installed and imported. The <code class="docutils literal notranslate"><span class="pre">parse()</span></code>-method of the feedparser returns the contents of the feed in a structured form. This return-object usually consists of a set of <em>entries</em>, which represent the current messages in the feed. The relevant text of an entry is contained in the fields <code class="docutils literal notranslate"><span class="pre">title</span></code> and <code class="docutils literal notranslate"><span class="pre">description</span></code>. Moreover, each entry has a <code class="docutils literal notranslate"><span class="pre">link</span></code>-element, which refers to the .html site of the full article.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">feedparser</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">bs4</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="define-category-and-language-of-feeds">
+<h2><span class="section-number">1.4.2. </span>Define category and language of feeds<a class="headerlink" href="#define-category-and-language-of-feeds" title="Permalink to this headline">¶</a></h2>
+<p>For each of the supported languages (currently <em>German</em> and <em>English</em>) and each of the supported categories (currently <em>general</em> and <em>tech</em>), a list of feeds is provided. The directories for storing the parsed contents, are sturured with respect to the selected language and category.</p>
+<ul class="simple">
+<li><p>The name of the top-level directory is the language name, i.e. currently either <code class="docutils literal notranslate"><span class="pre">GERMAN</span></code> or <code class="docutils literal notranslate"><span class="pre">ENGLISH</span></code>,</p></li>
+<li><p>The name of the 2nd level directory is the category name, i.e. currently either <code class="docutils literal notranslate"><span class="pre">GENERAL</span></code> or <code class="docutils literal notranslate"><span class="pre">TECH</span></code>,</p></li>
+<li><p>In the 3rd level currently there is only one folder <code class="docutils literal notranslate"><span class="pre">RSS</span></code>.</p></li>
+<li><p>In the 4th level, 3 directories exist:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">FeedText</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FullText</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HTML</span></code></p></li>
+</ul>
+</li>
+<li><p>5th level: Each of the 3 directories in the 4th level has an arbitrary number of subdirectories, each identified by <code class="docutils literal notranslate"><span class="pre">FEEDNAME-DATE</span></code>.</p></li>
+<li><p>6th level under</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">FeedText</span></code>: for each parsing process a single file, whose name is the time of parsing and whose contents are all short-texts in this feed at the time of parsing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HTML</span></code>: All .html files of the full messages, to which the links in the feed-posts point to.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FullText</span></code>: The parsed raw text of all .html files of the full messages, to which the links in the feed-posts point to.</p></li>
+</ul>
+</li>
+</ul>
+<p>Choose the language and category:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">today</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1">#cat=&quot;GENERAL&quot;</span>
+<span class="n">cat</span><span class="o">=</span><span class="s2">&quot;TECH&quot;</span>
+<span class="c1">#cat=&quot;SPORT&quot;</span>
+<span class="c1">#lang=&quot;GERMAN&quot;</span>
+<span class="n">lang</span><span class="o">=</span><span class="s2">&quot;ENGLISH&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some feed lists for all languages and categories:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tech_feeds_en</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;districtdatalabs&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://blog.districtdatalabs.com/feed&#39;</span><span class="p">},</span>
+                 <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;oreillyradar&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://feeds.feedburner.com/oreilly/radar/atom&#39;</span><span class="p">},</span>
+                 <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;kaggle&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://blog.kaggle.com/feed/&#39;</span><span class="p">},</span>
+                 <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;revolutionanalytics&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://blog.revolutionanalytics.com/atom.xml&#39;</span><span class="p">}]</span>
+<span class="n">general_feeds_en</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;bbcnews&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://feeds.bbci.co.uk/news/rss.xml?edition=uk&#39;</span><span class="p">},</span>
+                 <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;bbcbusiness&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://feeds.bbci.co.uk/news/business/rss.xml?edition=uk&#39;</span><span class="p">},</span>
+                 <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;bbcpolitics&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://feeds.bbci.co.uk/news/politics/rss.xml?edition=uk&#39;</span><span class="p">},</span>
+                 <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;washingtonpostworld&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://feeds.washingtonpost.com/rss/world&#39;</span><span class="p">},</span>
+                 <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;washingtonpostpolitics&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://feeds.washingtonpost.com/rss/politics&#39;</span><span class="p">}]</span>
+<span class="n">tech_feeds_de</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;tonline&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://rss1.t-online.de/c/11/53/06/84/11530684.xml&#39;</span><span class="p">},</span>
+                 <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;computerbild&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.computerbild.de/rssfeed_2261.xml?node=13&#39;</span><span class="p">},</span>
+                 <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;heise&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.heise.de/newsticker/heise-top-atom.xml&#39;</span><span class="p">},</span>
+                 <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;golem&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://rss.golem.de/rss.php?r=sw&amp;feed=RSS0.91&#39;</span><span class="p">},</span>
+                 <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;chip&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.chip.de/rss/rss_topnews.xml&#39;</span><span class="p">}]</span>
+<span class="n">general_feeds_de</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;zeit&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://newsfeed.zeit.de/index&#39;</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;zeit_wirtschaft&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://newsfeed.zeit.de/wirtschaft/index&#39;</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;zeit_politik&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://newsfeed.zeit.de/politik/index&#39;</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;welt_wirtschaft&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.welt.de/wirtschaft/?service=Rss&#39;</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;welt_politik&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.welt.de/politik/?service=Rss&#39;</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;spiegel&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.spiegel.de/schlagzeilen/tops/index.rss&#39;</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;sueddeutsche&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.sueddeutsche.de/app/service/rss/alles/rss.xml&#39;</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;faz&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.faz.net/rss/aktuell/&#39;</span><span class="p">}</span>
+                    <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the defined language and category, determine a suitable feedlist:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">lang</span><span class="o">==</span><span class="s2">&quot;ENGLISH&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">cat</span><span class="o">==</span><span class="s2">&quot;GENERAL&quot;</span><span class="p">:</span>
+        <span class="n">feeds</span><span class="o">=</span><span class="n">general_feeds_en</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">feeds</span><span class="o">=</span><span class="n">tech_feeds_en</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">cat</span><span class="o">==</span><span class="s2">&quot;GENERAL&quot;</span><span class="p">:</span>
+        <span class="n">feeds</span><span class="o">=</span><span class="n">general_feeds_de</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">feeds</span><span class="o">=</span><span class="n">tech_feeds_de</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="s1">&#39;h3&#39;</span><span class="p">,</span> <span class="s1">&#39;h4&#39;</span><span class="p">,</span> <span class="s1">&#39;h5&#39;</span><span class="p">,</span> <span class="s1">&#39;h6&#39;</span><span class="p">,</span> <span class="s1">&#39;h7&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">]</span>
+<span class="n">MINLEN</span><span class="o">=</span><span class="mi">30</span> <span class="c1">#Write only texts, whose length (number of characters) exceeds this size.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rss_parse</span><span class="p">(</span><span class="n">feed</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;GENERAL&quot;</span><span class="p">,</span><span class="n">lang</span><span class="o">=</span><span class="s2">&quot;GERMAN&quot;</span><span class="p">,</span><span class="n">savehtml</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">savefulltext</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="c1">#Create directories</span>
+    <span class="n">dirname</span><span class="o">=</span><span class="n">lang</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">category</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="s2">&quot;RSS/FeedText/&quot;</span><span class="o">+</span><span class="n">feed</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="n">today</span><span class="o">+</span><span class="s2">&quot;/&quot;</span>
+    <span class="n">htmldirname</span><span class="o">=</span><span class="n">lang</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">category</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="s2">&quot;RSS/HTML/&quot;</span><span class="o">+</span><span class="n">feed</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="n">today</span><span class="o">+</span><span class="s2">&quot;/&quot;</span>
+    <span class="n">fulldirname</span><span class="o">=</span><span class="n">lang</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">category</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="s2">&quot;RSS/FullText/&quot;</span><span class="o">+</span><span class="n">feed</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="n">today</span><span class="o">+</span><span class="s2">&quot;/&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Created: &quot;</span><span class="p">,</span><span class="n">dirname</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory </span><span class="si">%s</span><span class="s2"> already exists.&quot;</span><span class="o">%</span><span class="n">dirname</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">htmldirname</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory </span><span class="si">%s</span><span class="s2"> already exists.&quot;</span><span class="o">%</span><span class="n">htmldirname</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">fulldirname</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory </span><span class="si">%s</span><span class="s2"> already exists.&quot;</span><span class="o">%</span><span class="n">fulldirname</span><span class="p">)</span>
+    
+    <span class="c1"># Parse feed</span>
+    <span class="n">parsed</span> <span class="o">=</span> <span class="n">feedparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">feed</span><span class="p">[</span><span class="s2">&quot;link&quot;</span><span class="p">])</span>
+    <span class="n">posts</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">entries</span>
+    <span class="n">now</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H-%M&quot;</span><span class="p">)</span>
+    <span class="n">cummulativeFile</span><span class="o">=</span><span class="n">now</span><span class="o">+</span> <span class="s1">&#39;.txt&#39;</span>
+    <span class="n">feedfilename</span> <span class="o">=</span> <span class="n">dirname</span><span class="o">+</span><span class="n">cummulativeFile</span>
+    <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">posts</span><span class="p">:</span>
+        <span class="c1"># Get and save short-texts of feed-posts (all texts of one feed at one time in a common file)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">soup</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">+</span><span class="n">post</span><span class="o">.</span><span class="n">description</span><span class="p">,</span> <span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">text</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+        <span class="n">post_title</span> <span class="o">=</span> <span class="n">post</span><span class="o">.</span><span class="n">title</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">feedfilename</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CAN&#39;T WRITE FEEDTEXT TO FILE&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        
+        <span class="c1"># Go to the .html-site of the full message</span>
+        <span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">link</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+        <span class="k">if</span> <span class="n">savehtml</span><span class="p">:</span>
+            <span class="n">htmlfilename</span> <span class="o">=</span> <span class="n">htmldirname</span><span class="o">+</span><span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;.html&#39;</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">htmlfilename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        
+        <span class="c1"># Parse raw text from the .html page of the full message</span>
+        <span class="k">if</span> <span class="n">savefulltext</span><span class="p">:</span>
+            <span class="n">fullfilename</span> <span class="o">=</span> <span class="n">fulldirname</span><span class="o">+</span><span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;.txt&#39;</span>
+            <span class="n">soup</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fullfilename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ft</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">TAGS</span><span class="p">):</span>
+                    <span class="n">text</span> <span class="o">=</span> <span class="n">tag</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">&gt;</span><span class="n">MINLEN</span><span class="p">:</span>
+                        <span class="n">ft</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">feeds</span><span class="p">:</span>
+    <span class="n">rss_parse</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="n">cat</span><span class="p">,</span><span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">,</span><span class="n">savehtml</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">savefulltext</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Directory ENGLISH/TECH/RSS/FeedText/districtdatalabs-2020-09-11/ already exists.
+Directory ENGLISH/TECH/RSS/HTML/districtdatalabs-2020-09-11/ already exists.
+Directory ENGLISH/TECH/RSS/FullText/districtdatalabs-2020-09-11/ already exists.
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Directory ENGLISH/TECH/RSS/FeedText/oreillyradar-2020-09-11/ already exists.
+Directory ENGLISH/TECH/RSS/HTML/oreillyradar-2020-09-11/ already exists.
+Directory ENGLISH/TECH/RSS/FullText/oreillyradar-2020-09-11/ already exists.
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Directory ENGLISH/TECH/RSS/FeedText/kaggle-2020-09-11/ already exists.
+Directory ENGLISH/TECH/RSS/HTML/kaggle-2020-09-11/ already exists.
+Directory ENGLISH/TECH/RSS/FullText/kaggle-2020-09-11/ already exists.
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Directory ENGLISH/TECH/RSS/FeedText/revolutionanalytics-2020-09-11/ already exists.
+Directory ENGLISH/TECH/RSS/HTML/revolutionanalytics-2020-09-11/ already exists.
+Directory ENGLISH/TECH/RSS/FullText/revolutionanalytics-2020-09-11/ already exists.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./01access"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="03crawlWebSites.html" title="previous page"><span class="section-number">1.3. </span>Download HTML Files</a>
+    <a class='right-next' id="next-link" href="05RegularExpressions.html" title="next page"><span class="section-number">1.5. </span>Regular expressions in Python</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

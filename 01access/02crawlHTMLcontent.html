@@ -1,0 +1,817 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>1.2. Access Contents of HTML Page &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.3. Download HTML Files" href="03crawlWebSites.html" />
+    <link rel="prev" title="1.1. Access and Analyse Contents of Textfiles" href="01AccessTextFromFile.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hdmlogo.eps" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="01access.html">
+   1. Access and Preprocess Text
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01AccessTextFromFile.html">
+     1.1. Access and Analyse Contents of Textfiles
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.2. Access Contents of HTML Page
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03crawlWebSites.html">
+     1.3. Download HTML Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04crawlRSSFeeds.html">
+     1.4. Access RSS Feed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05RegularExpressions.html">
+     1.5. Regular expressions in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06accessTweets.html">
+     1.6. Access Tweets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02normalisation/02normalisation.html">
+   2. Word Normalisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03postagging/03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/01access/02crawlHTMLcontent.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-all-links-in-the-page">
+   1.2.1. Get all links in the page
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-all-news-titles">
+   1.2.2. Get all news titles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-all-images-of-the-page">
+   1.2.3. Get all images of the page
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-entire-text-of-a-news-article">
+   1.2.4. Get entire text of a news-article
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-and-remarks">
+   1.2.5. Questions and Remarks
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="access-contents-of-html-page">
+<h1><span class="section-number">1.2. </span>Access Contents of HTML Page<a class="headerlink" href="#access-contents-of-html-page" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Author:      Johannes Maucher</p></li>
+<li><p>Last update: 2018-10-21</p></li>
+</ul>
+<p>This notebook demonstrates how to parse a HTML document and access dedicated elements of the parse tree.
+<a class="reference external" href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beautiful Soup</a> is a python package for parsing HTML. Download and install version 4 by typing:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">beautifulsoup4</span></code></p>
+</div></blockquote>
+<p>into the command shell. Once it is installed it can be imported by</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For accessing arbitrary resources by URL the python modul <a class="reference external" href="https://docs.python.org/2/library/urllib.html">urllib</a> must also be installed. Import the method <em>urlopen()</em> from this module:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If these two modules are available the HTML parse tree of the specified URL can easily be generated as follows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#url=&quot;http://www.zeit.de&quot;</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://www.spiegel.de&quot;</span>
+<span class="c1">#url=&quot;http://www.sueddeutsche.de&quot;</span>
+<span class="n">html</span><span class="o">=</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">soup</span><span class="o">=</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span><span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now e.g. the title of the URL can be accessed by:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titleTag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">title</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Title of page:  &quot;</span><span class="p">,</span><span class="n">titleTag</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Title of page:   DER SPIEGEL | Online-Nachrichten
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="get-all-links-in-the-page">
+<h2><span class="section-number">1.2.1. </span>Get all links in the page<a class="headerlink" href="#get-all-links-in-the-page" title="Permalink to this headline">¶</a></h2>
+<p>All links in the page can be retrieven by the following code (only the first 20 links are printed)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hreflinks</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">Alllinks</span><span class="o">=</span><span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="c1">#The &lt;a&gt; tag defines a hyperlink, which is used to link from one page to another.</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">Alllinks</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">has_attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">):</span>
+        <span class="n">hreflinks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of links in this page: &quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">hreflinks</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">hreflinks</span><span class="p">[:</span><span class="mi">20</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number of links in this page:  552
+#Inhalt
+https://www.spiegel.de/nutzungsbedingungen
+https://www.spiegel.de/
+https://abo.spiegel.de/?b=SPOHNAVABO&amp;requestAccessToken=true&amp;sara_icid=disp_upd_9h6L5hu8K1AAnttzYATx3hvk7taDkP&amp;targetUrl=https%3A%2F%2Fwww.spiegel.de%2Ffuermich%2F
+https://gruppenkonto.spiegel.de/authenticate?requestAccessToken=true&amp;targetUrl=https%3A%2F%2Fwww.spiegel.de%2Ffuermich%2F
+https://www.spiegel.de/fuermich/
+https://www.spiegel.de/
+https://www.spiegel.de/schlagzeilen/
+https://www.spiegel.de/plus/
+https://www.spiegel.de/audio/
+https://www.spiegel.de/fuermich/
+https://www.spiegel.de/schlagzeilen/
+https://www.spiegel.de/plus/
+https://www.spiegel.de/thema/coronavirus/
+https://www.spiegel.de/politik/deutschland/
+https://www.spiegel.de/politik/ausland/
+https://www.spiegel.de/panorama/
+https://www.spiegel.de/sport/
+https://www.spiegel.de/wirtschaft/
+https://www.spiegel.de/netzwelt/
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-all-news-titles">
+<h2><span class="section-number">1.2.2. </span>Get all news titles<a class="headerlink" href="#get-all-news-titles" title="Permalink to this headline">¶</a></h2>
+<p>Get title of all news, which are currently listed on <a class="reference external" href="http://www.zeit.de">www.zeit.de</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#print soup.get_text()hreflinks=[]</span>
+<span class="n">AllTitles</span><span class="o">=</span><span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">)</span>
+<span class="n">alltitles</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">alltitleLinks</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">AllTitles</span><span class="p">:</span>
+    <span class="c1">#print l</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+        <span class="n">link</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">40</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+        <span class="n">alltitles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+        <span class="n">alltitleLinks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>----------------------------------------
+Dortmund: Mann hortete offenbar Waffen - Polizei führt zwei Sprengungen durch
+https://www.spiegel.de/panorama/justiz/dortmund-mann-hortete-offenbar-waffen-polizei-fuehrt-zwei-sprengungen-durch-a-3561b5c2-2a16-4fa9-b712-ecc0b1127a15
+----------------------------------------
+Verdacht auf Untreue: Staatsanwaltschaft ermittelt im Fall Rudi Assauer
+https://www.spiegel.de/panorama/justiz/fall-rudi-assauer-staatsanwaltschaft-ermittelt-wegen-untreue-a-00000000-0002-0001-0000-000172993183
+----------------------------------------
+Moria und die scheinheilige Flüchtlingspolitik: Die Schande und die Schuldigen
+https://www.spiegel.de/politik/ausland/moria-und-die-scheinheiligkeit-der-fluechtlingspolitik-europas-schande-a-00000000-0002-0001-0000-000172993179
+----------------------------------------
+Deutscher Presserat: &quot;Bild&quot; für Artikel über Drosten-Studie gerügt
+https://www.spiegel.de/kultur/bild-artikel-ueber-christian-drosten-presserat-spricht-ruege-aus-a-bed3213e-79d7-47dd-8871-89de952a4a4c
+----------------------------------------
+Vettel über Aston Martin: &quot;Eine der spannendsten Geschichten, die der Formel 1 passieren konnte&quot;
+https://www.spiegel.de/sport/formel1/sebastian-vettel-ueber-aston-martin-grossartig-ein-teil-davon-zu-sein-a-41d8477c-5644-4d1f-9a24-5e822cec0008
+----------------------------------------
+Sollten die Beschäftigten im öffentlichen Dienst mehr Geld bekommen?
+https://www.spiegel.de/wirtschaft/oeffentlicher-dienst-im-tarif-konflikt-maessig-bezahlt-haeufig-befristet-a-5883b72d-4745-407d-8cc1-1ba9d0c0f892
+----------------------------------------
+&quot;Das Wichtigste ist die Hilfe vor Ort&quot;
+https://www.spiegel.de/politik/deutschland/moria-horst-seehofer-stellt-drei-punkte-plan-vor-a-cb767e5d-5c02-4f20-b5bd-9209db902421
+----------------------------------------
+Großbritannien und Japan beschließen Freihandelsabkommen
+https://www.spiegel.de/wirtschaft/grossbritannien-und-japan-sich-auf-freihandelsabkommen-a-b6153dda-de61-440a-864e-5d724df82cb7
+----------------------------------------
+Russland will im Fall Nawalny Ermittler nach Deutschland schicken
+https://www.spiegel.de/politik/ausland/alexej-nawalny-russland-will-ermittler-nach-deutschland-schicken-a-3e84e2bb-3ff2-40cf-aa46-41839de31d3c
+----------------------------------------
+&quot;Ich setze auf die Genialität unserer Ingenieure&quot;
+https://www.spiegel.de/politik/deutschland/peter-altmaier-ueber-neue-klimastrategie-setze-auf-die-genialitaet-unserer-ingenieure-a-00000000-0002-0001-0000-000172993199
+----------------------------------------
+Deutsche Marine verhindert Verstoß gegen Waffenembargo in Libyen
+https://www.spiegel.de/politik/ausland/libyen-bundeswehr-verhindert-verstoss-gegen-waffenembargo-a-80304e2f-e3cd-4880-9ade-a31fed0b3145
+----------------------------------------
+Covid-19-Pandemie
+https://www.spiegel.de/thema/coronavirus/
+----------------------------------------
+Israel steht vor erneutem Lockdown
+https://www.spiegel.de/wissenschaft/medizin/corona-news-am-freitag-alle-entwicklungen-zu-covid-19-und-sars-cov-2-im-ueberblick-a-2d4100cb-56be-496a-8d62-63873b411f78
+----------------------------------------
+&quot;Bild&quot; für Artikel über Drosten-Studie gerügt
+https://www.spiegel.de/kultur/bild-artikel-ueber-christian-drosten-presserat-spricht-ruege-aus-a-bed3213e-79d7-47dd-8871-89de952a4a4c
+----------------------------------------
+Sorgen Masken unbemerkt für Immunität?
+https://www.spiegel.de/wissenschaft/medizin/covid-19-sorgen-masken-unbemerkt-fuer-immunitaet-a-97ecf46f-d45d-4703-8e3b-584c8da319cc
+----------------------------------------
+Meine Sprechstunde bei Dr. Schiffmann
+https://www.spiegel.de/panorama/leute/corona-proteste-sprechstunde-bei-dr-bodo-schiffmann-podcast-a-c9a49c8a-beb9-495b-8f47-8f7afd0f0ef1
+----------------------------------------
+Ein besetzter McDonald&#39;s bringt sein Viertel durch die Pandemie
+https://www.bento.de/bento/wie-ein-besetzter-mcdonald-s-marseilles-arme-viertel-durch-die-pandemie-bringt-a-cc5d31d2-15a0-4653-8c78-b629e4cb00d6#refsponi
+----------------------------------------
+Das Lobbyregisterchen
+https://www.spiegel.de/politik/deutschland/lobbyregister-fuer-deutschland-die-wichtigsten-fragen-und-antworten-a-76061d1e-7f83-4050-a6bc-baba64a489f8
+----------------------------------------
+Im Kampf gegen die Söder-Übermacht
+https://www.spiegel.de/politik/deutschland/freie-waehler-in-bayern-kampf-gegen-die-markus-soeder-uebermacht-a-f89341c2-38eb-455b-ad1e-83264f460023
+----------------------------------------
+Verteidigungsministerium plant weibliche Dienstgrade bei der Bundeswehr
+https://www.spiegel.de/politik/deutschland/bundeswehr-verteidigungsministerium-plant-weibliche-dienstgrade-a-a03d8e92-b02e-4b8e-b225-afcafe385b7f
+----------------------------------------
+&quot;Ich kann den Moment nicht vergessen, als ich die Hand Eurer Exzellenz hielt&quot;
+https://www.spiegel.de/politik/ausland/kim-jong-un-und-donald-trump-bizarre-brieffreunde-a-441fd1d6-3cb1-4bb7-b36d-3943a1e17eff
+----------------------------------------
+Donald Trump vergleicht sich selbst mit Winston Churchill
+https://www.spiegel.de/politik/ausland/donald-trump-vergleicht-sich-selbst-mit-winston-churchill-a-55846f04-c6c4-4506-9bcc-521c49831363
+----------------------------------------
+Joe Biden setzt auf &quot;Buy American&quot;
+https://www.spiegel.de/wirtschaft/usa-im-praesidentschaftswahlkampf-joe-biden-setzt-auf-buy-american-a-067b54d6-7cf0-4663-bdba-a753944c289d
+----------------------------------------
+Mann hortete offenbar Waffen - Polizei führt zwei Sprengungen durch
+https://www.spiegel.de/panorama/justiz/dortmund-mann-hortete-offenbar-waffen-polizei-fuehrt-zwei-sprengungen-durch-a-3561b5c2-2a16-4fa9-b712-ecc0b1127a15
+----------------------------------------
+Bundesgerichtshof bestätigt Urteil gegen Niels Högel
+https://www.spiegel.de/panorama/justiz/niels-hoegel-bundesgerichtshof-bestaetigt-urteil-gegen-patientenmoerder-a-4b751fdc-82d5-410d-b94d-14e603f5fde2
+----------------------------------------
+Staatsanwaltschaft ermittelt im Fall Rudi Assauer
+https://www.spiegel.de/panorama/justiz/fall-rudi-assauer-staatsanwaltschaft-ermittelt-wegen-untreue-a-00000000-0002-0001-0000-000172993183
+----------------------------------------
+Es wird bergig - kann Roglic das Gelbe Trikot verteidigen?
+https://sportdaten.spiegel.de/radsport/tour-de-france/ma9003157/liveticker/
+----------------------------------------
+Der Philosoph des Pelotons
+https://www.spiegel.de/sport/tour-de-france-2020-guillaume-martin-ist-der-philosoph-des-pelotons-a-fbf2e843-d588-43e1-8725-2a1dfdb6a642
+----------------------------------------
+&quot;Mission Erlösung&quot;
+https://www.spiegel.de/sport/formel1/sebastian-vettel-zu-aston-martin-pressestimmen-mission-erloesung-a-93c7df09-7de0-470f-8507-a7d205c5955f
+----------------------------------------
+Bin ich schuld, wenn mein Sohn gehänselt wird?
+https://www.spiegel.de/familie/junge-in-maedchenklamotten-bin-ich-schuld-wenn-mein-sohn-gehaenselt-wird-kolumne-a-ff549ba4-0b97-4da0-aecb-a8753d467214
+----------------------------------------
+&quot;Boris Johnson hat das Vereinigte Königreich in einen Clown-Staat verwandelt&quot;
+https://www.spiegel.de/politik/ausland/john-kampfner-boris-johnson-hat-das-vereinigte-koenigreich-in-einen-clown-staat-verwandelt-a-33358e2a-66b1-4e9a-a1aa-5a3749c30529
+----------------------------------------
+Trumps unbeirrbare 40 Prozent
+https://www.spiegel.de/wirtschaft/usa-wahlen-die-furcht-vor-donald-trumps-40-prozent-a-18589437-1af5-4baa-9899-975c9c4abb82
+----------------------------------------
+Sex? Interessiert sie einfach nicht
+https://www.spiegel.de/panorama/gesellschaft/asexualitaet-sex-interessiert-sie-einfach-nicht-a-d2722569-3b51-4afb-82d8-e234113e0790
+----------------------------------------
+Starben sie an oder mit dem Virus?
+https://www.spiegel.de/wissenschaft/medizin/corona-in-deutschland-bei-mehrheit-der-verstorbenen-ist-covid-19-auch-todesursache-a-efcad744-19ea-49b6-934e-974b4abc1142
+----------------------------------------
+Kommentare und Kolumnen
+https://www.spiegel.de/thema/meinung/
+----------------------------------------
+Die ewige Angst vor der Parallelgesellschaft
+https://www.spiegel.de/kultur/deutsch-sprechen-babylon-germany-kolumne-a-eeddf853-a64e-47e6-8705-23aa9fada295
+----------------------------------------
+Das Fanal für Europa
+https://www.spiegel.de/politik/ausland/die-eu-ist-fuer-die-katastrophe-in-moria-verantwortlich-a-7b895ddb-c1d7-4e19-bc6e-2ed006dfd369
+----------------------------------------
+Mit dem Turbo gegen die Wand
+https://www.spiegel.de/wirtschaft/unternehmen/andreas-scheuer-und-autopraemie-mit-dem-turbo-gegen-die-wand-a-5d2b70ff-fbe7-42d3-b902-41b9b1679438
+----------------------------------------
+Hauptsache, es funktioniert für mich
+https://www.spiegel.de/netzwelt/netzpolitik/digitalisierungsdrama-in-deutschland-hauptsache-es-funktioniert-fuer-mich-kolumne-a-679a1db0-d295-46ab-ad7f-fd7191d4efa9
+----------------------------------------
+Politik
+https://www.spiegel.de/politik/deutschland/
+----------------------------------------
+Großbrand im Lager Moria: Deutschland nimmt bis zu 150 minderjährige Flüchtlinge auf
+https://www.spiegel.de/politik/deutschland/moria-deutschland-nimmt-bis-zu-150-minderjaehrige-auf-a-3c396c4f-2670-4357-8269-93df31263ebb
+----------------------------------------
++++ Livestream +++: Der Brand von Moria und die Flüchtlinge - das sagt Innenminister Seehofer
+https://www.spiegel.de/politik/deutschland/horst-seehofer-bundesinnenminister-aeusserst-sich-nach-brand-in-fluechtlingslager-moria-a-bd80095f-38cc-467f-b3a7-1712353a89d0
+----------------------------------------
+Nach Brandkatastrophe in Moria: Zehn deutsche Stadtoberhäupter wollen Flüchtlinge aufnehmen
+https://www.spiegel.de/politik/deutschland/moria-zehn-deutsche-stadtoberhaeupter-wollen-fluechtlinge-aufnehmen-a-c5f3529a-c1ab-440b-9fcf-dd53ba24fd3c
+----------------------------------------
+Ausland
+https://www.spiegel.de/politik/ausland/
+----------------------------------------
+Moria und die scheinheilige Flüchtlingspolitik: Die Schande und die Schuldigen
+https://www.spiegel.de/politik/ausland/moria-und-die-scheinheiligkeit-der-fluechtlingspolitik-europas-schande-a-00000000-0002-0001-0000-000172993179
+----------------------------------------
+Auszug aus Woodward-Buch: US-Präsident soll mit Schutz für saudischen Kronprinzen geprahlt haben
+https://www.spiegel.de/politik/ausland/donald-trump-soll-mit-schutz-fuer-saudischen-kronprinzen-mohammed-bin-salman-geprahlt-haben-a-8c20fbb7-1713-42b3-abf4-fe81be818d59
+----------------------------------------
+Bevorstehende Friedensgespräche: Trump kündigt Truppenabbau in Afghanistan an
+https://www.spiegel.de/politik/ausland/afghanistan-us-praesident-donald-trump-kuendigt-truppenabbau-an-a-233e341d-8e38-4775-8bf2-e89eb11130a0
+----------------------------------------
+Panorama
+https://www.spiegel.de/panorama/
+----------------------------------------
+Halle Berry über Oscargewinn: &quot;Ich wollte glauben, dass es größer war als ich&quot;
+https://www.spiegel.de/panorama/leute/halle-barry-ueber-oscar-gewinn-ich-wollte-glaube-dass-es-groesser-war-als-ich-a-53ac080b-49c9-4a2b-a759-3a3205b279f5
+----------------------------------------
+Nach Ölkatastrophe: Reederei sagt Mauritius Millionenhilfe zu
+https://www.spiegel.de/panorama/mauritius-havarie-von-wakashio-betreiber-verspricht-millionen-hilfe-a-0ac44283-ce1e-44e1-a40f-60c520d12c50
+----------------------------------------
+Reinhold Messner über seine Touren: &quot;Kaum zu rechtfertigen&quot;
+https://www.spiegel.de/panorama/leute/reinhold-messner-ueber-extrembergsteigen-egoistisch-und-kaum-zu-rechtfertigen-a-b71deff7-6ab2-4439-8930-46f039c27cc5
+----------------------------------------
+Sport
+https://www.spiegel.de/sport/
+----------------------------------------
+Vettel über Aston Martin: &quot;Eine der spannendsten Geschichten, die der Formel 1 passieren konnte&quot;
+https://www.spiegel.de/sport/formel1/sebastian-vettel-ueber-aston-martin-grossartig-ein-teil-davon-zu-sein-a-41d8477c-5644-4d1f-9a24-5e822cec0008
+----------------------------------------
+Surf-Weltrekord: Maya Gabeira bezwingt nächste Monsterwelle
+https://www.spiegel.de/sport/surfen-big-wave-surferin-maya-gabeira-stellt-naechsten-weltrekord-auf-a-ebb7c828-6587-453a-a629-28c4dbe96860
+----------------------------------------
+Nach Corona-Fällen im Team: Paris Saint-Germain startet mit Niederlage gegen Aufsteiger in die Saison
+https://www.spiegel.de/sport/fussball/paris-saint-germain-und-thomas-tuchel-starten-mit-niederlage-gegen-rc-lens-in-die-saison-a-dfdc52c2-4942-4d95-8462-35ae64f8e97e
+----------------------------------------
+Wirtschaft
+https://www.spiegel.de/wirtschaft/
+----------------------------------------
+Deutsche Bahn: Tarifstreit mit Lokführergewerkschaft spitzt sich zu
+https://www.spiegel.de/wirtschaft/deutsche-bahn-tarifstreit-mit-lokfuehrergewerkschaft-spitzt-sich-zu-a-0d857b72-bf85-4e6e-a4fa-c73abc4567cc
+----------------------------------------
+Absatzkrise: MAN will bis zu 9500 Stellen streichen
+https://www.spiegel.de/wirtschaft/unternehmen/absatzkrise-man-kuendigt-stellen-kahlschlag-an-a-acbf7a43-5271-4abc-81d6-1f4638b625a7
+----------------------------------------
+Tarifkonflikt: Ver.di ruft Postboten zum Streik auf
+https://www.spiegel.de/wirtschaft/tarifkonflikt-ver-di-ruft-postboten-in-niedersachsen-und-berlin-zum-streik-auf-a-ed07e085-bd88-48e0-80f1-ae12fb0eb771
+----------------------------------------
+Erste Chefin von US-Großbank: Jane Fraser soll Citigroup führen
+https://www.manager-magazin.de/unternehmen/banken/jane-fraser-loest-citigroup-chef-michael-corbat-ab-a-1879e42b-9eee-4e5b-a650-d317293da478
+----------------------------------------
+Luxuskonzern wehrt sich gegen US-Klage: Trennungskrieg statt Traumhochzeit - nun klagt auch LVMH gegen Tiffany
+https://www.manager-magazin.de/unternehmen/uebernahme-von-tiffany-durch-lvmh-droht-zu-platzen-kopie-a-7713361a-79dd-421f-9c0f-e45e4c84d5ec
+----------------------------------------
+Klaus Zellmer ersetzt Jürgen Stackmann: Porsches US-Chef wird neuer Vertriebsvorstand bei Volkswagen
+https://www.manager-magazin.de/unternehmen/autoindustrie/volkswagen-klaus-zellmer-ersetzt-juergen-stackmann-als-vertriebsvorstand-a-15488075-4fcb-4f20-a191-157e5fbee460
+----------------------------------------
+Börsenkurse manager magazin
+https://boersen.manager-magazin.de
+----------------------------------------
+Wissenschaft
+https://www.spiegel.de/wissenschaft/
+----------------------------------------
+WWF-Bericht zum Artensterben: &quot;Wir verlieren die Vielfalt des Lebens auf der Erde&quot;
+https://www.spiegel.de/wissenschaft/mensch/wwf-bericht-zum-artensterben-wir-verlieren-die-vielfalt-des-lebens-auf-der-erde-a-74c5dcf5-2f6a-4acb-ac1a-27d7b0dadc47
+----------------------------------------
+Diskussion über neue Gentechnik-Verfahren: &quot;Das ist eine Irreführung des Verbrauchers&quot;
+https://www.spiegel.de/wissenschaft/natur/neue-gentechnik-nachweismethode-fuer-gentechnik-pflanzen-ist-untauglich-und-irrefuehrend-a-69a7d90c-d313-4d3b-8a11-980043e2ca6b
+----------------------------------------
+Wie die Afrikanische Schweinepest wirkt: Hochansteckend, unverwüstlich, tödlich
+https://www.spiegel.de/wissenschaft/medizin/afrikanische-schweinepest-hochansteckend-unverwuestlich-toedlich-a-8c315a59-67ac-4825-a345-24d845a5d698
+----------------------------------------
+Netzwelt
+https://www.spiegel.de/netzwelt/
+----------------------------------------
+Corona-Warn-App: Fehler in iOS 13.7 kann Risikobewertung verfälschen
+https://www.spiegel.de/netzwelt/apps/corona-warn-app-fehler-in-ios-13-7-kann-risikobewertung-verfaelschen-a-45a17543-eb3e-4d5e-bdbc-06132058abc4
+----------------------------------------
+US-Präsidentschaftswahlen 2020: Twitter trifft Vorkehrungen gegen Falschinformationen am Wahlabend
+https://www.spiegel.de/netzwelt/us-wahl-twitter-kuendigte-strengere-kontrolle-von-tweets-am-wahlabend-an-a-c6421366-5433-4b60-a80e-63b8e0c15d96
+----------------------------------------
+Erkenntnisse von Microsoft: Hacker aus Russland attackieren erneut im US-Wahlkampf
+https://www.spiegel.de/netzwelt/microsoft-hacker-aus-russland-attackieren-erneut-im-us-wahlkampf-a-50ad0e46-03c5-46eb-8cef-20c43f046d6f
+----------------------------------------
+Kultur
+https://www.spiegel.de/kultur/
+----------------------------------------
+Russland-Talk bei Illner: &quot;Jetzt gerade hat Putin gewonnen, wissen Sie das?&quot;
+https://www.spiegel.de/kultur/tv/maybrit-illner-talk-ueber-putin-mit-gysi-maas-und-weisband-a-474a9ee1-9bc0-4e9c-846b-cae1a58b1de6
+----------------------------------------
+Corona-Pandemie: Drosten erhält den Deutschen Radiopreis
+https://www.spiegel.de/kultur/christian-drosten-erhaelt-fuer-virus-podcast-den-deutschen-radiopreis-a-4edca97f-4c7a-440c-b431-95181e32a85f
+----------------------------------------
+Zum Tod von Diana Rigg: &quot;Mrs Peel, wir werden gebraucht!&quot;
+https://www.spiegel.de/kultur/nachruf-auf-diana-rigg-mrs-peel-wir-werden-gebraucht-a-d1079c9f-8ad7-4855-a953-529607804e67
+----------------------------------------
+Lea wurde als Mädchen von einem Mann aus einem Chatroom verführt
+https://www.bento.de/gefuehle/cybergrooming-lea-wurde-als-maedchen-von-einem-mann-aus-einem-chatroom-verfuehrt-a-549b5493-b930-4688-a918-8e04dbdf865b
+----------------------------------------
+Günstiger als AirPods, aber trotzdem gut: Welcher True-Wireless-Kopfhörer für dich der richtige ist
+https://www.bento.de/gadgets/wireless-kopfhoerer-guenstige-alternativen-zu-apple-airpods-sennheiser-und-co-in-guter-qualitaet-a-b88cd1f0-1cd3-4f0c-9482-6fdeb7844e1a
+----------------------------------------
+Rapperin Nura über Erfolg trotz Sexismus: &quot;Ich habe hardcore rasiert!&quot;
+https://www.bento.de/musik/rapperin-nura-ueber-erfolg-trotz-sexismus-ich-habe-hardcore-rasiert-a-a7c2274f-3ac4-44ba-a9c3-624ef2fbc875
+----------------------------------------
+Tests
+https://www.spiegel.de/tests/
+----------------------------------------
+Automatische Schlauchrollen im Test: Schläuche, die sich selbst aufrollen
+https://www.spiegel.de/tests/garten/automatische-schlauchrollen-im-test-schlaeuche-die-sich-selbst-aufrollen-a-860bfb3f-56df-491e-92bf-43e2b43f19d9
+----------------------------------------
+Bestseller Link
+https://www.spiegel.de/kultur/bestseller-buecher-belletristik-sachbuch-auf-spiegel-liste-a-458623.html
+----------------------------------------
+Geschichte
+https://www.spiegel.de/geschichte/
+----------------------------------------
+Olympiagold für Barfußläufer Bikila: Triumph auf blanken Sohlen
+https://www.spiegel.de/geschichte/barfuss-zum-olympiasieg-wie-abebe-bikila-1960-marathon-gold-gewann-a-bb4dc351-3478-41f8-88e0-902d364123dd
+----------------------------------------
+Kriegsfotograf Robert Capa: Berlin in der Stunde null
+https://www.spiegel.de/geschichte/kriegsfotograf-robert-capa-berlin-in-der-stunde-null-a-b086849b-3d5c-4c9d-bbb6-fd53be455736
+----------------------------------------
+Mario Adorf wird 90: &quot;Ist das mein letztes Mal?&quot;
+https://www.spiegel.de/geschichte/mario-adorf-wird-90-ist-das-mein-letztes-mal-a-37b8f7b4-a162-493f-8ba0-132d09ebd353
+----------------------------------------
+Job &amp; Karriere
+https://www.spiegel.de/karriere/
+----------------------------------------
+Öffentliche Unternehmen: Viele öffentliche Betriebe fast ohne Frauen im Vorstand
+https://www.spiegel.de/karriere/frauen-in-oeffentlichen-betrieben-wo-bleiben-die-managerinnen-a-44f0fc27-be23-46d1-a36d-d82dff262d2e
+----------------------------------------
+Extrembergsteiger Thomas Huber: &quot;Wenn du zu weit gehst, kommst du nicht mehr zurück&quot;
+https://www.spiegel.de/karriere/extrembergsteiger-thomas-huber-wenn-du-zu-weit-gehst-kommst-du-nicht-mehr-zurueck-a-466bb5fb-d7d2-49a3-a56d-f42cd17fa902
+----------------------------------------
+Tipps von den Karriereberaterinnen: Hoch qualifiziert und arbeitslos - wie finde ich trotz Krise einen guten Job?
+https://www.spiegel.de/karriere/hoch-qualifiziert-auslandserfahrung-jetzt-arbeitslos-was-tun-tipps-a-e971a2ef-630a-4f10-a0ce-8af4f654bd6d
+----------------------------------------
+Mobilität
+https://www.spiegel.de/auto/
+----------------------------------------
+Unu-Elektroroller im Test: Die neue E-Klasse
+https://www.spiegel.de/auto/unu-elektroroller-im-test-die-neue-e-klasse-a-b34d5e90-fe72-44eb-b15a-94e3c4f3c89e
+----------------------------------------
+Trotz Gerichtsbeschlusses: Berlin entfernt Pop-up-Radwege vorerst nicht
+https://www.spiegel.de/auto/berlin-senat-entfernt-pop-up-radwege-trotz-gerichtsbeschluss-vorerst-nicht-a-04561d76-9b1c-4418-9809-3e15ff424173
+----------------------------------------
+Tour mit der Royal Enfield Himalayan: Treue Wanderfreundin
+https://www.spiegel.de/auto/fahrberichte/treue-wanderfreundin-a-81e83b1d-2436-4336-aa5a-b1cfdfeb0ac7
+----------------------------------------
+Alle Podcasts
+https://www.spiegel.de/thema/podcasts_vom_spiegel/
+----------------------------------------
+Leben
+https://www.spiegel.de/thema/leben/
+----------------------------------------
+Einmal Kreuzfahrt inklusive Klimaschutz, bitte. Gibt&#39;s das schon?
+https://www.spiegel.de/reise/kreuzfahrtranking-des-nabu-wo-sind-konzepte-fuer-emissionsfreie-schifffahrt-a-9954a694-fe65-4025-a82e-de9ed16638cd
+----------------------------------------
+&quot;Je intimer die Beziehung, desto anfälliger sind wir für Manipulation&quot;
+https://www.spiegel.de/psychologie/manipulation-im-job-in-der-beziehung-bei-freunden-schuld-ist-ein-soziales-schmiermittel-kopie-a-44c2de04-8df1-48b6-8d9b-4a578c491405
+----------------------------------------
+&quot;Also, der Thorsten war ja eine ganz schwierige Geburt&quot;
+https://www.spiegel.de/familie/junge-hebamme-ueber-ihren-beruf-ich-liebe-ihn-ja-aber-a-c9058dff-f62d-4719-b90d-f091dcb878e4
+----------------------------------------
+&quot;Ich rate ihnen, nicht auf andere zu hören&quot;
+https://www.spiegel.de/reise/khadjou-sambe-profisurferin-im-senegal-unterrichtet-maedchen-a-0af32d72-8074-48ec-81a4-4982e8fd4926
+----------------------------------------
+Die Sucht nach Höhenmetern
+https://www.spiegel.de/reise/fernradwege-die-sucht-nach-hoehenmetern-touren-zum-auspowern-a-0e218f10-1228-43f1-83f9-5ca95ad46799
+----------------------------------------
+Tipps fürs Campen
+https://www.spiegel.de/thema/test_und_produkte/
+----------------------------------------
+Mit dieser Ausrüstung wird Camping komfortabel
+https://www.spiegel.de/tests/camping/camping-ausruestung-im-test-mit-diesem-zubehoer-wird-es-komfortabel-a-c2b15a80-9a65-4715-b4d0-84dc6bbc59a7
+----------------------------------------
+Outdoor-Gadgets - So rocken Sie den Camping-Urlaub
+https://www.spiegel.de/tests/camping/soundbox-stirnlampe-und-navigationsgeraet-fuer-camper-und-camping-a-18270b88-787b-4857-b60e-864f4861a151
+----------------------------------------
+Camp dich glücklich
+https://www.spiegel.de/reise/fernweh/camping-gadgets-thermobecher-werkzeugkoffer-campingdusche-a-1299874.html
+----------------------------------------
+Dein SPIEGEL
+https://www.spiegel.de/deinspiegel/
+----------------------------------------
+&quot;Als ob ich fliegen könnte&quot;
+https://www.spiegel.de/deinspiegel/skateboard-profi-tony-hawk-im-kinder-interview-als-ob-ich-fliegen-koennte-a-00000000-0002-0001-0000-000171724301
+----------------------------------------
+Wie haben sich Freundschaften durch Corona verändert?
+https://www.spiegel.de/deinspiegel/trotz-corona-freunde-bleiben-kinder-erzaehlen-a-00000000-0002-0001-0000-000172431236
+----------------------------------------
+Bild des Tages
+https://www.spiegel.de/fotostrecke/bilder-des-tages-fotos-aus-deutschland-und-der-welt-fotostrecke-122824.html
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-all-images-of-the-page">
+<h2><span class="section-number">1.2.3. </span>Get all images of the page<a class="headerlink" href="#get-all-images-of-the-page" title="Permalink to this headline">¶</a></h2>
+<p>Get url of all images, which are currently displayed on <a class="reference external" href="http://www.zeit.de">www.zeit.de</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">imglinks</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">AllImgs</span><span class="o">=</span><span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">AllImgs</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">has_attr</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">):</span>
+       <span class="n">imglinks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">imglinks</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="s1">&#39;src&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+https://cdn.prod.www.spiegel.de/images/6b1222e0-9dc4-4795-ae3d-cf0a204e5b0c_w872_r1.77_fpx53_fpy44.jpg
+https://cdn.prod.www.spiegel.de/images/6b1222e0-9dc4-4795-ae3d-cf0a204e5b0c_w872_r1.77_fpx53_fpy44.jpg
+https://cdn.prod.www.spiegel.de/images/91a484fa-a01e-4d00-bbb4-51383da1f9b6_w117_r1.33_fpx52.69_fpy50.94.jpg
+https://cdn.prod.www.spiegel.de/images/91a484fa-a01e-4d00-bbb4-51383da1f9b6_w488_r1.77_fpx52.69_fpy50.94.jpg
+https://cdn.prod.www.spiegel.de/images/d51441bf-fb92-4d92-a337-adddf4de3f2e_w117_r1.33_fpx53_fpy41.jpg
+https://cdn.prod.www.spiegel.de/images/d51441bf-fb92-4d92-a337-adddf4de3f2e_w117_r1.33_fpx53_fpy41.jpg
+https://cdn.prod.www.spiegel.de/images/d51441bf-fb92-4d92-a337-adddf4de3f2e_w488_r1.77_fpx53_fpy41.jpg
+https://cdn.prod.www.spiegel.de/images/d51441bf-fb92-4d92-a337-adddf4de3f2e_w488_r1.77_fpx53_fpy41.jpg
+https://cdn.prod.www.spiegel.de/images/ef67715b-ebd4-4c78-a40b-5a04f6b86bbc_w117_r1.33_fpx56.34_fpy54.96.jpg
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-entire-text-of-a-news-article">
+<h2><span class="section-number">1.2.4. </span>Get entire text of a news-article<a class="headerlink" href="#get-entire-text-of-a-news-article" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IDX</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">suburl</span><span class="o">=</span><span class="n">alltitleLinks</span><span class="p">[</span><span class="n">IDX</span><span class="p">]</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">html</span><span class="o">=</span><span class="n">urlopen</span><span class="p">(</span><span class="n">suburl</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1">#works if subdomains are referenced by absolute path</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">html</span><span class="o">=</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="o">+</span><span class="n">suburl</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1">#works if subdomains are referenced by relative path</span>
+<span class="n">soup</span><span class="o">=</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span><span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+<span class="n">AllP</span><span class="o">=</span><span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">AllP</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
+SPIEGEL+-Zugang wird gerade auf einem anderen Gerät genutzt
+
+SPIEGEL+ kann nur auf einem Gerät zur selben Zeit genutzt werden.
+
+Klicken Sie auf den Button, spielen wir den Hinweis auf dem anderen Gerät aus und Sie können SPIEGEL+ weiter nutzen.
+
+
+Feuerwehrfahrzeuge stehen vor dem Haus in Dortmund: Die Ermittlungen begannen mit dem Hinweis auf eine Waffe
+Bei einer Wohnungsdurchsuchung in Dortmund sind Ermittler auf ein Waffenlager eines Mannes gestoßen. &quot;Wir sind überrascht worden von der Menge der Dinge, die wir da gefunden haben&quot;, sagte eine Polizeisprecherin.
+Die Ermittlungen begannen mit einem Hinweis auf eine Waffe, die der 68-Jährige einem anderen übergeben habe. Das Amtsgericht erließ einen Durchsuchungsbeschluss - und die Polizei stieß am Mittwoch in den Räumen des Mannes auf Waffen, Waffenteile, verdächtige chemische Substanzen und eine Mine.
+Diese war in der Nacht zu Donnerstag auf einem Feld kontrolliert gesprengt worden, teilte die Polizei mit. Dann stießen die Spezialisten von Feuerwehr und Landeskriminalamt auf mehrere Kilogramm hochexplosiven TNT-Sprengstoff, der ebenfalls unschädlich gemacht worden sei. Wo diese kontrollierten Sprengungen vorgenommen wurden, sagte die Sprecherin nicht. &quot;Wir wollen keine Schaulustigen anlocken und niemanden gefährden.&quot;
+Zur Person des 68-Jährigen machten Polizei und Staatsanwaltschaft keine Angaben. Warum er die Waffen sammelte, könne man noch nicht sagen. Gegen den Verdächtigen wird nach bisherigem Stand wegen des Verdachts auf Verstoß gegen das Waffengesetz ermittelt.
+Feuerwehrfahrzeuge stehen vor dem Haus in Dortmund: Die Ermittlungen begannen mit dem Hinweis auf eine Waffe
+Melden Sie sich an und diskutieren Sie mit
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="questions-and-remarks">
+<h2><span class="section-number">1.2.5. </span>Questions and Remarks<a class="headerlink" href="#questions-and-remarks" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>This notebook demonstrates how raw-text can be crawled from news-sites. But what is the drawback of this method?</p></li>
+<li><p>Execute the entire notebook also for <code class="docutils literal notranslate"><span class="pre">www.spiegel.de</span></code> and <code class="docutils literal notranslate"><span class="pre">www.sueddeutsche.de</span></code>.</p></li>
+<li><p>What do you observe? How to solve the problem?</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./01access"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="01AccessTextFromFile.html" title="previous page"><span class="section-number">1.1. </span>Access and Analyse Contents of Textfiles</a>
+    <a class='right-next' id="next-link" href="03crawlWebSites.html" title="next page"><span class="section-number">1.3. </span>Download HTML Files</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

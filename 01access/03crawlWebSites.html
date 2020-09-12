@@ -1,0 +1,518 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>1.3. Download HTML Files &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.4. Access RSS Feed" href="04crawlRSSFeeds.html" />
+    <link rel="prev" title="1.2. Access Contents of HTML Page" href="02crawlHTMLcontent.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hdmlogo.eps" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="01access.html">
+   1. Access and Preprocess Text
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01AccessTextFromFile.html">
+     1.1. Access and Analyse Contents of Textfiles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02crawlHTMLcontent.html">
+     1.2. Access Contents of HTML Page
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.3. Download HTML Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04crawlRSSFeeds.html">
+     1.4. Access RSS Feed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05RegularExpressions.html">
+     1.5. Regular expressions in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06accessTweets.html">
+     1.6. Access Tweets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02normalisation/02normalisation.html">
+   2. Word Normalisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03postagging/03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/01access/03crawlWebSites.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-lists-of-news-domains-for-different-languages-and-categories">
+   1.3.1. Define lists of news domains for different languages and categories
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-subdomain-html-pages">
+   1.3.2. Download subdomain HTML pages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crawl-raw-text-from-local-html-files">
+   1.3.3. Crawl raw text from local HTML files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions">
+   1.3.4. Questions
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="download-html-files">
+<h1><span class="section-number">1.3. </span>Download HTML Files<a class="headerlink" href="#download-html-files" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Author:      Johannes Maucher</p></li>
+<li><p>Last update: 2018-10-12</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install slugify</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bs4</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">slugify</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="define-lists-of-news-domains-for-different-languages-and-categories">
+<h2><span class="section-number">1.3.1. </span>Define lists of news domains for different languages and categories<a class="headerlink" href="#define-lists-of-news-domains-for-different-languages-and-categories" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">today</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>2020-09-11
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span><span class="o">=</span><span class="s2">&quot;GENERAL&quot;</span>
+<span class="c1">#cat=&quot;TECH&quot;</span>
+<span class="c1">#cat=&quot;SPORT&quot;</span>
+<span class="n">lang</span><span class="o">=</span><span class="s2">&quot;GERMAN&quot;</span>
+<span class="c1">#lang=&quot;ENGLISH&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">general_sources_de</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;http://www.zeit.de&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;http://www.spiegel.de/&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;http://www.welt.de/&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;http://www.sueddeutsche.de&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;http://www.faz.net&#39;</span>
+                     <span class="p">]</span>
+
+<span class="n">general_sources_en</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;https://www.washingtonpost.com&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;http://www.nytimes.com/&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;http://www.chicagotribune.com/&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;http://www.bostonherald.com/&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;http://www.sfchronicle.com/&#39;</span><span class="p">]</span>
+
+<span class="n">tech_sources_de</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;http://chip.de/&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;http://t-online.de&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;http://www.computerbild.de&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;http://www.heise.de&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;http://www.golem.de&#39;</span><span class="p">]</span>
+
+<span class="n">tech_sources_en</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;http://radar.oreilly.com/&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;https://www.cnet.com/news/&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;http://www.techradar.com/news/computing&#39;</span>
+                <span class="p">]</span>                 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">lang</span><span class="o">==</span><span class="s2">&quot;ENGLISH&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">cat</span><span class="o">==</span><span class="s2">&quot;GENERAL&quot;</span><span class="p">:</span>
+        <span class="n">sources</span><span class="o">=</span><span class="n">general_sources_en</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sources</span><span class="o">=</span><span class="n">tech_sources_en</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">cat</span><span class="o">==</span><span class="s2">&quot;GENERAL&quot;</span><span class="p">:</span>
+        <span class="n">sources</span><span class="o">=</span><span class="n">general_sources_de</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sources</span><span class="o">=</span><span class="n">tech_sources_de</span>
+    
+    
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="download-subdomain-html-pages">
+<h2><span class="section-number">1.3.2. </span>Download subdomain HTML pages<a class="headerlink" href="#download-subdomain-html-pages" title="Permalink to this headline">¶</a></h2>
+<p>The below defined function <code class="docutils literal notranslate"><span class="pre">crawl()</span></code> determines all subdomains of the specified url and saves the HTML files of these subdomains.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">crawl</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">maxSubSites</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;GENERAL&quot;</span><span class="p">,</span><span class="n">lang</span><span class="o">=</span><span class="s2">&quot;GERMAN&quot;</span><span class="p">):</span>
+    <span class="n">domain</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;//www.&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+    <span class="n">dirname</span><span class="o">=</span><span class="n">lang</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">category</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="s2">&quot;HTML/&quot;</span><span class="o">+</span><span class="n">domain</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="n">today</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory </span><span class="si">%s</span><span class="s2"> already exists.&quot;</span><span class="o">%</span><span class="n">dirname</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">dirname</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">domain</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.html&#39;</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="c1">#print filename</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span> <span class="c1">#find all links in this page</span>
+    <span class="n">count</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">links</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">maxSubSites</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">sub_url</span> <span class="o">=</span> <span class="n">link</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+        <span class="n">page_name</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">string</span>
+        <span class="k">if</span> <span class="n">domain</span> <span class="ow">in</span> <span class="n">sub_url</span><span class="p">:</span>
+            <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sub_url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+                <span class="n">filename</span> <span class="o">=</span> <span class="n">dirname</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">slugify</span><span class="p">(</span><span class="n">page_name</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;.html&#39;</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="c1">#print filename</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">dirname</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">htmlDirs</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">:</span>
+    <span class="n">htmldir</span><span class="o">=</span><span class="n">crawl</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">maxSubSites</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="n">cat</span><span class="p">,</span><span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">)</span>
+    <span class="n">htmlDirs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">htmldir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>zeit.de
+Directory GERMAN/GENERAL/HTML/zeit-2020-09-11 already exists.
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>spiegel.de
+Directory GERMAN/GENERAL/HTML/spiegel-2020-09-11 already exists.
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>welt.de
+Directory GERMAN/GENERAL/HTML/welt-2020-09-11 already exists.
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>sueddeutsche.de
+Directory GERMAN/GENERAL/HTML/sueddeutsche-2020-09-11 already exists.
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>faz.net
+Directory GERMAN/GENERAL/HTML/faz-2020-09-11 already exists.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">htmlDirs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;GERMAN/GENERAL/HTML/zeit-2020-09-11&#39;, &#39;GERMAN/GENERAL/HTML/spiegel-2020-09-11&#39;, &#39;GERMAN/GENERAL/HTML/welt-2020-09-11&#39;, &#39;GERMAN/GENERAL/HTML/sueddeutsche-2020-09-11&#39;, &#39;GERMAN/GENERAL/HTML/faz-2020-09-11&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="crawl-raw-text-from-local-html-files">
+<h2><span class="section-number">1.3.3. </span>Crawl raw text from local HTML files<a class="headerlink" href="#crawl-raw-text-from-local-html-files" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="s1">&#39;h3&#39;</span><span class="p">,</span> <span class="s1">&#39;h4&#39;</span><span class="p">,</span> <span class="s1">&#39;h5&#39;</span><span class="p">,</span> <span class="s1">&#39;h6&#39;</span><span class="p">,</span> <span class="s1">&#39;h7&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">]</span>
+<span class="k">def</span> <span class="nf">read_html</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">minlen</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">TAGS</span><span class="p">):</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">tag</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">&gt;</span><span class="n">minlen</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rawtextlist</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="nb">dir</span> <span class="ow">in</span> <span class="n">htmlDirs</span><span class="p">:</span>
+    <span class="n">textdir</span><span class="o">=</span><span class="nb">dir</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;HTML&quot;</span><span class="p">,</span><span class="s2">&quot;TEXT&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">textdir</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">for</span> <span class="n">htmlfile</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="nb">dir</span><span class="p">):</span>
+        <span class="n">htmlpath</span><span class="o">=</span><span class="nb">dir</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">htmlfile</span>
+        <span class="n">rawText</span><span class="o">=</span><span class="n">read_html</span><span class="p">(</span><span class="n">htmlpath</span><span class="p">)</span>
+        <span class="n">rawtextlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rawText</span><span class="p">)</span>
+        <span class="n">textpath</span><span class="o">=</span><span class="n">htmlpath</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;HTML&quot;</span><span class="p">,</span><span class="s2">&quot;TEXT&quot;</span><span class="p">)</span>
+        <span class="n">textfilename</span><span class="o">=</span><span class="n">textpath</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.html&quot;</span><span class="p">,</span><span class="s2">&quot;.txt&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">textfilename</span><span class="p">,</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="n">rawText</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cont</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="c1">#print len(rawtextlist)</span>
+        
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="questions">
+<h2><span class="section-number">1.3.4. </span>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Inspect some of the created raw-text files and suggest improvements.</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./01access"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="02crawlHTMLcontent.html" title="previous page"><span class="section-number">1.2. </span>Access Contents of HTML Page</a>
+    <a class='right-next' id="next-link" href="04crawlRSSFeeds.html" title="next page"><span class="section-number">1.4. </span>Access RSS Feed</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
