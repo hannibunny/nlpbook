@@ -14,29 +14,26 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1.5. Regular expressions in Python" href="05RegularExpressions.html" />
@@ -189,6 +186,28 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01access/04crawlRSSFeeds.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/01access/04crawlRSSFeeds.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -235,7 +254,7 @@
 <p>The contents of a RSS feeds can easily parsed by the python <a class="reference external" href="https://pypi.python.org/pypi/feedparser">feedparser</a> package. This package must be installed and imported. The <code class="docutils literal notranslate"><span class="pre">parse()</span></code>-method of the feedparser returns the contents of the feed in a structured form. This return-object usually consists of a set of <em>entries</em>, which represent the current messages in the feed. The relevant text of an entry is contained in the fields <code class="docutils literal notranslate"><span class="pre">title</span></code> and <code class="docutils literal notranslate"><span class="pre">description</span></code>. Moreover, each entry has a <code class="docutils literal notranslate"><span class="pre">link</span></code>-element, which refers to the .html site of the full article.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">feedparser</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">feedparser</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">bs4</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -271,7 +290,7 @@
 <p>Choose the language and category:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">today</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="c1">#cat=&quot;GENERAL&quot;</span>
 <span class="n">cat</span><span class="o">=</span><span class="s2">&quot;TECH&quot;</span>
 <span class="c1">#cat=&quot;SPORT&quot;</span>
@@ -284,7 +303,7 @@
 <p>Some feed lists for all languages and categories:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tech_feeds_en</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;districtdatalabs&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://blog.districtdatalabs.com/feed&#39;</span><span class="p">},</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tech_feeds_en</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;districtdatalabs&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://blog.districtdatalabs.com/feed&#39;</span><span class="p">},</span>
                  <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;oreillyradar&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://feeds.feedburner.com/oreilly/radar/atom&#39;</span><span class="p">},</span>
                  <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;kaggle&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://blog.kaggle.com/feed/&#39;</span><span class="p">},</span>
                  <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;revolutionanalytics&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://blog.revolutionanalytics.com/atom.xml&#39;</span><span class="p">}]</span>
@@ -314,7 +333,7 @@
 <p>For the defined language and category, determine a suitable feedlist:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">lang</span><span class="o">==</span><span class="s2">&quot;ENGLISH&quot;</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">lang</span><span class="o">==</span><span class="s2">&quot;ENGLISH&quot;</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">cat</span><span class="o">==</span><span class="s2">&quot;GENERAL&quot;</span><span class="p">:</span>
         <span class="n">feeds</span><span class="o">=</span><span class="n">general_feeds_en</span>
     <span class="k">else</span><span class="p">:</span>
@@ -330,7 +349,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="s1">&#39;h3&#39;</span><span class="p">,</span> <span class="s1">&#39;h4&#39;</span><span class="p">,</span> <span class="s1">&#39;h5&#39;</span><span class="p">,</span> <span class="s1">&#39;h6&#39;</span><span class="p">,</span> <span class="s1">&#39;h7&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="s1">&#39;h3&#39;</span><span class="p">,</span> <span class="s1">&#39;h4&#39;</span><span class="p">,</span> <span class="s1">&#39;h5&#39;</span><span class="p">,</span> <span class="s1">&#39;h6&#39;</span><span class="p">,</span> <span class="s1">&#39;h7&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">]</span>
 <span class="n">MINLEN</span><span class="o">=</span><span class="mi">30</span> <span class="c1">#Write only texts, whose length (number of characters) exceeds this size.</span>
 </pre></div>
 </div>
@@ -338,7 +357,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rss_parse</span><span class="p">(</span><span class="n">feed</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;GENERAL&quot;</span><span class="p">,</span><span class="n">lang</span><span class="o">=</span><span class="s2">&quot;GERMAN&quot;</span><span class="p">,</span><span class="n">savehtml</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">savefulltext</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rss_parse</span><span class="p">(</span><span class="n">feed</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;GENERAL&quot;</span><span class="p">,</span><span class="n">lang</span><span class="o">=</span><span class="s2">&quot;GERMAN&quot;</span><span class="p">,</span><span class="n">savehtml</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">savefulltext</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="c1">#Create directories</span>
     <span class="n">dirname</span><span class="o">=</span><span class="n">lang</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">category</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="s2">&quot;RSS/FeedText/&quot;</span><span class="o">+</span><span class="n">feed</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="n">today</span><span class="o">+</span><span class="s2">&quot;/&quot;</span>
     <span class="n">htmldirname</span><span class="o">=</span><span class="n">lang</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">category</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="s2">&quot;RSS/HTML/&quot;</span><span class="o">+</span><span class="n">feed</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="n">today</span><span class="o">+</span><span class="s2">&quot;/&quot;</span>
@@ -347,15 +366,15 @@
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Created: &quot;</span><span class="p">,</span><span class="n">dirname</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory </span><span class="si">%s</span><span class="s2"> already exists.&quot;</span><span class="o">%</span><span class="n">dirname</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory </span><span class="si">%s</span><span class="s2"> already exists.&quot;</span><span class="o">%</span><span class="k">dirname</span>)
     <span class="k">try</span><span class="p">:</span>
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">htmldirname</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory </span><span class="si">%s</span><span class="s2"> already exists.&quot;</span><span class="o">%</span><span class="n">htmldirname</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory </span><span class="si">%s</span><span class="s2"> already exists.&quot;</span><span class="o">%</span><span class="k">htmldirname</span>)
     <span class="k">try</span><span class="p">:</span>
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">fulldirname</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory </span><span class="si">%s</span><span class="s2"> already exists.&quot;</span><span class="o">%</span><span class="n">fulldirname</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory </span><span class="si">%s</span><span class="s2"> already exists.&quot;</span><span class="o">%</span><span class="k">fulldirname</span>)
     
     <span class="c1"># Parse feed</span>
     <span class="n">parsed</span> <span class="o">=</span> <span class="n">feedparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">feed</span><span class="p">[</span><span class="s2">&quot;link&quot;</span><span class="p">])</span>
@@ -404,30 +423,22 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">feeds</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">feeds</span><span class="p">:</span>
     <span class="n">rss_parse</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="n">cat</span><span class="p">,</span><span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">,</span><span class="n">savehtml</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">savefulltext</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Directory ENGLISH/TECH/RSS/FeedText/districtdatalabs-2020-09-11/ already exists.
-Directory ENGLISH/TECH/RSS/HTML/districtdatalabs-2020-09-11/ already exists.
-Directory ENGLISH/TECH/RSS/FullText/districtdatalabs-2020-09-11/ already exists.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created:  ENGLISH/TECH/RSS/FeedText/districtdatalabs-2020-09-14/
 </pre></div>
 </div>
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Directory ENGLISH/TECH/RSS/FeedText/oreillyradar-2020-09-11/ already exists.
-Directory ENGLISH/TECH/RSS/HTML/oreillyradar-2020-09-11/ already exists.
-Directory ENGLISH/TECH/RSS/FullText/oreillyradar-2020-09-11/ already exists.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created:  ENGLISH/TECH/RSS/FeedText/oreillyradar-2020-09-14/
 </pre></div>
 </div>
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Directory ENGLISH/TECH/RSS/FeedText/kaggle-2020-09-11/ already exists.
-Directory ENGLISH/TECH/RSS/HTML/kaggle-2020-09-11/ already exists.
-Directory ENGLISH/TECH/RSS/FullText/kaggle-2020-09-11/ already exists.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created:  ENGLISH/TECH/RSS/FeedText/kaggle-2020-09-14/
 </pre></div>
 </div>
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Directory ENGLISH/TECH/RSS/FeedText/revolutionanalytics-2020-09-11/ already exists.
-Directory ENGLISH/TECH/RSS/HTML/revolutionanalytics-2020-09-11/ already exists.
-Directory ENGLISH/TECH/RSS/FullText/revolutionanalytics-2020-09-11/ already exists.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created:  ENGLISH/TECH/RSS/FeedText/revolutionanalytics-2020-09-14/
 </pre></div>
 </div>
 </div>

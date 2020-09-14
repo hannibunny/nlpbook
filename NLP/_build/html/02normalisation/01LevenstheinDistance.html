@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>2.1. Levensthein Distance Calculation &#8212; Natural Language Processing Lecture</title>
+    <title>2.1. Correction of Spelling Errors &#8212; Natural Language Processing Lecture</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -14,29 +14,26 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3. Part-Of-Speech Tagging" href="../03postagging/03postagging.html" />
@@ -93,7 +90,7 @@
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     2.1. Levensthein Distance Calculation
+     2.1. Correction of Spelling Errors
     </a>
    </li>
   </ul>
@@ -164,6 +161,28 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/02normalisation/01LevenstheinDistance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/02normalisation/01LevenstheinDistance.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -172,7 +191,26 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overall-process">
+   2.1.1. Overall Process
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#levensthein-distance">
+   2.1.2. Levensthein Distance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-function-for-levensthein-distance">
+     2.1.2.1. Define function for Levensthein distance:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -181,16 +219,68 @@
         
               <div>
                 
-  <div class="section" id="levensthein-distance-calculation">
-<h1><span class="section-number">2.1. </span>Levensthein Distance Calculation<a class="headerlink" href="#levensthein-distance-calculation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="correction-of-spelling-errors">
+<h1><span class="section-number">2.1. </span>Correction of Spelling Errors<a class="headerlink" href="#correction-of-spelling-errors" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>Author: Johannes Maucher</p></li>
 <li><p>Last Update: 2020-09-09</p></li>
 </ul>
-<p>Define function for Levensthein distance:</p>
-<div class="cell docutils container">
+<div class="section" id="overall-process">
+<h2><span class="section-number">2.1.1. </span>Overall Process<a class="headerlink" href="#overall-process" title="Permalink to this headline">¶</a></h2>
+<p>Correction of misspelled words requires</p>
+<ul class="simple">
+<li><p>the detection of an error</p></li>
+<li><p>the determination of likely candidates for the correct word</p></li>
+<li><p>the determination of the nearest correct word, given the erroneous word</p></li>
+</ul>
+<p>The detection of an erroneous word can be done by just checking if the given word is contained in the underlying vocabulary. If the word is not contained in the vocabulary a <strong>statistical language model</strong> (see chapter xxx) is applied in order to determine the most probable words at the given position for the given context - the context is typically given by the neighbouring words. For the set of most probable valid words at the position of the erroneous words the nearest one is determined. For this a method to determine <code class="docutils literal notranslate"><span class="pre">distance</span></code> (or <code class="docutils literal notranslate"><span class="pre">similarity</span></code>) is required. In the following section the most common method to measure distance between two character-sequences, the Levensthein-Distance, is described.</p>
+</div>
+<div class="section" id="levensthein-distance">
+<h2><span class="section-number">2.1.2. </span>Levensthein Distance<a class="headerlink" href="#levensthein-distance" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Minimum</span> <span class="pre">Edit</span> <span class="pre">Distance</span></code> (MED) between two character-sequences <span class="math notranslate nohighlight">\(\overrightarrow{s_1}\)</span> and <span class="math notranslate nohighlight">\(\overrightarrow{s_2}\)</span> is defined to be the minimum number of edit-operations to transform  <span class="math notranslate nohighlight">\(\overrightarrow{s_1}\)</span> into <span class="math notranslate nohighlight">\(\overrightarrow{s_2}\)</span>. The set of edit operations is <em>Insert (I), Delete (D) and Replace (R)</em> a single character. Since <em>R</em> can be considered to be a combination of D and R, it may make sense to define the costs of <em>R</em> to be 2, whereas the costs of <em>I</em> and <em>D</em> are 1 each. In this case (where <em>R</em> has double costs), the distance-measure is called <code class="docutils literal notranslate"><span class="pre">Levensthein</span> <span class="pre">Distance</span></code>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example</p>
+<p>The Levensthein Distance between <em>aply</em> and <em>apply</em> is 1, because one <em>Insert (I)</em> is required to transform the first into the second character-sequence. The Levensthein Distance between <em>aply</em> and <em>apple</em> is 3, because one <em>Insert (I)</em> and one <em>Replace (R)</em> is required.</p>
+</div>
+<div class="section" id="define-function-for-levensthein-distance">
+<h3><span class="section-number">2.1.2.1. </span>Define function for Levensthein distance:<a class="headerlink" href="#define-function-for-levensthein-distance" title="Permalink to this headline">¶</a></h3>
+<p><strong>Initialising:</strong>
+$<span class="math notranslate nohighlight">\(
+D[i,0]=i \quad \forall i \in [0,n] 
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+D[0,j]=j \quad \forall j \in [0,m] 
+\)</span>$</p>
+<p><strong>Rekursion</strong></p>
+<p>For all <span class="math notranslate nohighlight">\(i \in [1,n]\)</span>:
+For all <span class="math notranslate nohighlight">\(j \in [1,m]\)</span>:
+$<span class="math notranslate nohighlight">\(
+D[i,j]=\min \left\{
+\begin{array}{l}
+D[i-1,j]+1 \\
+D[i,j-1]+1 \\
+D[i-1,j-1] + \left\{ 
+\begin{array}{lll} 
+2 &amp; if &amp; \underline{a}_i \neq \underline{b}_j \\    
+0 &amp; if &amp; \underline{a}_i = \underline{b}_j 
+\end{array}
+\right.
+\end{array}
+\right.
+\)</span>$
+<strong>Termination</strong></p>
+<div class="math notranslate nohighlight">
+\[MED(\underline{a},\underline{b})=D[n,m]\]</div>
+<figure align="center">
+<img width="700" src="https://maucher.home.hdm-stuttgart.de/Pics/medTableEmpty.png">
+<figcaption>NLP Processing Chain</figcaption>
+</figure>
+<figure align="center">
+<img width="670" src="https://maucher.home.hdm-stuttgart.de/Pics/medTableFull.png">
+<figcaption>NLP Processing Chain</figcaption>
+</figure><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">levdist</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">levdist</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">second</span><span class="p">):</span>
         <span class="n">first</span><span class="p">,</span> <span class="n">second</span> <span class="o">=</span> <span class="n">second</span><span class="p">,</span> <span class="n">first</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">second</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -218,13 +308,15 @@
 <p>Apply the function defined above for calculation of Levensthein distance between two words:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">levdist</span><span class="p">(</span><span class="s2">&quot;rakete&quot;</span><span class="p">,</span><span class="s2">&quot;rokete&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">levdist</span><span class="p">(</span><span class="s2">&quot;rakete&quot;</span><span class="p">,</span><span class="s2">&quot;rokete&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
