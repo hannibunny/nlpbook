@@ -1,0 +1,690 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="typepad-standard" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+        <!-- head-common-individual -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="generator" content="http://www.typepad.com/" />
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+        
+        <meta name="description" content="As an update to this post, here's a list of the major events in R history since its creation: 1992: R development begins as a research project in Auckland, NZ by Robert Gentleman and Ross Ihaka 1993: First binary versions of R published at Statlib 1995: R first distributed as open-source software, under GPL2 license 1997: R core group formed 1997: CRAN founded (by Kurt Hornik and Fritz Leisch) 1999: The R website, r-project.org, founded 1999: First in-person meeting of R Core team, at inaugural Directions in Statistical Computing conference, Vienna 2000: R 1.0.0 released (February 29) 2000: John Chambers,..." />
+
+    <link rel="canonical" href="https://blog.revolutionanalytics.com/2020/07/the-history-of-r-updated-for-2020.html" />
+
+
+
+
+        <link rel="stylesheet" href="https://blog.revolutionanalytics.com/styles.css?v=6" type="text/css" media="screen" />
+        <link rel="stylesheet" href="https://static.typepad.com/.shared/themes/common/print.css" type="text/css" media="print" />
+
+
+<link rel="stylesheet" href="https://static.typepad.com/.shared/css/featherlight-gallery.css">
+
+        <link rel="alternate" type="application/atom+xml" title="Posts on 'Revolutions' (Atom)" href="https://blog.revolutionanalytics.com/atom.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Posts on 'Revolutions' (RSS 1.0)" href="https://blog.revolutionanalytics.com/index.rdf" />
+        <link rel="alternate" type="application/rss+xml" title="Posts on 'Revolutions' (RSS 2.0)" href="https://blog.revolutionanalytics.com/rss.xml" />
+        <script type="text/javascript">
+                var TPApp = {};
+                TPApp.app_uri = "https://www.typepad.com/";
+        </script>
+        <script type="text/javascript" src="https://static.typepad.com/.shared/js/yui/yahoo-dom-event.js,/js/app/thumbnail-gallery-min.js"></script>
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-225723-36', 'auto', {'name': 'Typepad'}, {'allowLinker': true} );  // Separate tracker for Typepad.
+ga('Typepad.require', 'linker');
+ga('Typepad.linker:autoLink', ['none']);
+ga('Typepad.set', 'dimension1', '6a010534b1db25970b010536040741970b');
+ga('Typepad.set', 'dimension2', 'Individual');
+ga('Typepad.send', 'pageview');
+</script>
+
+
+
+<meta property="og:title" content="The History of R (updated for 2020)" />
+<meta property="og:site_name" content="Revolutions" />
+<meta property="og:type" content="blog" />
+<meta property="og:url" content="https://blog.revolutionanalytics.com/2020/07/the-history-of-r-updated-for-2020.html" />
+<meta property="og:description" content="As an update to this post, here's a list of the major events in R history since its creation: 1992: R development begins as a research project in Auckland, NZ by Robert Gentleman and Ross Ihaka 1993: First binary versions of R published at Statlib 1995: R first distributed as open-source software, under GPL2 license 1997: R core group formed 1997: CRAN founded (by Kurt Hornik and Fritz Leisch) 1999: The R website, r-project.org, founded 1999: First in-person meeting of R Core team, at inaugural Directions in Statistical Computing conference, Vienna 2000: R 1.0.0 released (February 29) 2000: John Chambers,..." />
+<meta property="fb:admins" content="" />
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="">
+<meta name="twitter:creator" content="">
+<meta name="twitter:title" content="The History of R (updated for 2020)">
+<meta name="twitter:description" content="As an update to this post, here's a list of the major events in R history since its creation: 1992: R development begins as a research project in Auckland, NZ by Robert Gentleman and Ross Ihaka 1993: First binary versions of R published at Statlib 1995: R first distributed as open-source software, under GPL2 license 1997: R core group formed 1997: CRAN founded (by Kurt Hornik and Fritz Leisch) 1999: The R website, r-project.org, founded 1999: First in-person meeting of R Core team, at inaugural Directions in Statistical Computing conference, Vienna 2000: R 1.0.0 released (February 29) 2000: John Chambers,...">
+
+
+
+        <link rel="alternate" type="application/atom+xml" title="Comments on 'The History of R (updated for 2020)' (Atom)" href="https://blog.revolutionanalytics.com/2020/07/the-history-of-r-updated-for-2020/comments/atom.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Comments on 'The History of R (updated for 2020)' (RSS 2.0)" href="https://blog.revolutionanalytics.com/2020/07/the-history-of-r-updated-for-2020/comments/rss.xml" />
+        <title>The History of R (updated for 2020) (Revolutions)</title>
+        <link rel="start" href="https://blog.revolutionanalytics.com/" title="Home" />
+        <link rel="prev" href="https://blog.revolutionanalytics.com/2020/06/r-402-now-available.html?no_prefetch=1" title="R 4.0.2 now available" />
+        <link rel="next" href="https://blog.revolutionanalytics.com/2020/08/mlops-with-r-and-github-actions.html?no_prefetch=1" title="MLOPS with R and GitHub Actions" />
+
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+
+
+
+<body class="layout-two-column-right post">
+	
+	<div id="container" class="container">
+		<div id="container-inner" class="pkg">
+			
+                <div class="row">
+     
+
+
+<a id="home"></a>
+   
+
+<!-- banner -->
+<div id="banner">
+	<div id="banner-inner" class="pkg">
+		
+		<h1 id="banner-header"><a href="https://blog.revolutionanalytics.com/" accesskey="1">Revolutions</a></h1>
+		<h2 id="banner-description">
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		</h2>
+	</div>
+</div>
+
+
+
+
+
+
+			<div id="pagebody">
+
+
+				<div id="pagebody-inner" class="pkg">
+                                        <div id="alpha">
+						<div id="alpha-inner" class="pkg">
+							<!-- the plain version removes the extra jquery -->
+<!-- content nav -->
+<p class="content-nav">
+	<a class="content-nav-prev" href="https://blog.revolutionanalytics.com/2020/06/r-402-now-available.html">&laquo; R 4.0.2 now available</a> |
+	<a class="content-nav-main" href="https://blog.revolutionanalytics.com/">Main</a>
+	| <a class="content-nav-next" href="https://blog.revolutionanalytics.com/2020/08/mlops-with-r-and-github-actions.html">MLOPS with R and GitHub Actions &raquo;</a>
+</p>
+<script type="text/javascript">
+   $(function(){
+       var query = window.location.search.substring(1);
+       if( query == "pintix=1" ) {
+          var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','https://static.typepad.com/.shared//js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e);
+       }
+   });
+</script>
+<!-- entry -->
+
+	<h2 class="date-header">July 27, 2020</h2>
+
+
+<div class="entry-category-r entry-author-david_smith entry-type-post entry" id="entry-6a010534b1db25970b0263ec2a683c200c">
+   <div class="entry-inner">
+			<h3 class="entry-header">The History of R (updated for 2020)</h3>
+	
+
+
+
+	<div class="entry-content">
+		<div class="entry-body">
+			<p>As an update to <a href="https://blog.revolutionanalytics.com/2017/10/updated-history-of-r.html">this post</a>, here&#39;s a list of the major events in R history since its creation:&#0160;</p>
+<ul>
+<li><strong>1992</strong>: R development begins as a research project in Auckland, NZ by Robert Gentleman and Ross Ihaka&#0160;</li>
+<li><strong>1993</strong>: First binary versions of R published at Statlib</li>
+<li><strong>1995</strong>: R first distributed as open-source software, under GPL2 license</li>
+<li><strong>1997</strong>: R core group <a href="https://blog.revolutionanalytics.com/2017/08/20-years-of-the-r-core-group.html">formed</a></li>
+<li><strong>1997</strong>: CRAN <a href="https://stat.ethz.ch/pipermail/r-announce/1997/000001.html">founded</a> (by Kurt Hornik and Fritz Leisch)</li>
+<li><strong>1999</strong>: The R website, r-project.org, <a href="https://stat.ethz.ch/pipermail/r-announce/1999/000103.html">founded</a></li>
+<li><strong>1999</strong>: First in-person meeting of R Core team, at <a href="http://www.ci.tuwien.ac.at/Conferences/DSC-1999/">inaugural Directions in Statistical Computing conference</a>, Vienna</li>
+<li><strong>2000</strong>: R 1.0.0 <a href="https://stat.ethz.ch/pipermail/r-announce/2000/000127.html">released</a>&#0160;(February 29)&#0160;</li>
+<li><strong>2000</strong>: John Chambers, <a href="https://awards.acm.org/award-winners/CHAMBERS_6640862">recipient</a> of the 1998 ACM Software Systems Award for the S language, <a href="https://stat.ethz.ch/pipermail/r-announce/2000/000138.html">joins</a> R Core</li>
+<li><strong>2001</strong>: R News <a href="https://stat.ethz.ch/pipermail/r-announce/2001/000174.html">founded</a> (later to become the R Journal)</li>
+<li><strong>2003</strong>: R Foundation <a href="https://stat.ethz.ch/pipermail/r-announce/2003/000385.html">founded</a></li>
+<li><strong>2004</strong>: First <a href="https://stat.ethz.ch/pipermail/r-announce/2003/000415.html">UseR! conference</a> (in Vienna)</li>
+<li><strong>2004</strong>: R 2.0.0 <a href="https://stat.ethz.ch/pipermail/r-announce/2004/000427.html">released</a></li>
+<li><strong>2009</strong>: <a href="https://stat.ethz.ch/pipermail/r-announce/2009/000502.html">First edition</a> of the R Journal</li>
+<li><strong>2013</strong>: R 3.0.0 <a href="https://stat.ethz.ch/pipermail/r-announce/2013/000561.html">released</a></li>
+<li><strong>2015:&#0160;</strong>R Consortium <a href="https://www.r-consortium.org/announcement/2015/06/30/linux-foundation-announces-r-consortium-to-support-millions-of-users-around-the-world">founded</a>, with R Foundation participation</li>
+<li><strong>2016</strong>: New R logo <a href="https://stat.ethz.ch/pipermail/r-announce/2016/000595.html">adopted</a></li>
+<li><strong>2017</strong>: CRAN exceeds <a href="https://blog.revolutionanalytics.com/2017/01/cran-10000.html">10,000 published packages</a></li>
+<li><strong>2020</strong>: R 4.0.0 <a href="https://stat.ethz.ch/pipermail/r-announce/2020/000653.html">released</a></li>
+</ul>
+<p>The presentation below (<a href="https://github.com/revodavid/20-years-of-R">slides available here</a>) also covers the history of R through 2020.</p>
+<p class="asset-video"><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="281" src="https://www.youtube.com/embed/iq_biXEIx-U?feature=oembed" width="500"></iframe></p>
+<p>&#0160;</p>
+		</div>
+		
+
+                        <!-- SIGNATURE -->
+                        
+
+		
+	</div>
+
+	<div class="entry-footer">
+			<p class="entry-footer-info">
+				<span class="post-footers">Posted by <a rel="author" href="https://profile.typepad.com/revolutiondavid">David Smith</a> at 16:44 in <a href="https://blog.revolutionanalytics.com/r/">R</a> </span> <span class="separator">|</span> <a class="permalink" href="https://blog.revolutionanalytics.com/2020/07/the-history-of-r-updated-for-2020.html">Permalink</a>
+			</p>
+		
+		<!-- technorati tags -->
+
+
+		<!-- post footer links -->
+	<p class="entry-footer-share">
+		<span class="entry-footer-links-favorite"></span>
+	</p>
+
+
+	</div>
+   </div>
+</div>
+
+
+
+        
+        
+        <a id="comments"></a>
+	<div class="comments" id="all-comments">
+		<h3 class="comments-header">Comments</h3>
+					<div class="comments-info">
+				<p><a href="https://blog.revolutionanalytics.com/2020/07/the-history-of-r-updated-for-2020/comments/atom.xml"><img src="https://static.typepad.com/.shared/images/feed.png" alt="Feed" width="10" height="10" /></a> You can follow this conversation by subscribing to the <a href="https://blog.revolutionanalytics.com/2020/07/the-history-of-r-updated-for-2020/comments/atom.xml">comment feed</a> for this post.</p>
+			</div>
+		
+		<div class="comments-content" id="comments-content">
+                <!-- comment list --><a id="c6a010534b1db25970b0264e2eb1014200d"></a>
+<div class="comment font-entrybody comment-odd" id="comment-6a010534b1db25970b0264e2eb1014200d">
+	<div class="comment-content font-entrybody" id="comment-6a010534b1db25970b0264e2eb1014200d-content">
+		<span id="comment-6a010534b1db25970b0264e2eb1014200d-content"><p>Microsoft support is great!<br />
+But what about Microsoft R Open?<br />
+Should we wait for a new fourth MRO release?</p></span>
+	</div>
+	<p class="comment-footer font-entryfooter">
+		Posted by:
+		<a rel="nofollow" target="_blank" title="https://profile.typepad.com/d172240878019420172" href="https://profile.typepad.com/d172240878019420172">Дмитрий Карабанов</a> |
+		<a rel="nofollow" href="https://blog.revolutionanalytics.com/2020/07/the-history-of-r-updated-for-2020.html?cid=6a010534b1db25970b0264e2eb1014200d#comment-6a010534b1db25970b0264e2eb1014200d">July 28, 2020 at 06:11</a>
+	</p>
+</div><a id="c6a010534b1db25970b0263e9596457200b"></a>
+<div class="comment font-entrybody comment-even" id="comment-6a010534b1db25970b0263e9596457200b">
+	<div class="comment-content font-entrybody" id="comment-6a010534b1db25970b0263e9596457200b-content">
+		<span id="comment-6a010534b1db25970b0263e9596457200b-content"><p>It is Kurt Hornik, not Kurt Jornik. Please correct. ;)</p></span>
+	</div>
+	<p class="comment-footer font-entryfooter">
+		Posted by:
+		Philipp Probst |
+		<a rel="nofollow" href="https://blog.revolutionanalytics.com/2020/07/the-history-of-r-updated-for-2020.html?cid=6a010534b1db25970b0263e9596457200b#comment-6a010534b1db25970b0263e9596457200b">July 31, 2020 at 01:47</a>
+	</p>
+</div><a id="c6a010534b1db25970b0263e9597b20200b"></a>
+<div class="comment font-entrybody comment-odd" id="comment-6a010534b1db25970b0263e9597b20200b">
+	<div class="comment-content font-entrybody" id="comment-6a010534b1db25970b0263e9597b20200b-content">
+		<span id="comment-6a010534b1db25970b0263e9597b20200b-content"><p>Fixed, and apologies to Kurt for the typo.</p></span>
+	</div>
+	<p class="comment-footer font-entryfooter">
+		Posted by:
+		David Smith |
+		<a rel="nofollow" href="https://blog.revolutionanalytics.com/2020/07/the-history-of-r-updated-for-2020.html?cid=6a010534b1db25970b0263e9597b20200b#comment-6a010534b1db25970b0263e9597b20200b">July 31, 2020 at 11:45</a>
+	</p>
+</div><a id="c6a010534b1db25970b0263ec2b1d4f200c"></a>
+<div class="comment font-entrybody comment-even" id="comment-6a010534b1db25970b0263ec2b1d4f200c">
+	<div class="comment-content font-entrybody" id="comment-6a010534b1db25970b0263ec2b1d4f200c-content">
+		<span id="comment-6a010534b1db25970b0263ec2b1d4f200c-content"><p>A new version of MRO is about to enter testing, I should have some news to share soon.</p></span>
+	</div>
+	<p class="comment-footer font-entryfooter">
+		Posted by:
+		David Smith |
+		<a rel="nofollow" href="https://blog.revolutionanalytics.com/2020/07/the-history-of-r-updated-for-2020.html?cid=6a010534b1db25970b0263ec2b1d4f200c#comment-6a010534b1db25970b0263ec2b1d4f200c">July 31, 2020 at 11:46</a>
+	</p>
+</div><a id="c6a010534b1db25970b0263e959cb93200b"></a>
+<div class="comment font-entrybody comment-odd" id="comment-6a010534b1db25970b0263e959cb93200b">
+	<div class="comment-content font-entrybody" id="comment-6a010534b1db25970b0263e959cb93200b-content">
+		<span id="comment-6a010534b1db25970b0263e959cb93200b-content"><p>That&#39;s great news David! Thanks a lot for you and your  team&#39;s work on MRO.</p></span>
+	</div>
+	<p class="comment-footer font-entryfooter">
+		Posted by:
+		Kevin |
+		<a rel="nofollow" href="https://blog.revolutionanalytics.com/2020/07/the-history-of-r-updated-for-2020.html?cid=6a010534b1db25970b0263e959cb93200b#comment-6a010534b1db25970b0263e959cb93200b">August 02, 2020 at 09:29</a>
+	</p>
+</div><a id="c6a010534b1db25970b0264e2ec9e18200d"></a>
+<div class="comment font-entrybody comment-even" id="comment-6a010534b1db25970b0264e2ec9e18200d">
+	<div class="comment-content font-entrybody" id="comment-6a010534b1db25970b0264e2ec9e18200d-content">
+		<span id="comment-6a010534b1db25970b0264e2ec9e18200d-content"><p>Waiting for the new version :)</p></span>
+	</div>
+	<p class="comment-footer font-entryfooter">
+		Posted by:
+		<a rel="nofollow" target="_blank" title="https://profile.typepad.com/wqyang" href="https://profile.typepad.com/wqyang">Wq_yang</a> |
+		<a rel="nofollow" href="https://blog.revolutionanalytics.com/2020/07/the-history-of-r-updated-for-2020.html?cid=6a010534b1db25970b0264e2ec9e18200d#comment-6a010534b1db25970b0264e2ec9e18200d">August 05, 2020 at 04:11</a>
+	</p>
+</div><a id="c6a010534b1db25970b026be409f897200d"></a>
+<div class="comment font-entrybody comment-odd" id="comment-6a010534b1db25970b026be409f897200d">
+	<div class="comment-content font-entrybody" id="comment-6a010534b1db25970b026be409f897200d-content">
+		<span id="comment-6a010534b1db25970b026be409f897200d-content"><p>Sorry to continue the pestering but has MRO 4.0.2 entered testing yet? I know 3 weeks ago you said it was about to enter testing so I&#39;m just curious if it&#39;s there yet. Thanks!</p></span>
+	</div>
+	<p class="comment-footer font-entryfooter">
+		Posted by:
+		Matt S |
+		<a rel="nofollow" href="https://blog.revolutionanalytics.com/2020/07/the-history-of-r-updated-for-2020.html?cid=6a010534b1db25970b026be409f897200d#comment-6a010534b1db25970b026be409f897200d">August 19, 2020 at 12:26</a>
+	</p>
+</div>
+
+		</div>
+        
+	</div>
+<script type="text/javascript">var c943723d42e77e9214eb884a1d898ea="</form>";</script>
+<script type="text/javascript">var ffe51c373e0873b7778b6324a0b5533 = '<form id="comment-form" action="';</script>
+<script type="text/javascript">var c943723d42e77e9214eb884a1d898za = '" method="post"><input type="hidden" name="entry_xid" id="comment-entry-xid" value="6a010534b1db25970b0263ec2a683c200c" \/><input type="hidden" name="token" value="1600268514-1f7bf2bd7ca2d50846b147c995e7181d2dd1bbac:tQAZkh9nGMepdnYf" \/>';</script>
+<script type="text/javascript">var OOcd55d4dc47109d7b462b01c7dd4dab = "aHR0cHM6Ly9ibG9nLnJldm9sdXRpb25hbmFseXRpY3MuY29tLy5zZXJ2aWNlcy9jb21tZW50cw";</script>
+<script type="text/javascript">var bad4dd7c10b264b7d90174cd4d55dc00 = atob(OOcd55d4dc47109d7b462b01c7dd4dab);</script>
+
+<!-- comment-form-atp -->
+
+
+<p class="comments-closed font-entrybody">
+	The comments to this entry are closed.
+</p>
+
+
+
+
+
+    
+    
+
+
+
+
+						</div>
+					</div>
+                                        <div id="beta">
+						<div id="beta-inner" class="pkg">
+							
+<!-- sidebar -->
+
+
+	<div class="module-archives module">
+		<h2 class="module-header">Information</h2>
+		<div class="module-content">
+			<ul class="module-list">
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/about.html">About this blog</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/comments-policy.html">Comments Policy</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/categories.html">About Categories</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/authors.html">About the Authors</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/local-r-groups.html">Local R User Group Directory</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/tips-on-starting-an-r-user-group.html">Tips on Starting an R User Group</a></li>
+				
+			</ul>
+		</div>
+	</div>
+<!-- list_inlcude.tt  -->
+<div id="search_revolutions_blog" class="module-typelist module">
+<h2 class="module-header">Search Revolutions Blog</h2>
+	<div class="typelist-plain module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><div class="typelist-note"><form method="get" action="https://www.google.com/search">
+  <input type="hidden" name="ie" value="UTF-8" /> 
+  <input type="hidden" name="oe" value="UTF-8" />
+  <div style="background-color:white;"></div>
+   <input type="text" name="q" size="18" maxlength="255" value="" />
+  <input type="submit" name="btnG" value=" Search Blog " />
+   <br />
+<small>
+    <input type="hidden" name="domains" value="blog.revolutionanalytics.com" />
+<br />
+    <input type="hidden" name="sitesearch" value="blog.revolutionanalytics.com" checked="checked" />
+   <br /></small>
+</form>
+ <!-- SiteSearch Google --></div></li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+Got comments or suggestions for the blog editor? <br>
+Email <a href="mailto:davidsmi@microsoft.com">David Smith</a>.
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<a href="https://www.twitter.com/revodavid"><img src="https://twitter-badges.s3.amazonaws.com/t_small-b.png" alt="Follow revodavid on Twitter" /></a> Follow David on Twitter: <a href="https://twitter.com/revodavid">@revodavid</a>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+Get this blog via email with <a href="https://blogtrottr.com/?subscribe=http://blog.revolutionanalytics.com" title='Get this feed delivered by email'><img src='https://blogtrottr.com/images/icons/blogtrottr-button-91x17px.gif' alt='Blogtrottr' /></a>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<div class="module-categories module">
+	<h2 class="module-header"><a href="https://blog.revolutionanalytics.com/archives.html">Categories</a></h2>
+	<div class="module-content">
+                   <ul class="module-list">
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/academia/">academia</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/advanced-tips/">advanced tips</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/ai/">AI</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/airoundups/">airoundups</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/announcements/">announcements</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/applications/">applications</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/beginner-tips/">beginner tips</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/big-data/">big data</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/courses/">courses</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/current-events/">current events</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/data-science/">data science</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/developers/">developer tips</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/events/">events</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/finance/">finance</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/government/">government</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/graphics/">graphics</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/high-performance-computing/">high-performance computing</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/life-sciences/">life sciences</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/microsoft/">Microsoft</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/mlops/">mlops</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/open-source/">open source</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/other-industry/">other industry</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/packages/">packages</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/popularity/">popularity</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/predictive-analytics/">predictive analytics</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/profiles/">profiles</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/python/">python</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/r/">R</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/r-is-hot/">R is Hot</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/random/">random</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/reviews/">reviews</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/revolution/">Revolution</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/rmedia/">Rmedia</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/roundups/">roundups</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/sports-1/">sports</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/statistics/">statistics</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/user-groups/">user groups</a></li>
+</span>
+		</ul>
+
+<a style="font-size:85%;display:none;" class="cat-more" href="https://blog.revolutionanalytics.com/archives.html">See More</a>
+	</div>
+</div>
+<!-- list_inlcude.tt  -->
+<div id="r_links" class="module-typelist module">
+<h2 class="module-header">R links</h2>
+	<div class="module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><a href="https://docs.microsoft.com/azure/machine-learning/r-developers-guide?WT.mc_id=RevolutionsSidebar-blog-davidsmi" >R on Azure</a><br />Developer's guide and documentation</li>
+							<li class="module-list-item"><a href="https://mran.microsoft.com/packages/" >Find R packages</a><br />CRAN package directory at MRAN</li>
+							<li class="module-list-item"><a href="https://mran.microsoft.com/download" >Download Microsoft R Open</a><br />Free, high-performance R</li>
+							<li class="module-list-item"><a href="https://www.r-project.org">R Project site</a><br />Information about the R project</li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- list_inlcude.tt  -->
+<div id="recommended_sites" class="module-typelist module">
+<h2 class="module-header">Recommended Sites</h2>
+	<div class="module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><a href="https://twitter.com/rlangtip" >@RLangTip</a><br />Daily tips on using R</li>
+							<li class="module-list-item"><a href="https://flowingdata.com">FlowingData</a><br />Modern data visualization</li>
+							<li class="module-list-item"><a href="http://www.statisticsblog.com/" >Probability and statistics blog</a><br />Monte Carlo simulations in R</li>
+							<li class="module-list-item"><a href="http://www.r-bloggers.com" >R Bloggers</a><br />Daily news and tutorials about R, contributed by R bloggers worldwide.</li>
+							<li class="module-list-item"><a href="http://www.analyticbridge.com/group/rprojectandotherfreesoftwaretools" >R Project group on analyticbridge.com</a><br />Community and discussion forum</li>
+							<li class="module-list-item"><a href="http://www.stat.columbia.edu/~cook/movabletype/mlm/" >Statistical Modeling, Causal Inference, and Social Science</a><br />Andrew Gelman's statistics blog</li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- archives -->
+
+	<div class="module-archives module">
+		<h2 class="module-header"><a href="https://blog.revolutionanalytics.com/archives.html">Archives</a></h2>
+		<div class="module-content">
+			<ul class="module-list">
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/08/index.html">August 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/07/index.html">July 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/06/index.html">June 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/05/index.html">May 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/04/index.html">April 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/03/index.html">March 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/02/index.html">February 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/01/index.html">January 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2019/12/index.html">December 2019</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2019/11/index.html">November 2019</a></li>
+				
+			</ul>
+		</div>
+	</div>
+
+<div class="module-syndicate module">
+	<div class="module-content">
+	<a href="https://blog.revolutionanalytics.com/atom.xml"><i class="fas fa-rss"></i> Subscribe to this blog's feed</a>
+	</div>
+</div>
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<script type="text/javascript">
+  var varAutoFirePV = 1;
+  var varClickTracking = 1;
+  var varCustomerTracking = 1;
+  var Route = "123865";
+  var Ctrl = "";
+  document.write("<script type='text/javascript' src='" + (window.location.protocol) + "//c.microsoft.com/ms.js'" + "'><\/script>");
+</script>​
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var firstTracker = _gat._getTracker("UA-6984166-10");
+firstTracker._setDomainName(".revolutionanalytics.com");
+firstTracker._setAllowLinker(true);
+firstTracker._setAllowHash(false);
+firstTracker._trackPageview();
+var secondTracker = _gat._getTracker("UA-6984166-9");
+secondTracker._setDomainName(".revolutionanalytics.com");
+secondTracker._setAllowLinker(true);
+secondTracker._setAllowHash(false);
+secondTracker._trackPageview();
+} catch (err) { }
+</script>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+</div> <!-- row -->
+			
+
+
+
+		</div>
+	</div>
+	
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+<!--
+var extra_happy = Math.floor(1000000000 * Math.random());
+document.write('<img src="https://www.typepad.com/t/stats?blog_id=1774446&amp;user_id=3164880&amp;page=' + escape(location.href) + '&amp;referrer=' + escape(document.referrer) + '&amp;i=' + extra_happy + '" width="1" height="1" alt="" style="position: absolute; top: 0; left: 0;" />');
+// -->
+</script>
+
+
+
+
+<!-- Begin disqus Tag -->
+
+<!-- End disqus Tag -->
+</body>
+</html>
+
+<!-- ph=1 -->

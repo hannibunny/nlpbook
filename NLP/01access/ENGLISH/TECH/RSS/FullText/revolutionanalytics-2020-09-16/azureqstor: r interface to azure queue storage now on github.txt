@@ -1,0 +1,10 @@
+
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		
+« R 4.0.0 now available, and a look back at R's history |
+	Main
+	| Create and deploy a Custom Vision predictive service in R with AzureVision »
+AzureQstor: R interface to Azure Queue Storage now on GitHubThis post is to announce that the AzureQstor package is now on GitHub. AzureQstor provides an R interface to Azure queue storage, building on the facilities provided by AzureStor.Queue Storage is a service for storing large numbers of messages, for example from automated sensors, that can be accessed remotely via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account. Queue storage is often used to create a backlog of work to process asynchronously.AzureQstor uses a combination of S3 and R6 classes. The queue endpoint is an S3 object for compatibility with AzureStor, while R6 classes are used to represent queues and messages.The queue object exposes methods for getting (reading), peeking, deleting, updating, popping (reading and deleting) and putting (writing) messages:The message object exposes methods for deleting and updating the message:You can also get and set metadata for a queue with the AzureStor get/set_storage_metadata generics:It’s anticipated that AzureQstor will be submitted to CRAN before long. If you are a queue storage user, please install it and give it a try; any feedback or bug report is much appreciated. You can email me or open an issue on GitHub.
+Posted by Hong Ooi at 09:25 in Microsoft, packages, R  | Permalink
+ You can follow this conversation by subscribing to the comment feed for this post.
+	The comments to this entry are closed.

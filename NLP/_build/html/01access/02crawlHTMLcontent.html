@@ -14,26 +14,29 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/togglebutton.js"></script>
-    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
-    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script type="text/javascript">
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1.3. Download HTML Files" href="03crawlWebSites.html" />
@@ -186,28 +189,6 @@
 
         <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01access/02crawlHTMLcontent.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/01access/02crawlHTMLcontent.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
     </div>
 
     <!-- Table of contents -->
@@ -266,7 +247,7 @@
 <p>into the command shell. Once it is installed it can be imported by</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 </pre></div>
 </div>
 </div>
@@ -274,7 +255,7 @@
 <p>For accessing arbitrary resources by URL the python modul <a class="reference external" href="https://docs.python.org/2/library/urllib.html">urllib</a> must also be installed. Import the method <em>urlopen()</em> from this module:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
 </pre></div>
 </div>
 </div>
@@ -282,7 +263,7 @@
 <p>If these two modules are available the HTML parse tree of the specified URL can easily be generated as follows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#url=&quot;http://www.zeit.de&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#url=&quot;http://www.zeit.de&quot;</span>
 <span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://www.spiegel.de&quot;</span>
 <span class="c1">#url=&quot;http://www.sueddeutsche.de&quot;</span>
 <span class="n">html</span><span class="o">=</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -294,13 +275,13 @@
 <p>Now e.g. the title of the URL can be accessed by:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titleTag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">title</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titleTag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">title</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Title of page:  &quot;</span><span class="p">,</span><span class="n">titleTag</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Title of page:   DER SPIEGEL | Online-Nachrichten
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Title of page:   DER SPIEGEL | Online-Nachrichten
 </pre></div>
 </div>
 </div>
@@ -310,7 +291,7 @@
 <p>All links in the page can be retrieven by the following code (only the first 20 links are printed)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hreflinks</span><span class="o">=</span><span class="p">[]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hreflinks</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">Alllinks</span><span class="o">=</span><span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="c1">#The &lt;a&gt; tag defines a hyperlink, which is used to link from one page to another.</span>
 <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">Alllinks</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">has_attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">):</span>
@@ -322,7 +303,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of links in this page:  561
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number of links in this page:  542
 #Inhalt
 https://www.spiegel.de/nutzungsbedingungen
 https://www.spiegel.de/
@@ -353,7 +334,7 @@ https://www.spiegel.de/netzwelt/
 <p>Get title of all news, which are currently listed on <a class="reference external" href="http://www.zeit.de">www.zeit.de</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#print soup.get_text()hreflinks=[]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#print soup.get_text()hreflinks=[]</span>
 <span class="n">AllTitles</span><span class="o">=</span><span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">)</span>
 <span class="n">alltitles</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">alltitleLinks</span><span class="o">=</span><span class="p">[]</span>
@@ -373,198 +354,195 @@ https://www.spiegel.de/netzwelt/
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------------------------------------
-Childbirth in the Pandemic: How COVID-19 Is Indirectly Killing Mothers and Babies
-https://www.spiegel.de/international/tomorrow/childbirth-in-the-pandemic-how-covid-19-is-indirectly-killing-mothers-and-babies-a-adf7c1f1-441b-4aa3-87bd-86e9f3345b0b
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>----------------------------------------
+737 Max: US-Ausschuss prangert Boeing wegen Schlamperei und Vertuschung an
+https://www.spiegel.de/wissenschaft/technik/boeing-737-max-us-ausschuss-prangert-nach-flugzeugabsturz-schlamperei-und-vertuschung-an-a-fe385633-7ddb-453a-8791-1e840b1c72ca
 ----------------------------------------
-Trotz harter Vorwürfe: Staatsbank verlängerte Wirecard noch im Herbst 2019 die Kreditlinie
-https://www.spiegel.de/wirtschaft/unternehmen/wirecard-staatsbank-verlaengerte-wirecard-noch-im-herbst-2019-die-kreditlinie-a-b8971bfc-7f45-4787-922b-3b649cb1cdba
+Bundestagsvizepräsidentin: Claudia Roth beklagt Missachtung von Frauen im Parlament
+https://www.spiegel.de/politik/deutschland/claudia-roth-beklagt-missachtung-von-frauen-im-bundestag-a-57c45b5d-fa2d-4417-9700-bbaafdf94c8f
 ----------------------------------------
-Energiekonzern: BP rechnet mit Ende des Ölzeitalters
-https://www.spiegel.de/wirtschaft/unternehmen/bp-oelfoerderung-steht-laut-energiekonzern-vor-dem-ende-a-655257b8-7e33-4a29-8c3e-ed37569219fa
+Bayern-Formel und Dortmund-Faktor: Die große Finanzdatenanalyse zum Bundesligastart
+https://www.spiegel.de/sport/fussball/bundesligafinanzen-warum-bayern-muenchen-auch-borussia-dortmund-enteilt-ist-a-20556261-07bb-490b-add7-0c49c77cf449
 ----------------------------------------
-Stolberg in Nordrhein-Westfalen: Ermittler prüfen Zusammenhang von Messerangriff mit Kommunalwahl
-https://www.spiegel.de/politik/deutschland/stolberg-in-nrw-ermittler-pruefen-zusammenhang-von-messerattacke-mit-kommunalwahl-a-24ff6ba2-1e03-4dad-8828-2be6aa564261
+Urlaub in Deutschland: Der ländliche Rassismus und ich
+https://www.spiegel.de/reise/deutschland/rassismus-auf-dem-land-wenn-staedter-davor-warnen-ist-das-vor-allem-bequem-a-02b552ab-07ec-4287-a116-fcbc2540b6f4
 ----------------------------------------
-Prozess gegen Sven Liebich: Rechtsextremer Netzaktivist zu Bewährungsstrafe verurteilt
-https://www.spiegel.de/panorama/justiz/halle-rechtsextremer-netzaktivist-sven-liebich-zu-bewaehrungsstrafe-verurteilt-a-47c7901c-b984-4663-add3-a0fa494bf7d1
+OECD-Ausblick zu Coronakrise: Wirtschaftseinbruch weniger dramatisch als befürchtet
+https://www.spiegel.de/wirtschaft/wirtschaftseinbruch-weniger-dramatisch-als-befuerchtet-a-0379b243-bb72-4cc4-b934-3221b9e06bff
 ----------------------------------------
-Boris Johnsons neue Widersacher
-https://www.spiegel.de/politik/ausland/grossbritannien-aufruhr-gegen-boris-johnsons-aenderungen-am-brexit-vertrag-a-e0e55b87-fa08-4137-8ed0-c1526174b52e
+Seehofer-Ministerium spricht von &quot;Schande&quot; für Polizei in NRW
+https://www.spiegel.de/politik/deutschland/rechtsextreme-chatgruppe-bundesinnenministerium-spricht-von-schande-fuer-die-polizei-in-nrw-a-10657774-82b6-4be3-a603-b397cf9e382f
 ----------------------------------------
-Verlässlich wie eine lange, schlechte Ehe
-https://www.spiegel.de/politik/ausland/wladimir-putin-und-alexander-lukaschenko-treffen-in-sotschi-wie-eine-lange-schlechte-ehe-a-10e138fe-8931-4e90-b902-ac6c26c5cd95
+Mutmaßlich rechtsextreme Chatgruppe der Polizei NRW aufgeflogen
+https://www.spiegel.de/panorama/justiz/polizei-essen-offenbar-rechtsextreme-chatgruppe-mit-mehr-als-einem-dutzende-beamten-aufgeflogen-a-73355096-51c5-4d44-952b-1173349ca117
 ----------------------------------------
-Internationale Labors bestätigen Vergiftung Nawalnys
-https://www.spiegel.de/politik/ausland/alexej-nawalny-weitere-labore-bestaetigen-vergiftung-a-28b14fd2-a36b-43b9-ac03-267d1eaed8fc
+So könnte die Ökorepublik Deutschland aussehen
+https://www.spiegel.de/wirtschaft/klimaziele-so-koennte-die-oekorepublik-deutschland-aussehen-a-3efa81d4-54fb-4900-b57f-e74195c3b8b1
 ----------------------------------------
-GroKo will bis Mittwoch über Geflüchtete aus Moria entscheiden
-https://www.spiegel.de/politik/deutschland/angela-merkel-zu-moria-grosse-koalition-soll-bis-mittwoch-ueber-aufnahme-von-gefluechteten-entscheiden-a-8436363b-eda8-4aef-a082-c14fa9ba0a96
+Von der Leyens Versprechen, von der Leyens Schwächen
+https://www.spiegel.de/politik/deutschland/ursula-von-der-leyen-zur-lage-der-union-im-europaparlament-versprechen-und-schwaechen-a-8d1feeb8-2274-40e0-af78-7a9a72f2bc66
 ----------------------------------------
-Refugees welcome?
-https://www.spiegel.de/politik/deutschland/fluechtlingspolitik-refugees-welcome-kolumne-a-b8de9ebe-85ad-4043-bd3b-368a7c73dd8a
+Eine lösbare Aufgabe
+https://www.spiegel.de/auto/eine-loesbare-aufgabe-a-dc9c5cd4-3c99-4894-be02-86184ea66db9
 ----------------------------------------
-Staatsbank verlängerte Wirecard noch im Herbst 2019 die Kreditlinie
-https://www.spiegel.de/wirtschaft/unternehmen/wirecard-staatsbank-verlaengerte-wirecard-noch-im-herbst-2019-die-kreditlinie-a-b8971bfc-7f45-4787-922b-3b649cb1cdba
+Kramp-Karrenbauer räumt Streit über weibliche Dienstgrade ab
+https://www.spiegel.de/politik/deutschland/bundeswehr-annegret-kramp-karrenbauer-raeumt-streit-um-weibliche-dienstgrade-ab-a-8982a033-f511-428b-a4b9-8353374472e0
 ----------------------------------------
-Das Klima gewinnt die Wahl
-https://www.spiegel.de/wissenschaft/mensch/nrw-kommunalwahl-das-klima-gewinnt-a-9710a957-ca26-4412-b68a-089ac93bc70f
+Claudia Roth beklagt Missachtung von Frauen im Parlament
+https://www.spiegel.de/politik/deutschland/claudia-roth-beklagt-missachtung-von-frauen-im-bundestag-a-57c45b5d-fa2d-4417-9700-bbaafdf94c8f
 ----------------------------------------
-Ermittler prüfen Zusammenhang von Messerangriff mit Kommunalwahl
-https://www.spiegel.de/politik/deutschland/stolberg-in-nrw-ermittler-pruefen-zusammenhang-von-messerattacke-mit-kommunalwahl-a-24ff6ba2-1e03-4dad-8828-2be6aa564261
+&quot;Ich gehe von einer Steigerung der Todesfälle in sechs bis acht Wochen aus&quot;
+https://www.spiegel.de/wissenschaft/medizin/karl-lauterbach-zu-zweiter-corona-welle-ich-gehe-von-einer-steigerung-der-todesfaelle-in-sechs-bis-acht-wochen-aus-a-2e29ca4b-5a1f-4c47-9016-d7a609e00c54
 ----------------------------------------
-SPD redet sich NRW-Debakel schön
-https://www.spiegel.de/politik/deutschland/nordrhein-westfalen-so-reagieren-die-parteien-auf-das-kommunalwahlergebnis-a-973d31bb-9eaa-4be5-92fd-89ee0bc5fa57
+Corona-Ausbruch in Potsdamer Klinik - Beamte stellen Beweismaterial sicher
+https://www.spiegel.de/wissenschaft/coronavirus-news-am-mittwoch-versandbranche-boomt-in-coronakrise-weiter-a-61bf9687-afef-4503-b0f0-b3abd9bfc05b
 ----------------------------------------
-BP rechnet mit Ende des Ölzeitalters
-https://www.spiegel.de/wirtschaft/unternehmen/bp-oelfoerderung-steht-laut-energiekonzern-vor-dem-ende-a-655257b8-7e33-4a29-8c3e-ed37569219fa
+Wirtschaftseinbruch weniger dramatisch als befürchtet
+https://www.spiegel.de/wirtschaft/wirtschaftseinbruch-weniger-dramatisch-als-befuerchtet-a-0379b243-bb72-4cc4-b934-3221b9e06bff
 ----------------------------------------
-Neue Härte
-https://www.spiegel.de/politik/deutschland/eu-china-gipfel-merkel-xi-von-der-leyen-michel-beraten-per-video-a-a006deb1-bc73-4fb5-91e1-c77f95bef7a9
+Aller Ehren wert
+https://www.spiegel.de/politik/deutschland/einigung-auf-aufnahme-von-1500-fluechtlingen-aller-ehren-wert-a-3bc94045-80fb-4389-ab97-5dc73fe0ac68
 ----------------------------------------
-Der Macron-Flüsterer
-https://www.spiegel.de/politik/ausland/frankreich-staatssekretaer-clement-beaune-der-macron-fluesterer-a-00000000-0002-0001-0000-000172993231
+Behördenchef Unger soll nach Warntag-Pannen offenbar abgelöst werden
+https://www.spiegel.de/panorama/warntag-chef-des-bundesamtes-fuer-bevoelkerungsschutz-christoph-unger-soll-offenbar-abgeloest-werden-a-da5b770f-687f-4f73-9f67-09bf1670605e
 ----------------------------------------
-Terrorverdacht gegen Soldat der Bundeswehr
-https://www.spiegel.de/politik/deutschland/bundeswehr-terrorverdacht-gegen-soldat-razzia-in-neubrandenburg-a-71c6a3be-b0c5-4611-9f44-76de337b09bd
+Wo kommen eigentlich die ganzen Putin-Fans her?
+https://www.spiegel.de/netzwelt/web/wladimir-putins-fans-wo-kommen-sie-eigentlich-her-kolumne-a-2d515ca8-9a9e-4aa7-bd06-5650fab6795d
 ----------------------------------------
-Corona-Pandemie
-https://www.spiegel.de/thema/coronavirus/
+Wie Trump die USA in den Wahnsinn treibt
+https://www.spiegel.de/politik/ausland/donald-trump-treibt-die-usa-in-den-wahnsinn-a-66355f6c-b318-4b71-aca7-57f7e131de79
 ----------------------------------------
-Gegen jede Corona-Regel
-https://www.spiegel.de/politik/ausland/donald-trump-auftritt-in-nevada-gegen-jede-corona-regel-a-2a5d4be4-d672-4b0f-9a33-6d0e5d740581
+Trump lobt Österreichs &quot;Wald-Städte&quot;
+https://www.spiegel.de/politik/ausland/donald-trump-lobt-die-wald-staedte-in-oesterreich-a-cf845f7f-1ff8-4cd4-8fc3-db720265628d
 ----------------------------------------
-Dann geht&#39;s in Handschellen aufs Revier
-https://www.spiegel.de/panorama/justiz/corona-kontrollen-kommunen-greifen-durch-in-handschellen-aufs-revier-a-00000000-0002-0001-0000-000172993201
+Krankenschwester schildert katastrophale Zustände in US-Migrantenlager
+https://www.spiegel.de/politik/ausland/usa-krankenschwester-schildert-katastrophale-zustaende-in-migrantenlager-a-78815756-a158-4725-a8c7-a67e1e7e0f61
 ----------------------------------------
-Eltern bewerten Digitalisierung der Schulen mit &quot;mangelhaft&quot;
-https://www.spiegel.de/wissenschaft/medizin/coronavirus-news-am-14-september-oesterreich-verschaerft-maskenpflicht-a-298d7d65-912a-40a1-8fce-80da4b696b36
+US-Ausschuss prangert Boeing wegen Schlamperei und Vertuschung an
+https://www.spiegel.de/wissenschaft/technik/boeing-737-max-us-ausschuss-prangert-nach-flugzeugabsturz-schlamperei-und-vertuschung-an-a-fe385633-7ddb-453a-8791-1e840b1c72ca
 ----------------------------------------
-Japans letzte Krieger
-https://www.spiegel.de/geschichte/teruo-nakamura-und-co-japans-letzte-weltkriegssoldaten-versteckt-im-dschungel-a-99a09f95-5c89-482c-a3f1-73f6c7cb631f
+Die große Finanzdatenanalyse zum Bundesligastart
+https://www.spiegel.de/sport/fussball/bundesligafinanzen-warum-bayern-muenchen-auch-borussia-dortmund-enteilt-ist-a-20556261-07bb-490b-add7-0c49c77cf449
 ----------------------------------------
-Waldbrände in Kalifornien
-https://www.spiegel.de/thema/waldbraende_in_kalifornien/
+Roglic und Pogacar duellieren sich um Gelb - wer gewinnt die Königsetappe?
+https://sportdaten.spiegel.de/radsport/tour-de-france/ma9003161/liveticker/
 ----------------------------------------
-Amerikanischer Albtraum
-https://www.spiegel.de/panorama/gesellschaft/usa-waldbraende-an-der-westkueste-kalifornischer-albtraum-a-7cf64967-cebe-4e29-a96e-702e81f3ea99
+&quot;Das ist ein fettes Ding&quot;
+https://www.spiegel.de/sport/lennard-kaemna-gelingt-coup-bei-der-tour-de-france-a-5ef432df-8810-47e5-9ae0-89da4e306ff6
 ----------------------------------------
-Der Arzt, das Gericht und die Wahrheit
-https://www.spiegel.de/panorama/justiz/berlin-aids-mediziner-soll-sich-an-patienten-vergangen-haben-der-arzt-das-gericht-und-die-wahrheit-a-00000000-0002-0001-0000-000172993203
+&quot;Ich habe direkt meine Verlobung infrage gestellt&quot;
+https://www.spiegel.de/familie/erwachsene-scheidungskinder-wie-kinder-mit-spaeten-scheidungen-umgehen-a-727ad2d8-c418-4bfd-a865-ab2042d8fe7d
 ----------------------------------------
-&quot;Gott&quot; kommt ins Fernsehen
-https://www.spiegel.de/kultur/tv/ferdinand-von-schirachs-neues-theaterstueck-gott-kommt-ins-fernsehen-a-10b9ba31-e336-4022-bdcc-d08c6774ca0c
+Hurrikan &quot;Sally&quot; trifft an US-Golfküste auf Land
+https://www.spiegel.de/panorama/alabama-hurrikan-sally-trifft-an-us-golfkueste-auf-land-a-ff4d8e7f-a479-44ef-bc5b-2629a3ace3d1
 ----------------------------------------
-&quot;Brauche ich dieses Essen, diese Hose, diesen Menschen?&quot;
-https://www.spiegel.de/kultur/tv/anke-engelke-ueber-das-letzte-wort-brauche-ich-dieses-essen-diese-hose-diesen-menschen-a-00000000-0002-0001-0000-000172993254
+Cholesterinsenker können krank machen
+https://www.spiegel.de/gesundheit/diagnose/kardiologe-warnt-vor-statinen-cholesterinsenker-koennen-krank-machen-a-00000000-0002-0001-0000-000172993241
 ----------------------------------------
-Warum sehen wir alle gleich aus?
-http://www.bento.de/style/wieso-sehen-alle-menschen-gleich-aus-a-728a8a4b-2816-483b-a3a9-f31b078862f5#refsponi
+Der ländliche Rassismus und ich
+https://www.spiegel.de/reise/deutschland/rassismus-auf-dem-land-wenn-staedter-davor-warnen-ist-das-vor-allem-bequem-a-02b552ab-07ec-4287-a116-fcbc2540b6f4
 ----------------------------------------
-US Open
-https://www.spiegel.de/thema/alexander_zverev/
+Beschneidung: Vorhaut ab oder Vorhaut dran?
+https://www.bento.de/politik/beschneidung-vorhaut-ab-oder-vorhaut-dran-a-70a68567-b333-463b-986c-d3de1b729194#refsponi
 ----------------------------------------
-&quot;Es war das beste und das schlechteste Finale&quot;
-https://www.spiegel.de/sport/tennis/us-open-pressestimmen-der-mutigere-und-kaltbluetigere-spieler-wurde-belohnt-a-0d893714-bc71-4a96-9eac-5d9c4fa55c55
+Erben versilbern Artur Brauners Schmuckkästchen
+https://www.spiegel.de/kultur/kino/colosseum-in-berlin-die-erben-versilbern-artur-brauners-schmuckkaestchen-a-00000000-0002-0001-0000-000172993204
 ----------------------------------------
-Mein Experiment mit der DNA-Diät
-https://www.spiegel.de/gesundheit/ernaehrung/personalisierte-ernaehrung-mein-experiment-mit-der-dna-diaet-a-00000000-0002-0001-0000-000172248241
+&quot;Es ist Wahnsinn, dass wir nicht längst weiter sind&quot;
+https://www.spiegel.de/wissenschaft/bill-gates-im-spiegel-gespraech-ich-habe-das-coronavirus-nicht-erschaffen-a-b37f0211-15a2-4fa8-8452-e808b2b46adf
 ----------------------------------------
-Wenn es an ihm liegt, dass sie nicht schwanger wird
-https://www.spiegel.de/gesundheit/schwangerschaft/der-unfruchtbare-mann-a-00000000-0002-0001-0000-000172993242
+Wer überlebt das Ende des Verbrenners?
+https://www.spiegel.de/wirtschaft/unternehmen/continental-zf-friedrichshafen-schaeffler-wer-ueberlebt-den-verbrennungsmotor-a-00000000-0002-0001-0000-000172993215
 ----------------------------------------
-Was tun bei Wasserschaden?
-https://www.spiegel.de/wirtschaft/service/wasserschaden-meine-persoenliche-sintflut-a-cc904cc1-18fc-4e13-acf3-2c32f59ae036
+Von wegen wilde Barbaren - so zivilisiert waren die Germanen wirklich
+https://www.spiegel.de/wissenschaft/mensch/james-simon-galerie-berlin-die-legende-von-den-wuesten-germanen-a-00000000-0002-0001-0000-000172993246
 ----------------------------------------
-So können Sie ohne Abschläge früher in Rente gehen
-https://www.spiegel.de/wirtschaft/service/rente-so-koennen-sie-sich-im-alter-mehr-leisten-a-2b4c05e0-c8b6-4b41-ab68-5362b5ecb97a
-----------------------------------------
-Esra will doch nur zur Schule gehen
-https://www.spiegel.de/panorama/bildung/kinder-mit-behinderung-in-der-corona-krise-doppelt-gehandicapt-a-85d63be6-0110-46ac-ba9f-991052789219
+Wie die Einser-Schülerin Naomi zum Postergirl der Rechten wurde
+https://www.spiegel.de/politik/deutschland/die-anti-greta-a-00000000-0002-0001-0000-000172993208
 ----------------------------------------
 Kommentare und Kolumnen
 https://www.spiegel.de/thema/meinung/
 ----------------------------------------
-Welt brennt, Regierung hofft auf Wunder
-https://www.spiegel.de/wissenschaft/mensch/klimapolitik-welt-brennt-regierung-hofft-auf-wunder-a-2f9d37f6-f11d-4191-a0d3-7aee6fe210eb
+Pragmatiker a.D.
+https://www.spiegel.de/wirtschaft/soziales/olaf-scholz-spd-pragmatiker-a-d-kolumne-a-e4a1d75f-2172-46bd-ba76-3be53e7f18a5
 ----------------------------------------
-Die Japan-Falle
-https://www.spiegel.de/wirtschaft/soziales/regierungswechsel-in-tokio-die-japan-falle-a-f85e102a-3bb9-442d-8781-9f98de0e0547
+Eine Attrappe von Empathie
+https://www.spiegel.de/kultur/politiker-und-fluechtlingsleid-eine-attrappe-von-empathie-kolumne-a-b30ffca4-ed82-4abf-a29c-9258ba4e9072
 ----------------------------------------
-Sie merken, ich bin richtig sauer
-https://www.spiegel.de/kultur/ausbeutung-und-ungerechtigkeit-sie-merken-ich-bin-richtig-sauer-kolumne-a-269e1390-33cb-4b1d-aed6-1fc79ce47a8f
+Mut zum Alleingang
+https://www.spiegel.de/politik/ausland/deutschlands-fluechtlingspolitik-mut-zum-alleingang-kommentar-a-f4f711d1-2aba-47b1-bdc1-20a1104eb9cb
 ----------------------------------------
-Nie wieder Moria!
-https://www.spiegel.de/politik/ausland/fluechtlingslager-aus-lesbos-moria-muss-weg-jetzt-kommentar-a-00000000-0002-0001-0000-000172993178
+Das Klima gewinnt die Wahl
+https://www.spiegel.de/wissenschaft/mensch/nrw-kommunalwahl-das-klima-gewinnt-a-9710a957-ca26-4412-b68a-089ac93bc70f
 ----------------------------------------
 Politik
 https://www.spiegel.de/politik/deutschland/
 ----------------------------------------
-Migration: Koalitionsstreit über Moria-Flüchtlinge - SPD droht der Union
-https://www.spiegel.de/politik/deutschland/moria-koalitionsstreit-ueber-fluechtlinge-spd-erhoeht-druck-auf-union-a-d1310966-9e4e-4675-8cc8-7c41ebf4f168
+Coronakrise: Fahrt im vollen Aufzug bleibt für Spahn und Bouffier folgenlos
+https://www.spiegel.de/politik/deutschland/jens-spahn-und-volker-bouffier-fahrt-im-aufzug-bleibt-ohne-folgen-a-165f4d59-b953-4278-8caa-7b69c7493979
 ----------------------------------------
-Vorläufiges Ergebnis der NRW-Kommunalwahlen: CDU gewinnt mit 34,3 Prozent
-https://www.spiegel.de/politik/deutschland/cdu-gewinnt-nrw-kommunalwahlen-mit-34-3-prozent-vorlaeufiges-ergebnis-a-ef9420ea-7300-47d1-9b20-4342bf0c1e68
+Waffenproduktion in Thüringen: Linken-Landeschefin Hennig-Wellsow nennt Bundeswehrauftrag &quot;vergiftetes Geschenk&quot;
+https://www.spiegel.de/politik/deutschland/haenel-auftrag-der-bundeswehr-susanne-hennig-wellsow-nennt-waffendeal-vergiftetes-geschenk-a-36e2d0fb-17b4-43e1-b6f6-6557b1fbf546
 ----------------------------------------
-Die Lage am Morgen: Willkür und Weltordnung
-https://www.spiegel.de/politik/deutschland/news-eu-china-wladimir-putin-alexander-lukaschenko-boris-johnson-brexit-a-f6a81d66-865e-47ae-8f1f-0ffcda73b73a
+Fragestunde im Bundestag: Seehofer über Aufnahme von Flüchtlingen
+https://www.spiegel.de/politik/deutschland/horst-seehofer-innenminister-im-bundestag-ueber-aufnahme-von-fluechtlingen-a-f1644f0b-4bfd-4ca8-ac05-6e09e5bf3e89
 ----------------------------------------
 Ausland
 https://www.spiegel.de/politik/ausland/
 ----------------------------------------
-Brexit-Streit in Großbritannien: Auch Ex-Premier Cameron stellt sich gegen Johnson
-https://www.spiegel.de/politik/ausland/brexit-david-cameron-stellt-sich-gegen-boris-johnson-a-6aac399d-13a9-4431-8185-cb7bae14ad4f
+Hamas-Stellungen getroffen: Israel reagiert mit Luftschlägen auf Raketenbeschuss aus Gaza
+https://www.spiegel.de/politik/ausland/israel-reagiert-mit-luftschlaegen-auf-raketenbeschuss-aus-gaza-a-e6346d7f-8da7-4fdd-9601-3f0ed72180b1
 ----------------------------------------
-Massenproteste in Belarus: Putin empfängt Lukaschenko
-https://www.spiegel.de/politik/ausland/belarus-wladimir-putin-empfaengt-alexander-lukaschenko-a-a27a7aca-3cd0-4654-af8f-9123a88b8e72
+Kamala Harris in Kalifornien: Die Alternative
+https://www.spiegel.de/politik/ausland/kamala-harris-in-kalifornien-dringender-appell-in-brandruinen-a-c0398d16-7dc8-4920-b81a-f305dc2bf768
 ----------------------------------------
-Verstoß gegen Corona-Auflagen: Trump hält erste Massenkundgebung in einer Halle seit Ende Juni ab
-https://www.spiegel.de/politik/ausland/donald-trump-haelt-erste-massenkundgebung-in-einer-halle-seit-ende-juni-a-fd7f11d2-beec-40f7-bddf-4c2429b323f8
+Vorschlag der Kommissionschefin von der Leyen: EU soll mehr Mittel und Zuständigkeiten in der Gesundheitspolitik erhalten
+https://www.spiegel.de/politik/ausland/eu-in-der-corona-krise-ursula-von-der-leyen-fordert-europaeische-gesundheitsunion-a-e8e73295-48e0-40a2-98b7-c5f0861e0453
 ----------------------------------------
 Panorama
 https://www.spiegel.de/panorama/
 ----------------------------------------
-Kelly Clarkson über Ehe-Aus: &quot;Mein Leben war ein bisschen wie ein Müllcontainer&quot;
-https://www.spiegel.de/panorama/leute/kelly-clarkson-ueber-ehe-aus-mein-leben-war-ein-bisschen-wie-ein-muellcontainer-a-e4ca65fb-b7e4-4ea1-a904-fb438b143776
+Reese Witherspoon über Schwangerschaft mit 22: &quot;Ich hatte Angst&quot;
+https://www.spiegel.de/panorama/leute/reese-witherspoon-ueber-schwangerschaft-mit-22-ich-hatte-angst-a-037b919e-bfd0-4f0b-acb7-351c94d1b06d
 ----------------------------------------
-Baden-Württemberg: Mann wird unter Bagger begraben und stirbt
-https://www.spiegel.de/panorama/baden-wuerttemberg-mann-wird-unter-bagger-begraben-und-stirbt-a-2b633835-727b-4acd-b6e4-cab7a37be310
+Privatfeier in Hamburg: 18-Jähriger nach mutmaßlichem Drogentod von Jugendlicher festgenommen
+https://www.spiegel.de/panorama/justiz/hamburg-18-jaehriger-nach-mutmasslichem-drogentod-von-jugendlicher-festgenommen-a-ea0e6803-4f49-498b-9d51-c33936170b06
 ----------------------------------------
-Oliver Masucci nahm für Rolle zu: &quot;Am Ende habe ich nichts verdient, weil alles in den Bauch geflossen ist&quot;
-https://www.spiegel.de/panorama/leute/oliver-masucci-am-ende-habe-ich-nichts-verdient-weil-alles-in-den-bauch-geflossen-ist-a-9bb17326-df83-476a-b7e6-1e727890a143
+&quot;An Explosive Combination&quot;: How Conspiracy Theories Threaten Our Society
+https://www.spiegel.de/panorama/how-conspiracy-theories-threaten-our-society-a-8185ac54-8181-4bb0-88e5-a9818a456719
 ----------------------------------------
 Sport
 https://www.spiegel.de/sport/
 ----------------------------------------
-Pressestimmen zur Formel 1: &quot;Crash, Boom, Bang&quot;
-https://www.spiegel.de/sport/formel1/formel-1-unfall-boom-knall-pressestimmen-zum-chaos-rennen-in-mugello-a-ff28db03-50ab-4fa9-bbb2-fcaf77d3cd81
+Urteil nach Korruptionsprozess: Haftstrafe für Ex-Leichtathletikboss Diack
+https://www.spiegel.de/sport/lamine-diack-ex-leichtathletikboss-zu-vier-jahren-haft-verurteilt-a-12ebe594-38d0-4c6e-9c40-b1d066950d01
 ----------------------------------------
-Superstar Brady mit Niederlage bei NFL-Start: &quot;Ich habe zu viele Fehler gemacht&quot;
-https://www.spiegel.de/sport/nfl-tom-brady-verliert-mit-bucs-vs-saints-ich-habe-viele-fehler-gemacht-a-aeea527a-1be0-4259-b0b2-2165ecdfeaea
+Neuer Trainer für DBB-Frauen: WNBA-Coach Hopkins soll Basketballerinnen zur EM führen
+https://www.spiegel.de/sport/basketball/walt-hopkins-wnba-coach-uebernimmt-basketball-nationalteam-der-damen-a-d9902183-7d29-41fa-8733-ee9fd53eb4e7
 ----------------------------------------
-Tennis: Dominic Thiem gewinnt US-Open-Finale gegen Alexander Zverev
-https://www.spiegel.de/sport/tennis/dominic-thiem-gewinnt-us-open-finale-gegen-alexander-zverev-a-9593245d-478b-49d0-a1dc-2a49ed5e16ec
+NBA-Profi Theis von den Boston Celtics: Der beste Drecksarbeiter
+https://www.spiegel.de/sport/basketball/nba-profi-daniel-theis-von-den-boston-celtics-der-beste-drecksarbeiter-a-003e13c5-ff97-4600-9514-ad5785cd3a19
 ----------------------------------------
 Wirtschaft
 https://www.spiegel.de/wirtschaft/
 ----------------------------------------
-Übernahmeangebot: Metro-Großaktionär greift erneut nach der Macht
-https://www.spiegel.de/wirtschaft/unternehmen/metro-grossaktionaer-daniel-kretinsky-mach-uebernahmeangebot-a-ca16f2b5-4b42-42ff-be07-7584de1d7fab
+Konzernumbau: VW plant Einstieg beim Autovermieter Sixt
+https://www.spiegel.de/wirtschaft/vw-plant-einstieg-beim-autovermieter-sixt-a-29377b50-4778-449c-a2c0-9bcc45b97a91
 ----------------------------------------
-Großbritannien: DIHK warnt vor milliardenschweren Folgen des Brexit-Streits
-https://www.spiegel.de/wirtschaft/unternehmen/brexit-dihk-warnt-vor-milliardenschweren-folgen-des-streits-a-6a484fa4-be4b-462d-a96f-65cf009665ee
+Schärferes EU-Klimaziel: Deutsche Industrie warnt vor zusätzlicher Belastung
+https://www.spiegel.de/wirtschaft/unternehmen/eu-klimaziel-deutsche-industrie-warnt-vor-zusaetzlicher-belastung-a-73762986-4b29-4cc6-be97-accdc95e6b6d
 ----------------------------------------
-Finanzbedarf bis 2040: Bahn-Ausbau kostet im Schnitt 3,7 Milliarden Euro pro Jahr
-https://www.spiegel.de/wirtschaft/unternehmen/bahn-ausbau-kosten-von-im-schnitt-3-7-milliarden-euro-pro-jahr-a-69301dcf-9e1d-47a3-b13d-d7e5e0b571f9
+Nord Stream 2: Deutschland will USA angeblich mit Milliardeninvestition besänftigen
+https://www.spiegel.de/wirtschaft/unternehmen/nord-stream-2-deutschland-bietet-offenbar-milliardeninvestment-fuer-verzicht-auf-us-sanktionen-a-c9a6ec0c-acbc-4ec9-ad81-282c6107edf1
 ----------------------------------------
-Übernahmeangebot von Daniel Křetínský: Chef weg, Kurs am Boden: Investor greift nach Handelskonzern Metro
-https://www.manager-magazin.de/unternehmen/handel/grosshandelskonzern-metro-investor-kretinsky-stellt-erneut-uebernahmeangebot-a-d583db49-b405-47c2-b1ed-866208eceef4
+Beteiligung am Autovermieter: Warum Volkswagen einen Einstieg bei Sixt plant
+https://www.manager-magazin.de/unternehmen/autoindustrie/volkswagen-ag-warum-der-autokonzern-einen-einstieg-bei-sixt-plant-a-00000000-0002-0001-0000-000173050939
 ----------------------------------------
-Studie: Preise für Wohnimmobilien steigen bis 2030 weiter an
-https://www.manager-magazin.de/finanzen/immobilien/immobilien-preise-fuer-wohnimmobilien-steigen-bis-2030-weiter-an-a-b8a22db9-596f-4035-a943-f4f4bbb64d95
+Dementi beruhigt Anleger nicht: Grenke-Aktie bricht weiter ein - 900 Millionen Euro verbrannt
+https://www.manager-magazin.de/unternehmen/grenke-ag-mdax-konzern-weist-vorwuerfe-von-wirecard-erzfeind-zurueck-a-09f511e1-8e34-4f15-87a6-22594044bde7
 ----------------------------------------
-SoftBank verkauft Arm: Herr Son besiegelt 40-Milliarden-Dollar-Deal mit Nvidia
-https://www.manager-magazin.de/unternehmen/tech/nvidia-kauft-arm-40-milliarden-dollar-fuer-softbank-a-60bea75a-d994-4f00-8af3-29cd94974514
+Nikola, Rivian und Canoo: Was taugen die vermeintlichen Tesla-Jäger wirklich?
+https://www.manager-magazin.de/unternehmen/autoindustrie/nikola-die-boersenaufsicht-und-rivian-was-taugt-die-tesla-konkurrenz-a-0d2d2c9d-31c8-4ffa-a2b6-66d779825b6a
 ----------------------------------------
 Börsenkurse manager magazin
 https://boersen.manager-magazin.de
@@ -572,38 +550,38 @@ https://boersen.manager-magazin.de
 Wissenschaft
 https://www.spiegel.de/wissenschaft/
 ----------------------------------------
-Pandemie: WHO meldet Rekord an neuen Corona-Infektionen
-https://www.spiegel.de/wissenschaft/coronavirus-who-meldet-rekord-an-neuen-corona-infektionen-a-3e47f13a-b46f-4cf4-82df-ea048538461d
+Mindestens 55 Prozent weniger Emissionen: Von der Leyen verschärft EU-Klimaziel
+https://www.spiegel.de/wissenschaft/natur/ursula-von-der-leyen-verschaerft-eu-klimaschutzziel-mindestens-55-prozent-bis-2030-a-24fa9e96-f90d-414f-933e-2fbcf827f5cd
 ----------------------------------------
-Satellitenbild der Woche: Kalifornisches Inferno
-https://www.spiegel.de/wissenschaft/mensch/waldbraende-an-der-westkueste-der-usa-das-inferno-aus-satelliten-sicht-a-27ef930b-3637-4fb6-9321-15dbc44d8357
+Uno-Biodiversitätsbericht: &quot;Naturschutz ist kein Luxus, sondern eine Existenzfrage&quot;
+https://www.spiegel.de/wissenschaft/natur/artenvielfalt-neuer-biodiversitaetsbericht-der-uno-es-geht-um-unsere-existenz-a-4a1eee5c-d9bd-42dc-88d6-d28131fd447e
 ----------------------------------------
-Neue Corona-Studien: Die dreifache Bürde der Jüngeren
-https://www.spiegel.de/wissenschaft/medizin/corona-wie-gefaehrlich-ist-covid-19-fuer-juengere-menschen-a-9881f85b-8b96-4690-a7f1-46c198ad0151
+Drosten-Podcast: &quot;Man muss jetzt bei den Antigen-Tests weiterkommen&quot;
+https://www.spiegel.de/wissenschaft/medizin/drosten-podcast-man-muss-jetzt-bei-den-antigen-tests-weiterkommen-a-07a82980-d368-456c-80a2-b44b8d8086f3
 ----------------------------------------
 Netzwelt
 https://www.spiegel.de/netzwelt/
 ----------------------------------------
-Smartphone-Prozessoren: Nvidia will Chipdesigner Arm für 40 Milliarden Dollar kaufen
-https://www.spiegel.de/netzwelt/gadgets/nvidia-will-chip-designer-arm-fuer-40-milliarden-dollar-kaufen-a-5cd33daa-b05e-468b-a888-e2e01be0de97
+iOS14, iPadOS14 und watchOS7: Das bringen Apples Updates
+https://www.spiegel.de/netzwelt/gadgets/ios14-ipados14-und-watchos7-das-bringen-apples-updates-a-175a8236-810c-4b72-9a2d-5864db7895b2
 ----------------------------------------
-Videoplattform: Microsoft aus dem Rennen um TikTok - Oracle neuer Favorit
-https://www.spiegel.de/netzwelt/microsoft-erklaert-uebernahme-von-tiktok-fuer-geplatzt-a-a5644111-0227-4758-b1ec-87ea7afac310
+Neue Apple-Watches und iPads: Drei Erkenntnisse aus der Apple-Show
+https://www.spiegel.de/netzwelt/gadgets/apple-drei-erkenntnisse-aus-der-show-a-0071e8ab-a277-4d21-9aad-4142c1107d4d
 ----------------------------------------
-Sascha Lobo - Der Debatten-Podcast: Der fatale Funktionierfetisch der Deutschen
-https://www.spiegel.de/netzwelt/netzpolitik/digitalisierung-der-fatale-funktionierfetisch-der-deutschen-podcast-a-0a457a3b-e8b4-4664-9354-8cf075d3aa40
+188 Millionen Follower: Kim Kardashian will Instagram boykottieren - aus Protest
+https://www.spiegel.de/netzwelt/kim-kardashian-will-instagram-boykottierten-aus-frust-a-27f39f68-6fff-41d7-b3e7-a4f69ee5e5bd
 ----------------------------------------
 Kultur
 https://www.spiegel.de/kultur/
 ----------------------------------------
-Finanzskandal: Sky plant großes Doku-und-Fiktion-Projekt zu Wirecard
-https://www.spiegel.de/kultur/tv/sky-plant-grosses-doku-und-fiktion-projekt-zu-wirecard-a-287a61b4-5140-47c9-aeb5-97d58c00afe5
+Paranoia-Thriller um Jean Seberg: Die heilige Johanna der Black-Power-Bewegung
+https://www.spiegel.de/kultur/kino/jean-seberg-die-heilige-johanna-der-black-power-bewegung-a-f2bb7b86-c7e0-4e90-acad-0b74fbcf0ef8
 ----------------------------------------
-Krimi-Vote: Wie gefiel Ihnen der Spionage-&quot;Tatort&quot;?
-https://www.spiegel.de/kultur/tv/tatort-vote-wie-gefiel-ihnen-funkstille-mit-janneke-und-brix-a-07ebab06-fad7-423f-9531-8da0e4a6e9b9
+Kloster Tholey: Gerhard Richter erklärt Kirchenfenster zu seinem finalen großen Werk
+https://www.spiegel.de/kultur/gerhard-richter-erklaert-kirchenfenster-zu-seinem-finalen-grossen-werk-a-12b14273-d673-44ff-b2e9-0eef135dee16
 ----------------------------------------
-Chronist Geert Mak: Der banale Moment, in dem Europa mutiert
-https://www.spiegel.de/kultur/literatur/grosse-erwartungen-von-geert-mak-der-banale-moment-in-dem-europa-mutiert-rezension-a-3de9a5bc-8958-47a2-97ec-f83bce88cb32
+Von &quot;Material Girl&quot; bis &quot;Madame X&quot;: Madonna verfilmt ihr eigenes Leben
+https://www.spiegel.de/kultur/kino/madonna-verfilmt-ihr-leben-und-fuehrt-auch-regie-a-335f1c51-f235-40a7-9910-f4ac676f1bcc
 ----------------------------------------
 Asexualität kann revolutionieren, wie wir über Liebe und Sex reden
 https://www.bento.de/gefuehle/asexualitaet-kann-revolutionieren-wie-wir-ueber-liebe-und-sex-reden-a-8c85a51d-e1ea-4001-8d76-9d4713df636d
@@ -626,38 +604,38 @@ https://www.spiegel.de/kultur/bestseller-buecher-belletristik-sachbuch-auf-spieg
 Geschichte
 https://www.spiegel.de/geschichte/
 ----------------------------------------
-Rechter Terror in Deutschland: Hundert Jahre Mord
-https://www.spiegel.de/geschichte/rechtsterrorismus-in-deutschland-hundert-jahre-mord-a-0be6cb6b-19ee-4f98-90c5-afc5e59381e6
+Bildband über die Nachkriegszeit: Boogie-Woogie auf dem Trümmerfeld
+https://www.spiegel.de/geschichte/deutschland-nach-dem-zweiten-weltkrieg-bildband-wolfszeit-a-d467fc48-2d4b-42a5-bdbd-bd663950e5e0
 ----------------------------------------
-Olympiagold für Barfußläufer Bikila: Triumph auf blanken Sohlen
-https://www.spiegel.de/geschichte/barfuss-zum-olympiasieg-wie-abebe-bikila-1960-marathon-gold-gewann-a-bb4dc351-3478-41f8-88e0-902d364123dd
+Auf LSD in den Tod: Aldous Huxleys letzter Trip
+https://www.spiegel.de/geschichte/schriftsteller-aldous-huxley-sterbehilfe-mit-lsd-a-d61e7327-d9c2-498c-b582-5b0b812f0414
 ----------------------------------------
-Kriegsfotograf Robert Capa: Berlin in der Stunde null
-https://www.spiegel.de/geschichte/kriegsfotograf-robert-capa-berlin-in-der-stunde-null-a-b086849b-3d5c-4c9d-bbb6-fd53be455736
+Versteckt im Dschungel: Japans letzte Krieger
+https://www.spiegel.de/geschichte/teruo-nakamura-und-co-japans-letzte-weltkriegssoldaten-versteckt-im-dschungel-a-99a09f95-5c89-482c-a3f1-73f6c7cb631f
 ----------------------------------------
 Job &amp; Karriere
 https://www.spiegel.de/karriere/
 ----------------------------------------
-Recht auf Lohnfortzahlung: Krank im Job - wer zahlt wann?
-https://www.spiegel.de/karriere/lohnfortzahlung-im-krankheitsfall-ansprueche-und-pflichten-a-2b61469e-03a9-4b62-8224-9bddc56fe3d5
+Kinderbetreuung und Arbeit: Was berufstätige Eltern im Corona-Herbst wissen müssen
+https://www.spiegel.de/karriere/arbeitsrecht-und-kinder-was-arbeitende-eltern-wissen-muessen-a-081de944-6302-4e09-a6be-86fbc5a1c2b9
 ----------------------------------------
-Rätsel der Woche: Die Kneipen-Rochade
-https://www.spiegel.de/karriere/die-kneipen-rochade-raetsel-der-woche-a-e1211fe6-3d0b-41fe-a8ff-b99c90346415
+Vom Gifthersteller zum Insektenretter: &quot;Ich will mein Unternehmen schöpferisch zerstören&quot;
+https://www.spiegel.de/karriere/insektizid-hersteller-wird-insektenretter-ich-will-mein-unternehmen-schoepferisch-zerstoeren-a-3d1f3d90-09d0-453b-a0f3-cd8efcd0cc20
 ----------------------------------------
-Bilderbuch für Erwachsene: &quot;Wow, 17 Cent Trinkgeld, die lege ich gleich an&quot;
-https://www.spiegel.de/karriere/berufe-im-bilderbuch-wow-17-cent-trinkgeld-die-lege-ich-gleich-an-a-72f0db1b-c164-48bc-bb10-11599afb6d99
+Tipps von der Karriereberaterin: Hilfe, ich bin als Chefin so ungeduldig!
+https://www.spiegel.de/karriere/wie-wird-man-eine-gute-chefin-tipps-von-der-karriereberaterin-a-7486c055-a966-4e34-a79d-0187de72600a
 ----------------------------------------
 Mobilität
 https://www.spiegel.de/auto/
 ----------------------------------------
-Günstiger Oldtimer Pontiac Firebird: Die Muckibude
-https://www.spiegel.de/auto/fahrberichte/pontiac-firebird-das-auto-aus-knight-rider-als-guenstiger-oldtimer-a-6ced3fcd-8bf7-49fb-9d2a-b5bfa386a0f2
+Wegen steigenden Radverkehrs: Pariser Pop-up-Radwege sollen bleiben
+https://www.spiegel.de/auto/paris-pop-up-radwege-sollen-bleiben-a-3872b58f-56b8-41e6-881f-f57f9b79196b
 ----------------------------------------
-Benzinbuch: R Gruppe: Das luftgekühlte Manifest
-https://www.spiegel.de/auto/fahrkultur/porsche-r-gruppe-das-luftgekuehlte-manifest-a-915b451b-4952-402d-99b3-57836f1db19f
+Tödlicher Unfall in Arizona: Back-up-Fahrer eines autonomen Uber-Wagens angeklagt
+https://www.spiegel.de/auto/uber-backup-fahrer-eines-autonomen-autos-nach-toedlichem-unfall-angeklagt-a-dbae1c5b-ce3a-4e34-bb82-917f7bf7905b
 ----------------------------------------
-Trend auf dem Caravan Salon: Elektrisch über den Campingplatz
-https://www.spiegel.de/auto/fahrkultur/neues-caming-equipment-innovative-e-scooter-a-f6e84366-84d1-4227-858e-c3289f062815
+Chevrolet Camaro &quot;Europo Hurst&quot; unterm Hammer: Musclecar im Maßanzug
+https://www.spiegel.de/auto/chevrolet-camaro-europo-hurst-american-muscle-in-italienischem-massanzug-a-3318c72e-a070-4dc3-80fe-7a060359b3cd
 ----------------------------------------
 Alle Podcasts
 https://www.spiegel.de/thema/podcasts_vom_spiegel/
@@ -665,26 +643,23 @@ https://www.spiegel.de/thema/podcasts_vom_spiegel/
 Leben
 https://www.spiegel.de/thema/leben/
 ----------------------------------------
-Manche verzichten auf Urlaub, andere auf ihre Familie
-https://www.spiegel.de/familie/coronavirus-wie-die-pandemie-familien-trennt-und-wie-ich-damit-umgehe-a-8a2669e6-4078-47e9-a9cd-8f1700dae4af
+Eigentlich wäre ich jetzt in New York
+https://www.spiegel.de/reise/wegen-corona-heimaturlaub-wider-willen-weisses-rauschen-a-00000000-0002-0001-0000-000172993209
 ----------------------------------------
-Jede dritte Blutvergiftung endet in Deutschland tödlich
-https://www.spiegel.de/gesundheit/diagnose/blutvergiftung-jede-dritte-endet-in-deutschland-toedlich-a-11b2ba26-3aa7-414f-8dff-e4e0fa5dc59c
+Blick in den Abgrund - und in die eigene Vergangenheit
+https://www.spiegel.de/reise/roadtrip-durch-die-usa-im-vergleich-zum-grand-canyon-bin-ich-jung-midlife-kolumne-a-ef9f6a2a-cdcc-4c4e-92c4-ac63fa340bfd
 ----------------------------------------
 Gut gemeinte Tipps wie &quot;Lass dir Zeit&quot; können Sie sich sparen
 https://www.spiegel.de/gesundheit/sprachtherapie-was-gegen-stottern-hilft-und-was-eltern-tun-koennen-a-6cb8d106-fd84-43ee-a721-d6f1550d65c4
 ----------------------------------------
-Hype um Discounter-Mode
-https://www.spiegel.de/stil/lidl-kollektion-hype-um-discounter-mode-a-b104183f-13a9-4cf7-a14e-cf555834f2c3
+Mein Experiment mit der DNA-Diät
+https://www.spiegel.de/gesundheit/ernaehrung/personalisierte-ernaehrung-mein-experiment-mit-der-dna-diaet-a-00000000-0002-0001-0000-000172248241
 ----------------------------------------
-Das Null-Zucker-Experiment geht weiter
-https://www.spiegel.de/gesundheit/ernaehrung/im-selbstversuch-zum-gesunden-darm-was-die-heilpraktikerin-sagt-a-fc5fcfab-03c8-4279-952f-0a30cac5ad1f
+Salzburg-Sylt im Schlaf
+https://www.spiegel.de/reise/nachtzuege-und-naechtliche-sprinter-salzburg-sylt-im-schlaf-a-029a8bfb-def6-45a2-a364-ab5339a6a1da
 ----------------------------------------
-Im Frischeparadies
-https://www.spiegel.de/stil/tomaten-zuechten-im-frischeparadies-a-61230a71-1b1e-443b-b18c-c70b934c950c
-----------------------------------------
-Berge für Zwerge
-https://www.spiegel.de/reise/reka-dorf-im-appenzeller-land-berge-fuer-zwerge-a-d12b9a6c-a098-468a-bda9-f13cb474c9f8
+Manche verzichten auf Urlaub, andere auf ihre Familie
+https://www.spiegel.de/familie/coronavirus-wie-die-pandemie-familien-trennt-und-wie-ich-damit-umgehe-a-8a2669e6-4078-47e9-a9cd-8f1700dae4af
 ----------------------------------------
 Tipps fürs Campen
 https://www.spiegel.de/thema/test_und_produkte/
@@ -701,8 +676,8 @@ https://www.spiegel.de/reise/fernweh/camping-gadgets-thermobecher-werkzeugkoffer
 Dein SPIEGEL
 https://www.spiegel.de/deinspiegel/
 ----------------------------------------
-Die Nominierungen für den deutschen Kindersoftwarepreis TOMMI
-https://www.spiegel.de/deinspiegel/die-nominierungen-fuer-den-deutschen-kindersoftwarepreis-tommi-2020-a-8cb5f2c6-4384-4835-bb41-0aadd87a5699
+Was dich in &quot;Dein SPIEGEL&quot; Nr. 10/2020 erwartet
+https://www.spiegel.de/deinspiegel/was-dich-in-dein-spiegel-nr-10-2020-erwartet-a-244f5796-825f-4441-b24c-111da592a2d5
 ----------------------------------------
 Wie haben sich Freundschaften durch Corona verändert?
 https://www.spiegel.de/deinspiegel/trotz-corona-freunde-bleiben-kinder-erzaehlen-a-00000000-0002-0001-0000-000172431236
@@ -719,7 +694,7 @@ https://www.spiegel.de/fotostrecke/bilder-des-tages-fotos-aus-deutschland-und-de
 <p>Get url of all images, which are currently displayed on <a class="reference external" href="http://www.zeit.de">www.zeit.de</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imglinks</span><span class="o">=</span><span class="p">[]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">imglinks</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">AllImgs</span><span class="o">=</span><span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">AllImgs</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">has_attr</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">):</span>
@@ -731,16 +706,16 @@ https://www.spiegel.de/fotostrecke/bilder-des-tages-fotos-aus-deutschland-und-de
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-https://cdn.prod.www.spiegel.de/images/f0706c1e-c6fc-4a27-b5b6-dca6f542114a_w948_r2.11_fpx52_fpy65.jpg
-https://cdn.prod.www.spiegel.de/images/f0706c1e-c6fc-4a27-b5b6-dca6f542114a_w920_r1.77_fpx52_fpy65.jpg
-https://cdn.prod.www.spiegel.de/images/883748c5-c973-4882-aa5f-c9504b4f783d_w117_r1.33_fpx66.54_fpy49.98.jpg
-https://cdn.prod.www.spiegel.de/images/883748c5-c973-4882-aa5f-c9504b4f783d_w488_r1.77_fpx66.54_fpy49.98.jpg
-https://cdn.prod.www.spiegel.de/images/e809de3e-525b-494a-8199-8640f2b1648d_w56_r1_fpx55.01_fpy45.png
-https://cdn.prod.www.spiegel.de/images/e809de3e-525b-494a-8199-8640f2b1648d_w56_r1_fpx55.01_fpy45.png
-https://cdn.prod.www.spiegel.de/images/c2e5f84a-1b35-4b13-aca8-8e7fc29e002f_w488_r1.77_fpx49.54_fpy50.jpg
-https://cdn.prod.www.spiegel.de/images/c2e5f84a-1b35-4b13-aca8-8e7fc29e002f_w488_r1.77_fpx49.54_fpy50.jpg
-https://cdn.prod.www.spiegel.de/images/35ea4af8-9b3e-4055-8e41-cfe808b8c767_w117_r1.33_fpx42.97_fpy50.jpg
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+https://cdn.prod.www.spiegel.de/images/40f7372e-9df5-4733-acd5-45caf3ba1ba1_w872_r1.77_fpx53_fpy48.jpg
+https://cdn.prod.www.spiegel.de/images/40f7372e-9df5-4733-acd5-45caf3ba1ba1_w872_r1.77_fpx53_fpy48.jpg
+https://cdn.prod.www.spiegel.de/images/83729449-0001-0004-0000-000001493941_w872_r1.77_fpx61.85_fpy54.99.jpg
+https://cdn.prod.www.spiegel.de/images/2d8384d0-2fb0-40f7-a330-bac4b8e536bf_w117_r1.33_fpx53.34_fpy49.98.jpg
+https://cdn.prod.www.spiegel.de/images/2d8384d0-2fb0-40f7-a330-bac4b8e536bf_w117_r1.33_fpx53.34_fpy49.98.jpg
+https://cdn.prod.www.spiegel.de/images/2d8384d0-2fb0-40f7-a330-bac4b8e536bf_w488_r1.77_fpx53.34_fpy49.98.jpg
+https://cdn.prod.www.spiegel.de/images/2d8384d0-2fb0-40f7-a330-bac4b8e536bf_w488_r1.77_fpx53.34_fpy49.98.jpg
+https://cdn.prod.www.spiegel.de/images/3344dfd2-d842-4925-80be-b3949cf9b80f_w117_r1.33_fpx54_fpy27.jpg
+https://cdn.prod.www.spiegel.de/images/3344dfd2-d842-4925-80be-b3949cf9b80f_w117_r1.33_fpx54_fpy27.jpg
 </pre></div>
 </div>
 </div>
@@ -750,7 +725,7 @@ https://cdn.prod.www.spiegel.de/images/35ea4af8-9b3e-4055-8e41-cfe808b8c767_w117
 <h2><span class="section-number">1.2.4. </span>Get entire text of a news-article<a class="headerlink" href="#get-entire-text-of-a-news-article" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IDX</span><span class="o">=</span><span class="mi">0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IDX</span><span class="o">=</span><span class="mi">0</span>
 <span class="n">suburl</span><span class="o">=</span><span class="n">alltitleLinks</span><span class="p">[</span><span class="n">IDX</span><span class="p">]</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">html</span><span class="o">=</span><span class="n">urlopen</span><span class="p">(</span><span class="n">suburl</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1">#works if subdomains are referenced by absolute path</span>
@@ -764,68 +739,30 @@ https://cdn.prod.www.spiegel.de/images/35ea4af8-9b3e-4055-8e41-cfe808b8c767_w117
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SPIEGEL+-Zugang wird gerade auf einem anderen Gerät genutzt
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
+SPIEGEL+-Zugang wird gerade auf einem anderen Gerät genutzt
 
 SPIEGEL+ kann nur auf einem Gerät zur selben Zeit genutzt werden.
 
 Klicken Sie auf den Button, spielen wir den Hinweis auf dem anderen Gerät aus und Sie können SPIEGEL+ weiter nutzen.
 
 
-Midwife Emily Owino cuts the umbilical cord of a newborn girl with a razor blade in Kenya.
-Brian Inganga/ AP
-For our Global Societies project, reporters around the world will be writing about societal problems, sustainability and development in Asia, Africa, Latin America and Europe. The series will include features, analyses, photo essays, videos and podcasts looking behind the curtain of globalization. The project is generously funded by the Bill &amp; Melinda Gates Foundation.
-It&#39;s shortly before midnight on May 29 when Brian Inganga gets the call. &quot;You have to hurry,&quot; the midwife tells him. The 31-year-old photographer immediately jumps on a motorcycle taxi and heads to Kibera, a slum in Nairobi, the capital city of Kenya. Inganga is anxious, not only because the slum is &quot;dark and dangerous,&quot; as he puts it, but because it&#39;s after curfew and &quot;the police are extremely aggressive at night.&quot;
-The midwife picks him up on a street corner and leads him through the narrow alleyways to her small shack. On the floor of a tiny room inside lies Veronica Atieno, 23. Her contractions are strong.
-In the hours that follow, Inganga takes photos as the mother gives birth to her daughter, Shaniz Joy Juma. There are no doctors or medical supplies present, just a wooden spoon for the mother to bite on and an herbal mixture from the midwife for the pain. &quot;It was a shocking experience,&quot; says the photographer over the phone, as he relates the story behind the photos. &quot;Our women can&#39;t go to the hospital to give birth. They lie on the filthy ground and are deeply afraid.&quot;
-The birth lasted several hours. Veronica Atieno bites down on a wooden spoon in order to better tolerate the pain.
-Brian Inganga/ AP
-Brian Inganga wanted to document such a birth because he is worried. He grew up in Kibera himself and knows what it means to live in a slum. &quot;Poverty and danger,&quot; he says. &quot;And now, everything has become even more difficult. The corona crisis is a threat to women. Many have become pregnant against their will because it is almost possible to find contraception, or they were abused at a young age. And women giving birth face great dangers and have no one to turn to.&quot;
-Even before the pandemic, Kenya had one of the highest maternal mortality rates in the world. Although there is hardly any data available yet for 2020, experts and aid organizations believe that the number of women and babies who die during or shortly after birth has risen significantly - not just in Kenya, but around the world.
-A study by Johns Hopkins University, based on mathematical modeling for 118 countries, forecast a worst-case scenario with the additional deaths of 1 million infants and 56,700 mothers in 2020 because of the pandemic. &quot;It is currently difficult to get precise numbers,&quot; says Rebekka Frick, a 43-year-old health expert with Save the Children. &quot;The true effect of the pandemic on the mortality rates of mothers and infants will only become clear in a few years.&quot;
-Rebekka Frick, Save the Children
-In the first published study on the influence of the lockdown on births, an international team of scientists analyzed data from nine hospitals in Nepal. They found that the country&#39;s lockdown led to a reduction of hospital births of almost 50 percent. Stillbirths and infant deaths rose over the same period by roughly the same amount.
-Similar numbers are expected for many other countries. &quot;We are more than concerned,&quot; says Frick. &quot;That is in part due to reports that we have received from countries like Kenya and Bangladesh, but also due to our knowledge of developments that other epidemics have triggered.&quot;
-In some countries in Africa, medical professionals are already sounding the alarm. In Central Hospital, located in the Zimbabwean capital of Harare, seven babies died during childbirth on a single night in late July. A doctor tweeted a photo of the infants, lined up next to each other and wrapped in cloth.
-Doctors in South Africa told the BBC that the maternity ward in the Dora Nginza Hospital in Port Elizabeth is completely overwhelmed. &quot;Several mothers and infants have died&quot; and hospital personnel are &quot;deeply traumatized.&quot;
-In both countries, the deaths were partly blamed on severe staff shortages. The majority of health-care workers must focus on treating COVID-19 patients or have been infected themselves. Others are on strike out of fear for their health - due to shortages of protective equipment like masks and gloves. Disinfectant and medicines are also in short supply due to delivery problems. Pregnant women are often forced to wait for days for urgent operations and they frequently cannot be helped in emergency situations or during birth.
-&quot;The consequences of the pandemic are catastrophic,&quot; says Emma Ingaiza, 32, who works for an NGO called Shining Hope for Communities in Kenya. She has been working almost constantly since the beginning of the corona crisis, helping people in need, including many pregnant women.
-Ingaiza has also read reports recently about the unusual number of stillbirths and mothers dying during birth. &quot;Everyone is panicked due to the coronavirus,&quot; she says. &quot;All protective measures and almost all remaining medical personnel are focused on COVID-19. Pregnant women, mothers and babies are suffering as a result.&quot;
-In Kenya, she says, some medical facilities where up to 30 children were born every night prior to the coronavirus pandemic have had to close due to a shortage of personnel. Women whose contractions begin in the evening, she says, are afraid to leave their homes due to the brutality with which the police have been enforcing the coronavirus curfew, which has been in place since mid-March. Several people have been beaten by the police, she says, because they were outdoors at night. &quot;Including a man who wanted to drive his pregnant wife to the hospital,&quot; says Brian Inganga. &quot;That kind of thing gets around quickly.&quot;
-A baby shortly after a home birth in Mexico City on May 25. Mexico reports a heightened rate of maternal mortality since the spread of the coronavirus.
-In many cases, this has meant home births, with a midwife present in the best-case scenario. But midwives have also had trouble keeping up with demand of late. &quot;Sometimes, they are trying to care for three women with strong contractions, but only have a single pair of gloves,&quot; says Inganga, the photographer, who has been in close contact with several midwives in Nairobi for weeks. &quot;What are they supposed to do then?&quot;
-Midwives in Germany and other wealthy countries have noticed that the limits on social contact and the resulting forced inactivity during the pandemic have been good for many mothers-to-be. One study found that the drop in premature births and other complications is linked to, among other things, lower stress levels.
-But in many other countries around the world -- particularly in poorer ones, where there was a shortage of life-saving medical care for mothers and infants even before the coronavirus pandemic -- there are concerns about rising maternal and infant mortality rates. The World Health Organization (WHO) defines maternal mortality as a situation when a mother dies during pregnancy or up to 42 days after giving birth. Infant mortality refers to deaths during the first 28 days of life.
-For many aid organizations and scientists, numbers from comparable, past epidemics are important indicators for where we stand now. The West African office of the United Nations Population Fund (UNFPA) has issued guidelines based on the lessons learned from the epidemics seen since 2003. During the Ebola epidemic, for example, which wreaked havoc in Guinea, Sierra Leone and Liberia from 2013 to 2016, constraints on medical care led to an alarming rise in maternal mortality.
-UNFPA is thus recommending that the new COVID-19 crisis teams established in many countries increase their focus on women&#39;s health issues.
-An additional problem is ensuring that the health checkups that generally take place before and after birth actually happen. &quot;In many countries, women are no longer coming to the hospitals because they are afraid of corona,&quot; says Rebekka Frick of Save the Children. &quot;They hear that many people are dying there, and they want to protect themselves and their babies.&quot;
-Hilda Argüello Avendaño, a doctor with Observatorio de Mortalidad Materna, an NGO monitoring maternal mortality, says that in Mexico, too, this fear has led pregnant women with complications to only seek hospital care as a last resort. Eight children, including four newborns, recently got infected with the coronavirus in a hospital in Oaxaca.
-&quot;In Mexico, the pandemic has become the primary cause of maternal death,&quot; says Avendaño. Compared to the same period last year, she says, the death rate of mothers has risen by more than 25 percent. By the beginning of August, there were 97 cases of women infected with the coronavirus dying during pregnancy or shortly after giving birth.
-In late May, 24-year-old Karla Lopez Rangel gives birth with the help of a midwife and her husband.
-Gustavo Graf Maldonado / REUTERS
-In around half of those deaths, existing conditions like obesity, diabetes or high blood pressure played a role. The pandemic, though, has revealed social inequalities in the country: Mothers-to-be who do not have insurance and are forced to rely on free state health care face an especially high risk of dying, say doctors, in part because they receive worse care or because care comes too late.
-The decision to forego a visit to the midwife, the doctor or the local clinic doesn&#39;t just have direct consequences for the birth. &quot;Many vaccinations and checkups, both before and after giving birth, are omitted completely,&quot; says Rebekka Frick. &quot;That will have horrific consequences and put great strain on health systems for some time to come.&quot;
-Whether measles, tuberculosis or malaria, coronavirus threatens to significantly hamstring efforts to combat other life-threatening diseases around the world. Medical professionals and NGOs are concerned that millions will die in the coming months and years not from of the coronavirus, but from its consequences - or from other, treatable diseases, because, for example, they avoid going to the doctor for a simple vaccination.
-That is particularly tragic given the huge advances many countries have made in recent decades in lowering mortality rates. Since 2000, deaths among children have fallen by 40 percent while maternal mortality has plunged by more than a third. Those reductions in the infant and maternal death rates are an important element in achieving the third goal of the UN&#39;s Sustainable Development Goals: &quot;Good Health and Well-Being.&quot;
-For this to occur, however, much more attention must be paid to the health of mothers and infants around the world, and governments must avoid neglecting basic medical treatment alongside the treatment of COVID-19 patients.
-Shaniz Joy Juma, the baby from Kenya, about one month after her birth, with her father.
-Brian Inganga/ AP
-In countries like Mexico, there are calls for home births to be better regulated and for them to be state financed. Women in Mexico currently must pay for midwives themselves. Several aid organizations argue in favor of additional mobile intervention teams that could also locate pregnant women in isolated communities in order to provide them with medication and information or, in case of emergency, make it possible for them to be transported to a hospital.
-Brian Inganga, the photographer, wants to accompany the small girl whose birth he witnessed with his camera in the coming years. Shaniz Joy Juma is now two-and-a-half months old. &quot;I’d most like to photograph her when she finishes school,” says Inganga. &quot;I hope she doesn’t get sick.”
-The Global Societies series involves journalists reporting from Asia, Africa, Latin America and Europe about injustices in a globalized world, societal challenges and sustainable development. The features, analyses, photo essays, videos and podcasts, which originally appeared in DER SPIEGEL’s Foreign Desk section, will also appear in the Global Societies section of SPIEGEL International. The project is initially planned to run for three years and receives financial support from the Bill &amp; Melinda Gates Foundation.
-The Bill &amp; Melinda Gates Foundation (BMGF) is funding the project for a period of three years at a total cost of around €2.3 million.
-No. The foundation exerts no influence whatsoever on the stories and other elements that appear in the series.
-Yes. Large European media outlets like the Guardian and El País have similar sections on their websites -- called &quot;Global Development&quot; and &quot;Planeta Futuro,&quot; respectively -- that are likewise funded by the Bill &amp; Melinda Gates Foundation.
-In recent years, DER SPIEGEL has complete two projects with the support of the Bill &amp; Melinda Gates Foundation and the European Journalism Centre (EJC): &quot;Expedition BeyondTomorrow,&quot; about global sustainability goals, and the journalist refugee project &quot;The New Arrivals,&quot; which resulted in several award-winning multimedia features on the issues of migrants and refugees.
-All Global Societies pieces will be published in the Global Societies section of the SPIEGEL International website.
-Midwife Emily Owino cuts the umbilical cord of a newborn girl with a razor blade in Kenya.
-Brian Inganga/ AP
-The birth lasted several hours. Veronica Atieno bites down on a wooden spoon in order to better tolerate the pain.
-Brian Inganga/ AP
-A baby shortly after a home birth in Mexico City on May 25. Mexico reports a heightened rate of maternal mortality since the spread of the coronavirus.
-In late May, 24-year-old Karla Lopez Rangel gives birth with the help of a midwife and her husband.
-Gustavo Graf Maldonado / REUTERS
-Shaniz Joy Juma, the baby from Kenya, about one month after her birth, with her father.
-Brian Inganga/ AP
+Flugzeuge vom Typ 737 Max sollen bald wieder starten dürfen
+Technische Fehler und Aufsichtsversagen haben zu den verheerenden Abstürzen von Boeings Krisenflieger 737 Max geführt. Das ist das Fazit des am Mittwoch in Washington veröffentlichten Abschlussberichts eines Untersuchungsausschusses des US-Repräsentantenhauses. Gegen Boeing und die US-Luftfahrtbehörde FAA werden darin heftige Vorwürfe wegen Schlampereien, Vertuschungen und mangelnder Kontrolle erhoben.
+Laut dem Bericht spielten beim Zustandekommen der Crashs in Indonesien und Äthiopien, die 346 Menschen das Leben kosteten, vor allem vier Punkte eine entscheidende Rolle.
+Der Wunsch, mit der Konkurrenz mitzuhalten, vor allem mit dem Airbus A320 neo, brachte Boeing laut dem Bericht dazu, Produktionszielen und Kostensenkungen eine größere Bedeutung einzuräumen als der Sicherheit.
+Boeing verließ sich auf die Steuersoftware MCAS, die die Nasen der Maschinen gefährlich absenkte.
+Der Konzern hielt entscheidende Informationen vor der US-Flugsicherheitsbehörde FAA zurück.
+Zeitgleich überließ die FAA Aufsichtsaufgaben Boeing-Mitarbeitern.
+&quot;Die Max-Abstürze waren nicht das Ergebnis eines einzelnen Versagens, technischer Fehler oder schlecht gehandhabter Ereignisse&quot;, heißt es in dem insgesamt 245 Seiten langen Dokument. &quot;Sie waren der schreckliche Höhepunkt einer Reihe falscher technischer Annahmen von Boeing-Ingenieuren, mangelnder Transparenz des Managements und einer grob unzureichenden Aufsicht durch die FAA.&quot; Boeing wird in dem Bericht erneut eine &quot;Kultur des Verheimlichens&quot; vorgeworfen.
+Die Anschuldigungen sind nicht neu und waren bereits im März im vorläufigen Abschlussbericht erhoben worden, sie wurden nun aber mit weiteren Indizien untermauert und noch drastischer formuliert.
+Verantwortlich für die Abrechnung mit Boeing und der FAA sind vor allem Abgeordnete der demokratischen Partei, die die Mehrheit im Repräsentantenhaus hat. Einige republikanische Politiker bezeichneten den Bericht gegenüber US-Medien als parteiisch und überzogen.
+Schon bald könnte das Flugverbot für den Boeing-Bestseller 737 Max fallen, der seit nunmehr anderthalb Jahren zwangsweise am Boden bleiben musste. Dafür notwendige Testflüge der FAA und der europäischen Flugaufsicht EASA sind bereits durchgeführt worden. Die 737 Max könnte in den USA schon im November wieder fliegen, in Europa und weiten Teilen der Welt dürfte das Flugverbot etwas später zurückgenommen werden.
+Gerade in dieser Zeit kommt ein erneuter Bericht über die Versäumnisse für Boeing ungelegen. Zudem hat der Konzern Probleme mit dem Langstreckenflieger 787. (Mehr dazu lesen Sie hier.)
+&quot;Wir haben viele harte Lehren aus den Unfällen und aus den Fehlern gezogen, die wir gemacht haben&quot;, teilte Boeing als Reaktion auf den Bericht mit. Auch die FAA räumte Fehler ein: Sie konzentriere sich darauf, durch Verbesserungen in der Organisation, von Prozessen und der Firmenkultur die allgemeine Luftsicherheit zu verbessern&quot;, hieß es in einer Stellungnahme.
+Laut dem Bericht hatten Mitarbeiter Boeing von Problemen mit dem Softwaresystem MCAS berichtet, die Warnungen seien jedoch ignoriert worden. MCAS sollte selbsttätig einen Strömungsabriss verhindern, tatsächlich zwang es aber die Unglücksmaschinen fälschlicherweise in einen Sturzflug.
+Boeing habe &quot;entscheidende Informationen vor der FAA, ihren Kunden und den Piloten selbst&quot; verheimlicht, heißt es in dem Bericht. Die Piloten hätten nicht einmal gewusst, dass es das MCAS überhaupt gab. Das System konnte durch Daten eines einzigen Sensors aktiviert werden. Bevor die 737 MAX wieder in die Luft gehen darf, muss das System so umprogrammiert werden, dass es auf Daten von zwei Sensoren reagiert.
+Flugzeuge vom Typ 737 Max sollen bald wieder starten dürfen
 Melden Sie sich an und diskutieren Sie mit
 </pre></div>
 </div>

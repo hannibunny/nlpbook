@@ -1,0 +1,804 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>2.1.2.1. TextBlob Stemming and Lemmatization &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.1.2.2. Correction of Spelling Errors" href="01LevenstheinDistance.html" />
+    <link rel="prev" title="2. Word Normalisation" href="02normalisation.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hdmlogo.eps" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01access/01access.html">
+   1. Access and Preprocess Text
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="02normalisation.html">
+   2. Word Normalisation
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.1.2.1. TextBlob Stemming and Lemmatization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01LevenstheinDistance.html">
+     2.1.2.2. Correction of Spelling Errors
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03postagging/03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/02normalisation/03StemLemma.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#textblob-objects">
+   2.1.2.1.1. TextBlob objects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#language-detection">
+   2.1.2.1.2. Language Detection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sentences-and-words">
+   2.1.2.1.3. Sentences and Words
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-of-speech-tagging">
+   2.1.2.1.4. Part-of-Speech Tagging
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#word-normalization">
+   2.1.2.1.5. Word Normalization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#singularization">
+     2.1.2.1.5.1. Singularization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lemmatization">
+     2.1.2.1.5.2. Lemmatization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stemming">
+     2.1.2.1.5.3. Stemming
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#word-correction">
+     2.1.2.1.5.4. Word correction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#textblob-de-for-german-language">
+   2.1.2.1.6. TextBlob-DE for German Language
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     2.1.2.1.6.1. Sentences and Words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     2.1.2.1.6.2. Part-of-Speech Tagging
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     2.1.2.1.6.3. Lemmatization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="textblob-stemming-and-lemmatization">
+<h1><span class="section-number">2.1.2.1. </span>TextBlob Stemming and Lemmatization<a class="headerlink" href="#textblob-stemming-and-lemmatization" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Author:      Johannes Maucher</p></li>
+<li><p>Last update: 2020-09-15</p></li>
+</ul>
+<p>In this notebook the application of stemming and lemmatization shall be demonstrated. For this we apply the correponding modules provided by the NLP package <a class="reference external" href="https://textblob.readthedocs.io/en/dev/"><strong>TextBlob</strong></a>. Since stemming and lemmatization both require the segmentation of texts into lists of words, segmentation and other preprocessing-functions of TextBlob are also shown. In notebook <a class="reference internal" href="../01access/05RegularExpressions.html"><span class="doc std std-doc">Regular Expressions</span></a> it has already been demonstrated how to implement segementation in python without additional packages. If you like to go directly to <a class="reference external" href="#word_normalisation">Word Normalisation click here</a>.</p>
+<p><a class="reference external" href="https://textblob.readthedocs.io/en/dev/"><strong>TextBlob</strong></a> is a Python library for Natural Language Processing. It provides a simple API for, e.g.</p>
+<ul class="simple">
+<li><p>Noun phrase extraction</p></li>
+<li><p>Part-of-speech tagging</p></li>
+<li><p>Sentiment analysis</p></li>
+<li><p>Classification</p></li>
+<li><p>Language translation and detection powered by Google Translate</p></li>
+<li><p>Tokenization (splitting text into words and sentences)</p></li>
+<li><p>Word and phrase frequencies</p></li>
+<li><p>Parsing</p></li>
+<li><p>n-grams</p></li>
+<li><p>Word inflection (pluralization and singularization) and lemmatization</p></li>
+<li><p>Spelling correction</p></li>
+<li><p>WordNet integration</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install textblob</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">textblob</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">textblob</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0.15.3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="textblob-objects">
+<h2><span class="section-number">2.1.2.1.1. </span>TextBlob objects<a class="headerlink" href="#textblob-objects" title="Permalink to this headline">¶</a></h2>
+<p>TextBlob objects are like Python strings, which have enhanced with typical NLP processing methods. They are generared as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob1</span><span class="o">=</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;TextBlob is a Python (2 and 3) library for processing textual data. </span>
+<span class="s2">It provides a simple API for diving into common natural language processing (NLP) tasks </span>
+<span class="s2">such as part-of-speech tagging, noun phrase extraction, sentiment analysis, classification, </span>
+<span class="s2">translation, and more. New York is a nice city.&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">myBlob2</span><span class="o">=</span><span class="n">TextBlob</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Das Haus steht im Tal auf der anderen Seite des Berges. Es gehört Dr. med. Brinkmann und wird von der Immo GmbH aus verwaltet. Im Haus befindet sich u.a. eine Physio-Praxis.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="language-detection">
+<h2><span class="section-number">2.1.2.1.2. </span>Language Detection<a class="headerlink" href="#language-detection" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blob1 text language is &quot;</span><span class="p">,</span><span class="n">myBlob1</span><span class="o">.</span><span class="n">detect_language</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blob2 text language is &quot;</span><span class="p">,</span><span class="n">myBlob2</span><span class="o">.</span><span class="n">detect_language</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Blob1 text language is  en
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Blob2 text language is  de
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sentences-and-words">
+<h2><span class="section-number">2.1.2.1.3. </span>Sentences and Words<a class="headerlink" href="#sentences-and-words" title="Permalink to this headline">¶</a></h2>
+<p>The TextBlob class also integrates methods for tokenisation. The corresponding segmentation of the given text into sentences and words can be obtained as follows:</p>
+<p><strong>English text:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">myBlob1</span><span class="o">.</span><span class="n">sentences</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>--------------------
+TextBlob is a Python (2 and 3) library for processing textual data.
+--------------------
+It provides a simple API for diving into common natural language processing (NLP) tasks 
+such as part-of-speech tagging, noun phrase extraction, sentiment analysis, classification, 
+translation, and more.
+--------------------
+New York is a nice city.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob1</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>WordList([&#39;New&#39;, &#39;York&#39;, &#39;is&#39;, &#39;a&#39;, &#39;nice&#39;, &#39;city&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>As can be seen in the example above multi-word expressions, like <em>New York</em> are not detected.</p>
+<p><strong>German text:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">myBlob2</span><span class="o">.</span><span class="n">sentences</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>--------------------
+Das Haus steht im Tal auf der anderen Seite des Berges.
+--------------------
+Es gehört Dr. med.
+--------------------
+Brinkmann und wird von der Immo GmbH aus verwaltet.
+--------------------
+Im Haus befindet sich u.a.
+--------------------
+eine Physio-Praxis.
+</pre></div>
+</div>
+</div>
+</div>
+<p>As can be seen in the example above, segmentation works fine for English texts, but fails for German texts, in particular if the text contains abbreviations, which are not used in English. However, the <a class="reference external" href="https://pypi.python.org/pypi/textblob-de"><strong>TextBlob-DE package</strong></a> provides German language support for <em>TextBlob</em>.</p>
+</div>
+<div class="section" id="part-of-speech-tagging">
+<h2><span class="section-number">2.1.2.1.4. </span>Part-of-Speech Tagging<a class="headerlink" href="#part-of-speech-tagging" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.clips.uantwerpen.be/pages/mbsp-tags">Meaning of POS Tags according to Penn Treebank II tagset</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span><span class="p">,</span><span class="n">pos</span> <span class="ow">in</span> <span class="n">myBlob1</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>TextBlob NNP
+is VBZ
+a DT
+Python NNP
+2 CD
+and CC
+3 CD
+library NN
+for IN
+processing VBG
+textual JJ
+data NNS
+</pre></div>
+</div>
+</div>
+</div>
+<p>Doesn’t work for German:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span><span class="p">,</span><span class="n">pos</span> <span class="ow">in</span> <span class="n">myBlob2</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Das NNP
+Haus NNP
+steht VBD
+im JJ
+Tal NNP
+auf NN
+der NN
+anderen NNS
+Seite NNP
+des NNS
+Berges NNP
+</pre></div>
+</div>
+</div>
+</div>
+<p><a id='word_normalisation'></a></p>
+</div>
+<div class="section" id="word-normalization">
+<h2><span class="section-number">2.1.2.1.5. </span>Word Normalization<a class="headerlink" href="#word-normalization" title="Permalink to this headline">¶</a></h2>
+<p>In NLP the term <em>word normalization</em> comprises methods to map different word forms to a unique form. Word normalization reduces complexity and often improves the NLP task. E.g. in document-classification it usually does not matter in which temporal form a verb is written. The mapping of all temporal forms to the base form reduces the number of words in the vocabulary and likely increases the accuracy of the classifier.</p>
+<div class="section" id="singularization">
+<h3><span class="section-number">2.1.2.1.5.1. </span>Singularization<a class="headerlink" href="#singularization" title="Permalink to this headline">¶</a></h3>
+<p>One form of word normalization is to map all words in plural into the corresponding singular form. With <em>textblob</em> this can be realized as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob6</span><span class="o">=</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;The cars in the streets around Main Square have been observed by policemen&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">myBlob6</span><span class="o">.</span><span class="n">words</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">word</span><span class="o">.</span><span class="n">singularize</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The The
+cars car
+in in
+the the
+streets street
+around around
+Main Main
+Square Square
+have have
+been been
+observed observed
+by by
+policemen policeman
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lemmatization">
+<h3><span class="section-number">2.1.2.1.5.2. </span>Lemmatization<a class="headerlink" href="#lemmatization" title="Permalink to this headline">¶</a></h3>
+<p>Lemmatization maps all distinct forms of a word to the baseform. E.g. the wordforms <code class="docutils literal notranslate"><span class="pre">went,</span> <span class="pre">gone,</span> <span class="pre">going</span></code> are all mapped to the baseform <code class="docutils literal notranslate"><span class="pre">go</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;went&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">))</span> <span class="c1"># mode &quot;v&quot; for verb</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;gone&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;going&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>go
+go
+go
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lemmatization of adverbs and adjectives:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;later&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">))</span> <span class="c1"># mode &quot;a&quot; for adverb/adjective</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;prettier&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;worse&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>late
+pretty
+bad
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lemmatizsation of nouns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;women&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">))</span> <span class="c1"># mode &quot;n&quot; for noun</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>woman
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob3</span><span class="o">=</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;The engineer went into the garden and found the cats lying beneath the trees&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">myBlob3</span><span class="o">.</span><span class="n">words</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">word</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The The
+engineer engineer
+went go
+into into
+the the
+garden garden
+and and
+found find
+the the
+cats cat
+lying lie
+beneath beneath
+the the
+trees tree
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="stemming">
+<h3><span class="section-number">2.1.2.1.5.3. </span>Stemming<a class="headerlink" href="#stemming" title="Permalink to this headline">¶</a></h3>
+<p>The drawback of lemmatization is its complexity. Some languages have a quite regular structure. This means that the different word-forms can be derived from the baseform by a well defined set of rules. In this case the inverse application of these rules can be applied for determining the baseform. However, languages such as German, have many irregular cases. Lemmatization then requires a <em>dictionary</em>, which lists all different word-forms an their corresponding baseform.</p>
+<p>Stemming is simple and less complex alternative to lemmatization. Stemmers map each word to their stem. In contrast to lemmatization the result of stemming need not be a lexical entry (valid word). Stemmers, e.g. the <em>Porter Stemmer</em> apply heuristics for word-suffixes and strip-off found suffixes from the word. E.g. in the word <code class="docutils literal notranslate"><span class="pre">engineer</span></code> a stemmer finds <code class="docutils literal notranslate"><span class="pre">er</span></code> as a frequnet suffix. It strips-off this suffix and outputs the found stem <code class="docutils literal notranslate"><span class="pre">engin</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">myBlob3</span><span class="o">.</span><span class="n">words</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">word</span><span class="o">.</span><span class="n">stem</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The the
+engineer engin
+went went
+into into
+the the
+garden garden
+and and
+found found
+the the
+cats cat
+lying lie
+beneath beneath
+the the
+trees tree
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="word-correction">
+<h3><span class="section-number">2.1.2.1.5.4. </span>Word correction<a class="headerlink" href="#word-correction" title="Permalink to this headline">¶</a></h3>
+<p>Word correction can also be considered as type of normalization. It maps misspelled words to likely correct form.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">=</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;sentense is not tru&quot;</span><span class="p">)</span>
+<span class="n">wcorr</span><span class="o">=</span><span class="n">w</span><span class="o">.</span><span class="n">correct</span><span class="p">()</span>
+<span class="n">wcorr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>TextBlob(&quot;sentence is not true&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="textblob-de-for-german-language">
+<h2><span class="section-number">2.1.2.1.6. </span>TextBlob-DE for German Language<a class="headerlink" href="#textblob-de-for-german-language" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install textblob-de</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">textblob_de</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob4</span><span class="o">=</span><span class="n">textblob_de</span><span class="o">.</span><span class="n">TextBlobDE</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Das Haus steht im Tal auf der anderen Seite des Berges. Es gehört Dr. med. Brinkmann und wird von der Immo GmbH verwaltet. Im Haus befindet sich u.a. eine Physio-Praxis.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">2.1.2.1.6.1. </span>Sentences and Words<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">myBlob4</span><span class="o">.</span><span class="n">sentences</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>--------------------
+Das Haus steht im Tal auf der anderen Seite des Berges.
+--------------------
+Es gehört Dr. med. Brinkmann und wird von der Immo GmbH verwaltet.
+--------------------
+Im Haus befindet sich u.a. eine Physio-Praxis.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob4</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>WordList([&#39;Es&#39;, &#39;gehört&#39;, &#39;Dr&#39;, &#39;med&#39;, &#39;Brinkmann&#39;, &#39;und&#39;, &#39;wird&#39;, &#39;von&#39;, &#39;der&#39;, &#39;Immo&#39;, &#39;GmbH&#39;, &#39;verwaltet&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob4</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">noun_phrases</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>WordList([&#39;Dr. med. Brinkmann&#39;, &#39;Immo GmbH&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">2.1.2.1.6.2. </span>Part-of-Speech Tagging<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob5</span><span class="o">=</span><span class="n">textblob_de</span><span class="o">.</span><span class="n">TextBlobDE</span><span class="p">(</span><span class="s2">&quot;Er ist mit seinen Katzen über drei Tische gesprungen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span><span class="p">,</span><span class="n">tag</span> <span class="ow">in</span> <span class="n">myBlob5</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Er PRP
+ist VBN
+mit IN
+seinen PRP$
+Katzen NNS
+über IN
+drei CD
+Tische JJ
+gesprungen VBN
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3><span class="section-number">2.1.2.1.6.3. </span>Lemmatization<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">myBlob5</span><span class="o">.</span><span class="n">words</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>er
+sein
+mit
+seinen
+Katze
+über
+drei
+Tisch
+gesprungen
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./02normalisation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="02normalisation.html" title="previous page"><span class="section-number">2. </span>Word Normalisation</a>
+    <a class='right-next' id="next-link" href="01LevenstheinDistance.html" title="next page"><span class="section-number">2.1.2.2. </span>Correction of Spelling Errors</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

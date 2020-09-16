@@ -14,29 +14,32 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/togglebutton.js"></script>
-    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
-    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script type="text/javascript">
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="2.1. Correction of Spelling Errors" href="../02normalisation/01LevenstheinDistance.html" />
+    <link rel="prev" title="2.1.2.2. Correction of Spelling Errors" href="../02normalisation/01LevenstheinDistance.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -161,7 +164,14 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pos-tagsets">
+   3.1. PoS Tagsets
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -172,10 +182,93 @@
                 
   <div class="section" id="part-of-speech-tagging">
 <h1><span class="section-number">3. </span>Part-Of-Speech Tagging<a class="headerlink" href="#part-of-speech-tagging" title="Permalink to this headline">¶</a></h1>
+<p>A <em>Part-of-Speech (PoS)</em> is a category of words, that have similar grammatical properties. A simplified set of Part-of-Speeches contains <code class="docutils literal notranslate"><span class="pre">nouns</span></code>, <code class="docutils literal notranslate"><span class="pre">verbs</span></code>, <code class="docutils literal notranslate"><span class="pre">adjectives</span></code>, <code class="docutils literal notranslate"><span class="pre">adverbs</span></code>, <code class="docutils literal notranslate"><span class="pre">determiners</span></code>, etc. For some tasks more detailed categories such as <code class="docutils literal notranslate"><span class="pre">nouns-singular</span></code>, <code class="docutils literal notranslate"><span class="pre">nouns-plural</span></code>, <code class="docutils literal notranslate"><span class="pre">proper</span> <span class="pre">noun</span></code>, etc. are applied.</p>
+<p>In NLP the process of assigning PoS to the given words in a sentence is called <strong>PoS tagging</strong>. Depending of the word’s definition and it’s context (the surrounding words) a <strong>PoS tagger</strong> tries to assign the correct PoS to each word in the given text. PoS-tagging is challenging because many words can have different PoSs, e.g. run, love, …</p>
+<p>Knowing the PoS of the words is of benefit for many applications, e.g.</p>
 <ul class="simple">
-<li><p>Unigram Tagger</p></li>
-<li><p>N-gram Tagger</p></li>
+<li><p>once the PoSs of all words in a sentence are known, a <strong>syntax parser</strong> can calculate the syntactic tree of the sentence and it can determine if the syntactic structure is correct (syntax correction in editors)</p></li>
+<li><p>from the PoS and the position within the syntax-tree the role/function of the word can be and derived, which is a key input form semantic analysis</p></li>
+<li><p>in some NLP applications only words belonging to certain PoSs are required. E.g. for sentiment-analysis adjectives and adverbs are informative, but not determiners.</p></li>
 </ul>
+<figure align="center">
+<img width="300" src="https://maucher.home.hdm-stuttgart.de/Pics/parseTreeMorningFlight.jpg">
+<figcaption><b>Figure:</b> Syntax tree: In order to calculate this syntactic structure, the PoS of each word must be known in advance.</figcaption>
+</figure>
+<p>In this section common PoS and Pos-Tagsets are introduced as well as algorithms for PoS-Tagging. Moreover, it is demonstrated how packages like <em>TextBlob</em> or <em>spaCy</em> can be applied for PoS-Tagging.</p>
+<div class="section" id="pos-tagsets">
+<h2><span class="section-number">3.1. </span>PoS Tagsets<a class="headerlink" href="#pos-tagsets" title="Permalink to this headline">¶</a></h2>
+<p>Depending on the language and the NLP task different tagsets can be applied. Popular English and German tagsets are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html">Penn Treebank Tagset</a></p></li>
+<li><p><a class="reference external" href="https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html">Tagset of Brown Corpus</a></p></li>
+<li><p><a class="reference external" href="http://www.natcorp.ox.ac.uk/docs/c5spec.html">Tagset of the British National Corpus</a></p></li>
+<li><p><a class="reference external" href="https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets/#id-cfcbf0a7-0">Stuttgart-Tübingen-Tagset</a></p></li>
+</ul>
+<p>In NLP tools (e.g. <a class="reference external" href="https://www.nltk.org">NLTK</a>) sometimes a <code class="docutils literal notranslate"><span class="pre">Universal</span> <span class="pre">Tagset</span></code> for English is applied:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Tag</strong></p></th>
+<th class="head"><p><strong>Meaning</strong></p></th>
+<th class="head"><p><strong>Examples</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ADJ</p></td>
+<td><p>adjective</p></td>
+<td><p>new, good, high, special, big, local</p></td>
+</tr>
+<tr class="row-odd"><td><p>ADP</p></td>
+<td><p>adposition</p></td>
+<td><p>on, of, at, with, by, into, under</p></td>
+</tr>
+<tr class="row-even"><td><p>ADV</p></td>
+<td><p>adverb</p></td>
+<td><p>really, already, still, early, now</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONJ</p></td>
+<td><p>conjunction</p></td>
+<td><p>and, or, but, if, while, although</p></td>
+</tr>
+<tr class="row-even"><td><p>DET</p></td>
+<td><p>determiner</p></td>
+<td><p>the, a, some, most, every, no</p></td>
+</tr>
+<tr class="row-odd"><td><p>NOUN</p></td>
+<td><p>noun</p></td>
+<td><p>year, home, costs, time, education</p></td>
+</tr>
+<tr class="row-even"><td><p>NUM</p></td>
+<td><p>number</p></td>
+<td><p>twenty-four, fourth, 1991, 14:24</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRON</p></td>
+<td><p>pronoun</p></td>
+<td><p>he, their, her, its, my, I, us</p></td>
+</tr>
+<tr class="row-even"><td><p>PRT</p></td>
+<td><p>particle</p></td>
+<td><p>at, on, out, over per, that, up, with</p></td>
+</tr>
+<tr class="row-odd"><td><p>VERB</p></td>
+<td><p>verb</p></td>
+<td><p>is, say, told, given, playing, would</p></td>
+</tr>
+<tr class="row-even"><td><p>.</p></td>
+<td><p>punctuation marks</p></td>
+<td><p>. , ; !</p></td>
+</tr>
+<tr class="row-odd"><td><p>X</p></td>
+<td><p>other</p></td>
+<td><p>ersatz, esprit, dunno, univeristy</p></td>
+</tr>
+</tbody>
+</table>
+<p>Some tagsets distinguish quite a lot different tags, some only a few. The resolution depends on</p>
+<ul class="simple">
+<li><p>the NLP tasks: for some tasks a fine-grained differentiation is not required</p></li>
+<li><p>the language: If a language is quite <em>irregular</em>, it does not make sense to distinguish PoS in a fine-grained manner, because a tagger would implement all these irregular cases, what may be too complex. For example in German there is no unique rule for the differentiation in <em>noun-singular</em> and <em>noun-plural</em>. Therefore the Stuttgart-Tübingen-Tagset does not distinguish these two noun-categories. However, in English there is such a rule (append <code class="docutils literal notranslate"><span class="pre">'s</span></code>), which is applicable in nearly all cases. Therefore English Tagsets differentiate these two cases.</p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -206,7 +299,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../02normalisation/01LevenstheinDistance.html" title="previous page"><span class="section-number">2.1. </span>Correction of Spelling Errors</a>
+    <a class='left-prev' id="prev-link" href="../02normalisation/01LevenstheinDistance.html" title="previous page"><span class="section-number">2.1.2.2. </span>Correction of Spelling Errors</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

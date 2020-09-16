@@ -1,0 +1,40 @@
+
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		
+« R 4.0.2 now available |
+	Main
+	| MLOPS with R and GitHub Actions »
+The History of R (updated for 2020)As an update to this post, here's a list of the major events in R history since its creation: The presentation below (slides available here) also covers the history of R through 2020.
+Posted by David Smith at 16:44 in R  | Permalink
+ You can follow this conversation by subscribing to the comment feed for this post.Microsoft support is great!
+But what about Microsoft R Open?
+Should we wait for a new fourth MRO release?
+		Posted by:
+		Дмитрий Карабанов |
+		July 28, 2020 at 06:11
+It is Kurt Hornik, not Kurt Jornik. Please correct. ;)
+		Posted by:
+		Philipp Probst |
+		July 31, 2020 at 01:47
+Fixed, and apologies to Kurt for the typo.
+		Posted by:
+		David Smith |
+		July 31, 2020 at 11:45
+A new version of MRO is about to enter testing, I should have some news to share soon.
+		Posted by:
+		David Smith |
+		July 31, 2020 at 11:46
+That's great news David! Thanks a lot for you and your  team's work on MRO.
+		Posted by:
+		Kevin |
+		August 02, 2020 at 09:29
+
+		Posted by:
+		Wq_yang |
+		August 05, 2020 at 04:11
+Sorry to continue the pestering but has MRO 4.0.2 entered testing yet? I know 3 weeks ago you said it was about to enter testing so I'm just curious if it's there yet. Thanks!
+		Posted by:
+		Matt S |
+		August 19, 2020 at 12:26
+
+	The comments to this entry are closed.

@@ -1,0 +1,30 @@
+
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		
+« Custom Package Repositories in R |
+	Main
+	| The History of R (updated for 2020) »
+R 4.0.2 is now available for download for Windows, Mac and Linux platforms. This update addresses a few minor bugs included in the R 4.0.0 release, and also a significant bug introduced in R 4.0.1 on the Windows platform. Compared to R 4.0.0, the R 4.0.2 update also improves the performance of the merge function, and adds an option to better handle zero-length arguments to the paste and paste0 functions. For the details on the changes in R 4.0.2 follow the link below, and visit your local CRAN mirror to download the update.R-announce mailing list: R 4.0.2 is released
+Posted by David Smith at 15:10 in announcements, R  | Permalink
+ You can follow this conversation by subscribing to the comment feed for this post.Any word on when MRO 4.0+ will be released? Thanks.
+		Posted by:
+		Ajay Mehta |
+		June 26, 2020 at 10:31
+@Ajay, it will be entering testing very soon. I'll announce it here on the blog when it's ready to go.
+		Posted by:
+		David Smith |
+		June 26, 2020 at 10:44
+Thanks for the quick reply, @David! Can't wait!
+		Posted by:
+		Ajay Mehta |
+		June 26, 2020 at 13:36
+
+		Posted by:
+		Fritz Schmitz-Hsu |
+		July 21, 2020 at 01:56
+It's almost a month since the last update. Is it still being developed or has it entered testing already?
+		Posted by:
+		Ajay Mehta |
+		July 22, 2020 at 08:11
+
+	The comments to this entry are closed.

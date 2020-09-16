@@ -1,0 +1,20 @@
+Please double-check the URL, or go back to our home page. For additional help, please contact our customer service team at 1-800-889-8969, (707) 827-7019
+
+<!--
+var name = "support";
+var domain = "oreilly.com";
+var display = "";
+var subject = "";
+var before = ", or ";
+var ending = "";
+var style = "";
+var show;
+if (display) {
+  show = display;
+} else {
+ show = (name + '&#64;' + domain);
+}
+document.getElementById("contact01").innerHTML = (before + '<a target="_blank" class="' + style + '" href="mailto:' + name + '&#64;' + domain + '?subject=' + subject + '">' + show + '</a>' + ending);
+// -->
+
+Take O’Reilly online learning with you and learn anywhere, anytime on your phone and tablet.Do not sell my personal informationExercise your consumer rights by contacting us at donotsell@oreilly.com.© 2020, O’Reilly Media, Inc.  All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.Terms of service • Privacy policy • Editorial independence • Modern Slavery Act Statement

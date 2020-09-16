@@ -14,29 +14,32 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/togglebutton.js"></script>
-    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
-    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script type="text/javascript">
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.1. Correction of Spelling Errors" href="01LevenstheinDistance.html" />
+    <link rel="next" title="2.1.2.1. TextBlob Stemming and Lemmatization" href="03StemLemma.html" />
     <link rel="prev" title="1.6. Access Tweets" href="../01access/06accessTweets.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -89,8 +92,13 @@
   </a>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="03StemLemma.html">
+     2.1.2.1. TextBlob Stemming and Lemmatization
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="01LevenstheinDistance.html">
-     2.1. Correction of Spelling Errors
+     2.1.2.2. Correction of Spelling Errors
     </a>
    </li>
   </ul>
@@ -169,7 +177,26 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#morphology">
+   2.1. Morphology
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inflection-and-word-formation">
+     2.1.1. Inflection and Word-Formation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stemming-and-lemmatisation">
+     2.1.2. Stemming and Lemmatisation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -191,6 +218,50 @@
 <p class="admonition-title">Example</p>
 <p>Consider a search-engine like <a class="reference external" href="https://www.google.com/">google</a>. If you enter your query-words, you like to get the same results independent of the wordform. E.g. the query <code class="docutils literal notranslate"><span class="pre">video</span> <span class="pre">encoding</span></code> shall provide the same result as <code class="docutils literal notranslate"><span class="pre">encode</span> <span class="pre">videos</span></code>. For this all words of the query and all words in the index of the search-engine must be normalised to a unique form. This normalisation does not only provide better results, but it also reduces memory- and time-complexity, because the index is much smaller than without normalisation</p>
 </div>
+<div class="section" id="morphology">
+<h2><span class="section-number">2.1. </span>Morphology<a class="headerlink" href="#morphology" title="Permalink to this headline">¶</a></h2>
+<p>Morphology is the study of <strong>words</strong>, how they are formed, and their relationship to other words in the same language<a class="footnote-reference brackets" href="#f2" id="id2">2</a>.</p>
+<div class="section" id="inflection-and-word-formation">
+<h3><span class="section-number">2.1.1. </span>Inflection and Word-Formation<a class="headerlink" href="#inflection-and-word-formation" title="Permalink to this headline">¶</a></h3>
+<p><strong>Lexeme and word-form:</strong> A lexeme is a set of inflected word-forms. For instance, the lexeme eat contains the word-forms <em>eat</em>, <em>eats</em>, <em>eaten</em>, and <em>ate</em>. <em>Eat</em> and <em>eats</em> are thus considered different word-forms belonging to the same lexeme eat. Eat and Eater, on the other hand, are different lexemes, as they refer to two different concepts. Usuaully, two kinds of morphological rules are distinguished. Some morphological rules relate to <strong>different forms of the same lexeme</strong>, while other rules relate to <strong>different lexemes</strong>. Rules of the first kind are <strong>inflectional rules</strong>, while those of the second kind are rules of <strong>word formation</strong>.<a class="footnote-reference brackets" href="#f2" id="id3">2</a>.</p>
+<figure align="center">
+<img width="600" src="https://maucher.home.hdm-stuttgart.de/Pics/MorphologieZwergBeispiel.png">
+<figcaption><b>Figure:</b> Inflection (Flexion) and Word-formation in German.</figcaption>
+</figure>
+<p>Word-formation can further be distinguished into derivation and compounding (Komposition). The subcategories of inflexion are</p>
+<ul class="simple">
+<li><p>Deklination: Nouns, adjectives, articles, pronouns are declined by gender, number and case. (house, houses, mouse, mice, he, she, it, …)</p></li>
+<li><p>Conjugation: Verbs are conjugated by appendig affixes, which may express tense, mood, voice, aspect, person, or number (I go, he goes, we went, I am going, …)</p></li>
+<li><p>Comparative and superlative of adjectives (small, smaller, the smallest)</p></li>
+</ul>
+</div>
+<div class="section" id="stemming-and-lemmatisation">
+<h3><span class="section-number">2.1.2. </span>Stemming and Lemmatisation<a class="headerlink" href="#stemming-and-lemmatisation" title="Permalink to this headline">¶</a></h3>
+<p>A <strong>morphological parser</strong>, determines for an arbitrary word-form the morphemes and possibly some morphological properties. For example for the given word <em>cities</em> a morphological parser may return the morphem <em>city</em> and the properties <em>Noun</em> and <em>Plural</em>.</p>
+<p>Frequently used subcategories of morphological parsers are <strong>Stemming</strong> and <strong>Lemmatisation</strong>. Both are described in the following subsection.</p>
+<p>Stemming and lemmatization are applied for <em>text normalisation</em>. Their goal is to reduce inflectional forms and sometimes derivationally related forms of a word to a common base form. E.g.</p>
+<p><strong>Lemmatisation</strong> finds the baseform (also called the <em>lemma</em>) of a word, e.g.:</p>
+<ul class="simple">
+<li><p>go, went, gone, going, goes <span class="math notranslate nohighlight">\(\Rightarrow\)</span> go</p></li>
+<li><p>mouse, mice, mouse’s <span class="math notranslate nohighlight">\(\Rightarrow\)</span> mouse</p></li>
+<li><p>smaller, smallest <span class="math notranslate nohighlight">\(\Rightarrow\)</span> small</p></li>
+<li><p>worse <span class="math notranslate nohighlight">\(\Rightarrow\)</span> small</p></li>
+<li><p>factories <span class="math notranslate nohighlight">\(\Rightarrow\)</span> factory</p></li>
+</ul>
+<p>The result of lemmatization is always a valid word. In order to find the baseform a lemmatizer applies morphological rules and dictionaries (for the irregular cases).</p>
+<p><strong>Stemming</strong> finds for given words a corresponding <em>stem</em>. E.g.<a class="footnote-reference brackets" href="#f3" id="id4">3</a></p>
+<ul class="simple">
+<li><p>education <span class="math notranslate nohighlight">\(\Rightarrow\)</span> educ</p></li>
+<li><p>expensive <span class="math notranslate nohighlight">\(\Rightarrow\)</span> expens</p></li>
+<li><p>exploration <span class="math notranslate nohighlight">\(\Rightarrow\)</span> explor</p></li>
+<li><p>cities <span class="math notranslate nohighlight">\(\Rightarrow\)</span> citi</p></li>
+<li><p>better <span class="math notranslate nohighlight">\(\Rightarrow\)</span> better</p></li>
+</ul>
+<p>Stemmers are often implemented in a quite crude way. For example they apply heuristics in order to determine and cut off suffixes and prefixes of words. The determined stem is usually not a valid word. The benefit of stemmers compared to lemmatizers is their simplicity and hence the reduced time to calculate the new representation. Popular Stemmers are <a class="reference external" href="https://de.wikipedia.org/wiki/Porter-Stemmer-Algorithmus">Porter Stemmer</a>, <a class="reference external" href="https://snowballstem.org">Snowball Stemmer</a> and <a class="reference external" href="https://www.scientificpsychic.com/paice/paice.html">Lancaster Stemmer</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tasks like information retrieval (web-search) or document classification may benefit from normalized word representations calculated by stemming and lemmatisation. However, it may also decrease accuracy. In the end, there is no way around evaluating both options in the respective application.</p>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <hr class="docutils" />
@@ -198,7 +269,15 @@
 <dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>An exception is e.g. the task of Part-Of-Speech Tagging in German. Here, the case may provide helpful information.</p>
 </dd>
+<dt class="label" id="f2"><span class="brackets">2</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>)</span></dt>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Morphology_(linguistics)">wikipedia.org</a></p>
+</dd>
+<dt class="label" id="f3"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
+<dd><p>Examples have been calucalted by the <a class="reference external" href="http://textanalysisonline.com/nltk-porter-stemmer">NLTK porter stemmer online version</a></p>
+</dd>
 </dl>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -230,7 +309,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../01access/06accessTweets.html" title="previous page"><span class="section-number">1.6. </span>Access Tweets</a>
-    <a class='right-next' id="next-link" href="01LevenstheinDistance.html" title="next page"><span class="section-number">2.1. </span>Correction of Spelling Errors</a>
+    <a class='right-next' id="next-link" href="03StemLemma.html" title="next page"><span class="section-number">2.1.2.1. </span>TextBlob Stemming and Lemmatization</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

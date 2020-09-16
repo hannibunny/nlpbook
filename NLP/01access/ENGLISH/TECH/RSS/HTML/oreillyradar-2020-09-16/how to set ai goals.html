@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>
+      How to Set AI Goals – O’Reilly     </title>
+
+    <link rel="stylesheet" href="https://cdn.oreillystatic.com/assets/css/wp_sites/style-20200701.css">
+
+    
+    <link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.oreilly.com\/radar\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.3.4"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://www.oreilly.com/radar/wp-includes/css/dist/block-library/style.min.css?ver=5.3.4' type='text/css' media='all' />
+<link rel='stylesheet' id='mo_saml_admin_settings_style-css'  href='https://www.oreilly.com/radar/wp-content/plugins/miniorange-saml-20-single-sign-on/includes/css/jquery.ui.css?ver=5.3.4' type='text/css' media='all' />
+<link rel='stylesheet' id='ssp-frontend-player-css'  href='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/css/player.css?ver=1.20.10' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-content/plugins/miniorange-saml-20-single-sign-on/includes/js/settings.js?ver=5.3.4'></script>
+<link rel="canonical" href="https://www.oreilly.com/radar/how-to-set-ai-goals/" />
+<link rel='shortlink' href='https://www.oreilly.com/radar/?p=13313' />
+
+<link rel="alternate" type="application/rss+xml" title="Podcast RSS feed" href="https://www.oreilly.com/radar/feed/podcast" />
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="language_name" content="English">
+<meta name="native_language_name" content="English">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="icon" type="image/png" href="//www.oreilly.com/favicon.ico">
+
+<!--[if lte IE 9]>
+<script>
+  'article aside footer header main nav section time'.replace(/\w+/g,function(n){document.createElement(n)})
+</script>
+<![endif]-->
+
+<!--[if IE 9]>
+<style type="text/css">
+  #menu-toggle:checked ~ .mobile-nav { display:block; }
+  .mobile-nav { display: none; }
+</style>
+<![endif]-->
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:site" content="@OReillyMedia" />
+<meta property="twitter:title" content="How to Set AI Goals" />
+<meta property="twitter:description" content="Identifying AI opportunities and setting appropriate goals are critical to AI success, and yet can be difficult to do in practice. Some reasons for this include lack of AI literacy, maturity, and many other factors." />
+<meta property="twitter:url" content="https://www.oreilly.com/radar/how-to-set-ai-goals" />
+<meta property="twitter:image" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chess-316658_crop-9aef65643bc850747576e53278360f72-1.jpg" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="O’Reilly Media" />
+<meta property="og:title" content="How to Set AI Goals" />
+<meta property="og:description" content="Identifying AI opportunities and setting appropriate goals are critical to AI success, and yet can be difficult to do in practice. Some reasons for this include lack of AI literacy, maturity, and many other factors." />
+<meta property="og:url" content="https://www.oreilly.com/radar/how-to-set-ai-goals/" />
+<meta property="og:image" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chess-316658_crop-9aef65643bc850747576e53278360f72-1.jpg" />
+<meta name="description" content="Identifying AI opportunities and setting appropriate goals are critical to AI success, and yet can be difficult to do in practice. Some reasons for this include lack of AI literacy, maturity, and many other factors." />
+<meta name="author" content="Alex Castrounis" />
+<meta name="description:site" content="Identifying AI opportunities and setting appropriate goals are critical to AI success, and yet can be difficult to do in practice. Some reasons for this include lack of AI literacy, maturity, and many other factors." />
+<meta property="article:published_time" content="2020-09-15T07:47:38-04:00" />
+<meta name="article:author" content="Alex Castrounis" />
+<meta name="date" content="2020-09-15" />
+<meta name="thumbnail" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chess-316658_crop-9aef65643bc850747576e53278360f72-1.jpg" />
+<meta name="graphic_medium" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chess-316658_crop-9aef65643bc850747576e53278360f72-1.jpg" />
+<meta name="oreilly:content_type" content="text" />
+
+<script>
+  loggedInObject = new Object();
+  var dataLayer = window.dataLayer || [];
+
+  //Check for O'Reilly Unified logged-in status
+  if (document.cookie.split(';').filter(function(item) {
+    return item.indexOf('orm-jwt=') >= 0;
+  }).length) {
+    loggedInObject.loggedIn = 'yes';
+    dataLayer.push(loggedInObject);
+  }
+</script>
+
+
+  <script>
+    dataLayer = [{"content.author":"Alex Castrounis","content.formatType":"article","content.free":"yes","content.identifier":"none","content.parentTopic":"none","content.publisher":"O'Reilly Media Inc.","content.releaseDate":"2020-09-15","content.subTopic":"none","content.subdirectory":"radar","content.title":"How to Set AI Goals","product.identifier":"none","product.title":"none","product.type":"none"}];
+  </script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P4V6Z');</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- Start Visual Website Optimizer Asynchronous Code -->
+<script type='text/javascript'>
+var _vwo_code=(function(){
+var account_id=27087,
+settings_tolerance=2000,
+library_tolerance=2500,
+use_existing_jquery=false,
+// DO NOT EDIT BELOW THIS LINE
+f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+</script>
+<!-- End Visual Website Optimizer Asynchronous Code -->
+
+
+</head>
+<body class="post-template-default single single-post postid-13313 single-format-standard multisite-radar">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P4V6Z" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="skipToMain" id="skipToMain"><a href="#maincontent"><span class="skipToMain-text">Skip to main content</span></a></div>
+
+<header role="banner">
+  <div class="content">
+    <nav role="navigation" aria-label="site sections">
+      <a href="https://www.oreilly.com/" class="logo" title="home page"><img src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg" onerror="this.src='https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red_@2x.png'; this.onerror=null;" alt="O'Reilly home"></a>
+
+      <button id="mobileNavButton" class="mobileNavButton mobileNavButton--collapse mobileNavButton--3dx" type="button" aria-expanded="false" aria-controls="menuList">
+        <span class="mobileNavButton-box">
+          <span class="mobileNavButton-inner"></span>
+        </span>
+      </button>
+
+      <ul id="menuList" class="menuList mobileHidden">
+        <li class="menuList-itemsP1">
+          <ul>
+            <li class="menuList-item menuList-signIn"><a href="https://learning.oreilly.com/accounts/login-check/">Sign In</a></li>
+            <li class="menuList-item menuList-tryNow"><a class="menuList-cta" href="https://oreilly.com/online-learning/try-now.html">Try Now</a></li>
+          </ul>
+        </li>
+        <li class="menuList-itemsP2">
+          <ul>
+            <li class="menuList-item"><a href="https://www.oreilly.com/online-learning/teams.html">Teams</a></li>
+            <li class="menuList-item"><a href="https://www.oreilly.com/online-learning/individuals.html">Individuals</a></li>
+            <li class="menuList-item menuList-itemWithSub"><a href="https://www.oreilly.com/online-learning/features.html">Features</a>
+              <ul class="menuList-subList">
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/feature-certification.html">Certifications</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/intro-interactive-learning.html">Interactive learning</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/live-online-sessions.html">Live online sessions</a></li>
+              </ul>
+            </li>
+            <li class="menuList-item"><a href="https://www.oreilly.com/whats-new.html">What’s New</a></li>
+            <li class="menuList-item menuList-forMarketers"><a href="https://www.oreilly.com/content-marketing-solutions.html">O’Reilly for marketers</a></li>
+            <li class="menuList-item menuList-item-search">
+              <form id="js-searchForm" class="searchForm" action="https://www.oreilly.com/search/"><input id="search" type="search" name="query" placeholder="Explore our content" autocomplete="off" required=""></form>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- <div class="head-search-bar">
+
+    <div class="content">
+      <p>This is where the search bar goes</p>
+    </div>
+  </div> -->
+
+</header>
+
+<main role="main" id="maincontent">
+      <section class="hero hero-wp">
+      <div class="content">
+        <div class="hero-textWrap">
+          <div class="hero-breadcrumbs">
+            <a href="https://www.oreilly.com/radar">Radar</a>           </div>
+          <h1 class="radar-post-page-head">How to Set AI Goals</h1>
+                      <div class="radar-post-page-subhead">
+              <p>Identifying AI opportunities and setting appropriate goals are critical to AI success, and yet can be difficult to do in practice. Some reasons for this include lack of AI literacy, maturity, and many other factors.</p>
+            </div>
+          	      </div>
+      </div>
+    </section>
+
+
+    <section class="textSection post-radar">
+      <div class="content">
+
+                              <div class="radar-post-page-meta">
+              <span class="radar-post-page-author">
+                By <a href="https://www.oreilly.com/people/alex-castrounis/">Alex Castrounis</a>              </span>
+            </div>
+          
+          <div class="radar-post-page-meta">
+            <span class="radar-post-page-date">
+              September 15, 2020            </span>
+          </div>
+        
+        <div class="radar-post-flex-wrap">
+
+          <div class="right-rail" id="right-rail">
+            
+              <div id="post-featured-image" class="post-featured-image">
+                <img width="1400" height="950" src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chess-316658_crop-9aef65643bc850747576e53278360f72-1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Chess." srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chess-316658_crop-9aef65643bc850747576e53278360f72-1.jpg 1400w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chess-316658_crop-9aef65643bc850747576e53278360f72-1-300x204.jpg 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chess-316658_crop-9aef65643bc850747576e53278360f72-1-768x521.jpg 768w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chess-316658_crop-9aef65643bc850747576e53278360f72-1-1048x711.jpg 1048w" sizes="(max-width: 1400px) 100vw, 1400px" />
+                                  <span class="post-featured-image-caption">
+                    Chess. <span class="source-name">(source: <a class="secondary" target="_blank" href="https://pixabay.com/en/chess-strategy-chess-board-316658/" rel="noopener noreferrer">Pixabay</a>)</span>                  </span>
+                                </div>
+
+                        </div>
+
+          <div class="post-radar-content" id="post-radar-content">
+
+            <div class="main-post-radar-content">
+
+              
+              
+              
+              
+              
+              <h2>AI Benefits and Stakeholders</h2>
+
+
+<p>AI is a field where value, in the form of outcomes and their resulting benefits, is created by machines exhibiting the ability to learn and “understand,” and to use the knowledge learned to carry out tasks or achieve goals. AI-generated benefits can be realized by defining and achieving appropriate goals. These goals depend on who the stakeholder is; in other words, the person or company receiving the benefits.</p>
+
+
+
+<p>There are three potential stakeholders for AI applications, with a single application often involving all three. They are business stakeholders, customers, and users. Each type of stakeholder has different and unique goals; each group is most interested in having their specific objectives met, or problems solved. My book, <a href="https://learning.oreilly.com/library/view/ai-for-people/9781492036562/"><em>AI for People and Business</em></a>, introduces a framework that highlights the fact that both people and businesses can benefit from AI in unique and different ways.</p><div class="ZXeziafm"><div itemscope="" itemtype="http://schema.org/Product" class="inline-cta trial-cta" id="trial-cta">
+  <div class="thumb">
+    <a href="https://www.oreilly.com/online-learning/">
+      <img itemprop="image" src="https://d3ansictanv2wj.cloudfront.net/safari-topic-cta-1f60e6f96856da19ba3cb25660472ca5.jpg" class="">
+    </a>
+  </div>
+  <div class="title">
+    <h2>
+      Learn faster. Dig deeper. See farther.
+    </h2>
+  </div>
+   <div class="meta">
+    <p class="dek">Join the O'Reilly online learning platform. Get a free trial today and find answers on the fly, or master something new and useful.</p>
+    <a href="https://www.oreilly.com/online-learning/" class="textCTA-small more">Learn more</a>
+  </div>
+</div></div>
+
+
+
+<p>A typical social media platform needs to satisfy all three stakeholders. In the case of Twitter, the business stakeholder’s top goals are likely centered around profits and revenue growth. Customer stakeholders are the people and companies that advertise on the platform, and are most concerned with ROI on their ad spend. User stakeholders are interested in benefiting from the platform&#8217;s functionality: staying up-to-date, quickly finding new people and topics to follow, and engaging with family and friends.</p>
+
+
+
+<p>Goals should be defined specifically and at a granular level for each stakeholder and relevant use case. Twitter has no doubt went through this exercise long ago; but if we imagine Twitter taking its first steps towards AI, some specific and granular goals could be to build a recommendation engine that helps users find the most relevant people to follow (a goal for users), while also building an AI-powered advertising targeting engine that best matches ads with those most likely to be interested in the product or service being advertised (for customers). This in turn would increase the platform&#8217;s value for users and thus increase engagement, which would result in more eyes to see and interact with ads, which would mean better ROI on ad spend for customers, which would then achieve the goal of increased revenue and customer retention (for business stakeholders). The key is to start with small and easily identifiable AI projects that will trickle value upwards towards a company’s highest priority goals.</p>
+
+
+
+<h2>AI Goals as a Function of Maturity</h2>
+
+
+
+<p>For companies early in their AI journey, setting appropriate goals helps create a foundation from which to build AI maturity. It also helps companies learn how to translate existing AI capabilities into solving specific real-world problems and use cases. In my book, I introduce the Technical Maturity Model:</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/ysS_w5yak3mxD14drl8SHqE9_de9IUqXb18lgIhjvDCbI65Vfie2jMcnKWtf4IxU_gw5MqJO5_tIqacnGZ4j7FneyYUFQ673sUdRlPyZodDy33fJ2o3nyHKPagON5zv5nr-qCgjx" alt="" /></figure>
+
+
+
+<p>I define technical maturity as a combination of three factors at a given point of time. These factors are:</p>
+
+
+
+<ul><li>Experience: More experience usually results in increased muscle memory, faster progress, and greater efficiency. Teams with more experience with techniques such as natural language processing and computer vision are more likely to be successful building new applications using the same techniques. They’re not new to the field; they’ve solved problems, and have discovered what does and doesn’t work.</li><li>Technical sophistication: Sophistication measures a team’s ability to use advanced tools and techniques (e.g., PyTorch, TensorFlow, reinforcement learning, self-supervised learning). When new tools appear, they can decide quickly whether they’re worth while, and get up to speed. They’re on top of the research, and are capable of evaluating and experimenting with new ideas.</li><li>Technical competence: Competence measures a team’s ability to successfully deliver on initiatives and projects.  They have previously built similar, successful AI applications, and are thus highly confident and relatively accurate in estimating the time, effort, and cost required to deliver again. Technical competence results in reduced risk and uncertainty.</li></ul>
+
+
+
+<p>There’s a lot of overlap between these factors.  Defining them precisely isn’t as important as the fact that you need all three. Higher levels of experience, technical sophistication, and technical competence increase technical maturity. Increased AI technical maturity boosts certainty and confidence, which in turn, results in better and more efficient AI-powered outcomes and success.</p>
+
+
+
+<p>Technical maturity is a major factor behind why some companies are very successful with AI, while other companies struggle to get started and/or achieve success.</p>
+
+
+
+<h2>The Challenge with Defining AI Goals</h2>
+
+
+
+<p>Turning an AI idea into actual benefits is difficult and requires the “right” goals, leadership, expertise, and approach. It also requires buy-in and alignment at the C-level.</p>
+
+
+
+<p>Identifying, prioritizing, and goal-setting for AI opportunities is a multi-functional team effort that should include business folks, domain experts, and AI practitioners and researchers. This helps ensure alignment with company goals, while also including necessary business and domain expertise. AI initiatives may also require significant considerations for governance, compliance, ethics, cost, and risk.</p>
+
+
+
+<p>Further, while the technical details of AI are complex, the outputs of AI techniques are relatively simple. In most cases, AI solutions are built to map a set of inputs to one or more outputs, where the outputs fall into a small group of possibilities. Outputs from trained AI models include numbers (continuous or discrete), categories or classes (e.g., spam or not-spam), probabilities, groups/segments, or a sequence (e.g., characters, words, or sentences).</p>
+
+
+
+<p>Therefore, AI techniques don’t just solve real-world problems out of the box. They don’t automatically generate revenue and growth, maximize ROI, or keep users engaged and loyal. Likewise, AI doesn’t inherently optimize supply chains, detect diseases, drive cars, augment human intelligence, or tailor promotions to different market segments.</p>
+
+
+
+<p>Setting a company-wide goal of reducing customer churn by 25% is great, but, unfortunately, is far too broad for most AI applications. That’s why customer churn reduction is not a natural output of AI techniques. The mismatch between goals like reducing customer churn and actual AI outputs must be properly handled and mapped.</p>
+
+
+
+<h2>Why and How to Set Good AI Goals</h2>
+
+
+
+<p>AI goals should be appropriate for a given company&#8217;s technical maturity, and should be chosen to maximize the likelihood of success, prove value, and build a foundation from which to create increasingly sophisticated AI solutions that achieve higher-level business goals. A crawl, walk, run approach is a good analogy for this.</p>
+
+
+
+<p>Goals should be well-formed, meaning they are stakeholder-specific, map actual AI outputs to applications and use cases that achieve business goals, and are appropriately sized. For companies early in their AI maturity, appropriately-sized goals mean that they should be small and specific enough to experiment with, and prove potential value from, relatively quickly (think lean methodologies and incremental). As AI maturity increases, a non-incremental, holistic, and organization-wide AI vision and strategy should be created to achieve hierarchically-aligned AI goals of varying granularity—goals that drive all AI initiatives and development. This should be accompanied by a transition from incremental thinking to big vision, “<a href="https://www.innoarchitech.com/blog/applied-artificial-intelligence-ai-transformation-aipb-framework">applied AI transformation</a>” thinking.</p>
+
+
+
+<p>Let’s consider the overall goal of reducing customer churn. In an early stage of AI maturity, we can build AI solutions that reduce search friction (e.g., Netflix and Amazon recommendation engines), increase stickiness through personalized promotions and content that is more relevant and engaging, create a predictive model to identify customers most likely to churn and take appropriate preventative actions, or automate and optimize results in areas that are outside of a person’s primary area of expertise (e.g., automated retirement portfolio rebalancing and maximized ROI). When transitioning to developing a bigger AI vision and strategy, we may create a prioritized product roadmap consisting of a suite of recommendation engines and an AI-based personalized loyalty program, for example.</p>
+
+
+
+<p>At the individual goal level, and for each well-formed goal, the same multi-functional team mentioned earlier must work collaboratively to determine what AI opportunities are available, select and prioritize the ones to pursue, and determine the technical feasibility of each.</p>
+
+
+
+<p>There are frameworks like<a href="https://www.mindtools.com/pages/article/smart-goals.htm"> SMART</a> to help characterize well-formed goals, but since AI is a field that I characterize as scientific innovation (like R&amp;D), characteristics like being achievable and time-bound may not be the best goals. Results are typically achieved through a scientific process of discovery, exploration, and experimentation, and these processes are not always predictable.</p>
+
+
+
+<p>Given the scientific nature of AI, goals are better expressed as well-posed questions and hypotheses around a specific and intended benefit or outcome for a certain stakeholder. With well-formed goals, data scientists and machine learning engineers can then apply the scientific method to test different approaches in order to determine the validity of the hypothesis, and assess whether a given approach is feasible and can achieve the goal.</p>
+
+
+
+<p>For example, by introducing the “Frequently bought together” recommendations (and other recommendations), Amazon was able to increase average customer shopping cart size and order amount (i.e., up-sell and cross-sell), which in turn increases average revenue per customer, which in turn increases Amazon’s e-commerce generated revenue per quarter. <a href="https://www.mckinsey.com/industries/retail/our-insights/how-retailers-can-keep-up-with-consumers">McKinsey estimates</a> that up to 35% of Amazon’s revenue and 75% of everything watched on Netflix comes from AI-powered recommendations.</p>
+
+
+
+<p>But when defining an AI project, the goal or hypothesis in this case isn’t to increase top-line revenue for the company, but rather to posit that building an application that groups products by likelihood to be purchased together will increase average customer order size, which in turn will have an upward impact on top level goals like increasing average revenue per customer and top-line revenue.</p>
+
+
+
+<p>Another example would be setting a goal around building a well-performing AI model that can predict demand (number of units likely to be purchased) for a specific product for a given day, time, and weather conditions. If accurate, this prediction can help a retailer ensure that they do not run out of stock, which means that there is no lost revenue because a product is out of stock. An added benefit is improved customer experience, which results in happier and more loyal customers who are able to buy the products they want whenever they want to buy it. This same approach can be applied to virtually any other application of AI.</p>
+
+
+
+<h2>Conclusion</h2>
+
+
+
+<p>AI and machine learning technologies have come a long way in terms of capabilities and accessibility, but off-the-shelf AI solutions aren’t yet available for specific industries or business domains, companies, sets of data, applications, and use cases. The key to success with AI is assembling a multi-functional team that defines appropriate goals, then letting these goals drive the AI initiatives and projects.</p>
+
+                          </div>
+
+                        
+            <div class="post-radar-end">
+
+              
+                              <div class="radar-post-page-meta" >
+      Post topics: <a href="https://www.oreilly.com/radar/topics/ai-ml/" title="AI &amp; ML">AI &amp; ML</a></div>              
+                              <div class="radar-post-page-meta" >
+      Post tags: <a href="https://www.oreilly.com/radar/tag/deep-dive/" title="Deep Dive">Deep Dive</a></div>              
+              <div class="radar-post-page-meta radar-post-page-meta-share">
+                Share:
+                <ul>
+                  <li>
+                    <a data-via="oreillymedia" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=How to Set AI Goals">Tweet</a>                  </li>
+                  <li>
+                    <div class="fb-share-button" data-href="https://www.oreilly.com/radar/how-to-set-ai-goals" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>                  </li>
+                  <li>
+                    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+    <script type="IN/Share"></script>                  </li>
+                </ul>
+              </div>
+
+              <!-- Marketo -->
+<link rel="stylesheet" type="text/css" href="https://www.oreilly.com/radar/wp-content/themes/odot/files/mkto-multiform-subscribe-20190821.css">
+<script src="https://get.oreilly.com/js/forms2/js/forms2.min.js" type="text/javascript"></script>
+<div class="radar-newsletter inline-nls" id="newsletter">
+	<h2>Get the O’Reilly Artificial Intelligence Newsletter</h2>
+	<div class="newsletter-text">
+		<p>Receive weekly insight from industry insiders—plus exclusive content, offers, and more on the topic of AI.</p>
+		<a href="http://www.oreilly.com/emails/newsletters/?display=preview#ai" target="_blank" data-source="http://www.oreilly.com/emails/newsletters/?display=preview#ai">View sample newsletter</a>
+		<div class="mktoForm-email large -medium -small smallContainer">
+			<form class="mktoForm subscribe" data-formid="1114" data-forminstance="topicRow" data-formtopic="AI"></form>
+		</div>
+	</div>
+	<div class="newsletter-quote">
+		<blockquote>
+			<p>We&rsquo;re just at the beginning of an explosion of intelligent software.</p>
+			<footer>— <strong>Tim O&rsquo;Reilly</strong></footer>
+		</blockquote>
+	</div>
+	</div>
+<div class="radar-newsletter inline-nls" id="newsletter2">
+	<h2>Get the O’Reilly Artificial Intelligence Newsletter</h2>
+	<div class="newsletter-text">
+		<p>Receive weekly insight from industry insiders—plus exclusive content, offers, and more on the topic of AI.</p>
+		<a href="http://www.oreilly.com/emails/newsletters/?display=preview#ai" target="_blank" data-source="http://www.oreilly.com/emails/newsletters/?display=preview#ai">View sample newsletter</a>
+		<div class="mktoForm-email large -medium -small smallContainer">
+			<form class="mktoForm subscribe" data-formid="1114" data-forminstance="topicRow" data-formtopic="AI"></form>
+		</div>
+	</div>
+	</div>
+<script src="https://cdn.oreillystatic.com/assets/js/mkto-multiform-subscribe-20190814.js" type="text/javascript"></script>
+                
+              <script type="text/javascript" src="https://www.oreilly.com/radar/wp-content/themes/odot/files/cta-191118.js"></script>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+  
+<!-- twitter button script  -->
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="content">
+
+      <div class="footer-main" aria-label="company info">
+        <div class="footer-mainLeft">
+          <div class="footer-mainLeftOne">
+            <div class="footer-approach">
+              <h2 class="footer-header"><a href="https://www.corp.oreilly.com/about/">About O’Reilly</a></h2>
+              <ul class="footer-links">
+                <li><a href="https://www.corp.oreilly.com/work-with-us.html">Teach/write/train</a></li>
+                <li><a href="https://www.corp.oreilly.com/careers/">Careers</a></li>
+                <li><a href="https://www.corp.oreilly.com/partner/signup.csp">Community partners</a></li>
+                <li><a href="https://www.corp.oreilly.com/affiliates/">Affiliate program</a></li>
+                <li><a href="https://www.corp.oreilly.com/diversity/">Diversity</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-mainLeftTwo">
+            <div class="footer-contact">
+              <h2 class="footer-header"><a href="https://www.corp.oreilly.com/online-learning/support/">Support</a></h2>
+
+              <ul class="footer-links">
+                <li><a href="https://www.corp.oreilly.com/about/contact.html">Contact us</a></li>
+                <li><a href="https://www.corp.oreilly.com/emails/newsletters/">Newsletters</a></li>
+                <li><a href="https://www.corp.oreilly.com/privacy.html">Privacy policy</a></li>
+              </ul>
+            
+              <a href="https://twitter.com/oreillymedia" target="_blank"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve"><style type="text/css">.st0{fill:#ee0000;}.st1{fill:#FFFFFF;}</style><g id="Red"><circle class="st0" cx="200" cy="200" r="200"/></g><g id="Logo__x2014__FIXED"><path class="st1" d="M163.4,305.5c88.7,0,137.2-73.5,137.2-137.2c0-2.1,0-4.2-0.1-6.2c9.4-6.8,17.6-15.3,24.1-25 c-8.6,3.8-17.9,6.4-27.7,7.6c10-6,17.6-15.4,21.2-26.7c-9.3,5.5-19.6,9.5-30.6,11.7c-8.8-9.4-21.3-15.2-35.2-15.2 c-26.6,0-48.2,21.6-48.2,48.2c0,3.8,0.4,7.5,1.3,11c-40.1-2-75.6-21.2-99.4-50.4c-4.1,7.1-6.5,15.4-6.5,24.2 c0,16.7,8.5,31.5,21.5,40.1c-7.9-0.2-15.3-2.4-21.8-6c0,0.2,0,0.4,0,0.6c0,23.4,16.6,42.8,38.7,47.3c-4,1.1-8.3,1.7-12.7,1.7 c-3.1,0-6.1-0.3-9.1-0.9c6.1,19.2,23.9,33.1,45,33.5c-16.5,12.9-37.3,20.6-59.9,20.6c-3.9,0-7.7-0.2-11.5-0.7 C110.8,297.5,136.2,305.5,163.4,305.5"/></g></svg></a>
+              <a href="https://www.facebook.com/OReilly/" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>facebook-logo</title><path class="cls-1" d="M16.13,0A16.13,16.13,0,1,0,32.25,16.12,16.13,16.13,0,0,0,16.13,0Zm5.12,9.54H19.57a1.52,1.52,0,0,0-1.51,1.51v1.14h3.19v3.42H18.06V26.12H13.57V15.61H10.69V12.19h2.88v-2a4,4,0,0,1,4-4h3.65Z"/></svg></a>
+              <a href="https://www.linkedin.com/company/oreilly-media" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>linkedin-logo</title><path class="cls-1" d="M17.43,13.53v0l0,0ZM16.12,0A16.13,16.13,0,1,0,32.25,16.12,16.12,16.12,0,0,0,16.12,0ZM11.77,22.92H8.12v-11h3.65ZM9.94,10.44h0a1.89,1.89,0,0,1-2-1.89A1.91,1.91,0,0,1,10,6.65a1.9,1.9,0,1,1,0,3.79Zm15,12.48H21.28V17.05c0-1.48-.53-2.49-1.85-2.49a2,2,0,0,0-1.88,1.34,2.63,2.63,0,0,0-.12.89v6.13H13.79s.05-10,0-11h3.64V13.5a3.63,3.63,0,0,1,3.29-1.82c2.4,0,4.21,1.57,4.21,4.95Z"/></svg></a>
+              <a href="https://www.youtube.com/user/OreillyMedia" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>youtube-logo</title><path class="cls-1" d="M18.35,18.68a.89.89,0,0,0-.86.63V16.94h-1v7.59h1v-.59a.92.92,0,0,0,.89.74c.52,0,.86-.36,1-1.07a8.56,8.56,0,0,0,.14-1.9,10.47,10.47,0,0,0-.12-1.93C19.21,19.05,18.87,18.68,18.35,18.68Zm.09,4.14c-.05.52-.2.77-.45.77s-.43-.21-.49-.63a7.22,7.22,0,0,1,0-1c0-.72,0-1.14,0-1.26.07-.58.23-.88.51-.88s.4.27.46.79c0,.09,0,.47,0,1.13S18.46,22.71,18.44,22.82ZM8.61,18.19H9.86v6.34H11V18.19H12.2V16.94H8.61Zm7.71-6.12c.27,0,.43-.22.49-.66,0-.09,0-.45,0-1.07V9.78c0-.58,0-.93,0-1-.07-.43-.23-.65-.48-.65s-.41.19-.48.57a8.79,8.79,0,0,0,0,1v.53c0,.71,0,1.09,0,1.16C15.88,11.82,16.05,12.07,16.32,12.07Zm-1.74,10.4a2.92,2.92,0,0,1-.06.71c-.07.25-.2.37-.4.37s-.32-.11-.38-.34a2.63,2.63,0,0,1-.05-.66V18.83h-1v4.48c0,.91.33,1.37,1,1.37A1,1,0,0,0,14.6,24v.57h1v-5.7h-1Zm7.1-3.79a1.35,1.35,0,0,0-1.22.59,2.48,2.48,0,0,0-.3,1.07c0,.23,0,.61,0,1.16s0,1.13,0,1.37a2.93,2.93,0,0,0,.35,1.27,1.25,1.25,0,0,0,1.14.54,1.36,1.36,0,0,0,1.13-.45,2.29,2.29,0,0,0,.37-1.43s0-.07,0-.11v-.12h-1c0,.75-.17,1.12-.51,1.12s-.38-.18-.45-.56a4.68,4.68,0,0,1-.06-.9c0-.18,0-.31,0-.37h2v-.43a4.86,4.86,0,0,0-.3-2.11A1.28,1.28,0,0,0,21.68,18.68ZM22.15,21h-1c0-.05,0-.11,0-.16v-.08a1.64,1.64,0,0,1,.11-.8.39.39,0,0,1,.38-.23.42.42,0,0,1,.43.33,2.32,2.32,0,0,1,.07.7Zm-6-21A16.13,16.13,0,1,0,32.25,16.12,16.12,16.12,0,0,0,16.12,0Zm2.51,7.2h1V11a2.52,2.52,0,0,0,.06.66c.06.23.18.34.38.34s.34-.12.41-.37a3.76,3.76,0,0,0,.05-.71V7.2h1v5.74h-1v-.57a1,1,0,0,1-.93.72c-.66,0-1-.46-1-1.38ZM15,8a1.29,1.29,0,0,1,1.33-.92A1.3,1.3,0,0,1,17.65,8a6.77,6.77,0,0,1,.23,2.1,6.77,6.77,0,0,1-.23,2.1,1.3,1.3,0,0,1-1.32.92A1.29,1.29,0,0,1,15,12.17a6.77,6.77,0,0,1-.23-2.1A6.86,6.86,0,0,1,15,8ZM11.45,5.3l.89,2.87.88-2.87H14.4L12.88,9.7v3.24h-1.1V9.7L10.24,5.3ZM24.93,23.91a3,3,0,0,1-3,3h-12a3,3,0,0,1-3-3V18.05a3,3,0,0,1,3-3h12a3,3,0,0,1,3,3Z"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-download" id="download-info">
+          <h2 class="footer-header">Download the O&rsquo;Reilly App</h2>
+
+          <div class="footer-downloadLinks">
+            <a href="https://itunes.apple.com/us/app/safari-to-go/id881697395"><img src="https://cdn.oreillystatic.com/oreilly/images/app-store-logo.png" alt="Apple app store" /></a>
+            <a href="https://play.google.com/store/apps/details?id=com.safariflow.queue"><img src="https://cdn.oreillystatic.com/oreilly/images/google-play-logo.png"  alt="Google play store" /></a>
+          </div>
+
+          <p>Take O&rsquo;Reilly online learning with you and learn anywhere, anytime on your phone <span class="nowrap">and tablet.</span></p>
+
+          <ul>
+            <li>Get unlimited access to books, videos, and <span class="nowrap">live training.</span></li>
+            <li>Sync all your devices and never lose your place.</li>
+            <li>Learn even when there’s no signal with <span class="nowrap">offline access.</span></li>
+          </ul>
+        </div>
+        
+        <div class="footer-donotsell" id="donotsell-info">
+          <h2 class="footer-header">Do not sell my personal information</h2>
+
+          <p style="line-height: 1.5em;">Exercise your consumer rights by contacting us at <a href="mailto:donotsell@oreilly.com?subject=Do Not Sell My Personal Information Request" style="text-decoration:underline;">donotsell@oreilly.com</a>.</p>
+        </div>
+      </div>
+
+      <div class="footer-subfooter">
+
+        <a href="https://www.oreilly.com/" title="home page" aria-current="page">
+          <img 
+          class="footer-subfooterLogo" 
+          id="footer-subfooterLogo"
+          src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg" 
+          onerror="this.src='https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red_@2x.png'; this.onerror=null;" 
+          alt="O'Reilly home">
+        </a>
+
+        <p>&copy; 2020, O&rsquo;Reilly Media, Inc.  All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+        <p><a href="https://www.oreilly.com/terms/">Terms of service</a> • <a href="https://www.oreilly.com/privacy.html">Privacy policy</a> • <a href="https://www.oreilly.com/about/editorial_independence.html">Editorial independence</a></p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- <script src="https://cdn.oreillystatic.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+
+  <script>
+  (function($) {
+    //Toggle isActive and mobileHidden classes for mobileNavButton
+    $('nav #mobileNavButton').on('click', function() {
+      var expanded = $(this).attr('aria-expanded') === 'true' || false;
+      $(this).attr('aria-expanded', !expanded);
+      $(this).toggleClass("isActive");
+      $(this).next().toggleClass("mobileHidden");
+    });
+
+    //Toggle isFocused class for keyboard navigation of submenus
+    $('nav #menuList .menuList-subItem a').each(function(navItem) {
+      $(this).on('focus', function() {
+        $(this).parent().parent().toggleClass('isFocused');
+      });
+      $(this).on('blur', function() {
+        $(this).parent().parent().toggleClass('isFocused');
+      });
+    });
+
+    //Toggle mobileHidden class accordian elements
+    $('.mobileAccordian').each(function() {
+      var $btn = $(this).find('button');
+      var $target =  $(this).next();
+      $btn.on('click', function() {
+        var expanded = $btn.attr('aria-expanded') === 'true' || false;
+
+        $btn.attr('aria-expanded', !expanded);
+        $target.toggleClass("mobileHidden");  
+      });
+    });
+
+    // truncate months in footer conf listings
+    var months = $('.confMonth');
+    months.each(function(){    
+      var m = $(this).text();        
+      if(m.length < 3 ) return;
+      $(this).html(m.slice(0,3));
+    });
+
+    //Search platform form action
+    function searchSubmit(e) {
+      e.preventDefault();
+      sParameter = searchForm.search.value;
+      sParameter = encodeURIComponent(sParameter.trim());
+      sURL = searchForm.action + '?query=' + sParameter;
+      window.location = sURL;
+
+      //GA event for search
+      dataLayer.push({
+        'event': 'eventTracker',
+        'eventCat':'site search',
+        'eventAct':'search box',
+        'eventLbl':'explore our content',
+        'eventVal':0, 
+        'nonInteraction': 0,
+      });
+    }
+    const searchForm = document.getElementById('js-searchForm');
+    searchForm.addEventListener('submit', searchSubmit);
+  })(jQuery);
+  </script>
+
+  		<style type="text/css">
+			.ssp-wave wave wave {
+				background: #00d4f7 !important;
+			}
+		</style>
+		<script type='text/javascript' src='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/js/media.player.js?ver=1.20.10'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/js/html5.player.js?ver=1.20.10'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/wp-embed.min.js?ver=5.3.4'></script>
+
+  <script type="text/javascript" id="MathJax-script">
+
+    var math = document.getElementsByClassName('math-tex');
+    if (math.length > 0) includeMathJax();
+    function includeMathJax() {
+      var head = document.getElementsByTagName('head')[0];
+      var script = document.createElement('script');
+      script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+      script.type = 'text/javascript';
+      script.async = 'async';
+      head.appendChild(script)
+    }   
+  </script>
+  </body>
+</html>
