@@ -11,8 +11,11 @@
         - file: 01access/06accessTweets.ipynb
     - file: 02normalisation/02normalisation
       sections:
+        - file: 02normalisation/01morphology
         - file: 02normalisation/03StemLemma.ipynb
         - file: 02normalisation/01LevenstheinDistance.ipynb
     - file: 03postagging/03postagging
+      sections:
+        - file: 03postagging/01tagsetsAndAlgorithms
 
   

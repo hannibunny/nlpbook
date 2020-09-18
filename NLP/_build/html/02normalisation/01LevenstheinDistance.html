@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>2.1.2.2. Correction of Spelling Errors &#8212; Natural Language Processing Lecture</title>
+    <title>2.3. Correction of Spelling Errors &#8212; Natural Language Processing Lecture</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3. Part-Of-Speech Tagging" href="../03postagging/03postagging.html" />
-    <link rel="prev" title="2.1.2.1. TextBlob Stemming and Lemmatization" href="03StemLemma.html" />
+    <link rel="prev" title="2.2. TextBlob Stemming and Lemmatization" href="03StemLemma.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -59,7 +59,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
   
-  <img src="../_static/hdmlogo.eps" class="logo" alt="logo">
+  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
@@ -92,13 +92,18 @@
   </a>
   <ul class="current">
    <li class="toctree-l2">
+    <a class="reference internal" href="01morphology.html">
+     2.1. Morphology
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="03StemLemma.html">
-     2.1.2.1. TextBlob Stemming and Lemmatization
+     2.2. TextBlob Stemming and Lemmatization
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     2.1.2.2. Correction of Spelling Errors
+     2.3. Correction of Spelling Errors
     </a>
    </li>
   </ul>
@@ -180,22 +185,22 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overall-process">
-   2.1.2.2.1. Overall Process
+   2.3.1. Overall Process
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#levensthein-distance">
-   2.1.2.2.2. Levensthein Distance
+   2.3.2. Levensthein Distance
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#algorithm-for-calculating-levensthein-distance">
-     2.1.2.2.2.1. Algorithm for Calculating Levensthein Distance:
+     2.3.2.1. Algorithm for Calculating Levensthein Distance:
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#implementation-of-levensthein-algorithm">
-     2.1.2.2.2.2. Implementation  of Levensthein Algorithm
+     2.3.2.2. Implementation  of Levensthein Algorithm
     </a>
    </li>
   </ul>
@@ -211,13 +216,13 @@
               <div>
                 
   <div class="section" id="correction-of-spelling-errors">
-<h1><span class="section-number">2.1.2.2. </span>Correction of Spelling Errors<a class="headerlink" href="#correction-of-spelling-errors" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2.3. </span>Correction of Spelling Errors<a class="headerlink" href="#correction-of-spelling-errors" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>Author: Johannes Maucher</p></li>
 <li><p>Last Update: 2020-09-09</p></li>
 </ul>
 <div class="section" id="overall-process">
-<h2><span class="section-number">2.1.2.2.1. </span>Overall Process<a class="headerlink" href="#overall-process" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.1. </span>Overall Process<a class="headerlink" href="#overall-process" title="Permalink to this headline">¶</a></h2>
 <p>Correction of misspelled words requires</p>
 <ul class="simple">
 <li><p>the detection of an error</p></li>
@@ -227,14 +232,14 @@
 <p>The detection of an erroneous word can be done by just checking if the given word is contained in the underlying vocabulary. If the word is not contained in the vocabulary a <strong>statistical language model</strong> (see chapter xxx) is applied in order to determine the most probable words at the given position for the given context - the context is typically given by the neighbouring words. For the set of most probable valid words at the position of the erroneous words the nearest one is determined. For this a method to determine <code class="docutils literal notranslate"><span class="pre">distance</span></code> (or <code class="docutils literal notranslate"><span class="pre">similarity</span></code>) is required. In the following section the most common method to measure distance between two character-sequences, the Levensthein-Distance, is described.</p>
 </div>
 <div class="section" id="levensthein-distance">
-<h2><span class="section-number">2.1.2.2.2. </span>Levensthein Distance<a class="headerlink" href="#levensthein-distance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.2. </span>Levensthein Distance<a class="headerlink" href="#levensthein-distance" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Minimum</span> <span class="pre">Edit</span> <span class="pre">Distance</span></code> (MED) between two character-sequences <span class="math notranslate nohighlight">\(\underline{a}\)</span> and <span class="math notranslate nohighlight">\(\underline{b}\)</span> is defined to be the minimum number of edit-operations to transform  <span class="math notranslate nohighlight">\(\underline{a}\)</span> into <span class="math notranslate nohighlight">\(\underline{b}\)</span>. The set of edit operations is <em>Insert (I), Delete (D) and Replace (R)</em> a single character. Since <em>R</em> can be considered to be a combination of D and I, it may make sense to define the costs of <em>R</em> to be 2, whereas the costs of <em>I</em> and <em>D</em> are 1 each. In this case (where <em>R</em> has double costs), the distance-measure is called <code class="docutils literal notranslate"><span class="pre">Levensthein</span> <span class="pre">Distance</span></code>.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Example</p>
 <p>The Levensthein Distance between <em>aply</em> and <em>apply</em> is 1, because one <em>Insert (I)</em> is required to transform the first into the second character-sequence. The Levensthein Distance between <em>aply</em> and <em>apple</em> is 3, because one <em>Insert (I)</em> and one <em>Replace (R)</em> is required.</p>
 </div>
 <div class="section" id="algorithm-for-calculating-levensthein-distance">
-<h3><span class="section-number">2.1.2.2.2.1. </span>Algorithm for Calculating Levensthein Distance:<a class="headerlink" href="#algorithm-for-calculating-levensthein-distance" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.2.1. </span>Algorithm for Calculating Levensthein Distance:<a class="headerlink" href="#algorithm-for-calculating-levensthein-distance" title="Permalink to this headline">¶</a></h3>
 <p>The calculation of the Levensthein Distance is a little bit more complex than calculating other distance measures such as the <code class="docutils literal notranslate"><span class="pre">euclidean</span> <span class="pre">distance</span></code> or the <code class="docutils literal notranslate"><span class="pre">cosine</span> <span class="pre">similarity</span></code>. The fastest algorithm for calculating the Levensthein-Distance between a source-sequence <span class="math notranslate nohighlight">\(\underline{a}\)</span> and a target-sequence <span class="math notranslate nohighlight">\(\underline{b}\)</span> belongs to the category of <a class="reference external" href="https://en.wikipedia.org/wiki/Dynamic_programming">Dynamic Programming approach</a>.</p>
 <p>The Dynamic Programming algorithm for calculating the Levensthein distance starts with the initialisation, which is depicted in the figure below for the example, that the distance between the source word INTENTION and the target word EXECUTION shall be calculated.</p>
 <figure align="center">
@@ -288,7 +293,7 @@ As far as the entire distance matrix is filled by the recursion described above,
 <figcaption><b> Figure:</b> At the end the Levensthein distance is the number at the upper right corner in the matrix. In this example the distance between INTENTION and EXECUTION has been calculated to be 8.</figcaption>
 </figure></div>
 <div class="section" id="implementation-of-levensthein-algorithm">
-<h3><span class="section-number">2.1.2.2.2.2. </span>Implementation  of Levensthein Algorithm<a class="headerlink" href="#implementation-of-levensthein-algorithm" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.2.2. </span>Implementation  of Levensthein Algorithm<a class="headerlink" href="#implementation-of-levensthein-algorithm" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">levdist</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">):</span>
@@ -361,7 +366,7 @@ As far as the entire distance matrix is filled by the recursion described above,
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="03StemLemma.html" title="previous page"><span class="section-number">2.1.2.1. </span>TextBlob Stemming and Lemmatization</a>
+    <a class='left-prev' id="prev-link" href="03StemLemma.html" title="previous page"><span class="section-number">2.2. </span>TextBlob Stemming and Lemmatization</a>
     <a class='right-next' id="next-link" href="../03postagging/03postagging.html" title="next page"><span class="section-number">3. </span>Part-Of-Speech Tagging</a>
 
     </div>

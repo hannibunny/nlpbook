@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1. PoS Tagsets &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="3. Part-Of-Speech Tagging" href="03postagging.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01access/01access.html">
+   1. Access and Preprocess Text
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02normalisation/02normalisation.html">
+   2. Word Normalisation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.1. PoS Tagsets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#algorithms-for-pos-tagging">
+     3.2. Algorithms for PoS Tagging
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/03postagging/01tagsetsAndAlgorithms.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pos-tagsets">
+<h1><span class="section-number">3.1. </span>PoS Tagsets<a class="headerlink" href="#pos-tagsets" title="Permalink to this headline">¶</a></h1>
+<p>Depending on the language and the NLP task different tagsets can be applied. Popular English and German tagsets are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html">Penn Treebank Tagset</a></p></li>
+<li><p><a class="reference external" href="https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html">Tagset of Brown Corpus</a></p></li>
+<li><p><a class="reference external" href="http://www.natcorp.ox.ac.uk/docs/c5spec.html">Tagset of the British National Corpus</a></p></li>
+<li><p><a class="reference external" href="https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets/#id-cfcbf0a7-0">Stuttgart-Tübingen-Tagset</a></p></li>
+</ul>
+<p>In NLP tools (e.g. <a class="reference external" href="https://www.nltk.org">NLTK</a>) sometimes a <code class="docutils literal notranslate"><span class="pre">Universal</span> <span class="pre">Tagset</span></code> for English is applied:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Tag</strong></p></th>
+<th class="head"><p><strong>Meaning</strong></p></th>
+<th class="head"><p><strong>Examples</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ADJ</p></td>
+<td><p>adjective</p></td>
+<td><p>new, good, high, special, big, local</p></td>
+</tr>
+<tr class="row-odd"><td><p>ADP</p></td>
+<td><p>adposition</p></td>
+<td><p>on, of, at, with, by, into, under</p></td>
+</tr>
+<tr class="row-even"><td><p>ADV</p></td>
+<td><p>adverb</p></td>
+<td><p>really, already, still, early, now</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONJ</p></td>
+<td><p>conjunction</p></td>
+<td><p>and, or, but, if, while, although</p></td>
+</tr>
+<tr class="row-even"><td><p>DET</p></td>
+<td><p>determiner</p></td>
+<td><p>the, a, some, most, every, no</p></td>
+</tr>
+<tr class="row-odd"><td><p>NOUN</p></td>
+<td><p>noun</p></td>
+<td><p>year, home, costs, time, education</p></td>
+</tr>
+<tr class="row-even"><td><p>NUM</p></td>
+<td><p>number</p></td>
+<td><p>twenty-four, fourth, 1991, 14:24</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRON</p></td>
+<td><p>pronoun</p></td>
+<td><p>he, their, her, its, my, I, us</p></td>
+</tr>
+<tr class="row-even"><td><p>PRT</p></td>
+<td><p>particle</p></td>
+<td><p>at, on, out, over per, that, up, with</p></td>
+</tr>
+<tr class="row-odd"><td><p>VERB</p></td>
+<td><p>verb</p></td>
+<td><p>is, say, told, given, playing, would</p></td>
+</tr>
+<tr class="row-even"><td><p>.</p></td>
+<td><p>punctuation marks</p></td>
+<td><p>. , ; !</p></td>
+</tr>
+<tr class="row-odd"><td><p>X</p></td>
+<td><p>other</p></td>
+<td><p>ersatz, esprit, dunno, univeristy</p></td>
+</tr>
+</tbody>
+</table>
+<p>Some tagsets distinguish quite a lot different tags, some only a few. The resolution depends on</p>
+<ul class="simple">
+<li><p>the NLP tasks: for some tasks a fine-grained differentiation is not required</p></li>
+<li><p>the language: If a language is quite <em>irregular</em>, it does not make sense to distinguish PoS in a fine-grained manner, because a tagger would implement all these irregular cases, what may be too complex. For example in German there is no unique rule for the differentiation in <em>noun-singular</em> and <em>noun-plural</em>. Therefore the Stuttgart-Tübingen-Tagset does not distinguish these two noun-categories. However, in English there is such a rule (append <code class="docutils literal notranslate"><span class="pre">'s</span></code>), which is applicable in nearly all cases. Therefore English Tagsets differentiate these two cases.</p></li>
+</ul>
+</div>
+<div class="section" id="algorithms-for-pos-tagging">
+<h1><span class="section-number">3.2. </span>Algorithms for PoS Tagging<a class="headerlink" href="#algorithms-for-pos-tagging" title="Permalink to this headline">¶</a></h1>
+<p>PoS-tagging can be implemented in a rule-based or in a data-based approach. As for other NLP methods the rule-based approach is the conventional on. It does not require a training data set, but it requires expert knowledge. Today, data-based approaches are superior, if enough labeled training data is available. Data-based approaches do not require expert knowledge.</p>
+<p>In this, first a rule-based approach for tagging is described. Then simple data-based methods, the Unigram and the N-Gram Tagger, are introduced. The currently best performing PoS-taggers learn the tagging-rules from large amounts of PoS-tagged training data by applying machine learning algorithms.</p>
+<div class="section" id="rule-based-tagging">
+<h2><span class="section-number">3.2.1. </span>Rule based Tagging<a class="headerlink" href="#rule-based-tagging" title="Permalink to this headline">¶</a></h2>
+<p>For rule based-tagging linguistic knowledge on the PoS and patterns that can be applied to determine the PoS of a given word is required. The PoS of a word depends not only on the word itself, e.g. pre- and suffixes, length of the word, etc. but also on surrounding words. Therefore, rules on the word itself, e.g. <em>does the word end with <code class="docutils literal notranslate"><span class="pre">ing</span></code></em>, and rules on the surrounding words, e.g. <em>is the previous word a determiner (<code class="docutils literal notranslate"><span class="pre">the</span></code>)</em>, must be defined. An example of a small set of rules is given below. This small set contains rules only on the word itself:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#1. Define Pattern:</span>
+<span class="n">patterns</span> <span class="o">=</span> <span class="p">[</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*ing$&#39;</span><span class="p">,</span> <span class="s1">&#39;VBG&#39;</span><span class="p">),</span>               <span class="c1"># gerunds</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*ed$&#39;</span><span class="p">,</span> <span class="s1">&#39;VBD&#39;</span><span class="p">),</span>                <span class="c1"># simple past</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*es$&#39;</span><span class="p">,</span> <span class="s1">&#39;VBZ&#39;</span><span class="p">),</span>                <span class="c1"># 3rd singular present</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*ould$&#39;</span><span class="p">,</span> <span class="s1">&#39;MD&#39;</span><span class="p">),</span>               <span class="c1"># modals</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*</span><span class="se">\&#39;</span><span class="s1">s$&#39;</span><span class="p">,</span> <span class="s1">&#39;NN$&#39;</span><span class="p">),</span>               <span class="c1"># possessive nouns</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*s$&#39;</span><span class="p">,</span> <span class="s1">&#39;NNS&#39;</span><span class="p">),</span>                 <span class="c1"># plural nouns</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^-?[0-9]+(.[0-9]+)?$&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">),</span>  <span class="c1"># cardinal numbers</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="s1">&#39;DT&#39;</span><span class="p">),</span>                   <span class="c1"># Determiner</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;in&#39;</span><span class="p">,</span><span class="s1">&#39;IN&#39;</span><span class="p">),</span>                     <span class="c1"># preposition</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*&#39;</span><span class="p">,</span> <span class="s1">&#39;NN&#39;</span><span class="p">)</span>                     <span class="c1"># nouns (default)</span>
+<span class="p">]</span>
+
+</pre></div>
+</div>
+<p>Once a rule-set (=pattern) is defined, it can be applied by, e.g. a <code class="docutils literal notranslate"><span class="pre">RegexpTagger</span></code>-object from the <a class="reference external" href="https://www.nltk.org">NLTK package</a> as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#2.Generate RegexpTagger and tag a sentence</span>
+<span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">RegexpTagger</span>
+<span class="n">regexp_tagger</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">RegexpTagger</span><span class="p">(</span><span class="n">patterns</span><span class="p">)</span>
+<span class="c1"># Tag a sentence. Note that the string, which contains the sentence must be segmented into words</span>
+<span class="n">regexp_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="s2">&quot;5 friends have been singing in the rain&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The output of this simle Tagger is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;friends&#39;</span><span class="p">,</span> <span class="s1">&#39;NNS&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;have&#39;</span><span class="p">,</span> <span class="s1">&#39;NN&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;been&#39;</span><span class="p">,</span> <span class="s1">&#39;NN&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;singing&#39;</span><span class="p">,</span> <span class="s1">&#39;VBG&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="s1">&#39;IN&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="s1">&#39;DT&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;rain&#39;</span><span class="p">,</span> <span class="s1">&#39;NN&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="unigram-tagger">
+<h2><span class="section-number">3.2.2. </span>Unigram Tagger<a class="headerlink" href="#unigram-tagger" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="n-gram-tagger">
+<h2><span class="section-number">3.2.3. </span>N-Gram Tagger<a class="headerlink" href="#n-gram-tagger" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./03postagging"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="03postagging.html" title="previous page"><span class="section-number">3. </span>Part-Of-Speech Tagging</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
