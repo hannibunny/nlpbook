@@ -155,4 +155,128 @@ $$
 P_{L}(to \mid want) = \frac{608+1}{927+1446} = 0.26
 $$
 
-By comparing the two values, the immense distortion, due to large vocabulary-sizes, becomes obvious.
+By comparing the two values, the immense distortion becomes obvious. The distortion increases with the value, which must be added in the denominator. In the case of N-Gram language models this value is the number of different words in the vocabulary, which is usually quite high. A less distorting smoothing-technique for language models is *Good-Turing-Smoothing*. 
+
+#### Good-Turing-Smoothing
+
+Assume that we have a box, which contains balls (*objects*) of different color (*species*). We do not know how many balls are in the box and we also do not know the number of different colors. After drawing
+
+* 10 red balls, 
+* 3 green balls, 
+* 2 blue balls 
+* 1 black ball
+* 1 brown ball
+* 1 grey ball
+
+we ask for **the probability that the next ball we draw has a specific color**. For the previously seen colors, the probability can be estimated by Maximum-Likelihood. E.g. the probability, that the next ball is black is
+
+$$
+P(black)= \frac{1}{18}.
+$$
+
+
+More interesting is the question:
+
+* **What is the Probability, that the next ball (*object*) has an so far unseen color (*species*)?**
+
+Good-Turing's assumption to answer this question is:
+
+* **The frequency of so far unseen species is the same as the frequency of the species, which have been observed only once, so far**
+
+In the example above the frequency of colors, which have been seen only once so far is 3. Hence, the probability that the next drawn ball has a so far unseen color is
+
+$$
+P(unseen)=\frac{3}{18}
+$$
+
+For the general definition we use the following notation:
+
+* $R_x$ indicates how often species $x$ has been observed so far
+* $N_r$ indicates the the number of species, which has been seen $r$ times so far
+* $Z$ is the number of total observations so far
+
+With this notation, we can reformulate the Good-Turing assumption to be $N_0 := N_1$. Moreover, the number of total observations so far, can be calculated as follows:
+
+$$
+Z = \sum\limits_{r=1}^{\infty}N_r \cdot r.
+\label{eq:sumGT} \tag{4}
+$$ 
+
+The probability that the next drawn *object* has a so far unseen *species* is
+
+$$
+P_{GT}(unseen)=\frac{N_1}{Z}
+\label{eq:punseen} \tag{5}
+$$
+
+and if we know the number of so far unseen species $N_0$, than also the probability for a concrete so far unseen species can be calculated to be
+
+$$
+P_{GT}(x)=\frac{N_1}{N_0 \cdot Z},
+\label{eq:punsingle} \tag{6}
+$$  
+
+where $x$ is a so far unseen species. With respect to the example above, if we know that *yellow* and *orange* are the only so far unseen colors (*species*), then the probability that the next drawn ball is orange would be
+
+$$
+P(x)=\frac{3}{2 \cdot 18} = \frac{1}{12}
+$$
+
+If we stop here, the resulting probabilities would not be valid, because a fundamental law of probability theory would be violated, which says, that the sum over all probabilities must be 1:
+
+$$
+\sum\limits_{x \in D} P(x) =1,
+$$
+where $D$ is the domain of possible values for $x$. This law would be violated, since we $virtually$ added observations, which have actually not been occured (we assumed that the unseen events occured as often as the events, which have been seen once). 
+
+Good-Turing-Smoothing solves this dilemma by adapting the frequency values $r$. It is pretended, that species, which actually occured $r$ times, occured $r*$ times, with
+
+$$
+r* = \frac{(r+1)N_{r+1}}{N_r}.
+\label{eq:rstern} \tag{7}
+$$
+
+With this adaptation the total sum of observations remains the same:
+
+$$
+\sum\limits_{r=0}^{\infty}N_{r} \cdot \frac{(r+1)N_{r+1}}{N_r} = \sum\limits_{r=0}^{\infty} (r+1)N_{r+1} = \sum\limits_{r=1}^{\infty}N_r \cdot r = Z.
+$$  
+
+The Good-Turing-smoothed probability of a species $x$, which actually has been observed $r$ times is 
+
+$$
+P_{GT}(x) = \frac{r*}{Z}
+$$
+
+ 
+
+In our example of drawing balls of different colors, the Good-Turing smoothded probability for drawing a black ball is then 
+
+$$
+P_{GT}(black) = \frac{2 \cdot \frac{1}{3}}{18} = \frac{2}{3 \cdot 18},
+$$
+ 
+since for $r=1$ (black ball appeared once so far), we have
+
+$$
+r* = \frac{(r+1)N_{r+1}}{N_r} = \frac{2 \cdot 1}{3}.
+$$
+
+
+Note that the calculation of $r*$ according to equation $\eqref{eq:rstern}$ fails, if $N_{r+1}=0$. Therefore, it is suggested to apply expectation values $E(N_{r+1})$ and $E(N_{r})$ in equation $\eqref{eq:rstern}$. Such expectation values can be determined, e.g. by interpolation.
+
+**Final remark on the number of unseen events in N-gram language models:** From the corpus, the frequency $R_x$ for each N-gram $x$ in the corpus can the determined. Then also all $N_r$-values (number of N-grams which appear r times) can be determined. For an N-gram $x$, which is not in the corpus, we like to determine the probability $P_{GT}(x)$ according to equation $\eqref{eq:punsingle}$. But what is $N_0$, the number of unseen N-grams? For this we first determine the number $Z$ of observed N-grams according to $\eqref{eq:sumGT}$. Then we subtract Z from the total number of possible N-grams:
+
+$$
+N_0 = \mid V \mid^{N} - \sum\limits_{r=1}^{\infty}N_r \cdot r .
+$$ 
+
+
+### Example
+
+### Perplexity
+
+
+ 
+
+

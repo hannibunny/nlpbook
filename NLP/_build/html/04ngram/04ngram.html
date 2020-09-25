@@ -14,29 +14,26 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="3.3. POS Tagging with NLTK" href="../03postagging/02PosTagging.html" />
@@ -205,6 +202,11 @@
      4.5.2. Laplace Smoothing
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#good-turing-smoothing">
+     4.5.3. Good-Turing-Smoothing
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -356,7 +358,104 @@ P(to \mid want) = \frac{608}{927} = 0.66
 \[
 P_{L}(to \mid want) = \frac{608+1}{927+1446} = 0.26
 \]</div>
-<p>By comparing the two values, the immense distortion, due to large vocabulary-sizes, becomes obvious.</p>
+<p>By comparing the two values, the immense distortion becomes obvious. The distortion increases with the value, which must be added in the denominator. In the case of N-Gram language models this value is the number of different words in the vocabulary, which is usually quite high. A less distorting smoothing-technique for language models is <em>Good-Turing-Smoothing</em>.</p>
+</div>
+<div class="section" id="good-turing-smoothing">
+<h3><span class="section-number">4.5.3. </span>Good-Turing-Smoothing<a class="headerlink" href="#good-turing-smoothing" title="Permalink to this headline">¶</a></h3>
+<p>Assume that we have a box, which contains balls (<em>objects</em>) of different color (<em>species</em>). We do not know how many balls are in the box and we also do not know the number of different colors. After drawing</p>
+<ul class="simple">
+<li><p>10 red balls,</p></li>
+<li><p>3 green balls,</p></li>
+<li><p>2 blue balls</p></li>
+<li><p>1 black ball</p></li>
+<li><p>1 brown ball</p></li>
+<li><p>1 grey ball</p></li>
+</ul>
+<p>we ask for <strong>the probability that the next ball we draw has a specific color</strong>. For the previously seen colors, the probability can be estimated by Maximum-Likelihood. E.g. the probability, that the next ball is black is</p>
+<div class="math notranslate nohighlight">
+\[
+P(black)= \frac{1}{18}.
+\]</div>
+<p>More interesting is the question:</p>
+<ul class="simple">
+<li><p><strong>What is the Probability, that the next ball (<em>object</em>) has an so far unseen color (<em>species</em>)?</strong></p></li>
+</ul>
+<p>Good-Turing’s assumption to answer this question is:</p>
+<ul class="simple">
+<li><p><strong>The frequency of so far unseen species is the same as the frequency of the species, which have been observed only once, so far</strong></p></li>
+</ul>
+<p>In the example above the frequency of colors, which have been seen only once so far is 3. Hence, the probability that the next drawn ball has a so far unseen color is</p>
+<div class="math notranslate nohighlight">
+\[
+P(unseen)=\frac{3}{18}
+\]</div>
+<p>For the general definition we use the following notation:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(R_x\)</span> indicates how often species <span class="math notranslate nohighlight">\(x\)</span> has been observed so far</p></li>
+<li><p><span class="math notranslate nohighlight">\(N_r\)</span> indicates the the number of species, which has been seen <span class="math notranslate nohighlight">\(r\)</span> times so far</p></li>
+<li><p><span class="math notranslate nohighlight">\(Z\)</span> is the number of total observations so far</p></li>
+</ul>
+<p>With this notation, we can reformulate the Good-Turing assumption to be <span class="math notranslate nohighlight">\(N_0 := N_1\)</span>. Moreover, the number of total observations so far, can be calculated as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+Z = \sum\limits_{r=1}^{\infty}N_r \cdot r.
+\label{eq:sumGT} \tag{4}
+\]</div>
+<p>The probability that the next drawn <em>object</em> has a so far unseen <em>species</em> is</p>
+<div class="math notranslate nohighlight">
+\[
+P_{GT}(unseen)=\frac{N_1}{Z}
+\label{eq:punseen} \tag{5}
+\]</div>
+<p>and if we know the number of so far unseen species <span class="math notranslate nohighlight">\(N_0\)</span>, than also the probability for a concrete so far unseen species can be calculated to be</p>
+<div class="math notranslate nohighlight">
+\[
+P_{GT}(x)=\frac{N_1}{N_0 \cdot Z},
+\label{eq:punsingle} \tag{6}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> is a so far unseen species. With respect to the example above, if we know that <em>yellow</em> and <em>orange</em> are the only so far unseen colors (<em>species</em>), then the probability that the next drawn ball is orange would be</p>
+<div class="math notranslate nohighlight">
+\[
+P(x)=\frac{3}{2 \cdot 18} = \frac{1}{12}
+\]</div>
+<p>If we stop here, the resulting probabilities would not be valid, because a fundamental law of probability theory would be violated, which says, that the sum over all probabilities must be 1:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum\limits_{x \in D} P(x) =1,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(D\)</span> is the domain of possible values for <span class="math notranslate nohighlight">\(x\)</span>. This law would be violated, since we <span class="math notranslate nohighlight">\(virtually\)</span> added observations, which have actually not been occured (we assumed that the unseen events occured as often as the events, which have been seen once).</p>
+<p>Good-Turing-Smoothing solves this dilemma by adapting the frequency values <span class="math notranslate nohighlight">\(r\)</span>. It is pretended, that species, which actually occured <span class="math notranslate nohighlight">\(r\)</span> times, occured <span class="math notranslate nohighlight">\(r*\)</span> times, with</p>
+<div class="math notranslate nohighlight">
+\[
+r* = \frac{(r+1)N_{r+1}}{N_r}.
+\label{eq:rstern} \tag{7}
+\]</div>
+<p>With this adaptation the total sum of observations remains the same:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum\limits_{r=0}^{\infty}N_{r} \cdot \frac{(r+1)N_{r+1}}{N_r} = \sum\limits_{r=0}^{\infty} (r+1)N_{r+1} = \sum\limits_{r=1}^{\infty}N_r \cdot r = Z.
+\]</div>
+<p>The Good-Turing-smoothed probability of a species <span class="math notranslate nohighlight">\(x\)</span>, which actually has been observed <span class="math notranslate nohighlight">\(r\)</span> times is</p>
+<div class="math notranslate nohighlight">
+\[
+P_{GT}(x) = \frac{r*}{Z}
+\]</div>
+<p>In our example of drawing balls of different colors, the Good-Turing smoothded probability for drawing a black ball is then</p>
+<div class="math notranslate nohighlight">
+\[
+P_{GT}(black) = \frac{2 \cdot \frac{1}{3}}{18} = \frac{2}{3 \cdot 18},
+\]</div>
+<p>since for <span class="math notranslate nohighlight">\(r=1\)</span> (black ball appeared once so far), we have</p>
+<div class="math notranslate nohighlight">
+\[
+r* = \frac{(r+1)N_{r+1}}{N_r} = \frac{2 \cdot 1}{3}.
+\]</div>
+<p>Note that the calculation of <span class="math notranslate nohighlight">\(r*\)</span> according to equation <span class="math notranslate nohighlight">\(\eqref{eq:rstern}\)</span> fails, if <span class="math notranslate nohighlight">\(N_{r+1}=0\)</span>. Therefore, it is suggested to apply expectation values <span class="math notranslate nohighlight">\(E(N_{r+1})\)</span> and <span class="math notranslate nohighlight">\(E(N_{r})\)</span> in equation <span class="math notranslate nohighlight">\(\eqref{eq:rstern}\)</span>. Such expectation values can be determined, e.g. by interpolation.</p>
+<p><strong>Final remark on the number of unseen events in N-gram language models:</strong> From the corpus, the frequency <span class="math notranslate nohighlight">\(R_x\)</span> for all N-grams in the corpus can the determined. Then also all <span class="math notranslate nohighlight">\(N_r\)</span>-values (number of N-grams which appear r times) can be determined. For an N-gram <span class="math notranslate nohighlight">\(x\)</span>, which is not in the corpus, we like to determine the probability <span class="math notranslate nohighlight">\(P_{GT}(x)\)</span> according to equation <span class="math notranslate nohighlight">\(\eqref{eq:punsingle}\)</span>. But what is <span class="math notranslate nohighlight">\(N_0\)</span>, the number of unseen N-grams? For this we first determine the number <span class="math notranslate nohighlight">\(Z\)</span> of observed N-grams according to <span class="math notranslate nohighlight">\(\eqref{eq:sumGT}\)</span>. Then we subtract Z from the total number of possible N-grams:</p>
+<div class="math notranslate nohighlight">
+\[
+N_0 = \mid V \mid^{N} - \sum\limits_{r=1}^{\infty}N_r \cdot r .
+\]</div>
 </div>
 </div>
 </div>

@@ -14,29 +14,26 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. N-Gram Language Model" href="../04ngram/04ngram.html" />
@@ -184,6 +181,28 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/03postagging/02PosTagging.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/03postagging/02PosTagging.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -234,7 +253,7 @@
 <p>Required modules:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">brown</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">brown</span>
 <span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">FreqDist</span>
 <span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
 <span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">RegexpTagger</span>
@@ -249,7 +268,7 @@
 <p>Define regular-expression rules, that will be applied for POS tagging.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">patterns</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">patterns</span> <span class="o">=</span> <span class="p">[</span>
      <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*ing$&#39;</span><span class="p">,</span> <span class="s1">&#39;VBG&#39;</span><span class="p">),</span>               <span class="c1"># gerunds</span>
      <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*ed$&#39;</span><span class="p">,</span> <span class="s1">&#39;VBD&#39;</span><span class="p">),</span>                <span class="c1"># simple past</span>
      <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*es$&#39;</span><span class="p">,</span> <span class="s1">&#39;VBZ&#39;</span><span class="p">),</span>                <span class="c1"># 3rd singular present</span>
@@ -268,7 +287,7 @@
 <p>Generate a <em>RegexpTagger</em>-object with the defined rules.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">regexp_tagger</span> <span class="o">=</span> <span class="n">RegexpTagger</span><span class="p">(</span><span class="n">patterns</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regexp_tagger</span> <span class="o">=</span> <span class="n">RegexpTagger</span><span class="p">(</span><span class="n">patterns</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -276,12 +295,12 @@
 <p>Apply the RegexpTagger for tagging a single sentence:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">regexp_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="s2">&quot;5 friends have been singing in the rain&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regexp_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="s2">&quot;5 friends have been singing in the rain&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;5&#39;, &#39;CD&#39;),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;5&#39;, &#39;CD&#39;),
  (&#39;friends&#39;, &#39;NNS&#39;),
  (&#39;have&#39;, &#39;NN&#39;),
  (&#39;been&#39;, &#39;NN&#39;),
@@ -296,12 +315,12 @@
 <p>Apply the <em>RegexpTagger</em> for tagging the first 3 sentences of the brown corpus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">regexp_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">brown</span><span class="o">.</span><span class="n">sents</span><span class="p">()[</span><span class="mi">3</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regexp_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">brown</span><span class="o">.</span><span class="n">sents</span><span class="p">()[</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;``&#39;, &#39;NN&#39;),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;``&#39;, &#39;NN&#39;),
  (&#39;Only&#39;, &#39;NN&#39;),
  (&#39;a&#39;, &#39;NN&#39;),
  (&#39;relative&#39;, &#39;NN&#39;),
@@ -345,13 +364,13 @@
 <p>Evaluate the tagger using category <em>news</em> of the brown corpus. The <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code>-method returns the accuracy (i.e. the rate of correct Tag-assignments) of the tagger on this test-corpus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brown_tagged_sents</span><span class="o">=</span><span class="n">brown</span><span class="o">.</span><span class="n">tagged_sents</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">brown_tagged_sents</span><span class="o">=</span><span class="n">brown</span><span class="o">.</span><span class="n">tagged_sents</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">regexp_tagger</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">brown_tagged_sents</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0.2198321299998011
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2198321299998011
 </pre></div>
 </div>
 </div>
@@ -361,7 +380,7 @@
 <h2><span class="section-number">3.3.2. </span>Unigram Tagger<a class="headerlink" href="#unigram-tagger" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">UnigramTagger</span><span class="p">,</span> <span class="n">DefaultTagger</span><span class="p">,</span> <span class="n">BigramTagger</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">UnigramTagger</span><span class="p">,</span> <span class="n">DefaultTagger</span><span class="p">,</span> <span class="n">BigramTagger</span>
 <span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">FreqDist</span><span class="p">,</span><span class="n">ConditionalFreqDist</span>
 </pre></div>
 </div>
@@ -371,12 +390,12 @@
 <p>In this notebook the pos-tagged Brown Corpus is applied. The tagset used in this corpus is quite sophisticated. It can be obtained by the following command:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">help</span><span class="o">.</span><span class="n">brown_tagset</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">help</span><span class="o">.</span><span class="n">brown_tagset</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(: opening parenthesis
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(: opening parenthesis
     (
 ): closing parenthesis
     )
@@ -970,13 +989,13 @@ WRB+MD: WH-adverb + modal auxillary
 <p>The Brown Corpus with the simple universal tagset can be obtained as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brown_tagged_sents</span><span class="o">=</span><span class="n">brown</span><span class="o">.</span><span class="n">tagged_sents</span><span class="p">(</span><span class="n">tagset</span><span class="o">=</span><span class="s2">&quot;universal&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">brown_tagged_sents</span><span class="o">=</span><span class="n">brown</span><span class="o">.</span><span class="n">tagged_sents</span><span class="p">(</span><span class="n">tagset</span><span class="o">=</span><span class="s2">&quot;universal&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">brown_tagged_sents</span><span class="p">[:</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[[(&#39;The&#39;, &#39;DET&#39;), (&#39;Fulton&#39;, &#39;NOUN&#39;), (&#39;County&#39;, &#39;NOUN&#39;), (&#39;Grand&#39;, &#39;ADJ&#39;), (&#39;Jury&#39;, &#39;NOUN&#39;), (&#39;said&#39;, &#39;VERB&#39;), (&#39;Friday&#39;, &#39;NOUN&#39;), (&#39;an&#39;, &#39;DET&#39;), (&#39;investigation&#39;, &#39;NOUN&#39;), (&#39;of&#39;, &#39;ADP&#39;), (&quot;Atlanta&#39;s&quot;, &#39;NOUN&#39;), (&#39;recent&#39;, &#39;ADJ&#39;), (&#39;primary&#39;, &#39;NOUN&#39;), (&#39;election&#39;, &#39;NOUN&#39;), (&#39;produced&#39;, &#39;VERB&#39;), (&#39;``&#39;, &#39;.&#39;), (&#39;no&#39;, &#39;DET&#39;), (&#39;evidence&#39;, &#39;NOUN&#39;), (&quot;&#39;&#39;&quot;, &#39;.&#39;), (&#39;that&#39;, &#39;ADP&#39;), (&#39;any&#39;, &#39;DET&#39;), (&#39;irregularities&#39;, &#39;NOUN&#39;), (&#39;took&#39;, &#39;VERB&#39;), (&#39;place&#39;, &#39;NOUN&#39;), (&#39;.&#39;, &#39;.&#39;)]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[(&#39;The&#39;, &#39;DET&#39;), (&#39;Fulton&#39;, &#39;NOUN&#39;), (&#39;County&#39;, &#39;NOUN&#39;), (&#39;Grand&#39;, &#39;ADJ&#39;), (&#39;Jury&#39;, &#39;NOUN&#39;), (&#39;said&#39;, &#39;VERB&#39;), (&#39;Friday&#39;, &#39;NOUN&#39;), (&#39;an&#39;, &#39;DET&#39;), (&#39;investigation&#39;, &#39;NOUN&#39;), (&#39;of&#39;, &#39;ADP&#39;), (&quot;Atlanta&#39;s&quot;, &#39;NOUN&#39;), (&#39;recent&#39;, &#39;ADJ&#39;), (&#39;primary&#39;, &#39;NOUN&#39;), (&#39;election&#39;, &#39;NOUN&#39;), (&#39;produced&#39;, &#39;VERB&#39;), (&#39;``&#39;, &#39;.&#39;), (&#39;no&#39;, &#39;DET&#39;), (&#39;evidence&#39;, &#39;NOUN&#39;), (&quot;&#39;&#39;&quot;, &#39;.&#39;), (&#39;that&#39;, &#39;ADP&#39;), (&#39;any&#39;, &#39;DET&#39;), (&#39;irregularities&#39;, &#39;NOUN&#39;), (&#39;took&#39;, &#39;VERB&#39;), (&#39;place&#39;, &#39;NOUN&#39;), (&#39;.&#39;, &#39;.&#39;)]]
 </pre></div>
 </div>
 </div>
@@ -984,7 +1003,7 @@ WRB+MD: WH-adverb + modal auxillary
 <p>A <em>UnigramTagger</em>-object is generated and trained with the Brown Corpus with universal tagset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">complete_tagger</span><span class="o">=</span><span class="n">UnigramTagger</span><span class="p">(</span><span class="n">train</span><span class="o">=</span><span class="n">brown_tagged_sents</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">complete_tagger</span><span class="o">=</span><span class="n">UnigramTagger</span><span class="p">(</span><span class="n">train</span><span class="o">=</span><span class="n">brown_tagged_sents</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -992,13 +1011,13 @@ WRB+MD: WH-adverb + modal auxillary
 <p>The trained Unigram-Tagger is applied to tag a single sentence:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mySent1</span><span class="o">=</span><span class="s2">&quot;the cat is on the mat&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mySent1</span><span class="o">=</span><span class="s2">&quot;the cat is on the mat&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">complete_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">mySent1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;the&#39;, &#39;DET&#39;), (&#39;cat&#39;, &#39;NOUN&#39;), (&#39;is&#39;, &#39;VERB&#39;), (&#39;on&#39;, &#39;ADP&#39;), (&#39;the&#39;, &#39;DET&#39;), (&#39;mat&#39;, &#39;NOUN&#39;)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;the&#39;, &#39;DET&#39;), (&#39;cat&#39;, &#39;NOUN&#39;), (&#39;is&#39;, &#39;VERB&#39;), (&#39;on&#39;, &#39;ADP&#39;), (&#39;the&#39;, &#39;DET&#39;), (&#39;mat&#39;, &#39;NOUN&#39;)]
 </pre></div>
 </div>
 </div>
@@ -1006,14 +1025,14 @@ WRB+MD: WH-adverb + modal auxillary
 <p>Compare tags assigned by the Unigram-Tagger and the tags assigned by the current NLTK standard tagger on a single sentence:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mySent2</span><span class="o">=</span><span class="s2">&quot;This is major tom calling ground control from space&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mySent2</span><span class="o">=</span><span class="s2">&quot;This is major tom calling ground control from space&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unigram Tagger: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">complete_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">mySent2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Current Tagger applied for NLTK pos_tag(): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">mySent2</span><span class="p">,</span><span class="n">tagset</span><span class="o">=</span><span class="s1">&#39;universal&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Unigram Tagger: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unigram Tagger: 
  [(&#39;This&#39;, &#39;DET&#39;), (&#39;is&#39;, &#39;VERB&#39;), (&#39;major&#39;, &#39;ADJ&#39;), (&#39;tom&#39;, None), (&#39;calling&#39;, &#39;VERB&#39;), (&#39;ground&#39;, &#39;NOUN&#39;), (&#39;control&#39;, &#39;NOUN&#39;), (&#39;from&#39;, &#39;ADP&#39;), (&#39;space&#39;, &#39;NOUN&#39;)]
 
 Current Tagger applied for NLTK pos_tag(): 
@@ -1025,12 +1044,12 @@ Current Tagger applied for NLTK pos_tag():
 <p>The performance of the trained tagger is evaluated on the same corpus as applied for training. The performance measure is the rate of words that have been tagged correctly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Performance of complete Tagger: &quot;</span><span class="p">,</span><span class="n">complete_tagger</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">brown_tagged_sents</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Performance of complete Tagger: &quot;</span><span class="p">,</span><span class="n">complete_tagger</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">brown_tagged_sents</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Performance of complete Tagger:  0.9570777270253326
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Performance of complete Tagger:  0.9570777270253326
 </pre></div>
 </div>
 </div>
@@ -1038,7 +1057,7 @@ Current Tagger applied for NLTK pos_tag():
 <p>The rate of correctly taggged words is quite high. However, this method of evaluation is not valid, since the same corpus has been used for evaluation as for training. Therefore we split the corpus into a <em>training-part</em> and a <em>test-part</em>. The <em>UnigramTagger</em> is then trained with the <em>training-part</em> and evaluated with the disjoint  <em>test-part</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">brown_tagged_sents</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">brown_tagged_sents</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">)</span>
 <span class="n">train_sents</span> <span class="o">=</span> <span class="n">brown_tagged_sents</span><span class="p">[:</span><span class="n">size</span><span class="p">]</span>
 <span class="n">test_sents</span> <span class="o">=</span> <span class="n">brown_tagged_sents</span><span class="p">[</span><span class="n">size</span><span class="p">:]</span>
 <span class="n">unigram_tagger</span> <span class="o">=</span> <span class="n">UnigramTagger</span><span class="p">(</span><span class="n">train_sents</span><span class="p">,</span><span class="n">backoff</span><span class="o">=</span><span class="n">DefaultTagger</span><span class="p">(</span><span class="s2">&quot;NN&quot;</span><span class="p">))</span>
@@ -1047,7 +1066,7 @@ Current Tagger applied for NLTK pos_tag():
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Performance of Tagger with 90% Training and 10% Testdata:  0.9156346262651662
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Performance of Tagger with 90% Training and 10% Testdata:  0.9156346262651662
 </pre></div>
 </div>
 </div>
@@ -1059,7 +1078,7 @@ Current Tagger applied for NLTK pos_tag():
 The following code generates a list of different Unigram taggers, each with an other amount of frequent words of the brown corpus. The plot visualizes the Unigram Tagger performance in dependence of the number of most frequent words, stored in the tagger. Note that in the code below the <em>UnigrammTagger</em> is initialized with a dictionary of tagged words, whereas in the code above the <em>UnigrammTagger</em> is initialized with a corpus of tagged words. Both options are possible.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display</span><span class="p">():</span>
     <span class="kn">import</span> <span class="nn">pylab</span>
     <span class="n">words_by_freq</span> <span class="o">=</span> <span class="n">FreqDist</span><span class="p">(</span><span class="n">brown</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">15</span><span class="p">)</span>
     <span class="n">cfd</span> <span class="o">=</span> <span class="n">ConditionalFreqDist</span><span class="p">(</span><span class="n">brown</span><span class="o">.</span><span class="n">tagged_words</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">))</span>
@@ -1076,7 +1095,7 @@ The following code generates a list of different Unigram taggers, each with an o
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">performance</span><span class="p">(</span><span class="n">cfd</span><span class="p">,</span> <span class="n">wordlist</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">performance</span><span class="p">(</span><span class="n">cfd</span><span class="p">,</span> <span class="n">wordlist</span><span class="p">):</span>
     <span class="n">lt</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cfd</span><span class="p">[</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">wordlist</span><span class="p">)</span>
     <span class="n">baseline_tagger</span> <span class="o">=</span> <span class="n">UnigramTagger</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">lt</span><span class="p">,</span> <span class="n">backoff</span><span class="o">=</span><span class="n">DefaultTagger</span><span class="p">(</span><span class="s1">&#39;NN&#39;</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">baseline_tagger</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">brown</span><span class="o">.</span><span class="n">tagged_sents</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">))</span>
@@ -1086,7 +1105,7 @@ The following code generates a list of different Unigram taggers, each with an o
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1102,7 +1121,7 @@ The following code generates a list of different Unigram taggers, each with an o
 <img alt="NgramTagging" src="https://maucher.home.hdm-stuttgart.de/Pics/NGramTagging.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baseline</span><span class="o">=</span><span class="n">nltk</span><span class="o">.</span><span class="n">DefaultTagger</span><span class="p">(</span><span class="s1">&#39;NOUN&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline</span><span class="o">=</span><span class="n">nltk</span><span class="o">.</span><span class="n">DefaultTagger</span><span class="p">(</span><span class="s1">&#39;NOUN&#39;</span><span class="p">)</span>
 <span class="n">unigram</span> <span class="o">=</span> <span class="n">UnigramTagger</span><span class="p">(</span><span class="n">train</span><span class="o">=</span><span class="n">train_sents</span><span class="p">,</span><span class="n">backoff</span><span class="o">=</span><span class="n">baseline</span><span class="p">)</span>
 <span class="n">bigram</span> <span class="o">=</span> <span class="n">BigramTagger</span><span class="p">(</span><span class="n">train</span><span class="o">=</span><span class="n">train_sents</span><span class="p">,</span><span class="n">backoff</span><span class="o">=</span><span class="n">unigram</span><span class="p">)</span>
 </pre></div>
@@ -1111,12 +1130,12 @@ The following code generates a list of different Unigram taggers, each with an o
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bigram</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_sents</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bigram</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_sents</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.9485446658703716
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9485446658703716
 </pre></div>
 </div>
 </div>
@@ -1128,7 +1147,7 @@ The following code generates a list of different Unigram taggers, each with an o
 <p>The most frequent nouns usually provide information on the subject of a text. Below, the most frequent nouns of an already tagged text of the <em>Treebank</em>-corpus are determined. Let’s see if we can conclude the text’s subject.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">treebank</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">treebank</span>
 <span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">FreqDist</span>
 <span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">bigrams</span>
 
@@ -1137,28 +1156,27 @@ The following code generates a list of different Unigram taggers, each with an o
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
-Treebank sentences:  [[&#39;A&#39;, &#39;form&#39;, &#39;of&#39;, &#39;asbestos&#39;, &#39;once&#39;, &#39;used&#39;, &#39;*&#39;, &#39;*&#39;, &#39;to&#39;, &#39;make&#39;, &#39;Kent&#39;, &#39;cigarette&#39;, &#39;filters&#39;, &#39;has&#39;, &#39;caused&#39;, &#39;a&#39;, &#39;high&#39;, &#39;percentage&#39;, &#39;of&#39;, &#39;cancer&#39;, &#39;deaths&#39;, &#39;among&#39;, &#39;a&#39;, &#39;group&#39;, &#39;of&#39;, &#39;workers&#39;, &#39;exposed&#39;, &#39;*&#39;, &#39;to&#39;, &#39;it&#39;, &#39;more&#39;, &#39;than&#39;, &#39;30&#39;, &#39;years&#39;, &#39;ago&#39;, &#39;,&#39;, &#39;researchers&#39;, &#39;reported&#39;, &#39;0&#39;, &#39;*T*-1&#39;, &#39;.&#39;], [&#39;The&#39;, &#39;asbestos&#39;, &#39;fiber&#39;, &#39;,&#39;, &#39;crocidolite&#39;, &#39;,&#39;, &#39;is&#39;, &#39;unusually&#39;, &#39;resilient&#39;, &#39;once&#39;, &#39;it&#39;, &#39;enters&#39;, &#39;the&#39;, &#39;lungs&#39;, &#39;,&#39;, &#39;with&#39;, &#39;even&#39;, &#39;brief&#39;, &#39;exposures&#39;, &#39;to&#39;, &#39;it&#39;, &#39;causing&#39;, &#39;symptoms&#39;, &#39;that&#39;, &#39;*T*-1&#39;, &#39;show&#39;, &#39;up&#39;, &#39;decades&#39;, &#39;later&#39;, &#39;,&#39;, &#39;researchers&#39;, &#39;said&#39;, &#39;0&#39;, &#39;*T*-2&#39;, &#39;.&#39;], ...]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Treebank sentences:  [[&#39;A&#39;, &#39;form&#39;, &#39;of&#39;, &#39;asbestos&#39;, &#39;once&#39;, &#39;used&#39;, &#39;*&#39;, &#39;*&#39;, &#39;to&#39;, &#39;make&#39;, &#39;Kent&#39;, &#39;cigarette&#39;, &#39;filters&#39;, &#39;has&#39;, &#39;caused&#39;, &#39;a&#39;, &#39;high&#39;, &#39;percentage&#39;, &#39;of&#39;, &#39;cancer&#39;, &#39;deaths&#39;, &#39;among&#39;, &#39;a&#39;, &#39;group&#39;, &#39;of&#39;, &#39;workers&#39;, &#39;exposed&#39;, &#39;*&#39;, &#39;to&#39;, &#39;it&#39;, &#39;more&#39;, &#39;than&#39;, &#39;30&#39;, &#39;years&#39;, &#39;ago&#39;, &#39;,&#39;, &#39;researchers&#39;, &#39;reported&#39;, &#39;0&#39;, &#39;*T*-1&#39;, &#39;.&#39;], [&#39;The&#39;, &#39;asbestos&#39;, &#39;fiber&#39;, &#39;,&#39;, &#39;crocidolite&#39;, &#39;,&#39;, &#39;is&#39;, &#39;unusually&#39;, &#39;resilient&#39;, &#39;once&#39;, &#39;it&#39;, &#39;enters&#39;, &#39;the&#39;, &#39;lungs&#39;, &#39;,&#39;, &#39;with&#39;, &#39;even&#39;, &#39;brief&#39;, &#39;exposures&#39;, &#39;to&#39;, &#39;it&#39;, &#39;causing&#39;, &#39;symptoms&#39;, &#39;that&#39;, &#39;*T*-1&#39;, &#39;show&#39;, &#39;up&#39;, &#39;decades&#39;, &#39;later&#39;, &#39;,&#39;, &#39;researchers&#39;, &#39;said&#39;, &#39;0&#39;, &#39;*T*-2&#39;, &#39;.&#39;], ...]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tagged0003</span><span class="o">=</span><span class="n">treebank</span><span class="o">.</span><span class="n">tagged_words</span><span class="p">(</span><span class="n">tagset</span><span class="o">=</span><span class="s2">&quot;universal&quot;</span><span class="p">,</span><span class="n">fileids</span><span class="o">=</span><span class="s2">&quot;wsj_0003.mrg&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tagged0003</span><span class="o">=</span><span class="n">treebank</span><span class="o">.</span><span class="n">tagged_words</span><span class="p">(</span><span class="n">tagset</span><span class="o">=</span><span class="s2">&quot;universal&quot;</span><span class="p">,</span><span class="n">fileids</span><span class="o">=</span><span class="s2">&quot;wsj_0003.mrg&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File tagged0003: &quot;</span><span class="p">,</span><span class="n">tagged0003</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>File tagged0003:  [(&#39;A&#39;, &#39;DET&#39;), (&#39;form&#39;, &#39;NOUN&#39;), (&#39;of&#39;, &#39;ADP&#39;), ...]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File tagged0003:  [(&#39;A&#39;, &#39;DET&#39;), (&#39;form&#39;, &#39;NOUN&#39;), (&#39;of&#39;, &#39;ADP&#39;), ...]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fdist</span><span class="o">=</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">tagged0003</span> <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;NOUN&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fdist</span><span class="o">=</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">tagged0003</span> <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;NOUN&quot;</span><span class="p">)</span>
 <span class="c1">#fdist.tabulate(20)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fdist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 <span class="n">freqNouns</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">fdist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)]</span>
@@ -1167,11 +1185,11 @@ Treebank sentences:  [[&#39;A&#39;, &#39;form&#39;, &#39;of&#39;, &#39;asbestos&
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;asbestos&#39;, 11), (&#39;workers&#39;, 9), (&#39;filters&#39;, 7), (&#39;cancer&#39;, 6), (&#39;kent&#39;, 5), (&#39;researchers&#39;, 5), (&#39;crocidolite&#39;, 5), (&#39;lorillard&#39;, 5), (&#39;talcott&#39;, 4), (&#39;dr.&#39;, 4), (&#39;factory&#39;, 4), (&#39;fibers&#39;, 4), (&#39;cigarette&#39;, 3), (&#39;deaths&#39;, 3), (&#39;years&#39;, 3), (&#39;cigarettes&#39;, 3), (&#39;university&#39;, 3), (&#39;paper&#39;, 3), (&#39;diseases&#39;, 3), (&#39;percentage&#39;, 2)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;asbestos&#39;, 11), (&#39;workers&#39;, 9), (&#39;filters&#39;, 7), (&#39;cancer&#39;, 6), (&#39;kent&#39;, 5), (&#39;researchers&#39;, 5), (&#39;crocidolite&#39;, 5), (&#39;lorillard&#39;, 5), (&#39;talcott&#39;, 4), (&#39;dr.&#39;, 4), (&#39;factory&#39;, 4), (&#39;fibers&#39;, 4), (&#39;cigarette&#39;, 3), (&#39;deaths&#39;, 3), (&#39;years&#39;, 3), (&#39;cigarettes&#39;, 3), (&#39;university&#39;, 3), (&#39;paper&#39;, 3), (&#39;diseases&#39;, 3), (&#39;percentage&#39;, 2)]
 </pre></div>
 </div>
 <img alt="../_images/02PosTagging_39_1.png" src="../_images/02PosTagging_39_1.png" />
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7ffb92ca0e10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fd8970c6990&gt;
 </pre></div>
 </div>
 </div>
@@ -1179,7 +1197,7 @@ Treebank sentences:  [[&#39;A&#39;, &#39;form&#39;, &#39;of&#39;, &#39;asbestos&
 <p>Next, the adjectives immediately before the most frequent nouns are determined. What can be concluded from them?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">taggedPairs</span><span class="o">=</span><span class="n">bigrams</span><span class="p">(</span><span class="n">tagged0003</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taggedPairs</span><span class="o">=</span><span class="n">bigrams</span><span class="p">(</span><span class="n">tagged0003</span><span class="p">)</span>
 <span class="n">adjNounPairs</span><span class="o">=</span><span class="p">[(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">taggedPairs</span> <span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">freqNouns</span> <span class="ow">and</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;ADJ&quot;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">adjNounPairs</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -1187,7 +1205,7 @@ Treebank sentences:  [[&#39;A&#39;, &#39;form&#39;, &#39;of&#39;, &#39;asbestos&
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(&#39;high&#39;, &#39;percentage&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;high&#39;, &#39;percentage&#39;)
 (&#39;asbestos-related&#39;, &#39;diseases&#39;)
 (&#39;asbestos-related&#39;, &#39;diseases&#39;)
 (&#39;needle-like&#39;, &#39;fibers&#39;)
