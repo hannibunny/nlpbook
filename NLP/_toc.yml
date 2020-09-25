@@ -17,5 +17,7 @@
     - file: 03postagging/03postagging
       sections:
         - file: 03postagging/01tagsetsAndAlgorithms
+        - file: 03postagging/02PosTagging.ipynb
+    - file: 04ngram/04ngram
 
   

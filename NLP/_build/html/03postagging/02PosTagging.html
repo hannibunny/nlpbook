@@ -1,0 +1,1254 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.3. POS Tagging with NLTK &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. N-Gram Language Model" href="../04ngram/04ngram.html" />
+    <link rel="prev" title="3.1. PoS Tagsets" href="01tagsetsAndAlgorithms.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01access/01access.html">
+   1. Access and Preprocess Text
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02normalisation/02normalisation.html">
+   2. Word Normalisation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01tagsetsAndAlgorithms.html">
+     3.1. PoS Tagsets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01tagsetsAndAlgorithms.html#algorithms-for-pos-tagging">
+     3.2. Algorithms for PoS Tagging
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.3. POS Tagging with NLTK
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#find-most-frequent-nouns">
+     3.4. Find most frequent nouns
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04ngram/04ngram.html">
+   4. N-Gram Language Model
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/03postagging/02PosTagging.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regular-expression-pos-tagging">
+   3.3.1. Regular Expression POS Tagging
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unigram-tagger">
+   3.3.2. Unigram Tagger
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unigram-tagger-which-applies-only-frequent-words-for-training">
+     3.3.2.1. Unigram Tagger, which applies only frequent words for training
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#n-gram-tagger">
+   3.3.3. N-Gram Tagger
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pos-tagging-with-nltk">
+<h1><span class="section-number">3.3. </span>POS Tagging with NLTK<a class="headerlink" href="#pos-tagging-with-nltk" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Author: Johannes Maucher</p></li>
+<li><p>Last update: 18.09.2020</p></li>
+</ul>
+<p>Required modules:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">brown</span>
+<span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">FreqDist</span>
+<span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">RegexpTagger</span>
+<span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">tag</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="regular-expression-pos-tagging">
+<h2><span class="section-number">3.3.1. </span>Regular Expression POS Tagging<a class="headerlink" href="#regular-expression-pos-tagging" title="Permalink to this headline">¶</a></h2>
+<p>Define regular-expression rules, that will be applied for POS tagging.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">patterns</span> <span class="o">=</span> <span class="p">[</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*ing$&#39;</span><span class="p">,</span> <span class="s1">&#39;VBG&#39;</span><span class="p">),</span>               <span class="c1"># gerunds</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*ed$&#39;</span><span class="p">,</span> <span class="s1">&#39;VBD&#39;</span><span class="p">),</span>                <span class="c1"># simple past</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*es$&#39;</span><span class="p">,</span> <span class="s1">&#39;VBZ&#39;</span><span class="p">),</span>                <span class="c1"># 3rd singular present</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*ould$&#39;</span><span class="p">,</span> <span class="s1">&#39;MD&#39;</span><span class="p">),</span>               <span class="c1"># modals</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*</span><span class="se">\&#39;</span><span class="s1">s$&#39;</span><span class="p">,</span> <span class="s1">&#39;NN$&#39;</span><span class="p">),</span>               <span class="c1"># possessive nouns</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*s$&#39;</span><span class="p">,</span> <span class="s1">&#39;NNS&#39;</span><span class="p">),</span>                 <span class="c1"># plural nouns</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^-?[0-9]+(.[0-9]+)?$&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">),</span>  <span class="c1"># cardinal numbers</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="s1">&#39;DT&#39;</span><span class="p">),</span>                   <span class="c1"># Determiner</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;in&#39;</span><span class="p">,</span><span class="s1">&#39;IN&#39;</span><span class="p">),</span>                     <span class="c1"># preposition</span>
+     <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*&#39;</span><span class="p">,</span> <span class="s1">&#39;NN&#39;</span><span class="p">)</span>                     <span class="c1"># nouns (default)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Generate a <em>RegexpTagger</em>-object with the defined rules.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">regexp_tagger</span> <span class="o">=</span> <span class="n">RegexpTagger</span><span class="p">(</span><span class="n">patterns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Apply the RegexpTagger for tagging a single sentence:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">regexp_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="s2">&quot;5 friends have been singing in the rain&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;5&#39;, &#39;CD&#39;),
+ (&#39;friends&#39;, &#39;NNS&#39;),
+ (&#39;have&#39;, &#39;NN&#39;),
+ (&#39;been&#39;, &#39;NN&#39;),
+ (&#39;singing&#39;, &#39;VBG&#39;),
+ (&#39;in&#39;, &#39;IN&#39;),
+ (&#39;the&#39;, &#39;DT&#39;),
+ (&#39;rain&#39;, &#39;NN&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Apply the <em>RegexpTagger</em> for tagging the first 3 sentences of the brown corpus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">regexp_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">brown</span><span class="o">.</span><span class="n">sents</span><span class="p">()[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;``&#39;, &#39;NN&#39;),
+ (&#39;Only&#39;, &#39;NN&#39;),
+ (&#39;a&#39;, &#39;NN&#39;),
+ (&#39;relative&#39;, &#39;NN&#39;),
+ (&#39;handful&#39;, &#39;NN&#39;),
+ (&#39;of&#39;, &#39;NN&#39;),
+ (&#39;such&#39;, &#39;NN&#39;),
+ (&#39;reports&#39;, &#39;NNS&#39;),
+ (&#39;was&#39;, &#39;NNS&#39;),
+ (&#39;received&#39;, &#39;VBD&#39;),
+ (&quot;&#39;&#39;&quot;, &#39;NN&#39;),
+ (&#39;,&#39;, &#39;NN&#39;),
+ (&#39;the&#39;, &#39;DT&#39;),
+ (&#39;jury&#39;, &#39;NN&#39;),
+ (&#39;said&#39;, &#39;NN&#39;),
+ (&#39;,&#39;, &#39;NN&#39;),
+ (&#39;``&#39;, &#39;NN&#39;),
+ (&#39;considering&#39;, &#39;VBG&#39;),
+ (&#39;the&#39;, &#39;DT&#39;),
+ (&#39;widespread&#39;, &#39;NN&#39;),
+ (&#39;interest&#39;, &#39;IN&#39;),
+ (&#39;in&#39;, &#39;IN&#39;),
+ (&#39;the&#39;, &#39;DT&#39;),
+ (&#39;election&#39;, &#39;NN&#39;),
+ (&#39;,&#39;, &#39;NN&#39;),
+ (&#39;the&#39;, &#39;DT&#39;),
+ (&#39;number&#39;, &#39;NN&#39;),
+ (&#39;of&#39;, &#39;NN&#39;),
+ (&#39;voters&#39;, &#39;NNS&#39;),
+ (&#39;and&#39;, &#39;NN&#39;),
+ (&#39;the&#39;, &#39;DT&#39;),
+ (&#39;size&#39;, &#39;NN&#39;),
+ (&#39;of&#39;, &#39;NN&#39;),
+ (&#39;this&#39;, &#39;NNS&#39;),
+ (&#39;city&#39;, &#39;NN&#39;),
+ (&quot;&#39;&#39;&quot;, &#39;NN&#39;),
+ (&#39;.&#39;, &#39;NN&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Evaluate the tagger using category <em>news</em> of the brown corpus. The <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code>-method returns the accuracy (i.e. the rate of correct Tag-assignments) of the tagger on this test-corpus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brown_tagged_sents</span><span class="o">=</span><span class="n">brown</span><span class="o">.</span><span class="n">tagged_sents</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">regexp_tagger</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">brown_tagged_sents</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0.2198321299998011
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="unigram-tagger">
+<h2><span class="section-number">3.3.2. </span>Unigram Tagger<a class="headerlink" href="#unigram-tagger" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">UnigramTagger</span><span class="p">,</span> <span class="n">DefaultTagger</span><span class="p">,</span> <span class="n">BigramTagger</span>
+<span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">FreqDist</span><span class="p">,</span><span class="n">ConditionalFreqDist</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A UnigramTagger requires a tagged corpus. From the tagged corpus it learns a mapping from word to pos-tag by determining for each word the most frequent tag in the corpus. The trained tagger then assigns to each word the most frequent pos-tag as determined in the training corpus.</p>
+<p>In this notebook the pos-tagged Brown Corpus is applied. The tagset used in this corpus is quite sophisticated. It can be obtained by the following command:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">help</span><span class="o">.</span><span class="n">brown_tagset</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(: opening parenthesis
+    (
+): closing parenthesis
+    )
+*: negator
+    not n&#39;t
+,: comma
+    ,
+--: dash
+    --
+.: sentence terminator
+    . ? ; ! :
+:: colon
+    :
+ABL: determiner/pronoun, pre-qualifier
+    quite such rather
+ABN: determiner/pronoun, pre-quantifier
+    all half many nary
+ABX: determiner/pronoun, double conjunction or pre-quantifier
+    both
+AP: determiner/pronoun, post-determiner
+    many other next more last former little several enough most least only
+    very few fewer past same Last latter less single plenty &#39;nough lesser
+    certain various manye next-to-last particular final previous present
+    nuf
+AP$: determiner/pronoun, post-determiner, genitive
+    other&#39;s
+AP+AP: determiner/pronoun, post-determiner, hyphenated pair
+    many-much
+AT: article
+    the an no a every th&#39; ever&#39; ye
+BE: verb &#39;to be&#39;, infinitive or imperative
+    be
+BED: verb &#39;to be&#39;, past tense, 2nd person singular or all persons plural
+    were
+BED*: verb &#39;to be&#39;, past tense, 2nd person singular or all persons plural, negated
+    weren&#39;t
+BEDZ: verb &#39;to be&#39;, past tense, 1st and 3rd person singular
+    was
+BEDZ*: verb &#39;to be&#39;, past tense, 1st and 3rd person singular, negated
+    wasn&#39;t
+BEG: verb &#39;to be&#39;, present participle or gerund
+    being
+BEM: verb &#39;to be&#39;, present tense, 1st person singular
+    am
+BEM*: verb &#39;to be&#39;, present tense, 1st person singular, negated
+    ain&#39;t
+BEN: verb &#39;to be&#39;, past participle
+    been
+BER: verb &#39;to be&#39;, present tense, 2nd person singular or all persons plural
+    are art
+BER*: verb &#39;to be&#39;, present tense, 2nd person singular or all persons plural, negated
+    aren&#39;t ain&#39;t
+BEZ: verb &#39;to be&#39;, present tense, 3rd person singular
+    is
+BEZ*: verb &#39;to be&#39;, present tense, 3rd person singular, negated
+    isn&#39;t ain&#39;t
+CC: conjunction, coordinating
+    and or but plus &amp; either neither nor yet &#39;n&#39; and/or minus an&#39;
+CD: numeral, cardinal
+    two one 1 four 2 1913 71 74 637 1937 8 five three million 87-31 29-5
+    seven 1,119 fifty-three 7.5 billion hundred 125,000 1,700 60 100 six
+    ...
+CD$: numeral, cardinal, genitive
+    1960&#39;s 1961&#39;s .404&#39;s
+CS: conjunction, subordinating
+    that as after whether before while like because if since for than altho
+    until so unless though providing once lest s&#39;posin&#39; till whereas
+    whereupon supposing tho&#39; albeit then so&#39;s &#39;fore
+DO: verb &#39;to do&#39;, uninflected present tense, infinitive or imperative
+    do dost
+DO*: verb &#39;to do&#39;, uninflected present tense or imperative, negated
+    don&#39;t
+DO+PPSS: verb &#39;to do&#39;, past or present tense + pronoun, personal, nominative, not 3rd person singular
+    d&#39;you
+DOD: verb &#39;to do&#39;, past tense
+    did done
+DOD*: verb &#39;to do&#39;, past tense, negated
+    didn&#39;t
+DOZ: verb &#39;to do&#39;, present tense, 3rd person singular
+    does
+DOZ*: verb &#39;to do&#39;, present tense, 3rd person singular, negated
+    doesn&#39;t don&#39;t
+DT: determiner/pronoun, singular
+    this each another that &#39;nother
+DT$: determiner/pronoun, singular, genitive
+    another&#39;s
+DT+BEZ: determiner/pronoun + verb &#39;to be&#39;, present tense, 3rd person singular
+    that&#39;s
+DT+MD: determiner/pronoun + modal auxillary
+    that&#39;ll this&#39;ll
+DTI: determiner/pronoun, singular or plural
+    any some
+DTS: determiner/pronoun, plural
+    these those them
+DTS+BEZ: pronoun, plural + verb &#39;to be&#39;, present tense, 3rd person singular
+    them&#39;s
+DTX: determiner, pronoun or double conjunction
+    neither either one
+EX: existential there
+    there
+EX+BEZ: existential there + verb &#39;to be&#39;, present tense, 3rd person singular
+    there&#39;s
+EX+HVD: existential there + verb &#39;to have&#39;, past tense
+    there&#39;d
+EX+HVZ: existential there + verb &#39;to have&#39;, present tense, 3rd person singular
+    there&#39;s
+EX+MD: existential there + modal auxillary
+    there&#39;ll there&#39;d
+FW-*: foreign word: negator
+    pas non ne
+FW-AT: foreign word: article
+    la le el un die der ein keine eine das las les Il
+FW-AT+NN: foreign word: article + noun, singular, common
+    l&#39;orchestre l&#39;identite l&#39;arcade l&#39;ange l&#39;assistance l&#39;activite
+    L&#39;Universite l&#39;independance L&#39;Union L&#39;Unita l&#39;osservatore
+FW-AT+NP: foreign word: article + noun, singular, proper
+    L&#39;Astree L&#39;Imperiale
+FW-BE: foreign word: verb &#39;to be&#39;, infinitive or imperative
+    sit
+FW-BER: foreign word: verb &#39;to be&#39;, present tense, 2nd person singular or all persons plural
+    sind sunt etes
+FW-BEZ: foreign word: verb &#39;to be&#39;, present tense, 3rd person singular
+    ist est
+FW-CC: foreign word: conjunction, coordinating
+    et ma mais und aber och nec y
+FW-CD: foreign word: numeral, cardinal
+    une cinq deux sieben unam zwei
+FW-CS: foreign word: conjunction, subordinating
+    bevor quam ma
+FW-DT: foreign word: determiner/pronoun, singular
+    hoc
+FW-DT+BEZ: foreign word: determiner + verb &#39;to be&#39;, present tense, 3rd person singular
+    c&#39;est
+FW-DTS: foreign word: determiner/pronoun, plural
+    haec
+FW-HV: foreign word: verb &#39;to have&#39;, present tense, not 3rd person singular
+    habe
+FW-IN: foreign word: preposition
+    ad de en a par con dans ex von auf super post sine sur sub avec per
+    inter sans pour pendant in di
+FW-IN+AT: foreign word: preposition + article
+    della des du aux zur d&#39;un del dell&#39;
+FW-IN+NN: foreign word: preposition + noun, singular, common
+    d&#39;etat d&#39;hotel d&#39;argent d&#39;identite d&#39;art
+FW-IN+NP: foreign word: preposition + noun, singular, proper
+    d&#39;Yquem d&#39;Eiffel
+FW-JJ: foreign word: adjective
+    avant Espagnol sinfonica Siciliana Philharmonique grand publique haute
+    noire bouffe Douce meme humaine bel serieuses royaux anticus presto
+    Sovietskaya Bayerische comique schwarzen ...
+FW-JJR: foreign word: adjective, comparative
+    fortiori
+FW-JJT: foreign word: adjective, superlative
+    optimo
+FW-NN: foreign word: noun, singular, common
+    ballet esprit ersatz mano chatte goutte sang Fledermaus oud def kolkhoz
+    roi troika canto boite blutwurst carne muzyka bonheur monde piece force
+    ...
+FW-NN$: foreign word: noun, singular, common, genitive
+    corporis intellectus arte&#39;s dei aeternitatis senioritatis curiae
+    patronne&#39;s chambre&#39;s
+FW-NNS: foreign word: noun, plural, common
+    al culpas vopos boites haflis kolkhozes augen tyrannis alpha-beta-
+    gammas metis banditos rata phis negociants crus Einsatzkommandos
+    kamikaze wohaws sabinas zorrillas palazzi engages coureurs corroborees
+    yori Ubermenschen ...
+FW-NP: foreign word: noun, singular, proper
+    Karshilama Dieu Rundfunk Afrique Espanol Afrika Spagna Gott Carthago
+    deus
+FW-NPS: foreign word: noun, plural, proper
+    Svenskarna Atlantes Dieux
+FW-NR: foreign word: noun, singular, adverbial
+    heute morgen aujourd&#39;hui hoy
+FW-OD: foreign word: numeral, ordinal
+    18e 17e quintus
+FW-PN: foreign word: pronoun, nominal
+    hoc
+FW-PP$: foreign word: determiner, possessive
+    mea mon deras vos
+FW-PPL: foreign word: pronoun, singular, reflexive
+    se
+FW-PPL+VBZ: foreign word: pronoun, singular, reflexive + verb, present tense, 3rd person singular
+    s&#39;excuse s&#39;accuse
+FW-PPO: pronoun, personal, accusative
+    lui me moi mi
+FW-PPO+IN: foreign word: pronoun, personal, accusative + preposition
+    mecum tecum
+FW-PPS: foreign word: pronoun, personal, nominative, 3rd person singular
+    il
+FW-PPSS: foreign word: pronoun, personal, nominative, not 3rd person singular
+    ich vous sie je
+FW-PPSS+HV: foreign word: pronoun, personal, nominative, not 3rd person singular + verb &#39;to have&#39;, present tense, not 3rd person singular
+    j&#39;ai
+FW-QL: foreign word: qualifier
+    minus
+FW-RB: foreign word: adverb
+    bas assai deja um wiederum cito velociter vielleicht simpliciter non zu
+    domi nuper sic forsan olim oui semper tout despues hors
+FW-RB+CC: foreign word: adverb + conjunction, coordinating
+    forisque
+FW-TO+VB: foreign word: infinitival to + verb, infinitive
+    d&#39;entretenir
+FW-UH: foreign word: interjection
+    sayonara bien adieu arigato bonjour adios bueno tchalo ciao o
+FW-VB: foreign word: verb, present tense, not 3rd person singular, imperative or infinitive
+    nolo contendere vive fermate faciunt esse vade noli tangere dites duces
+    meminisse iuvabit gosaimasu voulez habla ksu&#39;u&#39;peli&#39;afo lacheln miuchi
+    say allons strafe portant
+FW-VBD: foreign word: verb, past tense
+    stabat peccavi audivi
+FW-VBG: foreign word: verb, present participle or gerund
+    nolens volens appellant seq. obliterans servanda dicendi delenda
+FW-VBN: foreign word: verb, past participle
+    vue verstrichen rasa verboten engages
+FW-VBZ: foreign word: verb, present tense, 3rd person singular
+    gouverne sinkt sigue diapiace
+FW-WDT: foreign word: WH-determiner
+    quo qua quod que quok
+FW-WPO: foreign word: WH-pronoun, accusative
+    quibusdam
+FW-WPS: foreign word: WH-pronoun, nominative
+    qui
+HV: verb &#39;to have&#39;, uninflected present tense, infinitive or imperative
+    have hast
+HV*: verb &#39;to have&#39;, uninflected present tense or imperative, negated
+    haven&#39;t ain&#39;t
+HV+TO: verb &#39;to have&#39;, uninflected present tense + infinitival to
+    hafta
+HVD: verb &#39;to have&#39;, past tense
+    had
+HVD*: verb &#39;to have&#39;, past tense, negated
+    hadn&#39;t
+HVG: verb &#39;to have&#39;, present participle or gerund
+    having
+HVN: verb &#39;to have&#39;, past participle
+    had
+HVZ: verb &#39;to have&#39;, present tense, 3rd person singular
+    has hath
+HVZ*: verb &#39;to have&#39;, present tense, 3rd person singular, negated
+    hasn&#39;t ain&#39;t
+IN: preposition
+    of in for by considering to on among at through with under into
+    regarding than since despite according per before toward against as
+    after during including between without except upon out over ...
+IN+IN: preposition, hyphenated pair
+    f&#39;ovuh
+IN+PPO: preposition + pronoun, personal, accusative
+    t&#39;hi-im
+JJ: adjective
+    ecent over-all possible hard-fought favorable hard meager fit such
+    widespread outmoded inadequate ambiguous grand clerical effective
+    orderly federal foster general proportionate ...
+JJ$: adjective, genitive
+    Great&#39;s
+JJ+JJ: adjective, hyphenated pair
+    big-large long-far
+JJR: adjective, comparative
+    greater older further earlier later freer franker wider better deeper
+    firmer tougher faster higher bigger worse younger lighter nicer slower
+    happier frothier Greater newer Elder ...
+JJR+CS: adjective + conjunction, coordinating
+    lighter&#39;n
+JJS: adjective, semantically superlative
+    top chief principal northernmost master key head main tops utmost
+    innermost foremost uppermost paramount topmost
+JJT: adjective, superlative
+    best largest coolest calmest latest greatest earliest simplest
+    strongest newest fiercest unhappiest worst youngest worthiest fastest
+    hottest fittest lowest finest smallest staunchest ...
+MD: modal auxillary
+    should may might will would must can could shall ought need wilt
+MD*: modal auxillary, negated
+    cannot couldn&#39;t wouldn&#39;t can&#39;t won&#39;t shouldn&#39;t shan&#39;t mustn&#39;t musn&#39;t
+MD+HV: modal auxillary + verb &#39;to have&#39;, uninflected form
+    shouldda musta coulda must&#39;ve woulda could&#39;ve
+MD+PPSS: modal auxillary + pronoun, personal, nominative, not 3rd person singular
+    willya
+MD+TO: modal auxillary + infinitival to
+    oughta
+NN: noun, singular, common
+    failure burden court fire appointment awarding compensation Mayor
+    interim committee fact effect airport management surveillance jail
+    doctor intern extern night weekend duty legislation Tax Office ...
+NN$: noun, singular, common, genitive
+    season&#39;s world&#39;s player&#39;s night&#39;s chapter&#39;s golf&#39;s football&#39;s
+    baseball&#39;s club&#39;s U.&#39;s coach&#39;s bride&#39;s bridegroom&#39;s board&#39;s county&#39;s
+    firm&#39;s company&#39;s superintendent&#39;s mob&#39;s Navy&#39;s ...
+NN+BEZ: noun, singular, common + verb &#39;to be&#39;, present tense, 3rd person singular
+    water&#39;s camera&#39;s sky&#39;s kid&#39;s Pa&#39;s heat&#39;s throat&#39;s father&#39;s money&#39;s
+    undersecretary&#39;s granite&#39;s level&#39;s wife&#39;s fat&#39;s Knife&#39;s fire&#39;s name&#39;s
+    hell&#39;s leg&#39;s sun&#39;s roulette&#39;s cane&#39;s guy&#39;s kind&#39;s baseball&#39;s ...
+NN+HVD: noun, singular, common + verb &#39;to have&#39;, past tense
+    Pa&#39;d
+NN+HVZ: noun, singular, common + verb &#39;to have&#39;, present tense, 3rd person singular
+    guy&#39;s Knife&#39;s boat&#39;s summer&#39;s rain&#39;s company&#39;s
+NN+IN: noun, singular, common + preposition
+    buncha
+NN+MD: noun, singular, common + modal auxillary
+    cowhand&#39;d sun&#39;ll
+NN+NN: noun, singular, common, hyphenated pair
+    stomach-belly
+NNS: noun, plural, common
+    irregularities presentments thanks reports voters laws legislators
+    years areas adjustments chambers $100 bonds courts sales details raises
+    sessions members congressmen votes polls calls ...
+NNS$: noun, plural, common, genitive
+    taxpayers&#39; children&#39;s members&#39; States&#39; women&#39;s cutters&#39; motorists&#39;
+    steelmakers&#39; hours&#39; Nations&#39; lawyers&#39; prisoners&#39; architects&#39; tourists&#39;
+    Employers&#39; secretaries&#39; Rogues&#39; ...
+NNS+MD: noun, plural, common + modal auxillary
+    duds&#39;d oystchers&#39;ll
+NP: noun, singular, proper
+    Fulton Atlanta September-October Durwood Pye Ivan Allen Jr. Jan.
+    Alpharetta Grady William B. Hartsfield Pearl Williams Aug. Berry J. M.
+    Cheshire Griffin Opelika Ala. E. Pelham Snodgrass ...
+NP$: noun, singular, proper, genitive
+    Green&#39;s Landis&#39; Smith&#39;s Carreon&#39;s Allison&#39;s Boston&#39;s Spahn&#39;s Willie&#39;s
+    Mickey&#39;s Milwaukee&#39;s Mays&#39; Howsam&#39;s Mantle&#39;s Shaw&#39;s Wagner&#39;s Rickey&#39;s
+    Shea&#39;s Palmer&#39;s Arnold&#39;s Broglio&#39;s ...
+NP+BEZ: noun, singular, proper + verb &#39;to be&#39;, present tense, 3rd person singular
+    W.&#39;s Ike&#39;s Mack&#39;s Jack&#39;s Kate&#39;s Katharine&#39;s Black&#39;s Arthur&#39;s Seaton&#39;s
+    Buckhorn&#39;s Breed&#39;s Penny&#39;s Rob&#39;s Kitty&#39;s Blackwell&#39;s Myra&#39;s Wally&#39;s
+    Lucille&#39;s Springfield&#39;s Arlene&#39;s
+NP+HVZ: noun, singular, proper + verb &#39;to have&#39;, present tense, 3rd person singular
+    Bill&#39;s Guardino&#39;s Celie&#39;s Skolman&#39;s Crosson&#39;s Tim&#39;s Wally&#39;s
+NP+MD: noun, singular, proper + modal auxillary
+    Gyp&#39;ll John&#39;ll
+NPS: noun, plural, proper
+    Chases Aderholds Chapelles Armisteads Lockies Carbones French Marskmen
+    Toppers Franciscans Romans Cadillacs Masons Blacks Catholics British
+    Dixiecrats Mississippians Congresses ...
+NPS$: noun, plural, proper, genitive
+    Republicans&#39; Orioles&#39; Birds&#39; Yanks&#39; Redbirds&#39; Bucs&#39; Yankees&#39; Stevenses&#39;
+    Geraghtys&#39; Burkes&#39; Wackers&#39; Achaeans&#39; Dresbachs&#39; Russians&#39; Democrats&#39;
+    Gershwins&#39; Adventists&#39; Negroes&#39; Catholics&#39; ...
+NR: noun, singular, adverbial
+    Friday home Wednesday Tuesday Monday Sunday Thursday yesterday tomorrow
+    tonight West East Saturday west left east downtown north northeast
+    southeast northwest North South right ...
+NR$: noun, singular, adverbial, genitive
+    Saturday&#39;s Monday&#39;s yesterday&#39;s tonight&#39;s tomorrow&#39;s Sunday&#39;s
+    Wednesday&#39;s Friday&#39;s today&#39;s Tuesday&#39;s West&#39;s Today&#39;s South&#39;s
+NR+MD: noun, singular, adverbial + modal auxillary
+    today&#39;ll
+NRS: noun, plural, adverbial
+    Sundays Mondays Saturdays Wednesdays Souths Fridays
+OD: numeral, ordinal
+    first 13th third nineteenth 2d 61st second sixth eighth ninth twenty-
+    first eleventh 50th eighteenth- Thirty-ninth 72nd 1/20th twentieth
+    mid-19th thousandth 350th sixteenth 701st ...
+PN: pronoun, nominal
+    none something everything one anyone nothing nobody everybody everyone
+    anybody anything someone no-one nothin
+PN$: pronoun, nominal, genitive
+    one&#39;s someone&#39;s anybody&#39;s nobody&#39;s everybody&#39;s anyone&#39;s everyone&#39;s
+PN+BEZ: pronoun, nominal + verb &#39;to be&#39;, present tense, 3rd person singular
+    nothing&#39;s everything&#39;s somebody&#39;s nobody&#39;s someone&#39;s
+PN+HVD: pronoun, nominal + verb &#39;to have&#39;, past tense
+    nobody&#39;d
+PN+HVZ: pronoun, nominal + verb &#39;to have&#39;, present tense, 3rd person singular
+    nobody&#39;s somebody&#39;s one&#39;s
+PN+MD: pronoun, nominal + modal auxillary
+    someone&#39;ll somebody&#39;ll anybody&#39;d
+PP$: determiner, possessive
+    our its his their my your her out thy mine thine
+PP$$: pronoun, possessive
+    ours mine his hers theirs yours
+PPL: pronoun, singular, reflexive
+    itself himself myself yourself herself oneself ownself
+PPLS: pronoun, plural, reflexive
+    themselves ourselves yourselves
+PPO: pronoun, personal, accusative
+    them it him me us you &#39;em her thee we&#39;uns
+PPS: pronoun, personal, nominative, 3rd person singular
+    it he she thee
+PPS+BEZ: pronoun, personal, nominative, 3rd person singular + verb &#39;to be&#39;, present tense, 3rd person singular
+    it&#39;s he&#39;s she&#39;s
+PPS+HVD: pronoun, personal, nominative, 3rd person singular + verb &#39;to have&#39;, past tense
+    she&#39;d he&#39;d it&#39;d
+PPS+HVZ: pronoun, personal, nominative, 3rd person singular + verb &#39;to have&#39;, present tense, 3rd person singular
+    it&#39;s he&#39;s she&#39;s
+PPS+MD: pronoun, personal, nominative, 3rd person singular + modal auxillary
+    he&#39;ll she&#39;ll it&#39;ll he&#39;d it&#39;d she&#39;d
+PPSS: pronoun, personal, nominative, not 3rd person singular
+    they we I you ye thou you&#39;uns
+PPSS+BEM: pronoun, personal, nominative, not 3rd person singular + verb &#39;to be&#39;, present tense, 1st person singular
+    I&#39;m Ahm
+PPSS+BER: pronoun, personal, nominative, not 3rd person singular + verb &#39;to be&#39;, present tense, 2nd person singular or all persons plural
+    we&#39;re you&#39;re they&#39;re
+PPSS+BEZ: pronoun, personal, nominative, not 3rd person singular + verb &#39;to be&#39;, present tense, 3rd person singular
+    you&#39;s
+PPSS+BEZ*: pronoun, personal, nominative, not 3rd person singular + verb &#39;to be&#39;, present tense, 3rd person singular, negated
+    &#39;tain&#39;t
+PPSS+HV: pronoun, personal, nominative, not 3rd person singular + verb &#39;to have&#39;, uninflected present tense
+    I&#39;ve we&#39;ve they&#39;ve you&#39;ve
+PPSS+HVD: pronoun, personal, nominative, not 3rd person singular + verb &#39;to have&#39;, past tense
+    I&#39;d you&#39;d we&#39;d they&#39;d
+PPSS+MD: pronoun, personal, nominative, not 3rd person singular + modal auxillary
+    you&#39;ll we&#39;ll I&#39;ll we&#39;d I&#39;d they&#39;ll they&#39;d you&#39;d
+PPSS+VB: pronoun, personal, nominative, not 3rd person singular + verb &#39;to verb&#39;, uninflected present tense
+    y&#39;know
+QL: qualifier, pre
+    well less very most so real as highly fundamentally even how much
+    remarkably somewhat more completely too thus ill deeply little overly
+    halfway almost impossibly far severly such ...
+QLP: qualifier, post
+    indeed enough still &#39;nuff
+RB: adverb
+    only often generally also nevertheless upon together back newly no
+    likely meanwhile near then heavily there apparently yet outright fully
+    aside consistently specifically formally ever just ...
+RB$: adverb, genitive
+    else&#39;s
+RB+BEZ: adverb + verb &#39;to be&#39;, present tense, 3rd person singular
+    here&#39;s there&#39;s
+RB+CS: adverb + conjunction, coordinating
+    well&#39;s soon&#39;s
+RBR: adverb, comparative
+    further earlier better later higher tougher more harder longer sooner
+    less faster easier louder farther oftener nearer cheaper slower tighter
+    lower worse heavier quicker ...
+RBR+CS: adverb, comparative + conjunction, coordinating
+    more&#39;n
+RBT: adverb, superlative
+    most best highest uppermost nearest brightest hardest fastest deepest
+    farthest loudest ...
+RN: adverb, nominal
+    here afar then
+RP: adverb, particle
+    up out off down over on in about through across after
+RP+IN: adverb, particle + preposition
+    out&#39;n outta
+TO: infinitival to
+    to t&#39;
+TO+VB: infinitival to + verb, infinitive
+    t&#39;jawn t&#39;lah
+UH: interjection
+    Hurrah bang whee hmpf ah goodbye oops oh-the-pain-of-it ha crunch say
+    oh why see well hello lo alas tarantara rum-tum-tum gosh hell keerist
+    Jesus Keeeerist boy c&#39;mon &#39;mon goddamn bah hoo-pig damn ...
+VB: verb, base: uninflected present, imperative or infinitive
+    investigate find act follow inure achieve reduce take remedy re-set
+    distribute realize disable feel receive continue place protect
+    eliminate elaborate work permit run enter force ...
+VB+AT: verb, base: uninflected present or infinitive + article
+    wanna
+VB+IN: verb, base: uninflected present, imperative or infinitive + preposition
+    lookit
+VB+JJ: verb, base: uninflected present, imperative or infinitive + adjective
+    die-dead
+VB+PPO: verb, uninflected present tense + pronoun, personal, accusative
+    let&#39;s lemme gimme
+VB+RP: verb, imperative + adverbial particle
+    g&#39;ahn c&#39;mon
+VB+TO: verb, base: uninflected present, imperative or infinitive + infinitival to
+    wanta wanna
+VB+VB: verb, base: uninflected present, imperative or infinitive; hypenated pair
+    say-speak
+VBD: verb, past tense
+    said produced took recommended commented urged found added praised
+    charged listed became announced brought attended wanted voted defeated
+    received got stood shot scheduled feared promised made ...
+VBG: verb, present participle or gerund
+    modernizing improving purchasing Purchasing lacking enabling pricing
+    keeping getting picking entering voting warning making strengthening
+    setting neighboring attending participating moving ...
+VBG+TO: verb, present participle + infinitival to
+    gonna
+VBN: verb, past participle
+    conducted charged won received studied revised operated accepted
+    combined experienced recommended effected granted seen protected
+    adopted retarded notarized selected composed gotten printed ...
+VBN+TO: verb, past participle + infinitival to
+    gotta
+VBZ: verb, present tense, 3rd person singular
+    deserves believes receives takes goes expires says opposes starts
+    permits expects thinks faces votes teaches holds calls fears spends
+    collects backs eliminates sets flies gives seeks reads ...
+WDT: WH-determiner
+    which what whatever whichever whichever-the-hell
+WDT+BER: WH-determiner + verb &#39;to be&#39;, present tense, 2nd person singular or all persons plural
+    what&#39;re
+WDT+BER+PP: WH-determiner + verb &#39;to be&#39;, present, 2nd person singular or all persons plural + pronoun, personal, nominative, not 3rd person singular
+    whaddya
+WDT+BEZ: WH-determiner + verb &#39;to be&#39;, present tense, 3rd person singular
+    what&#39;s
+WDT+DO+PPS: WH-determiner + verb &#39;to do&#39;, uninflected present tense + pronoun, personal, nominative, not 3rd person singular
+    whaddya
+WDT+DOD: WH-determiner + verb &#39;to do&#39;, past tense
+    what&#39;d
+WDT+HVZ: WH-determiner + verb &#39;to have&#39;, present tense, 3rd person singular
+    what&#39;s
+WP$: WH-pronoun, genitive
+    whose whosever
+WPO: WH-pronoun, accusative
+    whom that who
+WPS: WH-pronoun, nominative
+    that who whoever whosoever what whatsoever
+WPS+BEZ: WH-pronoun, nominative + verb &#39;to be&#39;, present, 3rd person singular
+    that&#39;s who&#39;s
+WPS+HVD: WH-pronoun, nominative + verb &#39;to have&#39;, past tense
+    who&#39;d
+WPS+HVZ: WH-pronoun, nominative + verb &#39;to have&#39;, present tense, 3rd person singular
+    who&#39;s that&#39;s
+WPS+MD: WH-pronoun, nominative + modal auxillary
+    who&#39;ll that&#39;d who&#39;d that&#39;ll
+WQL: WH-qualifier
+    however how
+WRB: WH-adverb
+    however when where why whereby wherever how whenever whereon wherein
+    wherewith wheare wherefore whereof howsabout
+WRB+BER: WH-adverb + verb &#39;to be&#39;, present, 2nd person singular or all persons plural
+    where&#39;re
+WRB+BEZ: WH-adverb + verb &#39;to be&#39;, present, 3rd person singular
+    how&#39;s where&#39;s
+WRB+DO: WH-adverb + verb &#39;to do&#39;, present, not 3rd person singular
+    howda
+WRB+DOD: WH-adverb + verb &#39;to do&#39;, past tense
+    where&#39;d how&#39;d
+WRB+DOD*: WH-adverb + verb &#39;to do&#39;, past tense, negated
+    whyn&#39;t
+WRB+DOZ: WH-adverb + verb &#39;to do&#39;, present tense, 3rd person singular
+    how&#39;s
+WRB+IN: WH-adverb + preposition
+    why&#39;n
+WRB+MD: WH-adverb + modal auxillary
+    where&#39;d
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, NLTK provides a method to map the most common tagsets to a simple <a class="reference external" href="http://www.nltk.org/book/ch05.html">universal POS Tagset</a>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tag</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>English Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ADJ</p></td>
+<td><p>adjective</p></td>
+<td><p>new, good, high, special, big, local</p></td>
+</tr>
+<tr class="row-odd"><td><p>ADP</p></td>
+<td><p>adposition</p></td>
+<td><p>on, of, at, with, by, into, under</p></td>
+</tr>
+<tr class="row-even"><td><p>ADV</p></td>
+<td><p>adverb</p></td>
+<td><p>really, already, still, early, now</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONJ</p></td>
+<td><p>conjunction</p></td>
+<td><p>and, or, but, if, while, although</p></td>
+</tr>
+<tr class="row-even"><td><p>DET</p></td>
+<td><p>determiner, article</p></td>
+<td><p>the, a, some, most, every, no, which</p></td>
+</tr>
+<tr class="row-odd"><td><p>NOUN</p></td>
+<td><p>noun</p></td>
+<td><p>year, home, costs, time, Africa</p></td>
+</tr>
+<tr class="row-even"><td><p>NUM</p></td>
+<td><p>numeral</p></td>
+<td><p>twenty-four, fourth, 1991, 14:24</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRT</p></td>
+<td><p>particle</p></td>
+<td><p>at, on, out, over per, that, up, with</p></td>
+</tr>
+<tr class="row-even"><td><p>PRON</p></td>
+<td><p>pronoun</p></td>
+<td><p>he, their, her, its, my, I, us</p></td>
+</tr>
+<tr class="row-odd"><td><p>VERB</p></td>
+<td><p>verb</p></td>
+<td><p>is, say, told, given, playing, would</p></td>
+</tr>
+<tr class="row-even"><td><p>.</p></td>
+<td><p>punctuation marks</p></td>
+<td><p>. , ; !</p></td>
+</tr>
+<tr class="row-odd"><td><p>X</p></td>
+<td><p>other</p></td>
+<td><p>ersatz, esprit, dunno, gr8, univeristy</p></td>
+</tr>
+</tbody>
+</table>
+<p>The Brown Corpus with the simple universal tagset can be obtained as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brown_tagged_sents</span><span class="o">=</span><span class="n">brown</span><span class="o">.</span><span class="n">tagged_sents</span><span class="p">(</span><span class="n">tagset</span><span class="o">=</span><span class="s2">&quot;universal&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">brown_tagged_sents</span><span class="p">[:</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[[(&#39;The&#39;, &#39;DET&#39;), (&#39;Fulton&#39;, &#39;NOUN&#39;), (&#39;County&#39;, &#39;NOUN&#39;), (&#39;Grand&#39;, &#39;ADJ&#39;), (&#39;Jury&#39;, &#39;NOUN&#39;), (&#39;said&#39;, &#39;VERB&#39;), (&#39;Friday&#39;, &#39;NOUN&#39;), (&#39;an&#39;, &#39;DET&#39;), (&#39;investigation&#39;, &#39;NOUN&#39;), (&#39;of&#39;, &#39;ADP&#39;), (&quot;Atlanta&#39;s&quot;, &#39;NOUN&#39;), (&#39;recent&#39;, &#39;ADJ&#39;), (&#39;primary&#39;, &#39;NOUN&#39;), (&#39;election&#39;, &#39;NOUN&#39;), (&#39;produced&#39;, &#39;VERB&#39;), (&#39;``&#39;, &#39;.&#39;), (&#39;no&#39;, &#39;DET&#39;), (&#39;evidence&#39;, &#39;NOUN&#39;), (&quot;&#39;&#39;&quot;, &#39;.&#39;), (&#39;that&#39;, &#39;ADP&#39;), (&#39;any&#39;, &#39;DET&#39;), (&#39;irregularities&#39;, &#39;NOUN&#39;), (&#39;took&#39;, &#39;VERB&#39;), (&#39;place&#39;, &#39;NOUN&#39;), (&#39;.&#39;, &#39;.&#39;)]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>A <em>UnigramTagger</em>-object is generated and trained with the Brown Corpus with universal tagset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">complete_tagger</span><span class="o">=</span><span class="n">UnigramTagger</span><span class="p">(</span><span class="n">train</span><span class="o">=</span><span class="n">brown_tagged_sents</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The trained Unigram-Tagger is applied to tag a single sentence:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mySent1</span><span class="o">=</span><span class="s2">&quot;the cat is on the mat&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">complete_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">mySent1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;the&#39;, &#39;DET&#39;), (&#39;cat&#39;, &#39;NOUN&#39;), (&#39;is&#39;, &#39;VERB&#39;), (&#39;on&#39;, &#39;ADP&#39;), (&#39;the&#39;, &#39;DET&#39;), (&#39;mat&#39;, &#39;NOUN&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compare tags assigned by the Unigram-Tagger and the tags assigned by the current NLTK standard tagger on a single sentence:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mySent2</span><span class="o">=</span><span class="s2">&quot;This is major tom calling ground control from space&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unigram Tagger: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">complete_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">mySent2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Current Tagger applied for NLTK pos_tag(): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">mySent2</span><span class="p">,</span><span class="n">tagset</span><span class="o">=</span><span class="s1">&#39;universal&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Unigram Tagger: 
+ [(&#39;This&#39;, &#39;DET&#39;), (&#39;is&#39;, &#39;VERB&#39;), (&#39;major&#39;, &#39;ADJ&#39;), (&#39;tom&#39;, None), (&#39;calling&#39;, &#39;VERB&#39;), (&#39;ground&#39;, &#39;NOUN&#39;), (&#39;control&#39;, &#39;NOUN&#39;), (&#39;from&#39;, &#39;ADP&#39;), (&#39;space&#39;, &#39;NOUN&#39;)]
+
+Current Tagger applied for NLTK pos_tag(): 
+ [(&#39;This&#39;, &#39;DET&#39;), (&#39;is&#39;, &#39;VERB&#39;), (&#39;major&#39;, &#39;ADJ&#39;), (&#39;tom&#39;, &#39;ADJ&#39;), (&#39;calling&#39;, &#39;VERB&#39;), (&#39;ground&#39;, &#39;NOUN&#39;), (&#39;control&#39;, &#39;NOUN&#39;), (&#39;from&#39;, &#39;ADP&#39;), (&#39;space&#39;, &#39;NOUN&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The performance of the trained tagger is evaluated on the same corpus as applied for training. The performance measure is the rate of words that have been tagged correctly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Performance of complete Tagger: &quot;</span><span class="p">,</span><span class="n">complete_tagger</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">brown_tagged_sents</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Performance of complete Tagger:  0.9570777270253326
+</pre></div>
+</div>
+</div>
+</div>
+<p>The rate of correctly taggged words is quite high. However, this method of evaluation is not valid, since the same corpus has been used for evaluation as for training. Therefore we split the corpus into a <em>training-part</em> and a <em>test-part</em>. The <em>UnigramTagger</em> is then trained with the <em>training-part</em> and evaluated with the disjoint  <em>test-part</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">brown_tagged_sents</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">train_sents</span> <span class="o">=</span> <span class="n">brown_tagged_sents</span><span class="p">[:</span><span class="n">size</span><span class="p">]</span>
+<span class="n">test_sents</span> <span class="o">=</span> <span class="n">brown_tagged_sents</span><span class="p">[</span><span class="n">size</span><span class="p">:]</span>
+<span class="n">unigram_tagger</span> <span class="o">=</span> <span class="n">UnigramTagger</span><span class="p">(</span><span class="n">train_sents</span><span class="p">,</span><span class="n">backoff</span><span class="o">=</span><span class="n">DefaultTagger</span><span class="p">(</span><span class="s2">&quot;NN&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Performance of Tagger with 90% Training and 10% Testdata: &quot;</span><span class="p">,</span><span class="n">unigram_tagger</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_sents</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Performance of Tagger with 90% Training and 10% Testdata:  0.9156346262651662
+</pre></div>
+</div>
+</div>
+</div>
+<p>As expected the rate of correctly tagged words is lower, but this value is now a valid evaluation measure.</p>
+<div class="section" id="unigram-tagger-which-applies-only-frequent-words-for-training">
+<h3><span class="section-number">3.3.2.1. </span>Unigram Tagger, which applies only frequent words for training<a class="headerlink" href="#unigram-tagger-which-applies-only-frequent-words-for-training" title="Permalink to this headline">¶</a></h3>
+<p>A trained Unigram Tagger must store a table, which assigns to each word the most frequent POS-tag. Since this table can be quite large, an option is to train the Unigram Tagger only with the most frequent words.
+The following code generates a list of different Unigram taggers, each with an other amount of frequent words of the brown corpus. The plot visualizes the Unigram Tagger performance in dependence of the number of most frequent words, stored in the tagger. Note that in the code below the <em>UnigrammTagger</em> is initialized with a dictionary of tagged words, whereas in the code above the <em>UnigrammTagger</em> is initialized with a corpus of tagged words. Both options are possible.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">pylab</span>
+    <span class="n">words_by_freq</span> <span class="o">=</span> <span class="n">FreqDist</span><span class="p">(</span><span class="n">brown</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">cfd</span> <span class="o">=</span> <span class="n">ConditionalFreqDist</span><span class="p">(</span><span class="n">brown</span><span class="o">.</span><span class="n">tagged_words</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">))</span>
+    <span class="n">sizes</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">pylab</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">perfs</span> <span class="o">=</span> <span class="p">[</span><span class="n">performance</span><span class="p">(</span><span class="n">cfd</span><span class="p">,</span> <span class="n">words_by_freq</span><span class="p">[:</span><span class="n">size</span><span class="p">])</span> <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">sizes</span><span class="p">]</span>
+    <span class="n">pylab</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">perfs</span><span class="p">,</span> <span class="s1">&#39;-bo&#39;</span><span class="p">)</span>
+    <span class="n">pylab</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Lookup Tagger Performance with Varying Model Size&#39;</span><span class="p">)</span>
+    <span class="n">pylab</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Model Size&#39;</span><span class="p">)</span>
+    <span class="n">pylab</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Performance&#39;</span><span class="p">)</span>
+    <span class="n">pylab</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">performance</span><span class="p">(</span><span class="n">cfd</span><span class="p">,</span> <span class="n">wordlist</span><span class="p">):</span>
+    <span class="n">lt</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cfd</span><span class="p">[</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">wordlist</span><span class="p">)</span>
+    <span class="n">baseline_tagger</span> <span class="o">=</span> <span class="n">UnigramTagger</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">lt</span><span class="p">,</span> <span class="n">backoff</span><span class="o">=</span><span class="n">DefaultTagger</span><span class="p">(</span><span class="s1">&#39;NN&#39;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">baseline_tagger</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">brown</span><span class="o">.</span><span class="n">tagged_sents</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02PosTagging_32_0.png" src="../_images/02PosTagging_32_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="n-gram-tagger">
+<h2><span class="section-number">3.3.3. </span>N-Gram Tagger<a class="headerlink" href="#n-gram-tagger" title="Permalink to this headline">¶</a></h2>
+<p>Unigram taggers assign to each wort <span class="math notranslate nohighlight">\(w_n\)</span> the tag <span class="math notranslate nohighlight">\(t_n\)</span>, which is the most frequent tag for <span class="math notranslate nohighlight">\(w_n\)</span> in the training corpus. N-Gram taggers are a generalization of Unigram-Taggers. During training they determine for each combination of <span class="math notranslate nohighlight">\(N-1\)</span> previous tags <span class="math notranslate nohighlight">\(t_{n-1},t_{n-2},...\)</span> and the current word <span class="math notranslate nohighlight">\(w_n\)</span> the most frequent tag <span class="math notranslate nohighlight">\(t_n\)</span>. Tagging is then realized, by inspecting the <span class="math notranslate nohighlight">\(n-1\)</span> previous tags and the current word <span class="math notranslate nohighlight">\(w_n\)</span> and assigning the most frequent tag, which appeared for this combination in the training corpus.<br />
+<img alt="NgramTagging" src="https://maucher.home.hdm-stuttgart.de/Pics/NGramTagging.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baseline</span><span class="o">=</span><span class="n">nltk</span><span class="o">.</span><span class="n">DefaultTagger</span><span class="p">(</span><span class="s1">&#39;NOUN&#39;</span><span class="p">)</span>
+<span class="n">unigram</span> <span class="o">=</span> <span class="n">UnigramTagger</span><span class="p">(</span><span class="n">train</span><span class="o">=</span><span class="n">train_sents</span><span class="p">,</span><span class="n">backoff</span><span class="o">=</span><span class="n">baseline</span><span class="p">)</span>
+<span class="n">bigram</span> <span class="o">=</span> <span class="n">BigramTagger</span><span class="p">(</span><span class="n">train</span><span class="o">=</span><span class="n">train_sents</span><span class="p">,</span><span class="n">backoff</span><span class="o">=</span><span class="n">unigram</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bigram</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_sents</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.9485446658703716
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="find-most-frequent-nouns">
+<h1><span class="section-number">3.4. </span>Find most frequent nouns<a class="headerlink" href="#find-most-frequent-nouns" title="Permalink to this headline">¶</a></h1>
+<p>The most frequent nouns usually provide information on the subject of a text. Below, the most frequent nouns of an already tagged text of the <em>Treebank</em>-corpus are determined. Let’s see if we can conclude the text’s subject.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">treebank</span>
+<span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">FreqDist</span>
+<span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">bigrams</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Treebank sentences: &quot;</span><span class="p">,</span> <span class="n">treebank</span><span class="o">.</span><span class="n">sents</span><span class="p">(</span><span class="n">fileids</span><span class="o">=</span><span class="s2">&quot;wsj_0003.mrg&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
+Treebank sentences:  [[&#39;A&#39;, &#39;form&#39;, &#39;of&#39;, &#39;asbestos&#39;, &#39;once&#39;, &#39;used&#39;, &#39;*&#39;, &#39;*&#39;, &#39;to&#39;, &#39;make&#39;, &#39;Kent&#39;, &#39;cigarette&#39;, &#39;filters&#39;, &#39;has&#39;, &#39;caused&#39;, &#39;a&#39;, &#39;high&#39;, &#39;percentage&#39;, &#39;of&#39;, &#39;cancer&#39;, &#39;deaths&#39;, &#39;among&#39;, &#39;a&#39;, &#39;group&#39;, &#39;of&#39;, &#39;workers&#39;, &#39;exposed&#39;, &#39;*&#39;, &#39;to&#39;, &#39;it&#39;, &#39;more&#39;, &#39;than&#39;, &#39;30&#39;, &#39;years&#39;, &#39;ago&#39;, &#39;,&#39;, &#39;researchers&#39;, &#39;reported&#39;, &#39;0&#39;, &#39;*T*-1&#39;, &#39;.&#39;], [&#39;The&#39;, &#39;asbestos&#39;, &#39;fiber&#39;, &#39;,&#39;, &#39;crocidolite&#39;, &#39;,&#39;, &#39;is&#39;, &#39;unusually&#39;, &#39;resilient&#39;, &#39;once&#39;, &#39;it&#39;, &#39;enters&#39;, &#39;the&#39;, &#39;lungs&#39;, &#39;,&#39;, &#39;with&#39;, &#39;even&#39;, &#39;brief&#39;, &#39;exposures&#39;, &#39;to&#39;, &#39;it&#39;, &#39;causing&#39;, &#39;symptoms&#39;, &#39;that&#39;, &#39;*T*-1&#39;, &#39;show&#39;, &#39;up&#39;, &#39;decades&#39;, &#39;later&#39;, &#39;,&#39;, &#39;researchers&#39;, &#39;said&#39;, &#39;0&#39;, &#39;*T*-2&#39;, &#39;.&#39;], ...]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tagged0003</span><span class="o">=</span><span class="n">treebank</span><span class="o">.</span><span class="n">tagged_words</span><span class="p">(</span><span class="n">tagset</span><span class="o">=</span><span class="s2">&quot;universal&quot;</span><span class="p">,</span><span class="n">fileids</span><span class="o">=</span><span class="s2">&quot;wsj_0003.mrg&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File tagged0003: &quot;</span><span class="p">,</span><span class="n">tagged0003</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>File tagged0003:  [(&#39;A&#39;, &#39;DET&#39;), (&#39;form&#39;, &#39;NOUN&#39;), (&#39;of&#39;, &#39;ADP&#39;), ...]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fdist</span><span class="o">=</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">tagged0003</span> <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;NOUN&quot;</span><span class="p">)</span>
+<span class="c1">#fdist.tabulate(20)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fdist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">freqNouns</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">fdist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">fdist</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;asbestos&#39;, 11), (&#39;workers&#39;, 9), (&#39;filters&#39;, 7), (&#39;cancer&#39;, 6), (&#39;kent&#39;, 5), (&#39;researchers&#39;, 5), (&#39;crocidolite&#39;, 5), (&#39;lorillard&#39;, 5), (&#39;talcott&#39;, 4), (&#39;dr.&#39;, 4), (&#39;factory&#39;, 4), (&#39;fibers&#39;, 4), (&#39;cigarette&#39;, 3), (&#39;deaths&#39;, 3), (&#39;years&#39;, 3), (&#39;cigarettes&#39;, 3), (&#39;university&#39;, 3), (&#39;paper&#39;, 3), (&#39;diseases&#39;, 3), (&#39;percentage&#39;, 2)]
+</pre></div>
+</div>
+<img alt="../_images/02PosTagging_39_1.png" src="../_images/02PosTagging_39_1.png" />
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7ffb92ca0e10&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, the adjectives immediately before the most frequent nouns are determined. What can be concluded from them?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">taggedPairs</span><span class="o">=</span><span class="n">bigrams</span><span class="p">(</span><span class="n">tagged0003</span><span class="p">)</span>
+<span class="n">adjNounPairs</span><span class="o">=</span><span class="p">[(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">taggedPairs</span> <span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">freqNouns</span> <span class="ow">and</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;ADJ&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">adjNounPairs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(&#39;high&#39;, &#39;percentage&#39;)
+(&#39;asbestos-related&#39;, &#39;diseases&#39;)
+(&#39;asbestos-related&#39;, &#39;diseases&#39;)
+(&#39;needle-like&#39;, &#39;fibers&#39;)
+(&#39;cancer-causing&#39;, &#39;asbestos&#39;)
+(&#39;dry&#39;, &#39;fibers&#39;)
+(&#39;asbestos-related&#39;, &#39;diseases&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./03postagging"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="01tagsetsAndAlgorithms.html" title="previous page"><span class="section-number">3.1. </span>PoS Tagsets</a>
+    <a class='right-next' id="next-link" href="../04ngram/04ngram.html" title="next page"><span class="section-number">4. </span>N-Gram Language Model</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

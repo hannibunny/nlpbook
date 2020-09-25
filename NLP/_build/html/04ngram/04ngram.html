@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4. N-Gram Language Model &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="3.3. POS Tagging with NLTK" href="../03postagging/02PosTagging.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01access/01access.html">
+   1. Access and Preprocess Text
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02normalisation/02normalisation.html">
+   2. Word Normalisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03postagging/03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. N-Gram Language Model
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/04ngram/04ngram.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-a-probabilistic-language-model">
+   4.1. Generating a probabilistic language model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applications-of-language-models">
+   4.2. Applications of language models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-power-of-context">
+   4.3. The power of context
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilities-for-arbitrary-word-sequences">
+   4.4. Probabilities for arbitrary word-sequences
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimating-the-probabilities-of-an-n-gram-language-model">
+   4.5. Estimating the Probabilities of an N-Gram Language Model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maximum-likelihood-estimation">
+     4.5.1. Maximum Likelihood Estimation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#laplace-smoothing">
+     4.5.2. Laplace Smoothing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="n-gram-language-model">
+<h1><span class="section-number">4. </span>N-Gram Language Model<a class="headerlink" href="#n-gram-language-model" title="Permalink to this headline">¶</a></h1>
+<p>An <strong>N-gram</strong> is a sequence of N consecutive words. For example from the text <em>the traffic lights switched from green to yellow</em>, the following set of 3-grams (N=3) can be extracted:</p>
+<ul class="simple">
+<li><p>(the, traffic, lights)</p></li>
+<li><p>(traffic, lights, switched)</p></li>
+<li><p>(lights, switched, from)</p></li>
+<li><p>(switched, from, green)</p></li>
+<li><p>(from, green, to)</p></li>
+<li><p>(green, to, yellow)</p></li>
+</ul>
+<div class="section" id="generating-a-probabilistic-language-model">
+<h2><span class="section-number">4.1. </span>Generating a probabilistic language model<a class="headerlink" href="#generating-a-probabilistic-language-model" title="Permalink to this headline">¶</a></h2>
+<p>N-grams can be applied to create a <strong>probabilistic language model</strong> (also called N-gram language model). For this a large corpus of consecutive text(s) is required. <em>Consecutive</em> means that the order of words and sentences is kept like in the original document. The corpus need not be annotated. Hence, one can apply for example an arbitrary book, or a set of books, to learn a language model. For this the frequency of all possible N-grams and (N-1)-grams must be determined. From these frequencies the conditional probabilities</p>
+<div class="math notranslate nohighlight">
+\[
+P(w_n|w_1,w_2,w_3,\ldots,w_{n-1})
+\]</div>
+<p>that word <span class="math notranslate nohighlight">\(w_n\)</span> follows the words <span class="math notranslate nohighlight">\(w_1,w_2,w_3,\ldots,w_{n-1}\)</span> can be estimated as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+P(w_n|w_1,w_2,w_3,\ldots,w_{n-1}) = \frac{\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)}{\#(w_1,w_2,w_3,\ldots,w_{n-1})}
+\label{eq:condprobest} \tag{1}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)\)</span> is the frequency of N-gram <span class="math notranslate nohighlight">\((w_1,w_2,w_3,\ldots,w_{n-1},w_n)\)</span> and <span class="math notranslate nohighlight">\(\#(w_1,w_2,w_3,\ldots,w_{n-1})\)</span> is the frequency of N-gram <span class="math notranslate nohighlight">\((w_1,w_2,w_3,\ldots,w_{n-1})\)</span>.</p>
+</div>
+<div class="section" id="applications-of-language-models">
+<h2><span class="section-number">4.2. </span>Applications of language models<a class="headerlink" href="#applications-of-language-models" title="Permalink to this headline">¶</a></h2>
+<p>The possibility to estimate the likelihood of words, given the <span class="math notranslate nohighlight">\((N-1)\)</span> previous words allows application such as,</p>
+<ul class="simple">
+<li><p>detection of erroneous words in text. An erroneous word usually has a conditional probabiliy close to zero.</p></li>
+<li><p>correction of erroneous words: Replace the very unlikely word (error) by the most likely one for the given predecessors</p></li>
+<li><p>the determinantion of the most likely successor for given <span class="math notranslate nohighlight">\((N-1)\)</span> predecessors enables text-completion applications, such as the ones in the figures below.</p></li>
+<li><p>the determinantion of the most likely successors is a crucial factor for automatic text generation and automatic translation.</p></li>
+</ul>
+<figure align="center">
+<img width="250" src="https://maucher.home.hdm-stuttgart.de/Pics/quicktype.PNG">
+<figcaption><b>Figure:</b> Word Completion in Messenger</figcaption>
+</figure>
+<figure align="center">
+<img width="400" src="https://maucher.home.hdm-stuttgart.de/Pics/wordproposal.PNG">
+<figcaption><b>Figure:</b>Sueggestions for refining queries in web-search</figcaption>
+</figure>
+</div>
+<div class="section" id="the-power-of-context">
+<h2><span class="section-number">4.3. </span>The power of context<a class="headerlink" href="#the-power-of-context" title="Permalink to this headline">¶</a></h2>
+<p>Try to decode the text in the figure below:</p>
+<figure align="center">
+<img width="400" src="https://maucher.home.hdm-stuttgart.de/Pics/KontextBeimLesen.jpeg">
+<figcaption><b>Figure:</b>The capability to infer from context enables us to decode strongly corrupted text</figcaption>
+</figure>
+<p>Did you get it? If so, the reason for your success is that humans exploit context to infer missing knowledge.</p>
+<p>In the example above context is given by surrounding characters, word-length, similarity of characters etc. Applications of N-gram language models understand context to be the <span class="math notranslate nohighlight">\((N-1)\)</span> previous words. The obvious question is then <em>What is a suitable value for N?</em>. Certainly, the larger <span class="math notranslate nohighlight">\(N\)</span>, the more context is integrated and the larger the knowledge. However, with an increasing <span class="math notranslate nohighlight">\(N\)</span> the probability that all N-grams appear often enough in the training-corpus, such that the conditional probabilities are robust, decreases. Moreover, the memory required to save the probabilistic model increases.</p>
+</div>
+<div class="section" id="probabilities-for-arbitrary-word-sequences">
+<h2><span class="section-number">4.4. </span>Probabilities for arbitrary word-sequences<a class="headerlink" href="#probabilities-for-arbitrary-word-sequences" title="Permalink to this headline">¶</a></h2>
+<p>Given the conditional probabilities of the language model, the <em>joint probability</em> <span class="math notranslate nohighlight">\(P(x_1 \ldots, x_Z)\)</span> for a wordsequence of arbitrary length <span class="math notranslate nohighlight">\(Z\)</span> can be calculated.</p>
+<p>For two random variables <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> the relation between the <em>joint probability</em> and the <em>conditional probability</em> is:</p>
+<div class="math notranslate nohighlight">
+\[
+	P(x,y)=P(x\mid y) \cdot P(y)
+\]</div>
+<p>The generalisation of this relation to an arbitrary amount of <span class="math notranslate nohighlight">\(Z\)</span> random variables  <span class="math notranslate nohighlight">\(x_1 \ldots, x_Z\)</span> is the <strong>Chain Rule</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P(x_1 \ldots, x_Z) \\ 
+= P(x_Z \mid x_1 \ldots, x_{Z-1}) \cdot P(x_1 \ldots, x_{Z-1}) \\
+= P(x_Z \mid x_1 \ldots, x_{Z-1}) \cdot P(x_{Z-1} \mid x_1 \ldots, x_{Z-2}) \cdot P(x_1 \ldots, x_{Z-2}) \\
+= P(x_Z \mid x_1 \ldots, x_{Z-1}) \cdot P(x_{Z-1} \mid x_1 \ldots, x_{Z-2}) \cdot \ldots \cdot P(x_2 \mid x_1) \cdot P(x_1) 
+\end{split}\]</div>
+<p>In the case of an N-gram language model and <span class="math notranslate nohighlight">\(Z&gt;N\)</span> this chain rule becomes much simpler, because the N-Gram model assumes, that each word depends only on it’s <span class="math notranslate nohighlight">\((N-1)\)</span> predecessors. If this assumption is true, than</p>
+<div class="math notranslate nohighlight">
+\[
+P(x_Z \mid x_1 \ldots, x_{Z-1}) = P(x_Z \mid x_{Z-N+1} \ldots, x_{Z-1}).
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(Z&gt;N\)</span> the term on the right hand side is simpler than the term on the left, since only a limited part of the <em>history</em> must be regarded. Hence the chain rule gets simpler in the sense, that the condition in the conditional probabilities consists of less elements. Hence, the probability for a wordsequence of arbitrary length <span class="math notranslate nohighlight">\(Z\)</span> can be calculated as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+P(x_1 \ldots, x_Z) =
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P(x_Z \mid x_{Z-N+1} \ldots, x_{Z-1}) \cdot P(x_{Z-1} \mid x_{Z-N} \ldots, x_{Z-2}) \cdot \ldots \cdot P(x_2 \mid x_1) \cdot P(x_1) \label{eq:chainruleN} \tag{2}
+\]</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Example</p>
+<p>According to the chain-rule, the probability for the word-sequence <code class="docutils literal notranslate"><span class="pre">the</span> <span class="pre">traffic</span> <span class="pre">lights</span> <span class="pre">switched</span> <span class="pre">from</span> <span class="pre">green</span> <span class="pre">to</span> <span class="pre">yellow</span></code> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P(the, traffic, lights, switched, from, green, to, yellow) = \\ 
+P(yellow \mid the, traffic, lights, switched, from, green, to) \cdot \\ 
+P(to \mid the, traffic, lights, switched, from, green) \cdot \\
+P(green \mid the, traffic, lights, switched, from) \cdot \\
+P(from \mid the, traffic, lights, switched) \cdot \\
+P(switched \mid the, traffic, lights) \cdot \\
+P(lights \mid the, traffic) \cdot \\ 
+P(traffic \mid the) \cdot \\ 
+P(the) 
+\end{split}\]</div>
+<p>However, if a 3-Gram language model is assumed, the required conditional probability factors become much simpler:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P(the, traffic, lights, switched, from, green, to, yellow) = \\
+P(yellow \mid green, to) \cdot \\
+P(to \mid from, green) \cdot \\
+P(green \mid switched, from) \cdot \\
+P(from \mid lights, switched) \cdot \\
+P(switched \mid traffic, lights) \cdot \\
+P(lights \mid the, traffic) \cdot \\
+P(traffic \mid the) \cdot \\
+P(the)
+\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="estimating-the-probabilities-of-an-n-gram-language-model">
+<h2><span class="section-number">4.5. </span>Estimating the Probabilities of an N-Gram Language Model<a class="headerlink" href="#estimating-the-probabilities-of-an-n-gram-language-model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="maximum-likelihood-estimation">
+<h3><span class="section-number">4.5.1. </span>Maximum Likelihood Estimation<a class="headerlink" href="#maximum-likelihood-estimation" title="Permalink to this headline">¶</a></h3>
+<p>A trained N-gram language model consists of conditional probabilities, determined from the given training corpus. These probabilities can be estimated as defined in equation <span class="math notranslate nohighlight">\(\eqref{eq:condprobest}\)</span>. This way of estimating the probabilities is called <strong>Maximum Likelihood Estimation</strong>. Even though this method of estimation sounds obvious, it has a significant drawback, which makes it impossible for practical applications: As soon as there is an N-gram in the application-text, which is not contained in the training-corpus, the corresponding conditional probability is 0. If only one factor in equation <span class="math notranslate nohighlight">\(\eqref{eq:chainruleN}\)</span> is zero, the entire product and thus the probability for the word-sequence is also zero, independent of the values of the other factors in the product. In order to avoid this, different <strong>smoothing</strong>-techniques have been developed. Two of them, <em>Laplace-Smoothing</em> and <em>Good-Turing-Smoothing</em> are described in the following subsections.</p>
+</div>
+<div class="section" id="laplace-smoothing">
+<h3><span class="section-number">4.5.2. </span>Laplace Smoothing<a class="headerlink" href="#laplace-smoothing" title="Permalink to this headline">¶</a></h3>
+<p>A trivial method to avoid that conditional probabilities, which are calculated as in equation <span class="math notranslate nohighlight">\(\eqref{eq:condprobest}\)</span> is to just <span class="math notranslate nohighlight">\(add 1\)</span> to the nominator. I.e. instead of <span class="math notranslate nohighlight">\(\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)\)</span> we use <span class="math notranslate nohighlight">\(\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)+1\)</span> in the nominator. By adding such a bias of 1, we implictly assume, that each possible <span class="math notranslate nohighlight">\(n-gram\)</span> appears one times more than it’s actual frequency in the corpus. With this assumption, how much more <span class="math notranslate nohighlight">\(n-grams\)</span> with the same first <span class="math notranslate nohighlight">\((n-1)\)</span> words do we then have in this <em>virtually extended corpus</em>? Since each word of the vocabulary, can be the last word of a <span class="math notranslate nohighlight">\(n\)</span>-gram with fixed subsequence <span class="math notranslate nohighlight">\((w_1,w_2,w_3,\ldots,w_{n-1})\)</span>, the answer is <span class="math notranslate nohighlight">\(\mid V \mid\)</span>, the number of different words in the vocabulary. This value must be added to the denominator for calculating the <strong>Laplace-Smoothed conditional Probability</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+P_{L}(w_n|w_1,w_2,w_3,\ldots,w_{n-1}) = \frac{\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)+1}{\#(w_1,w_2,w_3,\ldots,w_{n-1})+\mid V \mid}
+\label{eq:laplacesmooth} \tag{3}
+\]</div>
+<p>By applying in equation <span class="math notranslate nohighlight">\(\eqref{eq:chainruleN}\)</span> the Laplace-smoothed conditional probabilities of equation <span class="math notranslate nohighlight">\(\eqref{eq:laplacesmooth}\)</span> instead of the <em>true</em> conditional probabilities of equation <span class="math notranslate nohighlight">\(\eqref{eq:condprobest}\)</span>, the probability of a word-sequence can never be zero.</p>
+<p>Laplace smoothing is in general the most common smoothing technique, to avoid zero-factors in probability-calculations like this. However, in the context of N-gram language model Laplace smoothing is not advisable, because it distorts the <em>true</em> conditional probabilities too much. For example, assume that we like to calculate the conditional probability <span class="math notranslate nohighlight">\(P(to \mid want)\)</span> that <code class="docutils literal notranslate"><span class="pre">to</span></code> follows <code class="docutils literal notranslate"><span class="pre">want</span></code> for a Bigram (N=2) language model. Assume that the Unigram (N=1) <span class="math notranslate nohighlight">\((want)\)</span> appears 927 times and the bigram <span class="math notranslate nohighlight">\((want, to)\)</span> appears 608 times in the corpus. Moreover, we assume a relatively small vocabulary of only <span class="math notranslate nohighlight">\(\mid V \mid = 1446\)</span> different words. Then the <em>true</em> conditional probability according to Maximum-Likelihood-Estimation is</p>
+<div class="math notranslate nohighlight">
+\[
+P(to \mid want) = \frac{608}{927} = 0.66
+\]</div>
+<p>However, with Laplace-Smoothing, the conditional probability is</p>
+<div class="math notranslate nohighlight">
+\[
+P_{L}(to \mid want) = \frac{608+1}{927+1446} = 0.26
+\]</div>
+<p>By comparing the two values, the immense distortion, due to large vocabulary-sizes, becomes obvious.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./04ngram"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../03postagging/02PosTagging.html" title="previous page"><span class="section-number">3.3. </span>POS Tagging with NLTK</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
