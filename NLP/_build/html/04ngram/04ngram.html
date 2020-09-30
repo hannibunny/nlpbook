@@ -14,29 +14,26 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5. Vector Representations of Words and Documents" href="../05representations/05representations.html" />
@@ -530,14 +527,12 @@ PP(W)=\sqrt[N]{\prod\limits_{i=1}^N \frac{1}{P(w_i |w_{i-N-1} \ldots w_{i-1})}}
 <h2><span class="section-number">4.7. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>The following example is from <a class="bibtex reference internal" href="../referenceSection.html#jurafsky2009" id="id1">[JM09]</a>, the underlying corpus is the <em>Berkeley Restaurant Project corpus</em> <a class="bibtex reference internal" href="../referenceSection.html#jurafsky1994" id="id2">[JWT+94]</a>. In the first two tables the Bigram and Unigram frequencies of 8 words from the corpus are listed. In total, there are <span class="math notranslate nohighlight">\(\mid V \mid = 1446\)</span> different words in the corpus. In the Bigram-table (first table) the entry in the row of <span class="math notranslate nohighlight">\(word_x\)</span> and column of <span class="math notranslate nohighlight">\(word_y\)</span> is the frequency of the Bigram <span class="math notranslate nohighlight">\((word_x,word_y)\)</span>. For example</p>
 <div class="math notranslate nohighlight">
-\[
+\[ \begin{align}\begin{aligned}
 \#(I,want) = 827
-\]</div>
-<p>From the Bigram- and Unigram-counts the Bigram probabilities (third table) can be Maximum-Likelihood estimated by applying equation <span class="math notranslate nohighlight">\(\eqref{eq:condprobest}\)</span>. For example</p>
-<div class="math notranslate nohighlight">
-\[
-P(want \mid I) = \frac{827}{2533}=0.33.
-\]</div>
+$$.\\
+From the Bigram- and Unigram-counts the Bigram probabilities (third table) can be Maximum-Likelihood estimated by applying equation $\eqref{eq:condprobest}$. For example\end{aligned}\end{align} \]</div>
+<p>P(want \mid I) = \frac{827}{2533}=0.33.
+$$</p>
 <figure align="center">
 <img width="400" src="https://maucher.home.hdm-stuttgart.de/Pics/BigrammMatrixRestaurant.png">
 <figcaption><b>Figure:</b>Bigram counts for eight of the words in the Berkeley Restaurant Project corpus of 9332 sentences.</figcaption>

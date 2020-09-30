@@ -14,29 +14,26 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3.3. POS Tagging with NLTK" href="02PosTagging.html" />
@@ -425,7 +422,7 @@ word \rightarrow PoS(word), \quad \forall word \in V,
 </tbody>
 </table>
 <p><strong>Tagging:</strong> The learned mapping is the <span class="math notranslate nohighlight">\(N+1\)</span>-column table. This table can be applied to tag each <em>PoS-tag-sequence-word-combination</em> with the PoS of the current word.</p>
-<p><strong>Properties:</strong> The larger the <span class="math notranslate nohighlight">\(N\)</span>, the more context is taken into account and the higher the probability, that the correct PoS-Tag is assigned. However, with an increasing number <span class="math notranslate nohighlight">\(N\)</span> also the number of *PoS-tag-sequence-word-combinations$ increases exponentially. Therefore the probability that the text, which must be tagged, contains a combination, which has not been in the training corpus and theirfore is not listed in the mapping table increases. What should be done in the case of such an unknown combination? A standard solution is to train and implement a sequence of N-Gram-Taggers with varying <span class="math notranslate nohighlight">\(N\)</span>. For example a Unigram-, Bigram-, 3-Gram and 4-Gram-Tagger is trained. For tagging the 4-Gram tagger is applied. If this tagger faces a 4-combination (sequence of 3 PoS-tags plus following word), which is not in it’s table, a <strong>Backup-Tagger</strong>, the 3-Gram-Tagger in this case, is applied for this combination. If the corresponding 3-combination is also not in the table of the 3-Gram-Tagger the next Backup-Tagger, which is the Bigram-Tagger, is applied and so on.</p>
+<p><strong>Properties:</strong> The larger the <span class="math notranslate nohighlight">\(N\)</span>, the more context is taken into account and the higher the probability, that the correct PoS-Tag is assigned. However, with an increasing number <span class="math notranslate nohighlight">\(N\)</span> also the number of *PoS-tag-sequence-word-combinations<span class="math notranslate nohighlight">\( increases exponentially. Therefore the probability that the text, which must be tagged, contains a combination, which has not been in the training corpus and theirfore is not listed in the mapping table increases. What should be done in the case of such an unknown combination? A standard solution is to train and implement a sequence of N-Gram-Taggers with varying \)</span>N$. For example a Unigram-, Bigram-, 3-Gram and 4-Gram-Tagger is trained. For tagging the 4-Gram tagger is applied. If this tagger faces a 4-combination (sequence of 3 PoS-tags plus following word), which is not in it’s table, a <strong>Backup-Tagger</strong>, the 3-Gram-Tagger in this case, is applied for this combination. If the corresponding 3-combination is also not in the table of the 3-Gram-Tagger the next Backup-Tagger, which is the Bigram-Tagger, is applied and so on.</p>
 <p>In the <a class="reference internal" href="02PosTagging.html"><span class="doc std std-doc">next section</span></a> the application of all the taggers, described above, is demonstrated. Moreover, in a <a class="reference internal" href="../02normalisation/03StemLemma.html"><span class="doc std std-doc">previous notebook</span></a> it has already been shown how <em>TextBlob</em> can be applied for PoS-Tagging.</p>
 </div>
 </div>

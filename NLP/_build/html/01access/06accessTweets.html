@@ -14,29 +14,26 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. Word Normalisation" href="../02normalisation/02normalisation.html" />
@@ -204,6 +201,28 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01access/06accessTweets.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/01access/06accessTweets.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -230,16 +249,28 @@
 <p>This notebook demonstrates how the Python API <a class="reference external" href="http://www.tweepy.org/">tweepy</a> can be applied to access data from twitter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install tweepy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install tweepy</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tweepy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tweepy</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">slugify</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">40</span><span class="n">f356d014cc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">tweepy</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">json</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">slugify</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tweepy&#39;
 </pre></div>
 </div>
 </div>
@@ -248,7 +279,7 @@
 <p>My personal credentials are saved in the file <code class="docutils literal notranslate"><span class="pre">twitterCredentials.json</span></code>. The contents of this file are loaded in the following code-cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/Users/maucher/Keys/twitterCredentials.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data_file</span><span class="p">:</span>    
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/Users/maucher/Keys/twitterCredentials.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data_file</span><span class="p">:</span>    
     <span class="n">credentials</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_file</span><span class="p">)</span>
 <span class="c1">#print credentials</span>
 </pre></div>
@@ -258,7 +289,7 @@
 <p>Tweepy authentification:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">credentials</span><span class="p">[</span><span class="s2">&quot;consumerKey&quot;</span><span class="p">],</span> <span class="n">credentials</span><span class="p">[</span><span class="s2">&quot;consumerSecret&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">credentials</span><span class="p">[</span><span class="s2">&quot;consumerKey&quot;</span><span class="p">],</span> <span class="n">credentials</span><span class="p">[</span><span class="s2">&quot;consumerSecret&quot;</span><span class="p">])</span>
 <span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">credentials</span><span class="p">[</span><span class="s2">&quot;accessToken&quot;</span><span class="p">],</span><span class="n">credentials</span><span class="p">[</span><span class="s2">&quot;accessSecret&quot;</span><span class="p">])</span>
 <span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
 </pre></div>
@@ -268,7 +299,7 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">API</span></code>-object can now be applied for example in order to read the own timeline of the Twitter homepage:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public_tweets</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">home_timeline</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">public_tweets</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">home_timeline</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">public_tweets</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">tweet</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
@@ -277,52 +308,44 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>----------
-VfB Stuttgart
-Nach der Balleroberung von Silas geht&#39;s ab 💨 1⃣1⃣ Sekunden bis zum 3:1 gegen Mainz und dem ersten @Bundesliga_DE-To… https://t.co/BcX1MSm3SV
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------
+Steffen Seibert
+RT @BMI_Bund: .@BMI_sprecher zu #Moria: &quot;Wir werden Griechenland helfen. Das ist nicht nur unsere deutsche Position, sondern entspricht auc…
+----------
+Hochschule der Medien (HdM)
+4.000 Follower! 😍
+Vielen lieben Dank an unsere Community auf Twitter. Ihr seid klasse! 😊
+Wir wünschen Euch noch ein… https://t.co/RrogkEBz5j
 ----------
 Steffen Seibert
-Heute vor 30 Jahren trat der Einigungsvertrag in Kraft. Er regelte den Beitritt der DDR zur Bundesrepublik Deutschl… https://t.co/uSaMzaXCDz
-----------
-VfB Stuttgart
-Das war&#39;s. Die Vormittagseinheit ist beendet ✅
-
-#VfB https://t.co/XAm5ZYPJwu
-----------
-VfB Stuttgart
-#VfBB04 im Blick! 👀
-
-#VfB https://t.co/O3P7Gw1ZN5
-----------
-VfB Stuttgart
-Erik #Thommy ⚽️
-
-#VfB https://t.co/IyQtdkBUcJ
-----------
-VfB Stuttgart
-Zurück auf dem Trainingsplatz!
-
-Welcome back, Erik #Thommy! 👍
-
-#VfB https://t.co/T8egscq1Qv
-----------
-VfB Stuttgart
-Roberto #Massimo 🆚️ @wataru0209 
-
-Borna #Sosa 🆚️ Waldemar #Anton 
-
-#VfB https://t.co/mNjNBKaxRE
-----------
-VfB Stuttgart
-Und los! Mit Power in die HEIMSPIELwoche! 😤
-
-#VfB @MateoKlimowicz https://t.co/OQ1S173rPU
-----------
-VfB Stuttgart
-Mit dem Auswärtssieg im Rücken: Die Trainingswoche vor dem Heimspiel #VfBB04 beginnt! #VfB https://t.co/E0Qm0bvpxG
+Das #Kabinett hat beschlossen, den Einsatz bewaffneter deutscher Streitkräfte in #Irak und #Syrien zu verlängern. D… https://t.co/wXiYGJwWxx
 ----------
 Steffen Seibert
-Kanzlerin #Merkel hat in Telefonaten mit dem Präsidenten von #Aserbaidschan, Alijew und dem Ministerpräsidenten von… https://t.co/Ia97Fcmyx8
+RT @BMISprecher: Wir befinden uns seit gestern in intensiven Gesprächen mit der griechischen Regierung. Wir haben Griechenland in der Verga…
+----------
+VfB Stuttgart
+.@nicoivang19 vermisst seinen Freund, den Ball ⚽️👀
+
+... und sucht sich so seine Ersatzbeschäftigungen 📽️😁
+
+#VfB… https://t.co/uoPelVqJL4
+----------
+VfB Stuttgart
+Einheit 1⃣/2⃣✔️
+
+🔜 Am Nachmittag geht’s weiter auf dem #VfB Trainingsgelände! https://t.co/bmRBVXSGYO
+----------
+VfB Stuttgart
+Die Jungs #auscannstatt hängen sich voll rein! 💪😤 #VfB https://t.co/7WzjwHmzJy
+----------
+VfB Stuttgart
+Gonzo auf Dida ⚽️✔️ #VfB https://t.co/WGqisGNad4
+----------
+VfB Stuttgart
+.@wataru0209 verteilt die Bälle! ⚽️ #VfB https://t.co/kL7Y0QNAzZ
+----------
+VfB Stuttgart
+Guess who❓🤔 #VfB https://t.co/ToCM2IbF8p
 </pre></div>
 </div>
 </div>
@@ -330,7 +353,7 @@ Kanzlerin #Merkel hat in Telefonaten mit dem Präsidenten von #Aserbaidschan, Al
 <p>The <code class="docutils literal notranslate"><span class="pre">API</span></code>-object can also be applied for sending a new tweet (a.k.a. update status):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#api.update_status(&quot;This is just for testing tweepy api&quot;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#api.update_status(&quot;This is just for testing tweepy api&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -338,76 +361,76 @@ Kanzlerin #Merkel hat in Telefonaten mit dem Präsidenten von #Aserbaidschan, Al
 <p>The API does not only provide access to content (tweets), but also to user-, friendship-, list-data and much more:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">get_user</span><span class="p">(</span><span class="s1">&#39;realDonaldTrump&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">get_user</span><span class="p">(</span><span class="s1">&#39;realDonaldTrump&#39;</span><span class="p">)</span>
 <span class="c1">#ser = api.get_user(&#39;RegSprecher&#39;)</span>
 <span class="n">user</span><span class="o">.</span><span class="n">id</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>25073877
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25073877
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>45th President of the United States of America🇺🇸
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45th President of the United States of America🇺🇸
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">.</span><span class="n">followers_count</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">.</span><span class="n">followers_count</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>86361412
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>85834762
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">.</span><span class="n">location</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">.</span><span class="n">location</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Washington, DC&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Washington, DC&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">.</span><span class="n">friends_count</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">.</span><span class="n">friends_count</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>50
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">friend</span> <span class="ow">in</span> <span class="n">user</span><span class="o">.</span><span class="n">friends</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">friend</span> <span class="ow">in</span> <span class="n">user</span><span class="o">.</span><span class="n">friends</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">friend</span><span class="o">.</span><span class="n">screen_name</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">friends</span><span class="p">()))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>GOPLeader
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GOPLeader
 senatemajldr
 MarkMeadows
 kimguilfoyle
@@ -427,16 +450,14 @@ Reince
 RealRomaDowney
 Trump
 TrumpGolf
-</pre></div>
-</div>
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>20
+20
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dirname</span><span class="o">=</span><span class="s2">&quot;./TWEETS/&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dirname</span><span class="o">=</span><span class="s2">&quot;./TWEETS/&quot;</span>
 <span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mxlearn&quot;</span><span class="p">,</span><span class="s2">&quot;reddit_python&quot;</span><span class="p">,</span><span class="s2">&quot;ML_NLP&quot;</span><span class="p">,</span><span class="s2">&quot;realDonaldTrump&quot;</span><span class="p">]</span>
 <span class="n">numTweets</span><span class="o">=</span><span class="mi">300</span>
 <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
@@ -452,16 +473,10 @@ TrumpGolf
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>mxlearn
-</pre></div>
-</div>
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>reddit_python
-</pre></div>
-</div>
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>ML_NLP
-</pre></div>
-</div>
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>realDonaldTrump
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mxlearn
+reddit_python
+ML_NLP
+realDonaldTrump
 </pre></div>
 </div>
 </div>
@@ -469,7 +484,7 @@ TrumpGolf
 <p>Alternative way to access timeline using the cursor-object:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;twitterTimeline.json&quot;</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;twitterTimeline.json&quot;</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">home_timeline</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">_json</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
@@ -478,13 +493,13 @@ TrumpGolf
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">friend</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">friends</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">friend</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">friends</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">friend</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Johannes Maucher
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Johannes Maucher
 VfB Stuttgart
 Steffen Seibert
 Hochschule der Medien (HdM)
@@ -494,14 +509,14 @@ Hochschule der Medien (HdM)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">user_timeline</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">user_timeline</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">tweet</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>----------
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------
 This is just for testing tweepy api
 </pre></div>
 </div>
