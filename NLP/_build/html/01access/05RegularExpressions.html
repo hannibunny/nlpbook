@@ -14,26 +14,29 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/togglebutton.js"></script>
-    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
-    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script type="text/javascript">
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1.6. Access Tweets" href="06accessTweets.html" />
@@ -130,6 +133,16 @@
    4. N-Gram Language Model
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/05representations.html">
+   5. Vector Representations of Words and Documents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referenceSection.html">
+   6. References
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -190,28 +203,6 @@
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01access/05RegularExpressions.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/01access/05RegularExpressions.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
 
     </div>
 
@@ -381,7 +372,7 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
 <span class="kn">import</span> <span class="nn">re</span>
 </pre></div>
 </div>
@@ -389,7 +380,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dummytext1</span><span class="o">=</span><span class="s2">&quot;His email-address is foo.bar@bar-foo.com but he doesn&#39;t check his emails frequently&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dummytext1</span><span class="o">=</span><span class="s2">&quot;His email-address is foo.bar@bar-foo.com but he doesn&#39;t check his emails frequently&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -397,20 +388,20 @@
 <p>Assume, that we have texts, that contain email-addresses, like the dummy-text above. The task is to find all email addresses in the text. For this we can define a pattern, which matches to syntactically correct email-addresses and pass this pattern to the <code class="docutils literal notranslate"><span class="pre">findall(pattern,text)</span></code>-method of the <code class="docutils literal notranslate"><span class="pre">re</span></code>-package:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mailpattern</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;[\w_\.-]+@[\w_\.-]+\.\w+&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mailpattern</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;[\w_\.-]+@[\w_\.-]+\.\w+&#39;</span>
 <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">mailpattern</span><span class="p">,</span><span class="n">dummytext1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;foo.bar@bar-foo.com&#39;]
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;foo.bar@bar-foo.com&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dummytext2</span><span class="o">=</span><span class="s2">&quot;This is just a dummy test, which is applied for demonstrating regular expressions in Python. The current date is 2017-10-17.&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dummytext2</span><span class="o">=</span><span class="s2">&quot;This is just a dummy test, which is applied for demonstrating regular expressions in Python. The current date is 2017-10-17.&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -418,7 +409,7 @@
 <p>Find first word, which begins with character <em>d</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern1</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s[d]\S*\s&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pattern1</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s[d]\S*\s&quot;</span>
 <span class="n">search_result</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern1</span><span class="p">,</span><span class="n">dummytext2</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">search_result</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">search_result</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
@@ -428,7 +419,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> dummy 
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span> dummy 
 </pre></div>
 </div>
 </div>
@@ -436,7 +427,7 @@
 <p>Find all words, which begin with character <em>d</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_result</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern1</span><span class="p">,</span><span class="n">dummytext2</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">search_result</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern1</span><span class="p">,</span><span class="n">dummytext2</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">search_result</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">search_result</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -445,7 +436,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39; dummy &#39;, &#39; demonstrating &#39;, &#39; date &#39;]
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39; dummy &#39;, &#39; demonstrating &#39;, &#39; date &#39;]
 </pre></div>
 </div>
 </div>
@@ -453,7 +444,7 @@
 <p>Find all words, which begin with character <em>d</em>. Return only the words, not the whitespaces around them:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern2</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s([d]\S*)\s&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pattern2</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s([d]\S*)\s&quot;</span>
 <span class="n">search_result</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern2</span><span class="p">,</span><span class="n">dummytext2</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">search_result</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">search_result</span><span class="p">)</span>
@@ -463,7 +454,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dummy&#39;, &#39;demonstrating&#39;, &#39;date&#39;]
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;dummy&#39;, &#39;demonstrating&#39;, &#39;date&#39;]
 </pre></div>
 </div>
 </div>
@@ -471,7 +462,7 @@
 <p>Same result as above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern3</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\b[d]\S*\b&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pattern3</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\b[d]\S*\b&quot;</span>
 <span class="n">search_result</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern3</span><span class="p">,</span><span class="n">dummytext2</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">search_result</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">search_result</span><span class="p">)</span>
@@ -481,7 +472,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dummy&#39;, &#39;demonstrating&#39;, &#39;date&#39;]
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;dummy&#39;, &#39;demonstrating&#39;, &#39;date&#39;]
 </pre></div>
 </div>
 </div>
@@ -489,7 +480,7 @@
 <p>Replace substrings:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">templateText</span><span class="o">=</span><span class="s2">&quot;Dear Mrs. &lt;Name&gt;, we like to invit you to our &lt;Event&gt;&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">templateText</span><span class="o">=</span><span class="s2">&quot;Dear Mrs. &lt;Name&gt;, we like to invit you to our &lt;Event&gt;&quot;</span>
 <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Keane&quot;</span>
 <span class="n">event</span><span class="o">=</span><span class="s2">&quot;summer school&quot;</span>
 <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;Event&gt;&quot;</span><span class="p">,</span><span class="n">event</span><span class="p">,</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;Name&gt;&quot;</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">templateText</span><span class="p">))</span>
@@ -497,7 +488,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Dear Mrs. Keane, we like to invit you to our summer school&#39;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Dear Mrs. Keane, we like to invit you to our summer school&#39;
 </pre></div>
 </div>
 </div>
@@ -507,7 +498,7 @@
 <h2><span class="section-number">1.5.4. </span>Segmentation into words using regular expressions<a class="headerlink" href="#segmentation-into-words-using-regular-expressions" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
 <span class="kn">import</span> <span class="nn">re</span>
 
 <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Es wäre schön, wenn wir mal wieder fußballspielen könnten.</span>
@@ -530,7 +521,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anzahl der unterschiedlichen Tokens:  40
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Anzahl der unterschiedlichen Tokens:  40
 ------------Die Menge der Worte--------------
 
 1
@@ -581,7 +572,7 @@ wäre
 <h2><span class="section-number">1.5.5. </span>Segmentation into words using NLTK<a class="headerlink" href="#segmentation-into-words-using-nltk" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">20</span><span class="o">+</span><span class="s2">&quot;Test von nltk.regexp_tokenize&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">20</span><span class="o">+</span><span class="s2">&quot;Test von nltk.regexp_tokenize&quot;</span><span class="p">)</span>
 <span class="n">text</span><span class="o">=</span><span class="n">text</span>
 <span class="n">ntokens</span><span class="o">=</span><span class="n">nltk</span><span class="o">.</span><span class="n">regexp_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="sa">r</span><span class="s2">&quot;[\wäöüÄÖÜß]+&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ntokens</span><span class="p">:</span>
@@ -591,7 +582,7 @@ wäre
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------------Test von nltk.regexp_tokenize
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>--------------------Test von nltk.regexp_tokenize
 Es
 wäre
 schön
@@ -641,7 +632,7 @@ Anzahl der Tokens:      42
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">20</span><span class="o">+</span><span class="s2">&quot;Test von nltk.word_tokenize&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">20</span><span class="o">+</span><span class="s2">&quot;Test von nltk.word_tokenize&quot;</span><span class="p">)</span>
 <span class="n">ntokens</span><span class="o">=</span><span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ntokens</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -650,7 +641,7 @@ Anzahl der Tokens:      42
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------------Test von nltk.word_tokenize
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>--------------------Test von nltk.word_tokenize
 Es
 wäre
 schön
@@ -710,7 +701,7 @@ Anzahl der Tokens:      49
 <h2><span class="section-number">1.5.6. </span>Segmentation into sentences using regular expressions<a class="headerlink" href="#segmentation-into-sentences-using-regular-expressions" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text1</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Es wäre schön, wenn wir mal wieder fußballspielen könnten.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text1</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Es wäre schön, wenn wir mal wieder fußballspielen könnten.</span>
 <span class="s2">Oder was meint ihr? Ich bin jederzeit bereit. Thomas habe ich bereits gefragt.</span>
 <span class="s2">Er meinte: &quot;Ich schau mir lieber das Spiel der Bayern gegen den 1.FC Köln </span>
 <span class="s2">in der Allianz-Arena an.&quot; &quot;&quot;&quot;</span>
@@ -726,7 +717,7 @@ Anzahl der Tokens:      49
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>----------
 Es wäre schön, wenn wir mal wieder fußballspielen könnten
 ----------
 Oder was meint ihr
@@ -750,7 +741,7 @@ Anzahl der Tokens:                    6
 <h2><span class="section-number">1.5.7. </span>Segmentation into sentences using NLTK<a class="headerlink" href="#segmentation-into-sentences-using-nltk" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text2</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Dr. med. R. Steiner meint es wäre schön, wenn wir mal wieder fußballspielen könnten.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text2</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Dr. med. R. Steiner meint es wäre schön, wenn wir mal wieder fußballspielen könnten.</span>
 <span class="s2">Oder was meint ihr? Ich bin jederzeit bereit. Thomas usw. habe ich bereits gefragt.</span>
 <span class="s2">Er meinte: &quot;Ich schau mir lieber das Spiel der Bayern gegen den 1.FC Köln </span>
 <span class="s2">in der Allianz-Arena an.</span><span class="se">\&quot;</span><span class="s2"> Es schauen 7 Mio. zu, inkl. mir selbst. U.a. soll auch Messi etc. dabei sein.</span><span class="se">\&quot;</span><span class="s2">&quot;&quot;&quot;</span>
@@ -766,7 +757,7 @@ Anzahl der Tokens:                    6
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>----------
 Dr. med. R. Steiner meint es wäre schön, wenn wir mal wieder fußballspielen könnten.
 ----------
 Oder was meint ihr?

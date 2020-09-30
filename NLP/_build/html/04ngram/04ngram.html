@@ -14,28 +14,32 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/togglebutton.js"></script>
-    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
-    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script type="text/javascript">
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Vector Representations of Words and Documents" href="../05representations/05representations.html" />
     <link rel="prev" title="3.3. POS Tagging with NLTK" href="../03postagging/02PosTagging.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -95,6 +99,16 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    4. N-Gram Language Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/05representations.html">
+   5. Vector Representations of Words and Documents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referenceSection.html">
+   6. References
   </a>
  </li>
 </ul>
@@ -205,6 +219,23 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#good-turing-smoothing">
      4.5.3. Good-Turing-Smoothing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation-of-language-models">
+   4.6. Evaluation of Language Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   4.7. Example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#perplexity-of-unigram-and-bigram-model">
+     4.7.1. Perplexity of Unigram- and Bigram-Model
     </a>
    </li>
   </ul>
@@ -451,11 +482,97 @@ P_{GT}(black) = \frac{2 \cdot \frac{1}{3}}{18} = \frac{2}{3 \cdot 18},
 r* = \frac{(r+1)N_{r+1}}{N_r} = \frac{2 \cdot 1}{3}.
 \]</div>
 <p>Note that the calculation of <span class="math notranslate nohighlight">\(r*\)</span> according to equation <span class="math notranslate nohighlight">\(\eqref{eq:rstern}\)</span> fails, if <span class="math notranslate nohighlight">\(N_{r+1}=0\)</span>. Therefore, it is suggested to apply expectation values <span class="math notranslate nohighlight">\(E(N_{r+1})\)</span> and <span class="math notranslate nohighlight">\(E(N_{r})\)</span> in equation <span class="math notranslate nohighlight">\(\eqref{eq:rstern}\)</span>. Such expectation values can be determined, e.g. by interpolation.</p>
-<p><strong>Final remark on the number of unseen events in N-gram language models:</strong> From the corpus, the frequency <span class="math notranslate nohighlight">\(R_x\)</span> for all N-grams in the corpus can the determined. Then also all <span class="math notranslate nohighlight">\(N_r\)</span>-values (number of N-grams which appear r times) can be determined. For an N-gram <span class="math notranslate nohighlight">\(x\)</span>, which is not in the corpus, we like to determine the probability <span class="math notranslate nohighlight">\(P_{GT}(x)\)</span> according to equation <span class="math notranslate nohighlight">\(\eqref{eq:punsingle}\)</span>. But what is <span class="math notranslate nohighlight">\(N_0\)</span>, the number of unseen N-grams? For this we first determine the number <span class="math notranslate nohighlight">\(Z\)</span> of observed N-grams according to <span class="math notranslate nohighlight">\(\eqref{eq:sumGT}\)</span>. Then we subtract Z from the total number of possible N-grams:</p>
+<p><strong>Final remark on the number of unseen events in N-gram language models:</strong> From the corpus, the frequency <span class="math notranslate nohighlight">\(R_x\)</span> for each N-gram <span class="math notranslate nohighlight">\(x\)</span> in the corpus can the determined. Then also all <span class="math notranslate nohighlight">\(N_r\)</span>-values (number of N-grams which appear r times) can be determined. For an N-gram <span class="math notranslate nohighlight">\(x\)</span>, which is not in the corpus, we like to determine the probability <span class="math notranslate nohighlight">\(P_{GT}(x)\)</span> according to equation <span class="math notranslate nohighlight">\(\eqref{eq:punsingle}\)</span>. But what is <span class="math notranslate nohighlight">\(N_0\)</span>, the number of unseen N-grams? For this we first determine the number <span class="math notranslate nohighlight">\(Z\)</span> of observed N-grams according to <span class="math notranslate nohighlight">\(\eqref{eq:sumGT}\)</span>. Then we subtract Z from the total number of possible N-grams:</p>
 <div class="math notranslate nohighlight">
 \[
 N_0 = \mid V \mid^{N} - \sum\limits_{r=1}^{\infty}N_r \cdot r .
 \]</div>
+</div>
+</div>
+<div class="section" id="evaluation-of-language-models">
+<h2><span class="section-number">4.6. </span>Evaluation of Language Models<a class="headerlink" href="#evaluation-of-language-models" title="Permalink to this headline">¶</a></h2>
+<p>N-Gram language models differ in</p>
+<ul class="simple">
+<li><p>the value of <span class="math notranslate nohighlight">\(N\)</span>,</p></li>
+<li><p>the corpus, which has been applied for training</p></li>
+<li><p>the method of estimating the conditional probabilities, e.g. Maximum-Likelihood, Laplace, Good-Turing, …</p></li>
+</ul>
+<p>Subject of this subsection is the evaluation of language models. If we have a trained language model, how can we assess it’s quality? Or similarly: if we have trained several different language models, how can we determine the best one?</p>
+<p>In general evaluation of language models can be categorized into <em>intrinsic</em> and <em>extrinsic</em> evaluation. In the case of <strong>extrinsic evaluation</strong>, the lanugage model is not evaluated directly in an isolated manner. Instead the language model is integrated into the application, e.g. speech recognition, translation, automatic correction, and the quality of the application is determined in an end-to-end manner. However, <strong>Intrinsic evaluation</strong> is application-independend. It calculates a metric, which depends only on the language model itself. In this subsection, only intrinsic evaluation is addressed.</p>
+<p>As usual in the context of Machine Learning, the following datasets (corpora) must be distinguished</p>
+<ul class="simple">
+<li><p><strong>Training</strong> data: The data applied for learning a model</p></li>
+<li><p><strong>Validation</strong> data: The data applied to evaluate and assess the trained model and to compare different trained models. Usually the model, which performs best on validation-data is selected for application</p></li>
+<li><p><strong>Test</strong> data: Data from the application domain is applied to estimate the quality of the selected data in the <strong>application</strong>, e.g. in terms of error rate</p></li>
+</ul>
+<p>These three datasets should be disjoint and the data of these three partitions should have similar statistics. It makes no sense to train a model on Shakespeare-poems, validate it on scientific papers and apply it for postings in a social network.</p>
+<p>The most popular intrinsic performance measure for N-Gram language models is <strong>Perplexity</strong>. This metric measures how good a language model is adapted to text of the validation corpus, more concrete: How good the language model predicts next words in the validation data.</p>
+<p>Let <span class="math notranslate nohighlight">\(W=w_1 w_2 w_3, \ldots, w_N\)</span> be the text of a validation corpus. Then the Perplexity of a statistical language model on the validation corpus is in general</p>
+<div class="math notranslate nohighlight">
+\[
+PP(W)=\sqrt[N]{\frac{1}{P(w_1 w_2 w_3 \ldots w_N)}}. 
+\]</div>
+<p>By applying the Chain-rule (which is also applicable in general), we have:</p>
+<div class="math notranslate nohighlight">
+\[
+PP(W)=\sqrt[N]{\prod\limits_{i=1}^N \frac{1}{P(w_i | w_1 w_2 \ldots w_{i-1})}}
+\]</div>
+<p>As described above, under the assumption of an N-gram language model, the factors of the chain-rule become simpler, since only <span class="math notranslate nohighlight">\(N-1\)</span> predessors must be regarded. Hence the perplexity of the N-Gram language model on the validation data <span class="math notranslate nohighlight">\(W\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+PP(W)=\sqrt[N]{\prod\limits_{i=1}^N \frac{1}{P(w_i |w_{i-N-1} \ldots w_{i-1})}}
+\label{eq:perplex} \tag{8}
+\]</div>
+<p>The conditional probabilities in the denominator are the ones, learned from the training corpus. As the probabilites are in the denominator, the lower perplexity indicates the better language model.</p>
+<p>An example for perplexity of a Unigram- and a Bigram language model is given below in <a class="reference internal" href="#example-perplexity"><span class="std std-ref">Perplexity of Unigram- and Bigram-Model</span></a>.</p>
+</div>
+<div class="section" id="example">
+<h2><span class="section-number">4.7. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>The following example is from <a class="bibtex reference internal" href="../referenceSection.html#jurafsky2009" id="id1">[JM09]</a>, the underlying corpus is the <em>Berkeley Restaurant Project corpus</em> <a class="bibtex reference internal" href="../referenceSection.html#jurafsky1994" id="id2">[JWT+94]</a>. In the first two tables the Bigram and Unigram frequencies of 8 words from the corpus are listed. In total, there are <span class="math notranslate nohighlight">\(\mid V \mid = 1446\)</span> different words in the corpus. In the Bigram-table (first table) the entry in the row of <span class="math notranslate nohighlight">\(word_x\)</span> and column of <span class="math notranslate nohighlight">\(word_y\)</span> is the frequency of the Bigram <span class="math notranslate nohighlight">\((word_x,word_y)\)</span>. For example</p>
+<div class="math notranslate nohighlight">
+\[
+\#(I,want) = 827
+\]</div>
+<p>From the Bigram- and Unigram-counts the Bigram probabilities (third table) can be Maximum-Likelihood estimated by applying equation <span class="math notranslate nohighlight">\(\eqref{eq:condprobest}\)</span>. For example</p>
+<div class="math notranslate nohighlight">
+\[
+P(want \mid I) = \frac{827}{2533}=0.33.
+\]</div>
+<figure align="center">
+<img width="400" src="https://maucher.home.hdm-stuttgart.de/Pics/BigrammMatrixRestaurant.png">
+<figcaption><b>Figure:</b>Bigram counts for eight of the words in the Berkeley Restaurant Project corpus of 9332 sentences.</figcaption>
+</figure>
+<figure align="center">
+<img width="400" src="https://maucher.home.hdm-stuttgart.de/Pics/UnigrammMatrixRestaurant.png">
+<figcaption><b>Figure:</b>Unigram counts for eight of the words in the Berkeley Restaurant Project corpus</figcaption>
+</figure>
+<figure align="center">
+<img width="400" src="https://maucher.home.hdm-stuttgart.de/Pics/BigrammMatrixRestaurantProp.png">
+<figcaption><b>Figure:</b>Bigram probabilities for eight words in the Berkeley Restaurant Project corpus of 9332 sentences.</figcaption>
+</figure>
+<div class="section" id="perplexity-of-unigram-and-bigram-model">
+<span id="example-perplexity"></span><h3><span class="section-number">4.7.1. </span>Perplexity of Unigram- and Bigram-Model<a class="headerlink" href="#perplexity-of-unigram-and-bigram-model" title="Permalink to this headline">¶</a></h3>
+<p>The unrealistically small validation corpus is</p>
+<div class="math notranslate nohighlight">
+\[
+W=(I, want, chinese, food)
+\]</div>
+<p>A Unigram- and a Bigram-Language model has been trained from the Berkeley Restaurant corpus. The question is, which of these two models performs better on the validation data. From the tables above, we can easily determine the probabilities, which are required for calculating the perplexity of the two models:</p>
+<p><strong>Perplexity of Unigram Model:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+PP(W)  =  \sqrt[4]{\frac{1}{P(i)} \frac{1}{P(want)} \frac{1}{P(chinese)} \frac{1}{P(food)}} \\
+ =  \sqrt[4]{\frac{8493}{2533} \frac{8493}{927} \frac{8493}{158} \frac{8493}{1093}} \\
+ =  10.64
+\end{split}\]</div>
+<p><strong>Perplexity of Bigram Model:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+PP(W) = \sqrt[4]{\frac{1}{P(i)} \frac{1}{P(want|i)} \frac{1}{P(chinese|want)} \frac{1}{P(food|chinese)}} \\
+ = \sqrt[4]{\frac{8493}{2533} \frac{1}{0.33} \frac{1}{0.0065} \frac{1}{0.52}} \\
+ =  7.4
+\end{split}\]</div>
+<p>Since the perplexity of the bigram-model is lower, this model is adapted better on the validation data.</p>
 </div>
 </div>
 </div>
@@ -489,6 +606,7 @@ N_0 = \mid V \mid^{N} - \sum\limits_{r=1}^{\infty}N_r \cdot r .
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../03postagging/02PosTagging.html" title="previous page"><span class="section-number">3.3. </span>POS Tagging with NLTK</a>
+    <a class='right-next' id="next-link" href="../05representations/05representations.html" title="next page"><span class="section-number">5. </span>Vector Representations of Words and Documents</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

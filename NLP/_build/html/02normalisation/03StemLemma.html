@@ -14,26 +14,29 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/togglebutton.js"></script>
-    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
-    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script type="text/javascript">
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.3. Correction of Spelling Errors" href="01LevenstheinDistance.html" />
@@ -115,6 +118,16 @@
    4. N-Gram Language Model
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/05representations.html">
+   5. Vector Representations of Words and Documents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referenceSection.html">
+   6. References
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -175,28 +188,6 @@
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/02normalisation/03StemLemma.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/02normalisation/03StemLemma.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
 
     </div>
 
@@ -310,33 +301,27 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install textblob</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install textblob</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">textblob</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">textblob</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">textblob</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">7</span><span class="n">c864d1245ee</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">textblob</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">textblob</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;textblob&#39;
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0.15.3
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
 </pre></div>
 </div>
 </div>
@@ -346,7 +331,7 @@
 <p>TextBlob objects are like Python strings, which have enhanced with typical NLP processing methods. They are generared as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob1</span><span class="o">=</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;TextBlob is a Python (2 and 3) library for processing textual data. </span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob1</span><span class="o">=</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;TextBlob is a Python (2 and 3) library for processing textual data. </span>
 <span class="s2">It provides a simple API for diving into common natural language processing (NLP) tasks </span>
 <span class="s2">such as part-of-speech tagging, noun phrase extraction, sentiment analysis, classification, </span>
 <span class="s2">translation, and more. New York is a nice city.&quot;&quot;&quot;</span><span class="p">)</span>
@@ -360,13 +345,13 @@
 <h2><span class="section-number">2.2.2. </span>Language Detection<a class="headerlink" href="#language-detection" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blob1 text language is &quot;</span><span class="p">,</span><span class="n">myBlob1</span><span class="o">.</span><span class="n">detect_language</span><span class="p">())</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blob1 text language is &quot;</span><span class="p">,</span><span class="n">myBlob1</span><span class="o">.</span><span class="n">detect_language</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blob2 text language is &quot;</span><span class="p">,</span><span class="n">myBlob2</span><span class="o">.</span><span class="n">detect_language</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Blob1 text language is  en
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Blob1 text language is  en
 Blob2 text language is  de
 </pre></div>
 </div>
@@ -379,14 +364,14 @@ Blob2 text language is  de
 <p><strong>English text:</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">myBlob1</span><span class="o">.</span><span class="n">sentences</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">myBlob1</span><span class="o">.</span><span class="n">sentences</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------------
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>--------------------
 TextBlob is a Python (2 and 3) library for processing textual data.
 --------------------
 It provides a simple API for diving into common natural language processing (NLP) tasks 
@@ -400,12 +385,12 @@ New York is a nice city.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob1</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">words</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob1</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">words</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WordList([&#39;New&#39;, &#39;York&#39;, &#39;is&#39;, &#39;a&#39;, &#39;nice&#39;, &#39;city&#39;])
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>WordList([&#39;New&#39;, &#39;York&#39;, &#39;is&#39;, &#39;a&#39;, &#39;nice&#39;, &#39;city&#39;])
 </pre></div>
 </div>
 </div>
@@ -414,14 +399,14 @@ New York is a nice city.
 <p><strong>German text:</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">myBlob2</span><span class="o">.</span><span class="n">sentences</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">myBlob2</span><span class="o">.</span><span class="n">sentences</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------------
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>--------------------
 Das Haus steht im Tal auf der anderen Seite des Berges.
 --------------------
 Es gehört Dr. med.
@@ -442,13 +427,13 @@ eine Physio-Praxis.
 <p><a class="reference external" href="https://www.clips.uantwerpen.be/pages/mbsp-tags">Meaning of POS Tags according to Penn Treebank II tagset</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span><span class="p">,</span><span class="n">pos</span> <span class="ow">in</span> <span class="n">myBlob1</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span><span class="p">,</span><span class="n">pos</span> <span class="ow">in</span> <span class="n">myBlob1</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TextBlob NNP
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>TextBlob NNP
 is VBZ
 a DT
 Python NNP
@@ -467,13 +452,13 @@ data NNS
 <p>Doesn’t work for German:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span><span class="p">,</span><span class="n">pos</span> <span class="ow">in</span> <span class="n">myBlob2</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span><span class="p">,</span><span class="n">pos</span> <span class="ow">in</span> <span class="n">myBlob2</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das NNP
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Das NNP
 Haus NNP
 steht VBD
 im JJ
@@ -498,14 +483,14 @@ Berges NNP
 <p>One form of word normalization is to map all words in plural into the corresponding singular form. With <em>textblob</em> this can be realized as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob6</span><span class="o">=</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;The cars in the streets around Main Square have been observed by policemen&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob6</span><span class="o">=</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;The cars in the streets around Main Square have been observed by policemen&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">myBlob6</span><span class="o">.</span><span class="n">words</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">word</span><span class="o">.</span><span class="n">singularize</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The The
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The The
 cars car
 in in
 the the
@@ -528,14 +513,14 @@ policemen policeman
 <p>Lemmatization maps all distinct forms of a word to the baseform. E.g. the wordforms <code class="docutils literal notranslate"><span class="pre">went,</span> <span class="pre">gone,</span> <span class="pre">going</span></code> are all mapped to the baseform <code class="docutils literal notranslate"><span class="pre">go</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;went&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">))</span> <span class="c1"># mode &quot;v&quot; for verb</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;went&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">))</span> <span class="c1"># mode &quot;v&quot; for verb</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;gone&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;going&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>go
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>go
 go
 go
 </pre></div>
@@ -545,14 +530,14 @@ go
 <p>Lemmatization of adverbs and adjectives:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;later&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">))</span> <span class="c1"># mode &quot;a&quot; for adverb/adjective</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;later&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">))</span> <span class="c1"># mode &quot;a&quot; for adverb/adjective</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;prettier&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;worse&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>late
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>late
 pretty
 bad
 </pre></div>
@@ -562,32 +547,32 @@ bad
 <p>Lemmatizsation of nouns:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;women&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">))</span> <span class="c1"># mode &quot;n&quot; for noun</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;women&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">))</span> <span class="c1"># mode &quot;n&quot; for noun</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>woman
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>woman
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob3</span><span class="o">=</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;The engineer went into the garden and found the cats lying beneath the trees&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob3</span><span class="o">=</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;The engineer went into the garden and found the cats lying beneath the trees&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">myBlob3</span><span class="o">.</span><span class="n">words</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">myBlob3</span><span class="o">.</span><span class="n">words</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">word</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The The
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The The
 engineer engineer
 went go
 into into
@@ -612,13 +597,13 @@ trees tree
 <p>Stemming is simple and less complex alternative to lemmatization. Stemmers map each word to their stem. In contrast to lemmatization the result of stemming need not be a lexical entry (valid word). Stemmers, e.g. the <em>Porter Stemmer</em> apply heuristics for word-suffixes and strip-off found suffixes from the word. E.g. in the word <code class="docutils literal notranslate"><span class="pre">engineer</span></code> a stemmer finds <code class="docutils literal notranslate"><span class="pre">er</span></code> as a frequnet suffix. It strips-off this suffix and outputs the found stem <code class="docutils literal notranslate"><span class="pre">engin</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">myBlob3</span><span class="o">.</span><span class="n">words</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">myBlob3</span><span class="o">.</span><span class="n">words</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">word</span><span class="o">.</span><span class="n">stem</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The the
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The the
 engineer engin
 went went
 into into
@@ -642,14 +627,14 @@ trees tree
 <p>Word correction can also be considered as type of normalization. It maps misspelled words to likely correct form.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">=</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;sentense is not tru&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">=</span><span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;sentense is not tru&quot;</span><span class="p">)</span>
 <span class="n">wcorr</span><span class="o">=</span><span class="n">w</span><span class="o">.</span><span class="n">correct</span><span class="p">()</span>
 <span class="n">wcorr</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TextBlob(&quot;sentence is not true&quot;)
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>TextBlob(&quot;sentence is not true&quot;)
 </pre></div>
 </div>
 </div>
@@ -660,21 +645,21 @@ trees tree
 <h2><span class="section-number">2.2.6. </span>TextBlob-DE for German Language<a class="headerlink" href="#textblob-de-for-german-language" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install textblob-de</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install textblob-de</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">textblob_de</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">textblob_de</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob4</span><span class="o">=</span><span class="n">textblob_de</span><span class="o">.</span><span class="n">TextBlobDE</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Das Haus steht im Tal auf der anderen Seite des Berges. Es gehört Dr. med. Brinkmann und wird von der Immo GmbH verwaltet. Im Haus befindet sich u.a. eine Physio-Praxis.&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob4</span><span class="o">=</span><span class="n">textblob_de</span><span class="o">.</span><span class="n">TextBlobDE</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Das Haus steht im Tal auf der anderen Seite des Berges. Es gehört Dr. med. Brinkmann und wird von der Immo GmbH verwaltet. Im Haus befindet sich u.a. eine Physio-Praxis.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -683,14 +668,14 @@ trees tree
 <h3><span class="section-number">2.2.6.1. </span>Sentences and Words<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">myBlob4</span><span class="o">.</span><span class="n">sentences</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">myBlob4</span><span class="o">.</span><span class="n">sentences</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------------
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>--------------------
 Das Haus steht im Tal auf der anderen Seite des Berges.
 --------------------
 Es gehört Dr. med. Brinkmann und wird von der Immo GmbH verwaltet.
@@ -702,24 +687,24 @@ Im Haus befindet sich u.a. eine Physio-Praxis.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob4</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">words</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob4</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">words</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WordList([&#39;Es&#39;, &#39;gehört&#39;, &#39;Dr&#39;, &#39;med&#39;, &#39;Brinkmann&#39;, &#39;und&#39;, &#39;wird&#39;, &#39;von&#39;, &#39;der&#39;, &#39;Immo&#39;, &#39;GmbH&#39;, &#39;verwaltet&#39;])
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>WordList([&#39;Es&#39;, &#39;gehört&#39;, &#39;Dr&#39;, &#39;med&#39;, &#39;Brinkmann&#39;, &#39;und&#39;, &#39;wird&#39;, &#39;von&#39;, &#39;der&#39;, &#39;Immo&#39;, &#39;GmbH&#39;, &#39;verwaltet&#39;])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob4</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">noun_phrases</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob4</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">noun_phrases</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WordList([&#39;Dr. med. Brinkmann&#39;, &#39;Immo GmbH&#39;])
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>WordList([&#39;Dr. med. Brinkmann&#39;, &#39;Immo GmbH&#39;])
 </pre></div>
 </div>
 </div>
@@ -729,20 +714,20 @@ Im Haus befindet sich u.a. eine Physio-Praxis.
 <h3><span class="section-number">2.2.6.2. </span>Part-of-Speech Tagging<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob5</span><span class="o">=</span><span class="n">textblob_de</span><span class="o">.</span><span class="n">TextBlobDE</span><span class="p">(</span><span class="s2">&quot;Er ist mit seinen Katzen über drei Tische gesprungen&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBlob5</span><span class="o">=</span><span class="n">textblob_de</span><span class="o">.</span><span class="n">TextBlobDE</span><span class="p">(</span><span class="s2">&quot;Er ist mit seinen Katzen über drei Tische gesprungen&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span><span class="p">,</span><span class="n">tag</span> <span class="ow">in</span> <span class="n">myBlob5</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span><span class="p">,</span><span class="n">tag</span> <span class="ow">in</span> <span class="n">myBlob5</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Er PRP
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Er PRP
 ist VBN
 mit IN
 seinen PRP$
@@ -760,13 +745,13 @@ gesprungen VBN
 <h3><span class="section-number">2.2.6.3. </span>Lemmatization<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">myBlob5</span><span class="o">.</span><span class="n">words</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">():</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">myBlob5</span><span class="o">.</span><span class="n">words</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>er
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>er
 sein
 mit
 seinen

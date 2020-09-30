@@ -265,14 +265,116 @@ $$
 
 Note that the calculation of $r*$ according to equation $\eqref{eq:rstern}$ fails, if $N_{r+1}=0$. Therefore, it is suggested to apply expectation values $E(N_{r+1})$ and $E(N_{r})$ in equation $\eqref{eq:rstern}$. Such expectation values can be determined, e.g. by interpolation.
 
-**Final remark on the number of unseen events in N-gram language models:** From the corpus, the frequency $R_x$ for all N-grams in the corpus can the determined. Then also all $N_r$-values (number of N-grams which appear r times) can be determined. For an N-gram $x$, which is not in the corpus, we like to determine the probability $P_{GT}(x)$ according to equation $\eqref{eq:punsingle}$. But what is $N_0$, the number of unseen N-grams? For this we first determine the number $Z$ of observed N-grams according to $\eqref{eq:sumGT}$. Then we subtract Z from the total number of possible N-grams:
+**Final remark on the number of unseen events in N-gram language models:** From the corpus, the frequency $R_x$ for each N-gram $x$ in the corpus can the determined. Then also all $N_r$-values (number of N-grams which appear r times) can be determined. For an N-gram $x$, which is not in the corpus, we like to determine the probability $P_{GT}(x)$ according to equation $\eqref{eq:punsingle}$. But what is $N_0$, the number of unseen N-grams? For this we first determine the number $Z$ of observed N-grams according to $\eqref{eq:sumGT}$. Then we subtract Z from the total number of possible N-grams:
 
 $$
 N_0 = \mid V \mid^{N} - \sum\limits_{r=1}^{\infty}N_r \cdot r .
 $$ 
 
 
+### Evaluation of Language Models
 
- 
+N-Gram language models differ in 
+* the value of $N$,
+* the corpus, which has been applied for training
+* the method of estimating the conditional probabilities, e.g. Maximum-Likelihood, Laplace, Good-Turing, ...
+
+Subject of this subsection is the evaluation of language models. If we have a trained language model, how can we assess it's quality? Or similarly: if we have trained several different language models, how can we determine the best one? 
+
+In general evaluation of language models can be categorized into *intrinsic* and *extrinsic* evaluation. In the case of **extrinsic evaluation**, the lanugage model is not evaluated directly in an isolated manner. Instead the language model is integrated into the application, e.g. speech recognition, translation, automatic correction, and the quality of the application is determined in an end-to-end manner. However, **Intrinsic evaluation** is application-independend. It calculates a metric, which depends only on the language model itself. In this subsection, only intrinsic evaluation is addressed. 
+
+As usual in the context of Machine Learning, the following datasets (corpora) must be distinguished
+
+* **Training** data: The data applied for learning a model
+* **Validation** data: The data applied to evaluate and assess the trained model and to compare different trained models. Usually the model, which performs best on validation-data is selected for application
+* **Test** data: Data from the application domain is applied to estimate the quality of the selected data in the **application**, e.g. in terms of error rate 
+
+These three datasets should be disjoint and the data of these three partitions should have similar statistics. It makes no sense to train a model on Shakespeare-poems, validate it on scientific papers and apply it for postings in a social network. 
+
+The most popular intrinsic performance measure for N-Gram language models is **Perplexity**. This metric measures how good a language model is adapted to text of the validation corpus, more concrete: How good the language model predicts next words in the validation data. 
+
+Let $W=w_1 w_2 w_3, \ldots, w_N$ be the text of a validation corpus. Then the Perplexity of a statistical language model on the validation corpus is in general
+
+$$
+PP(W)=\sqrt[N]{\frac{1}{P(w_1 w_2 w_3 \ldots w_N)}}. 
+$$
+
+By applying the Chain-rule (which is also applicable in general), we have:
+
+$$
+PP(W)=\sqrt[N]{\prod\limits_{i=1}^N \frac{1}{P(w_i | w_1 w_2 \ldots w_{i-1})}}
+$$
+
+As described above, under the assumption of an N-gram language model, the factors of the chain-rule become simpler, since only $N-1$ predessors must be regarded. Hence the perplexity of the N-Gram language model on the validation data $W$ is: 
+
+$$
+PP(W)=\sqrt[N]{\prod\limits_{i=1}^N \frac{1}{P(w_i |w_{i-N-1} \ldots w_{i-1})}}
+\label{eq:perplex} \tag{8}
+$$
+
+The conditional probabilities in the denominator are the ones, learned from the training corpus. As the probabilites are in the denominator, the lower perplexity indicates the better language model.
+
+An example for perplexity of a Unigram- and a Bigram language model is given below in {ref}`example-perplexity`.
+
+
+### Example
+
+The following example is from {cite}`Jurafsky2009`, the underlying corpus is the *Berkeley Restaurant Project corpus* {cite}`Jurafsky1994`. In the first two tables the Bigram and Unigram frequencies of 8 words from the corpus are listed. In total, there are $\mid V \mid = 1446$ different words in the corpus. In the Bigram-table (first table) the entry in the row of $word_x$ and column of $word_y$ is the frequency of the Bigram $(word_x,word_y)$. For example 
+
+$$
+\#(I,want) = 827
+$$.
+
+
+From the Bigram- and Unigram-counts the Bigram probabilities (third table) can be Maximum-Likelihood estimated by applying equation $\eqref{eq:condprobest}$. For example
+
+$$
+P(want \mid I) = \frac{827}{2533}=0.33.
+$$
+
+<figure align="center">
+<img width="400" src="https://maucher.home.hdm-stuttgart.de/Pics/BigrammMatrixRestaurant.png">
+<figcaption><b>Figure:</b>Bigram counts for eight of the words in the Berkeley Restaurant Project corpus of 9332 sentences.</figcaption>
+</figure>
+
+<figure align="center">
+<img width="400" src="https://maucher.home.hdm-stuttgart.de/Pics/UnigrammMatrixRestaurant.png">
+<figcaption><b>Figure:</b>Unigram counts for eight of the words in the Berkeley Restaurant Project corpus</figcaption>
+</figure>
+
+<figure align="center">
+<img width="400" src="https://maucher.home.hdm-stuttgart.de/Pics/BigrammMatrixRestaurantProp.png">
+<figcaption><b>Figure:</b>Bigram probabilities for eight words in the Berkeley Restaurant Project corpus of 9332 sentences.</figcaption>
+</figure>
+
+
+(example-perplexity)=
+#### Perplexity of Unigram- and Bigram-Model
+
+The unrealistically small validation corpus is 
+
+$$
+W=(I, want, chinese, food)
+$$
+
+A Unigram- and a Bigram-Language model has been trained from the Berkeley Restaurant corpus. The question is, which of these two models performs better on the validation data. From the tables above, we can easily determine the probabilities, which are required for calculating the perplexity of the two models:
+
+**Perplexity of Unigram Model:**
+
+$$
+PP(W)  =  \sqrt[4]{\frac{1}{P(i)} \frac{1}{P(want)} \frac{1}{P(chinese)} \frac{1}{P(food)}} \\
+ =  \sqrt[4]{\frac{8493}{2533} \frac{8493}{927} \frac{8493}{158} \frac{8493}{1093}} \\
+ =  10.64
+$$
+
+**Perplexity of Bigram Model:**
+
+$$
+PP(W) = \sqrt[4]{\frac{1}{P(i)} \frac{1}{P(want|i)} \frac{1}{P(chinese|want)} \frac{1}{P(food|chinese)}} \\
+ = \sqrt[4]{\frac{8493}{2533} \frac{1}{0.33} \frac{1}{0.0065} \frac{1}{0.52}} \\
+ =  7.4
+$$
+
+Since the perplexity of the bigram-model is lower, this model is adapted better on the validation data.
 
 
