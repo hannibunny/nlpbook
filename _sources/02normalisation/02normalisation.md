@@ -1,5 +1,4 @@
-Word Normalisation
-==================
+# Word Normalisation
 
 **Word normalisation** tries to represent words in a unique way. This includes:
 
@@ -13,6 +12,5 @@ Word Normalisation
 Consider a search-engine like [google](https://www.google.com/). If you enter your query-words, you like to get the same results independent of the wordform. E.g. the query `video encoding` shall provide the same result as `encode videos`. For this all words of the query and all words in the index of the search-engine must be normalised to a unique form. This normalisation does not only provide better results, but it also reduces memory- and time-complexity, because the index is much smaller than without normalisation  
 ```
 
-
-
 [^F1]: An exception is e.g. the task of Part-Of-Speech Tagging in German. Here, the case may provide helpful information.
+

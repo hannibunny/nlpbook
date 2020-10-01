@@ -14,29 +14,26 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1.4. Access RSS Feed" href="04crawlRSSFeeds.html" />
@@ -59,7 +56,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
   
-  <img src="../_static/hdmlogo.eps" class="logo" alt="logo">
+  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
@@ -128,6 +125,21 @@
    3. Part-Of-Speech Tagging
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04ngram/04ngram.html">
+   4. N-Gram Language Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/05representations.html">
+   5. Vector Representations of Words and Documents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referenceSection.html">
+   6. References
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -189,6 +201,28 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01access/03crawlWebSites.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/01access/03crawlWebSites.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -236,14 +270,14 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install slugify</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install slugify</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bs4</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bs4</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">slugify</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -252,25 +286,39 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">00</span><span class="n">c65bbfd4e6</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">bs4</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">requests</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">slugify</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">datetime</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">os</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;slugify&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="define-lists-of-news-domains-for-different-languages-and-categories">
 <h2><span class="section-number">1.3.1. </span>Define lists of news domains for different languages and categories<a class="headerlink" href="#define-lists-of-news-domains-for-different-languages-and-categories" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">today</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>2020-09-11
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2020-09-09
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span><span class="o">=</span><span class="s2">&quot;GENERAL&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span><span class="o">=</span><span class="s2">&quot;GENERAL&quot;</span>
 <span class="c1">#cat=&quot;TECH&quot;</span>
 <span class="c1">#cat=&quot;SPORT&quot;</span>
 <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;GERMAN&quot;</span>
@@ -281,7 +329,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">general_sources_de</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;http://www.zeit.de&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">general_sources_de</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;http://www.zeit.de&#39;</span><span class="p">,</span>
                       <span class="s1">&#39;http://www.spiegel.de/&#39;</span><span class="p">,</span>
                       <span class="s1">&#39;http://www.welt.de/&#39;</span><span class="p">,</span>
                       <span class="s1">&#39;http://www.sueddeutsche.de&#39;</span><span class="p">,</span>
@@ -310,7 +358,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">lang</span><span class="o">==</span><span class="s2">&quot;ENGLISH&quot;</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">lang</span><span class="o">==</span><span class="s2">&quot;ENGLISH&quot;</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">cat</span><span class="o">==</span><span class="s2">&quot;GENERAL&quot;</span><span class="p">:</span>
         <span class="n">sources</span><span class="o">=</span><span class="n">general_sources_en</span>
     <span class="k">else</span><span class="p">:</span>
@@ -332,14 +380,14 @@
 <p>The below defined function <code class="docutils literal notranslate"><span class="pre">crawl()</span></code> determines all subdomains of the specified url and saves the HTML files of these subdomains.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">crawl</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">maxSubSites</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;GENERAL&quot;</span><span class="p">,</span><span class="n">lang</span><span class="o">=</span><span class="s2">&quot;GERMAN&quot;</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">crawl</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">maxSubSites</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;GENERAL&quot;</span><span class="p">,</span><span class="n">lang</span><span class="o">=</span><span class="s2">&quot;GERMAN&quot;</span><span class="p">):</span>
     <span class="n">domain</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;//www.&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
     <span class="n">dirname</span><span class="o">=</span><span class="n">lang</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">category</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="s2">&quot;HTML/&quot;</span><span class="o">+</span><span class="n">domain</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="n">today</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory </span><span class="si">%s</span><span class="s2"> already exists.&quot;</span><span class="o">%</span><span class="n">dirname</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory </span><span class="si">%s</span><span class="s2"> already exists.&quot;</span><span class="o">%</span><span class="k">dirname</span>)
     <span class="n">filename</span> <span class="o">=</span> <span class="n">dirname</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">domain</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.html&#39;</span>
     <span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -370,7 +418,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">htmlDirs</span><span class="o">=</span><span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">htmlDirs</span><span class="o">=</span><span class="p">[]</span>
 <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">:</span>
     <span class="n">htmldir</span><span class="o">=</span><span class="n">crawl</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">maxSubSites</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="n">cat</span><span class="p">,</span><span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">)</span>
     <span class="n">htmlDirs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">htmldir</span><span class="p">)</span>
@@ -378,36 +426,23 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>zeit.de
-Directory GERMAN/GENERAL/HTML/zeit-2020-09-11 already exists.
-</pre></div>
-</div>
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>spiegel.de
-Directory GERMAN/GENERAL/HTML/spiegel-2020-09-11 already exists.
-</pre></div>
-</div>
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>welt.de
-Directory GERMAN/GENERAL/HTML/welt-2020-09-11 already exists.
-</pre></div>
-</div>
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>sueddeutsche.de
-Directory GERMAN/GENERAL/HTML/sueddeutsche-2020-09-11 already exists.
-</pre></div>
-</div>
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>faz.net
-Directory GERMAN/GENERAL/HTML/faz-2020-09-11 already exists.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zeit.de
+spiegel.de
+welt.de
+sueddeutsche.de
+faz.net
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">htmlDirs</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">htmlDirs</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;GERMAN/GENERAL/HTML/zeit-2020-09-11&#39;, &#39;GERMAN/GENERAL/HTML/spiegel-2020-09-11&#39;, &#39;GERMAN/GENERAL/HTML/welt-2020-09-11&#39;, &#39;GERMAN/GENERAL/HTML/sueddeutsche-2020-09-11&#39;, &#39;GERMAN/GENERAL/HTML/faz-2020-09-11&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;GERMAN/GENERAL/HTML/zeit-2020-09-09&#39;, &#39;GERMAN/GENERAL/HTML/spiegel-2020-09-09&#39;, &#39;GERMAN/GENERAL/HTML/welt-2020-09-09&#39;, &#39;GERMAN/GENERAL/HTML/sueddeutsche-2020-09-09&#39;, &#39;GERMAN/GENERAL/HTML/faz-2020-09-09&#39;]
 </pre></div>
 </div>
 </div>
@@ -417,7 +452,7 @@ Directory GERMAN/GENERAL/HTML/faz-2020-09-11 already exists.
 <h2><span class="section-number">1.3.3. </span>Crawl raw text from local HTML files<a class="headerlink" href="#crawl-raw-text-from-local-html-files" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="s1">&#39;h3&#39;</span><span class="p">,</span> <span class="s1">&#39;h4&#39;</span><span class="p">,</span> <span class="s1">&#39;h5&#39;</span><span class="p">,</span> <span class="s1">&#39;h6&#39;</span><span class="p">,</span> <span class="s1">&#39;h7&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="s1">&#39;h3&#39;</span><span class="p">,</span> <span class="s1">&#39;h4&#39;</span><span class="p">,</span> <span class="s1">&#39;h5&#39;</span><span class="p">,</span> <span class="s1">&#39;h6&#39;</span><span class="p">,</span> <span class="s1">&#39;h7&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">]</span>
 <span class="k">def</span> <span class="nf">read_html</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">minlen</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">html</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -432,7 +467,7 @@ Directory GERMAN/GENERAL/HTML/faz-2020-09-11 already exists.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rawtextlist</span><span class="o">=</span><span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rawtextlist</span><span class="o">=</span><span class="p">[]</span>
 <span class="k">for</span> <span class="nb">dir</span> <span class="ow">in</span> <span class="n">htmlDirs</span><span class="p">:</span>
     <span class="n">textdir</span><span class="o">=</span><span class="nb">dir</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;HTML&quot;</span><span class="p">,</span><span class="s2">&quot;TEXT&quot;</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>

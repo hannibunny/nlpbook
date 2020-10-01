@@ -14,29 +14,26 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1.3. Download HTML Files" href="03crawlWebSites.html" />
@@ -59,7 +56,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
   
-  <img src="../_static/hdmlogo.eps" class="logo" alt="logo">
+  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
@@ -128,6 +125,21 @@
    3. Part-Of-Speech Tagging
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04ngram/04ngram.html">
+   4. N-Gram Language Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/05representations.html">
+   5. Vector Representations of Words and Documents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referenceSection.html">
+   6. References
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -189,6 +201,28 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01access/02crawlHTMLcontent.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/01access/02crawlHTMLcontent.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -247,7 +281,7 @@
 <p>into the command shell. Once it is installed it can be imported by</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 </pre></div>
 </div>
 </div>
@@ -255,7 +289,7 @@
 <p>For accessing arbitrary resources by URL the python modul <a class="reference external" href="https://docs.python.org/2/library/urllib.html">urllib</a> must also be installed. Import the method <em>urlopen()</em> from this module:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
 </pre></div>
 </div>
 </div>
@@ -263,7 +297,7 @@
 <p>If these two modules are available the HTML parse tree of the specified URL can easily be generated as follows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#url=&quot;http://www.zeit.de&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#url=&quot;http://www.zeit.de&quot;</span>
 <span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://www.spiegel.de&quot;</span>
 <span class="c1">#url=&quot;http://www.sueddeutsche.de&quot;</span>
 <span class="n">html</span><span class="o">=</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -275,13 +309,13 @@
 <p>Now e.g. the title of the URL can be accessed by:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titleTag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">title</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titleTag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">title</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Title of page:  &quot;</span><span class="p">,</span><span class="n">titleTag</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Title of page:   DER SPIEGEL | Online-Nachrichten
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Title of page:   DER SPIEGEL | Online-Nachrichten
 </pre></div>
 </div>
 </div>
@@ -291,7 +325,7 @@
 <p>All links in the page can be retrieven by the following code (only the first 20 links are printed)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hreflinks</span><span class="o">=</span><span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hreflinks</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">Alllinks</span><span class="o">=</span><span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="c1">#The &lt;a&gt; tag defines a hyperlink, which is used to link from one page to another.</span>
 <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">Alllinks</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">has_attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">):</span>
@@ -303,9 +337,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number of links in this page:  552
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of links in this page:  551
 #Inhalt
-https://www.spiegel.de/nutzungsbedingungen
 https://www.spiegel.de/
 https://abo.spiegel.de/?b=SPOHNAVABO&amp;requestAccessToken=true&amp;sara_icid=disp_upd_9h6L5hu8K1AAnttzYATx3hvk7taDkP&amp;targetUrl=https%3A%2F%2Fwww.spiegel.de%2Ffuermich%2F
 https://gruppenkonto.spiegel.de/authenticate?requestAccessToken=true&amp;targetUrl=https%3A%2F%2Fwww.spiegel.de%2Ffuermich%2F
@@ -323,6 +356,7 @@ https://www.spiegel.de/politik/ausland/
 https://www.spiegel.de/panorama/
 https://www.spiegel.de/sport/
 https://www.spiegel.de/wirtschaft/
+https://www.spiegel.de/wissenschaft/
 https://www.spiegel.de/netzwelt/
 </pre></div>
 </div>
@@ -334,7 +368,7 @@ https://www.spiegel.de/netzwelt/
 <p>Get title of all news, which are currently listed on <a class="reference external" href="http://www.zeit.de">www.zeit.de</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#print soup.get_text()hreflinks=[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#print soup.get_text()hreflinks=[]</span>
 <span class="n">AllTitles</span><span class="o">=</span><span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">)</span>
 <span class="n">alltitles</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">alltitleLinks</span><span class="o">=</span><span class="p">[]</span>
@@ -354,192 +388,207 @@ https://www.spiegel.de/netzwelt/
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>----------------------------------------
-Dortmund: Mann hortete offenbar Waffen - Polizei führt zwei Sprengungen durch
-https://www.spiegel.de/panorama/justiz/dortmund-mann-hortete-offenbar-waffen-polizei-fuehrt-zwei-sprengungen-durch-a-3561b5c2-2a16-4fa9-b712-ecc0b1127a15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------------------------------------
+Cybercrime-Statistik: BKA nennt Ransomware &quot;größte Bedrohung&quot; für Unternehmen
+https://www.spiegel.de/netzwelt/web/bka-nennt-ransomware-groesste-bedrohung-fuer-unternehmen-a-2e9e7b8a-e7a4-49c2-a5ee-666bff939b80
 ----------------------------------------
-Verdacht auf Untreue: Staatsanwaltschaft ermittelt im Fall Rudi Assauer
-https://www.spiegel.de/panorama/justiz/fall-rudi-assauer-staatsanwaltschaft-ermittelt-wegen-untreue-a-00000000-0002-0001-0000-000172993183
+Félicien Kabuga: Frankreich überstellt mutmaßlichen Finanzier des Völkermords in Ruanda an Uno-Tribunal
+https://www.spiegel.de/politik/ausland/frankreich-ueberstellt-mutmasslichen-finanzier-des-voelkermords-in-ruanda-an-uno-tribunal-a-33341a66-1569-4e40-8ae4-2d8dd656c690
 ----------------------------------------
-Moria und die scheinheilige Flüchtlingspolitik: Die Schande und die Schuldigen
-https://www.spiegel.de/politik/ausland/moria-und-die-scheinheiligkeit-der-fluechtlingspolitik-europas-schande-a-00000000-0002-0001-0000-000172993179
+UBS-Studie zu Wohnungsmärkten: München und Frankfurt sind überteuert wie keine anderen Städte weltweit
+https://www.spiegel.de/wirtschaft/unternehmen/immobilien-blase-muenchen-und-frankfurt-sind-laut-ubs-am-staerksten-ueberbewertet-a-8314ca02-9a9b-42b7-b1dc-c6c66d334930
 ----------------------------------------
-Deutscher Presserat: &quot;Bild&quot; für Artikel über Drosten-Studie gerügt
-https://www.spiegel.de/kultur/bild-artikel-ueber-christian-drosten-presserat-spricht-ruege-aus-a-bed3213e-79d7-47dd-8871-89de952a4a4c
+Neue Studie zu Aggression im Straßenverkehr: Das Problem ist männlich
+https://www.spiegel.de/auto/rasen-und-draengeln-studie-zu-aggressionen-im-strassenverkehr-a-7187b4f6-0200-4f41-96e1-f86a17a031ac
 ----------------------------------------
-Vettel über Aston Martin: &quot;Eine der spannendsten Geschichten, die der Formel 1 passieren konnte&quot;
-https://www.spiegel.de/sport/formel1/sebastian-vettel-ueber-aston-martin-grossartig-ein-teil-davon-zu-sein-a-41d8477c-5644-4d1f-9a24-5e822cec0008
+Merkel zur Coronalage: &quot;Wir stehen vor einer schwierigen Phase&quot;
+https://www.spiegel.de/politik/deutschland/merkel-wir-stehen-vor-einer-schwierigen-phase-a-9f92cde3-5b44-4618-b683-a06cd641ed78
 ----------------------------------------
-Sollten die Beschäftigten im öffentlichen Dienst mehr Geld bekommen?
-https://www.spiegel.de/wirtschaft/oeffentlicher-dienst-im-tarif-konflikt-maessig-bezahlt-haeufig-befristet-a-5883b72d-4745-407d-8cc1-1ba9d0c0f892
+Rupert Stadlers schwarzer Tag
+https://www.spiegel.de/wirtschaft/unternehmen/audi-prozess-gegen-rupert-stadler-und-andere-manager-hat-begonnen-a-c9e02bd6-cbf5-412b-abe2-c72901156ccb
 ----------------------------------------
-&quot;Das Wichtigste ist die Hilfe vor Ort&quot;
-https://www.spiegel.de/politik/deutschland/moria-horst-seehofer-stellt-drei-punkte-plan-vor-a-cb767e5d-5c02-4f20-b5bd-9209db902421
+Nun muss der erste Autoboss wegen Dieselgate vor Gericht
+https://www.spiegel.de/wirtschaft/unternehmen/diesel-affaere-ein-neues-gutachten-belastet-rupert-stadler-a-00000000-0002-0001-0000-000173216515
 ----------------------------------------
-Großbritannien und Japan beschließen Freihandelsabkommen
-https://www.spiegel.de/wirtschaft/grossbritannien-und-japan-sich-auf-freihandelsabkommen-a-b6153dda-de61-440a-864e-5d724df82cb7
+Was war das denn jetzt?
+https://www.spiegel.de/politik/ausland/tv-duell-donald-trump-vs-joe-biden-was-war-das-denn-jetzt-die-videoanalyse-a-e8431b17-24f2-4c89-88c3-691653b7e538
 ----------------------------------------
-Russland will im Fall Nawalny Ermittler nach Deutschland schicken
-https://www.spiegel.de/politik/ausland/alexej-nawalny-russland-will-ermittler-nach-deutschland-schicken-a-3e84e2bb-3ff2-40cf-aa46-41839de31d3c
+Trump gegen Biden - der Faktencheck
+https://www.spiegel.de/politik/ausland/donald-trump-gegen-joe-biden-im-tv-duell-der-faktencheck-a-9ee48e18-f642-403d-bf32-88dd3a226e2c
 ----------------------------------------
-&quot;Ich setze auf die Genialität unserer Ingenieure&quot;
-https://www.spiegel.de/politik/deutschland/peter-altmaier-ueber-neue-klimastrategie-setze-auf-die-genialitaet-unserer-ingenieure-a-00000000-0002-0001-0000-000172993199
+&quot;The Great American Shitshow&quot;
+https://www.spiegel.de/politik/ausland/donald-trump-und-joe-biden-mit-erster-tv-debatte-das-sind-die-reaktionen-a-85cbec06-e381-429f-9cc8-de2331f47eae
 ----------------------------------------
-Deutsche Marine verhindert Verstoß gegen Waffenembargo in Libyen
-https://www.spiegel.de/politik/ausland/libyen-bundeswehr-verhindert-verstoss-gegen-waffenembargo-a-80304e2f-e3cd-4880-9ade-a31fed0b3145
+Verbrannte Erde Amerika
+https://www.spiegel.de/politik/ausland/waldbraende-donald-trump-und-der-politische-flaechenbrand-die-usa-2020-a-4214a496-4191-42e2-8bb3-866b176e678b
 ----------------------------------------
-Covid-19-Pandemie
-https://www.spiegel.de/thema/coronavirus/
+Deshalb steht Italien im Kampf gegen das Virus gerade so gut da
+https://www.spiegel.de/politik/ausland/corona-deshalb-steht-italien-im-kampf-gegen-das-virus-gerade-so-gut-da-a-cb87c921-7819-4d1b-8cfe-00cf903ef546
 ----------------------------------------
-Israel steht vor erneutem Lockdown
-https://www.spiegel.de/wissenschaft/medizin/corona-news-am-freitag-alle-entwicklungen-zu-covid-19-und-sars-cov-2-im-ueberblick-a-2d4100cb-56be-496a-8d62-63873b411f78
+München und Frankfurt sind überteuert wie keine anderen Städte weltweit
+https://www.spiegel.de/wirtschaft/unternehmen/immobilien-blase-muenchen-und-frankfurt-sind-laut-ubs-am-staerksten-ueberbewertet-a-8314ca02-9a9b-42b7-b1dc-c6c66d334930
 ----------------------------------------
-&quot;Bild&quot; für Artikel über Drosten-Studie gerügt
-https://www.spiegel.de/kultur/bild-artikel-ueber-christian-drosten-presserat-spricht-ruege-aus-a-bed3213e-79d7-47dd-8871-89de952a4a4c
+Unionsfraktion könnte Scheuers Zeugenaussage verzögern
+https://www.spiegel.de/politik/deutschland/unionsfraktion-koennte-andreas-scheuers-zeugenaussage-verzoegern-a-f594f5d5-e7aa-4f73-989e-65febb0a28bb
 ----------------------------------------
-Sorgen Masken unbemerkt für Immunität?
-https://www.spiegel.de/wissenschaft/medizin/covid-19-sorgen-masken-unbemerkt-fuer-immunitaet-a-97ecf46f-d45d-4703-8e3b-584c8da319cc
+Liberaler De Croo wird Belgiens neuer Regierungschef
+https://www.spiegel.de/politik/ausland/belgien-liberaler-alexander-de-croo-wird-neuer-regierungschef-a-fb56387c-9a72-4d04-963b-955225e52378
 ----------------------------------------
-Meine Sprechstunde bei Dr. Schiffmann
-https://www.spiegel.de/panorama/leute/corona-proteste-sprechstunde-bei-dr-bodo-schiffmann-podcast-a-c9a49c8a-beb9-495b-8f47-8f7afd0f0ef1
+Shell streicht bis zu 9000 Stellen
+https://www.spiegel.de/wirtschaft/unternehmen/shell-wegen-konzernumbau-streicht-das-unternehmen-bis-zu-9000-stellen-a-69bf079e-f259-4424-9809-fb255d3da5d0
 ----------------------------------------
-Ein besetzter McDonald&#39;s bringt sein Viertel durch die Pandemie
-https://www.bento.de/bento/wie-ein-besetzter-mcdonald-s-marseilles-arme-viertel-durch-die-pandemie-bringt-a-cc5d31d2-15a0-4653-8c78-b629e4cb00d6#refsponi
+Migranten aus Moria in Hannover gelandet
+https://www.spiegel.de/politik/deutschland/fluechtlinge-migranten-aus-moria-in-hannover-gelandet-a-9cf36e2e-a8c9-4f5b-8ad6-75e40439260b
 ----------------------------------------
-Das Lobbyregisterchen
-https://www.spiegel.de/politik/deutschland/lobbyregister-fuer-deutschland-die-wichtigsten-fragen-und-antworten-a-76061d1e-7f83-4050-a6bc-baba64a489f8
+&quot;Wir stehen vor einer schwierigen Phase&quot;
+https://www.spiegel.de/politik/deutschland/merkel-wir-stehen-vor-einer-schwierigen-phase-a-9f92cde3-5b44-4618-b683-a06cd641ed78
 ----------------------------------------
-Im Kampf gegen die Söder-Übermacht
-https://www.spiegel.de/politik/deutschland/freie-waehler-in-bayern-kampf-gegen-die-markus-soeder-uebermacht-a-f89341c2-38eb-455b-ad1e-83264f460023
+Viele Firmen stecken Mehrwertsteuervorteil in eigene Tasche
+https://www.spiegel.de/wirtschaft/unternehmen/mehrwertsteuer-viele-firmen-stecken-mehrwertsteuervorteil-in-eigene-tasche-a-e194ada3-0c91-4f71-a1da-c079715a724f
 ----------------------------------------
-Verteidigungsministerium plant weibliche Dienstgrade bei der Bundeswehr
-https://www.spiegel.de/politik/deutschland/bundeswehr-verteidigungsministerium-plant-weibliche-dienstgrade-a-a03d8e92-b02e-4b8e-b225-afcafe385b7f
+Niederlande vermelden erneuten Höchstwert an Neuinfektionen
+https://www.spiegel.de/wissenschaft/corona-news-am-mittwoch-disney-kuendigt-wegen-coronakrise-etwa-28-000-mitarbeitern-a-1d7ad3f5-a9b8-4306-b3c6-c0fada5ef03c
 ----------------------------------------
-&quot;Ich kann den Moment nicht vergessen, als ich die Hand Eurer Exzellenz hielt&quot;
-https://www.spiegel.de/politik/ausland/kim-jong-un-und-donald-trump-bizarre-brieffreunde-a-441fd1d6-3cb1-4bb7-b36d-3943a1e17eff
+Das Problem ist männlich
+https://www.spiegel.de/auto/rasen-und-draengeln-studie-zu-aggressionen-im-strassenverkehr-a-7187b4f6-0200-4f41-96e1-f86a17a031ac
 ----------------------------------------
-Donald Trump vergleicht sich selbst mit Winston Churchill
-https://www.spiegel.de/politik/ausland/donald-trump-vergleicht-sich-selbst-mit-winston-churchill-a-55846f04-c6c4-4506-9bcc-521c49831363
+Ein Mann kämpft gegen den gefährlichsten Kult der Welt
+https://www.spiegel.de/politik/ausland/qanon-ein-mann-gegen-den-gefaehrlichsten-kult-der-welt-a-c4910d95-b55c-4c78-b8cd-65822212460e
 ----------------------------------------
-Joe Biden setzt auf &quot;Buy American&quot;
-https://www.spiegel.de/wirtschaft/usa-im-praesidentschaftswahlkampf-joe-biden-setzt-auf-buy-american-a-067b54d6-7cf0-4663-bdba-a753944c289d
+Was bringt das Lobbyregister gegen Korruption?
+https://www.spiegel.de/politik/deutschland/lobbyregister-streitgespraech-was-bringt-das-lobbyregister-gegen-korruption-a-deeda657-dac0-45dd-9765-e468fc846c0b
 ----------------------------------------
-Mann hortete offenbar Waffen - Polizei führt zwei Sprengungen durch
-https://www.spiegel.de/panorama/justiz/dortmund-mann-hortete-offenbar-waffen-polizei-fuehrt-zwei-sprengungen-durch-a-3561b5c2-2a16-4fa9-b712-ecc0b1127a15
+Die Dax-Königin, die aus der Studentenrevolte kommt
+https://www.spiegel.de/wirtschaft/merck-chefin-belen-garijo-eine-strassenkaempferin-wird-die-neue-dax-koenigin-a-cf1d0083-600e-4bf0-9391-a982cf395530
 ----------------------------------------
-Bundesgerichtshof bestätigt Urteil gegen Niels Högel
-https://www.spiegel.de/panorama/justiz/niels-hoegel-bundesgerichtshof-bestaetigt-urteil-gegen-patientenmoerder-a-4b751fdc-82d5-410d-b94d-14e603f5fde2
+Behandlung einer Ureinwohnerin löst Rassismusdebatte in Kanada aus
+https://www.spiegel.de/panorama/gesellschaft/kanada-behandlung-von-ureinwohnerin-befeuert-rassismusdebatte-a-b4ac649c-e5b5-4f9b-b967-a1005c1c90a6
 ----------------------------------------
-Staatsanwaltschaft ermittelt im Fall Rudi Assauer
-https://www.spiegel.de/panorama/justiz/fall-rudi-assauer-staatsanwaltschaft-ermittelt-wegen-untreue-a-00000000-0002-0001-0000-000172993183
+Schwedische Behörden wollen Loch in &quot;Estonia&quot;-Wrack prüfen
+https://www.spiegel.de/panorama/schweden-behoerden-wollen-raetselhaftes-loch-in-estonia-wrack-pruefen-a-de817f19-d2a0-4b8c-be53-e5d934cf86cd
 ----------------------------------------
-Es wird bergig - kann Roglic das Gelbe Trikot verteidigen?
-https://sportdaten.spiegel.de/radsport/tour-de-france/ma9003157/liveticker/
+Baum wird Cheftrainer bei Schalke 04 - Naldo assistiert
+https://www.spiegel.de/sport/fussball/fc-schalke-04-manuel-baum-wird-cheftrainer-naldo-assistiert-a-f5381dee-dc3f-4087-a22a-d4fbd60fbcfe
 ----------------------------------------
-Der Philosoph des Pelotons
-https://www.spiegel.de/sport/tour-de-france-2020-guillaume-martin-ist-der-philosoph-des-pelotons-a-fbf2e843-d588-43e1-8725-2a1dfdb6a642
+Vier Doofe, ein Gedanke
+https://www.spiegel.de/sport/fussball/fc-schalke-04-fsv-mainz-05-wuerzburger-kickers-1-fc-kaiserslautern-vier-doofe-ein-gedanke-a-7ac4fc16-bef4-4261-bd60-d2f19ab7a7b6
 ----------------------------------------
-&quot;Mission Erlösung&quot;
-https://www.spiegel.de/sport/formel1/sebastian-vettel-zu-aston-martin-pressestimmen-mission-erloesung-a-93c7df09-7de0-470f-8507-a7d205c5955f
+&quot;Das wäre dieselbe Kategorie wie die Fälle von Ronaldo und Messi&quot;
+https://www.spiegel.de/sport/fussball/robert-lewandowski-und-der-verdacht-der-steuerhinterziehung-interview-mit-einem-experten-a-9e180c44-3825-4f16-a73a-9ad0aec9bf74
 ----------------------------------------
-Bin ich schuld, wenn mein Sohn gehänselt wird?
-https://www.spiegel.de/familie/junge-in-maedchenklamotten-bin-ich-schuld-wenn-mein-sohn-gehaenselt-wird-kolumne-a-ff549ba4-0b97-4da0-aecb-a8753d467214
+Schiedsrichterin Steinhaus könnte Karriere nach Supercup beenden
+https://www.spiegel.de/sport/fussball/fussball-bibiana-steinhaus-koennte-schiedsrichterin-karriere-nach-supercup-beenden-a-570e64d3-d12f-48e4-9d3b-e3bc52ec9b02
 ----------------------------------------
-&quot;Boris Johnson hat das Vereinigte Königreich in einen Clown-Staat verwandelt&quot;
-https://www.spiegel.de/politik/ausland/john-kampfner-boris-johnson-hat-das-vereinigte-koenigreich-in-einen-clown-staat-verwandelt-a-33358e2a-66b1-4e9a-a1aa-5a3749c30529
+Mein Körper schreit &quot;Zucker!&quot;
+https://www.spiegel.de/gesundheit/ernaehrung/selbstversuch-zum-gesunden-darm-mein-hirn-braucht-zucker-sagt-der-doktor-a-be222344-196c-4f58-b2ed-bc927a72fb2d
 ----------------------------------------
-Trumps unbeirrbare 40 Prozent
-https://www.spiegel.de/wirtschaft/usa-wahlen-die-furcht-vor-donald-trumps-40-prozent-a-18589437-1af5-4baa-9899-975c9c4abb82
+Mac Davis ist tot
+https://www.spiegel.de/kultur/musik/mac-davis-ist-tot-songwriter-von-in-the-ghetto-gestorben-a-455cb3ae-c4d5-4e6c-8450-1dd8100fa26a
 ----------------------------------------
-Sex? Interessiert sie einfach nicht
-https://www.spiegel.de/panorama/gesellschaft/asexualitaet-sex-interessiert-sie-einfach-nicht-a-d2722569-3b51-4afb-82d8-e234113e0790
+&quot;Borat&quot;-Fortsetzung kommt bei Amazon Prime Video
+https://www.spiegel.de/kultur/tv/borat-fortsetzung-kommt-bei-amazon-prime-video-noch-vor-der-us-wahl-a-faa0f1d2-187b-4ac6-bc9a-30ef75e36d8d
 ----------------------------------------
-Starben sie an oder mit dem Virus?
-https://www.spiegel.de/wissenschaft/medizin/corona-in-deutschland-bei-mehrheit-der-verstorbenen-ist-covid-19-auch-todesursache-a-efcad744-19ea-49b6-934e-974b4abc1142
+Familienbild aus der Steinzeit
+https://www.spiegel.de/geschichte/the-flintstones-familie-feuerstein-wird-60-familienbild-aus-der-steinzeit-a-c917bb83-2162-453e-98a4-f3bdf3d8504a
+----------------------------------------
+&quot;Ich habe zu viel Geld in meinem Leben verdient&quot;
+https://www.spiegel.de/wirtschaft/unternehmen/roger-akelius-ich-habe-zu-viel-geld-in-meinem-leben-verdient-a-fd7b7964-a21b-4a37-afea-2ae0dc7420fd
+----------------------------------------
+Rot, Gelb, Grün - Söders Corona-Ampel im Check
+https://www.spiegel.de/wissenschaft/medizin/corona-was-taugt-soeders-plan-fuer-eine-ampel-a-737f9e18-36f6-4fc3-ab6e-1be3646fe330
+----------------------------------------
+Kommt der zweite Mann frei?
+https://www.spiegel.de/panorama/justiz/mordfall-walter-luebcke-kommt-der-mitangeklagte-frei-a-642e31d3-0c3b-4648-b0c6-33ca96fc8a06
+----------------------------------------
+Mit wenig Geld zum Happy Place
+https://www.spiegel.de/reise/deutschland/wohnwagen-kaufen-und-renovieren-mit-wenig-geld-zum-happy-place-a-356d325a-5891-40a0-a09a-035b31b6b19c
+----------------------------------------
+Videos
+https://www.spiegel.de/video/
 ----------------------------------------
 Kommentare und Kolumnen
 https://www.spiegel.de/thema/meinung/
 ----------------------------------------
-Die ewige Angst vor der Parallelgesellschaft
-https://www.spiegel.de/kultur/deutsch-sprechen-babylon-germany-kolumne-a-eeddf853-a64e-47e6-8705-23aa9fada295
+Öffentlicher Unfrieden
+https://www.spiegel.de/panorama/justiz/prozess-wegen-rechtsextremer-drohmails-oeffentlicher-unfrieden-a-4b8b93a9-c223-455b-b62a-fa49b6b46f3c
 ----------------------------------------
-Das Fanal für Europa
-https://www.spiegel.de/politik/ausland/die-eu-ist-fuer-die-katastrophe-in-moria-verantwortlich-a-7b895ddb-c1d7-4e19-bc6e-2ed006dfd369
+Wir brauchen keine Spielchen
+https://www.spiegel.de/politik/ausland/staatsminister-michael-roth-zu-brexit-verhandlungen-hoechste-zeit-sich-zu-einigen-a-a6dc0007-8428-4bc0-beab-d1e806148c0a
 ----------------------------------------
-Mit dem Turbo gegen die Wand
-https://www.spiegel.de/wirtschaft/unternehmen/andreas-scheuer-und-autopraemie-mit-dem-turbo-gegen-die-wand-a-5d2b70ff-fbe7-42d3-b902-41b9b1679438
+Alle sind verzichtbar, selbst Männer
+https://www.spiegel.de/kultur/arbeitszeit-alle-sind-verzichtbar-selbst-maenner-kolumne-a-05f8227b-5630-42dd-abcd-3648d4e927e9
 ----------------------------------------
-Hauptsache, es funktioniert für mich
-https://www.spiegel.de/netzwelt/netzpolitik/digitalisierungsdrama-in-deutschland-hauptsache-es-funktioniert-fuer-mich-kolumne-a-679a1db0-d295-46ab-ad7f-fd7191d4efa9
+Orbán auf dem Weg zum Sieg
+https://www.spiegel.de/politik/ausland/viktor-orban-auf-dem-weg-zum-sieg-a-d6c76a09-80ae-4c62-983d-3513939b468c
 ----------------------------------------
 Politik
 https://www.spiegel.de/politik/deutschland/
 ----------------------------------------
-Großbrand im Lager Moria: Deutschland nimmt bis zu 150 minderjährige Flüchtlinge auf
-https://www.spiegel.de/politik/deutschland/moria-deutschland-nimmt-bis-zu-150-minderjaehrige-auf-a-3c396c4f-2670-4357-8269-93df31263ebb
+Gescheiterte Pkw-Maut: Scheuer plante offenbar schnelle Retourkutsche gegen Österreich
+https://www.spiegel.de/politik/deutschland/gescheiterte-pkw-maut-andreas-scheuer-plante-offenbar-schnelle-retourkutsche-gegen-oesterreich-a-701a0384-9004-40ee-9600-ff63f8df77fd
 ----------------------------------------
-+++ Livestream +++: Der Brand von Moria und die Flüchtlinge - das sagt Innenminister Seehofer
-https://www.spiegel.de/politik/deutschland/horst-seehofer-bundesinnenminister-aeusserst-sich-nach-brand-in-fluechtlingslager-moria-a-bd80095f-38cc-467f-b3a7-1712353a89d0
+Rechtsgutachten: Linker Plan gegen Bodenspekulation
+https://www.spiegel.de/politik/deutschland/die-linke-plan-gegen-bodenspekulation-a-70c336c2-ad04-4710-8286-c1e60a36a2d3
 ----------------------------------------
-Nach Brandkatastrophe in Moria: Zehn deutsche Stadtoberhäupter wollen Flüchtlinge aufnehmen
-https://www.spiegel.de/politik/deutschland/moria-zehn-deutsche-stadtoberhaeupter-wollen-fluechtlinge-aufnehmen-a-c5f3529a-c1ab-440b-9fcf-dd53ba24fd3c
+Corona-Appell im Bundestag: Merkels Mahnung
+https://www.spiegel.de/politik/deutschland/angela-merkel-appelliert-in-corona-krise-an-die-buerger-halten-sie-sich-an-die-regeln-a-21941a6f-784b-4846-bece-7503ed41c12e
 ----------------------------------------
 Ausland
 https://www.spiegel.de/politik/ausland/
 ----------------------------------------
-Moria und die scheinheilige Flüchtlingspolitik: Die Schande und die Schuldigen
-https://www.spiegel.de/politik/ausland/moria-und-die-scheinheiligkeit-der-fluechtlingspolitik-europas-schande-a-00000000-0002-0001-0000-000172993179
+Félicien Kabuga: Frankreich überstellt mutmaßlichen Finanzier des Völkermords in Ruanda an Uno-Tribunal
+https://www.spiegel.de/politik/ausland/frankreich-ueberstellt-mutmasslichen-finanzier-des-voelkermords-in-ruanda-an-uno-tribunal-a-33341a66-1569-4e40-8ae4-2d8dd656c690
 ----------------------------------------
-Auszug aus Woodward-Buch: US-Präsident soll mit Schutz für saudischen Kronprinzen geprahlt haben
-https://www.spiegel.de/politik/ausland/donald-trump-soll-mit-schutz-fuer-saudischen-kronprinzen-mohammed-bin-salman-geprahlt-haben-a-8c20fbb7-1713-42b3-abf4-fe81be818d59
+Deutscher Vorschlag zu Finanzsanktionen: EU-Staaten überstimmen Ungarn und Polen im Rechtsstaatsstreit
+https://www.spiegel.de/politik/ausland/eu-staaten-stimmen-fuer-deutschen-plan-zu-finanzsanktionen-bei-rechtsstaatsverstoessen-a-94dec2dd-7105-49a5-8ff0-3d791e980e4c
 ----------------------------------------
-Bevorstehende Friedensgespräche: Trump kündigt Truppenabbau in Afghanistan an
-https://www.spiegel.de/politik/ausland/afghanistan-us-praesident-donald-trump-kuendigt-truppenabbau-an-a-233e341d-8e38-4775-8bf2-e89eb11130a0
+Transatlantik-Koordinator: &quot;Kalter Krieg zwischen USA und China hat bereits begonnen&quot;
+https://www.spiegel.de/politik/ausland/usa-und-china-transatlantik-koordinator-sieht-beginn-eines-kalten-krieges-a-77a94226-d8de-467f-addd-dc537aa63813
 ----------------------------------------
 Panorama
 https://www.spiegel.de/panorama/
 ----------------------------------------
-Halle Berry über Oscargewinn: &quot;Ich wollte glauben, dass es größer war als ich&quot;
-https://www.spiegel.de/panorama/leute/halle-barry-ueber-oscar-gewinn-ich-wollte-glaube-dass-es-groesser-war-als-ich-a-53ac080b-49c9-4a2b-a759-3a3205b279f5
+Toxische soziale Medien: Meghan und Harry gegen den Hass
+https://www.spiegel.de/panorama/leute/herzogin-meghan-und-prinz-harry-gegen-den-hass-a-a3a3b997-dceb-42da-ae52-b28dc42ebbd6
 ----------------------------------------
-Nach Ölkatastrophe: Reederei sagt Mauritius Millionenhilfe zu
-https://www.spiegel.de/panorama/mauritius-havarie-von-wakashio-betreiber-verspricht-millionen-hilfe-a-0ac44283-ce1e-44e1-a40f-60c520d12c50
+Ebola-Epidemie im Kongo: Hilfsorganisationen prüfen Missbrauchsvorwürfe gegen Mitarbeiter
+https://www.spiegel.de/panorama/demokratische-republik-kongo-hilfsorganisationen-pruefen-missbrauchsvorwuerfe-gegen-mitarbeiter-a-aa967412-9c97-4bb7-b7d6-9abce5db3ba4
 ----------------------------------------
-Reinhold Messner über seine Touren: &quot;Kaum zu rechtfertigen&quot;
-https://www.spiegel.de/panorama/leute/reinhold-messner-ueber-extrembergsteigen-egoistisch-und-kaum-zu-rechtfertigen-a-b71deff7-6ab2-4439-8930-46f039c27cc5
+Fall Bergisch Gladbach: Staatsanwaltschaft fordert lange Haftstrafe für zentralen Verdächtigen
+https://www.spiegel.de/panorama/justiz/fall-bergisch-gladbach-staatsanwaltschaft-fordert-lange-haftstrafe-fuer-missbrauch-a-7c598a61-b898-415b-8bef-4dc74b40aae9
 ----------------------------------------
 Sport
 https://www.spiegel.de/sport/
 ----------------------------------------
-Vettel über Aston Martin: &quot;Eine der spannendsten Geschichten, die der Formel 1 passieren konnte&quot;
-https://www.spiegel.de/sport/formel1/sebastian-vettel-ueber-aston-martin-grossartig-ein-teil-davon-zu-sein-a-41d8477c-5644-4d1f-9a24-5e822cec0008
+Nach Spuckattacke: Schalkes Kabak für vier Spiele gesperrt
+https://www.spiegel.de/sport/fussball/fc-schalke-04-ozan-kabak-nach-spuckattacke-vier-spiele-gesperrt-a-01f2be17-f8d2-47f3-97e8-6a107e93c17e
 ----------------------------------------
-Surf-Weltrekord: Maya Gabeira bezwingt nächste Monsterwelle
-https://www.spiegel.de/sport/surfen-big-wave-surferin-maya-gabeira-stellt-naechsten-weltrekord-auf-a-ebb7c828-6587-453a-a629-28c4dbe96860
++++ Fußball-Transferticker +++: FC St. Pauli holt Schalker Stürmer Burgstaller
+https://www.spiegel.de/sport/fussball/guido-burgstaller-wechselt-vom-fc-schalke-04-zum-fc-st-pauli-a-2b7c746a-9341-43a0-87cf-deb3172fee71
 ----------------------------------------
-Nach Corona-Fällen im Team: Paris Saint-Germain startet mit Niederlage gegen Aufsteiger in die Saison
-https://www.spiegel.de/sport/fussball/paris-saint-germain-und-thomas-tuchel-starten-mit-niederlage-gegen-rc-lens-in-die-saison-a-dfdc52c2-4942-4d95-8462-35ae64f8e97e
+Zweite Runde der French Open: Serena Williams verletzt - Traum vom Titelrekord verschoben
+https://www.spiegel.de/sport/tennis/french-open-serena-williams-gibt-wegen-verletzung-auf-a-03b02616-361d-42a6-b110-56efc3bd0291
 ----------------------------------------
 Wirtschaft
 https://www.spiegel.de/wirtschaft/
 ----------------------------------------
-Deutsche Bahn: Tarifstreit mit Lokführergewerkschaft spitzt sich zu
-https://www.spiegel.de/wirtschaft/deutsche-bahn-tarifstreit-mit-lokfuehrergewerkschaft-spitzt-sich-zu-a-0d857b72-bf85-4e6e-a4fa-c73abc4567cc
+Leder aus Paraguay für BMW, Land Rover und Co.: Abholzung für europäische Autositze
+https://www.spiegel.de/wirtschaft/leder-aus-paraguay-fuer-bmw-land-rover-und-co-abholzung-fuer-europaeische-autositze-a-dc0f3969-9ebb-4b66-982c-daee809e1d5b
 ----------------------------------------
-Absatzkrise: MAN will bis zu 9500 Stellen streichen
-https://www.spiegel.de/wirtschaft/unternehmen/absatzkrise-man-kuendigt-stellen-kahlschlag-an-a-acbf7a43-5271-4abc-81d6-1f4638b625a7
+Neustart für Warenhauskonzern: Galeria Karstadt Kaufhof beendet das Schutzschirmverfahren
+https://www.spiegel.de/wirtschaft/unternehmen/galeria-karstadt-kaufhof-beendet-das-schutzschirmverfahren-a-7f416d05-3677-4a9f-8204-0a6e3e0b7321
 ----------------------------------------
-Tarifkonflikt: Ver.di ruft Postboten zum Streik auf
-https://www.spiegel.de/wirtschaft/tarifkonflikt-ver-di-ruft-postboten-in-niedersachsen-und-berlin-zum-streik-auf-a-ed07e085-bd88-48e0-80f1-ae12fb0eb771
+US-Unterhaltungskrise: Disney streicht nach Milliardenverlusten 28.000 Jobs
+https://www.spiegel.de/wirtschaft/unternehmen/coronakrise-disney-streicht-nach-milliardenverlusten-28-000-jobs-a-4f3f9ce3-32cc-417a-becc-30b298a9249c
 ----------------------------------------
-Erste Chefin von US-Großbank: Jane Fraser soll Citigroup führen
-https://www.manager-magazin.de/unternehmen/banken/jane-fraser-loest-citigroup-chef-michael-corbat-ab-a-1879e42b-9eee-4e5b-a650-d317293da478
+Diess kündigt weiteren Umbau von VW an: &quot;VW muss weg von einer Sammlung wertvoller Marken&quot;
+https://www.manager-magazin.de/unternehmen/volkswagen-ag-herbert-diess-kuendigt-auf-hauptversammlung-umbau-von-vw-an-a-4611e2d5-aff5-4a23-a45f-0a5514352129
 ----------------------------------------
-Luxuskonzern wehrt sich gegen US-Klage: Trennungskrieg statt Traumhochzeit - nun klagt auch LVMH gegen Tiffany
-https://www.manager-magazin.de/unternehmen/uebernahme-von-tiffany-durch-lvmh-droht-zu-platzen-kopie-a-7713361a-79dd-421f-9c0f-e45e4c84d5ec
+Auftakt im Dieselgate-Prozess: Jetzt beginnt das lange Leiden für Ex-Audi-Chef Rupert Stadler
+https://www.manager-magazin.de/unternehmen/autoindustrie/rupert-stadler-der-beginn-eines-langen-leidenswegs-fuer-den-ex-audi-chef-a-aa681548-bebe-44d0-ba6d-c1b2299e11d8
 ----------------------------------------
-Klaus Zellmer ersetzt Jürgen Stackmann: Porsches US-Chef wird neuer Vertriebsvorstand bei Volkswagen
-https://www.manager-magazin.de/unternehmen/autoindustrie/volkswagen-klaus-zellmer-ersetzt-juergen-stackmann-als-vertriebsvorstand-a-15488075-4fcb-4f20-a191-157e5fbee460
+JAB Holding der Familie Reimann: Milliardärsmacher Peter Harf – Ende einer Legende
+https://www.manager-magazin.de/unternehmen/jab-holding-der-familie-reimann-das-ende-der-legende-peter-harf-a-00000000-0002-0001-0000-000173050949
 ----------------------------------------
 Börsenkurse manager magazin
 https://boersen.manager-magazin.de
@@ -547,134 +596,134 @@ https://boersen.manager-magazin.de
 Wissenschaft
 https://www.spiegel.de/wissenschaft/
 ----------------------------------------
-WWF-Bericht zum Artensterben: &quot;Wir verlieren die Vielfalt des Lebens auf der Erde&quot;
-https://www.spiegel.de/wissenschaft/mensch/wwf-bericht-zum-artensterben-wir-verlieren-die-vielfalt-des-lebens-auf-der-erde-a-74c5dcf5-2f6a-4acb-ac1a-27d7b0dadc47
+Keine verbindlichen Regeln zur Biodiversität: Staatschefs legen nur &quot;Versprechen für die Natur&quot; ab
+https://www.spiegel.de/wissenschaft/mensch/biodiversitaet-staatschefs-legen-versprechen-fuer-die-natur-ab-a-4fabc6ba-0184-4608-ba70-7e5796ec6dcf
 ----------------------------------------
-Diskussion über neue Gentechnik-Verfahren: &quot;Das ist eine Irreführung des Verbrauchers&quot;
-https://www.spiegel.de/wissenschaft/natur/neue-gentechnik-nachweismethode-fuer-gentechnik-pflanzen-ist-untauglich-und-irrefuehrend-a-69a7d90c-d313-4d3b-8a11-980043e2ca6b
+Größtes Binnenfeuchtgebiet der Welt: Feuersbrünste in Brasilien vernichten doppelt so viel Fläche wie in Kalifornien
+https://www.spiegel.de/wissenschaft/natur/pantanal-feuerbruenste-in-brasilien-vernichten-doppelt-so-viel-flaeche-wie-in-kalifornien-a-10f3b58a-bdc9-4dab-bbbc-3b5e719f7404
 ----------------------------------------
-Wie die Afrikanische Schweinepest wirkt: Hochansteckend, unverwüstlich, tödlich
-https://www.spiegel.de/wissenschaft/medizin/afrikanische-schweinepest-hochansteckend-unverwuestlich-toedlich-a-8c315a59-67ac-4825-a345-24d845a5d698
+Am Südpol des Planeten: Seen unter dem Eispanzer des Mars entdeckt
+https://www.spiegel.de/wissenschaft/weltall/mars-seen-unter-dem-eispanzer-am-suedpol-des-planeten-entdeckt-a-2ae17d98-595d-45a0-9665-1de8e108e6be
 ----------------------------------------
 Netzwelt
 https://www.spiegel.de/netzwelt/
 ----------------------------------------
-Corona-Warn-App: Fehler in iOS 13.7 kann Risikobewertung verfälschen
-https://www.spiegel.de/netzwelt/apps/corona-warn-app-fehler-in-ios-13-7-kann-risikobewertung-verfaelschen-a-45a17543-eb3e-4d5e-bdbc-06132058abc4
+Cybercrime-Statistik: BKA nennt Ransomware &quot;größte Bedrohung&quot; für Unternehmen
+https://www.spiegel.de/netzwelt/web/bka-nennt-ransomware-groesste-bedrohung-fuer-unternehmen-a-2e9e7b8a-e7a4-49c2-a5ee-666bff939b80
 ----------------------------------------
-US-Präsidentschaftswahlen 2020: Twitter trifft Vorkehrungen gegen Falschinformationen am Wahlabend
-https://www.spiegel.de/netzwelt/us-wahl-twitter-kuendigte-strengere-kontrolle-von-tweets-am-wahlabend-an-a-c6421366-5433-4b60-a80e-63b8e0c15d96
+Amazon One: Hände hoch, das ist ein Einkauf!
+https://www.spiegel.de/netzwelt/web/amazon-one-haende-hoch-das-ist-ein-einkauf-a-8291f1a8-513c-4024-aa89-04efff4dfea4
 ----------------------------------------
-Erkenntnisse von Microsoft: Hacker aus Russland attackieren erneut im US-Wahlkampf
-https://www.spiegel.de/netzwelt/microsoft-hacker-aus-russland-attackieren-erneut-im-us-wahlkampf-a-50ad0e46-03c5-46eb-8cef-20c43f046d6f
+App-Verbot gestoppt: Richter kritisiert Trumps Vorgehen gegen TikTok
+https://www.spiegel.de/netzwelt/apps/richter-kritisiert-trumps-vorgehen-gegen-tiktok-a-2e2a7cbb-fb80-45c0-80f9-97f0f8143eae
 ----------------------------------------
 Kultur
 https://www.spiegel.de/kultur/
 ----------------------------------------
-Russland-Talk bei Illner: &quot;Jetzt gerade hat Putin gewonnen, wissen Sie das?&quot;
-https://www.spiegel.de/kultur/tv/maybrit-illner-talk-ueber-putin-mit-gysi-maas-und-weisband-a-474a9ee1-9bc0-4e9c-846b-cae1a58b1de6
+TV-Duell aus Theatersicht: Tobsuchtskönig gegen Badearzt
+https://www.spiegel.de/kultur/donald-trump-vs-joe-biden-tv-duell-aus-theatersicht-tobsuchtskoenig-gegen-badearzt-a-c00e9974-3bfd-4d59-a7a5-8130008198b3
 ----------------------------------------
-Corona-Pandemie: Drosten erhält den Deutschen Radiopreis
-https://www.spiegel.de/kultur/christian-drosten-erhaelt-fuer-virus-podcast-den-deutschen-radiopreis-a-4edca97f-4c7a-440c-b431-95181e32a85f
+Feminismus-Hymne &quot;I Am Woman&quot;: Sängerin Helen Reddy gestorben
+https://www.spiegel.de/kultur/musik/helen-reddy-gestorben-feministische-saengerin-von-i-am-woman-ist-tot-a-3dc03a31-043a-49b0-8f37-11b52bcebd39
 ----------------------------------------
-Zum Tod von Diana Rigg: &quot;Mrs Peel, wir werden gebraucht!&quot;
-https://www.spiegel.de/kultur/nachruf-auf-diana-rigg-mrs-peel-wir-werden-gebraucht-a-d1079c9f-8ad7-4855-a953-529607804e67
-----------------------------------------
-Lea wurde als Mädchen von einem Mann aus einem Chatroom verführt
-https://www.bento.de/gefuehle/cybergrooming-lea-wurde-als-maedchen-von-einem-mann-aus-einem-chatroom-verfuehrt-a-549b5493-b930-4688-a918-8e04dbdf865b
-----------------------------------------
-Günstiger als AirPods, aber trotzdem gut: Welcher True-Wireless-Kopfhörer für dich der richtige ist
-https://www.bento.de/gadgets/wireless-kopfhoerer-guenstige-alternativen-zu-apple-airpods-sennheiser-und-co-in-guter-qualitaet-a-b88cd1f0-1cd3-4f0c-9482-6fdeb7844e1a
-----------------------------------------
-Rapperin Nura über Erfolg trotz Sexismus: &quot;Ich habe hardcore rasiert!&quot;
-https://www.bento.de/musik/rapperin-nura-ueber-erfolg-trotz-sexismus-ich-habe-hardcore-rasiert-a-a7c2274f-3ac4-44ba-a9c3-624ef2fbc875
-----------------------------------------
-Tests
-https://www.spiegel.de/tests/
-----------------------------------------
-Automatische Schlauchrollen im Test: Schläuche, die sich selbst aufrollen
-https://www.spiegel.de/tests/garten/automatische-schlauchrollen-im-test-schlaeuche-die-sich-selbst-aufrollen-a-860bfb3f-56df-491e-92bf-43e2b43f19d9
-----------------------------------------
-Bestseller Link
-https://www.spiegel.de/kultur/bestseller-buecher-belletristik-sachbuch-auf-spiegel-liste-a-458623.html
-----------------------------------------
-Geschichte
-https://www.spiegel.de/geschichte/
-----------------------------------------
-Olympiagold für Barfußläufer Bikila: Triumph auf blanken Sohlen
-https://www.spiegel.de/geschichte/barfuss-zum-olympiasieg-wie-abebe-bikila-1960-marathon-gold-gewann-a-bb4dc351-3478-41f8-88e0-902d364123dd
-----------------------------------------
-Kriegsfotograf Robert Capa: Berlin in der Stunde null
-https://www.spiegel.de/geschichte/kriegsfotograf-robert-capa-berlin-in-der-stunde-null-a-b086849b-3d5c-4c9d-bbb6-fd53be455736
-----------------------------------------
-Mario Adorf wird 90: &quot;Ist das mein letztes Mal?&quot;
-https://www.spiegel.de/geschichte/mario-adorf-wird-90-ist-das-mein-letztes-mal-a-37b8f7b4-a162-493f-8ba0-132d09ebd353
+Wegen Corona-Beschränkungen: Weihnachtsshow von Helene Fischer abgesagt
+https://www.spiegel.de/kultur/tv/helene-fischer-weihnachtsshow-wegen-corona-abgesagt-a-0cb677a8-b1fe-46e1-971f-311c7c29dd07
 ----------------------------------------
 Job &amp; Karriere
 https://www.spiegel.de/karriere/
 ----------------------------------------
-Öffentliche Unternehmen: Viele öffentliche Betriebe fast ohne Frauen im Vorstand
-https://www.spiegel.de/karriere/frauen-in-oeffentlichen-betrieben-wo-bleiben-die-managerinnen-a-44f0fc27-be23-46d1-a36d-d82dff262d2e
+Von Rechts wegen - Arbeitsrecht kurz erklärt: Streik - und jetzt?
+https://www.spiegel.de/karriere/warnstreik-was-sie-zum-streik-wissen-muessen-fragen-und-antworten-a-41e4356f-3373-47c6-af83-f51852cb5fd3
 ----------------------------------------
-Extrembergsteiger Thomas Huber: &quot;Wenn du zu weit gehst, kommst du nicht mehr zurück&quot;
-https://www.spiegel.de/karriere/extrembergsteiger-thomas-huber-wenn-du-zu-weit-gehst-kommst-du-nicht-mehr-zurueck-a-466bb5fb-d7d2-49a3-a56d-f42cd17fa902
+Tipps von der Karriereberaterin: Hilfe, mein Team streitet sich
+https://www.spiegel.de/karriere/streit-in-meinem-team-wie-soll-der-chef-reagieren-tipps-von-der-karriereberaterin-a-0cc670e6-d4e1-4416-92ff-4f4d857a0fc4
 ----------------------------------------
-Tipps von den Karriereberaterinnen: Hoch qualifiziert und arbeitslos - wie finde ich trotz Krise einen guten Job?
-https://www.spiegel.de/karriere/hoch-qualifiziert-auslandserfahrung-jetzt-arbeitslos-was-tun-tipps-a-e971a2ef-630a-4f10-a0ce-8af4f654bd6d
+Businessfotos in der Coronakrise: Warum 23.000 Menschen über diese Profilbilder diskutieren
+https://www.spiegel.de/karriere/debatte-auf-linkedin-warum-23-000-menschen-ueber-den-wechsel-eines-profilbilds-diskutieren-a-8a1c0092-7a8e-458b-b7c7-532ec7396509
+----------------------------------------
+Start
+https://www.spiegel.de/start/
+----------------------------------------
+Erfolgreicher studieren: Endlich Schluss mit dem Last-Minute-Lernen
+https://www.spiegel.de/start/erfolgreicher-studieren-schluss-mit-dem-last-minute-lernen-a-66d01b37-d473-4c38-9176-f9a7dcacb8b3
+----------------------------------------
+Leserinnenfrage: Darf meine Chefin trotz Kurzarbeit Überstunden anordnen?
+https://www.spiegel.de/start/ueberstunden-trotz-kurzarbeit-was-arbeitnehmer-tun-koennen-a-0624ba6f-34a4-4044-8a30-d5e4ad3d0422
+----------------------------------------
+SPIEGEL Start - Uni, Berufseinstieg, Geld: Der Ernst des Lebens muss nicht kompliziert sein
+https://www.spiegel.de/start/spiegel-start-das-neue-angebot-fuer-ausbildung-studium-und-berufseinstieg-a-c0771b67-403c-4c45-a19a-79b54bb4061e
+----------------------------------------
+Geschichte
+https://www.spiegel.de/geschichte/
+----------------------------------------
+Ein Dorf in Brandenburg sehnt die Russen zurück: &quot;Wir kennen das noch mit dem Gehorsam&quot;
+https://www.spiegel.de/geschichte/lieberose-in-brandenburg-ein-dorf-in-brandenburg-sehnt-die-russen-zurueck-a-2c3d5c8d-4797-4701-959e-dad2705d9e96
+----------------------------------------
+Armenien und Aserbaidschan: Der Krieg, den niemand gewinnen kann
+https://www.spiegel.de/geschichte/armenien-aserbaidschan-bergkarabach-der-krieg-den-niemand-gewinnen-kann-a-a85c8dfd-3a06-497c-80dc-ee6a34541fd9
+----------------------------------------
+&quot;La Chichinette&quot;: Wie Marthe Cohn zur Weltkriegsspionin wurde
+https://www.spiegel.de/geschichte/chichinette-wie-marthe-cohn-fuer-frankreich-spionierte-a-99e6a73e-e1ab-468c-80f0-2c5818d93de1
+----------------------------------------
+Tests
+https://www.spiegel.de/tests/
+----------------------------------------
+Outdoor-Hygiene: Diese Camping-Gadgets bringen Erleichterung
+https://www.spiegel.de/tests/camping/camping-gadgets-im-tests-diese-helfer-bringen-erleichterung-a-4f45e82e-461c-4a6f-8629-e270d8434533
+----------------------------------------
+Bestseller Link
+https://www.spiegel.de/kultur/bestseller-buecher-belletristik-sachbuch-auf-spiegel-liste-a-458623.html
 ----------------------------------------
 Mobilität
 https://www.spiegel.de/auto/
 ----------------------------------------
-Unu-Elektroroller im Test: Die neue E-Klasse
-https://www.spiegel.de/auto/unu-elektroroller-im-test-die-neue-e-klasse-a-b34d5e90-fe72-44eb-b15a-94e3c4f3c89e
+Autogramm Fiat 500: E wie endlich
+https://www.spiegel.de/auto/fahrberichte/fiat-500-mit-elektromotor-im-test-spaete-erkenntnis-a-d1b52526-5c4b-4488-bb63-0b110d4a7884
 ----------------------------------------
-Trotz Gerichtsbeschlusses: Berlin entfernt Pop-up-Radwege vorerst nicht
-https://www.spiegel.de/auto/berlin-senat-entfernt-pop-up-radwege-trotz-gerichtsbeschluss-vorerst-nicht-a-04561d76-9b1c-4418-9809-3e15ff424173
+Vorgaben für den Schulweg: Dürfen Schulen Grundschülern das Radfahren verbieten?
+https://www.spiegel.de/auto/fahrrad-fahren-zur-schule-wenn-polizei-und-lehrer-das-radeln-verbieten-a-2032d7b6-7ef2-4fea-8f9b-6bef19ef07f5
 ----------------------------------------
-Tour mit der Royal Enfield Himalayan: Treue Wanderfreundin
-https://www.spiegel.de/auto/fahrberichte/treue-wanderfreundin-a-81e83b1d-2436-4336-aa5a-b1cfdfeb0ac7
-----------------------------------------
-Alle Podcasts
-https://www.spiegel.de/thema/podcasts_vom_spiegel/
+Neulich im Stau: Die Leute im Audi sahen mich an, als ob ich ein Psychopath wäre
+https://www.spiegel.de/auto/leitkultur-die-leute-im-audi-sahen-mich-an-als-ob-ich-ein-psychopath-waere-a-00000000-0002-0001-0000-000173216530
 ----------------------------------------
 Leben
 https://www.spiegel.de/thema/leben/
 ----------------------------------------
-Einmal Kreuzfahrt inklusive Klimaschutz, bitte. Gibt&#39;s das schon?
-https://www.spiegel.de/reise/kreuzfahrtranking-des-nabu-wo-sind-konzepte-fuer-emissionsfreie-schifffahrt-a-9954a694-fe65-4025-a82e-de9ed16638cd
+Abschied vom Urlaub
+https://www.spiegel.de/reise/baby-boomer-und-der-abschied-vom-urlaub-kolumne-a-6c573a17-6129-4fdd-af86-72d95793873b
 ----------------------------------------
-&quot;Je intimer die Beziehung, desto anfälliger sind wir für Manipulation&quot;
-https://www.spiegel.de/psychologie/manipulation-im-job-in-der-beziehung-bei-freunden-schuld-ist-ein-soziales-schmiermittel-kopie-a-44c2de04-8df1-48b6-8d9b-4a578c491405
+&quot;Er musste mich im Krankenhaus abgeben wie eine Jacke an der Garderobe&quot;
+https://www.spiegel.de/gesundheit/schwangerschaft/geburt-waehrend-corona-er-musste-mich-abgeben-wie-eine-jacke-an-der-garderobe-a-03e68f0b-e29f-4a9c-a30d-218bf4526b89
 ----------------------------------------
-&quot;Also, der Thorsten war ja eine ganz schwierige Geburt&quot;
-https://www.spiegel.de/familie/junge-hebamme-ueber-ihren-beruf-ich-liebe-ihn-ja-aber-a-c9058dff-f62d-4719-b90d-f091dcb878e4
+Mexikos doppelte Epidemie
+https://www.spiegel.de/politik/ausland/mexikos-doppelte-epidemie-a-2a11a0f8-e926-4cc5-a352-e3becf192108
 ----------------------------------------
-&quot;Ich rate ihnen, nicht auf andere zu hören&quot;
-https://www.spiegel.de/reise/khadjou-sambe-profisurferin-im-senegal-unterrichtet-maedchen-a-0af32d72-8074-48ec-81a4-4982e8fd4926
+Was viele Eltern falsch machen, wenn sie Kinderschuhe kaufen
+https://www.spiegel.de/familie/kinderschuhe-neu-oder-gebraucht-leder-oder-stoff-das-raet-eine-kinderorthopaedin-a-897fe075-d17c-4b69-8f4a-ee0b079c0ced
 ----------------------------------------
-Die Sucht nach Höhenmetern
-https://www.spiegel.de/reise/fernradwege-die-sucht-nach-hoehenmetern-touren-zum-auspowern-a-0e218f10-1228-43f1-83f9-5ca95ad46799
+So befriedigt sind die Deutschen
+https://www.spiegel.de/gesundheit/sex/sex-in-deutschland-wissenschaftler-blicken-ins-schlafzimmer-a-33aec6c3-b546-4dfd-acca-4836bcbbffc1
 ----------------------------------------
-Tipps fürs Campen
+Interessante Brettspiele
 https://www.spiegel.de/thema/test_und_produkte/
 ----------------------------------------
-Mit dieser Ausrüstung wird Camping komfortabel
-https://www.spiegel.de/tests/camping/camping-ausruestung-im-test-mit-diesem-zubehoer-wird-es-komfortabel-a-c2b15a80-9a65-4715-b4d0-84dc6bbc59a7
+Die Tafelrunde, das Schwert und der Gral
+https://www.spiegel.de/tests/brettspiele/brettspiele-um-die-artus-sage-tainted-grail-merlin-stonehenge-tipps-a-6ec2c8ff-9861-4a2b-9dae-889d572108b2
 ----------------------------------------
-Outdoor-Gadgets - So rocken Sie den Camping-Urlaub
-https://www.spiegel.de/tests/camping/soundbox-stirnlampe-und-navigationsgeraet-fuer-camper-und-camping-a-18270b88-787b-4857-b60e-864f4861a151
+Fies gewinnt
+https://www.spiegel.de/tests/brettspiele/brettspiele-villainous-watergate-jaws-fies-gewinnt-a-2145d9d2-03c9-4ec3-bedb-7ed1107eddb8
 ----------------------------------------
-Camp dich glücklich
-https://www.spiegel.de/reise/fernweh/camping-gadgets-thermobecher-werkzeugkoffer-campingdusche-a-1299874.html
+In sieben außergewöhnlichen Brettspielen um die Welt
+https://www.spiegel.de/tests/brettspiele/brettspiele-im-test-in-sieben-spielen-um-die-welt-a-a8509df4-ad3c-4bd7-9a07-cae5df7bc033
 ----------------------------------------
 Dein SPIEGEL
 https://www.spiegel.de/deinspiegel/
 ----------------------------------------
-&quot;Als ob ich fliegen könnte&quot;
-https://www.spiegel.de/deinspiegel/skateboard-profi-tony-hawk-im-kinder-interview-als-ob-ich-fliegen-koennte-a-00000000-0002-0001-0000-000171724301
+Warum der Feldhamster vom Aussterben bedroht ist
+https://www.spiegel.de/deinspiegel/feldhamster-warum-er-vom-aussterben-bedroht-ist-a-00000000-0002-0001-0000-000172431249
 ----------------------------------------
-Wie haben sich Freundschaften durch Corona verändert?
-https://www.spiegel.de/deinspiegel/trotz-corona-freunde-bleiben-kinder-erzaehlen-a-00000000-0002-0001-0000-000172431236
+Jung und einflussreich
+https://www.spiegel.de/deinspiegel/kinder-als-influencer-auf-youtube-tiktok-und-instagram-jung-und-einflussreich-a-00000000-0002-0001-0000-000172431232
 ----------------------------------------
 Bild des Tages
 https://www.spiegel.de/fotostrecke/bilder-des-tages-fotos-aus-deutschland-und-der-welt-fotostrecke-122824.html
@@ -688,7 +737,7 @@ https://www.spiegel.de/fotostrecke/bilder-des-tages-fotos-aus-deutschland-und-de
 <p>Get url of all images, which are currently displayed on <a class="reference external" href="http://www.zeit.de">www.zeit.de</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">imglinks</span><span class="o">=</span><span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imglinks</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">AllImgs</span><span class="o">=</span><span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">AllImgs</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">has_attr</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">):</span>
@@ -700,16 +749,16 @@ https://www.spiegel.de/fotostrecke/bilder-des-tages-fotos-aus-deutschland-und-de
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-https://cdn.prod.www.spiegel.de/images/6b1222e0-9dc4-4795-ae3d-cf0a204e5b0c_w872_r1.77_fpx53_fpy44.jpg
-https://cdn.prod.www.spiegel.de/images/6b1222e0-9dc4-4795-ae3d-cf0a204e5b0c_w872_r1.77_fpx53_fpy44.jpg
-https://cdn.prod.www.spiegel.de/images/91a484fa-a01e-4d00-bbb4-51383da1f9b6_w117_r1.33_fpx52.69_fpy50.94.jpg
-https://cdn.prod.www.spiegel.de/images/91a484fa-a01e-4d00-bbb4-51383da1f9b6_w488_r1.77_fpx52.69_fpy50.94.jpg
-https://cdn.prod.www.spiegel.de/images/d51441bf-fb92-4d92-a337-adddf4de3f2e_w117_r1.33_fpx53_fpy41.jpg
-https://cdn.prod.www.spiegel.de/images/d51441bf-fb92-4d92-a337-adddf4de3f2e_w117_r1.33_fpx53_fpy41.jpg
-https://cdn.prod.www.spiegel.de/images/d51441bf-fb92-4d92-a337-adddf4de3f2e_w488_r1.77_fpx53_fpy41.jpg
-https://cdn.prod.www.spiegel.de/images/d51441bf-fb92-4d92-a337-adddf4de3f2e_w488_r1.77_fpx53_fpy41.jpg
-https://cdn.prod.www.spiegel.de/images/ef67715b-ebd4-4c78-a40b-5a04f6b86bbc_w117_r1.33_fpx56.34_fpy54.96.jpg
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+https://cdn.prod.www.spiegel.de/images/78956969-a7f2-4a75-9243-7e39b222bfc3_w872_r1.77_fpx67.24_fpy44.98.jpg
+https://cdn.prod.www.spiegel.de/images/fd136517-c4df-4e76-8218-c3daee69099c_w872_r1.77_fpx43_fpy37.jpg
+https://cdn.prod.www.spiegel.de/images/fd136517-c4df-4e76-8218-c3daee69099c_w872_r1.77_fpx43_fpy37.jpg
+https://cdn.prod.www.spiegel.de/images/3a5173ee-d8b5-4cfc-96d5-24a34497bd0e_w56_r1_fpx44.9_fpy44.9.png
+https://cdn.prod.www.spiegel.de/images/3a5173ee-d8b5-4cfc-96d5-24a34497bd0e_w56_r1_fpx44.9_fpy44.9.png
+https://cdn.prod.www.spiegel.de/images/ad1b1011-e166-4329-a22b-dc6449780635_w117_r1.33_fpx56_fpy62.jpg
+https://cdn.prod.www.spiegel.de/images/ad1b1011-e166-4329-a22b-dc6449780635_w117_r1.33_fpx56_fpy62.jpg
+https://cdn.prod.www.spiegel.de/images/ad1b1011-e166-4329-a22b-dc6449780635_w488_r1.77_fpx56_fpy62.jpg
+https://cdn.prod.www.spiegel.de/images/ad1b1011-e166-4329-a22b-dc6449780635_w488_r1.77_fpx56_fpy62.jpg
 </pre></div>
 </div>
 </div>
@@ -719,7 +768,7 @@ https://cdn.prod.www.spiegel.de/images/ef67715b-ebd4-4c78-a40b-5a04f6b86bbc_w117
 <h2><span class="section-number">1.2.4. </span>Get entire text of a news-article<a class="headerlink" href="#get-entire-text-of-a-news-article" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IDX</span><span class="o">=</span><span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IDX</span><span class="o">=</span><span class="mi">0</span>
 <span class="n">suburl</span><span class="o">=</span><span class="n">alltitleLinks</span><span class="p">[</span><span class="n">IDX</span><span class="p">]</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">html</span><span class="o">=</span><span class="n">urlopen</span><span class="p">(</span><span class="n">suburl</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1">#works if subdomains are referenced by absolute path</span>
@@ -733,20 +782,27 @@ https://cdn.prod.www.spiegel.de/images/ef67715b-ebd4-4c78-a40b-5a04f6b86bbc_w117
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vorstellung des Bundeslagebilds Cybercrime 2019
+Was Ransomware anrichten kann, wurde gerade erst an der Düsseldorfer Uniklinik sichtbar. Die Erpressersoftware Doppelpaymer hat dort zu einem IT-Ausfall geführt, weswegen eine Notfallpatientin in ein anderes Krankenhaus gebracht wurde. Die 78-Jähriger verstarb kurze Zeit später.
+&quot;Die Intensität dieser Angriffe&quot;, schreibt das Bundeskriminalamt (BKA) in seinem am Mittwoch veröffentlichten Bundeslagebild Cybercrime, &quot;hat im Jahr 2019 weiter zugenommen - vor allem die dadurch entstandenen Auswirkungen&quot;. Ransomware &quot;ist und bleibt die Bedrohung für Unternehmen und öffentliche Einrichtungen&quot;, schreibt das BKA.
+Mindestens sieben der zwölf &quot;prägenden Cyberangriffe&quot; von 2019 in Deutschland waren Ransomware-Infektionen. Darunter fällt auch der Angriff auf die IT der Trägergesellschaft Süd-West des Deutschen Roten Kreuzes in Mainz mit der Ransomware Sodinokib, auch bekannt als REvil. &quot;Bei dem Angriff wurden die IT-Systeme in zwölf Einrichtungen der Gesellschaft in Rheinland-Pfalz in großem Umfang verschlüsselt&quot;, heißt es im Lagebericht. &quot;Obwohl die Patientenversorgung stets gewährleistet war, zeigt dieser Fall erneut auf, dass Kritische Infrastrukturen in Deutschland durch Cyber-Angriffe erheblich gefährdet sind: Ein einziger Angriff auf eine zentrale Serverstruktur kann ausreichen, um eine Kettenreaktion auszulösen und mehrere angeschlossene Einrichtungen handlungsunfähig zu machen.&quot;
+Mittlerweile würden die Täter vermehrt zweigleisig fahren: Nicht nur werden Dateien, Laufwerke und mitunter auch Sicherungskopien verschlüsselt und - wenn überhaupt - nur gegen Lösegeld wieder freigegeben. Auch würden sensible Daten bis hin zu Geschäftsgeheimnissen vorher kopiert und zu den Tätern geleitet, die dann mit der Veröffentlichung drohen. Die Entwicklung führen IT-Sicherheitsexperten auf verbesserte Backup-Strategien von Unternehmen zurück - die Täter haben sich damit einen alternativen Erpressungsweg geschaffen, falls ein Opfer nicht für verschlüsselte Dateien zahlen will und einfach seine Sicherungskopien aufspielt.
+Als Türöffner für eine bestimmte Ransomware wird der Trojaner Emotet verwendet, der &quot;aktuell als eine der schädlichsten Malware weltweit&quot; gelte. Die Hintermänner werden in Russland vermutet, Emotet selbst als Service für andere kriminelle Gruppen betrieben. (Lesen Sie hier mehr über die Entwickler von Emotet.)
+Ebenfalls zur &quot;Underground Economy&quot;, deren wichtigste Bestandteile der BKA-Bericht erklärt, gehört das sogenannte Malware-Crypting als Dienstleitung, also das Verfremden und Verändern von Schadsoftware, damit Antivirenprogramme sie nicht entdecken. Das BKA nennt beispielhaft den Fall eines Tunesiers, der den Ermittlungen zufolge &quot;seit Jahren Werbung auf zahlreichen, für Cyberkriminelle attraktiven Foren machte, um Kunden für Crypting-Dienste zu gewinnen. Gegen ihn besteht der Verdacht, Schadsoftware im großen Stil - insbesondere im Auftrag der russischen Cyberkriminellen-Szene –kryptiert und damit gegen eine Detektierung abgesichert zu haben.&quot;
+Insgesamt hat das BKA im vergangenen Jahr einen neuen Höchstwert im Bereich der Computerkriminalität &quot;im engeren Sinne&quot; verzeichnet. 100.514 Fälle wurden von den deutschen Polizeibehörden im Jahr 2019 erfasst, das sei ein Anstieg von 15,4 Prozenz im Vergleich zum Vorjahr.
+Die Zahlen sind jedoch mit einer gewissen Vorsicht zu betrachten. So macht Computerbetrug mehr als drei Viertel dieser Straftaten aus, und in diese Kategorie kann auch Warenkreditbetrug fallen - also Fälle, in denen jemand etwas im Internet bestellt, dann aber nicht bezahlt. Allerdings wird Warenkreditbetrug von der Polizei oftmals auch als Computerkriminalität &quot;im weiteren Sinne&quot; erfasst, wie aus dem BKA-Bericht hervorgeht. Diese Fälle landen dann in der Statistik für &quot;Tatmittel Internet&quot; und zählen nicht zu den 100.514 Fällen von Computerkriminalität &quot;im engeren Sinne&quot;.
+Unter welchen Umständen ein Fall in welche der beiden Kategorien sortiert wird, konnte das BKA auf Anfrage zunächst nicht beantworten. Es ist damit vorerst unklar, ob die Gesamtzahl der Fälle und der prozentuale Zuwachs auch ein Resultat unscharfer Erfassungskriterien sein könnten.
+
 SPIEGEL+-Zugang wird gerade auf einem anderen Gerät genutzt
 
+
 SPIEGEL+ kann nur auf einem Gerät zur selben Zeit genutzt werden.
+
 
 Klicken Sie auf den Button, spielen wir den Hinweis auf dem anderen Gerät aus und Sie können SPIEGEL+ weiter nutzen.
 
 
-Feuerwehrfahrzeuge stehen vor dem Haus in Dortmund: Die Ermittlungen begannen mit dem Hinweis auf eine Waffe
-Bei einer Wohnungsdurchsuchung in Dortmund sind Ermittler auf ein Waffenlager eines Mannes gestoßen. &quot;Wir sind überrascht worden von der Menge der Dinge, die wir da gefunden haben&quot;, sagte eine Polizeisprecherin.
-Die Ermittlungen begannen mit einem Hinweis auf eine Waffe, die der 68-Jährige einem anderen übergeben habe. Das Amtsgericht erließ einen Durchsuchungsbeschluss - und die Polizei stieß am Mittwoch in den Räumen des Mannes auf Waffen, Waffenteile, verdächtige chemische Substanzen und eine Mine.
-Diese war in der Nacht zu Donnerstag auf einem Feld kontrolliert gesprengt worden, teilte die Polizei mit. Dann stießen die Spezialisten von Feuerwehr und Landeskriminalamt auf mehrere Kilogramm hochexplosiven TNT-Sprengstoff, der ebenfalls unschädlich gemacht worden sei. Wo diese kontrollierten Sprengungen vorgenommen wurden, sagte die Sprecherin nicht. &quot;Wir wollen keine Schaulustigen anlocken und niemanden gefährden.&quot;
-Zur Person des 68-Jährigen machten Polizei und Staatsanwaltschaft keine Angaben. Warum er die Waffen sammelte, könne man noch nicht sagen. Gegen den Verdächtigen wird nach bisherigem Stand wegen des Verdachts auf Verstoß gegen das Waffengesetz ermittelt.
-Feuerwehrfahrzeuge stehen vor dem Haus in Dortmund: Die Ermittlungen begannen mit dem Hinweis auf eine Waffe
+Vorstellung des Bundeslagebilds Cybercrime 2019
 Melden Sie sich an und diskutieren Sie mit
 </pre></div>
 </div>

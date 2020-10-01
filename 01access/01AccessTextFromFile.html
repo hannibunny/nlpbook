@@ -14,29 +14,26 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1.2. Access Contents of HTML Page" href="02crawlHTMLcontent.html" />
@@ -59,7 +56,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
   
-  <img src="../_static/hdmlogo.eps" class="logo" alt="logo">
+  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
@@ -128,6 +125,21 @@
    3. Part-Of-Speech Tagging
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04ngram/04ngram.html">
+   4. N-Gram Language Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/05representations.html">
+   5. Vector Representations of Words and Documents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referenceSection.html">
+   6. References
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -188,6 +200,28 @@
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01access/01AccessTextFromFile.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/01access/01AccessTextFromFile.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
 
     </div>
 
@@ -304,7 +338,7 @@
 <p>The following code cells demonstrate the difference between strings and bytes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span><span class="o">=</span><span class="s2">&quot;die tür ist offen&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span><span class="o">=</span><span class="s2">&quot;die tür ist offen&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="c1">#print string</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">s1</span><span class="p">))</span>
 <span class="n">b1</span><span class="o">=</span><span class="n">s1</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
@@ -317,7 +351,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>die tür ist offen
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>die tür ist offen
 &lt;class &#39;str&#39;&gt;
 After utf-8 encoding:  b&#39;die t\xc3\xbcr ist offen&#39;
 &lt;class &#39;bytes&#39;&gt;
@@ -329,7 +363,7 @@ After latin-1 encoding:  b&#39;die t\xfcr ist offen&#39;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wrong decoding: &quot;</span><span class="p">,</span><span class="n">b1</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;latin-1&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wrong decoding: &quot;</span><span class="p">,</span><span class="n">b1</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;latin-1&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b2</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;latin-1&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b1</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
 <span class="c1">#print(b2.decode(&quot;utf-8&quot;))</span>
@@ -337,7 +371,7 @@ After latin-1 encoding:  b&#39;die t\xfcr ist offen&#39;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Wrong decoding:  die tÃ¼r ist offen
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wrong decoding:  die tÃ¼r ist offen
 die tür ist offen
 die tür ist offen
 </pre></div>
@@ -353,7 +387,7 @@ die tür ist offen
 In this first snippet the text in the file is read line by line. Each line is stored into a single string variable. The string variables of all lines are stored in a Python list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;../Data/ZeitOnlineLandkartenA.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;../Data/ZeitOnlineLandkartenA.txt&quot;</span>
 <span class="n">listOfLines</span><span class="o">=</span><span class="p">[]</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;latin-1&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fin</span><span class="p">:</span>
@@ -365,7 +399,7 @@ In this first snippet the text in the file is read line by line. Each line is st
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Landkarten mit Mehrwert
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Landkarten mit Mehrwert
 Ob als Reiseführer, Nachrichtenkanal oder Bürgerinitiative: Digitale Landkarten lassen
 sich vielseitig nutzen. ZEIT ONLINE stellt einige der interessantesten Dienste vor.
 
@@ -409,7 +443,7 @@ A list of codecs supported by python can be found <a class="reference external" 
 <p>The entire contents of the file can also be read as a whole and stored in a single string variable:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;latin-1&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;latin-1&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
     <span class="n">text</span><span class="o">=</span><span class="n">fin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="mi">300</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Number of Characters in Text:  &quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
@@ -417,7 +451,7 @@ A list of codecs supported by python can be found <a class="reference external" 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Landkarten mit Mehrwert
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Landkarten mit Mehrwert
 Ob als Reiseführer, Nachrichtenkanal oder Bürgerinitiative: Digitale Landkarten lassen
 sich vielseitig nutzen. ZEIT ONLINE stellt einige der interessantesten Dienste vor.
  
@@ -436,7 +470,7 @@ Number of Characters in Text:   2041
 <p>The entire text, which is now stored in the single variable <em>text</em> can be split into it’s words by applying the <code class="docutils literal notranslate"><span class="pre">split()</span></code>-method. The words are stored in a list of strings (<code class="docutils literal notranslate"><span class="pre">wordlist</span></code>). The words in the wordlist may end with punctuation marks. These marks are removed by applying the python string-method <code class="docutils literal notranslate"><span class="pre">strip()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wordlist</span><span class="o">=</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wordlist</span><span class="o">=</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="n">cleanwordlist</span><span class="o">=</span><span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;().,:;!?-&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">wordlist</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 12 words of the list:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">cleanwordlist</span><span class="p">[:</span><span class="mi">12</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of tokens:                   &quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">cleanwordlist</span><span class="p">))</span>
@@ -445,7 +479,7 @@ Number of Characters in Text:   2041
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>First 12 words of the list:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First 12 words of the list:
  [&#39;landkarten&#39;, &#39;mit&#39;, &#39;mehrwert&#39;, &#39;ob&#39;, &#39;als&#39;, &#39;reiseführer&#39;, &#39;nachrichtenkanal&#39;, &#39;oder&#39;, &#39;bürgerinitiative&#39;, &#39;digitale&#39;, &#39;landkarten&#39;, &#39;lassen&#39;]
 Number of tokens:                    267
 Number of different tokens (=size of vocabulary):   187
@@ -458,7 +492,7 @@ Number of different tokens (=size of vocabulary):   187
 <h2><span class="section-number">1.1.4. </span>Textfile from Web<a class="headerlink" href="#textfile-from-web" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="kn">import</span> <span class="nn">re</span>
 </pre></div>
@@ -468,7 +502,7 @@ Number of different tokens (=size of vocabulary):   187
 <p>Download <strong>Alice in Wonderland (Lewis Carol)</strong> from <a class="reference external" href="http://textfiles.com/etext">http://textfiles.com/etext</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">30</span><span class="o">+</span><span class="s2">&quot;1. Download Alice in Wonderland&quot;</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">urlAlice</span><span class="o">=</span><span class="s2">&quot;http://textfiles.com/etext/FICTION/alice.txt&quot;</span>
 <span class="c1">#urlAlice=&quot;https://archive.org/stream/alicewonderlanda00carr/alicewonderlanda00carr_djvu.txt&quot;</span>
@@ -477,7 +511,7 @@ Number of different tokens (=size of vocabulary):   187
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>----------------------------------------------------------------------------------------------------
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------------------------------------------------------------------------------------------------
 ------------------------------1. Download Alice in Wonderland--------------------
 </pre></div>
 </div>
@@ -485,12 +519,12 @@ Number of different tokens (=size of vocabulary):   187
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 4000 characters of downloaded text:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">rawAlice</span><span class="p">[:</span><span class="mi">4000</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 4000 characters of downloaded text:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">rawAlice</span><span class="p">[:</span><span class="mi">4000</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>First 4000 characters of downloaded text:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First 4000 characters of downloaded text:
            PROJECT GUTENBERG AND DUNCAN RESEARCH SHAREWARE
 
                              (c)1991
@@ -597,7 +631,7 @@ before se
 <p>Save textfile in local directory:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fout</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../Data/AliceEnglish.txt&quot;</span><span class="p">,</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fout</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../Data/AliceEnglish.txt&quot;</span><span class="p">,</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
 <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">rawAlice</span><span class="p">)</span>
 <span class="n">fout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -607,7 +641,7 @@ before se
 <p>Read textfile from local directory:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../Data/AliceEnglish.txt&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../Data/AliceEnglish.txt&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
     <span class="n">rawAliceIn</span><span class="o">=</span><span class="n">fin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -615,13 +649,13 @@ before se
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Type of variable: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">rawAlice</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Type of variable: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">rawAlice</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of characters in the book: &quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">rawAlice</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Type of variable:  &lt;class &#39;str&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Type of variable:  &lt;class &#39;str&#39;&gt;
 Number of characters in the book:  150886
 </pre></div>
 </div>
@@ -640,7 +674,7 @@ Number of characters in the book:  150886
 <p>The downloaded file does not only contain the story of <em>Alice in Wonderland</em>, but also some meta-information at the start and the end of the file. This meta-information can be excluded, by determining the true start and end of the story. The true start is at the phrase <code class="docutils literal notranslate"><span class="pre">CHAPTER</span> <span class="pre">I</span></code> and the true end is before the phrase <code class="docutils literal notranslate"><span class="pre">THE</span> <span class="pre">END</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">startText</span><span class="o">=</span><span class="n">rawAlice</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;CHAPTER I&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">startText</span><span class="o">=</span><span class="n">rawAlice</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;CHAPTER I&quot;</span><span class="p">)</span>
 <span class="n">endText</span><span class="o">=</span><span class="n">rawAlice</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;THE END&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">startText</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">endText</span><span class="p">)</span>
@@ -649,7 +683,7 @@ Number of characters in the book:  150886
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>2831
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2831
 150878
 </pre></div>
 </div>
@@ -661,7 +695,7 @@ Number of characters in the book:  150886
 <p>Split the relevant text into a list of words:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aliceWords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;?!.:&quot;,&lt;&gt;-»«&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">rawAlice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aliceWords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;?!.:&quot;,&lt;&gt;-»«&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">rawAlice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
@@ -671,7 +705,7 @@ Number of characters in the book:  150886
 <h3><span class="section-number">1.1.5.4. </span>Generate Vocabulary and determine number of words<a class="headerlink" href="#generate-vocabulary-and-determine-number-of-words" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numWordsAll</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">aliceWords</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numWordsAll</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">aliceWords</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of words in the book: &quot;</span><span class="p">,</span><span class="n">numWordsAll</span><span class="p">)</span>
 <span class="n">aliceVocab</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">aliceWords</span><span class="p">)</span>
 <span class="n">numWordsVocab</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">aliceVocab</span><span class="p">)</span>
@@ -681,7 +715,7 @@ Number of characters in the book:  150886
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number of words in the book:  26406
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of words in the book:  26406
 Number of different words in the book:  3815
 In the average each word is used 6.92 times
 </pre></div>
@@ -693,7 +727,7 @@ In the average each word is used 6.92 times
 <h3><span class="section-number">1.1.5.5. </span>Determine Frequency of each word<a class="headerlink" href="#determine-frequency-of-each-word" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wordFrequencies</span><span class="o">=</span><span class="p">{}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wordFrequencies</span><span class="o">=</span><span class="p">{}</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">aliceVocab</span><span class="p">:</span>
     <span class="n">wordFrequencies</span><span class="p">[</span><span class="n">word</span><span class="p">]</span><span class="o">=</span><span class="n">aliceWords</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
 </pre></div>
@@ -703,36 +737,36 @@ In the average each word is used 6.92 times
 <p>Sort the word-frequency dictionary according to decreasing word-frequency.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">wordFrequencies</span><span class="o">.</span><span class="n">keys</span><span class="p">())[:</span><span class="mi">10</span><span class="p">]:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">wordFrequencies</span><span class="o">.</span><span class="n">keys</span><span class="p">())[:</span><span class="mi">10</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">wordFrequencies</span><span class="p">[</span><span class="n">word</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>voices 1
-neck 7
-think 42
-things--everything 1
-minute 20
-crept 1
-advance 2
-attending 2
-one--but 1
-gravy 1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>up.&#39; 2
+sure 19
+theirs 1
+temper,&#39; 1
+wings 1
+humbly 1
+handwriting?&#39; 1
+dogs?&#39; 1
+crawling 1
+`hold 3
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;40 most frequent words:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;40 most frequent words:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">wordFrequencies</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">wordFrequencies</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">40</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">wordFrequencies</span><span class="p">[</span><span class="n">w</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>40 most frequent words:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40 most frequent words:
 
 the 1597
 and 786
@@ -755,21 +789,21 @@ on 182
 had 176
 with 170
 all 166
-be 139
 very 139
+be 139
 for 138
 so 135
 but 126
 little 126
 this 124
-not 120
 `i 120
+not 120
 they 119
 out 114
 he 112
 down 97
-what 95
 his 95
+what 95
 up 92
 about 90
 is 88
@@ -784,7 +818,7 @@ one 87
 <p>Stopwords are words, with low information content, such as determiners (<em>the, a,</em> …), conjunctions (<em>and, or,</em> …), prepositions (<em>in, on, over,</em> …) and so on. For typical information retrieval tasks stopwords are usually ignored. In the code snippet below, a stopword-list from <a class="reference external" href="http://www.nltk.org/">NLTK</a> is applied in order to remove these non-relevant words from the document-word lists. NLTK provides stopwordlists for many different languages. Since our text is written in English, we apply the English stopwordlist:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
 <span class="n">stopwordlist</span><span class="o">=</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
 <span class="n">aliceWords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;?!.:&quot;,&lt;&gt;-»« &#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">rawAlice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> 
               <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;?!.:&quot;,&lt;&gt;-»« &#39;</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwordlist</span><span class="p">]</span> 
@@ -794,7 +828,7 @@ one 87
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numWordsAll</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">aliceWords</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numWordsAll</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">aliceWords</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of words in the book: &quot;</span><span class="p">,</span><span class="n">numWordsAll</span><span class="p">)</span>
 <span class="n">aliceVocab</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">aliceWords</span><span class="p">)</span>
 <span class="n">numWordsVocab</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">aliceVocab</span><span class="p">)</span>
@@ -804,8 +838,8 @@ one 87
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number of words in the book:  13839
-Number of different words in the book:  3689
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of words in the book:  13599
+Number of different words in the book:  3667
 </pre></div>
 </div>
 </div>
@@ -813,7 +847,7 @@ Number of different words in the book:  3689
 <p>Generate the dictionary for the cleaned text and display it in an ordered form:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wordFrequencies</span><span class="o">=</span><span class="p">{}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wordFrequencies</span><span class="o">=</span><span class="p">{}</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">aliceVocab</span><span class="p">:</span>
     <span class="n">wordFrequencies</span><span class="p">[</span><span class="n">word</span><span class="p">]</span><span class="o">=</span><span class="n">aliceWords</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
 </pre></div>
@@ -822,14 +856,14 @@ Number of different words in the book:  3689
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;40 most frequent words:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;40 most frequent words:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">wordFrequencies</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">wordFrequencies</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">40</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">wordFrequencies</span><span class="p">[</span><span class="n">w</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>40 most frequent words:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40 most frequent words:
 
 said 453
 alice 361
@@ -851,26 +885,26 @@ king 57
 quite 55
 mock 55
 `and 54
-don&#39;t 53
-turtle 53
 gryphon 53
+turtle 53
 hatter 53
 way 51
 go 46
+got 45
 looked 45
 voice 45
-got 45
 get 44
-must 43
 much 43
+must 43
 think 42
-say 42
 first 42
-never 41
+say 42
 rabbit 41
-thing 40
+never 41
 came 40
+round 40
 head 40
+thing 40
 </pre></div>
 </div>
 </div>
@@ -878,7 +912,7 @@ head 40
 <p>Another option to calculate the word frequencies in an ordered manner is to apply the <code class="docutils literal notranslate"><span class="pre">nltk</span></code>-class <a class="reference external" href="http://www.nltk.org/api/nltk.html#nltk.probability.FreqDist">FreqDist</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="n">fd</span><span class="o">=</span><span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">aliceWords</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 <span class="n">fd</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -886,11 +920,11 @@ head 40
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;said&#39;, 453), (&#39;alice&#39;, 361), (&#39;little&#39;, 126), (&#39;`i&#39;, 120), (&#39;one&#39;, 87), (&#39;went&#39;, 82), (&#39;like&#39;, 78), (&#39;could&#39;, 77), (&#39;would&#39;, 77), (&#39;thought&#39;, 72), (&#39;queen&#39;, 65), (&#39;see&#39;, 63), (&#39;know&#39;, 61), (&#39;*&#39;, 60), (&#39;time&#39;, 58), (&#39;began&#39;, 58), (&#39;king&#39;, 57), (&#39;quite&#39;, 55), (&#39;mock&#39;, 55), (&#39;`and&#39;, 54)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;said&#39;, 453), (&#39;alice&#39;, 361), (&#39;little&#39;, 126), (&#39;`i&#39;, 120), (&#39;one&#39;, 87), (&#39;went&#39;, 82), (&#39;like&#39;, 78), (&#39;could&#39;, 77), (&#39;would&#39;, 77), (&#39;thought&#39;, 72), (&#39;queen&#39;, 65), (&#39;see&#39;, 63), (&#39;know&#39;, 61), (&#39;*&#39;, 60), (&#39;time&#39;, 58), (&#39;began&#39;, 58), (&#39;king&#39;, 57), (&#39;quite&#39;, 55), (&#39;mock&#39;, 55), (&#39;`and&#39;, 54)]
 </pre></div>
 </div>
 <img alt="../_images/01AccessTextFromFile_42_1.png" src="../_images/01AccessTextFromFile_42_1.png" />
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f81ca21f990&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fcf93af8ed0&gt;
 </pre></div>
 </div>
 </div>

@@ -1,0 +1,590 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>5. Vector Representations of Words and Documents &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. References" href="../referenceSection.html" />
+    <link rel="prev" title="4. N-Gram Language Model" href="../04ngram/04ngram.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01access/01access.html">
+   1. Access and Preprocess Text
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02normalisation/02normalisation.html">
+   2. Word Normalisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03postagging/03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04ngram/04ngram.html">
+   4. N-Gram Language Model
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Vector Representations of Words and Documents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referenceSection.html">
+   6. References
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/05representations/05representations.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vector-space-model">
+   5.1. Vector Space Model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bag-of-word-model">
+     5.1.1. Bag-of-Word Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bag-of-word-variants">
+     5.1.2. Bag-of-Word Variants
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-hot-encoding-of-words">
+     5.1.3. One-Hot-Encoding of Words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bow-based-document-similarity">
+     5.1.4. BoW-based document similarity
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributional-semantic-models">
+   5.2. Distributional Semantic Models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#count-based-dsm">
+     5.2.1. Count-based DSM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prediction-based-dsm">
+     5.2.2. Prediction-based DSM
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="vector-representations-of-words-and-documents">
+<h1><span class="section-number">5. </span>Vector Representations of Words and Documents<a class="headerlink" href="#vector-representations-of-words-and-documents" title="Permalink to this headline">¶</a></h1>
+<p>As described in the <a class="reference internal" href="../intro.html"><span class="doc">Introduction</span></a>, many NLP tasks can either be solved in a rule-based or in a data-based approach. Data-based approaches increasingly yield better results than rule-based approaches. At the heart of data-based approaches is a Machine Learning algorithm, which learns a model from available training data. This model can then be applied e.g. for Document Classification, Sentiment Analysis, Named-Entity-Recognition, Intent-Recognition, Automatic translation and many other NLP tasks.</p>
+<p>All ML-algorithms require a numeric representation at their input, usually a fixed-length numeric vector. In the context of NLP the input is usually text. The crucial question is then:</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question:</p>
+<p>How to represent texts, i.e. sequences of words, punctuation marks…, as a numeric vector of constant length?</p>
+</div>
+<p>In this section first the general notion of <strong>Vector Space Model</strong> is introduced. Then the most common type of vector space model for text, the so called <strong>Bag-Of-Word (PoW)</strong> model is described. In the extreme case of single-word-texts the BoW melts down to the <strong>One-Hot-Encoding</strong> of words. The pros and cons of these conventional representations are discussed. Another method to represent words as numerical vectors is constituted by <strong>Distributional Semantic Models (DSMs)</strong>. The currently very popular <strong>Word Embeddings</strong> belong to the class of DSMs. <strong>Word Embeddings</strong> are numerical word representations, which are learned by <em>Neural Networks</em>. Even though they have been considered before, the 2013 milestone paper <a class="bibtex reference internal" href="../referenceSection.html#nips2013-5021" id="id1">[MSC+13]</a> introduced two very efficient methods to learn meaningful Word Embeddings. Since then Word Embeddings have revolutionized NLP.</p>
+<div class="section" id="vector-space-model">
+<h2><span class="section-number">5.1. </span>Vector Space Model<a class="headerlink" href="#vector-space-model" title="Permalink to this headline">¶</a></h2>
+<p>Vector Space Models map arbitrary inputs to numeric vectors of fixed length. For a given task, you are free to define a set of <span class="math notranslate nohighlight">\(N\)</span> relevant features, which can be extracted from the input. Each of the <span class="math notranslate nohighlight">\(N\)</span>-feature extraction functions returns how often the corresponding feature appears in the input. Each component of the vector-representation belongs to one feature and the value at this component is the count of this feature in the input.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example</p>
+<p>Assume that your task is to classify texts into the classes <em>poetry</em> and <em>scientific paper</em>. The classifier shall be learned by a Machine Learning Algorithm which requires fixed-length numeric vectors at it’s input. You think about relevant features and come to the conclusion, that</p>
+<ol class="simple">
+<li><p>the average length of sentences (in words)</p></li>
+<li><p>the number of proper names</p></li>
+<li><p>the number of adjectives</p></li>
+</ol>
+<p>may be relevant features. Then all input-texts, independent of their length can be mapped to vectors of length <span class="math notranslate nohighlight">\(N=3\)</span>, whose components are the frequencies of this features in the text. E.g. the text</p>
+<p><code class="docutils literal notranslate"><span class="pre">Mary</span> <span class="pre">loves</span> <span class="pre">the</span> <span class="pre">kind</span> <span class="pre">and</span> <span class="pre">handsome</span> <span class="pre">little</span> <span class="pre">boy.</span> <span class="pre">His</span> <span class="pre">name</span> <span class="pre">is</span> <span class="pre">Peter</span> <span class="pre">and</span> <span class="pre">he</span> <span class="pre">lived</span> <span class="pre">next</span> <span class="pre">door</span> <span class="pre">to</span> <span class="pre">Mary's</span> <span class="pre">jealous</span> <span class="pre">friend</span> <span class="pre">Anne.</span></code></p>
+<p>maps into the vector</p>
+<div class="math notranslate nohighlight">
+\[
+(11,4,4) 
+\]</div>
+</div>
+<div class="section" id="bag-of-word-model">
+<h3><span class="section-number">5.1.1. </span>Bag-of-Word Model<a class="headerlink" href="#bag-of-word-model" title="Permalink to this headline">¶</a></h3>
+<p>In the general case the vector space model implies a vector, whose components are the frequencies of pre-defined features in the given input. In the special case of text (=documents), a vector space model is applied, where the features are defined to be all words of the vocabulary <span class="math notranslate nohighlight">\(V\)</span>. I.e. each component in the resulting vector corresponds to a word <span class="math notranslate nohighlight">\(w \in V\)</span> and the value of the component is the frequency of this word in the given document. This vector space model for texts is the so called <strong>Bag of Words (BoW)</strong> model and the frequency of a word in a given document is denoted <strong>term-frequency</strong>. Accordingly a set of documents is modelled by a <strong>Bag of Words matrix</strong>, whose rows belong to documents and whose columns belong to words.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example: Bag of Word matrix</p>
+<p>Assume, that the given playground-corpus contains only two documents</p>
+<ul class="simple">
+<li><p>Document 1: <em>not all kids stay at home</em></p></li>
+<li><p>Document 2: <em>all boys and girls stay not at home</em></p></li>
+</ul>
+<p>The BoW model of these documents is then</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>all</p></th>
+<th class="head"><p>and</p></th>
+<th class="head"><p>at</p></th>
+<th class="head"><p>boys</p></th>
+<th class="head"><p>girls</p></th>
+<th class="head"><p>home</p></th>
+<th class="head"><p>kids</p></th>
+<th class="head"><p>not</p></th>
+<th class="head"><p>stay</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Document 1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Document 2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>In this example the words in the matrix have been alphabetically ordered. This is not necessary.</p>
+</div>
+</div>
+<div class="section" id="bag-of-word-variants">
+<h3><span class="section-number">5.1.2. </span>Bag-of-Word Variants<a class="headerlink" href="#bag-of-word-variants" title="Permalink to this headline">¶</a></h3>
+<p>The entries of the BoW-matrix, as introduced above, are the <strong>term-frequencies</strong>. I.e. the entry in row <span class="math notranslate nohighlight">\(i\)</span>, column <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(tf(i,j)\)</span> determines how often the term (word) of column <span class="math notranslate nohighlight">\(j\)</span>, appears in document <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>Another option is the <strong>binary BoW</strong>. Here, the binary entry in row <span class="math notranslate nohighlight">\(i\)</span>, column <span class="math notranslate nohighlight">\(j\)</span> just indicates if term <span class="math notranslate nohighlight">\(j\)</span> appears in document <span class="math notranslate nohighlight">\(i\)</span>. The entry has value 1 if the term appears at least once, otherwise it is 0.</p>
+<p><strong>TF-IDF BoW:</strong> The drawback of using term-frequency <span class="math notranslate nohighlight">\(tf(i,j)\)</span> as matrix entries is that all terms are weighted similarly, in particular rare words such as words with a <strong>strong semantic focus</strong> are weighted in the same way as very frequent words, such as articles. <em>TF-IDF</em> is a weighted term frequency (TF). The weights are the <em>inverse document frequencies (IDF)</em>. Actually, there are different definitions for the calculation of TF-IDF. A common definition is</p>
+<div class="math notranslate nohighlight">
+\[
+\mbox{tf-idf}(i,j) = tf(i,j) \cdot \log(\frac{N}{df_j}),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(tf(i,j)\)</span> is the frequency of term <span class="math notranslate nohighlight">\(j\)</span> in document <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(N\)</span> is the total number of documents and <span class="math notranslate nohighlight">\(df_j\)</span> is the number of documents, which contain term <span class="math notranslate nohighlight">\(j\)</span>. For words, which occure in all documents</p>
+<div class="math notranslate nohighlight">
+\[
+\log(\frac{N}{df_j}) = \log(\frac{N}{N}) = 0,
+\]</div>
+<p>i.e. such words are disregarded in a BoW with TF-IDF entries. Otherwise, words with a very strong semantic focus usually appear in only a few documents. Then the small value of <span class="math notranslate nohighlight">\(df_j\)</span> yields a low <em>IDF</em>, i.e. the term-frequency of such a word is weighted strongly.</p>
+</div>
+<div class="section" id="one-hot-encoding-of-words">
+<h3><span class="section-number">5.1.3. </span>One-Hot-Encoding of Words<a class="headerlink" href="#one-hot-encoding-of-words" title="Permalink to this headline">¶</a></h3>
+<p>In the extreme case of <em>documents</em>, which contain only a single word, the corresponding <em>tf</em>-based BoW-vector, has only one component of value 1 (in the column, which belongs to this word), all other entries are zero. This is actually a common conventional numeric encoding of words, the so called <em>One-Hot-Encoding</em>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example: One-Hot-Encoding of words</p>
+<p>Assume, that the entire Vocabular is</p>
+<div class="math notranslate nohighlight">
+\[
+V=(\mbox{all, and, at, boys, girls, home, kids, not, stay}).
+\]</div>
+<p>A possible One-Hot-Encoding of these words is then</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>all</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>and</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>at</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>boys</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>girls</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>home</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>kids</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>not</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>stay</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="bow-based-document-similarity">
+<h3><span class="section-number">5.1.4. </span>BoW-based document similarity<a class="headerlink" href="#bow-based-document-similarity" title="Permalink to this headline">¶</a></h3>
+<p>Numeric vector presentation of documents are not only required for Machine-Learning based NLP tasks. Another important application category is <strong>Information Retrieval (IR)</strong>. Information Retrieval deals with algorithms and models for searching information in large document collections. Web-search like <span class="xref myst">www.google.com</span> is only one example for IR. In such document-search applications the user defines a <strong>query</strong>, usually in terms of one or more words. The task of the IR system is then to</p>
+<ul class="simple">
+<li><p>return relevant documents, which match the query</p></li>
+<li><p>rank the returned documents, such that the most important is at the top of the search-result</p></li>
+</ul>
+<p>Challenges in this context are:</p>
+<ul class="simple">
+<li><p>How to deduce what the user actually wants, given only a few query-words?</p></li>
+<li><p>How to calculate the <strong>relevance</strong> of a document with respect to the query words?</p></li>
+</ul>
+<p>Question 1 will be addressed later further below, when <em>Distributional Semantic Models</em>, in particular <em>Word Embeddings</em> are introduced. The second question will be answered now.</p>
+<p>The conventional approach for document search is to</p>
+<ol class="simple">
+<li><p>model all documents in the index as numerical vectors, e.g. by BoW</p></li>
+<li><p>model the query as a numerical vector in the same way as the documents are modelled</p></li>
+<li><p>determine the most relevant documents by just determining the document-vectors, which have the smallest distance to the query-vector.</p></li>
+</ol>
+<p>This means that the question on <em>relevance</em> is solved by determining <em>nearest vectors in a vector space</em>.
+An example is given below. Here we assume, that there are only 3 documents in the index and there are only 4 different words, occuring in these documents. Document 2, for example, contains <em>word 1</em> with a frequency of 4 and <em>word 2</em> with a frequency of 5. The query consists of <em>word 1</em> and <em>word 2</em>. The BoW-matrix and the attached query-vector are:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="text-align:center head"><p>word 1</p></th>
+<th class="text-align:center head"><p>word 2</p></th>
+<th class="text-align:center head"><p>word 3</p></th>
+<th class="text-align:center head"><p>sord 4</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>document 1</p></td>
+<td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>document 2</p></td>
+<td class="text-align:center"><p>4</p></td>
+<td class="text-align:center"><p>5</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>document 3</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Query</p></td>
+<td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="distributional-semantic-models">
+<h2><span class="section-number">5.2. </span>Distributional Semantic Models<a class="headerlink" href="#distributional-semantic-models" title="Permalink to this headline">¶</a></h2>
+<p>The linguistic theory of distributional semantics is based on the hypothesis, that words, which occur in similar contexts, have similar meaning. J.R. Firth formulated this assumption in his famous sentence <a class="bibtex reference internal" href="../referenceSection.html#firth57synopsis" id="id2">[Fir57]</a>:</p>
+<p><em>You shall know a word by the company it keeps</em></p>
+<p>Since computers can easily determine the co-occurrence statistics of words in large corpora the theory of distributional semantics provides a promising opportunity to automatically learn semantic relations. The learned semantic representations are called <strong>Distributional Semantic models (DSM)</strong>. They represent each word as a numerical vector, such that words, which appear frequently in similar contexts, are represented by similar vectors. In the figure below the arrow represents the DSM. Since there are many different DSMs there a many different approaches to implement this transformation from the hypothesis of distributional semantics to the word space.</p>
+<figure align="center">
+<img width="500" src="https://maucher.home.hdm-stuttgart.de/Pics/semanticsInWordSpace.png">
+<figcaption>Mapping the hypothesis of distributional semantics to a word space</figcaption>
+</figure>
+<p>The field of DSMs can be categorized into the classes <strong>count-based models</strong> and <strong>prediction-based models</strong>. Recently, considerable attention has been focused on the question which of these classes is superior <a class="bibtex reference internal" href="../referenceSection.html#pennington2014" id="id3">[PSM14]</a>.</p>
+<div class="section" id="count-based-dsm">
+<h3><span class="section-number">5.2.1. </span>Count-based DSM<a class="headerlink" href="#count-based-dsm" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="prediction-based-dsm">
+<h3><span class="section-number">5.2.2. </span>Prediction-based DSM<a class="headerlink" href="#prediction-based-dsm" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./05representations"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../04ngram/04ngram.html" title="previous page"><span class="section-number">4. </span>N-Gram Language Model</a>
+    <a class='right-next' id="next-link" href="../referenceSection.html" title="next page"><span class="section-number">6. </span>References</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
