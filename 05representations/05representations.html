@@ -203,6 +203,11 @@
      5.1.4. BoW-based document similarity
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bow-drawbacks">
+     5.1.5. BoW Drawbacks
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -245,7 +250,7 @@
 <h2><span class="section-number">5.1. </span>Vector Space Model<a class="headerlink" href="#vector-space-model" title="Permalink to this headline">¶</a></h2>
 <p>Vector Space Models map arbitrary inputs to numeric vectors of fixed length. For a given task, you are free to define a set of <span class="math notranslate nohighlight">\(N\)</span> relevant features, which can be extracted from the input. Each of the <span class="math notranslate nohighlight">\(N\)</span>-feature extraction functions returns how often the corresponding feature appears in the input. Each component of the vector-representation belongs to one feature and the value at this component is the count of this feature in the input.</p>
 <div class="dropdown admonition">
-<p class="admonition-title">Example</p>
+<p class="admonition-title">Example: Vector Space Model in General</p>
 <p>Assume that your task is to classify texts into the classes <em>poetry</em> and <em>scientific paper</em>. The classifier shall be learned by a Machine Learning Algorithm which requires fixed-length numeric vectors at it’s input. You think about relevant features and come to the conclusion, that</p>
 <ol class="simple">
 <li><p>the average length of sentences (in words)</p></li>
@@ -515,13 +520,81 @@ An example is given below. Here we assume, that there are only 3 documents in th
 </tr>
 </tbody>
 </table>
+<p>Given these vector-representations, it is easy to determine the distances between each document and the query.</p>
+<p>The obvious <em>type of distance</em> is the <strong>Euclidean Distance</strong>: For two vectors, <span class="math notranslate nohighlight">\(\underline{a}=(a_1,\ldots,a_n)\)</span> and <span class="math notranslate nohighlight">\(\underline{b}=(b_1,\ldots,b_n)\)</span>, the Euclidean Distance is defined to be</p>
+<div class="math notranslate nohighlight">
+\[
+d_E(\underline{a},\underline{b})=\sqrt{\sum_{i=1}^n (a_i-b_i)^2}
+\]</div>
+<p><strong>Similarity</strong> and <strong>Distance</strong> are inverse to each other, i.e. the similarity between vectors increases with decreasing distance and vice versa. For each distance-measure a corresponding similarity-measure can be defined. E.g. the <em>Euclidean-distance</em>-based similarity measure is</p>
+<div class="math notranslate nohighlight">
+\[
+s_E(\underline{a},\underline{b})=\frac{1}{1+d_E(\underline{a},\underline{b})}
+\]</div>
+<p>Now let’s determine the Euclidean distance between the query and the 3 documents in the example abover:</p>
+<p>Euclidean distance between query and document 1:</p>
+<div class="math notranslate nohighlight">
+\[
+d_E(\underline{q},\underline{d}_1)=\sqrt{(1-1)^2+(1-1)^2+(1-0)^2+(1-0)^2} = \sqrt{2} = 1.41
+\]</div>
+<p>Euclidean distance between query and document 2:</p>
+<div class="math notranslate nohighlight">
+\[
+d_E(\underline{q},\underline{d}_2)=\sqrt{(4-1)^2+(5-1)^2+(0-0)^2+(0-0)^2} = \sqrt{25} = 5.00
+\]</div>
+<p>Euclidean distance between query and document 3:</p>
+<div class="math notranslate nohighlight">
+\[
+d_E(\underline{q},\underline{d}_3)=\sqrt{(0-1)^2+(0-1)^2+(1-0)^2+(1-0)^2} = \sqrt{4} = 2.00
+\]</div>
+<p>Comparing these 3 distances, one can conclude, that document 1 has the smallest distance (and the highest similarity) to the query and is therefore the best match.</p>
+<p><em>Is this what we expect?</em></p>
+<p><em>No!</em> Document 2 contains the query words not only once but with a much higher frequency. One would expect, that this stronger prevalence of the query words implies that Document 2 is more relevant.</p>
+<p><em>So what went wrong?</em></p>
+<p>The answer is, that <strong>the Euclidean Distance is just the wrong distance-measure</strong> for this type of application. In a query each word is contained only once. Therefore, Euclidean-distance penalizes longer documents with more words.</p>
+<p>The solution to this problem is</p>
+<ul class="simple">
+<li><p>either normalize all vectors - document vectors and query-vector - to unique length,</p></li>
+<li><p>or apply another distance measure</p></li>
+</ul>
+<p>The standard similarity-measure for BoW vectors is the <strong>Cosine Similarity</strong>, which is calculated as defined in the table below. The table also contains the definition of the corresponding distance-measure. Moreover, a bunch of other distance- and similarity measures, which are frequently applied in NLP tasks, are listed in the table.</p>
+<figure align="center">
+<img width="700" src="https://maucher.home.hdm-stuttgart.de/Pics/distanceMeasures.png">
+</figure> 
+<p>For the query-example above, the Cosine-Similarities are:</p>
+<p>Cosine Similarity between query and document 2:</p>
+<div class="math notranslate nohighlight">
+\[
+s_C(\underline{q},\underline{d}_1)=\frac{1 \cdot 1 + 1 \cdot 1 + 1 \cdot 0 + 1 \cdot 0}{\sqrt{4} \cdot \sqrt{2}} = \frac{1}{\sqrt{2}} = 0.707
+\]</div>
+<p>Cosine Similarity between query and document 2:</p>
+<div class="math notranslate nohighlight">
+\[
+s_C(\underline{q},\underline{d}_2)=\frac{4 \cdot 1 + 5 \cdot 1 + 0 \cdot 0 + 0 \cdot 0}{\sqrt{41} \cdot \sqrt{2}} = \frac{9}{\sqrt{82}} = 0.994
+\]</div>
+<p>Cosine Similarity between query and document 3:</p>
+<div class="math notranslate nohighlight">
+\[
+s_C(\underline{q},\underline{d}_3)=\frac{0 \cdot 1 + 0 \cdot 1 + 1 \cdot 0 + 1 \cdot 0}{\sqrt{2} \cdot \sqrt{2}} = \frac{0}{2} = 0
+\]</div>
+<p>These calculated similarities match our subjective expectation: The similarity between document 3 and query q is 0 (the lowest possible value), since they have no word in common. The similarity between document 2 and the query q is close to the maximum similarity-value of 1, since both query-words appear with a high frequency in this document.</p>
+</div>
+<div class="section" id="bow-drawbacks">
+<h3><span class="section-number">5.1.5. </span>BoW Drawbacks<a class="headerlink" href="#bow-drawbacks" title="Permalink to this headline">¶</a></h3>
+<p>BoW representation of documents and the One-Hot-Encoding of single words, as described above, are methods to map words and documents to numeric vectors, which can be applied as input for arbitrary Machine Learning algorithms. Hovever, these representations suffer from crucial drawbacks:</p>
+<ol class="simple">
+<li><p>The vectors are usually very long - there length is given by the number of words in the vocabulary. Moreover, the vectors are quite sparse, since the set of words appearing in one document is usually only a very small part of the set of all words in the vocabulary.</p></li>
+<li><p>Semantic relations between words are not modelled. This means that in this model there is no information about the fact that word <em>car</em> is more related to word <em>vehicle</em> than to word <em>lake</em>.</p></li>
+<li><p>In the BoW-model of documents word order is totally ignored. E.g. the model can not distinguish if word <em>not</em> appeared immediately before word <em>good</em> or before word <em>bad</em>.</p></li>
+</ol>
+<p>All of these drawbacks can be solved by applying <em>Distributional Semantic models</em> to map words into numeric vectors and by the way the resulting <em>Word Empeddings</em> are passed e.g. to the input of Recurrent Neural Networks, Convolutional Neural Networks or Transformers (see later chapters of this lecture).</p>
 </div>
 </div>
 <div class="section" id="distributional-semantic-models">
 <h2><span class="section-number">5.2. </span>Distributional Semantic Models<a class="headerlink" href="#distributional-semantic-models" title="Permalink to this headline">¶</a></h2>
 <p>The linguistic theory of distributional semantics is based on the hypothesis, that words, which occur in similar contexts, have similar meaning. J.R. Firth formulated this assumption in his famous sentence <a class="bibtex reference internal" href="../referenceSection.html#firth57synopsis" id="id2">[Fir57]</a>:</p>
 <p><em>You shall know a word by the company it keeps</em></p>
-<p>Since computers can easily determine the co-occurrence statistics of words in large corpora the theory of distributional semantics provides a promising opportunity to automatically learn semantic relations. The learned semantic representations are called <strong>Distributional Semantic models (DSM)</strong>. They represent each word as a numerical vector, such that words, which appear frequently in similar contexts, are represented by similar vectors. In the figure below the arrow represents the DSM. Since there are many different DSMs there a many different approaches to implement this transformation from the hypothesis of distributional semantics to the word space.</p>
+<p>Since computers can easily determine the co-occurrence statistics of words in large corpora the theory of distributional semantics provides a promising opportunity to automatically learn semantic relations. The learned semantic representations are called <strong>Distributional Semantic models (DSM)</strong>. <strong>They represent each word as a numerical vector, such that words, which appear frequently in similar contexts, are represented by similar vectors.</strong> In the figure below the arrow represents the DSM. Since there are many different DSMs there a many different approaches to implement this transformation from the hypothesis of distributional semantics to the word space.</p>
 <figure align="center">
 <img width="500" src="https://maucher.home.hdm-stuttgart.de/Pics/semanticsInWordSpace.png">
 <figcaption>Mapping the hypothesis of distributional semantics to a word space</figcaption>
@@ -529,9 +602,54 @@ An example is given below. Here we assume, that there are only 3 documents in th
 <p>The field of DSMs can be categorized into the classes <strong>count-based models</strong> and <strong>prediction-based models</strong>. Recently, considerable attention has been focused on the question which of these classes is superior <a class="bibtex reference internal" href="../referenceSection.html#pennington2014" id="id3">[PSM14]</a>.</p>
 <div class="section" id="count-based-dsm">
 <h3><span class="section-number">5.2.1. </span>Count-based DSM<a class="headerlink" href="#count-based-dsm" title="Permalink to this headline">¶</a></h3>
+<p>DSMs map words to numeric vectors, such that semantically related words, i.e. words which appear frequently in a similar context, have similar numeric vectors. The first question which arises from this definition is <em>What is context?</em> In all DSMs, introduced in this lecture, the context of a target word <span class="math notranslate nohighlight">\(w\)</span> is considered to be the sequence of <span class="math notranslate nohighlight">\(L\)</span> previous and <span class="math notranslate nohighlight">\(L\)</span> following words, where the <em>context-length</em> <span class="math notranslate nohighlight">\(L\)</span> is a parameter.</p>
+<p>I.e. in the word-sequence</p>
+<div class="math notranslate nohighlight">
+\[
+\ldots,w_{i-L},\ldots,w_{i-1},w_i,w_{i+1},\ldots,w_{i+L},\ldots
+\]</div>
+<p>the words <span class="math notranslate nohighlight">\(w_{i-L},\ldots,w_{i-1},w_{i+1},\ldots,w_{i+L}\)</span> constitute the context of target word <span class="math notranslate nohighlight">\(w_i\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[
+\left\{(w_i,w_{i+j})\right\}, \, j \in \{-L,\ldots,-1,1,\ldots,L\}
+\]</div>
+<p>is the corresponding <em>set of word-context-pairs</em> w.r.t. target word <span class="math notranslate nohighlight">\(w_i\)</span>.</p>
+<p>The most common numeric vector representation of count-based DSMs can be derived from the <strong>Word-Co-Occurence</strong> matrix. In this matrix each row belongs to a target-word and each column belongs to a context word. Hence, the matrix has usually <span class="math notranslate nohighlight">\(\mid V \mid\)</span> rows and the same amount of columns<a class="footnote-reference brackets" href="#f1" id="id4">1</a>. In this matrix the entry in row <span class="math notranslate nohighlight">\(i\)</span>, column <span class="math notranslate nohighlight">\(j\)</span> is the number of times context word <span class="math notranslate nohighlight">\(c_j\)</span> appears in the context of target word <span class="math notranslate nohighlight">\(w_i\)</span>. This frequency is denoted by <span class="math notranslate nohighlight">\(\#(w_i,c_j)\)</span>. The structure of such a word-co-occurence matrix is given below:</p>
+<figure align="center">
+<img width="600" src="https://maucher.home.hdm-stuttgart.de/Pics/cooccurenceMatrix.png">
+<figcaption>Word-Cooccurence-Matrix</figcaption>
+</figure>
+<p>In order to determine this matrix a large corpus of contigous text is required. Then for all target-context pairs the corresponding count <span class="math notranslate nohighlight">\(\#(w_i,c_j)\)</span> must be determined. <strong>Once the matrix is complete the numeric vector representation of word <span class="math notranslate nohighlight">\(w_i\)</span> is just the i.th row in this matrix!</strong>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example: Word-Co-Occurence Matrix</p>
+<p>Assume that the (unrealistically small) corpus is</p>
+<p>K = [The dusty road ends nowhere. The dusty track ends there.*</p>
+<p>For a (unrealistically small) context length of <span class="math notranslate nohighlight">\(L=2\)</span> the word-co-occurence matrix is:</p>
+<figure align="center">
+<img width="600" src="https://maucher.home.hdm-stuttgart.de/Pics/cooccurenceMatrixExample.png">
+<figcaption>Example of Word-Cooccurence-Matrix</figcaption>
+</figure>
+<p>With this matrix, the numeric vector representation of word <strong>road</strong> is:</p>
+<div class="math notranslate nohighlight">
+\[
+(1,1,0,1,1,0,0)
+\]</div>
+<p>and the vector for word <strong>track</strong> is:</p>
+<div class="math notranslate nohighlight">
+\[
+(1,1,0,1,0,0,1)
+\]</div>
+<p>As can be seen, these two vectors are quite similar. The reason for this similarity is that both words appear in similar contexts. Hence we assume that they are semantically correlated.</p>
+</div>
 </div>
 <div class="section" id="prediction-based-dsm">
 <h3><span class="section-number">5.2.2. </span>Prediction-based DSM<a class="headerlink" href="#prediction-based-dsm" title="Permalink to this headline">¶</a></h3>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
+<dd><p>One may have different vocabularies for target-words (<span class="math notranslate nohighlight">\(V_W\)</span>) and context-words (<span class="math notranslate nohighlight">\(V_C\)</span>). However, often they coincide, i.e. <span class="math notranslate nohighlight">\(V = V_W=V_C\)</span>.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
