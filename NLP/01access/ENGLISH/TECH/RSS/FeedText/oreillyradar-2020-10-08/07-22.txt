@@ -1,0 +1,180 @@
+AI and Creativity
+The release of GPT-3 has reinvigorated a discussion of creativity and artificial intelligence. That’s a good discussion to have, primarily because it forces us to think carefully about what we mean when we use words like “creativity” and “art.” As I’ve argued in the past, each time we have this discussion, we end up raising […]
+ 
+Four short links: 6 October 2020
+Algorithms Can Collude — To analyze the possible consequences, we study experimentally the behavior of algorithms powered by Artificial Intelligence (Q-learning) in a workhorse oligopoly model of repeated price competition. We find that the algorithms consistently learn to charge supracompetitive prices, without communicating with one another. The high prices are sustained by collusive strategies with […]
+ 
+Four short links: 2 October 2020
+Single Device Behaves Like a Neuron — On its own, using a simple DC voltage as the input, the device outputs not just simple spikes, as some other devices can manage, but the whole array of neural activity—bursts of spikes, self-sustained oscillations, and other stuff that goes on in your brain. (Paper) USB-C Is a […]
+ 
+Radar trends to watch: October 2020
+This month, the big surprise is that there’s no significant technology news about COVID. And there is more news than ever about legislation and regulation. I suspect that the legal system will be a big driver for technology over the next year. Another trend that doesn’t quite count as technology news but that definitely bears […]
+ 
+Four short links: 29 Sep 2020
+When Coffeemakers Demand Ransom — So he then examined the mechanism the coffee maker used to receive firmware updates. It turned out they were received from the phone with—you guessed it—no encryption, no authentication, and no code signing. Nothing remarkable here other than it’s 2020 and companies still put crappy software into their hardware. Returns […]
+ 
+Four short links: 25 September 2020
+Adapton — A program P is incremental if repeating P with a changed input is faster than from-scratch computation. Adapton offers programming language abstractions for incremental computation. Migration Lessons Learned — Keep your migration scripts away from your production code; Keep it low-tech, don’t deserialize; Write tests to exercise each migration script individually; Consider running […]
+ 
+Four short links: 18 Sep 2020
+CS349 – Contemporary Issues in Computer Science — This class examines ethical frameworks, modern ethical concerns related to computer science and technology, and clear oral and written communication. Topics we will explore include policy vacuums created by new technology, copyright and patent, software bugs and liability, freedom of speech, privacy, security, employment and job markets, […]
+ 
+Four short links: 16 Sep 2020
+A Concurrency Cost Hierarchy — a higher level taxonomy that I use to think about concurrent performance. We’ll group the performance of concurrent operations into six broad levels running from fast to slow, with each level differing from its neighbors by roughly an order of magnitude in performance. They are: Contended Atomics, System Calls, Implied […]
+ 
+How to Set AI Goals
+AI Benefits and Stakeholders AI is a field where value, in the form of outcomes and their resulting benefits, is created by machines exhibiting the ability to learn and “understand,” and to use the knowledge learned to carry out tasks or achieve goals. AI-generated benefits can be realized by defining and achieving appropriate goals. These […]
+ 
+Four short links: 11 Sep 2020
+Accurately Lipsync Video to Any Speech — In our paper, A Lip Sync Expert Is All You Need for Speech to Lip Generation In the Wild, ACM Multimedia 2020, we aim to lip-sync unconstrained videos in the wild to any desired target speech. (Paper) Impressive. Temporal — Open source “workflow-as-code” engine. I can’t decide if […]
+ 
+Four short links: 9 Sep 2020
+Things I Learned to Become a Senior Software Engineer — Full of relatable growth moments, such as changing your code to make the test pass vs understanding why the test failed. The Future is Software Engineers Who Can’t Code — “There are lot of definitions of what a developer is […] It’s not just people […]
+ 
+Pair Programming with AI
+In a conversation with Kevlin Henney, we started talking about the kinds of user interfaces that might work for AI-assisted programming. This is a significant problem: neither of us were aware of any significant work on user interfaces that support collaboration. However, as software developers, many of us have been practicing effective collaboration for years. […]
+ 
+Four short links: 4 September 2020
+Inside the Digital Pregnancy Test — … is a paper pregnancy test and watch-battery-powered microcontroller connected to three LEDs, a photo-cell, and an LCD display. That (8-bit) microcontroller runs at 4MHz, almost as fast as an IBM PC did. The Incredible Proof Machine — Fun game (modelled on The Incredible Machine from the 90s) that […]
+ 
+Four short links: 2 September 2020
+VSCode Debug Visualizer — A VS Code extension for visualizing data structures while debugging. Like the VS Code’s watch view, but with rich visualizations of the watched value. The screencast is wow. Userland — an integrated dataflow environment for end-users. It allows users to interact with modules that implement functionality for different domains from a […]
+ 
+Radar trends to watch: September 2020
+Compared to the last few months, there are relatively few items about COVID. And almost no items about Blockchains, though the one item I’ve listed, about China’s Blockchain Services Network, may be the most important item here. I’m seeing a steady stream of articles about various forms of no-code/low-code programming. While many programmers scoff at […]
+ 
+Four short links: 28 August 2020
+Activity Watch — Open source, privacy-first, cross-platform app that automatically tracks how you spend time on your devices. Natural Language Database Queries — An interesting comment thread on Hacker News. Sample comments: I’ve done some previous digging into natural language SQL queries — there’s a good amount of research around this. But the error rate […]
+ 
+An Agent of Change
+The Covid-19 pandemic has changed how people and businesses spend and operate.  Over the coming pages we’ll explore ways in which our current world is already very different from the one we knew just a few months ago, as well as predictions of our “new normal” once the proverbial boat stops rocking.  Specifically, we’ll see […]
+ 
+Four short links: 25 August 2020
+Wooden Turing Machine — (YouTube) Description of how it works. It implements three data elements and two states, sufficient for any calculation (discussed here)> Not an infinite tape, because … wood. Emotional Resiliency in Leadership Report 2020 — Very interesting report, based on survey and science of burnout. It is primarily written for the survey […]
+ 
+Four short links: 21 August 2020
+The 212 Story Tower That Isn’t in Suburban Melbourne — A typo in a Open Street Map submission becomes a surprising monolith in Microsoft Flight Simulator. Fairness in Machine Learning — Draft text for a book on the subject. The Social Architecture of Impactful Communities — A really good set of models for communities. Individuals […]
+ 
+Four Short Links: 19 August 2020
+The Design Space of Computational Notebooks — Looked at 60 notebook systems and grouped 10 design space dimensions into four major stages of a data science workflow: importing data into notebooks (data sources), editing code and prose (editor style, supported programming languages, versioning, collaboration), running code to generate outputs (cell execution order, liveness [6], execution […]
+ 
+Why Best-of-Breed is a Better Choice than All-in-One Platforms for Data Science
+So you need to redesign your company’s data infrastructure. Do you buy a solution from a big integration company like IBM, Cloudera, or Amazon?  Do you engage many small startups, each focused on one part of the problem?  A little of both?  We see trends shifting towards focused best-of-breed platforms. That is, products that are […]
+ 
+Four short links: 14 August 2020
+Sinter — Sinter uses the user-mode EndpointSecurity API to subscribe to and receive authorization callbacks from the macOS kernel, for a set of security-relevant event types. The current version of Sinter supports allowing/denying process executions; in future versions we intend to support other types of events such as file, socket, and kernel events. Inspired by […]
+ 
+The Least Liked Programming Languages
+StackOverflow’s 2020 developer survey included a table showing the  “most loved, dreaded, and wanted languages.” Loved and wanted languages are, well, sort of boring. The programming languages we dread are a lot more interesting. As Tolstoy said, “All happy families are alike; each unhappy family is unhappy in its own way.” So what are these […]
+ 
+Four short links: 11 Aug 2020
+ImmuDB — lightweight, high-speed immutable database for systems and applications. Open Source and easy to integrate into any existing application. Latest version provides multitenancy. Smart Mask — (CNN) Japanese startup Donut Robotics […] created a smart mask — a high-tech upgrade to standard face coverings, designed to make communication and social distancing easier. In conjunction […]
+ 
+Four short links: 7 Aug 2020
+Surprising Economics of Load-Balanced Systems — I have a system with c servers, each of which can only handle a single concurrent request, and has no internal queuing. The servers sit behind a load balancer, which contains an infinite queue. An unlimited number of clients offer c * 0.8 requests per second to the load […]
+ 
+Four short links: 5 August 2020
+Tales of the Autistic Developer – Senior Developer — Interesting article from a senior developer with Autism Spectrum Disorder. They talk about the problems it causes, how they solved each problem, and how those problems even became strengths. You can’t read this and not have more empathy for neurodiverse programmers. NyanSat: The Open Source LEO […]
+ 
+Radar trends to watch: August 2020
+I thought July was going to be a dull month, but I’m wrong again. COVID-specific technology seems to be drying up, though there’s a fascinating report about a DIY vaccine. (Developed by serious scientists, so don’t try this at home.) There’s a lot of news about AI, and specifically, about the GPT-2 and GPT-3 language […]
+ 
+Four short links: 31 July 2020
+Migrating a 40TB SQL Server Database — A horror story to tell around the campfire. I was struck by the observation in this Hacker News comment that It’s typical that a log will be accessed zero times. Collecting, aggregating, and indexing logs is usually a mistake made by people who aren’t clear on the use […]
+ 
+Four short links: 30 July 2020
+Turning the IDE Inside Out with Datalog — tl;dr: I made a prototype IDE in which language semantics are specified in datalog, powered by a datalog interpreter written in TypeScript, running the browser. Demo here. Luckysheet — Open source web spreadsheet. Introducing the Model Card Toolkit for Easier Model Transparency Reporting — Model Cards […] […]
+ 
+Four short links: 29 July 2020
+The Golden Rule of Software Quality — Prefer to push fixes upstream instead of working around problems downstream. That is to say: if you find a shortcoming in a package you use, then you should fix it and contribute your fix to that package. Don’t simply workaround it in your code. The Coining of the […]
+ 
+Bringing an AI Product to Market
+The Core Responsibilities of the AI Product Manager Product Managers are responsible for the successful development, testing, release, and adoption of a product, and for leading the team that implements those milestones. Product managers for AI must satisfy these same responsibilities, tuned for the AI lifecycle. In the first two articles in this series, we […]
+ 
+Power, Harms, and Data
+A recent article in The Verge discussed PULSE, an algorithm for “upsampling” digital images. PULSE, when applied to a low-resolution image of Barack Obama, recreated a White man’s face; applied to Alexandria Ocasio-Cortez, it built a White woman’s face.  It had similar problems with other images of Black and Hispanic people, frequently giving them White […]
+ 
+Four short links: 27 July 2020
+Tech Regulation — ‘Tech’, of course, has all of this complexity, but we’re having to work this out a lot more quickly. It took 75 years for seatbelts to become compulsory, but tech has gone from interesting to crucial only in the last five to ten years. That speed means we have to form opinions […]
+ 
+Four short links: 24 July 2020
+How Taiwan’s Unlikely Digital Minister Hacked the Pandemic — Taiwan and Audrey Tang occupy a unique spot in a world, where the ascendance of the internet and digital technology is marked by the twin dystopias of “post-truth” information chaos in the United States and China’s totalitarian, technologically mediated surveillance-and-censorship regime. With Audrey Tang as the […]
+ 
+Four short links: 26 July 2020
+As We May Code — why aren’t we — ostensibly the people writing software — doing more with AI in our day-to-day? Why are things like TabNine and Kite so often seen as curiosities instead of game-changers? If you take seriously the idea that ai will fundamentally change the nature of many occupations in the […]
+ 
+Four short links: 22 July 2020
+wiki.js — Portable open-source Javascript featureful wiki. Neural Embedding + Locality Sensitive Hashing for Logs — Our diff solution involves embedding each line into a low dimensional vector and (optionally “fine-tuning” or updating the embedding model at the same time), assigning it to a cluster, and identifying lines in different clusters as “different”. Locality sensitive […]
+ 
+AI, Protests, and Justice
+Largely on the impetus of the Black Lives Matter movement, the public’s response to the murder of George Floyd, and the subsequent demonstrations, we’ve seen increased concern about the use of facial identification in policing. First, in a highly publicized wave of announcements, IBM, Microsoft, and Amazon have announced that they will not sell face […]
+ 
+Four short links: 21 July 2020
+22 Principles for Great Product Managers — This list—pieced together over the past few years—reflects what I believe are some of the most important principles for product managers. Tempering Expectations of GPT-3 and AGI — When I was curating my generated tweets, I estimated 30-40% of the tweets were usable comedically, a massive improvement over […]
+ 
+Four short links: 20 July 2020
+A Bug-Sized Camera for Bug-Sized Robots and Bug-Sized Bugs — With a focus on small size and efficiency, they started with an off-the-shelf ultra low-power image sensor that’s 2.3 mm wide and weighs 6.7 mg. They stuck on a Bluetooth 5.0 chip (3 mm wide, 6.8 mg), and had a fun time connecting those two […]
+ 
+Four short links: 17 July 2020
+Matters Computational: Ideas, Algorithms, Source Code — Interesting book about how to do things at the low level. This is a book for the computationalist, whether a working programmer or anyone interested in methods of computation. The focus is on material that does not usually appear in textbooks on algorithms. It’s the kind of book […]
+ 
+Four short links: 16 July 2020
+Pseudogen — [open source] tool to automatically generate pseudo-code from source code. Implements Learning to Generate Pseudo-code from Source Code using Statistical Machine Translation and is written up in Pseudogen: A Tool to Automatically Generate Pseudo-code from Source Code. Exciting work for people inheriting codebases, and perhaps the first step in automated reasoning about code […]
+ 
+Microservices Adoption in 2020
+Microservices seem to be everywhere. Scratch that: talk about microservices seems to be everywhere. And that’s the problem. Thinkers as dissimilar as Plato, Robert Boyle, and Keith Richards tend to agree about one thing: Talk is cheap. So we wanted to determine to what extent, and how, O’Reilly subscribers are empirically using microservices. In other words, how long have people been using them? What […]
+ 
+Four short links: 15 July 2020
+Fixing Bugs Properly — Why did a fix that seems so simple when looking at the changes made take two days to complete? Good programmers leave things better than they found them. Data Structures and Algorithms I Actually Use — This article is a set of real-world examples where data structures like trees, graphs, and […]
+ 
+Society-Centered Design
+A World of Individuals Our world is on fire. For too long we have been complicit, maintaining the status quo. This must change. I’m writing this as we’re living through three pandemics. Covid-19, structurally enabled racism, and the climate crisis. Each of these pandemics make visible the ways that individuals fit into and contribute to […]
+ 
+Four short links: 14 July 2020
+Neutralizing Misinformation through Inoculation — We found that false-balance media coverage (giving contrarian views equal voice with climate scientists) lowered perceived consensus overall[..]. Likewise, misinformation that confuses people about the level of scientific agreement […] had a polarizing effect […]. However, we found that inoculating messages that (1) explain the flawed argumentation technique used in […]
+ 
+Four short links: 13 July 2020
+Too Efficiency — (Tim Bray) Think of efficiency as optimising for one variable. As anyone who has seen a greyhound or a dalmation up close knows, optimising for one aspect of a complex system can weaken other aspects. Tim cites software security, food, work hours, and others. The best optimisation advice I received was “never […]
+ 
+Four short links: 10 July 2020
+Notes on Splicing CRDTs for Structured Hypertext — It’s a great feeling, seeing everyone around you create beautiful 3D graphical masterpieces or fully complete web applications while you spend twelve hours a day struggling to read technical papers that you don’t even understand. This is what happens when you attempt to do things with CRDTs. […]
+ 
+Automated Coding and the Future of Programming
+At Microsoft’s Build conference, Microsoft CTO Kevin Scott talked about an experimental project in which an AI, trained on code in GitHub, actually creates programs: it generates function bodies based on a descriptive comment and a message signature. (Skip to 29:00 of the video.)  Along similar lines, an unrelated research paper reports on unsupervised translation […]
+ 
+Four short links: 9 July 2020
+Avoiding Fallback in Distributed Systems — In this article, the focus will be on how fallback strategies can cause more problems than they fix. We’ll include examples of where fallback strategies have caused problems at Amazon. Finally, we’ll discuss alternatives to fallback that we use at Amazon. So You Want to Build an Observability Tool […]
+ 
+Four short links: 8 July 2020
+When Data is Messy — I love stories that illustrate the ways machine learning can draw the wrong conclusions. Researchers at the University of Tuebingen trained a neural net to recognize images, and then had it point out which parts of the images were the most important for its decision. When they asked it to […]
+ 
+Four short links: 7 July 2020
+eDEX-ui — a fullscreen, cross-platform terminal emulator and system monitor that looks and feels like a sci-fi computer interface. Announcing Microsoft Freta — Microsoft have a service for detecting evidence of OS and sensor sabotage, such as rootkits and advanced malware, in memory snapshots of live Linux systems. Placeholdifier — Turn any website into a […]
+ 
+Four short links: 6 July 2020
+Debubble — I like that people are trying software like this, to bring out our better angels. Parallel Programming in Multicore OCaml — A glimpse at how OCaml is handling parallelism. There’s a lot to learn from the paradigms of “weird languages”. Language Independent Validation Rules — Multi-language supported validation rules. The two languages that […]
+ 
+Four short links: 3 July 2020
+Open Differential Privacy — Open source software from Microsoft and Harvard. (via Microsoft’s announcement). Engineering Resumes — to help those of you looking for a new job in these uncertain times, here are some examples of what accomplishments look like for software engineers. These are oriented towards individual contributors (perhaps I’ll do an engineering managers […]
+ 
+Four short links: 2 July 2020
+Sweetviz — an open source Python library that generates beautiful, high-density visualizations to kickstart EDA (Exploratory Data Analysis) with a single line of code. Output is a fully self-contained HTML application. (via Mike Loukides) DrRepair — Code from this paper, which tackles learning to repair programs from diagnostic feedback (e.g., compiler error messages). Lightning Cables […]
+ 
+Radar trends to watch: July 2020
+News of the past month is dominated by COVID-19 and the #BlackLivesMatter protests. I’ve considered them both “disruptions” because they’re forcing us to re-evaluate how we deal with data, health, and so many other issues. Those are disruptions I can get behind. Disruptions: COVID-19 and #BlackLivesMatter The state of California has done an amazing job […]
+ 
+Four short links: 1 July 2020
+PyLance — Python language server for VS Code that brings type information, auto-imports, type-checking, and multi-root workspace support to Visual Studio Code. 50 Short Product Lessons — A set of short thoughts from John Cutler on different elements of product management. (via Twitter). Mozilla Updates its Voice Dataset — 54 languages, 7,226 total hours of […]
+ 
+Four short links: 30 June 2020
+Durable Teams — Rael Dornfest called this “project mindset vs product mindset”. If you’re in a project mindset, you spin up and wind down teams and codebases. If you’re in a product mindset, you have code that lives forever so you need a team to stick with it. Unmaintained code is a security and operational […]
+ 
+Four short links: 29 June 2020
+Why Does DARPA Work? — Absolutely the best thing you’ll read this month. A very lucid essay on what makes DARPA work. Resonates with everything else I’ve read and what I’ve heard from program managers. Secretive — open-source app for storing and managing SSH keys in the Secure Enclave. Break Up Google — Following on […]
+ 
+Four short links: 28 June 2020
+timecraft — synthesizing time lapse videos depicting the creation of paintings. Natural Language Processing Advancements By Deep Learning: A Survey — This survey categorizes and addresses the different aspects and applications of NLP that have benefited from deep learning. It covers core NLP tasks and applications and describes how deep learning methods and models advance […]
+ 
+Four short links: 25 June 2020
+Krita — a professional FREE and open source painting program. Made by and for artists, rather than attempting to clone Photoshop 4. Facial Recognition Leads to False Arrest — Civil rights experts say Williams is the first documented example in the U.S. of someone being wrongfully arrested based on a false hit produced by facial […]
+ 

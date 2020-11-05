@@ -1,0 +1,616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="typepad-standard" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+        <!-- head-common-individual -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="generator" content="http://www.typepad.com/" />
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+        
+        <meta name="description" content="Microsoft has released a GitHub repository to share best practices for time series forecasting. From the repo: Time series forecasting is one of the most important topics in data science. Almost every business needs to predict the future in order to make better decisions and allocate resources more effectively. This repository provides examples and best practice guidelines for building forecasting solutions. The goal of this repository is to build a comprehensive set of tools and examples that leverage recent advances in forecasting algorithms to build solutions and operationalize them. Rather than creating implementations from scratch, we draw from existing state-of-the-art..." />
+
+    <link rel="canonical" href="https://blog.revolutionanalytics.com/2020/04/forecasting-best-practices-from-microsoft.html" />
+
+
+
+
+        <link rel="stylesheet" href="https://blog.revolutionanalytics.com/styles.css?v=6" type="text/css" media="screen" />
+        <link rel="stylesheet" href="https://static.typepad.com/.shared/themes/common/print.css" type="text/css" media="print" />
+
+
+<link rel="stylesheet" href="https://static.typepad.com/.shared/css/featherlight-gallery.css">
+
+        <link rel="alternate" type="application/atom+xml" title="Posts on 'Revolutions' (Atom)" href="https://blog.revolutionanalytics.com/atom.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Posts on 'Revolutions' (RSS 1.0)" href="https://blog.revolutionanalytics.com/index.rdf" />
+        <link rel="alternate" type="application/rss+xml" title="Posts on 'Revolutions' (RSS 2.0)" href="https://blog.revolutionanalytics.com/rss.xml" />
+        <script type="text/javascript">
+                var TPApp = {};
+                TPApp.app_uri = "https://www.typepad.com/";
+        </script>
+        <script type="text/javascript" src="https://static.typepad.com/.shared/js/yui/yahoo-dom-event.js,/js/app/thumbnail-gallery-min.js"></script>
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-225723-36', 'auto', {'name': 'Typepad'}, {'allowLinker': true} );  // Separate tracker for Typepad.
+ga('Typepad.require', 'linker');
+ga('Typepad.linker:autoLink', ['none']);
+ga('Typepad.set', 'dimension1', '6a010534b1db25970b010536040741970b');
+ga('Typepad.set', 'dimension2', 'Individual');
+ga('Typepad.send', 'pageview');
+</script>
+
+
+
+<meta property="og:title" content="Forecasting Best Practices, from Microsoft" />
+<meta property="og:site_name" content="Revolutions" />
+<meta property="og:type" content="blog" />
+<meta property="og:url" content="https://blog.revolutionanalytics.com/2020/04/forecasting-best-practices-from-microsoft.html" />
+<meta property="og:description" content="Microsoft has released a GitHub repository to share best practices for time series forecasting. From the repo: Time series forecasting is one of the most important topics in data science. Almost every business needs to predict the future in order to make better decisions and allocate resources more effectively. This repository provides examples and best practice guidelines for building forecasting solutions. The goal of this repository is to build a comprehensive set of tools and examples that leverage recent advances in forecasting algorithms to build solutions and operationalize them. Rather than creating implementations from scratch, we draw from existing state-of-the-art..." />
+<meta property="fb:admins" content="" />
+<meta property="fb:app_id" content="5575381869" /><meta property="og:image" content="https://revolution-computing.typepad.com/.a/6a010534b1db25970b025d9b451f20200c-600wi" />
+<meta property="og:image" content="https://revolution-computing.typepad.com/.a/6a010534b1db25970b0240a4fb2146200d-600wi" />
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="">
+<meta name="twitter:creator" content="">
+<meta name="twitter:title" content="Forecasting Best Practices, from Microsoft">
+<meta name="twitter:description" content="Microsoft has released a GitHub repository to share best practices for time series forecasting. From the repo: Time series forecasting is one of the most important topics in data science. Almost every business needs to predict the future in order to make better decisions and allocate resources more effectively. This repository provides examples and best practice guidelines for building forecasting solutions. The goal of this repository is to build a comprehensive set of tools and examples that leverage recent advances in forecasting algorithms to build solutions and operationalize them. Rather than creating implementations from scratch, we draw from existing state-of-the-art..."><meta name="twitter:image" content="https://revolution-computing.typepad.com/.a/6a010534b1db25970b025d9b451f20200c-600wi" />
+<meta name="twitter:image" content="https://revolution-computing.typepad.com/.a/6a010534b1db25970b0240a4fb2146200d-600wi" />
+
+
+
+
+        <link rel="alternate" type="application/atom+xml" title="Comments on 'Forecasting Best Practices, from Microsoft' (Atom)" href="https://blog.revolutionanalytics.com/2020/04/forecasting-best-practices-from-microsoft/comments/atom.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Comments on 'Forecasting Best Practices, from Microsoft' (RSS 2.0)" href="https://blog.revolutionanalytics.com/2020/04/forecasting-best-practices-from-microsoft/comments/rss.xml" />
+        <title>Forecasting Best Practices, from Microsoft (Revolutions)</title>
+        <link rel="start" href="https://blog.revolutionanalytics.com/" title="Home" />
+        <link rel="prev" href="https://blog.revolutionanalytics.com/2020/03/foreach-150-released.html?no_prefetch=1" title="foreach 1.5.0 now available on CRAN" />
+        <link rel="next" href="https://blog.revolutionanalytics.com/2020/04/checkpoint-10-now-in-beta.html?no_prefetch=1" title="Major update to checkpoint package now available for beta test" />
+
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+
+
+
+<body class="layout-two-column-right post">
+	
+	<div id="container" class="container">
+		<div id="container-inner" class="pkg">
+			
+                <div class="row">
+     
+
+
+<a id="home"></a>
+   
+
+<!-- banner -->
+<div id="banner">
+	<div id="banner-inner" class="pkg">
+		
+		<h1 id="banner-header"><a href="https://blog.revolutionanalytics.com/" accesskey="1">Revolutions</a></h1>
+		<h2 id="banner-description">
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		</h2>
+	</div>
+</div>
+
+
+
+
+
+
+			<div id="pagebody">
+
+
+				<div id="pagebody-inner" class="pkg">
+                                        <div id="alpha">
+						<div id="alpha-inner" class="pkg">
+							<!-- the plain version removes the extra jquery -->
+<!-- content nav -->
+<p class="content-nav">
+	<a class="content-nav-prev" href="https://blog.revolutionanalytics.com/2020/03/foreach-150-released.html">&laquo; foreach 1.5.0 now available on CRAN</a> |
+	<a class="content-nav-main" href="https://blog.revolutionanalytics.com/">Main</a>
+	| <a class="content-nav-next" href="https://blog.revolutionanalytics.com/2020/04/checkpoint-10-now-in-beta.html">Major update to checkpoint package now available for beta test &raquo;</a>
+</p>
+<script type="text/javascript">
+   $(function(){
+       var query = window.location.search.substring(1);
+       if( query == "pintix=1" ) {
+          var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','https://static.typepad.com/.shared//js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e);
+       }
+   });
+</script>
+<!-- entry -->
+
+	<h2 class="date-header">April 14, 2020</h2>
+
+
+<div class="entry-category-microsoft entry-category-python entry-category-r entry-category-statistics entry-author-david_smith entry-type-post entry" id="entry-6a010534b1db25970b0240a4fa293f200d">
+   <div class="entry-inner">
+			<h3 class="entry-header">Forecasting Best Practices, from Microsoft</h3>
+	
+
+
+
+	<div class="entry-content">
+		<div class="entry-body">
+			<p>Microsoft has released a GitHub repository to share <a href="https://github.com/microsoft/forecasting">best practices for time series forecasting</a>. From the repo:</p>
+<blockquote>
+<p>Time series forecasting is one of the most important topics in data science. Almost every business needs to predict the future in order to make better decisions and allocate resources more effectively.</p>
+<p>This repository provides examples and best practice guidelines for building forecasting solutions. The goal of this repository is to build a comprehensive set of tools and examples that leverage recent advances in forecasting algorithms to build solutions and operationalize them. Rather than creating implementations from scratch, we draw from existing state-of-the-art libraries and build additional utilities around processing and featurizing the data, optimizing and evaluating models, and scaling up to the cloud.</p>
+</blockquote>
+<p>The repository includes detailed examples of various time series modeling techniques, as Jupyter Notebooks for Python, and R Markdown documents for R. It also includes Python notebooks to fit time series models in the <a href="https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml?WT.mc_id=Revolutions-blog-davidsmi">Azure Machine Learning service</a>, and then operationalize the forecasts as a web service.</p>
+<p>The <a href="https://revodavid.github.io/forecasting/examples/grocery_sales/R/">R examples</a> demonstrate several techniques for forecasting time series, specifically data on refrigerated orange juice sales from 83 stores (sourced from the the <a href="https://www.rdocumentation.org/packages/bayesm/versions/3.0-2/topics/orangeJuice">bayesm package</a>). The forecasting techniques vary (mean forecasting with interpolation, ARIMA, exponential smoothing, and additive models), but all make extensive use of the <a href="https://tidyverts.org/">tidyverts</a> suite of packages, which provides "<a href="https://tidyverts.github.io/tidy-forecasting-principles/">tidy time series forecasting for R</a>". The forecasting methods themselves are explained in detail in the book (readable online) <a href="https://otexts.com/fpp3/">Forecasting: Principles and Practice</a> by Rob J Hyndman and George Athanasopoulos (Monash University).</p>
+<p><a class="asset-img-link" href="https://revodavid.github.io/forecasting/examples/grocery_sales/R/01_dataprep.nb.html" style="display: inline;"><img alt="Juice" border="0" class="asset  asset-image at-xid-6a010534b1db25970b025d9b451f20200c image-full img-responsive" src="https://revolution-computing.typepad.com/.a/6a010534b1db25970b025d9b451f20200c-800wi" title="Juice" /></a></p>
+<p>You can try out the examples yourself by cloning the repository and knitting the RMarkdown files in R. If you have git installed, a quick and easy way to do this in with RStudio. Choose File &gt; New Project &gt; Version Control &gt; Git, and enter <a href="https://github.com/microsoft/forecasting">https://github.com/microsoft/forecasting</a> in the Repository URL field. (You might prefer to fork the repository first.)</p>
+<p><a class="asset-img-link" href="https://revolution-computing.typepad.com/.a/6a010534b1db25970b0240a4fb2146200d-pi" style="display: inline;"><img alt="Gitclone" border="0" class="asset  asset-image at-xid-6a010534b1db25970b0240a4fb2146200d image-full img-responsive" src="https://revolution-computing.typepad.com/.a/6a010534b1db25970b0240a4fb2146200d-800wi" title="Gitclone" /></a></p>
+<p>Open each .Rmd file in turn, accept the prompt to install packages, and click the&nbsp;<strong>Knit</strong> button to generate the document. The computations can take a while (particularly the Prophet Models example), but if you have a multi-core machine the notebooks do use the <a href="https://www.rdocumentation.org/packages/parallel/versions/3.6.2/topics/clusterApply">parallel package</a> to speed things up. If you don't want to wait, the repository does include HTML versions of the rendered documents, made available at the links below via <a href="https://help.github.com/en/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites">GitHub Pages</a>:</p>
+<ul>
+<li><a href="https://microsoft.github.io/forecasting/examples/grocery_sales/R/01_dataprep.nb.html">Data Preparation</a></li>
+<li><a href="https://microsoft.github.io/forecasting/examples/grocery_sales/R/02_basic_models.nb.html">Basic Models</a></li>
+<li><a href="https://microsoft.github.io/forecasting/examples/grocery_sales/R/02a_reg_models.nb.html">ARIMA-Regression models</a></li>
+<li><a href="https://microsoft.github.io/forecasting/examples/grocery_sales/R/02b_prophet_models.nb.html">Prophet Models</a></li>
+</ul>
+<p><a href="https://htmlpreview.github.io/?https://github.com/microsoft/forecasting/blob/master/examples/grocery_sales/R/02_basic_models.nb.html"></a>This repository will be updated over time, and contributions are welcome as pull requests to the repository linked below.</p>
+<p>GitHub (Microsoft): <a href="https://github.com/microsoft/forecasting">Forecasting Best Practices</a></p>
+		</div>
+		
+
+                        <!-- SIGNATURE -->
+                        
+
+		
+	</div>
+
+	<div class="entry-footer">
+			<p class="entry-footer-info">
+				<span class="post-footers">Posted by <a rel="author" href="https://profile.typepad.com/revolutiondavid">David Smith</a> at 09:34 in <a href="https://blog.revolutionanalytics.com/microsoft/">Microsoft</a>, <a href="https://blog.revolutionanalytics.com/python/">python</a>, <a href="https://blog.revolutionanalytics.com/r/">R</a>, <a href="https://blog.revolutionanalytics.com/statistics/">statistics</a> </span> <span class="separator">|</span> <a class="permalink" href="https://blog.revolutionanalytics.com/2020/04/forecasting-best-practices-from-microsoft.html">Permalink</a>
+			</p>
+		
+		<!-- technorati tags -->
+
+
+		<!-- post footer links -->
+	<p class="entry-footer-share">
+		<span class="entry-footer-links-favorite"></span>
+	</p>
+
+
+	</div>
+   </div>
+</div>
+
+
+
+        
+        
+        <a id="comments"></a>
+	<div class="comments" id="all-comments">
+		<h3 class="comments-header">Comments</h3>
+					<div class="comments-info">
+				<p><a href="https://blog.revolutionanalytics.com/2020/04/forecasting-best-practices-from-microsoft/comments/atom.xml"><img src="https://static.typepad.com/.shared/images/feed.png" alt="Feed" width="10" height="10" /></a> You can follow this conversation by subscribing to the <a href="https://blog.revolutionanalytics.com/2020/04/forecasting-best-practices-from-microsoft/comments/atom.xml">comment feed</a> for this post.</p>
+			</div>
+		
+		<div class="comments-content" id="comments-content">
+                <!-- comment list -->
+
+		</div>
+        
+	</div>
+<script type="text/javascript">var c943723d42e77e9214eb884a1d898ea="</form>";</script>
+<script type="text/javascript">var ffe51c373e0873b7778b6324a0b5533 = '<form id="comment-form" action="';</script>
+<script type="text/javascript">var c943723d42e77e9214eb884a1d898za = '" method="post"><input type="hidden" name="entry_xid" id="comment-entry-xid" value="6a010534b1db25970b0240a4fa293f200d" \/><input type="hidden" name="token" value="1602055080-2fbc8f364025206844d5a601f07fc16b2aab12f5:GnP2cLhKENvbLnA0" \/>';</script>
+<script type="text/javascript">var OOcd55d4dc47109d7b462b01c7dd4dab = "aHR0cHM6Ly9ibG9nLnJldm9sdXRpb25hbmFseXRpY3MuY29tLy5zZXJ2aWNlcy9jb21tZW50cw";</script>
+<script type="text/javascript">var bad4dd7c10b264b7d90174cd4d55dc00 = atob(OOcd55d4dc47109d7b462b01c7dd4dab);</script>
+
+<!-- comment-form-atp -->
+
+
+<p class="comments-closed font-entrybody">
+	The comments to this entry are closed.
+</p>
+
+
+
+
+
+    
+    
+
+
+
+
+						</div>
+					</div>
+                                        <div id="beta">
+						<div id="beta-inner" class="pkg">
+							
+<!-- sidebar -->
+
+
+	<div class="module-archives module">
+		<h2 class="module-header">Information</h2>
+		<div class="module-content">
+			<ul class="module-list">
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/about.html">About this blog</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/comments-policy.html">Comments Policy</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/categories.html">About Categories</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/authors.html">About the Authors</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/local-r-groups.html">Local R User Group Directory</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/tips-on-starting-an-r-user-group.html">Tips on Starting an R User Group</a></li>
+				
+			</ul>
+		</div>
+	</div>
+<!-- list_inlcude.tt  -->
+<div id="search_revolutions_blog" class="module-typelist module">
+<h2 class="module-header">Search Revolutions Blog</h2>
+	<div class="typelist-plain module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><div class="typelist-note"><form method="get" action="https://www.google.com/search">
+  <input type="hidden" name="ie" value="UTF-8" /> 
+  <input type="hidden" name="oe" value="UTF-8" />
+  <div style="background-color:white;"></div>
+   <input type="text" name="q" size="18" maxlength="255" value="" />
+  <input type="submit" name="btnG" value=" Search Blog " />
+   <br />
+<small>
+    <input type="hidden" name="domains" value="blog.revolutionanalytics.com" />
+<br />
+    <input type="hidden" name="sitesearch" value="blog.revolutionanalytics.com" checked="checked" />
+   <br /></small>
+</form>
+ <!-- SiteSearch Google --></div></li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+Got comments or suggestions for the blog editor? <br>
+Email <a href="mailto:davidsmi@microsoft.com">David Smith</a>.
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<a href="https://www.twitter.com/revodavid"><img src="https://twitter-badges.s3.amazonaws.com/t_small-b.png" alt="Follow revodavid on Twitter" /></a> Follow David on Twitter: <a href="https://twitter.com/revodavid">@revodavid</a>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+Get this blog via email with <a href="https://blogtrottr.com/?subscribe=http://blog.revolutionanalytics.com" title='Get this feed delivered by email'><img src='https://blogtrottr.com/images/icons/blogtrottr-button-91x17px.gif' alt='Blogtrottr' /></a>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<div class="module-categories module">
+	<h2 class="module-header"><a href="https://blog.revolutionanalytics.com/archives.html">Categories</a></h2>
+	<div class="module-content">
+                   <ul class="module-list">
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/academia/">academia</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/advanced-tips/">advanced tips</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/ai/">AI</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/airoundups/">airoundups</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/announcements/">announcements</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/applications/">applications</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/beginner-tips/">beginner tips</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/big-data/">big data</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/courses/">courses</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/current-events/">current events</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/data-science/">data science</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/developers/">developer tips</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/events/">events</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/finance/">finance</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/government/">government</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/graphics/">graphics</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/high-performance-computing/">high-performance computing</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/life-sciences/">life sciences</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/microsoft/">Microsoft</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/mlops/">mlops</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/open-source/">open source</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/other-industry/">other industry</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/packages/">packages</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/popularity/">popularity</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/predictive-analytics/">predictive analytics</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/profiles/">profiles</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/python/">python</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/r/">R</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/r-is-hot/">R is Hot</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/random/">random</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/reviews/">reviews</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/revolution/">Revolution</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/rmedia/">Rmedia</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/roundups/">roundups</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/sports-1/">sports</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/statistics/">statistics</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/user-groups/">user groups</a></li>
+</span>
+		</ul>
+
+<a style="font-size:85%;display:none;" class="cat-more" href="https://blog.revolutionanalytics.com/archives.html">See More</a>
+	</div>
+</div>
+<!-- list_inlcude.tt  -->
+<div id="r_links" class="module-typelist module">
+<h2 class="module-header">R links</h2>
+	<div class="module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><a href="https://docs.microsoft.com/azure/machine-learning/r-developers-guide?WT.mc_id=RevolutionsSidebar-blog-davidsmi" >R on Azure</a><br />Developer's guide and documentation</li>
+							<li class="module-list-item"><a href="https://mran.microsoft.com/packages/" >Find R packages</a><br />CRAN package directory at MRAN</li>
+							<li class="module-list-item"><a href="https://mran.microsoft.com/download" >Download Microsoft R Open</a><br />Free, high-performance R</li>
+							<li class="module-list-item"><a href="https://www.r-project.org">R Project site</a><br />Information about the R project</li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- list_inlcude.tt  -->
+<div id="recommended_sites" class="module-typelist module">
+<h2 class="module-header">Recommended Sites</h2>
+	<div class="module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><a href="https://twitter.com/rlangtip" >@RLangTip</a><br />Daily tips on using R</li>
+							<li class="module-list-item"><a href="https://flowingdata.com">FlowingData</a><br />Modern data visualization</li>
+							<li class="module-list-item"><a href="http://www.statisticsblog.com/" >Probability and statistics blog</a><br />Monte Carlo simulations in R</li>
+							<li class="module-list-item"><a href="http://www.r-bloggers.com" >R Bloggers</a><br />Daily news and tutorials about R, contributed by R bloggers worldwide.</li>
+							<li class="module-list-item"><a href="http://www.analyticbridge.com/group/rprojectandotherfreesoftwaretools" >R Project group on analyticbridge.com</a><br />Community and discussion forum</li>
+							<li class="module-list-item"><a href="http://www.stat.columbia.edu/~cook/movabletype/mlm/" >Statistical Modeling, Causal Inference, and Social Science</a><br />Andrew Gelman's statistics blog</li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- archives -->
+
+	<div class="module-archives module">
+		<h2 class="module-header"><a href="https://blog.revolutionanalytics.com/archives.html">Archives</a></h2>
+		<div class="module-content">
+			<ul class="module-list">
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/09/index.html">September 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/08/index.html">August 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/07/index.html">July 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/06/index.html">June 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/05/index.html">May 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/04/index.html">April 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/03/index.html">March 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/02/index.html">February 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/01/index.html">January 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2019/12/index.html">December 2019</a></li>
+				
+			</ul>
+		</div>
+	</div>
+
+<div class="module-syndicate module">
+	<div class="module-content">
+	<a href="https://blog.revolutionanalytics.com/atom.xml"><i class="fas fa-rss"></i> Subscribe to this blog's feed</a>
+	</div>
+</div>
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<script type="text/javascript">
+  var varAutoFirePV = 1;
+  var varClickTracking = 1;
+  var varCustomerTracking = 1;
+  var Route = "123865";
+  var Ctrl = "";
+  document.write("<script type='text/javascript' src='" + (window.location.protocol) + "//c.microsoft.com/ms.js'" + "'><\/script>");
+</script>​
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var firstTracker = _gat._getTracker("UA-6984166-10");
+firstTracker._setDomainName(".revolutionanalytics.com");
+firstTracker._setAllowLinker(true);
+firstTracker._setAllowHash(false);
+firstTracker._trackPageview();
+var secondTracker = _gat._getTracker("UA-6984166-9");
+secondTracker._setDomainName(".revolutionanalytics.com");
+secondTracker._setAllowLinker(true);
+secondTracker._setAllowHash(false);
+secondTracker._trackPageview();
+} catch (err) { }
+</script>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+</div> <!-- row -->
+			
+
+
+
+		</div>
+	</div>
+	
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+<!--
+var extra_happy = Math.floor(1000000000 * Math.random());
+document.write('<img src="https://www.typepad.com/t/stats?blog_id=1774446&amp;user_id=3164880&amp;page=' + escape(location.href) + '&amp;referrer=' + escape(document.referrer) + '&amp;i=' + extra_happy + '" width="1" height="1" alt="" style="position: absolute; top: 0; left: 0;" />');
+// -->
+</script>
+
+
+
+
+<!-- Begin disqus Tag -->
+
+<!-- End disqus Tag -->
+</body>
+</html>
+
+<!-- ph=1 -->

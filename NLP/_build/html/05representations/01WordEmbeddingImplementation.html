@@ -1,0 +1,897 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6. Applying Word-Embeddings &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. References" href="../referenceSection.html" />
+    <link rel="prev" title="5. Vector Representations of Words and Documents" href="05representations.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01access/01access.html">
+   1. Access and Preprocess Text
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02normalisation/02normalisation.html">
+   2. Word Normalisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03postagging/03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04ngram/04ngram.html">
+   4. N-Gram Language Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05representations.html">
+   5. Vector Representations of Words and Documents
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. Applying Word-Embeddings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referenceSection.html">
+   7. References
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/05representations/01WordEmbeddingImplementation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05representations/01WordEmbeddingImplementation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/05representations/01WordEmbeddingImplementation.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apply-pre-trained-word-embeddings">
+   6.1. Apply Pre-Trained Word-Embeddings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fasttext">
+     6.1.1. FastText
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#glove">
+     6.1.2. GloVe
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualisation-of-word-vectors">
+   6.2. Visualisation of Word-Vectors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-word-embedding">
+   6.3. Train Word Embedding
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-and-extract-wikipedia-dump">
+     6.3.1. Download and Extract Wikipedia Dump
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training-or-loading-of-a-cbow-model">
+     6.3.2. Training or Loading of a CBOW model
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="applying-word-embeddings">
+<h1><span class="section-number">6. </span>Applying Word-Embeddings<a class="headerlink" href="#applying-word-embeddings" title="Permalink to this headline">¶</a></h1>
+<p>There are different options to work with Word-Embeddings:</p>
+<ol class="simple">
+<li><p>Trained Word-Embeddings can be downloaded from the web. These Word-Embeddings differ in</p>
+<ul class="simple">
+<li><p>the method, e.g. Skipgram, CBOW, GloVe, fastText</p></li>
+<li><p>in the hyperparameter applied for the selected method, e.g. context-length</p></li>
+<li><p>in the corpus, which has been applied for training</p></li>
+</ul>
+</li>
+<li><p>By applying packages such as <a class="reference external" href="https://radimrehurek.com/gensim/">gensim</a> word-embeddings can easily be trained from an arbitrary collection of texts</p></li>
+<li><p>Training of a word embedding can be integrated into an end-to-end neural network for a specific application. For example, if a Deep-Nerual-Network shall be learned for document-classification, the first layer in this network can be defined, such that it learns a task-specific word-embedding from the given document-classification-training-data.</p></li>
+</ol>
+<p>In this notebook option 1 and 2 are demonstrated. Option 3 is applied in a later lecture</p>
+<div class="section" id="apply-pre-trained-word-embeddings">
+<h2><span class="section-number">6.1. </span>Apply Pre-Trained Word-Embeddings<a class="headerlink" href="#apply-pre-trained-word-embeddings" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fasttext">
+<h3><span class="section-number">6.1.1. </span>FastText<a class="headerlink" href="#fasttext" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://fasttext.cc">FastText project</a> provides word-embeddings for 157 different languages, trained on <a class="reference external" href="https://commoncrawl.org/">Common Crawl</a> and <a class="reference external" href="https://www.wikipedia.org/">Wikipedia</a>. These word embeddings can easily be downloaded and imported to Python. The <code class="docutils literal notranslate"><span class="pre">KeyedVectors</span></code>-class of <a class="reference external" href="https://radimrehurek.com/gensim/">gensim</a> can be applied for the import. This class also provides many useful tools, e.g. an index to fastly find the vector of an arbitrary word or function to calculate similarities between word-vectors. Some of these tools will be demonstrated below:</p>
+<p>After downloading word embeddings from <a class="reference external" href="https://fasttext.cc/docs/en/english-vectors.html">FastText</a> they can be imported into a <code class="docutils literal notranslate"><span class="pre">KeyedVectors</span></code>-object from gensim as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">KeyedVectors</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating the model</span>
+<span class="c1">#en_model = KeyedVectors.load_word2vec_format(&#39;/Users/maucher/DataSets/Gensim/FastText/Gensim/FastText/wiki-news-300d-1M.vec&#39;)</span>
+<span class="c1">#en_model = KeyedVectors.load_word2vec_format(r&#39;C:\Users\maucher\DataSets\Gensim\Data\Fasttext\wiki-news-300d-1M.vec\wiki-news-300d-1M.vec&#39;) #path on surface</span>
+<span class="c1">#en_model = KeyedVectors.load_word2vec_format(&#39;/Users/maucher/DataSets/Gensim/FastText/fasttextEnglish300.vec&#39;)</span>
+<span class="n">en_model</span> <span class="o">=</span> <span class="n">KeyedVectors</span><span class="o">.</span><span class="n">load_word2vec_format</span><span class="p">(</span><span class="s1">&#39;/Users/johannes/DataSets/Gensim/FastText/fasttextEnglish300.vec&#39;</span><span class="p">)</span> <span class="c1"># path on iMAC</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The number of vectors and their length can be accessed as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Printing out number of tokens available</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of Tokens: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">en_model</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="c1"># Printing out the dimension of a word vector </span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dimension of a word vector: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">en_model</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of Tokens: 999994
+Dimension of a word vector: 300
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first 20 words in the index:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">en_model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">index2word</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;,&#39;,
+ &#39;the&#39;,
+ &#39;.&#39;,
+ &#39;and&#39;,
+ &#39;of&#39;,
+ &#39;to&#39;,
+ &#39;in&#39;,
+ &#39;a&#39;,
+ &#39;&quot;&#39;,
+ &#39;:&#39;,
+ &#39;)&#39;,
+ &#39;that&#39;,
+ &#39;(&#39;,
+ &#39;is&#39;,
+ &#39;for&#39;,
+ &#39;on&#39;,
+ &#39;*&#39;,
+ &#39;with&#39;,
+ &#39;as&#39;,
+ &#39;it&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first 10 components of the word-vector for <em>evening</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">en_model</span><span class="p">[</span><span class="s2">&quot;evening&quot;</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.0219,  0.0138, -0.0924, -0.0028, -0.0823, -0.1428,  0.0269,
+       -0.0193,  0.0447,  0.0336], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first 10 components of the word-vector for <em>morning</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">en_model</span><span class="p">[</span><span class="s2">&quot;morning&quot;</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.0025,  0.0429, -0.1727,  0.0185, -0.0414, -0.1486,  0.0326,
+       -0.0501,  0.1374, -0.1151], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The similarity between <em>evening</em> and <em>morning</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">similarity</span> <span class="o">=</span> <span class="n">en_model</span><span class="o">.</span><span class="n">similarity</span><span class="p">(</span><span class="s1">&#39;morning&#39;</span><span class="p">,</span> <span class="s1">&#39;evening&#39;</span><span class="p">)</span>
+<span class="n">similarity</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8645973
+</pre></div>
+</div>
+</div>
+</div>
+<p>The 20 words, which are most similar to word <em>wood</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">en_model</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s2">&quot;wood&quot;</span><span class="p">,</span><span class="n">topn</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;timber&#39;, 0.7636732459068298),
+ (&#39;lumber&#39;, 0.7316348552703857),
+ (&#39;kiln-dried&#39;, 0.7024550437927246),
+ (&#39;wooden&#39;, 0.6998946666717529),
+ (&#39;oak&#39;, 0.674289345741272),
+ (&#39;plywood&#39;, 0.6731638312339783),
+ (&#39;hardwood&#39;, 0.6648495197296143),
+ (&#39;woods&#39;, 0.6632275581359863),
+ (&#39;pine&#39;, 0.654842734336853),
+ (&#39;straight-grained&#39;, 0.6503476500511169),
+ (&#39;wood-based&#39;, 0.6416549682617188),
+ (&#39;firewood&#39;, 0.6402209997177124),
+ (&#39;iroko&#39;, 0.6389516592025757),
+ (&#39;metal&#39;, 0.6362859606742859),
+ (&#39;timbers&#39;, 0.6347957849502563),
+ (&#39;quartersawn&#39;, 0.6330605149269104),
+ (&#39;Wood&#39;, 0.6307631731033325),
+ (&#39;forest&#39;, 0.6296596527099609),
+ (&#39;end-grain&#39;, 0.6279916763305664),
+ (&#39;furniture&#39;, 0.6257956624031067)]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="glove">
+<h3><span class="section-number">6.1.2. </span>GloVe<a class="headerlink" href="#glove" title="Permalink to this headline">¶</a></h3>
+<p>As described <a class="reference internal" href="05representations.html"><span class="doc std std-doc">before</span></a> GloVe constitutes another method for calculating Word-Embbedings. Pre-trained GloVe vectors can be downloaded from
+<a class="reference external" href="https://nlp.stanford.edu/projects/glove/">Glove</a> and imported into Python. However, gensim already provides a downloader for several word-embeddings, including GloVe embeddings of different length and different training-data.</p>
+<p>The corpora and embeddings, which are available via the gensim downloader, can be queried as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gensim.downloader</span> <span class="k">as</span> <span class="nn">api</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">name_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;corpora&#39;: [&#39;semeval-2016-2017-task3-subtaskBC&#39;,
+  &#39;semeval-2016-2017-task3-subtaskA-unannotated&#39;,
+  &#39;patent-2017&#39;,
+  &#39;quora-duplicate-questions&#39;,
+  &#39;wiki-english-20171001&#39;,
+  &#39;text8&#39;,
+  &#39;fake-news&#39;,
+  &#39;20-newsgroups&#39;,
+  &#39;__testing_matrix-synopsis&#39;,
+  &#39;__testing_multipart-matrix-synopsis&#39;],
+ &#39;models&#39;: [&#39;fasttext-wiki-news-subwords-300&#39;,
+  &#39;conceptnet-numberbatch-17-06-300&#39;,
+  &#39;word2vec-ruscorpora-300&#39;,
+  &#39;word2vec-google-news-300&#39;,
+  &#39;glove-wiki-gigaword-50&#39;,
+  &#39;glove-wiki-gigaword-100&#39;,
+  &#39;glove-wiki-gigaword-200&#39;,
+  &#39;glove-wiki-gigaword-300&#39;,
+  &#39;glove-twitter-25&#39;,
+  &#39;glove-twitter-50&#39;,
+  &#39;glove-twitter-100&#39;,
+  &#39;glove-twitter-200&#39;,
+  &#39;__testing_word2vec-matrix-synopsis&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We select the GloVe word-embeddings <code class="docutils literal notranslate"><span class="pre">glove-wiki-gigaword-100</span></code> for download:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_vectors</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;glove-wiki-gigaword-100&quot;</span><span class="p">)</span>  <span class="c1"># load pre-trained word-vectors from gensim-data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">word_vectors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gensim.models.keyedvectors.Word2VecKeyedVectors
+</pre></div>
+</div>
+</div>
+</div>
+<p>As can be seen in the previous output, the downloaded data is available as a <code class="docutils literal notranslate"><span class="pre">KeyedVectors</span></code>-object. Hence the same methods can now be applied as in the case of the FastText - Word Embedding in the previous section. In the sequel we will apply not only the methods used above, but also new ones.</p>
+<p>Word analogy questions like <em>man is to king as woman is to ?</em> can be solved as in the code cell below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">word_vectors</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;woman&#39;</span><span class="p">,</span> <span class="s1">&#39;king&#39;</span><span class="p">],</span> <span class="n">negative</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;man&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>queen: 0.7699
+</pre></div>
+</div>
+</div>
+</div>
+<p>Outliers within sets of words can be determined as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">word_vectors</span><span class="o">.</span><span class="n">doesnt_match</span><span class="p">(</span><span class="s2">&quot;breakfast cereal dinner lunch&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cereal
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similiarity between a pair of words:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">similarity</span> <span class="o">=</span> <span class="n">word_vectors</span><span class="o">.</span><span class="n">similarity</span><span class="p">(</span><span class="s1">&#39;woman&#39;</span><span class="p">,</span> <span class="s1">&#39;man&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">similarity</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8323494
+</pre></div>
+</div>
+</div>
+</div>
+<p>Most similar words to <em>cat</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_vectors</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span><span class="n">topn</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;dog&#39;, 0.8798074722290039),
+ (&#39;rabbit&#39;, 0.7424427270889282),
+ (&#39;cats&#39;, 0.7323004007339478),
+ (&#39;monkey&#39;, 0.7288710474967957),
+ (&#39;pet&#39;, 0.7190139293670654),
+ (&#39;dogs&#39;, 0.7163873314857483),
+ (&#39;mouse&#39;, 0.6915251016616821),
+ (&#39;puppy&#39;, 0.6800068616867065),
+ (&#39;rat&#39;, 0.6641027331352234),
+ (&#39;spider&#39;, 0.6501134634017944),
+ (&#39;elephant&#39;, 0.6372530460357666),
+ (&#39;boy&#39;, 0.6266894340515137),
+ (&#39;bird&#39;, 0.6266419887542725),
+ (&#39;baby&#39;, 0.6257247924804688),
+ (&#39;pig&#39;, 0.6254673004150391),
+ (&#39;horse&#39;, 0.6251551508903503),
+ (&#39;snake&#39;, 0.6227242350578308),
+ (&#39;animal&#39;, 0.6200780272483826),
+ (&#39;dragon&#39;, 0.6187658309936523),
+ (&#39;duck&#39;, 0.6158087253570557)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similarity between sets of words:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span> <span class="o">=</span> <span class="n">word_vectors</span><span class="o">.</span><span class="n">n_similarity</span><span class="p">([</span><span class="s1">&#39;sushi&#39;</span><span class="p">,</span> <span class="s1">&#39;shop&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;japanese&#39;</span><span class="p">,</span> <span class="s1">&#39;restaurant&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sim</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7067
+</pre></div>
+</div>
+</div>
+</div>
+<p>First 10 components of word vector for <em>computer</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span> <span class="o">=</span> <span class="n">word_vectors</span><span class="p">[</span><span class="s1">&#39;computer&#39;</span><span class="p">]</span>  <span class="c1"># numpy vector of a word</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vector</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vector</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100,)
+[-0.16298   0.30141   0.57978   0.066548  0.45835  -0.15329   0.43258
+ -0.89215   0.57747   0.36375 ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The magnitude of the previous word-vector.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">vector</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.529161
+</pre></div>
+</div>
+</div>
+</div>
+<p>As can be seen in the previous code cell the vectors are not normalized to unique length. However, if the argument <code class="docutils literal notranslate"><span class="pre">use_norm</span></code> is enabled, the resulting vectors are normalized:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span> <span class="o">=</span> <span class="n">word_vectors</span><span class="o">.</span><span class="n">word_vec</span><span class="p">(</span><span class="s1">&#39;office&#39;</span><span class="p">,</span> <span class="n">use_norm</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vector</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vector</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100,)
+[-0.01455544 -0.13056442  0.06381373 -0.00747831  0.10621653  0.02454428
+ -0.08777763  0.1584893   0.0725054   0.08593655]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">vector</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualisation-of-word-vectors">
+<h2><span class="section-number">6.2. </span>Visualisation of Word-Vectors<a class="headerlink" href="#visualisation-of-word-vectors" title="Permalink to this headline">¶</a></h2>
+<p>Typical lengths of DSM word vectors are in the range between 50 and 300. In the FastText example above vectors of length 300 have been applied. The applied GloVe vectors had a length of 100. In any case they can not directly be visualised. However, methods to reduce the dimensionality of vectors in such a way, that their overall spatial distribution is maintained as much as possible can be applied to transform word vectors into 2-dimensional space. In the code cells below this is demonstrated by applying <strong>TSNE</strong>, the most prominent technique to transform word-vectors into 2-dimensional space:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsneModel</span><span class="o">=</span><span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">model2d</span><span class="o">=</span><span class="n">tsneModel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">word_vectors</span><span class="p">[</span><span class="n">word_vectors</span><span class="o">.</span><span class="n">index2word</span><span class="p">[</span><span class="mi">300</span><span class="p">:</span><span class="mi">600</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%matplotlib inline</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span><span class="mi">14</span><span class="p">))</span>
+<span class="n">idx</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">model2d</span><span class="p">[:</span><span class="mi">300</span><span class="p">]:</span>
+    <span class="n">w</span><span class="o">=</span><span class="n">word_vectors</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">index2word</span><span class="p">[</span><span class="mi">300</span><span class="o">+</span><span class="n">idx</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;r.&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">w</span><span class="p">)</span>
+    <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01WordEmbeddingImplementation_48_0.png" src="../_images/01WordEmbeddingImplementation_48_0.png" />
+</div>
+</div>
+<p>This simple visualisation already indicates, that the vectors of similar words are closer to each other, than the vectors of unrelated words.</p>
+</div>
+<div class="section" id="train-word-embedding">
+<h2><span class="section-number">6.3. </span>Train Word Embedding<a class="headerlink" href="#train-word-embedding" title="Permalink to this headline">¶</a></h2>
+<p>In this section it is demonstrated how <a class="reference external" href="https://radimrehurek.com/gensim/">gensim</a> can be applied to train a Word2Vec (either CBOW or Skipgram) embedding from an arbitrary corpus. In this demo the applied training corpus is the complete English Wikipedia dump.</p>
+<div class="section" id="download-and-extract-wikipedia-dump">
+<h3><span class="section-number">6.3.1. </span>Download and Extract Wikipedia Dump<a class="headerlink" href="#download-and-extract-wikipedia-dump" title="Permalink to this headline">¶</a></h3>
+<p>Wikipedia dumps can be downloaded from <a class="reference external" href="https://dumps.wikimedia.org/other/wikibase/wikidatawiki/">here</a>. After downloading the dump the most convenient way to extract and clean the text is to apply the <a class="reference external" href="https://github.com/attardi/wikiextractor">WikiExtractor</a>. This tool generates plain text from a Wikipedia database dump, discarding any other information or annotation present in Wikipedia pages, such as images, tables, references and lists.
+The output is stored in a number of files of similar size in a given directory.</p>
+<p>The class <code class="docutils literal notranslate"><span class="pre">MySentences</span></code>, as defined in the following code-cell, extracts from all directories and files under <code class="docutils literal notranslate"><span class="pre">dirnameP</span></code> the sentences in a format, which can be processed by the applied gensim model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span><span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">word2vec</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MySentences</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dirnameP</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dirnameP</span> <span class="o">=</span> <span class="n">dirnameP</span>
+ 
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">subdir</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dirnameP</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">subdir</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">subdir</span><span class="o">==</span><span class="s2">&quot;.DS_Store&quot;</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">subdirpath</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dirnameP</span><span class="p">,</span><span class="n">subdir</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">subdirpath</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">subdirpath</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">fname</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;wiki&quot;</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">subdirpath</span><span class="p">,</span> <span class="n">fname</span><span class="p">)):</span>
+                        <span class="n">linelist</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">linelist</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">3</span> <span class="ow">and</span> <span class="n">linelist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">!=</span><span class="s2">&quot;&lt;&quot;</span><span class="p">:</span>
+                            <span class="k">yield</span> <span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;,.&quot;&quot; </span><span class="se">\&quot;</span><span class="s2"> () :; ! ?&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">linelist</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The path to the directory, which contains the entire extracted Wikipedia dump is configured and the subdirectories under this path are listed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#parentDir=&quot;C:\\Users\\maucher\\DataSets\\Gensim\\Data\\wiki_dump_extracted&quot;</span>
+<span class="n">parentDir</span><span class="o">=</span><span class="s2">&quot;/Users/johannes/DataSets/wikiextractor/text&quot;</span> <span class="c1">#path on iMAC</span>
+<span class="c1">#parentDir=&quot;C:\Users\Johannes\DataSets\Gensim\Data\wiki_dump_extracted&quot;</span>
+<span class="n">dirlistParent</span><span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">parentDir</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dirlistParent</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;AX&#39;, &#39;BW&#39;, &#39;DN&#39;, &#39;DI&#39;, &#39;BP&#39;, &#39;BY&#39;, &#39;AV&#39;, &#39;.DS_Store&#39;, &#39;DG&#39;, &#39;AQ&#39;, &#39;DU&#39;, &#39;BL&#39;, &#39;AC&#39;, &#39;BK&#39;, &#39;DR&#39;, &#39;AD&#39;, &#39;AM&#39;, &#39;BB&#39;, &#39;AJ&#39;, &#39;BE&#39;, &#39;DF&#39;, &#39;AP&#39;, &#39;BX&#39;, &#39;DA&#39;, &#39;AW&#39;, &#39;DH&#39;, &#39;BQ&#39;, &#39;AY&#39;, &#39;BV&#39;, &#39;DO&#39;, &#39;AK&#39;, &#39;BD&#39;, &#39;AL&#39;, &#39;DZ&#39;, &#39;BC&#39;, &#39;BJ&#39;, &#39;DS&#39;, &#39;AE&#39;, &#39;DT&#39;, &#39;BM&#39;, &#39;AB&#39;, &#39;EY&#39;, &#39;CG&#39;, &#39;EW&#39;, &#39;CN&#39;, &#39;CI&#39;, &#39;EP&#39;, &#39;EB&#39;, &#39;EE&#39;, &#39;CU&#39;, &#39;EL&#39;, &#39;FC&#39;, &#39;EK&#39;, &#39;CR&#39;, &#39;FD&#39;, &#39;CH&#39;, &#39;EQ&#39;, &#39;EV&#39;, &#39;CO&#39;, &#39;CF&#39;, &#39;EX&#39;, &#39;CA&#39;, &#39;EJ&#39;, &#39;CS&#39;, &#39;FE&#39;, &#39;CT&#39;, &#39;EM&#39;, &#39;FB&#39;, &#39;ED&#39;, &#39;CZ&#39;, &#39;EC&#39;, &#39;BH&#39;, &#39;DQ&#39;, &#39;AG&#39;, &#39;DV&#39;, &#39;BO&#39;, &#39;AI&#39;, &#39;BF&#39;, &#39;AN&#39;, &#39;DX&#39;, &#39;BA&#39;, &#39;DJ&#39;, &#39;BS&#39;, &#39;BT&#39;, &#39;DM&#39;, &#39;DD&#39;, &#39;AR&#39;, &#39;BZ&#39;, &#39;DC&#39;, &#39;AU&#39;, &#39;AO&#39;, &#39;DY&#39;, &#39;AH&#39;, &#39;BG&#39;, &#39;DW&#39;, &#39;BN&#39;, &#39;AA&#39;, &#39;BI&#39;, &#39;DP&#39;, &#39;AF&#39;, &#39;DB&#39;, &#39;AT&#39;, &#39;DE&#39;, &#39;AS&#39;, &#39;AZ&#39;, &#39;BU&#39;, &#39;DL&#39;, &#39;DK&#39;, &#39;BR&#39;, &#39;EF&#39;, &#39;CX&#39;, &#39;EA&#39;, &#39;EH&#39;, &#39;CQ&#39;, &#39;CV&#39;, &#39;EO&#39;, &#39;CD&#39;, &#39;EZ&#39;, &#39;CC&#39;, &#39;CJ&#39;, &#39;ES&#39;, &#39;ET&#39;, &#39;CM&#39;, &#39;CW&#39;, &#39;EN&#39;, &#39;FA&#39;, &#39;EI&#39;, &#39;CP&#39;, &#39;FF&#39;, &#39;CY&#39;, &#39;EG&#39;, &#39;EU&#39;, &#39;CL&#39;, &#39;CK&#39;, &#39;ER&#39;, &#39;CB&#39;, &#39;CE&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="training-or-loading-of-a-cbow-model">
+<h3><span class="section-number">6.3.2. </span>Training or Loading of a CBOW model<a class="headerlink" href="#training-or-loading-of-a-cbow-model" title="Permalink to this headline">¶</a></h3>
+<p>In the following code cell a name for the word2vec-model is specified. If the specified directory already contains a model with the specified name, it is loaded. Otherwise, it is generated and saved under the specified name. A <strong>skipgram-model</strong> can be generated in the same way. In this case <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">word2vec.Word2Vec(sentences,size=200,sorted_vocab=1)</span></code> has to be replaced by <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">word2vec.Word2Vec(sentences,size=200,sorted_vocab=1,sg=1)</span></code>.
+See <a class="reference external" href="https://radimrehurek.com/gensim/models/word2vec.html">gensim model.Word2Vec documentation</a> for the configuration of more parameters.</p>
+<blockquote>
+<div><p>Note that the training of this model takes several hours. If you like to generate a much smaller model from a smaller corpus (English!) you can download the text8 corpus from <a class="reference external" href="http://mattmahoney.net/dc/text8.zip">http://mattmahoney.net/dc/text8.zip</a>, extract it and replace the code in the following code-cell by this:</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sentences</span> <span class="o">=</span> <span class="n">word2vec</span><span class="o">.</span><span class="n">Text8Corpus</span><span class="p">(</span><span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">maucher</span><span class="se">\\</span><span class="s1">DataSets</span><span class="se">\\</span><span class="s1">Gensim</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">text8&#39;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">word2vec</span><span class="o">.</span><span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">modelName</span><span class="o">=</span><span class="s2">&quot;/Users/johannes/DataSets/wikiextractor/models/wikiEng20201007.model&quot;</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">word2vec</span><span class="o">.</span><span class="n">Word2Vec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">modelName</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Already existing model is loaded&quot;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model doesn&#39;t exist. Training of word2vec model started.&quot;</span><span class="p">)</span>
+    <span class="n">sentences</span> <span class="o">=</span> <span class="n">MySentences</span><span class="p">(</span><span class="n">parentDir</span><span class="p">)</span> <span class="c1"># a memory-friendly iterator</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">word2vec</span><span class="o">.</span><span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">sorted_vocab</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">init_sims</span><span class="p">(</span><span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">modelName</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Already existing model is loaded
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gensim.models.word2vec.Word2Vec
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the code cell above the Word2Vec model has either been created or loaded. For the returned object of type <code class="docutils literal notranslate"><span class="pre">Word2Vec</span></code> basically the same functions are available as for the pretrained FastText and GloVe word embeddings in the sections above.</p>
+<p>For example the most similar words for <em>cat</em> are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span><span class="n">topn</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;dog&#39;, 0.8456131219863892),
+ (&#39;rabbit&#39;, 0.796753466129303),
+ (&#39;monkey&#39;, 0.742573082447052),
+ (&#39;kitten&#39;, 0.7295641899108887),
+ (&#39;pug&#39;, 0.7040250301361084),
+ (&#39;dachshund&#39;, 0.7017481327056885),
+ (&#39;poodle&#39;, 0.7012854814529419),
+ (&#39;cats&#39;, 0.6982499361038208),
+ (&#39;rat&#39;, 0.6904729604721069),
+ (&#39;mouse&#39;, 0.6898518800735474),
+ (&#39;rottweiler&#39;, 0.6748534440994263),
+ (&#39;pet&#39;, 0.6683299541473389),
+ (&#39;puppy&#39;, 0.666095495223999),
+ (&#39;goat&#39;, 0.6655623912811279),
+ (&#39;doll&#39;, 0.6638575792312622),
+ (&#39;pig&#39;, 0.6573764085769653),
+ (&#39;scaredy&#39;, 0.6482968330383301),
+ (&#39;parrot&#39;, 0.6454174518585205),
+ (&quot;cat&#39;s&quot;, 0.6422038078308105),
+ (&#39;feline&#39;, 0.6345723271369934)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the trained Word2Vec-model also parameters, which describe training, corpus and the model itself, can be accessed, as demonstrated below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of words in the corpus used for training the model: &quot;</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">corpus_count</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of words in the model: &quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">index2word</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time [s], required for training the model: &quot;</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">total_train_time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Count of trainings performed to generate this model: &quot;</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">train_count</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Length of the word2vec vectors: &quot;</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">vector_size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Applied context length for generating the model: &quot;</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">window</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of words in the corpus used for training the model:  38539221
+Number of words in the model:  2366981
+Time [s], required for training the model:  10237.432892589999
+Count of trainings performed to generate this model:  1
+Length of the word2vec vectors:  200
+Applied context length for generating the model:  5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./05representations"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="05representations.html" title="previous page"><span class="section-number">5. </span>Vector Representations of Words and Documents</a>
+    <a class='right-next' id="next-link" href="../referenceSection.html" title="next page"><span class="section-number">7. </span>References</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

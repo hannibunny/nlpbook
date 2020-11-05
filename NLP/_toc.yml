@@ -20,6 +20,7 @@
         - file: 03postagging/02PosTagging.ipynb
     - file: 04ngram/04ngram
     - file: 05representations/05representations
+    - file: 05representations/01WordEmbeddingImplementation.ipynb
 - file: referenceSection
 
   

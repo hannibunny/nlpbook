@@ -3,8 +3,8 @@
 
 * Author: Prof. Dr. Johannes Maucher
 * Institution: Stuttgart Media University
-* Document Version: 0.1
-* Last Update: 09.09.2020
+* Document Version: 0.2 (Incomplete DRAFT !!!)
+* Last Update: 01.10.2020
 
 ## What is NLP?
 

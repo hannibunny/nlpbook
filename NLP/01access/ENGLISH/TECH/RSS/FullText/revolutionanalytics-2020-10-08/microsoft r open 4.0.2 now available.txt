@@ -1,0 +1,31 @@
+
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		
+« MLOPS with R and GitHub Actions |
+	Main
+Microsoft R Open 4.0.2 now availableMicrosoft R Open 4.0.2 has been released, combining the latest R language engine with multi-processor performance and tools for managing R packages reproducibly. You can download Microsoft R Open 4.0.2 for Windows,and Linux from MRAN now. Microsoft R Open is 100% compatible with all R version 4 scripts and packages, and works with all your favorite R interfaces and development environments.This update brings R version 4 to Microsoft R Open for the first time. This update includes many new features for the R language and system, along with improved performance and memory usage. Note that you will need to install any R packages you wish to use with MRO 4.0.2. By default, MRO installs packages from a static CRAN snapshot taken on July 16 2020.We hope you find Microsoft R Open useful, and if you have any comments or questions please visit the Microsoft R Open forum. You can follow the development of Microsoft R Open at the MRO GitHub repository. To download Microsoft R Open, simply follow the link below.MRAN: Download Microsoft R Open
+Posted by David Smith at 16:30 in announcements, Microsoft, R  | Permalink
+ You can follow this conversation by subscribing to the comment feed for this post.Pleasant surprise! Does this mean Machine learning server will be along soon? 
+		Posted by:
+		serban dragne |
+		September 24, 2020 at 02:16
+
+		Posted by:
+		David Fong |
+		September 25, 2020 at 21:53
+
+		Posted by:
+		Дмитрий Карабанов |
+		October 02, 2020 at 02:46
+This is only a preview. Your comment has not yet been posted.The letters and numbers you entered did not match the image. Please try again.As a final step before posting your comment, enter the letters and numbers you see in the image below. This prevents automated programs from posting comments.Having trouble reading this image? View an alternate.
+            				    (You can use HTML tags like <b> <i> and <ul> to style your text.)
+            				
+                                (Name and email address are required. Email address will not be displayed with the comment.)
+                            
+                            
+
+Name is required to post a comment
+
+
+Please enter a valid email address
+Please enable JavaScript if you would like to comment on this blog.
