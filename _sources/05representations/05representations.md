@@ -230,7 +230,7 @@ BoW representation of documents and the One-Hot-Encoding of single words, as des
 
 All of these drawbacks can be solved by applying *Distributional Semantic models* to map words into numeric vectors and by the way the resulting *Word Empeddings* are passed e.g. to the input of Recurrent Neural Networks, Convolutional Neural Networks or Transformers (see later chapters of this lecture). 
 
-
+(dsm-label)=
 ## Distributional Semantic Models
 
 The linguistic theory of distributional semantics is based on the hypothesis, that words, which occur in similar contexts, have similar meaning. J.R. Firth formulated this assumption in his famous sentence {cite}`firth57synopsis`: 

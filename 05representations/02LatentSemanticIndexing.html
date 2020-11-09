@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>8.2. Implementation of Topic Extraction and Document Clustering &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. References" href="../referenceSection.html" />
+    <link rel="prev" title="8.1. Latent Semantic Indexing (LSI)" href="05lsi.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01access/01access.html">
+   1. Access and Preprocess Text
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02normalisation/02normalisation.html">
+   2. Word Normalisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03postagging/03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04ngram/04ngram.html">
+   4. N-Gram Language Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05representations.html">
+   5. Vector Representations of Words and Documents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01WordEmbeddingImplementation.html">
+   6. Applying Word-Embeddings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02gensimDocModelSimple.html">
+   7. Document models and similarity
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="05topicextraction.html">
+   8. Topic Extraction
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="05lsi.html">
+     8.1. Latent Semantic Indexing (LSI)
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     8.2. Implementation of Topic Extraction and Document Clustering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referenceSection.html">
+   9. References
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/05representations/02LatentSemanticIndexing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05representations/02LatentSemanticIndexing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/05representations/02LatentSemanticIndexing.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#collect-and-filter-text-documents">
+   8.2.1. Collect and filter text documents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dictionaries-and-corpora">
+   8.2.2. Dictionaries and Corpora
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tf-idf-model-of-the-corpus">
+   8.2.3. TF-IDF Model of the corpus
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lsi-model-of-the-corpus">
+   8.2.4. LSI Model of the corpus
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="implementation-of-topic-extraction-and-document-clustering">
+<h1><span class="section-number">8.2. </span>Implementation of Topic Extraction and Document Clustering<a class="headerlink" href="#implementation-of-topic-extraction-and-document-clustering" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Author:      Johannes Maucher</p></li>
+<li><p>Last update: 05.11.2020</p></li>
+</ul>
+<p>This notebook demonstrates how <a class="reference external" href="http://radimrehurek.com/gensim/">gensim</a> can be applied for <em>Latent Semantic Indexing (LSI)</em>. In LSI a set of abstract topics (features), which are latent in a set of simple texts, is calculated. Then the documents are described and visualised with respect to these abstract features. The notebook is an adoption of the corresponding <a class="reference external" href="http://radimrehurek.com/gensim/tut2.html">gensim LSI tutorial</a>.</p>
+<div class="section" id="collect-and-filter-text-documents">
+<h2><span class="section-number">8.2.1. </span>Collect and filter text documents<a class="headerlink" href="#collect-and-filter-text-documents" title="Permalink to this headline">¶</a></h2>
+<p>A list of very small documents is defined. From the corresponding BoW (Bag of Words) representation all stopwords and all words, which appear only once are removed. The resulting cleaned BoW models of all documents are printed below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">corpora</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">similarities</span>
+
+<span class="n">documents</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Human machine interface for lab abc computer applications&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;A survey of user opinion of computer system response time&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;The EPS user interface management system&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;System and human system engineering testing of EPS&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;Relation of user perceived response time to error measurement&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;The generation of random binary unordered trees&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;The intersection graph of paths in trees&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;Graph minors IV Widths of trees and well quasi ordering&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;Graph minors A survey&quot;</span><span class="p">]</span>
+<span class="c1"># remove common words and tokenize</span>
+<span class="n">stoplist</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;for a of the and to in&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="n">texts</span> <span class="o">=</span> <span class="p">[[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stoplist</span><span class="p">]</span> <span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">]</span>
+<span class="c1"># remove words that appear only once</span>
+<span class="n">all_tokens</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span>
+        <span class="n">all_tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<span class="n">tokens_once</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">all_tokens</span><span class="p">)</span> <span class="k">if</span> <span class="n">all_tokens</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">texts</span> <span class="o">=</span> <span class="p">[[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">tokens_once</span><span class="p">]</span>
+          <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;human&#39;, &#39;interface&#39;, &#39;computer&#39;]
+[&#39;survey&#39;, &#39;user&#39;, &#39;computer&#39;, &#39;system&#39;, &#39;response&#39;, &#39;time&#39;]
+[&#39;eps&#39;, &#39;user&#39;, &#39;interface&#39;, &#39;system&#39;]
+[&#39;system&#39;, &#39;human&#39;, &#39;system&#39;, &#39;eps&#39;]
+[&#39;user&#39;, &#39;response&#39;, &#39;time&#39;]
+[&#39;trees&#39;]
+[&#39;graph&#39;, &#39;trees&#39;]
+[&#39;graph&#39;, &#39;minors&#39;, &#39;trees&#39;]
+[&#39;graph&#39;, &#39;minors&#39;, &#39;survey&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dictionaries-and-corpora">
+<h2><span class="section-number">8.2.2. </span>Dictionaries and Corpora<a class="headerlink" href="#dictionaries-and-corpora" title="Permalink to this headline">¶</a></h2>
+<p>The words of the cleaned documents constitute a dictionary, which is persistently saved in the file <em>deerwester.dict</em>. The dictionary-method <em>token2id</em> displays the dictionary indes of each word.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dictionary</span> <span class="o">=</span> <span class="n">corpora</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
+<span class="n">dictionary</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;deerwester.dict&#39;</span><span class="p">)</span> <span class="c1"># store the dictionary, for future reference</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span><span class="o">.</span><span class="n">token2id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dictionary(12 unique tokens: [&#39;computer&#39;, &#39;human&#39;, &#39;interface&#39;, &#39;response&#39;, &#39;survey&#39;]...)
+{&#39;computer&#39;: 0, &#39;human&#39;: 1, &#39;interface&#39;: 2, &#39;response&#39;: 3, &#39;survey&#39;: 4, &#39;system&#39;: 5, &#39;time&#39;: 6, &#39;user&#39;: 7, &#39;eps&#39;: 8, &#39;trees&#39;: 9, &#39;graph&#39;: 10, &#39;minors&#39;: 11}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, a corpus is generated, which is a very efficient representation of the cleaned documents. In the corpus each word is represented by it’s index in the dictionary. The corpus is persistently saved to file <em>deerwester.mm</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span><span class="n">dictionary</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">]</span>
+<span class="n">corpora</span><span class="o">.</span><span class="n">MmCorpus</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="s1">&#39;deerwester.mm&#39;</span><span class="p">,</span> <span class="n">corpus</span><span class="p">)</span> <span class="c1"># store to disk, for later use</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, 1), (1, 1), (2, 1)]
+[(0, 1), (3, 1), (4, 1), (5, 1), (6, 1), (7, 1)]
+[(2, 1), (5, 1), (7, 1), (8, 1)]
+[(1, 1), (5, 2), (8, 1)]
+[(3, 1), (6, 1), (7, 1)]
+[(9, 1)]
+[(9, 1), (10, 1)]
+[(9, 1), (10, 1), (11, 1)]
+[(4, 1), (10, 1), (11, 1)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following code snippet demonstrates how a dictionary and a corpus can be loaded into the python program.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dictionary</span> <span class="o">=</span> <span class="n">corpora</span><span class="o">.</span><span class="n">Dictionary</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;deerwester.dict&#39;</span><span class="p">)</span>
+<span class="n">corpus</span> <span class="o">=</span> <span class="n">corpora</span><span class="o">.</span><span class="n">MmCorpus</span><span class="p">(</span><span class="s1">&#39;deerwester.mm&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, 1.0), (1, 1.0), (2, 1.0)]
+[(0, 1.0), (3, 1.0), (4, 1.0), (5, 1.0), (6, 1.0), (7, 1.0)]
+[(2, 1.0), (5, 1.0), (7, 1.0), (8, 1.0)]
+[(1, 1.0), (5, 2.0), (8, 1.0)]
+[(3, 1.0), (6, 1.0), (7, 1.0)]
+[(9, 1.0)]
+[(9, 1.0), (10, 1.0)]
+[(9, 1.0), (10, 1.0), (11, 1.0)]
+[(4, 1.0), (10, 1.0), (11, 1.0)]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tf-idf-model-of-the-corpus">
+<h2><span class="section-number">8.2.3. </span>TF-IDF Model of the corpus<a class="headerlink" href="#tf-idf-model-of-the-corpus" title="Permalink to this headline">¶</a></h2>
+<p>A tf-idf model is generated from the cleaned documents of the corpus and all corpus documents are represented by the vector of tf-idf values of their words.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TfidfModel</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+<span class="n">corpus_tfidf</span> <span class="o">=</span> <span class="n">tfidf</span><span class="p">[</span><span class="n">corpus</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">corpus_tfidf</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, 0.5773502691896257), (1, 0.5773502691896257), (2, 0.5773502691896257)]
+[(0, 0.44424552527467476), (3, 0.44424552527467476), (4, 0.44424552527467476), (5, 0.3244870206138555), (6, 0.44424552527467476), (7, 0.3244870206138555)]
+[(2, 0.5710059809418182), (5, 0.4170757362022777), (7, 0.4170757362022777), (8, 0.5710059809418182)]
+[(1, 0.49182558987264147), (5, 0.7184811607083769), (8, 0.49182558987264147)]
+[(3, 0.6282580468670046), (6, 0.6282580468670046), (7, 0.45889394536615247)]
+[(9, 1.0)]
+[(9, 0.7071067811865475), (10, 0.7071067811865475)]
+[(9, 0.5080429008916749), (10, 0.5080429008916749), (11, 0.695546419520037)]
+[(4, 0.6282580468670046), (10, 0.45889394536615247), (11, 0.6282580468670046)]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lsi-model-of-the-corpus">
+<h2><span class="section-number">8.2.4. </span>LSI Model of the corpus<a class="headerlink" href="#lsi-model-of-the-corpus" title="Permalink to this headline">¶</a></h2>
+<p>A Latent Semantic Indexing (LSI) model is generated from the given documents. The number of topics that shall be extracted is selected to be two in this example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lsi</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">LsiModel</span><span class="p">(</span><span class="n">corpus_tfidf</span><span class="p">,</span> <span class="n">id2word</span><span class="o">=</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">num_topics</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># initialize an LSI transformation</span>
+<span class="n">corpus_lsi</span> <span class="o">=</span> <span class="n">lsi</span><span class="p">[</span><span class="n">corpus_tfidf</span><span class="p">]</span>
+<span class="n">lsi</span><span class="o">.</span><span class="n">print_topics</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0,
+  &#39;0.703*&quot;trees&quot; + 0.538*&quot;graph&quot; + 0.402*&quot;minors&quot; + 0.187*&quot;survey&quot; + 0.061*&quot;system&quot; + 0.060*&quot;response&quot; + 0.060*&quot;time&quot; + 0.058*&quot;user&quot; + 0.049*&quot;computer&quot; + 0.035*&quot;interface&quot;&#39;),
+ (1,
+  &#39;-0.460*&quot;system&quot; + -0.373*&quot;user&quot; + -0.332*&quot;eps&quot; + -0.328*&quot;interface&quot; + -0.320*&quot;time&quot; + -0.320*&quot;response&quot; + -0.293*&quot;computer&quot; + -0.280*&quot;human&quot; + -0.171*&quot;survey&quot; + 0.161*&quot;trees&quot;&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As shown below, each document is described in the new 2-dimensional space. The dimensions represent the two extracted topics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">y</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">corpus_lsi</span><span class="p">:</span> <span class="c1"># both bow-&gt;tfidf and tfidf-&gt;lsi transformations are actually executed here, on the fly</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Document </span><span class="si">%2d</span><span class="s2">: </span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">i</span>,doc)
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Document  0: 	 [(0, 0.06600783396090429), (1, -0.5200703306361846)]
+Document  1: 	 [(0, 0.19667592859142669), (1, -0.760956316770004)]
+Document  2: 	 [(0, 0.08992639972446549), (1, -0.7241860626752503)]
+Document  3: 	 [(0, 0.07585847652178263), (1, -0.6320551586003421)]
+Document  4: 	 [(0, 0.10150299184980273), (1, -0.5737308483002951)]
+Document  5: 	 [(0, 0.703210893937831), (1, 0.16115180214025943)]
+Document  6: 	 [(0, 0.877478767311983), (1, 0.16758906864659595)]
+Document  7: 	 [(0, 0.9098624686818577), (1, 0.14086553628719223)]
+Document  8: 	 [(0, 0.6165825350569283), (1, -0.053929075663892205)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The documents can be plotted in the new 2-dimensional space. In this space the documents are clearly partitioned into 2 clusters, each representing one of the 2 topics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;or&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;documents in the new space&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;topic 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;topic 2&#39;</span><span class="p">)</span>
+<span class="c1">#plt.xlim([0,1.1])</span>
+<span class="c1">#plt.ylim([-0.9,0.3])</span>
+<span class="n">s</span><span class="o">=</span><span class="mf">0.02</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">s</span><span class="p">,</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">s</span><span class="p">,</span><span class="s2">&quot;doc &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02LatentSemanticIndexing_16_0.png" src="../_images/02LatentSemanticIndexing_16_0.png" />
+</div>
+</div>
+<p>LSI models can be saved to and loaded from files:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lsi</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;model.lsi&#39;</span><span class="p">)</span> <span class="c1"># same for tfidf, lda, ...</span>
+<span class="n">lsi</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">LsiModel</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;model.lsi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./05representations"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="05lsi.html" title="previous page"><span class="section-number">8.1. </span>Latent Semantic Indexing (LSI)</a>
+    <a class='right-next' id="next-link" href="../referenceSection.html" title="next page"><span class="section-number">9. </span>References</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
