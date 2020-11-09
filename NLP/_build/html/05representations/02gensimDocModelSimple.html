@@ -1,0 +1,1139 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>7. Document models and similarity &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8. Topic Extraction" href="05topicextraction.html" />
+    <link rel="prev" title="6. Applying Word-Embeddings" href="01WordEmbeddingImplementation.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01access/01access.html">
+   1. Access and Preprocess Text
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02normalisation/02normalisation.html">
+   2. Word Normalisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03postagging/03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04ngram/04ngram.html">
+   4. N-Gram Language Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05representations.html">
+   5. Vector Representations of Words and Documents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01WordEmbeddingImplementation.html">
+   6. Applying Word-Embeddings
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. Document models and similarity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05topicextraction.html">
+   8. Topic Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referenceSection.html">
+   9. References
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/05representations/02gensimDocModelSimple.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05representations/02gensimDocModelSimple.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/05representations/02gensimDocModelSimple.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-documents-from-a-textfile">
+   7.1. Read documents from a textfile
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#split-documents-into-words-normalize-and-remove-stopwords">
+   7.2. Split documents into words, normalize and remove stopwords
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generate-dictionary">
+   7.3. Generate Dictionary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bag-of-word-bow-representation">
+   7.4. Bag of Word (BoW) representation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#efficient-corpus-representation">
+   7.5. Efficient Corpus Representation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#similarity-analysis">
+   7.6. Similarity Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tf-idf-representation">
+   7.7. TF-IDF representation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tokenisation-and-document-models-with-keras">
+   7.8. Tokenisation and Document models with Keras
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tokenizsation">
+     7.8.1. Tokenizsation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#text-collections-as-lists-of-strings">
+       7.8.1.1. Text collections as lists of strings
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#keras-class-tokenizer">
+       7.8.1.2. Keras class Tokenizer
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#represent-texts-as-sequences-of-word-indices">
+     7.8.2. Represent texts as sequences of word-indices:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#represent-text-collection-as-binary-bow">
+     7.8.3. Represent text-collection as binary BoW:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#binary-bow">
+       7.8.3.1. Binary BoW
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#count-based-bow">
+       7.8.3.2. Count-based BoW
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tf-idf-based-bow">
+       7.8.3.3. Tf-idf-based BoW
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="document-models-and-similarity">
+<h1><span class="section-number">7. </span>Document models and similarity<a class="headerlink" href="#document-models-and-similarity" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Author:      Johannes Maucher</p></li>
+<li><p>Last update: 05.11.2020</p></li>
+</ul>
+<p>This notebook demonstrates how documents can be described in a vector space model. Applying this type of model</p>
+<ol class="simple">
+<li><p>similarities between documents</p></li>
+<li><p>similarities between documents and a query</p></li>
+</ol>
+<p>can easily be calculated.</p>
+<div class="section" id="read-documents-from-a-textfile">
+<h2><span class="section-number">7.1. </span>Read documents from a textfile<a class="headerlink" href="#read-documents-from-a-textfile" title="Permalink to this headline">¶</a></h2>
+<p>It is assumed that a set of documents is stored in a textfile, as e.g. in <span class="xref myst">MultiNewsFeeds2014-09-12.txt</span>. The individual documents are separated by line-break. In this case the documents can be assigned to the list <em>listOfNews</em> as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;../Data/MultiNewsFeeds2014-09-12.txt&quot;</span>
+<span class="c1">#filename=&quot;../Data/MultiNewsFeeds2016-10-14.txt&quot;</span>
+<span class="n">listOfNews</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fin</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">listOfNews</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of Lines:  &quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">listOfNews</span><span class="p">))</span>
+<span class="n">fin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kommunikation: Gut kommunizieren macht glücklich    Wie kaum ein anderer hat der Psychologe Friedemann Schulz von Thun untersucht, was Kommunikation ausmacht. In seinem neuen Buch entwickelt er eine Quintessenz davon.
+Ukraine-Krise: Bundesregierung toleriert ukrainischen Mauerbau    Im Kanzleramt hat man Verständnis für die Pläne der ukrainischen Regierung, eine Mauer entlang der Grenze zu Russland zu bauen. Dies sei allein Entscheidung der Ukraine.
+Radfahren: Eine Deutsche bringt die Chinesen aufs Fixie    Einst war Peking Fahrrad-Welthauptstadt. Dann kamen die Autos. Ines Brunn kämpft dagegen: Die Inhaberin eines Fixie-Shops will die Chinesen wieder aufs Rad bringen.
+Zurück in die Wildnis : Jenseits allen Komforts    Drei Jahre lang suchte der Fotograf Antoine Bruy Aussteiger in Europa. Seine Bilder zeigen Menschen, die der Konsum- und Leistungsgesellschaft den Rücken gekehrt haben.
+Antisemitismus: Zentralrat beklagt &quot;Schockwellen von Judenhass&quot;    Judenfeindliche Hetze wie bei Protesten gegen Israel haben die Juden tief getroffen, sagte der Vorsitzende des Zentralrats. Eine Kundgebung soll ein Zeichen setzen.
+Artenschutz: Diese Haie muss der Mensch nun besser schützen    Ihr Fleisch ist begehrt und wer sie künftig jagt, könnte mit Strafe rechnen: Fünf Haiarten werden auf die Rote Liste des internationalen Artenschutzabkommens gesetzt.
+Freihandelsabkommen: CETA ist nicht zustimmungsfähig    Das Freihandelsabkommen zwischen Kanada und der EU hebelt demokratische Kontrolle aus. Die TTIP-Blaupause bevorzugt Wirtschaftsinteressen. Dagegen sollte geklagt werden.
+Afrika: Libyen muss schnell auf die europäische Agenda    Frankreich will einen Militäreinsatz, um Libyen zu stabilisieren. Man muss nicht zustimmen, aber wenigstens hat das verschämte Schweigen zum Kollaps des Landes ein Ende.
+Hamburger Kunstverein: &quot;Ich mag Dekoration nicht&quot;    Bettina Steinbrügge ist Direktorin des Hamburger Kunstvereins. Im Gespräch berichtet sie von ihrer Arbeit und dass sie persönlich ein Freund von Klarheit und Ordnung ist.
+Digitale Familie : &quot;Kuss, Mutter&quot;    Von Fortschrittsverweigerung keine Spur: Auch die Großeltern haben das Internet für sich entdeckt und tragen dort ein digitales Wettrüsten der Silver Surfer aus.
+Russland-Sanktionen: Rosneft in Schwierigkeiten    Russlands Ölkonzerne brauchen dringend Geld und Know-how aus dem Westen, um ihre Fördermethoden zu modernisieren. Sanktionen treffen sie hart – und damit das ganze Land.
+Bundesliga-Vorschau: Sensationelle Neuigkeiten von Schweinsteiger    Alle reden nur noch über dieses eine neue Bild von Bastian Schweinsteiger. Und der Menschenrechtler Rummenigge beschützt uns vor Rassismus. Alles Wichtige zum 3. Spieltag
+Radio Doria: Liefers liebt Pathos    Seine Frau singt, sein &quot;Tatort&quot;-Kollege auch. Jetzt veröffentlicht der Schauspieler Jan Josef Liefers ein neues Album mit seiner Band Radio Doria. Muss das denn sein?
+PKW-Maut: Dobrindt legt Maut-Gesetz im Oktober vor    Der Verkehrsminister kämpft weiter für seine Maut-Pläne. Er kündigte einen Termin für den Gesetzentwurf an. Dann sei auch Gelegenheit für Diskussionen, sagte Dobrindt.
+Interaktiv: So viel verdienen unsere Abgeordneten nebenher  Peter Gauweiler, Gregor Gysi, Peer Steinbrück: Jeder vierte Bundestagsabgeordnete verdient sich mit Nebentätigkeiten teils erkleckliche Summen dazu. Mancher wird dabei zum Millionär. Mit dem ständig aktualisierten FAZ.NET-Monitor können Sie ab sofort sehen, welcher Abgeordneter wie viel Geld nebenher verdient.
+Ukraine-Krise: Lesen Sie Putins Stellenbeschreibung  Vor der Höhle des russischen Bären ist ein Sicherheitsabstand einzuhalten, sonst greift er an. Dennoch braucht Europa Russland – und die Ukraine eine Finnlandisierung.
+Brief an Netanjahu: Israelische Eliteeinheit will Einsätze verweigern  In einem Brief an Ministerpräsident Netanjahu und die israelische Armeeführung kündigen 43 Mitglieder einer Sonderheit des militärischen Geheimdienstes an, künftig Einsätze zu verweigern. Ihnen geht das grenzenlose Ausspionieren der Palästinenser zu weit.
+Zwanzig Jahre Zeitung im Internet: Schafft den Online-Journalismus ab  Im Herbst 1994 gingen die ersten Medien online. Die Leser haben seitdem alles bekommen, was sie sich nie vorgestellt hatten. Jetzt müssen sie lernen, mit dieser Informationsvielfalt richtig umzugehen.
+Der unbekannte Ökostrom-Riese China  China gilt nicht gerade als Vorreiter in Sachen Umwelt- und Klimaschutz. Dabei erleben die erneuerbaren Energien im Reich der Mitte gerade einen unglaublichen Boom.
+Biografie über den Marquis de Sade: Der Skandalöseste aller Skandalösen  Im Vergleich zu seinen Texten liest sich „Shades of Grey“ wie ein Pixi-Buch: Volker Reinhardt gelingt es in seiner Biographie dennoch, sich dem Marquis de Sade nüchtern anzunähern.
+Nude-Porträts: Ein Fotograf zieht sich aus  Trevor Christensen macht Nackt-Porträts. Allerdings behalten die Porträtierten dabei ihre Kleider an. Nackt ist hier nur der Fotograf selbst. Warum er das macht, erzählt er im Interview.
+De Maizière verkündet Verbot des „Islamischen Staats“  Bundesinnenminister de Maizière hat „mit sofortiger Wirkung“ Aktivitäten der Terrorgruppe „Islamischer Staat“ verboten. Der Dschihad gefährde Deutschlands Sicherheit und dürfe nicht „durch die Straßen“ getragen werden, sagte de Maizière.
+Gefallener Superstar Pistorius: „Kein Platz mehr in der paralympischen Bewegung“  Er war der Held des Behindertensports, nun ist er ein verurteilter Straftäter. Ob Oscar Pistorius nach Verbüßen seiner Strafe wieder an Paralympischen Spielen teilnehmen, darüber scheiden sich die Geister.
+Wen die EU mit den neuen Sanktionen trifft  Die neuen Strafmaßnahmen der EU sind in Kraft. Sie treffen russische Rohstoffriesen, Separatisten-Anführer und einen engen Freund von Staatspräsident Wladimir Putin.
+Fraktur: Lieber Hybridschweine als Hybridkriege  Putins Schnitzeljagd: Warum ist uns bloß nie aufgefallen, dass die Krim die Form eines Koteletts hat?
+Wann lohnt sich die Reparatur der Windschutzscheibe?  Hoffnungsfroh von der Werbung eingestimmt, bringt mancher sein Auto zum Spezialisten, damit der seine Windschutzscheibe vom Steinschlag heile. Manchmal geht das, aber oft bleibt nur der Austausch.
+TV-Kritik „Maybrit Illner“: Der neue Freizeitsozialismus  An Jeremy Rifkins Buch „Die Null-Grenzkosten-Gesellschaft“ kommt auch die Bundesregierung nicht vorbei. Bei Maybrit Illner zeigt Kanzleramtschef Altmaier im Gespräch mit dem Autor, wie drängend das Thema und wie ideenlos die Politik ist.
+Ausspähprogramm „Prism“: Wie die amerikanische Regierung Yahoo drohte  Gewährt uns Zugang zu Nutzerdaten oder zahlt 250.000 Dollar Bußgeld pro Tag – mit dieser Forderung soll die amerikanische Regierung im Jahr 2008 Yahoo unter Druck gesetzt haben. Bedenken des Internetkonzerns wischten Gerichte angeblich beiseite.
+Gesundheitssystem: Mit bestem Dank an  die Privatpatienten  Ein früherer Termin beim Facharzt? Ein ausführlicheres Arztgespräch? Kein Problem für Privatpatienten. Für sie haben Ärzte mehr Zeit. Gesetzlich Versicherte ärgert das. Doch ohne die Privatversicherungen müssten viele Praxen schließen.
+Zum Tod von Joachim Fuchsberger: Der letzte deutsche Fernseh-Altmeister  Moderator, Schauspieler, Schlagertexter - Joachim Fuchsberger war ein Tausendsassa, der die deutsche Fernsehgeschichte prägte. In Männern wie ihm erkennen wir unser Land.
+Ukraine-Krise: Zweifelhafte Majdan-Kämpfer  Die Berichte über Verbrechen der Separatisten in der Ostukraine sind fast schon Routine geworden. Nun häufen sich Nachrichten, dass Schuld und Verstrickung nicht mehr nur einer einzigen Seite anzulasten sind.
+Das Trikot und der Lohn: 15 Cent für vier Sterne  Entwicklungsminister Müller kritisiert das Geschäft mit dem DFB-Trikot. Der Vorwurf sei falsch, sagt Adidas. Für Claudia Roth sind die Fertigungsumstände „unerträglich“.
+Gabriele Pauli auf Sylt: Reif für die Insel  Die frühere fränkische Landrätin Gabriele Pauli, die einst am Sturz Stoibers mitwirkte, strebt das Bürgermeisteramt auf Sylt an. Nun sammelt sie in Westerland Unterschriften für ihre Kandidatur.
+Flüchtlinge aus der Ostukraine: Kostenlos nach Sibirien  Russland verspricht Übersiedlern aus der Ostukraine Arbeit und ein Dach über dem Kopf. Doch nach der Landung gibt es für die Flüchtlinge oft ein böses Erwachen.
+Artikel in Listenform: Die Qual der Zahl  Im Netz verbreiten sich Kurzartikel, die ihre Leser mit „10 guten Gründen“ oder „15 unglaublichen Fakten“ überzeugen wollen. Häufig findet man diese Posts bei Buzzfeed – bald auch in deutscher Sprache.
+100 Jahre Marne-Schlacht: Verloren im Nebel des Krieges  Wenige Wochen nach dem Ausbruch des Ersten Weltkrieges kam der Vormarsch der deutschen Armeen in Frankreich an der Marne zum Stillstand. Doch selbst bei einem Erfolg in der Marne-Schlacht wäre ein Zweifrontenkrieg nicht mehr zu vermeiden gewesen.
+Neue Optik für Scheine: Jetzt kommen die neuen Zehner  In zwei Wochen kommen die neuen Zehn-Euro-Scheine. Die Fehler der Fünfer-Umstellung sollen sich nicht wiederholen. Fahrkartenautomaten sollen alle, Zigarettenautomaten fast alle reibungslos funktionieren.
+Tagesgeld: Der Zinssatz ist nicht alles  Die Leitzinssenkung der EZB schlägt derzeit noch nicht auf Tagesgeld durch. Der passende Anbieter hängt aber von mehr als nur dem Zins ab. Ein Vergleich lohnt.
+Südafrika: Fassungslosigkeit über das milde Pistorius-UrteilPistorius schien sich zu verbeugen, Steenkamps Eltern blieben gefasst, ein Raunen ging durch den Saal: Das Urteil wegen fahrlässiger Tötung halten Südafrikas Frauen für einen schlechten Präzedenzfall.
+Islamischer Staat: Warum die Türkei bei der Anti-Terror-Allianz fehltErst unterstützte die Türkei indirekt islamische Extremisten in Syrien, nun will sie nicht in die von den USA geführte Koalition gegen den Islamischen Staat eintreten. Ankara hat eine eigene Agenda.
+Terrormiliz: Bundesregierung verbietet IS in DeutschlandInnenminister Thomas de Maizière hat das Verbot der Extremistengruppe IS in Deutschland verkündet, auch ihre Symbole dürfen nicht mehr zeigt werden. Er sieht die Sicherheit in Deutschland bedroht.
+Verkehrspolitik: Große Koalition sabotiert Maut-Debatte im BundestagAls Minister Dobrindt im Bundestag seine Pläne vorstellt, weichen Union und SPD allen Sachthemen aus. Dabei sind sie beim Thema Verkehr fundamental zerstritten: von der Pkw-Maut bis zum Straßenbau.
+Separatismus: Angst vor dem Zerfall Europas lässt Märkte bebenAm 18. September stimmen die Schotten über einen eigenen Staat ab. Auch Katalonien und Flandern streben nach Unabhängigkeit. Investoren fürchten den Separatismus. Doch nicht alle Effekte sind negativ.
+Sanktionen: Die Folterwerkzeuge der EU werden Moskau wehtunDie nächste Stufe der Sanktionen ist erreicht. Das Maßnahmenpaket gegen Moskau könnte reiche Russen unzufrieden machen und ihren Präsidenten Wladimir Putin in ernsthafte Schwierigkeiten bringen.
+Chinas Machtanspruch: Der nächste Weltkrieg könnte in Asien beginnenDas Pulverfass, das unser Weltgefüge sprengen kann, liegt in Asien mitten im Meer. Winzige Inselchen könnten einen Flächenbrand entfachen. Ein Angriff Chinas auf Japan ist mehr als düstere Fantasie.
+Umweltpolitik: Geht doch! Wie wir das Ozonloch repariertenVor 40 Jahren wurde erstmals vor dem Verlust der Schutzschicht gegen die UV-Strahlung gewarnt. Heute ist sie fast wieder intakt. Wie damals diskutiert wurde, erinnert an heutige Umweltdebatten.
+Apple: Neue iPhones jetzt schon ausverkauftWenige Stunden nach dem Vorbestellstart sind einige Modelle des iPhone 6 bereits ausverkauft. Drei bis vier Wochen müssen Kunden auf ihre Geräte warten. Telekom und Vodafone melden Bestellrekorde.
+Vor dem Referendum: Englands &quot;Schlächter&quot; brachte Schottland zur RäsonEin planloses Heldenstück führte 1746 zur endgültigen Unterwerfung Schottlands unter die englische Herrschaft. Der Aufstand des Stuart &quot;Bonnie Prince Charlie&quot; endete bei Culloden in einem Blutbad.
+Number of Lines:   48
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="split-documents-into-words-normalize-and-remove-stopwords">
+<h2><span class="section-number">7.2. </span>Split documents into words, normalize and remove stopwords<a class="headerlink" href="#split-documents-into-words-normalize-and-remove-stopwords" title="Permalink to this headline">¶</a></h2>
+<p>In <em>listOfNews</em> each document is stored as a single string variable. Each of these document-strings is now split into a set of words. All words are transformed to a lower-case representation and stop-words are removed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="n">stopwordlist</span><span class="o">=</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;german&#39;</span><span class="p">)</span>
+<span class="n">docWords</span> <span class="o">=</span> <span class="p">[[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;?!.:&quot;,&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> 
+             <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;?!.:&quot;,&#39;</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwordlist</span><span class="p">]</span> <span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">listOfNews</span><span class="p">]</span>
+<span class="c1">#print(docWords)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Display the list of words of the first 5 documents:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docWords</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------ document </span><span class="si">%d</span><span class="s1"> ----------&#39;</span><span class="o">%</span><span class="k">idx</span>)
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------ document 0 ----------
+﻿kommunikation
+gut
+kommunizieren
+macht
+glücklich
+kaum
+psychologe
+friedemann
+schulz
+thun
+untersucht
+kommunikation
+ausmacht
+neuen
+buch
+entwickelt
+quintessenz
+davon
+------ document 1 ----------
+ukraine-krise
+bundesregierung
+toleriert
+ukrainischen
+mauerbau
+kanzleramt
+verständnis
+pläne
+ukrainischen
+regierung
+mauer
+entlang
+grenze
+russland
+bauen
+sei
+allein
+entscheidung
+ukraine
+------ document 2 ----------
+radfahren
+deutsche
+bringt
+chinesen
+aufs
+fixie
+einst
+peking
+fahrrad-welthauptstadt
+kamen
+autos
+ines
+brunn
+kämpft
+dagegen
+inhaberin
+fixie-shops
+chinesen
+aufs
+rad
+bringen
+------ document 3 ----------
+zurück
+wildnis
+
+jenseits
+komforts
+drei
+jahre
+lang
+suchte
+fotograf
+antoine
+bruy
+aussteiger
+europa
+bilder
+zeigen
+menschen
+konsum-
+leistungsgesellschaft
+rücken
+gekehrt
+------ document 4 ----------
+antisemitismus
+zentralrat
+beklagt
+schockwellen
+judenhass
+judenfeindliche
+hetze
+protesten
+israel
+juden
+tief
+getroffen
+sagte
+vorsitzende
+zentralrats
+kundgebung
+zeichen
+setzen
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="generate-dictionary">
+<h2><span class="section-number">7.3. </span>Generate Dictionary<a class="headerlink" href="#generate-dictionary" title="Permalink to this headline">¶</a></h2>
+<p>The elements of the list <em>docWords</em> are itself lists. Each of these lists contains all relevant words of a document. The set of all relevant words in the document collection, i.e. relevant words, which appear in at least one document, are stored in a <a class="reference external" href="https://radimrehurek.com/gensim/corpora/dictionary.html">gensim-dictionary</a>. In the dictionary to each of the relevant words an unique integer ID is assigned:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">corpora</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">similarities</span>
+<span class="n">dictionary</span> <span class="o">=</span> <span class="n">corpora</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">docWords</span><span class="p">)</span>
+<span class="n">dictionary</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;multiNews.dict&#39;</span><span class="p">)</span> <span class="c1"># store the dictionary, for future reference</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span><span class="o">.</span><span class="n">token2id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;ausmacht&#39;: 0, &#39;buch&#39;: 1, &#39;davon&#39;: 2, &#39;entwickelt&#39;: 3, &#39;friedemann&#39;: 4, &#39;glücklich&#39;: 5, &#39;gut&#39;: 6, &#39;kaum&#39;: 7, &#39;kommunikation&#39;: 8, &#39;kommunizieren&#39;: 9, &#39;macht&#39;: 10, &#39;neuen&#39;: 11, &#39;psychologe&#39;: 12, &#39;quintessenz&#39;: 13, &#39;schulz&#39;: 14, &#39;thun&#39;: 15, &#39;untersucht&#39;: 16, &#39;\ufeffkommunikation&#39;: 17, &#39;allein&#39;: 18, &#39;bauen&#39;: 19, &#39;bundesregierung&#39;: 20, &#39;entlang&#39;: 21, &#39;entscheidung&#39;: 22, &#39;grenze&#39;: 23, &#39;kanzleramt&#39;: 24, &#39;mauer&#39;: 25, &#39;mauerbau&#39;: 26, &#39;pläne&#39;: 27, &#39;regierung&#39;: 28, &#39;russland&#39;: 29, &#39;sei&#39;: 30, &#39;toleriert&#39;: 31, &#39;ukraine&#39;: 32, &#39;ukraine-krise&#39;: 33, &#39;ukrainischen&#39;: 34, &#39;verständnis&#39;: 35, &#39;aufs&#39;: 36, &#39;autos&#39;: 37, &#39;bringen&#39;: 38, &#39;bringt&#39;: 39, &#39;brunn&#39;: 40, &#39;chinesen&#39;: 41, &#39;dagegen&#39;: 42, &#39;deutsche&#39;: 43, &#39;einst&#39;: 44, &#39;fahrrad-welthauptstadt&#39;: 45, &#39;fixie&#39;: 46, &#39;fixie-shops&#39;: 47, &#39;ines&#39;: 48, &#39;inhaberin&#39;: 49, &#39;kamen&#39;: 50, &#39;kämpft&#39;: 51, &#39;peking&#39;: 52, &#39;rad&#39;: 53, &#39;radfahren&#39;: 54, &#39;&#39;: 55, &#39;antoine&#39;: 56, &#39;aussteiger&#39;: 57, &#39;bilder&#39;: 58, &#39;bruy&#39;: 59, &#39;drei&#39;: 60, &#39;europa&#39;: 61, &#39;fotograf&#39;: 62, &#39;gekehrt&#39;: 63, &#39;jahre&#39;: 64, &#39;jenseits&#39;: 65, &#39;komforts&#39;: 66, &#39;konsum-&#39;: 67, &#39;lang&#39;: 68, &#39;leistungsgesellschaft&#39;: 69, &#39;menschen&#39;: 70, &#39;rücken&#39;: 71, &#39;suchte&#39;: 72, &#39;wildnis&#39;: 73, &#39;zeigen&#39;: 74, &#39;zurück&#39;: 75, &#39;antisemitismus&#39;: 76, &#39;beklagt&#39;: 77, &#39;getroffen&#39;: 78, &#39;hetze&#39;: 79, &#39;israel&#39;: 80, &#39;juden&#39;: 81, &#39;judenfeindliche&#39;: 82, &#39;judenhass&#39;: 83, &#39;kundgebung&#39;: 84, &#39;protesten&#39;: 85, &#39;sagte&#39;: 86, &#39;schockwellen&#39;: 87, &#39;setzen&#39;: 88, &#39;tief&#39;: 89, &#39;vorsitzende&#39;: 90, &#39;zeichen&#39;: 91, &#39;zentralrat&#39;: 92, &#39;zentralrats&#39;: 93, &#39;artenschutz&#39;: 94, &#39;artenschutzabkommens&#39;: 95, &#39;begehrt&#39;: 96, &#39;besser&#39;: 97, &#39;fleisch&#39;: 98, &#39;fünf&#39;: 99, &#39;gesetzt&#39;: 100, &#39;haiarten&#39;: 101, &#39;haie&#39;: 102, &#39;internationalen&#39;: 103, &#39;jagt&#39;: 104, &#39;künftig&#39;: 105, &#39;liste&#39;: 106, &#39;mensch&#39;: 107, &#39;rechnen&#39;: 108, &#39;rote&#39;: 109, &#39;schützen&#39;: 110, &#39;strafe&#39;: 111, &#39;wer&#39;: 112, &#39;bevorzugt&#39;: 113, &#39;ceta&#39;: 114, &#39;demokratische&#39;: 115, &#39;eu&#39;: 116, &#39;freihandelsabkommen&#39;: 117, &#39;geklagt&#39;: 118, &#39;hebelt&#39;: 119, &#39;kanada&#39;: 120, &#39;kontrolle&#39;: 121, &#39;ttip-blaupause&#39;: 122, &#39;wirtschaftsinteressen&#39;: 123, &#39;zustimmungsfähig&#39;: 124, &#39;afrika&#39;: 125, &#39;agenda&#39;: 126, &#39;ende&#39;: 127, &#39;europäische&#39;: 128, &#39;frankreich&#39;: 129, &#39;kollaps&#39;: 130, &#39;landes&#39;: 131, &#39;libyen&#39;: 132, &#39;militäreinsatz&#39;: 133, &#39;schnell&#39;: 134, &#39;schweigen&#39;: 135, &#39;stabilisieren&#39;: 136, &#39;verschämte&#39;: 137, &#39;wenigstens&#39;: 138, &#39;zustimmen&#39;: 139, &#39;arbeit&#39;: 140, &#39;berichtet&#39;: 141, &#39;bettina&#39;: 142, &#39;dekoration&#39;: 143, &#39;direktorin&#39;: 144, &#39;freund&#39;: 145, &#39;gespräch&#39;: 146, &#39;hamburger&#39;: 147, &#39;klarheit&#39;: 148, &#39;kunstverein&#39;: 149, &#39;kunstvereins&#39;: 150, &#39;mag&#39;: 151, &#39;ordnung&#39;: 152, &#39;persönlich&#39;: 153, &#39;steinbrügge&#39;: 154, &#39;digitale&#39;: 155, &#39;digitales&#39;: 156, &#39;entdeckt&#39;: 157, &#39;familie&#39;: 158, &#39;fortschrittsverweigerung&#39;: 159, &#39;großeltern&#39;: 160, &#39;internet&#39;: 161, &#39;kuss&#39;: 162, &#39;mutter&#39;: 163, &#39;silver&#39;: 164, &#39;spur&#39;: 165, &#39;surfer&#39;: 166, &#39;tragen&#39;: 167, &#39;wettrüsten&#39;: 168, &#39;brauchen&#39;: 169, &#39;dringend&#39;: 170, &#39;fördermethoden&#39;: 171, &#39;ganze&#39;: 172, &#39;geld&#39;: 173, &#39;hart&#39;: 174, &#39;know-how&#39;: 175, &#39;land&#39;: 176, &#39;modernisieren&#39;: 177, &#39;rosneft&#39;: 178, &#39;russland-sanktionen&#39;: 179, &#39;russlands&#39;: 180, &#39;sanktionen&#39;: 181, &#39;schwierigkeiten&#39;: 182, &#39;treffen&#39;: 183, &#39;westen&#39;: 184, &#39;ölkonzerne&#39;: 185, &#39;–&#39;: 186, &#39;3&#39;: 187, &#39;bastian&#39;: 188, &#39;beschützt&#39;: 189, &#39;bild&#39;: 190, &#39;bundesliga-vorschau&#39;: 191, &#39;menschenrechtler&#39;: 192, &#39;neue&#39;: 193, &#39;neuigkeiten&#39;: 194, &#39;rassismus&#39;: 195, &#39;reden&#39;: 196, &#39;rummenigge&#39;: 197, &#39;schweinsteiger&#39;: 198, &#39;sensationelle&#39;: 199, &#39;spieltag&#39;: 200, &#39;wichtige&#39;: 201, &#39;album&#39;: 202, &#39;band&#39;: 203, &#39;doria&#39;: 204, &#39;frau&#39;: 205, &#39;jan&#39;: 206, &#39;josef&#39;: 207, &#39;liebt&#39;: 208, &#39;liefers&#39;: 209, &#39;neues&#39;: 210, &#39;pathos&#39;: 211, &#39;radio&#39;: 212, &#39;schauspieler&#39;: 213, &#39;singt&#39;: 214, &#39;tatort&quot;-kollege&#39;: 215, &#39;veröffentlicht&#39;: 216, &#39;diskussionen&#39;: 217, &#39;dobrindt&#39;: 218, &#39;gelegenheit&#39;: 219, &#39;gesetzentwurf&#39;: 220, &#39;kündigte&#39;: 221, &#39;legt&#39;: 222, &#39;maut-gesetz&#39;: 223, &#39;maut-pläne&#39;: 224, &#39;oktober&#39;: 225, &#39;pkw-maut&#39;: 226, &#39;termin&#39;: 227, &#39;verkehrsminister&#39;: 228, &#39;ab&#39;: 229, &#39;abgeordneten&#39;: 230, &#39;abgeordneter&#39;: 231, &#39;aktualisierten&#39;: 232, &#39;bundestagsabgeordnete&#39;: 233, &#39;dabei&#39;: 234, &#39;erkleckliche&#39;: 235, &#39;faz.net-monitor&#39;: 236, &#39;gauweiler&#39;: 237, &#39;gregor&#39;: 238, &#39;gysi&#39;: 239, &#39;interaktiv&#39;: 240, &#39;millionär&#39;: 241, &#39;nebenher&#39;: 242, &#39;nebentätigkeiten&#39;: 243, &#39;peer&#39;: 244, &#39;peter&#39;: 245, &#39;sehen&#39;: 246, &#39;sofort&#39;: 247, &#39;steinbrück&#39;: 248, &#39;ständig&#39;: 249, &#39;summen&#39;: 250, &#39;teils&#39;: 251, &#39;verdienen&#39;: 252, &#39;verdient&#39;: 253, &#39;vierte&#39;: 254, &#39;braucht&#39;: 255, &#39;bären&#39;: 256, &#39;dennoch&#39;: 257, &#39;einzuhalten&#39;: 258, &#39;finnlandisierung&#39;: 259, &#39;greift&#39;: 260, &#39;höhle&#39;: 261, &#39;lesen&#39;: 262, &#39;putins&#39;: 263, &#39;russischen&#39;: 264, &#39;sicherheitsabstand&#39;: 265, &#39;stellenbeschreibung&#39;: 266, &#39;43&#39;: 267, &#39;armeeführung&#39;: 268, &#39;ausspionieren&#39;: 269, &#39;brief&#39;: 270, &#39;einsätze&#39;: 271, &#39;eliteeinheit&#39;: 272, &#39;geheimdienstes&#39;: 273, &#39;geht&#39;: 274, &#39;grenzenlose&#39;: 275, &#39;israelische&#39;: 276, &#39;kündigen&#39;: 277, &#39;militärischen&#39;: 278, &#39;ministerpräsident&#39;: 279, &#39;mitglieder&#39;: 280, &#39;netanjahu&#39;: 281, &#39;palästinenser&#39;: 282, &#39;sonderheit&#39;: 283, &#39;verweigern&#39;: 284, &#39;weit&#39;: 285, &#39;1994&#39;: 286, &#39;bekommen&#39;: 287, &#39;ersten&#39;: 288, &#39;gingen&#39;: 289, &#39;herbst&#39;: 290, &#39;informationsvielfalt&#39;: 291, &#39;lernen&#39;: 292, &#39;leser&#39;: 293, &#39;medien&#39;: 294, &#39;müssen&#39;: 295, &#39;nie&#39;: 296, &#39;online&#39;: 297, &#39;online-journalismus&#39;: 298, &#39;richtig&#39;: 299, &#39;schafft&#39;: 300, &#39;seitdem&#39;: 301, &#39;umzugehen&#39;: 302, &#39;vorgestellt&#39;: 303, &#39;zeitung&#39;: 304, &#39;zwanzig&#39;: 305, &#39;boom&#39;: 306, &#39;china&#39;: 307, &#39;energien&#39;: 308, &#39;erleben&#39;: 309, &#39;erneuerbaren&#39;: 310, &#39;gerade&#39;: 311, &#39;gilt&#39;: 312, &#39;klimaschutz&#39;: 313, &#39;mitte&#39;: 314, &#39;reich&#39;: 315, &#39;sachen&#39;: 316, &#39;umwelt-&#39;: 317, &#39;unbekannte&#39;: 318, &#39;unglaublichen&#39;: 319, &#39;vorreiter&#39;: 320, &#39;ökostrom-riese&#39;: 321, &#39;anzunähern&#39;: 322, &#39;biografie&#39;: 323, &#39;biographie&#39;: 324, &#39;de&#39;: 325, &#39;gelingt&#39;: 326, &#39;grey“&#39;: 327, &#39;liest&#39;: 328, &#39;marquis&#39;: 329, &#39;nüchtern&#39;: 330, &#39;of&#39;: 331, &#39;pixi-buch&#39;: 332, &#39;reinhardt&#39;: 333, &#39;sade&#39;: 334, &#39;skandalösen&#39;: 335, &#39;skandalöseste&#39;: 336, &#39;texten&#39;: 337, &#39;vergleich&#39;: 338, &#39;volker&#39;: 339, &#39;„shades&#39;: 340, &#39;allerdings&#39;: 341, &#39;behalten&#39;: 342, &#39;christensen&#39;: 343, &#39;erzählt&#39;: 344, &#39;interview&#39;: 345, &#39;kleider&#39;: 346, &#39;nackt&#39;: 347, &#39;nackt-porträts&#39;: 348, &#39;nude-porträts&#39;: 349, &#39;porträtierten&#39;: 350, &#39;trevor&#39;: 351, &#39;warum&#39;: 352, &#39;zieht&#39;: 353, &#39;aktivitäten&#39;: 354, &#39;bundesinnenminister&#39;: 355, &#39;deutschlands&#39;: 356, &#39;dschihad&#39;: 357, &#39;dürfe&#39;: 358, &#39;gefährde&#39;: 359, &#39;getragen&#39;: 360, &#39;maizière&#39;: 361, &#39;sicherheit&#39;: 362, &#39;sofortiger&#39;: 363, &#39;staats“&#39;: 364, &#39;staat“&#39;: 365, &#39;straßen“&#39;: 366, &#39;terrorgruppe&#39;: 367, &#39;verbot&#39;: 368, &#39;verboten&#39;: 369, &#39;verkündet&#39;: 370, &#39;wirkung“&#39;: 371, &#39;„durch&#39;: 372, &#39;„islamischen&#39;: 373, &#39;„islamischer&#39;: 374, &#39;„mit&#39;: 375, &#39;behindertensports&#39;: 376, &#39;bewegung“&#39;: 377, &#39;darüber&#39;: 378, &#39;gefallener&#39;: 379, &#39;geister&#39;: 380, &#39;held&#39;: 381, &#39;mehr&#39;: 382, &#39;oscar&#39;: 383, &#39;paralympischen&#39;: 384, &#39;pistorius&#39;: 385, &#39;platz&#39;: 386, &#39;scheiden&#39;: 387, &#39;spielen&#39;: 388, &#39;straftäter&#39;: 389, &#39;superstar&#39;: 390, &#39;teilnehmen&#39;: 391, &#39;verbüßen&#39;: 392, &#39;verurteilter&#39;: 393, &#39;„kein&#39;: 394, &#39;engen&#39;: 395, &#39;kraft&#39;: 396, &#39;putin&#39;: 397, &#39;rohstoffriesen&#39;: 398, &#39;russische&#39;: 399, &#39;separatisten-anführer&#39;: 400, &#39;staatspräsident&#39;: 401, &#39;strafmaßnahmen&#39;: 402, &#39;trifft&#39;: 403, &#39;wen&#39;: 404, &#39;wladimir&#39;: 405, &#39;aufgefallen&#39;: 406, &#39;bloß&#39;: 407, &#39;form&#39;: 408, &#39;fraktur&#39;: 409, &#39;hybridkriege&#39;: 410, &#39;hybridschweine&#39;: 411, &#39;koteletts&#39;: 412, &#39;krim&#39;: 413, &#39;lieber&#39;: 414, &#39;schnitzeljagd&#39;: 415, &#39;austausch&#39;: 416, &#39;auto&#39;: 417, &#39;bleibt&#39;: 418, &#39;eingestimmt&#39;: 419, &#39;heile&#39;: 420, &#39;hoffnungsfroh&#39;: 421, &#39;lohnt&#39;: 422, &#39;manchmal&#39;: 423, &#39;oft&#39;: 424, &#39;reparatur&#39;: 425, &#39;spezialisten&#39;: 426, &#39;steinschlag&#39;: 427, &#39;wann&#39;: 428, &#39;werbung&#39;: 429, &#39;windschutzscheibe&#39;: 430, &#39;altmaier&#39;: 431, &#39;autor&#39;: 432, &#39;drängend&#39;: 433, &#39;freizeitsozialismus&#39;: 434, &#39;ideenlos&#39;: 435, &#39;illner&#39;: 436, &#39;illner“&#39;: 437, &#39;jeremy&#39;: 438, &#39;kanzleramtschef&#39;: 439, &#39;kommt&#39;: 440, &#39;maybrit&#39;: 441, &#39;null-grenzkosten-gesellschaft“&#39;: 442, &#39;politik&#39;: 443, &#39;rifkins&#39;: 444, &#39;thema&#39;: 445, &#39;tv-kritik&#39;: 446, &#39;vorbei&#39;: 447, &#39;zeigt&#39;: 448, &#39;„die&#39;: 449, &#39;„maybrit&#39;: 450, &#39;2008&#39;: 451, &#39;250.000&#39;: 452, &#39;amerikanische&#39;: 453, &#39;angeblich&#39;: 454, &#39;ausspähprogramm&#39;: 455, &#39;bedenken&#39;: 456, &#39;beiseite&#39;: 457, &#39;bußgeld&#39;: 458, &#39;dollar&#39;: 459, &#39;drohte&#39;: 460, &#39;druck&#39;: 461, &#39;forderung&#39;: 462, &#39;gerichte&#39;: 463, &#39;gewährt&#39;: 464, &#39;internetkonzerns&#39;: 465, &#39;jahr&#39;: 466, &#39;nutzerdaten&#39;: 467, &#39;pro&#39;: 468, &#39;tag&#39;: 469, &#39;wischten&#39;: 470, &#39;yahoo&#39;: 471, &#39;zahlt&#39;: 472, &#39;zugang&#39;: 473, &#39;„prism“&#39;: 474, &#39;arztgespräch&#39;: 475, &#39;ausführlicheres&#39;: 476, &#39;beim&#39;: 477, &#39;bestem&#39;: 478, &#39;dank&#39;: 479, &#39;facharzt&#39;: 480, &#39;früherer&#39;: 481, &#39;gesetzlich&#39;: 482, &#39;gesundheitssystem&#39;: 483, &#39;müssten&#39;: 484, &#39;praxen&#39;: 485, &#39;privatpatienten&#39;: 486, &#39;privatversicherungen&#39;: 487, &#39;problem&#39;: 488, &#39;schließen&#39;: 489, &#39;versicherte&#39;: 490, &#39;viele&#39;: 491, &#39;zeit&#39;: 492, &#39;ärgert&#39;: 493, &#39;ärzte&#39;: 494, &#39;-&#39;: 495, &#39;erkennen&#39;: 496, &#39;fernseh-altmeister&#39;: 497, &#39;fernsehgeschichte&#39;: 498, &#39;fuchsberger&#39;: 499, &#39;joachim&#39;: 500, &#39;letzte&#39;: 501, &#39;moderator&#39;: 502, &#39;männern&#39;: 503, &#39;prägte&#39;: 504, &#39;schlagertexter&#39;: 505, &#39;tausendsassa&#39;: 506, &#39;tod&#39;: 507, &#39;anzulasten&#39;: 508, &#39;berichte&#39;: 509, &#39;einzigen&#39;: 510, &#39;fast&#39;: 511, &#39;geworden&#39;: 512, &#39;häufen&#39;: 513, &#39;majdan-kämpfer&#39;: 514, &#39;nachrichten&#39;: 515, &#39;ostukraine&#39;: 516, &#39;routine&#39;: 517, &#39;schon&#39;: 518, &#39;schuld&#39;: 519, &#39;seite&#39;: 520, &#39;separatisten&#39;: 521, &#39;verbrechen&#39;: 522, &#39;verstrickung&#39;: 523, &#39;zweifelhafte&#39;: 524, &#39;15&#39;: 525, &#39;adidas&#39;: 526, &#39;cent&#39;: 527, &#39;claudia&#39;: 528, &#39;dfb-trikot&#39;: 529, &#39;entwicklungsminister&#39;: 530, &#39;falsch&#39;: 531, &#39;fertigungsumstände&#39;: 532, &#39;geschäft&#39;: 533, &#39;kritisiert&#39;: 534, &#39;lohn&#39;: 535, &#39;müller&#39;: 536, &#39;roth&#39;: 537, &#39;sagt&#39;: 538, &#39;sterne&#39;: 539, &#39;trikot&#39;: 540, &#39;vier&#39;: 541, &#39;vorwurf&#39;: 542, &#39;„unerträglich“&#39;: 543, &#39;bürgermeisteramt&#39;: 544, &#39;fränkische&#39;: 545, &#39;frühere&#39;: 546, &#39;gabriele&#39;: 547, &#39;insel&#39;: 548, &#39;kandidatur&#39;: 549, &#39;landrätin&#39;: 550, &#39;mitwirkte&#39;: 551, &#39;pauli&#39;: 552, &#39;reif&#39;: 553, &#39;sammelt&#39;: 554, &#39;stoibers&#39;: 555, &#39;strebt&#39;: 556, &#39;sturz&#39;: 557, &#39;sylt&#39;: 558, &#39;unterschriften&#39;: 559, &#39;westerland&#39;: 560, &#39;böses&#39;: 561, &#39;dach&#39;: 562, &#39;erwachen&#39;: 563, &#39;flüchtlinge&#39;: 564, &#39;gibt&#39;: 565, &#39;kopf&#39;: 566, &#39;kostenlos&#39;: 567, &#39;landung&#39;: 568, &#39;sibirien&#39;: 569, &#39;verspricht&#39;: 570, &#39;übersiedlern&#39;: 571, &#39;artikel&#39;: 572, &#39;bald&#39;: 573, &#39;buzzfeed&#39;: 574, &#39;deutscher&#39;: 575, &#39;fakten“&#39;: 576, &#39;findet&#39;: 577, &#39;gründen“&#39;: 578, &#39;guten&#39;: 579, &#39;häufig&#39;: 580, &#39;kurzartikel&#39;: 581, &#39;listenform&#39;: 582, &#39;netz&#39;: 583, &#39;posts&#39;: 584, &#39;qual&#39;: 585, &#39;sprache&#39;: 586, &#39;verbreiten&#39;: 587, &#39;zahl&#39;: 588, &#39;überzeugen&#39;: 589, &#39;„10&#39;: 590, &#39;„15&#39;: 591, &#39;100&#39;: 592, &#39;armeen&#39;: 593, &#39;ausbruch&#39;: 594, &#39;deutschen&#39;: 595, &#39;erfolg&#39;: 596, &#39;kam&#39;: 597, &#39;krieges&#39;: 598, &#39;marne&#39;: 599, &#39;marne-schlacht&#39;: 600, &#39;nebel&#39;: 601, &#39;stillstand&#39;: 602, &#39;verloren&#39;: 603, &#39;vermeiden&#39;: 604, &#39;vormarsch&#39;: 605, &#39;weltkrieges&#39;: 606, &#39;wenige&#39;: 607, &#39;wochen&#39;: 608, &#39;wäre&#39;: 609, &#39;zweifrontenkrieg&#39;: 610, &#39;fahrkartenautomaten&#39;: 611, &#39;fehler&#39;: 612, &#39;funktionieren&#39;: 613, &#39;fünfer-umstellung&#39;: 614, &#39;kommen&#39;: 615, &#39;optik&#39;: 616, &#39;reibungslos&#39;: 617, &#39;scheine&#39;: 618, &#39;sollen&#39;: 619, &#39;wiederholen&#39;: 620, &#39;zehn-euro-scheine&#39;: 621, &#39;zehner&#39;: 622, &#39;zigarettenautomaten&#39;: 623, &#39;zwei&#39;: 624, &#39;anbieter&#39;: 625, &#39;derzeit&#39;: 626, &#39;ezb&#39;: 627, &#39;hängt&#39;: 628, &#39;leitzinssenkung&#39;: 629, &#39;passende&#39;: 630, &#39;schlägt&#39;: 631, &#39;tagesgeld&#39;: 632, &#39;zins&#39;: 633, &#39;zinssatz&#39;: 634, &#39;blieben&#39;: 635, &#39;eltern&#39;: 636, &#39;fahrlässiger&#39;: 637, &#39;fassungslosigkeit&#39;: 638, &#39;frauen&#39;: 639, &#39;gefasst&#39;: 640, &#39;ging&#39;: 641, &#39;halten&#39;: 642, &#39;milde&#39;: 643, &#39;pistorius-urteilpistorius&#39;: 644, &#39;präzedenzfall&#39;: 645, &#39;raunen&#39;: 646, &#39;saal&#39;: 647, &#39;schien&#39;: 648, &#39;schlechten&#39;: 649, &#39;steenkamps&#39;: 650, &#39;südafrika&#39;: 651, &#39;südafrikas&#39;: 652, &#39;tötung&#39;: 653, &#39;urteil&#39;: 654, &#39;verbeugen&#39;: 655, &#39;wegen&#39;: 656, &#39;ankara&#39;: 657, &#39;anti-terror-allianz&#39;: 658, &#39;eigene&#39;: 659, &#39;eintreten&#39;: 660, &#39;extremisten&#39;: 661, &#39;fehlterst&#39;: 662, &#39;geführte&#39;: 663, &#39;indirekt&#39;: 664, &#39;islamische&#39;: 665, &#39;islamischen&#39;: 666, &#39;islamischer&#39;: 667, &#39;koalition&#39;: 668, &#39;staat&#39;: 669, &#39;syrien&#39;: 670, &#39;türkei&#39;: 671, &#39;unterstützte&#39;: 672, &#39;usa&#39;: 673, &#39;bedroht&#39;: 674, &#39;deutschland&#39;: 675, &#39;deutschlandinnenminister&#39;: 676, &#39;dürfen&#39;: 677, &#39;extremistengruppe&#39;: 678, &#39;is&#39;: 679, &#39;sieht&#39;: 680, &#39;symbole&#39;: 681, &#39;terrormiliz&#39;: 682, &#39;thomas&#39;: 683, &#39;verbietet&#39;: 684, &#39;bundestag&#39;: 685, &#39;bundestagals&#39;: 686, &#39;fundamental&#39;: 687, &#39;große&#39;: 688, &#39;maut-debatte&#39;: 689, &#39;minister&#39;: 690, &#39;sabotiert&#39;: 691, &#39;sachthemen&#39;: 692, &#39;spd&#39;: 693, &#39;straßenbau&#39;: 694, &#39;union&#39;: 695, &#39;verkehr&#39;: 696, &#39;verkehrspolitik&#39;: 697, &#39;vorstellt&#39;: 698, &#39;weichen&#39;: 699, &#39;zerstritten&#39;: 700, &#39;18&#39;: 701, &#39;angst&#39;: 702, &#39;bebenam&#39;: 703, &#39;effekte&#39;: 704, &#39;eigenen&#39;: 705, &#39;europas&#39;: 706, &#39;flandern&#39;: 707, &#39;fürchten&#39;: 708, &#39;investoren&#39;: 709, &#39;katalonien&#39;: 710, &#39;lässt&#39;: 711, &#39;märkte&#39;: 712, &#39;negativ&#39;: 713, &#39;schotten&#39;: 714, &#39;separatismus&#39;: 715, &#39;september&#39;: 716, &#39;stimmen&#39;: 717, &#39;streben&#39;: 718, &#39;unabhängigkeit&#39;: 719, &#39;zerfall&#39;: 720, &#39;ernsthafte&#39;: 721, &#39;erreicht&#39;: 722, &#39;folterwerkzeuge&#39;: 723, &#39;maßnahmenpaket&#39;: 724, &#39;moskau&#39;: 725, &#39;nächste&#39;: 726, &#39;präsidenten&#39;: 727, &#39;reiche&#39;: 728, &#39;russen&#39;: 729, &#39;stufe&#39;: 730, &#39;unzufrieden&#39;: 731, &#39;wehtundie&#39;: 732, &#39;angriff&#39;: 733, &#39;asien&#39;: 734, &#39;beginnendas&#39;: 735, &#39;chinas&#39;: 736, &#39;düstere&#39;: 737, &#39;entfachen&#39;: 738, &#39;fantasie&#39;: 739, &#39;flächenbrand&#39;: 740, &#39;inselchen&#39;: 741, &#39;japan&#39;: 742, &#39;könnten&#39;: 743, &#39;liegt&#39;: 744, &#39;machtanspruch&#39;: 745, &#39;meer&#39;: 746, &#39;mitten&#39;: 747, &#39;pulverfass&#39;: 748, &#39;sprengen&#39;: 749, &#39;weltgefüge&#39;: 750, &#39;weltkrieg&#39;: 751, &#39;winzige&#39;: 752, &#39;40&#39;: 753, &#39;damals&#39;: 754, &#39;diskutiert&#39;: 755, &#39;erinnert&#39;: 756, &#39;erstmals&#39;: 757, &#39;gewarnt&#39;: 758, &#39;heute&#39;: 759, &#39;heutige&#39;: 760, &#39;intakt&#39;: 761, &#39;jahren&#39;: 762, &#39;ozonloch&#39;: 763, &#39;repariertenvor&#39;: 764, &#39;schutzschicht&#39;: 765, &#39;umweltdebatten&#39;: 766, &#39;umweltpolitik&#39;: 767, &#39;uv-strahlung&#39;: 768, &#39;verlust&#39;: 769, &#39;wurde&#39;: 770, &#39;6&#39;: 771, &#39;apple&#39;: 772, &#39;ausverkauft&#39;: 773, &#39;ausverkauftwenige&#39;: 774, &#39;bereits&#39;: 775, &#39;bestellrekorde&#39;: 776, &#39;geräte&#39;: 777, &#39;iphone&#39;: 778, &#39;iphones&#39;: 779, &#39;kunden&#39;: 780, &#39;melden&#39;: 781, &#39;modelle&#39;: 782, &#39;stunden&#39;: 783, &#39;telekom&#39;: 784, &#39;vodafone&#39;: 785, &#39;vorbestellstart&#39;: 786, &#39;warten&#39;: 787, &#39;1746&#39;: 788, &#39;aufstand&#39;: 789, &#39;blutbad&#39;: 790, &#39;bonnie&#39;: 791, &#39;brachte&#39;: 792, &#39;charlie&#39;: 793, &#39;culloden&#39;: 794, &#39;endete&#39;: 795, &#39;endgültigen&#39;: 796, &#39;englands&#39;: 797, &#39;englische&#39;: 798, &#39;führte&#39;: 799, &#39;heldenstück&#39;: 800, &#39;herrschaft&#39;: 801, &#39;planloses&#39;: 802, &#39;prince&#39;: 803, &#39;referendum&#39;: 804, &#39;räsonein&#39;: 805, &#39;schlächter&#39;: 806, &#39;schottland&#39;: 807, &#39;schottlands&#39;: 808, &#39;stuart&#39;: 809, &#39;unterwerfung&#39;: 810}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of documents in the dictionary: &quot;</span><span class="p">,</span><span class="n">dictionary</span><span class="o">.</span><span class="n">num_docs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of corpus positions: &quot;</span><span class="p">,</span><span class="n">dictionary</span><span class="o">.</span><span class="n">num_pos</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of non-zeros in the BoW-Matrix: &quot;</span><span class="p">,</span><span class="n">dictionary</span><span class="o">.</span><span class="n">num_nnz</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of different words in the dictionary: &quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">dictionary</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of documents in the dictionary:  48
+Total number of corpus positions:  975
+Total number of non-zeros in the BoW-Matrix:  914
+Total number of different words in the dictionary:  811
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bag-of-word-bow-representation">
+<h2><span class="section-number">7.4. </span>Bag of Word (BoW) representation<a class="headerlink" href="#bag-of-word-bow-representation" title="Permalink to this headline">¶</a></h2>
+<p>Now arbitrary text-strings can be efficiently represented with respect to this dictionary. E.g. the code snippet below demonstrates how the text string <em>“putin beschützt russen”</em> is represented as a list of tuples. The first element of such a tuple is the dictionary index of a word in the text-string and the second number defines how often this word occurs in the text-string. The list contains only tuples for words which occur in the text-string and in the dictionary. This representation is called <strong>sparse Bag of Word</strong> representation (sparse because it contains only the non-zero elements).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newDoc</span> <span class="o">=</span> <span class="s2">&quot;putin beschützt russen&quot;</span>
+<span class="n">newVec</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">newDoc</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sparse BoW representation of </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">newDoc</span><span class="p">,</span><span class="n">newVec</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span><span class="n">freq</span> <span class="ow">in</span> <span class="n">newVec</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Index </span><span class="si">%d</span><span class="s2"> refers to word </span><span class="si">%s</span><span class="s2">. Frequency of this word in the document is </span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="n">dictionary</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span><span class="n">freq</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sparse BoW representation of putin beschützt russen: [(189, 1), (397, 1), (729, 1)]
+Index 189 refers to word beschützt. Frequency of this word in the document is 1
+Index 397 refers to word putin. Frequency of this word in the document is 1
+Index 729 refers to word russen. Frequency of this word in the document is 1
+</pre></div>
+</div>
+</div>
+</div>
+<p>From this output we infer, that</p>
+<ul class="simple">
+<li><p>the word at index 189 in the dictionary, which is <em>beschützt</em> , appears once in the text-string <em>newDoc</em></p></li>
+<li><p>the word at index 397 in the dictionary, which is <em>putin</em> , appears once in the text-string <em>newDoc</em></p></li>
+<li><p>the word at index 729 in the dictionary, which is <em>russen</em> , appears once in the text-string <em>newDoc</em> .</p></li>
+</ul>
+<p>The text-string <em>“schottland stimmt ab”</em> is represented as a list of 2 tuples (see code snippet below). The first says, that the word at index 229 ( <em>ab</em> ) appears once, the second tuple says that the word at index <em>807</em> ( <em>schottland</em> ) also appears once in the text-string. Since the word <em>stimmt</em> does not appear in the dictionary, there is no corresponding tuple for this word in the list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newDoc2</span> <span class="o">=</span> <span class="s2">&quot;schottland stimmt ab&quot;</span>
+<span class="n">newVec2</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">newDoc2</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sparse BoW representation of </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">newDoc2</span><span class="p">,</span><span class="n">newVec2</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span><span class="n">freq</span> <span class="ow">in</span> <span class="n">newVec2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Index </span><span class="si">%d</span><span class="s2"> refers to word </span><span class="si">%s</span><span class="s2">. Frequency of this word in the document is </span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="n">dictionary</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span><span class="n">freq</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sparse BoW representation of schottland stimmt ab: [(229, 1), (807, 1)]
+Index 229 refers to word ab. Frequency of this word in the document is 1
+Index 807 refers to word schottland. Frequency of this word in the document is 1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="efficient-corpus-representation">
+<h2><span class="section-number">7.5. </span>Efficient Corpus Representation<a class="headerlink" href="#efficient-corpus-representation" title="Permalink to this headline">¶</a></h2>
+<p>A corpus is a collection of documents. Such corpora may be annotated with meta-information, e.g. each word is tagged with its part of speech (POS-Tag). In this notebook, the list <em>docWords</em>, is a corpus without any annotations. So far this corpus has been applied to build the dictionary. In practical NLP tasks corpora are usually very large and therefore require an efficient representation. Using the already generated dictionary, each document (list of relevant words in a document) in the list <em>docWords</em> can be transformed to its sparse BoW representation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span><span class="n">dictionary</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docWords</span><span class="p">]</span>
+<span class="n">corpora</span><span class="o">.</span><span class="n">MmCorpus</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="s1">&#39;multiNews.mm&#39;</span><span class="p">,</span> <span class="n">corpus</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------- First 10 documents of the corpus ---------------------------------&quot;</span><span class="p">)</span>
+<span class="n">idx</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------document </span><span class="si">%d</span><span class="s2"> ---------------&quot;</span> <span class="o">%</span><span class="k">idx</span>)
+    <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------- First 10 documents of the corpus ---------------------------------
+-------------document 0 ---------------
+[(0, 1), (1, 1), (2, 1), (3, 1), (4, 1), (5, 1), (6, 1), (7, 1), (8, 1), (9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (14, 1), (15, 1), (16, 1), (17, 1)]
+-------------document 1 ---------------
+[(18, 1), (19, 1), (20, 1), (21, 1), (22, 1), (23, 1), (24, 1), (25, 1), (26, 1), (27, 1), (28, 1), (29, 1), (30, 1), (31, 1), (32, 1), (33, 1), (34, 2), (35, 1)]
+-------------document 2 ---------------
+[(36, 2), (37, 1), (38, 1), (39, 1), (40, 1), (41, 2), (42, 1), (43, 1), (44, 1), (45, 1), (46, 1), (47, 1), (48, 1), (49, 1), (50, 1), (51, 1), (52, 1), (53, 1), (54, 1)]
+-------------document 3 ---------------
+[(55, 1), (56, 1), (57, 1), (58, 1), (59, 1), (60, 1), (61, 1), (62, 1), (63, 1), (64, 1), (65, 1), (66, 1), (67, 1), (68, 1), (69, 1), (70, 1), (71, 1), (72, 1), (73, 1), (74, 1), (75, 1)]
+-------------document 4 ---------------
+[(76, 1), (77, 1), (78, 1), (79, 1), (80, 1), (81, 1), (82, 1), (83, 1), (84, 1), (85, 1), (86, 1), (87, 1), (88, 1), (89, 1), (90, 1), (91, 1), (92, 1), (93, 1)]
+-------------document 5 ---------------
+[(94, 1), (95, 1), (96, 1), (97, 1), (98, 1), (99, 1), (100, 1), (101, 1), (102, 1), (103, 1), (104, 1), (105, 1), (106, 1), (107, 1), (108, 1), (109, 1), (110, 1), (111, 1), (112, 1)]
+-------------document 6 ---------------
+[(42, 1), (113, 1), (114, 1), (115, 1), (116, 1), (117, 2), (118, 1), (119, 1), (120, 1), (121, 1), (122, 1), (123, 1), (124, 1)]
+-------------document 7 ---------------
+[(125, 1), (126, 1), (127, 1), (128, 1), (129, 1), (130, 1), (131, 1), (132, 2), (133, 1), (134, 1), (135, 1), (136, 1), (137, 1), (138, 1), (139, 1)]
+-------------document 8 ---------------
+[(140, 1), (141, 1), (142, 1), (143, 1), (144, 1), (145, 1), (146, 1), (147, 2), (148, 1), (149, 1), (150, 1), (151, 1), (152, 1), (153, 1), (154, 1)]
+-------------document 9 ---------------
+[(55, 1), (155, 1), (156, 1), (157, 1), (158, 1), (159, 1), (160, 1), (161, 1), (162, 1), (163, 1), (164, 1), (165, 1), (166, 1), (167, 1), (168, 1)]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="similarity-analysis">
+<h2><span class="section-number">7.6. </span>Similarity Analysis<a class="headerlink" href="#similarity-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Typical information retrieval tasks include the task of determining similarities between collections of documents or between a query and a collection of documents. Using gensim a fast similarity calculation and search is supported. For this, first a <strong>cosine-similarity-index</strong> of the given corpus is calculated as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="n">similarities</span><span class="o">.</span><span class="n">SparseMatrixSimilarity</span><span class="p">(</span><span class="n">corpus</span><span class="p">,</span> <span class="n">num_features</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">dictionary</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, assume that for a given query, e.g. <em>“putin beschützt russen”</em> the best matching document in the corpus must be determined. The sparse BoW representation of this query has already been calculated and stored in the variable <em>newVec</em>. The similarity between this query and all documents in the corpus can be calculated as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sims</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="n">newVec</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">sims</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, 0.0), (1, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0), (10, 0.0), (11, 0.13608277), (12, 0.0), (13, 0.0), (14, 0.0), (15, 0.0), (16, 0.0), (17, 0.0), (18, 0.0), (19, 0.0), (20, 0.0), (21, 0.0), (22, 0.0), (23, 0.12309149), (24, 0.0), (25, 0.0), (26, 0.0), (27, 0.0), (28, 0.0), (29, 0.0), (30, 0.0), (31, 0.0), (32, 0.0), (33, 0.0), (34, 0.0), (35, 0.0), (36, 0.0), (37, 0.0), (38, 0.0), (39, 0.0), (40, 0.0), (41, 0.0), (42, 0.0), (43, 0.23570226), (44, 0.0), (45, 0.0), (46, 0.0), (47, 0.0)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The tuples in this output contain as first element the index of the document in the corpus. The second element is the cosine-similarity between this corpus-document and the query.</p>
+<p>In order to get a sorted list of increasingly similar documents, the <code class="docutils literal notranslate"><span class="pre">argsort()</span></code>-method can be applied as shown below. The last value in this list is the index of the most similar document:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sims</span><span class="o">.</span><span class="n">argsort</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0 25 26 27 28 29 30 31 32 33 24 34 36 37 38 39 40 41 42 44 45 35 46 47
+ 21  1  2  3  4  5  6  7  8  9 22 10 12 13 14 15 16 17 18 19 20 23 11 43]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example <em>document 43</em> best matches to the query. The cosine-similarity between the query and <em>document 43</em> is <em>0.2357</em>.</p>
+<p>Question: Manually verify the calculated similiarity value between the query and <em>document 43</em>.</p>
+<p>In the same way the similarity between documents in the corpus can be calculated. E.g. the similiarity between <em>document 1</em> and all other documents in the corpus is determined as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sims</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="n">corpus</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">((</span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">sims</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sims</span><span class="o">.</span><span class="n">argsort</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, 0.0), (1, 1.0), (2, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0), (10, 0.0), (11, 0.0), (12, 0.0), (13, 0.05143445), (14, 0.0), (15, 0.15877683), (16, 0.0), (17, 0.0), (18, 0.0), (19, 0.0), (20, 0.0), (21, 0.0), (22, 0.0), (23, 0.0), (24, 0.0), (25, 0.0), (26, 0.044543542), (27, 0.0727393), (28, 0.0), (29, 0.0), (30, 0.05006262), (31, 0.048795003), (32, 0.0), (33, 0.04761905), (34, 0.0), (35, 0.0), (36, 0.0), (37, 0.0), (38, 0.0), (39, 0.0), (40, 0.04364358), (41, 0.045501575), (42, 0.0), (43, 0.0), (44, 0.0), (45, 0.0), (46, 0.0), (47, 0.0)]
+[ 0 22 46 24 25 28 29 32 34 35 36 37 38 39 42 43 44 45 21 20 23 18  2  3
+  4  5  6  7  8  9 19 11 10 12 14 16 17 47 40 26 41 33 31 30 13 27 15  1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Thus <em>document 15</em> is the most similar document to <em>document 1</em>. As can easily be verified both documents refer to the same topic (crisis in ukraine).</p>
+</div>
+<div class="section" id="tf-idf-representation">
+<h2><span class="section-number">7.7. </span>TF-IDF representation<a class="headerlink" href="#tf-idf-representation" title="Permalink to this headline">¶</a></h2>
+<p>So far in the BoW representation of the documents the <em>term frequency (tf)</em> has been applied. This value measures how often the term (word) appears in the document. If document similarity is calculated on such tf-based BoW representation, common words which appear quite often (in many documents) but have low semantic focus have a strong impact on the similarity-value. In most cases this is a drawback, since similarity should be based on terms with a high semantic focus. Such semantically meaningful words usually appear only in a few documents. The <em>term frequency inversed document frequency measure (tf-idf)</em> does not only count the frequency of a term in a document, but weighs those terms stronger, which occur only in a few documents of the corpus.</p>
+<p>In <em>gensim</em> the <em>tfidf</em> - model of a corpus can be calculated as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TfidfModel</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <em>tf-idf</em>-representation of the first 3 documents in the corpus are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">[:</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------tf-idf BoW of document </span><span class="si">%d</span><span class="s2"> ---------------&quot;</span> <span class="o">%</span><span class="k">idx</span>)
+    <span class="nb">print</span><span class="p">(</span><span class="n">tfidf</span><span class="p">[</span><span class="n">d</span><span class="p">])</span>
+    <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-------------tf-idf BoW of document 0 ---------------
+[(0, 0.24353425982511087), (1, 0.1999289070955868), (2, 0.24353425982511087), (3, 0.24353425982511087), (4, 0.24353425982511087), (5, 0.24353425982511087), (6, 0.24353425982511087), (7, 0.24353425982511087), (8, 0.24353425982511087), (9, 0.24353425982511087), (10, 0.1999289070955868), (11, 0.1744214109180963), (12, 0.24353425982511087), (13, 0.24353425982511087), (14, 0.24353425982511087), (15, 0.24353425982511087), (16, 0.24353425982511087), (17, 0.24353425982511087)]
+-------------tf-idf BoW of document 1 ---------------
+[(18, 0.23522128928414127), (19, 0.23522128928414127), (20, 0.16846758720673122), (21, 0.23522128928414127), (22, 0.23522128928414127), (23, 0.23522128928414127), (24, 0.23522128928414127), (25, 0.23522128928414127), (26, 0.23522128928414127), (27, 0.19310439248245848), (28, 0.19310439248245848), (29, 0.16846758720673122), (30, 0.16846758720673122), (31, 0.23522128928414127), (32, 0.19310439248245848), (33, 0.16846758720673122), (34, 0.47044257856828253), (35, 0.23522128928414127)]
+-------------tf-idf BoW of document 2 ---------------
+[(36, 0.4166329302664041), (37, 0.20831646513320204), (38, 0.17101693714061422), (39, 0.17101693714061422), (40, 0.20831646513320204), (41, 0.4166329302664041), (42, 0.17101693714061422), (43, 0.17101693714061422), (44, 0.17101693714061422), (45, 0.20831646513320204), (46, 0.20831646513320204), (47, 0.20831646513320204), (48, 0.20831646513320204), (49, 0.20831646513320204), (50, 0.20831646513320204), (51, 0.17101693714061422), (52, 0.20831646513320204), (53, 0.20831646513320204), (54, 0.20831646513320204)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this representation the second element in the tuples is not the term frequency, but the <em>tfidf</em>. Note that default configuration of <a class="reference external" href="http://radimrehurek.com/gensim/models/tfidfmodel.html">tf-idf in gensim</a> calculates tf-idf values such that each document-vector has a norm of <em>1.</em> The tfidf-model without normalization is generated at the end of this notebook.</p>
+<p>Question: Find the maximum tf-idf value in these 3 documents. To which word does this maximum value belong? How often does this word occur in the document?</p>
+<p>The <em>tf-idf</em>-representation of the text-string <em>“putin beschützt russen”</em> is determined as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newVecTfIdf</span> <span class="o">=</span> <span class="n">tfidf</span><span class="p">[</span><span class="n">newVec</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tf BoW representation of </span><span class="si">%s</span><span class="s2"> is:</span><span class="se">\n</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">newDoc</span><span class="p">,</span><span class="n">newVec</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tf-idf BoW representation of </span><span class="si">%s</span><span class="s2"> is:</span><span class="se">\n</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">newDoc</span><span class="p">,</span><span class="n">newVecTfIdf</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tf BoW representation of putin beschützt russen is:
+ [(189, 1), (397, 1), (729, 1)]
+tf-idf BoW representation of putin beschützt russen is:
+ [(189, 0.6115372747558391), (397, 0.5020401609118563), (729, 0.6115372747558391)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Question: Explain the different values in the tfidf BoW representation <em>newVecTfIdf</em>.</p>
+<p><strong>TF-IDF-Model without normalization:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidfnoNorm</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TfidfModel</span><span class="p">(</span><span class="n">corpus</span><span class="p">,</span><span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Display tf-idf BoW of first 3 documents:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">[:</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------tf-idf BoW of document </span><span class="si">%d</span><span class="s2"> ---------------&quot;</span> <span class="o">%</span><span class="k">idx</span>)
+    <span class="nb">print</span><span class="p">(</span><span class="n">tfidfnoNorm</span><span class="p">[</span><span class="n">d</span><span class="p">])</span>
+    <span class="n">idx</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-------------tf-idf BoW of document 0 ---------------
+[(0, 5.584962500721157), (1, 4.584962500721157), (2, 5.584962500721157), (3, 5.584962500721157), (4, 5.584962500721157), (5, 5.584962500721157), (6, 5.584962500721157), (7, 5.584962500721157), (8, 5.584962500721157), (9, 5.584962500721157), (10, 4.584962500721157), (11, 4.0), (12, 5.584962500721157), (13, 5.584962500721157), (14, 5.584962500721157), (15, 5.584962500721157), (16, 5.584962500721157), (17, 5.584962500721157)]
+-------------tf-idf BoW of document 1 ---------------
+[(18, 5.584962500721157), (19, 5.584962500721157), (20, 4.0), (21, 5.584962500721157), (22, 5.584962500721157), (23, 5.584962500721157), (24, 5.584962500721157), (25, 5.584962500721157), (26, 5.584962500721157), (27, 4.584962500721157), (28, 4.584962500721157), (29, 4.0), (30, 4.0), (31, 5.584962500721157), (32, 4.584962500721157), (33, 4.0), (34, 11.169925001442314), (35, 5.584962500721157)]
+-------------tf-idf BoW of document 2 ---------------
+[(36, 11.169925001442314), (37, 5.584962500721157), (38, 4.584962500721157), (39, 4.584962500721157), (40, 5.584962500721157), (41, 11.169925001442314), (42, 4.584962500721157), (43, 4.584962500721157), (44, 4.584962500721157), (45, 5.584962500721157), (46, 5.584962500721157), (47, 5.584962500721157), (48, 5.584962500721157), (49, 5.584962500721157), (50, 5.584962500721157), (51, 4.584962500721157), (52, 5.584962500721157), (53, 5.584962500721157), (54, 5.584962500721157)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Verify the tf-idf-values as calculated in the code-cell above, by own tf-idf-formula:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">tf</span><span class="o">=</span><span class="mi">1</span> <span class="c1">#term frequency</span>
+<span class="n">NumDocs</span><span class="o">=</span><span class="n">dictionary</span><span class="o">.</span><span class="n">num_docs</span> <span class="c1">#number of documents</span>
+<span class="n">df</span><span class="o">=</span><span class="mi">1</span> <span class="c1">#number of documents in which the word appears</span>
+<span class="n">tfidf</span><span class="o">=</span><span class="n">tf</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">NumDocs</span><span class="p">)</span><span class="o">/</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tfidf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.584962500721156
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tokenisation-and-document-models-with-keras">
+<h2><span class="section-number">7.8. </span>Tokenisation and Document models with Keras<a class="headerlink" href="#tokenisation-and-document-models-with-keras" title="Permalink to this headline">¶</a></h2>
+<p>This section demonstrates how <a class="reference external" href="https://keras.io/api/preprocessing/text/">Keras</a> can be applied for tokenisation and BoW document-modelling. I.e. no new techniques are introduced here. Instead it is shown how Keras can be applied to implement already known procedures. This is usefunl, because Keras will be applied later on to implement Neural Networks.</p>
+<div class="section" id="tokenizsation">
+<h3><span class="section-number">7.8.1. </span>Tokenizsation<a class="headerlink" href="#tokenizsation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="text-collections-as-lists-of-strings">
+<h4><span class="section-number">7.8.1.1. </span>Text collections as lists of strings<a class="headerlink" href="#text-collections-as-lists-of-strings" title="Permalink to this headline">¶</a></h4>
+<p>Tokens are atomic text elements. Depending on the NLP task and the selected approach to solve this task, tokens can either be</p>
+<ul class="simple">
+<li><p>characters</p></li>
+<li><p>words (uni-grams)</p></li>
+<li><p>n-grams</p></li>
+</ul>
+<p>Single texts are often represented as variables of type <code class="docutils literal notranslate"><span class="pre">string</span></code>. Collections of texts are then represented as lists of strings.</p>
+<p>Below, a collection of 3 texts is generated as a list of <code class="docutils literal notranslate"><span class="pre">string</span></code>-variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text1</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Florida shooting: Nikolas Cruz confesses to police Nikolas Cruz is said</span>
+<span class="s2">to have killed 17 people before escaping and visiting a McDonalds.&quot;&quot;&quot;</span>
+<span class="n">text2</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Winter Olympics: Great Britain&#39;s Dom Parsons wins skeleton bronze medal</span>
+<span class="s2">Dom Parsons claims Great Britain&#39;s first medal of 2018 Winter Olympics with bronze in the men&#39;s skeleton.&quot;&quot;&quot;</span>
+<span class="n">text3</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Theresa May to hold talks with Angela Merkel in Berlin</span>
+<span class="s2">The prime minister&#39;s visit comes amid calls for the UK to say what it wants from Brexit.&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Florida shooting: Nikolas Cruz confesses to police Nikolas Cruz is said
+to have killed 17 people before escaping and visiting a McDonalds.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">textlist</span><span class="o">=</span><span class="p">[</span><span class="n">text1</span><span class="p">,</span><span class="n">text2</span><span class="p">,</span><span class="n">text3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="keras-class-tokenizer">
+<h4><span class="section-number">7.8.1.2. </span>Keras class Tokenizer<a class="headerlink" href="#keras-class-tokenizer" title="Permalink to this headline">¶</a></h4>
+<p>In Keras methods for preprocessing texts are contained in <code class="docutils literal notranslate"><span class="pre">keras.preprocessing.text</span></code>. From this module, we apply the <code class="docutils literal notranslate"><span class="pre">Tokenizer</span></code>-class to</p>
+<ul class="simple">
+<li><p>transform words to integers, i.e. generating a word-index</p></li>
+<li><p>represent texts as sequences of integers</p></li>
+<li><p>represent collections of texts in a Bag-of-Words (BOW)-matrix</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keras.preprocessing</span> <span class="kn">import</span> <span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using TensorFlow backend.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Generate a <code class="docutils literal notranslate"><span class="pre">Tokenizer</span></code>-object and fit it on the given list of texts:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span><span class="o">=</span><span class="n">text</span><span class="o">.</span><span class="n">Tokenizer</span><span class="p">()</span>
+<span class="n">tokenizer</span><span class="o">.</span><span class="n">fit_on_texts</span><span class="p">(</span><span class="n">textlist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Tokenizer</span></code>-class accepts a list of arguments, which can be configured at initialisation of a <code class="docutils literal notranslate"><span class="pre">Tokenizer</span></code>-object. The default-values are printed below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Configured maximum number of words in the vocabulary: &quot;</span><span class="p">,</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">num_words</span><span class="p">)</span> <span class="c1">#Maximum number of words to regard in the vocabulary</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Configured filters: &quot;</span><span class="p">,</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">filters</span><span class="p">)</span> <span class="c1">#characters to ignore in tokenization</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Map all characters to lower case: &quot;</span><span class="p">,</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">lower</span><span class="p">)</span> <span class="c1">#Mapping of characters to lower-case</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tokenizsation on character level: &quot;</span><span class="p">,</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">char_level</span><span class="p">)</span> <span class="c1">#whether tokens are words or characters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Configured maximum number of words in the vocabulary:  None
+Configured filters:  !&quot;#$%&amp;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~	
+
+Map all characters to lower case:  True
+Tokenizsation on character level:  False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of documents: &quot;</span><span class="p">,</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">document_count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of documents:  3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similar as the <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> in gensim (see above), the Keras <code class="docutils literal notranslate"><span class="pre">Tokenizer</span></code> provides a word-index, which uniquely maps each word to an integer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Index of words: &quot;</span><span class="p">,</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">word_index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index of words:  {&#39;to&#39;: 1, &#39;the&#39;: 2, &#39;nikolas&#39;: 3, &#39;cruz&#39;: 4, &#39;winter&#39;: 5, &#39;olympics&#39;: 6, &#39;great&#39;: 7, &quot;britain&#39;s&quot;: 8, &#39;dom&#39;: 9, &#39;parsons&#39;: 10, &#39;skeleton&#39;: 11, &#39;bronze&#39;: 12, &#39;medal&#39;: 13, &#39;with&#39;: 14, &#39;in&#39;: 15, &#39;florida&#39;: 16, &#39;shooting&#39;: 17, &#39;confesses&#39;: 18, &#39;police&#39;: 19, &#39;is&#39;: 20, &#39;said&#39;: 21, &#39;have&#39;: 22, &#39;killed&#39;: 23, &#39;17&#39;: 24, &#39;people&#39;: 25, &#39;before&#39;: 26, &#39;escaping&#39;: 27, &#39;and&#39;: 28, &#39;visiting&#39;: 29, &#39;a&#39;: 30, &#39;mcdonalds&#39;: 31, &#39;wins&#39;: 32, &#39;claims&#39;: 33, &#39;first&#39;: 34, &#39;of&#39;: 35, &#39;2018&#39;: 36, &quot;men&#39;s&quot;: 37, &#39;theresa&#39;: 38, &#39;may&#39;: 39, &#39;hold&#39;: 40, &#39;talks&#39;: 41, &#39;angela&#39;: 42, &#39;merkel&#39;: 43, &#39;berlin&#39;: 44, &#39;prime&#39;: 45, &quot;minister&#39;s&quot;: 46, &#39;visit&#39;: 47, &#39;comes&#39;: 48, &#39;amid&#39;: 49, &#39;calls&#39;: 50, &#39;for&#39;: 51, &#39;uk&#39;: 52, &#39;say&#39;: 53, &#39;what&#39;: 54, &#39;it&#39;: 55, &#39;wants&#39;: 56, &#39;from&#39;: 57, &#39;brexit&#39;: 58}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The method <code class="docutils literal notranslate"><span class="pre">word_docs()</span></code> returns for each word the number of documents, in which the word appears:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of docs, in which word appears: &quot;</span><span class="p">,</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">word_docs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of docs, in which word appears:  defaultdict(&lt;class &#39;int&#39;&gt;, {&#39;is&#39;: 1, &#39;killed&#39;: 1, &#39;nikolas&#39;: 1, &#39;confesses&#39;: 1, &#39;have&#39;: 1, &#39;cruz&#39;: 1, &#39;escaping&#39;: 1, &#39;police&#39;: 1, &#39;to&#39;: 2, &#39;shooting&#39;: 1, &#39;florida&#39;: 1, &#39;a&#39;: 1, &#39;17&#39;: 1, &#39;before&#39;: 1, &#39;mcdonalds&#39;: 1, &#39;people&#39;: 1, &#39;and&#39;: 1, &#39;visiting&#39;: 1, &#39;said&#39;: 1, &#39;parsons&#39;: 1, &#39;claims&#39;: 1, &#39;olympics&#39;: 1, &quot;britain&#39;s&quot;: 1, &#39;first&#39;: 1, &#39;2018&#39;: 1, &#39;medal&#39;: 1, &#39;wins&#39;: 1, &quot;men&#39;s&quot;: 1, &#39;dom&#39;: 1, &#39;bronze&#39;: 1, &#39;of&#39;: 1, &#39;great&#39;: 1, &#39;with&#39;: 2, &#39;winter&#39;: 1, &#39;skeleton&#39;: 1, &#39;the&#39;: 2, &#39;in&#39;: 2, &#39;visit&#39;: 1, &#39;say&#39;: 1, &#39;comes&#39;: 1, &#39;calls&#39;: 1, &#39;angela&#39;: 1, &#39;from&#39;: 1, &#39;merkel&#39;: 1, &#39;wants&#39;: 1, &#39;for&#39;: 1, &#39;berlin&#39;: 1, &#39;may&#39;: 1, &#39;amid&#39;: 1, &#39;uk&#39;: 1, &#39;what&#39;: 1, &quot;minister&#39;s&quot;: 1, &#39;hold&#39;: 1, &#39;brexit&#39;: 1, &#39;it&#39;: 1, &#39;talks&#39;: 1, &#39;theresa&#39;: 1, &#39;prime&#39;: 1})
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="represent-texts-as-sequences-of-word-indices">
+<h3><span class="section-number">7.8.2. </span>Represent texts as sequences of word-indices:<a class="headerlink" href="#represent-texts-as-sequences-of-word-indices" title="Permalink to this headline">¶</a></h3>
+<p>The following representation of texts as sequences of word-indicees is a common input to Neural Networks implemented in Keras.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">textSeqs</span><span class="o">=</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_sequences</span><span class="p">(</span><span class="n">textlist</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">ts</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">textSeqs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;text </span><span class="si">%d</span><span class="s2"> sequence: &quot;</span><span class="o">%</span><span class="k">i</span>,ts)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>text 0 sequence:  [16, 17, 3, 4, 18, 1, 19, 3, 4, 20, 21, 1, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+text 1 sequence:  [5, 6, 7, 8, 9, 10, 32, 11, 12, 13, 9, 10, 33, 7, 8, 34, 13, 35, 36, 5, 6, 14, 12, 15, 2, 37, 11]
+text 2 sequence:  [38, 39, 1, 40, 41, 14, 42, 43, 15, 44, 2, 45, 46, 47, 48, 49, 50, 51, 2, 52, 1, 53, 54, 55, 56, 57, 58]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="represent-text-collection-as-binary-bow">
+<h3><span class="section-number">7.8.3. </span>Represent text-collection as binary BoW:<a class="headerlink" href="#represent-text-collection-as-binary-bow" title="Permalink to this headline">¶</a></h3>
+<p>A Bag-Of-Words representation of documents contains <span class="math notranslate nohighlight">\(N\)</span> rows and <span class="math notranslate nohighlight">\(|V|\)</span> columns, where <span class="math notranslate nohighlight">\(N\)</span> is the number of documents in the collection and <span class="math notranslate nohighlight">\(|V|\)</span> is the size of the vocabulary, i.e. the number of different words in the entire document collection.</p>
+<p>The entry <span class="math notranslate nohighlight">\(x_{i,j}\)</span> of the BoW-Matrix indicates the <strong>relevance of word <span class="math notranslate nohighlight">\(j\)</span> in document <span class="math notranslate nohighlight">\(i\)</span></strong>.</p>
+<p>In this lecture 3 different types of <strong>word-relevance</strong> are considered:</p>
+<ol class="simple">
+<li><p><strong>Binary BoW:</strong> Entry <span class="math notranslate nohighlight">\(x_{i,j}\)</span> is <em>1</em> if word <span class="math notranslate nohighlight">\(j\)</span> appears in document <span class="math notranslate nohighlight">\(i\)</span>, otherwise 0.</p></li>
+<li><p><strong>Count-based BoW:</strong> Entry <span class="math notranslate nohighlight">\(x_{i,j}\)</span> is the frequency of word <span class="math notranslate nohighlight">\(j\)</span> in document <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+<li><p><strong>Tf-idf-based BoW:</strong> Entry <span class="math notranslate nohighlight">\(x_{i,j}\)</span> is the tf-idf of word <span class="math notranslate nohighlight">\(j\)</span> with respect to document <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+</ol>
+<p>The BoW-representation of texts is a common input to conventional Machine Learning algorithms (not Neural Netorks like CNN and RNN).</p>
+<div class="section" id="binary-bow">
+<h4><span class="section-number">7.8.3.1. </span>Binary BoW<a class="headerlink" href="#binary-bow" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_matrix</span><span class="p">(</span><span class="n">textlist</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 1. 0. 1. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1. 1. 1. 1. 1. 1. 1.
+  1. 1. 1. 1. 1. 1. 1. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 1. 0. 0. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 1. 1. 1. 1. 1. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 1. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.
+  1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="count-based-bow">
+<h4><span class="section-number">7.8.3.2. </span>Count-based BoW<a class="headerlink" href="#count-based-bow" title="Permalink to this headline">¶</a></h4>
+<p>Represent text-collection as BoW with word-counts:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_matrix</span><span class="p">(</span><span class="n">textlist</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 2. 0. 2. 2. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1. 1. 1. 1. 1. 1. 1.
+  1. 1. 1. 1. 1. 1. 1. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 1. 0. 0. 2. 2. 2. 2. 2. 2. 2. 2. 2. 1. 1. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 1. 1. 1. 1. 1. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 2. 2. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.
+  1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tf-idf-based-bow">
+<h4><span class="section-number">7.8.3.3. </span>Tf-idf-based BoW<a class="headerlink" href="#tf-idf-based-bow" title="Permalink to this headline">¶</a></h4>
+<p>In the BoW representation above the term frequency (tf) has been applied. This value measures how often the term (word) appears in the document. If document similarity is calculated on such tf-based BoW representation, common words which appear quite often (in many documents) but have low semantic focus, have a strong impact on the similarity-value. In most cases this is a drawback, since similarity should be based on terms with a high semantic focus. Such semantically meaningful words usually appear only in a few documents. The term frequency inversed document frequency measure (tf-idf) does not only count the frequency of a term in a document, but weighs those terms stronger, which occur only in a few documents of the corpus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_matrix</span><span class="p">(</span><span class="n">textlist</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;tfidf&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.         1.17360019 0.         1.55141507 1.55141507 0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.91629073 0.91629073
+  0.91629073 0.91629073 0.91629073 0.91629073 0.91629073 0.91629073
+  0.91629073 0.91629073 0.91629073 0.91629073 0.91629073 0.91629073
+  0.91629073 0.91629073 0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.        ]
+ [0.         0.         0.69314718 0.         0.         1.55141507
+  1.55141507 1.55141507 1.55141507 1.55141507 1.55141507 1.55141507
+  1.55141507 1.55141507 0.69314718 0.69314718 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.91629073 0.91629073 0.91629073 0.91629073
+  0.91629073 0.91629073 0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.        ]
+ [0.         1.17360019 1.17360019 0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.69314718 0.69314718 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.91629073 0.91629073 0.91629073 0.91629073
+  0.91629073 0.91629073 0.91629073 0.91629073 0.91629073 0.91629073
+  0.91629073 0.91629073 0.91629073 0.91629073 0.91629073 0.91629073
+  0.91629073 0.91629073 0.91629073 0.91629073 0.91629073]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./05representations"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="01WordEmbeddingImplementation.html" title="previous page"><span class="section-number">6. </span>Applying Word-Embeddings</a>
+    <a class='right-next' id="next-link" href="05topicextraction.html" title="next page"><span class="section-number">8. </span>Topic Extraction</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

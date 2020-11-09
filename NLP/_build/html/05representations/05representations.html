@@ -109,8 +109,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="02gensimDocModelSimple.html">
+   7. Document models and similarity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05topicextraction.html">
+   8. Topic Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../referenceSection.html">
-   7. References
+   9. References
   </a>
  </li>
 </ul>
@@ -529,7 +539,7 @@ An example is given below. Here we assume, that there are only 3 documents in th
 <th class="text-align:center head"><p>word 1</p></th>
 <th class="text-align:center head"><p>word 2</p></th>
 <th class="text-align:center head"><p>word 3</p></th>
-<th class="text-align:center head"><p>sord 4</p></th>
+<th class="text-align:center head"><p>word 4</p></th>
 </tr>
 </thead>
 <tbody>
@@ -630,7 +640,7 @@ s_C(\underline{q},\underline{d}_3)=\frac{0 \cdot 1 + 0 \cdot 1 + 1 \cdot 0 + 1 \
 </div>
 </div>
 <div class="section" id="distributional-semantic-models">
-<h2><span class="section-number">5.2. </span>Distributional Semantic Models<a class="headerlink" href="#distributional-semantic-models" title="Permalink to this headline">¶</a></h2>
+<span id="dsm-label"></span><h2><span class="section-number">5.2. </span>Distributional Semantic Models<a class="headerlink" href="#distributional-semantic-models" title="Permalink to this headline">¶</a></h2>
 <p>The linguistic theory of distributional semantics is based on the hypothesis, that words, which occur in similar contexts, have similar meaning. J.R. Firth formulated this assumption in his famous sentence <a class="bibtex reference internal" href="../referenceSection.html#firth57synopsis" id="id2">[Fir57]</a>:</p>
 <p><em>You shall know a word by the company it keeps</em></p>
 <p>Since computers can easily determine the co-occurrence statistics of words in large corpora the theory of distributional semantics provides a promising opportunity to automatically learn semantic relations. The learned semantic representations are called <strong>Distributional Semantic models (DSM)</strong>. <strong>They represent each word as a numerical vector, such that words, which appear frequently in similar contexts, are represented by similar vectors.</strong> In the figure below the arrow represents the DSM. Since there are many different DSMs there a many different approaches to implement this transformation from the hypothesis of distributional semantics to the word space.</p>

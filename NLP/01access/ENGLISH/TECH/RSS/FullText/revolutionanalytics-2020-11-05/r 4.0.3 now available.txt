@@ -1,0 +1,19 @@
+
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		
+« Microsoft R Open 4.0.2 now available |
+	Main
+The R Core Team has released R 4.0.3 (codename: "Bunny-Wunnies Freak Out"), the latest update to the R statistical computing system. This is a minor update to the R 4.0.x series, and so should not require any changes to existing R 4.0 scripts or packages. It is available for download for Windows, Mac and Linux systems from your local CRAN mirror. This release includes minor improvements and bug fixes including improved timezone support on MacOS, improved labels on dot charts, better handling of large tables for Fisher's Exact Test and Chi-Square tests, and control over timeouts for internet connections. For complete details on the R 4.0.3, check out the announcement linked below.R-announce mailing list: R 4.0.3 is released
+Posted by David Smith at 14:23 in announcements, R  | Permalink
+ You can follow this conversation by subscribing to the comment feed for this post.This is only a preview. Your comment has not yet been posted.The letters and numbers you entered did not match the image. Please try again.As a final step before posting your comment, enter the letters and numbers you see in the image below. This prevents automated programs from posting comments.Having trouble reading this image? View an alternate.
+            				    (You can use HTML tags like <b> <i> and <ul> to style your text.)
+            				
+                                (Name and email address are required. Email address will not be displayed with the comment.)
+                            
+                            
+
+Name is required to post a comment
+
+
+Please enter a valid email address
+Please enable JavaScript if you would like to comment on this blog.

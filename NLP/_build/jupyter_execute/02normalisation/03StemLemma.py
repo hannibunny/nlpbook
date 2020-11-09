@@ -151,4 +151,3 @@ for word,tag in myBlob5.tags:
 
 for word in myBlob5.words.lemmatize():
     print(word)
-

@@ -37,8 +37,8 @@ $$
 ### Bag-of-Word Model
 
  In the general case the vector space model implies a vector, whose components are the frequencies of pre-defined features in the given input. In the special case of text (=documents), a vector space model is applied, where the features are defined to be all words of the vocabulary $V$. I.e. each component in the resulting vector corresponds to a word $w \in V$ and the value of the component is the frequency of this word in the given document. This vector space model for texts is the so called **Bag of Words (BoW)** model and the frequency of a word in a given document is denoted **term-frequency**. Accordingly a set of documents is modelled by a **Bag of Words matrix**, whose rows belong to documents and whose columns belong to words. 
- 
-     
+
+
 ```{admonition} Example: Bag of Word matrix
 :class: dropdown
 
@@ -77,7 +77,7 @@ $$
 
 i.e. such words are disregarded in a BoW with TF-IDF entries. Otherwise, words with a very strong semantic focus usually appear in only a few documents. Then the small value of $df_j$ yields a low *IDF*, i.e. the term-frequency of such a word is weighted strongly.
 
-  
+
 
 ### One-Hot-Encoding of Words
 
@@ -133,7 +133,7 @@ This means that the question on *relevance* is solved by determining *nearest ve
 An example is given below. Here we assume, that there are only 3 documents in the index and there are only 4 different words, occuring in these documents. Document 2, for example, contains *word 1* with a frequency of 4 and *word 2* with a frequency of 5. The query consists of *word 1* and *word 2*. The BoW-matrix and the attached query-vector are:    
 
 
-|            	| word 1 	| word 2 	| word 3 	| sord 4 	|
+|            	| word 1 	| word 2 	| word 3 	| word 4 	|
 |------------	|:------:	|:------:	|:------:	|:------:	|
 | document 1 	|    1   	|    1   	|    1   	|    1   	|
 | document 2 	|    4   	|    5   	|    0   	|    0   	|
@@ -230,7 +230,7 @@ BoW representation of documents and the One-Hot-Encoding of single words, as des
 
 All of these drawbacks can be solved by applying *Distributional Semantic models* to map words into numeric vectors and by the way the resulting *Word Empeddings* are passed e.g. to the input of Recurrent Neural Networks, Convolutional Neural Networks or Transformers (see later chapters of this lecture). 
 
-
+(dsm-label)=
 ## Distributional Semantic Models
 
 The linguistic theory of distributional semantics is based on the hypothesis, that words, which occur in similar contexts, have similar meaning. J.R. Firth formulated this assumption in his famous sentence {cite}`firth57synopsis`: 

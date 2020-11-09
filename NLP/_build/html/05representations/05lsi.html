@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>8.1. Latent Semantic Indexing (LSI) &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.2. Implementation of Topic Extraction and Document Clustering" href="02LatentSemanticIndexing.html" />
+    <link rel="prev" title="8. Topic Extraction" href="05topicextraction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01access/01access.html">
+   1. Access and Preprocess Text
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02normalisation/02normalisation.html">
+   2. Word Normalisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03postagging/03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04ngram/04ngram.html">
+   4. N-Gram Language Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05representations.html">
+   5. Vector Representations of Words and Documents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01WordEmbeddingImplementation.html">
+   6. Applying Word-Embeddings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02gensimDocModelSimple.html">
+   7. Document models and similarity
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="05topicextraction.html">
+   8. Topic Extraction
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     8.1. Latent Semantic Indexing (LSI)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02LatentSemanticIndexing.html">
+     8.2. Implementation of Topic Extraction and Document Clustering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referenceSection.html">
+   9. References
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/05representations/05lsi.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="latent-semantic-indexing-lsi">
+<h1><span class="section-number">8.1. </span>Latent Semantic Indexing (LSI)<a class="headerlink" href="#latent-semantic-indexing-lsi" title="Permalink to this headline">¶</a></h1>
+<p>LSI has been developed in <a class="bibtex reference internal" href="../referenceSection.html#deerwester1990" id="id1">[DDF+90]</a> as a method for topic-extraction. For the description of LSI, assume that we have 5 simple documents, which contain the follwing words:</p>
+<ul class="simple">
+<li><p>document d1: <em>cosmonaut, moon, car</em></p></li>
+<li><p>document d2: <em>astronaut, moon</em></p></li>
+<li><p>document d3: <em>cosmonaut</em></p></li>
+<li><p>document d4: <em>car, truck</em></p></li>
+<li><p>document d5: <em>car</em></p></li>
+<li><p>document d6: <em>truck</em></p></li>
+</ul>
+<p>If we construct the BoW-matrix for these documents and transpose this matrix, the result is called <em>Inverted-Index</em>. In the example the Inverted Index is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left(
+\begin{array}{l|cccccc}
+&amp; d1 &amp; d2 &amp; d3 &amp; d4 &amp; d5 &amp; d6 \\
+\hline
+cosmonaut &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+astronaut &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+moon &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+car &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 0 \\
+truck &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
+\end{array}
+\right)
+\end{split}\]</div>
+<p>Another representations of the form <span class="math notranslate nohighlight">\(\mathbf{w}=\mathbf{A}\cdot \mathbf{d}\)</span> is given below. The matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is called <strong>term-by-document matrix</strong>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left(
+\begin{array}{c}
+cosmonaut \\
+astronaut \\
+moon \\
+car \\
+truck \\
+\end{array}
+\right)
+=
+\left(
+\begin{array}{cccccc}
+ 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+ 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+ 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+ 1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 0 \\
+ 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
+\end{array}
+\right)
+\cdot
+\left(
+\begin{array}{c}
+d1 \\
+d2 \\
+d3 \\
+d4 \\
+d5 \\
+d6 \\
+\end{array}
+\right)
+\end{split}\]</div>
+<p>In the Inverted-Index each column represents a document. Each column is an <span class="math notranslate nohighlight">\(n\)</span>-dimensional vector, where <span class="math notranslate nohighlight">\(n\)</span> is the number of words in the corpus. Hence, each document can be considered as a point in the n-dimensional space. LSI defines a transformation from this <span class="math notranslate nohighlight">\(n\)</span>-dimensional space into a <span class="math notranslate nohighlight">\(k\)</span>-dimensional space, where <span class="math notranslate nohighlight">\(k\)</span> is usually much smaller than <span class="math notranslate nohighlight">\(n\)</span>. The representation of the documents in this new <span class="math notranslate nohighlight">\(k\)</span>-dimensional space is such that, documents which refer to the same topics, have similar k-dimensional vectors (are nearby points in the <span class="math notranslate nohighlight">\(k\)</span>-dimensional space).</p>
+<p>For example the 2-dimensional space, the 6 documents of the example may have the following representations:<a class="footnote-reference brackets" href="#f1" id="id2">1</a></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left(
+\begin{array}{l|cccccc}
+&amp; d1 &amp; d2 &amp; d3 &amp; d4 &amp; d5 &amp; d6 \\
+\hline
+\{cosmonaut,astronaut,moon\} &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+\{car,truck\} &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 \\
+\end{array}
+\right).
+\end{split}\]</div>
+<p>As can be seen in this 2-dimensional vector space document 2 and 3 are described by the same vector <span class="math notranslate nohighlight">\((1,0)\)</span>, even though in the original 6-dimensional space their vectors are orthogonal to each other, because these documents have no word in common.</p>
+<p>As sketched in the matrix above, the new dimensions in the 2-dimensional space, do not belong to single words, but to topics and each topic is represented by a list of words, which frequently appear in the documents, which belong to this topic. More accurate: The new dimensions (topics) in the <span class="math notranslate nohighlight">\(k\)</span>-dimensional space are linear combinations of the old dimensions (words) in the <span class="math notranslate nohighlight">\(n\)</span>-dimensional space.</p>
+<p>Note that this implies a different understanding of <em>semantically related words</em>, than the concept implied by <a class="reference internal" href="05representations.html#dsm-label"><span class="std std-ref">Distributional Semantic Models</span></a>. In DSMs two words are semantically related, if they frequently appear in the same context, where context is given by the surrounding words. In LSI two words are “semantically related”, if they frequently appear in the same documents.</p>
+<p>Latent Semantic Indexing (LSI) applies <strong>Singular Value Decomposition (SVD)</strong> for calculating the low-dimensional topic space <a class="bibtex reference internal" href="../referenceSection.html#manning2000" id="id3">[MS00]</a>. SVD calculates a factorisation of the term-by-document matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-svd-factors">
+<span class="eqno">(8.1)<a class="headerlink" href="#equation-svd-factors" title="Permalink to this equation">¶</a></span>\[
+A_{t \times d} = T_{t \times n} S_{n \times n} (D_{d \times n})^T,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(d\)</span> are the number of words and the number of documents, respectively and <span class="math notranslate nohighlight">\(n=min(t,d)\)</span>. The factor matrices have the following properties:</p>
+<ul class="simple">
+<li><p>columns in <span class="math notranslate nohighlight">\(T\)</span> are orthonormal</p></li>
+<li><p>columns in <span class="math notranslate nohighlight">\(D\)</span> are orthonormal</p></li>
+<li><p>in <span class="math notranslate nohighlight">\(S\)</span> only elements on the main diagonal are non-zero.</p></li>
+</ul>
+<p>The elements on the main diagonal of <span class="math notranslate nohighlight">\(S\)</span> are the so called <em>Singular Values</em> in decreasing order. The Singular Values reflect the variance of data along the corresponding dimension. The 3 factor matrices define a rotation of the original space, such that</p>
+<ul class="simple">
+<li><p>the first dimension of the new space is defined by the direction, along which data varies maximal,</p></li>
+<li><p>the second dimension of the new space is defined by the direction, which is orthogonal to the first, and belongs to the second strongest variance,</p></li>
+<li><p>the third dimension of the new space is defined by the direction, which is orthogonal to the first two dimensions, and belongs to the third strongest variance,</p></li>
+<li><p>…</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SVD can be considered to be a generalisation of Principal Component Analysis (PCA) in the sense that SVD can also be applied to non-square matrices. PCA calculates the Eigenvectors and Eigenvalues of the covariance-matrix of the given data. The Eigenvectors with the strongest associated Eigenvalues are the Principal Components, i.e. the directions, along which data-variance is maximal. Similar as Eigenvalues in PCA, the Singular Values of SVD belong to the directions of maximal data variance.</p>
+</div>
+<p>The SVD matrix factorisation applied to the term-by-document matrix of the example yields the following 3 factors:</p>
+<div class="math notranslate nohighlight" id="equation-svd-t">
+<span class="eqno">(8.2)<a class="headerlink" href="#equation-svd-t" title="Permalink to this equation">¶</a></span>\[\begin{split}
+T=
+\left(
+\begin{array}{l|ccccc}
+&amp; dim1 &amp; dim2 &amp; dim3 &amp; dim4 &amp; dim5  \\
+\hline
+cosmonaut&amp;  0.44 &amp; -0.3 &amp; -0.57 &amp; 0.58 &amp; -0.25 \\
+astronuat&amp;   0.13 &amp; -0.33 &amp; 0.59 &amp; -0.0 &amp; -0.73 \\
+moon&amp;   0.48 &amp; -0.51  &amp; 0.37 &amp;-0.0 &amp;   0.61 \\
+car&amp;   0.7 &amp;  0.35 &amp; -0.15 &amp;-0.58 &amp;-0.16 \\
+truck&amp;   0.26 &amp; 0.65 &amp; 0.41 &amp; 0.58 &amp; 0.09 \\
+ \end{array}
+\right)
+\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-svd-s">
+<span class="eqno">(8.3)<a class="headerlink" href="#equation-svd-s" title="Permalink to this equation">¶</a></span>\[\begin{split}
+S=
+\left(
+\begin{array}{ccccc}
+ 2.16 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+ 0 &amp; 1.59 &amp; 0 &amp; 0 &amp; 0 \\
+ 0 &amp; 0 &amp; 1.28 &amp; 0 &amp; 0 \\
+ 0 &amp; 0 &amp; 0 &amp; 1.00 &amp; 0 \\
+ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0.39 \\
+ \end{array}
+\right)
+\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-svd-d">
+<span class="eqno">(8.4)<a class="headerlink" href="#equation-svd-d" title="Permalink to this equation">¶</a></span>\[\begin{split}
+D^T=
+\left(
+\begin{array}{l|cccccc}
+&amp; d1 &amp; d2 &amp; d3 &amp; d4 &amp; d5 &amp; d6 \\
+\hline
+dim1 &amp; 0.75&amp; 0.28&amp; 0.2&amp;  0.45&amp; 0.33&amp; 0.12\\
+dim2 &amp; -0.29&amp;-0.53&amp;-0.19&amp; 0.63&amp; 0.22&amp; 0.41\\
+dim3 &amp; -0.28&amp; 0.75&amp;-0.45&amp; 0.2&amp; -0.12&amp; 0.33\\
+dim4 &amp; -0.0&amp;   0.0&amp;   0.58&amp; 0.0 &amp; -0.58&amp; 0.58\\
+dim5 &amp;  0.53 &amp;-0.29&amp;-0.63&amp; -0.19&amp;-0.41&amp; 0.22\\ 
+  \end{array}
+\right)
+\end{split}\]</div>
+<p>Given these factors, calculated by SVD, how do we obtain a lower-dimensional space from the original <span class="math notranslate nohighlight">\(n\)</span>-dimensional space, where <span class="math notranslate nohighlight">\(n\)</span> is the number of words in the corpus?</p>
+<p>As indicated by the subscripts of the matrix-factors in <a class="reference internal" href="#equation-svd-factors">(8.1)</a></p>
+<ul class="simple">
+<li><p>matrix <span class="math notranslate nohighlight">\(T\)</span> has <span class="math notranslate nohighlight">\(n\)</span> columns</p></li>
+<li><p>matrix <span class="math notranslate nohighlight">\(S\)</span> has <span class="math notranslate nohighlight">\(n\)</span> rows and <span class="math notranslate nohighlight">\(n\)</span> columns</p></li>
+<li><p>matrix <span class="math notranslate nohighlight">\(D\)</span> has <span class="math notranslate nohighlight">\(n\)</span> columns</p></li>
+</ul>
+<p>The lower-dimensional space is now obtained by</p>
+<ol>
+<li><p>Select the number of dimensions <span class="math notranslate nohighlight">\(k\)</span> of the lower-dimensional space. Note that <span class="math notranslate nohighlight">\(t\)</span> is the number of topics, that shall be distinguished.</p></li>
+<li><p>Keep the first <span class="math notranslate nohighlight">\(k\)</span> columns of matrix <span class="math notranslate nohighlight">\(T\)</span> and remove the other <span class="math notranslate nohighlight">\(n-k\)</span> columns to obtain the reduced matrix <span class="math notranslate nohighlight">\(T'\)</span>. Silmilarly, keep the first <span class="math notranslate nohighlight">\(k\)</span> rows and the first <span class="math notranslate nohighlight">\(k\)</span> columns of matrix <span class="math notranslate nohighlight">\(S\)</span> to obtain the reduced matrix <span class="math notranslate nohighlight">\(S'\)</span> and keep the first <span class="math notranslate nohighlight">\(k\)</span> columns of matrix <span class="math notranslate nohighlight">\(D\)</span> and to obtain the reduced matrix <span class="math notranslate nohighlight">\(D'\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-svd-tneu">
+<span class="eqno">(8.5)<a class="headerlink" href="#equation-svd-tneu" title="Permalink to this equation">¶</a></span>\[\begin{split}
+	T'=
+	\left(
+	\begin{array}{l|cc}
+	&amp; dim1 &amp; dim2  \\
+	\hline
+	cosmonaut&amp;  0.44 &amp; -0.3 \\
+	astronaut&amp;   0.13 &amp; -0.33 \\
+	moon&amp;   0.48 &amp; -0.51 \\
+	car&amp;   0.7 &amp;  0.35 \\
+	truck&amp;   0.26 &amp; 0.65  \\
+	\end{array}
+	\right)
+	\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-svd-sneu">
+<span class="eqno">(8.6)<a class="headerlink" href="#equation-svd-sneu" title="Permalink to this equation">¶</a></span>\[\begin{split}
+	S'=
+	\left(
+	\begin{array}{cc}
+	 2.16 &amp; 0  \\
+	 0 &amp; 1.59 \\
+	 \end{array}
+	\right)
+	\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-svd-dneu">
+<span class="eqno">(8.7)<a class="headerlink" href="#equation-svd-dneu" title="Permalink to this equation">¶</a></span>\[\begin{split}
+	D'^T=
+	\left(
+	\begin{array}{l|cccccc}
+	&amp; d1 &amp; d2 &amp; d3 &amp; d4 &amp; d5 &amp; d6 \\
+	\hline
+	dim1 &amp; 0.75&amp; 0.28&amp; 0.2&amp;  0.45&amp; 0.33&amp; 0.12\\
+	dim2 &amp; -0.29&amp;-0.53&amp;-0.19&amp; 0.63&amp; 0.22&amp; 0.41\\
+	\end{array}
+	\right)
+	\end{split}\]</div>
+</li>
+<li><p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+	A'=T' \cdot S' \cdot D'^T
+	\]</div>
+<p>is the best approximation, in terms of <em>least square error</em>, of the original term-by-document matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
+</li>
+<li><p>the columns of the <strong>Matrix <span class="math notranslate nohighlight">\(B=S' \cdot D'^T\)</span></strong> are the coordinates of the  documents in the <span class="math notranslate nohighlight">\(k-\)</span>dimensional <strong>latent semantic space</strong></p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-svd-b">
+<span class="eqno">(8.8)<a class="headerlink" href="#equation-svd-b" title="Permalink to this equation">¶</a></span>\[\begin{split}
+B=
+\left(
+\begin{array}{l|cccccc}
+&amp; d1 &amp; d2 &amp; d3 &amp; d4 &amp; d5 &amp; d6 \\
+\hline
+dim1 &amp; 1.62 &amp; 0.60 &amp; 0.44&amp;  0.97&amp; 0.70&amp; 0.26\\
+dim2 &amp; -0.46 &amp; -0.84 &amp;-0.3&amp; 1.00 &amp; 0.35 &amp; 0.65\\
+\end{array}
+\right)
+\end{split}\]</div>
+<ol class="simple">
+<li><p><strong>A new document or query</strong> is first mapped to it’s BoW-vector <span class="math notranslate nohighlight">\(q\)</span>. Then the representation of this vector in the latent semantic space is calculated by</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+T'^T \cdot q^T.
+\]</div>
+<p>For example, if the query consists of the words <em>astronaut, moon</em> and <em>car</em>, then the corresponding BoW-vector is</p>
+<div class="math notranslate nohighlight">
+\[
+q=(0,1,1,1,0)
+\]</div>
+<p>and the coordinates of this query in the latent semantic space are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T'^T \cdot q^T = 
+\left(
+\begin{array}{c}
+0.13+0.48+0.7 \\
+-0.33-0.51+0.35	
+\end{array}
+\right)
+=
+\left(
+\begin{array}{c}
+1.31 \\
+-0.49	
+\end{array}
+\right).
+\end{split}\]</div>
+<p>In the figure below, the 6 documents (columns of matrix <a class="reference internal" href="#equation-svd-b">(8.8)</a> ) and the new query are plotted in the latent semantic space.</p>
+<figure align="center">
+<img width="400" src="https://maucher.home.hdm-stuttgart.de/Pics/docsQueryIn2dimSpaceLSI.png">
+<figcaption>Representations of documents and query vector in latent semantic space</figcaption>
+</figure>
+<p>As mentioned earlier document-vectors are often normed to unique-length. These normed vectors are shown in the figure below.</p>
+<figure align="center">
+<img width="400" src="https://maucher.home.hdm-stuttgart.de/Pics/docsQueryNormedIn2dimSpace.png">
+<figcaption>Representations of normed documents and normed query vector in latent semantic space</figcaption>
+</figure>
+<p>As can be seen the documents belonging to the topic <em>vehicles</em> are located in an other region of the latent semantic space than the documents, which refer to the topic <em>space</em>. Morover, the query-vector, which contains <em>space</em>-words is in the region of <em>space</em>-documents.</p>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>Note that this representation is not the true result of the transformation, but a simplified one, just for desribing the idea of the approach.</p>
+</dd>
+</dl>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./05representations"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="05topicextraction.html" title="previous page"><span class="section-number">8. </span>Topic Extraction</a>
+    <a class='right-next' id="next-link" href="02LatentSemanticIndexing.html" title="next page"><span class="section-number">8.2. </span>Implementation of Topic Extraction and Document Clustering</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

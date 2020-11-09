@@ -21,6 +21,11 @@
     - file: 04ngram/04ngram
     - file: 05representations/05representations
     - file: 05representations/01WordEmbeddingImplementation.ipynb
+    - file: 05representations/02gensimDocModelSimple.ipynb
+    - file: 05representations/05topicextraction
+      sections:
+        - file: 05representations/05lsi
+        - file: 05representations/02LatentSemanticIndexing.ipynb
 - file: referenceSection
 
   
