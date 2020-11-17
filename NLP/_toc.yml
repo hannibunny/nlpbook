@@ -27,6 +27,13 @@
         - file: 05representations/05lsi
         - file: 05representations/02LatentSemanticIndexing.ipynb
     - file: 06classification/06classification
+    - file: 07neuralnetworks/07neuralnetworks
+      sections:
+        - file: 07neuralnetworks/01NeuralNets.ipynb
+        - file: 07neuralnetworks/02RecurrentNeuralNetworks.ipynb
+        - file: 07neuralnetworks/03ConvolutionNeuralNetworks.ipynb
+        - file: 07neuralnetworks/04CNN.ipynb
+        - file: 07neuralnetworks/05biDirectionalLSTM.ipynb
 - file: referenceSection
 
   
