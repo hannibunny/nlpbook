@@ -270,3 +270,7 @@ As mentioned earlier document-vectors are often normed to unique-length. These n
 </figure>
 
 As can be seen the documents belonging to the topic *vehicles* are located in an other region of the latent semantic space than the documents, which refer to the topic *space*. Morover, the query-vector, which contains *space*-words is in the region of *space*-documents.
+
+```python
+
+```
