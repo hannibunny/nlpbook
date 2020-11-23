@@ -4,5 +4,5 @@ Recently, Deep Neural Networks has revolutionalized wide areas of computer scien
 
 In this chapter first the basics of **conventional neural networks (Single- and Multi-Layer Perceptron)** are introduced in {doc}`01NeuralNets`. In {doc}`02RecurrentNeuralNetworks` different types of **recurrent neural networks (RNN)** are described. The most important type of deep neural network, the so called **Convolutional Neural Network (CNN)**, is subject of {doc}`03ConvolutionNeuralNetworks`.
 
-Implementation of CNNs and LSTMs for document classification are shown in {doc}`04CNN` and {doc}`05biDirectionalLSTM`  
+Implementations of CNNs and LSTMs for document classification are shown in {doc}`04CNN`. 
 

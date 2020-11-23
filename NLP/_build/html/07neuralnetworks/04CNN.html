@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>10.4. CNN for IMDB Movie Review classification &#8212; Natural Language Processing Lecture</title>
+    <title>10.4. CNN, LSTM and Attention for IMDB Movie Review classification &#8212; Natural Language Processing Lecture</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -36,7 +36,7 @@
     <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10.5. CNN for IMDB Movie Review classification" href="05biDirectionalLSTM.html" />
+    <link rel="next" title="11. References" href="../referenceSection.html" />
     <link rel="prev" title="10.3. Convolutional Neural Networks" href="03ConvolutionNeuralNetworks.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -145,12 +145,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     10.4. CNN for IMDB Movie Review classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05biDirectionalLSTM.html">
-     10.5. CNN for IMDB Movie Review classification
+     10.4. CNN, LSTM and Attention for IMDB Movie Review classification
     </a>
    </li>
   </ul>
@@ -258,60 +253,67 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#transform-data-into-sequences-of-integers">
-   10.4.2. Transform data into sequences of integers
+  <a class="reference internal nav-link" href="#preparing-text-sequences-and-labels">
+   10.4.2. Preparing Text Sequences and Labels
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#prepare-training-and-validation-data">
-   10.4.3. Prepare training- and validation data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-glove-word-embeddings">
-   10.4.4. Load glove word-embeddings
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cnn-with-3-convolutional-layers">
-   10.4.5. CNN with 3 Convolutional Layers
+  <a class="reference internal nav-link" href="#cnn-with-2-convolutional-layers">
+   10.4.3. CNN with 2 Convolutional Layers
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#prepare-embedding-matrix-and-layer">
-     10.4.5.1. Prepare Embedding Matrix and -Layer
+     10.4.3.1. Prepare Embedding Matrix and -Layer
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#define-cnn-architecture">
-     10.4.5.2. Define CNN architecture
+     10.4.3.2. Define CNN architecture
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#train-network">
-     10.4.5.3. Train Network
+     10.4.3.3. Train Network
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cnn-with-different-filter-sizes-in-one-layer">
-   10.4.6. CNN with different filter sizes in one layer
+   10.4.4. CNN with different filter sizes in one layer
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
-     10.4.6.1. Prepare Embedding Matrix and -Layer
+     10.4.4.1. Prepare Embedding Matrix and -Layer
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#define-architecture">
-     10.4.6.2. Define Architecture
+     10.4.4.2. Define Architecture
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
-     10.4.6.3. Train Network
+     10.4.4.3. Train Network
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lstm">
+   10.4.5. LSTM
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bidirectional-lstm-architecture-with-attention">
+   10.4.6. Bidirectional LSTM architecture with Attention
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-custom-attention-layer">
+     10.4.6.1. Define Custom Attention Layer
     </a>
    </li>
   </ul>
@@ -326,48 +328,33 @@
         
               <div>
                 
-  <h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#CNN-for-IMDB-Movie-Review-classification" data-toc-modified-id="CNN-for-IMDB-Movie-Review-classification-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>CNN for IMDB Movie Review classification</a></span><ul class="toc-item"><li><span><a href="#Access-IMDB-dataset" data-toc-modified-id="Access-IMDB-dataset-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Access IMDB dataset</a></span></li><li><span><a href="#Transform-data-into-sequences-of-integers" data-toc-modified-id="Transform-data-into-sequences-of-integers-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Transform data into sequences of integers</a></span></li><li><span><a href="#Prepare-training--and-validation-data" data-toc-modified-id="Prepare-training--and-validation-data-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Prepare training- and validation data</a></span></li><li><span><a href="#Load-glove-word-embeddings" data-toc-modified-id="Load-glove-word-embeddings-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Load glove word-embeddings</a></span></li><li><span><a href="#CNN-with-3-Convolutional-Layers" data-toc-modified-id="CNN-with-3-Convolutional-Layers-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>CNN with 3 Convolutional Layers</a></span><ul class="toc-item"><li><span><a href="#Prepare-Embedding-Matrix-and--Layer" data-toc-modified-id="Prepare-Embedding-Matrix-and--Layer-1.5.1"><span class="toc-item-num">1.5.1&nbsp;&nbsp;</span>Prepare Embedding Matrix and -Layer</a></span></li><li><span><a href="#Define-CNN-architecture" data-toc-modified-id="Define-CNN-architecture-1.5.2"><span class="toc-item-num">1.5.2&nbsp;&nbsp;</span>Define CNN architecture</a></span></li><li><span><a href="#Train-Network" data-toc-modified-id="Train-Network-1.5.3"><span class="toc-item-num">1.5.3&nbsp;&nbsp;</span>Train Network</a></span></li></ul></li><li><span><a href="#CNN-with-different-filter-sizes-in-one-layer" data-toc-modified-id="CNN-with-different-filter-sizes-in-one-layer-1.6"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>CNN with different filter sizes in one layer</a></span><ul class="toc-item"><li><span><a href="#Prepare-Embedding-Matrix-and--Layer" data-toc-modified-id="Prepare-Embedding-Matrix-and--Layer-1.6.1"><span class="toc-item-num">1.6.1&nbsp;&nbsp;</span>Prepare Embedding Matrix and -Layer</a></span></li><li><span><a href="#Define-Architecture" data-toc-modified-id="Define-Architecture-1.6.2"><span class="toc-item-num">1.6.2&nbsp;&nbsp;</span>Define Architecture</a></span></li><li><span><a href="#Train-Network" data-toc-modified-id="Train-Network-1.6.3"><span class="toc-item-num">1.6.3&nbsp;&nbsp;</span>Train Network</a></span></li></ul></li></ul></li></ul></div><div class="section" id="cnn-for-imdb-movie-review-classification">
-<h1><span class="section-number">10.4. </span>CNN for IMDB Movie Review classification<a class="headerlink" href="#cnn-for-imdb-movie-review-classification" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cnn-lstm-and-attention-for-imdb-movie-review-classification">
+<h1><span class="section-number">10.4. </span>CNN, LSTM and Attention for IMDB Movie Review classification<a class="headerlink" href="#cnn-lstm-and-attention-for-imdb-movie-review-classification" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>Author: Johannes Maucher</p></li>
-<li><p>Last Update: 20.02.2018</p></li>
+<li><p>Last Update: 23.11.2020</p></li>
 </ul>
-<p>The IMDB Movie Review corpus is a standard dataset for the evaluation of text-classifiers. It consists of 25000 movies reviews from IMDB, labeled by sentiment (positive/negative). In a series of notebooks this dataset is applied for the development and evaluation of</p>
-<ul class="simple">
-<li><p>Convolutional Neural Networks (CNN) (this notebook)</p></li>
-<li><p><span class="xref myst">Bidirectional LSTMs</span></p></li>
-<li><p><span class="xref myst">Hierarchical Attention Network (HAN)</span></p></li>
-</ul>
-<p>Goals of the experiments in these notebooks are</p>
-<ul class="simple">
-<li><p>show how to configure advanced network architectures in Keras</p></li>
-<li><p>compare these advanced architectures</p></li>
-</ul>
-<p>The current notebook on CNNs does not introduce architectures, which have not already applied before. It is just used as a baseline.</p>
+<p>The IMDB Movie Review corpus is a standard dataset for the evaluation of text-classifiers. It consists of 25000 movies reviews from IMDB, labeled by sentiment (positive/negative). In this notebook a Convolutional Neural Network (CNN) is implemented for sentiment classification of IMDB reviews.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">keras.preprocessing.text</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
-<span class="kn">from</span> <span class="nn">keras.preprocessing.sequence</span> <span class="kn">import</span> <span class="n">pad_sequences</span>
-<span class="kn">from</span> <span class="nn">keras.utils.np_utils</span> <span class="kn">import</span> <span class="n">to_categorical</span>
-<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Embedding</span>
-<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Flatten</span>
-<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Conv1D</span><span class="p">,</span> <span class="n">MaxPooling1D</span><span class="p">,</span> <span class="n">Embedding</span><span class="p">,</span> <span class="n">Dropout</span>
-<span class="kn">from</span> <span class="nn">keras.layers.merge</span> <span class="kn">import</span> <span class="n">Concatenate</span>
-<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Model</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;KERAS_BACKEND&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;tensorflow&#39;</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing.text</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing.sequence</span> <span class="kn">import</span> <span class="n">pad_sequences</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Embedding</span><span class="p">,</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Flatten</span><span class="p">,</span> <span class="n">Conv1D</span><span class="p">,</span> <span class="n">MaxPooling1D</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">Concatenate</span><span class="p">,</span> <span class="n">GlobalMaxPool1D</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">imdb</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using TensorFlow backend.
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MAX_SEQUENCE_LENGTH</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># all text-sequences are padded to this length</span>
+<span class="n">MAX_NB_WORDS</span> <span class="o">=</span> <span class="mi">10000</span>        <span class="c1"># number of most-frequent words that are regarded, all others are ignored</span>
+<span class="n">EMBEDDING_DIM</span> <span class="o">=</span> <span class="mi">100</span>         <span class="c1"># dimension of word-embedding</span>
+<span class="n">INDEX_FROM</span><span class="o">=</span><span class="mi">3</span>
 </pre></div>
 </div>
 </div>
@@ -376,200 +363,194 @@
 <h2><span class="section-number">10.4.1. </span>Access IMDB dataset<a class="headerlink" href="#access-imdb-dataset" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://keras.io/datasets/">IMDB dataset</a> is already available in Keras and can easily be accessed by</p>
 <p><code class="docutils literal notranslate"><span class="pre">imdb.load_data()</span></code>.</p>
-<p>The returned dataset contains the sequence of word indices for each review. However, for Hierarchical Attention Network (HAN), not only the two levels <em>reviews</em> and <em>words</em> are reguired, but in addition the sentence-level. The Keras imdb dataset does not provide sentence information. Therefore, we apply the original dataset from <a class="reference external" href="https://www.kaggle.com/c/word2vec-nlp-tutorial/data">Kaggle</a> and preprocess it accordingly:</p>
+<p>The returned dataset contains the sequence of word indices for each review.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MAX_SEQUENCE_LENGTH</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># all text-sequences are padded to this length</span>
-<span class="n">MAX_NB_WORDS</span> <span class="o">=</span> <span class="mi">20000</span>        <span class="c1"># number of most-frequent words that are regarded, all others are ignored</span>
-<span class="n">EMBEDDING_DIM</span> <span class="o">=</span> <span class="mi">100</span>         <span class="c1"># dimension of word-embedding</span>
-<span class="n">VALIDATION_SPLIT</span> <span class="o">=</span> <span class="mf">0.2</span>      <span class="c1"># ratio of test-data </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">imdb</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">num_words</span><span class="o">=</span><span class="n">MAX_NB_WORDS</span><span class="p">,</span><span class="n">index_from</span><span class="o">=</span><span class="n">INDEX_FROM</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Define a function to normalize all words into lower-case and to remove backslashes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clean_str</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
-    <span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>    
-    <span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>    
-    <span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>    
-    <span class="k">return</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Access locally stored IMDB data (downloaded from Kaggle). Raw-text is extracted by applying <a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#data_train = pd.read_csv(&#39;/Users/maucher/DataSets/imdb/labeledTrainData.tsv&#39;, sep=&#39;\t&#39;)</span>
-<span class="n">data_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../Data/imdb/labeledTrainData.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">data_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-
-<span class="n">texts</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data_train</span><span class="o">.</span><span class="n">review</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">data_train</span><span class="o">.</span><span class="n">review</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span><span class="s2">&quot;html5lib&quot;</span><span class="p">)</span>
-    <span class="n">texts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clean_str</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">get_text</span><span class="p">()))</span>
-    <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_train</span><span class="o">.</span><span class="n">sentiment</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(25000, 3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(25000,)
+(25000,)
+(25000,)
+(25000,)
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="transform-data-into-sequences-of-integers">
-<h2><span class="section-number">10.4.2. </span>Transform data into sequences of integers<a class="headerlink" href="#transform-data-into-sequences-of-integers" title="Permalink to this headline">¶</a></h2>
-<p>Apply the Keras <code class="docutils literal notranslate"><span class="pre">Tokenizer</span></code>-class for representing each review as a sequence of integer word-indices. These sequences actually contain only indices of those words, which belong to the <code class="docutils literal notranslate"><span class="pre">MAX_NB_WORDS</span></code> most frequent words in the corpus.
-Then pad all sequences to unique length of <code class="docutils literal notranslate"><span class="pre">MAX_SEQUENCE_LENGTH</span></code>. This means, that longer sequences are cut and shorter sequences are filled with zeros.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">num_words</span><span class="o">=</span><span class="n">MAX_NB_WORDS</span><span class="p">)</span>
-<span class="n">tokenizer</span><span class="o">.</span><span class="n">fit_on_texts</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
-<span class="n">sequences</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_sequences</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
-
-<span class="n">word_index</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">word_index</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Found </span><span class="si">%s</span><span class="s1"> unique tokens.&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">word_index</span><span class="p">))</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">pad_sequences</span><span class="p">(</span><span class="n">sequences</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="n">MAX_SEQUENCE_LENGTH</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span> <span class="c1">#plot first 10 elements of the sequence</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 81503 unique tokens.
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 14, 22, 16, 43, 530, 973, 1622, 1385, 65]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Represent class-labels in one-hot-encoded form:</p>
+<p>The representation of text as sequence of integers is good for Machine Learning algorithms, but useless for human text understanding. Therefore, we also access the word-index from <a class="reference external" href="https://keras.io/api/datasets/imdb/">Keras IMDB dataset</a>, which maps words to the associated integer-IDs. Since we like to map integer-IDs to words we calculate the inverse wordindex <code class="docutils literal notranslate"><span class="pre">inv_wordindex</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of data tensor:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of label tensor:&#39;</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wordindex</span><span class="o">=</span><span class="n">imdb</span><span class="o">.</span><span class="n">get_word_index</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;imdb_word_index.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wordindex</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:(</span><span class="n">v</span><span class="o">+</span><span class="n">INDEX_FROM</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">wordindex</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">wordindex</span><span class="p">[</span><span class="s2">&quot;&lt;PAD&gt;&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">wordindex</span><span class="p">[</span><span class="s2">&quot;&lt;START&gt;&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">wordindex</span><span class="p">[</span><span class="s2">&quot;&lt;UNK&gt;&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">wordindex</span><span class="p">[</span><span class="s2">&quot;&lt;UNUSED&gt;&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">inv_wordindex</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">:</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="n">wordindex</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first film-review of the training-partition then reads as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">inv_wordindex</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">X_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of data tensor: (25000, 1000)
-Shape of label tensor: (25000, 2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;START&gt; this film was just brilliant casting location scenery story direction everyone&#39;s really suited the part they played and you could just imagine being there robert &lt;UNK&gt; is an amazing actor and now the same being director &lt;UNK&gt; father came from the same scottish island as myself so i loved the fact there was a real connection with this film the witty remarks throughout the film were great it was just brilliant so much that i bought the film as soon as it was released for &lt;UNK&gt; and would recommend it to everyone to watch and the fly fishing was amazing really cried at the end it was so sad and you know what they say if you cry at a film it must have been good and this definitely was also &lt;UNK&gt; to the two little boy&#39;s that played the &lt;UNK&gt; of norman and paul they were just brilliant children are often left out of the &lt;UNK&gt; list i think because the stars that play them all grown up are such a big profile for the whole film but these children are amazing and should be praised for what they have done don&#39;t you think the whole story was so lovely because it was true and was someone&#39;s life after all that was shared with us all
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="prepare-training-and-validation-data">
-<h2><span class="section-number">10.4.3. </span>Prepare training- and validation data<a class="headerlink" href="#prepare-training-and-validation-data" title="Permalink to this headline">¶</a></h2>
-<p>Split data in random training- and test-partiton:</p>
+<p>Next the distribution of review-lengths (words per review) is calculated:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
-<span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
-<span class="n">nb_validation_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">VALIDATION_SPLIT</span> <span class="o">*</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-<span class="n">x_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="n">nb_validation_samples</span><span class="p">]</span>
-<span class="n">y_train</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[:</span><span class="o">-</span><span class="n">nb_validation_samples</span><span class="p">]</span>
-<span class="n">x_val</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="n">nb_validation_samples</span><span class="p">:]</span>
-<span class="n">y_val</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="o">-</span><span class="n">nb_validation_samples</span><span class="p">:]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of positive and negative reviews in traing and validation set &#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">textlenghtsTrain</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">X_train</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">textlenghtsTrain</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribution of text lengths in words&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;number of words per document&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/04CNN_15_0.png" src="../_images/04CNN_15_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="preparing-text-sequences-and-labels">
+<h2><span class="section-number">10.4.2. </span>Preparing Text Sequences and Labels<a class="headerlink" href="#preparing-text-sequences-and-labels" title="Permalink to this headline">¶</a></h2>
+<p>All sequences must be padded to unique length of <code class="docutils literal notranslate"><span class="pre">MAX_SEQUENCE_LENGTH</span></code>. This means, that longer sequences are cut and shorter sequences are filled with zeros. For this Keras provides the <code class="docutils literal notranslate"><span class="pre">pad_sequences()</span></code>-function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">pad_sequences</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="n">MAX_SEQUENCE_LENGTH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_test</span> <span class="o">=</span> <span class="n">pad_sequences</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="n">MAX_SEQUENCE_LENGTH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Moreover, all class-labels must be represented in one-hot-encoded form:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_train</span><span class="p">))</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_test</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of Training Data Input:&#39;</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of Training Data Labels:&#39;</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of Training Data Input: (25000, 500)
+Shape of Training Data Labels: (25000, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of positive and negative reviews in training and validation set &#39;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">y_val</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of positive and negative reviews in traing and validation set 
-[10047.  9953.]
-[2453. 2547.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of positive and negative reviews in training and validation set 
+[12500. 12500.]
+[12500. 12500.]
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="load-glove-word-embeddings">
-<h2><span class="section-number">10.4.4. </span>Load glove word-embeddings<a class="headerlink" href="#load-glove-word-embeddings" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GLOVE_DIR</span> <span class="o">=</span> <span class="s2">&quot;/Users/maucher/DataSets/glove.6B&quot;</span> <span class="c1">#MacBook</span>
-<span class="c1">#GLOVE_DIR = &quot;../../../../DataSets/glove&quot; #deepthought</span>
-<span class="c1">#GLOVE_DIR = &quot;./Data/glove.6B&quot;</span>
-<span class="n">embeddings_index</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">GLOVE_DIR</span><span class="p">,</span> <span class="s1">&#39;glove.6B.100d.txt&#39;</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">values</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="n">word</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">coefs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
-    <span class="n">embeddings_index</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">coefs</span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total </span><span class="si">%s</span><span class="s1"> word vectors in Glove 6B 100d.&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">embeddings_index</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="n">cb59aa9b8624</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#GLOVE_DIR = &quot;./Data/glove.6B&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">embeddings_index</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">GLOVE_DIR</span><span class="p">,</span> <span class="s1">&#39;glove.6B.100d.txt&#39;</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/maucher/DataSets/glove.6B/glove.6B.100d.txt&#39;
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="cnn-with-3-convolutional-layers">
-<h2><span class="section-number">10.4.5. </span>CNN with 3 Convolutional Layers<a class="headerlink" href="#cnn-with-3-convolutional-layers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cnn-with-2-convolutional-layers">
+<h2><span class="section-number">10.4.3. </span>CNN with 2 Convolutional Layers<a class="headerlink" href="#cnn-with-2-convolutional-layers" title="Permalink to this headline">¶</a></h2>
+<p>The first network architecture consists of</p>
+<ul class="simple">
+<li><p>an embedding layer. This layer takes sequences of integers and learns word-embeddings. The sequences of word-embeddings are then passed to the first convolutional layer</p></li>
+<li><p>two 1D-convolutional layers with different number of filters and different filter-sizes</p></li>
+<li><p>two Max-Pooling layers to reduce the number of neurons, required in the following layers</p></li>
+<li><p>a MLP classifier with one hidden layer and the output layer</p></li>
+</ul>
 <div class="section" id="prepare-embedding-matrix-and-layer">
-<h3><span class="section-number">10.4.5.1. </span>Prepare Embedding Matrix and -Layer<a class="headerlink" href="#prepare-embedding-matrix-and-layer" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.4.3.1. </span>Prepare Embedding Matrix and -Layer<a class="headerlink" href="#prepare-embedding-matrix-and-layer" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embedding_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">word_index</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">EMBEDDING_DIM</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word_index</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="n">embedding_vector</span> <span class="o">=</span> <span class="n">embeddings_index</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">embedding_vector</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="c1"># words not found in embedding index will be all-zeros.</span>
-        <span class="n">embedding_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">embedding_vector</span>
-        
-<span class="n">embedding_layer</span> <span class="o">=</span> <span class="n">Embedding</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word_index</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embedding_layer</span> <span class="o">=</span> <span class="n">Embedding</span><span class="p">(</span><span class="n">MAX_NB_WORDS</span><span class="p">,</span>
                             <span class="n">EMBEDDING_DIM</span><span class="p">,</span>
-                            <span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="n">embedding_matrix</span><span class="p">],</span>
+                            <span class="c1">#weights=[embedding_matrix],</span>
                             <span class="n">input_length</span><span class="o">=</span><span class="n">MAX_SEQUENCE_LENGTH</span><span class="p">,</span>
-                            <span class="n">trainable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                            <span class="n">trainable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="define-cnn-architecture">
-<h3><span class="section-number">10.4.5.2. </span>Define CNN architecture<a class="headerlink" href="#define-cnn-architecture" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.4.3.2. </span>Define CNN architecture<a class="headerlink" href="#define-cnn-architecture" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sequence_input</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">MAX_SEQUENCE_LENGTH</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
 <span class="n">embedded_sequences</span> <span class="o">=</span> <span class="n">embedding_layer</span><span class="p">(</span><span class="n">sequence_input</span><span class="p">)</span>
-<span class="n">l_cov1</span><span class="o">=</span> <span class="n">Conv1D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">embedded_sequences</span><span class="p">)</span>
-<span class="n">l_pool1</span> <span class="o">=</span> <span class="n">MaxPooling1D</span><span class="p">(</span><span class="mi">5</span><span class="p">)(</span><span class="n">l_cov1</span><span class="p">)</span>
-<span class="n">l_cov2</span> <span class="o">=</span> <span class="n">Conv1D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">l_pool1</span><span class="p">)</span>
+<span class="n">l_cov1</span><span class="o">=</span> <span class="n">Conv1D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">embedded_sequences</span><span class="p">)</span>
+<span class="n">l_pool1</span> <span class="o">=</span> <span class="n">MaxPooling1D</span><span class="p">(</span><span class="mi">2</span><span class="p">)(</span><span class="n">l_cov1</span><span class="p">)</span>
+<span class="n">l_cov2</span> <span class="o">=</span> <span class="n">Conv1D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">l_pool1</span><span class="p">)</span>
 <span class="n">l_pool2</span> <span class="o">=</span> <span class="n">MaxPooling1D</span><span class="p">(</span><span class="mi">5</span><span class="p">)(</span><span class="n">l_cov2</span><span class="p">)</span>
-<span class="n">l_cov3</span> <span class="o">=</span> <span class="n">Conv1D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">l_pool2</span><span class="p">)</span>
-<span class="n">l_pool3</span> <span class="o">=</span> <span class="n">MaxPooling1D</span><span class="p">(</span><span class="mi">35</span><span class="p">)(</span><span class="n">l_cov3</span><span class="p">)</span>  <span class="c1"># global max pooling</span>
-<span class="n">l_flat</span> <span class="o">=</span> <span class="n">Flatten</span><span class="p">()(</span><span class="n">l_pool3</span><span class="p">)</span>
-<span class="n">l_dense</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">l_flat</span><span class="p">)</span>
+<span class="n">l_flat</span> <span class="o">=</span> <span class="n">Flatten</span><span class="p">()(</span><span class="n">l_pool2</span><span class="p">)</span>
+<span class="n">l_dense</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">l_flat</span><span class="p">)</span>
 <span class="n">preds</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)(</span><span class="n">l_dense</span><span class="p">)</span>
-
 <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">sequence_input</span><span class="p">,</span> <span class="n">preds</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -577,7 +558,7 @@ Shape of label tensor: (25000, 2)
 </div>
 </div>
 <div class="section" id="train-network">
-<h3><span class="section-number">10.4.5.3. </span>Train Network<a class="headerlink" href="#train-network" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.4.3.3. </span>Train Network<a class="headerlink" href="#train-network" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span>
@@ -588,35 +569,31 @@ Shape of label tensor: (25000, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;model_1&quot;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;functional_1&quot;
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-input_1 (InputLayer)         (None, 1000)              0         
+input_1 (InputLayer)         [(None, 500)]             0         
 _________________________________________________________________
-embedding_1 (Embedding)      (None, 1000, 100)         8150400   
+embedding (Embedding)        (None, 500, 100)          1000000   
 _________________________________________________________________
-conv1d_1 (Conv1D)            (None, 996, 128)          64128     
+conv1d (Conv1D)              (None, 496, 32)           16032     
 _________________________________________________________________
-max_pooling1d_1 (MaxPooling1 (None, 199, 128)          0         
+max_pooling1d (MaxPooling1D) (None, 248, 32)           0         
 _________________________________________________________________
-conv1d_2 (Conv1D)            (None, 195, 128)          82048     
+conv1d_1 (Conv1D)            (None, 246, 64)           6208      
 _________________________________________________________________
-max_pooling1d_2 (MaxPooling1 (None, 39, 128)           0         
+max_pooling1d_1 (MaxPooling1 (None, 49, 64)            0         
 _________________________________________________________________
-conv1d_3 (Conv1D)            (None, 35, 128)           82048     
+flatten (Flatten)            (None, 3136)              0         
 _________________________________________________________________
-max_pooling1d_3 (MaxPooling1 (None, 1, 128)            0         
+dense (Dense)                (None, 64)                200768    
 _________________________________________________________________
-flatten_1 (Flatten)          (None, 128)               0         
-_________________________________________________________________
-dense_1 (Dense)              (None, 128)               16512     
-_________________________________________________________________
-dense_2 (Dense)              (None, 2)                 258       
+dense_1 (Dense)              (None, 2)                 130       
 =================================================================
-Total params: 8,395,394
-Trainable params: 244,994
-Non-trainable params: 8,150,400
+Total params: 1,223,138
+Trainable params: 1,223,138
+Non-trainable params: 0
 _________________________________________________________________
 </pre></div>
 </div>
@@ -625,7 +602,12 @@ _________________________________________________________________
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;model fitting - simplified convolutional neural network&quot;</span><span class="p">)</span>
-<span class="n">history</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">),</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+<span class="n">history</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span><span class="n">epochs</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>model fitting - simplified convolutional neural network
 </pre></div>
 </div>
 </div>
@@ -646,41 +628,51 @@ _________________________________________________________________
 
 <span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training accuracy&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation accuracy&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Training and validation accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/04CNN_25_0.png" src="../_images/04CNN_25_0.png" />
+<img alt="../_images/04CNN_30_0.png" src="../_images/04CNN_30_0.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>782/782 [==============================] - 4s 4ms/step - loss: 0.4747 - categorical_accuracy: 0.8711
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.4746704399585724, 0.8711199760437012]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As shown above, after 6 epochs of training the cross-entropy-loss is 0.475 and the accuracy is 87.11%. However, it seems that the accuracy-value after 3 epochs has been higher, than the accuracy after 6 epochs. This indicates overfitting due to too long learning.</p>
 </div>
 </div>
 <div class="section" id="cnn-with-different-filter-sizes-in-one-layer">
-<h2><span class="section-number">10.4.6. </span>CNN with different filter sizes in one layer<a class="headerlink" href="#cnn-with-different-filter-sizes-in-one-layer" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.4.4. </span>CNN with different filter sizes in one layer<a class="headerlink" href="#cnn-with-different-filter-sizes-in-one-layer" title="Permalink to this headline">¶</a></h2>
 <p>In <a class="reference external" href="https://arxiv.org/pdf/1408.5882v2.pdf">Y. Kim; Convolutional Neural Networks for Sentence Classification</a> a CNN with different filter-sizes in one layer has been proposed. This CNN is implemented below:</p>
 <p><img alt="KimCnn" src="https://maucher.home.hdm-stuttgart.de/Pics/KimCnn.png" /></p>
 <p>Source: <a class="reference external" href="https://arxiv.org/pdf/1408.5882v2.pdf">Y. Kim; Convolutional Neural Networks for Sentence Classification</a></p>
 <div class="section" id="id1">
-<h3><span class="section-number">10.4.6.1. </span>Prepare Embedding Matrix and -Layer<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.4.4.1. </span>Prepare Embedding Matrix and -Layer<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embedding_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">word_index</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">EMBEDDING_DIM</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word_index</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="n">embedding_vector</span> <span class="o">=</span> <span class="n">embeddings_index</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">embedding_vector</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="c1"># words not found in embedding index will be all-zeros.</span>
-        <span class="n">embedding_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">embedding_vector</span>
-        
-<span class="n">embedding_layer</span> <span class="o">=</span> <span class="n">Embedding</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word_index</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embedding_layer</span> <span class="o">=</span> <span class="n">Embedding</span><span class="p">(</span><span class="n">MAX_NB_WORDS</span><span class="p">,</span>
                             <span class="n">EMBEDDING_DIM</span><span class="p">,</span>
-                            <span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="n">embedding_matrix</span><span class="p">],</span>
+                            <span class="c1">#weights=[embedding_matrix],</span>
                             <span class="n">input_length</span><span class="o">=</span><span class="n">MAX_SEQUENCE_LENGTH</span><span class="p">,</span>
                             <span class="n">trainable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -689,7 +681,7 @@ _________________________________________________________________
 </div>
 </div>
 <div class="section" id="define-architecture">
-<h3><span class="section-number">10.4.6.2. </span>Define Architecture<a class="headerlink" href="#define-architecture" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.4.4.2. </span>Define Architecture<a class="headerlink" href="#define-architecture" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">convs</span> <span class="o">=</span> <span class="p">[]</span>
@@ -699,17 +691,17 @@ _________________________________________________________________
 <span class="n">embedded_sequences</span> <span class="o">=</span> <span class="n">embedding_layer</span><span class="p">(</span><span class="n">sequence_input</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">fsz</span> <span class="ow">in</span> <span class="n">filter_sizes</span><span class="p">:</span>
-    <span class="n">l_conv</span> <span class="o">=</span> <span class="n">Conv1D</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span><span class="n">kernel_size</span><span class="o">=</span><span class="n">fsz</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">embedded_sequences</span><span class="p">)</span>
-    <span class="n">l_pool</span> <span class="o">=</span> <span class="n">MaxPooling1D</span><span class="p">(</span><span class="mi">5</span><span class="p">)(</span><span class="n">l_conv</span><span class="p">)</span>
+    <span class="n">l_conv</span> <span class="o">=</span> <span class="n">Conv1D</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span><span class="n">kernel_size</span><span class="o">=</span><span class="n">fsz</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">embedded_sequences</span><span class="p">)</span>
+    <span class="n">l_pool</span> <span class="o">=</span> <span class="n">MaxPooling1D</span><span class="p">(</span><span class="mi">4</span><span class="p">)(</span><span class="n">l_conv</span><span class="p">)</span>
     <span class="n">convs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l_pool</span><span class="p">)</span>
     
 <span class="n">l_merge</span> <span class="o">=</span> <span class="n">Concatenate</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)(</span><span class="n">convs</span><span class="p">)</span>
-<span class="n">l_cov1</span><span class="o">=</span> <span class="n">Conv1D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">l_merge</span><span class="p">)</span>
-<span class="n">l_pool1</span> <span class="o">=</span> <span class="n">MaxPooling1D</span><span class="p">(</span><span class="mi">5</span><span class="p">)(</span><span class="n">l_cov1</span><span class="p">)</span>
-<span class="n">l_cov2</span> <span class="o">=</span> <span class="n">Conv1D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">l_pool1</span><span class="p">)</span>
-<span class="n">l_pool2</span> <span class="o">=</span> <span class="n">MaxPooling1D</span><span class="p">(</span><span class="mi">30</span><span class="p">)(</span><span class="n">l_cov2</span><span class="p">)</span>
-<span class="n">l_flat</span> <span class="o">=</span> <span class="n">Flatten</span><span class="p">()(</span><span class="n">l_pool2</span><span class="p">)</span>
-<span class="n">l_dense</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">l_flat</span><span class="p">)</span>
+<span class="n">l_cov1</span><span class="o">=</span> <span class="n">Conv1D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">l_merge</span><span class="p">)</span>
+<span class="n">l_pool1</span> <span class="o">=</span> <span class="n">GlobalMaxPool1D</span><span class="p">()(</span><span class="n">l_cov1</span><span class="p">)</span>
+<span class="c1">#l_cov2 = Conv1D(128, 5, activation=&#39;relu&#39;)(l_pool1)</span>
+<span class="c1">#l_pool2 = MaxPooling1D(30)(l_cov2)</span>
+<span class="n">l_flat</span> <span class="o">=</span> <span class="n">Flatten</span><span class="p">()(</span><span class="n">l_pool1</span><span class="p">)</span>
+<span class="n">l_dense</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">l_flat</span><span class="p">)</span>
 <span class="n">preds</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)(</span><span class="n">l_dense</span><span class="p">)</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">sequence_input</span><span class="p">,</span> <span class="n">preds</span><span class="p">)</span>
@@ -717,9 +709,58 @@ _________________________________________________________________
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;functional_7&quot;
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_4 (InputLayer)            [(None, 500)]        0                                            
+__________________________________________________________________________________________________
+embedding_2 (Embedding)         (None, 500, 100)     1000000     input_4[0][0]                    
+__________________________________________________________________________________________________
+conv1d_6 (Conv1D)               (None, 498, 32)      9632        embedding_2[0][0]                
+__________________________________________________________________________________________________
+conv1d_7 (Conv1D)               (None, 497, 32)      12832       embedding_2[0][0]                
+__________________________________________________________________________________________________
+conv1d_8 (Conv1D)               (None, 496, 32)      16032       embedding_2[0][0]                
+__________________________________________________________________________________________________
+max_pooling1d_6 (MaxPooling1D)  (None, 124, 32)      0           conv1d_6[0][0]                   
+__________________________________________________________________________________________________
+max_pooling1d_7 (MaxPooling1D)  (None, 124, 32)      0           conv1d_7[0][0]                   
+__________________________________________________________________________________________________
+max_pooling1d_8 (MaxPooling1D)  (None, 124, 32)      0           conv1d_8[0][0]                   
+__________________________________________________________________________________________________
+concatenate (Concatenate)       (None, 372, 32)      0           max_pooling1d_6[0][0]            
+                                                                 max_pooling1d_7[0][0]            
+                                                                 max_pooling1d_8[0][0]            
+__________________________________________________________________________________________________
+conv1d_9 (Conv1D)               (None, 368, 64)      10304       concatenate[0][0]                
+__________________________________________________________________________________________________
+global_max_pooling1d (GlobalMax (None, 64)           0           conv1d_9[0][0]                   
+__________________________________________________________________________________________________
+flatten_3 (Flatten)             (None, 64)           0           global_max_pooling1d[0][0]       
+__________________________________________________________________________________________________
+dense_6 (Dense)                 (None, 64)           4160        flatten_3[0][0]                  
+__________________________________________________________________________________________________
+dense_7 (Dense)                 (None, 2)            130         dense_6[0][0]                    
+==================================================================================================
+Total params: 1,053,090
+Trainable params: 1,053,090
+Non-trainable params: 0
+__________________________________________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="id2">
-<h3><span class="section-number">10.4.6.3. </span>Train Network<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.4.4.3. </span>Train Network<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span>
@@ -732,66 +773,28 @@ _________________________________________________________________
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;model fitting - more complex convolutional neural network&quot;</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-<span class="n">history</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">),</span>
-          <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">history</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span><span class="n">epochs</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>model fitting - more complex convolutional neural network
-__________________________________________________________________________________________________
-Layer (type)                    Output Shape         Param #     Connected to                     
-==================================================================================================
-input_3 (InputLayer)            (None, 1000)         0                                            
-__________________________________________________________________________________________________
-embedding_2 (Embedding)         (None, 1000, 100)    8150400     input_3[0][0]                    
-__________________________________________________________________________________________________
-conv1d_7 (Conv1D)               (None, 998, 128)     38528       embedding_2[0][0]                
-__________________________________________________________________________________________________
-conv1d_8 (Conv1D)               (None, 997, 128)     51328       embedding_2[0][0]                
-__________________________________________________________________________________________________
-conv1d_9 (Conv1D)               (None, 996, 128)     64128       embedding_2[0][0]                
-__________________________________________________________________________________________________
-max_pooling1d_7 (MaxPooling1D)  (None, 199, 128)     0           conv1d_7[0][0]                   
-__________________________________________________________________________________________________
-max_pooling1d_8 (MaxPooling1D)  (None, 199, 128)     0           conv1d_8[0][0]                   
-__________________________________________________________________________________________________
-max_pooling1d_9 (MaxPooling1D)  (None, 199, 128)     0           conv1d_9[0][0]                   
-__________________________________________________________________________________________________
-concatenate_1 (Concatenate)     (None, 597, 128)     0           max_pooling1d_7[0][0]            
-                                                                 max_pooling1d_8[0][0]            
-                                                                 max_pooling1d_9[0][0]            
-__________________________________________________________________________________________________
-conv1d_10 (Conv1D)              (None, 593, 128)     82048       concatenate_1[0][0]              
-__________________________________________________________________________________________________
-max_pooling1d_10 (MaxPooling1D) (None, 118, 128)     0           conv1d_10[0][0]                  
-__________________________________________________________________________________________________
-conv1d_11 (Conv1D)              (None, 114, 128)     82048       max_pooling1d_10[0][0]           
-__________________________________________________________________________________________________
-max_pooling1d_11 (MaxPooling1D) (None, 3, 128)       0           conv1d_11[0][0]                  
-__________________________________________________________________________________________________
-flatten_3 (Flatten)             (None, 384)          0           max_pooling1d_11[0][0]           
-__________________________________________________________________________________________________
-dense_5 (Dense)                 (None, 128)          49280       flatten_3[0][0]                  
-__________________________________________________________________________________________________
-dense_6 (Dense)                 (None, 2)            258         dense_5[0][0]                    
-==================================================================================================
-Total params: 8,518,018
-Trainable params: 8,518,018
-Non-trainable params: 0
-__________________________________________________________________________________________________
-Train on 20000 samples, validate on 5000 samples
-Epoch 1/5
-20000/20000 [==============================] - 10s 497us/step - loss: 0.5344 - categorical_accuracy: 0.7169 - val_loss: 0.3245 - val_categorical_accuracy: 0.8666
-Epoch 2/5
-20000/20000 [==============================] - 9s 461us/step - loss: 0.2980 - categorical_accuracy: 0.8768 - val_loss: 0.2787 - val_categorical_accuracy: 0.8882
-Epoch 3/5
-20000/20000 [==============================] - 9s 463us/step - loss: 0.2182 - categorical_accuracy: 0.9132 - val_loss: 0.2723 - val_categorical_accuracy: 0.8920
-Epoch 4/5
-20000/20000 [==============================] - 9s 463us/step - loss: 0.1424 - categorical_accuracy: 0.9483 - val_loss: 0.2975 - val_categorical_accuracy: 0.8918
-Epoch 5/5
-20000/20000 [==============================] - 9s 466us/step - loss: 0.0843 - categorical_accuracy: 0.9729 - val_loss: 0.4711 - val_categorical_accuracy: 0.8724
+Epoch 1/8
+196/196 [==============================] - 48s 245ms/step - loss: 0.4927 - categorical_accuracy: 0.7368 - val_loss: 0.4006 - val_categorical_accuracy: 0.8133
+Epoch 2/8
+196/196 [==============================] - 51s 263ms/step - loss: 0.2560 - categorical_accuracy: 0.8971 - val_loss: 0.3341 - val_categorical_accuracy: 0.8614
+Epoch 3/8
+196/196 [==============================] - 49s 251ms/step - loss: 0.1860 - categorical_accuracy: 0.9280 - val_loss: 0.2924 - val_categorical_accuracy: 0.8814
+Epoch 4/8
+196/196 [==============================] - 48s 245ms/step - loss: 0.1286 - categorical_accuracy: 0.9536 - val_loss: 0.4191 - val_categorical_accuracy: 0.8469
+Epoch 5/8
+196/196 [==============================] - 47s 241ms/step - loss: 0.0829 - categorical_accuracy: 0.9731 - val_loss: 0.3308 - val_categorical_accuracy: 0.8890
+Epoch 6/8
+196/196 [==============================] - 47s 241ms/step - loss: 0.0506 - categorical_accuracy: 0.9840 - val_loss: 0.3952 - val_categorical_accuracy: 0.8771
+Epoch 7/8
+196/196 [==============================] - 47s 241ms/step - loss: 0.0266 - categorical_accuracy: 0.9923 - val_loss: 0.4222 - val_categorical_accuracy: 0.8806
+Epoch 8/8
+196/196 [==============================] - 47s 241ms/step - loss: 0.0152 - categorical_accuracy: 0.9954 - val_loss: 0.4665 - val_categorical_accuracy: 0.8847
 </pre></div>
 </div>
 </div>
@@ -804,20 +807,390 @@ Epoch 5/5
 
 <span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training accuracy&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation accuracy&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Training and validation accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/04CNN_35_0.png" src="../_images/04CNN_35_0.png" />
+<img alt="../_images/04CNN_43_0.png" src="../_images/04CNN_43_0.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/782 [..............................] - ETA: 0s - loss: 0.4959 - categorical_accuracy: 0.8750WARNING:tensorflow:Callbacks method `on_test_batch_end` is slow compared to the batch time (batch time: 0.0098s vs `on_test_batch_end` time: 0.0219s). Check your callbacks.
+782/782 [==============================] - 6s 7ms/step - loss: 0.4665 - categorical_accuracy: 0.8847
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.46650105714797974, 0.8846799731254578]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As shown above, after 8 epochs of training the cross-entropy-loss is 0.467 and the accuracy is 88.47%.</p>
+</div>
+</div>
+<div class="section" id="lstm">
+<h2><span class="section-number">10.4.5. </span>LSTM<a class="headerlink" href="#lstm" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">LSTM</span><span class="p">,</span> <span class="n">Bidirectional</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embedding_layer</span> <span class="o">=</span> <span class="n">Embedding</span><span class="p">(</span><span class="n">MAX_NB_WORDS</span><span class="p">,</span>
+                            <span class="n">EMBEDDING_DIM</span><span class="p">,</span>
+                            <span class="c1">#weights=[embedding_matrix],</span>
+                            <span class="n">input_length</span><span class="o">=</span><span class="n">MAX_SEQUENCE_LENGTH</span><span class="p">,</span>
+                            <span class="n">trainable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sequence_input</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">MAX_SEQUENCE_LENGTH</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+<span class="n">embedded_sequences</span> <span class="o">=</span> <span class="n">embedding_layer</span><span class="p">(</span><span class="n">sequence_input</span><span class="p">)</span>
+<span class="n">l_lstm</span> <span class="o">=</span> <span class="n">Bidirectional</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">64</span><span class="p">))(</span><span class="n">embedded_sequences</span><span class="p">)</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)(</span><span class="n">l_lstm</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">sequence_input</span><span class="p">,</span> <span class="n">preds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;functional_3&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_2 (InputLayer)         [(None, 500)]             0         
+_________________________________________________________________
+embedding_1 (Embedding)      (None, 500, 100)          1000000   
+_________________________________________________________________
+bidirectional_1 (Bidirection (None, 128)               84480     
+_________________________________________________________________
+dense_1 (Dense)              (None, 2)                 258       
+=================================================================
+Total params: 1,084,738
+Trainable params: 1,084,738
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span>
+              <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;categorical_accuracy&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;model fitting - Bidirectional LSTM&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>model fitting - Bidirectional LSTM
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span><span class="n">epochs</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/6
+196/196 [==============================] - 109s 559ms/step - loss: 0.4442 - categorical_accuracy: 0.7918 - val_loss: 0.5594 - val_categorical_accuracy: 0.7815
+Epoch 2/6
+196/196 [==============================] - 107s 546ms/step - loss: 0.2801 - categorical_accuracy: 0.8875 - val_loss: 0.2959 - val_categorical_accuracy: 0.8790
+Epoch 3/6
+196/196 [==============================] - 111s 565ms/step - loss: 0.2310 - categorical_accuracy: 0.9109 - val_loss: 0.3848 - val_categorical_accuracy: 0.8536
+Epoch 4/6
+196/196 [==============================] - 110s 562ms/step - loss: 0.2017 - categorical_accuracy: 0.9248 - val_loss: 0.3087 - val_categorical_accuracy: 0.8729
+Epoch 5/6
+196/196 [==============================] - 107s 547ms/step - loss: 0.1767 - categorical_accuracy: 0.9362 - val_loss: 0.3703 - val_categorical_accuracy: 0.8671
+Epoch 6/6
+196/196 [==============================] - 105s 538ms/step - loss: 0.1551 - categorical_accuracy: 0.9435 - val_loss: 0.4671 - val_categorical_accuracy: 0.8670
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;categorical_accuracy&#39;</span><span class="p">]</span>
+<span class="n">val_acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_categorical_accuracy&#39;</span><span class="p">]</span>
+<span class="n">max_val_acc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">val_acc</span><span class="p">)</span>
+
+<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Training and validation accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/04CNN_53_0.png" src="../_images/04CNN_53_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>782/782 [==============================] - 24s 31ms/step - loss: 0.4671 - categorical_accuracy: 0.8670
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.467098593711853, 0.8669999837875366]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As shown above, after 6 epochs of training the cross-entropy-loss is 0.467 and the accuracy is 86.7%. However, it seems that the accuracy-value after 2 epochs has been higher, than the accuracy after 6 epochs. This indicates overfitting due to too long learning.</p>
+</div>
+<div class="section" id="bidirectional-lstm-architecture-with-attention">
+<h2><span class="section-number">10.4.6. </span>Bidirectional LSTM architecture with Attention<a class="headerlink" href="#bidirectional-lstm-architecture-with-attention" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="define-custom-attention-layer">
+<h3><span class="section-number">10.4.6.1. </span>Define Custom Attention Layer<a class="headerlink" href="#define-custom-attention-layer" title="Permalink to this headline">¶</a></h3>
+<p>Since Keras does not provide an attention-layer, we have to implement this type on our own. The implementation below corresponds to the attention-concept as introduced in <a class="reference external" href="https://arxiv.org/pdf/1409.0473.pdf">Bahdanau et al: Neural Machine Translation by Jointly Learning to Align and Translate</a>.</p>
+<p>The general concept of writing custom Keras layers is described in the corresponding <a class="reference external" href="https://keras.io/layers/writing-your-own-keras-layers/">Keras documentation</a>.</p>
+<p>Any custom layer class inherits from the layer-class and must implement three methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">build(input_shape)</span></code>: this is where you will define your weights. This method must set <code class="docutils literal notranslate"><span class="pre">self.built</span> <span class="pre">=</span> <span class="pre">True</span></code>, which can be done by calling <code class="docutils literal notranslate"><span class="pre">super([Layer],</span> <span class="pre">self).build()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">call(x)</span></code>: this is where the layer’s logic lives. Unless you want your layer to support masking, you only have to care about the first argument passed to call: the input tensor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_output_shape(input_shape)</span></code>: in case your layer modifies the shape of its input, you should specify here the shape transformation logic. This allows Keras to do automatic shape inference.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">regularizers</span><span class="p">,</span> <span class="n">initializers</span><span class="p">,</span><span class="n">constraints</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Layer</span>
+
+
+<span class="k">class</span> <span class="nc">Attention</span><span class="p">(</span><span class="n">Layer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step_dim</span><span class="p">,</span>
+                 <span class="n">W_regularizer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">b_regularizer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">W_constraint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">b_constraint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">supports_masking</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init</span> <span class="o">=</span> <span class="n">initializers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;glorot_uniform&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">W_regularizer</span> <span class="o">=</span> <span class="n">regularizers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">W_regularizer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b_regularizer</span> <span class="o">=</span> <span class="n">regularizers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">b_regularizer</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">W_constraint</span> <span class="o">=</span> <span class="n">constraints</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">W_constraint</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b_constraint</span> <span class="o">=</span> <span class="n">constraints</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">b_constraint</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="o">=</span> <span class="n">bias</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">step_dim</span> <span class="o">=</span> <span class="n">step_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">features_dim</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Attention</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">W</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_weight</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">input_shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],),</span>
+                                 <span class="n">initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">init</span><span class="p">,</span>
+                                 <span class="n">name</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_W&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
+                                 <span class="n">regularizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">W_regularizer</span><span class="p">,</span>
+                                 <span class="n">constraint</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">W_constraint</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">features_dim</span> <span class="o">=</span> <span class="n">input_shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_weight</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">input_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span>
+                                     <span class="n">initializer</span><span class="o">=</span><span class="s1">&#39;zero&#39;</span><span class="p">,</span>
+                                     <span class="c1">#name=&#39;{}_b&#39;.format(self.name),</span>
+                                     <span class="n">regularizer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">b_regularizer</span><span class="p">,</span>
+                                     <span class="n">constraint</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">b_constraint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">built</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">input_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">features_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">features_dim</span>
+        <span class="n">step_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">step_dim</span>
+
+        <span class="n">eij</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">features_dim</span><span class="p">)),</span>
+                        <span class="n">K</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">,</span> <span class="p">(</span><span class="n">features_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">))),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">step_dim</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span><span class="p">:</span>
+            <span class="n">eij</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
+
+        <span class="n">eij</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">eij</span><span class="p">)</span>
+
+        <span class="n">a</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">eij</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">*=</span> <span class="n">K</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">K</span><span class="o">.</span><span class="n">floatx</span><span class="p">())</span>
+
+        <span class="n">a</span> <span class="o">/=</span> <span class="n">K</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="n">K</span><span class="o">.</span><span class="n">epsilon</span><span class="p">(),</span> <span class="n">K</span><span class="o">.</span><span class="n">floatx</span><span class="p">())</span>
+
+        <span class="n">a</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">weighted_input</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">a</span>
+        <span class="k">return</span> <span class="n">K</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weighted_input</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">compute_output_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">input_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>  <span class="bp">self</span><span class="o">.</span><span class="n">features_dim</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embedding_layer</span> <span class="o">=</span> <span class="n">Embedding</span><span class="p">(</span><span class="n">MAX_NB_WORDS</span><span class="p">,</span>
+                            <span class="n">EMBEDDING_DIM</span><span class="p">,</span>
+                            <span class="c1">#weights=[embedding_matrix],</span>
+                            <span class="n">input_length</span><span class="o">=</span><span class="n">MAX_SEQUENCE_LENGTH</span><span class="p">,</span>
+                            <span class="n">trainable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sequence_input</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">MAX_SEQUENCE_LENGTH</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+<span class="n">embedded_sequences</span> <span class="o">=</span> <span class="n">embedding_layer</span><span class="p">(</span><span class="n">sequence_input</span><span class="p">)</span>
+<span class="n">l_gru</span> <span class="o">=</span> <span class="n">Bidirectional</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">))(</span><span class="n">embedded_sequences</span><span class="p">)</span>
+<span class="n">l_att</span> <span class="o">=</span> <span class="n">Attention</span><span class="p">(</span><span class="n">MAX_SEQUENCE_LENGTH</span><span class="p">)(</span><span class="n">l_gru</span><span class="p">)</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)(</span><span class="n">l_att</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">sequence_input</span><span class="p">,</span> <span class="n">preds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;functional_5&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_13 (InputLayer)        [(None, 500)]             0         
+_________________________________________________________________
+embedding_11 (Embedding)     (None, 500, 100)          1000000   
+_________________________________________________________________
+bidirectional_11 (Bidirectio (None, 500, 128)          84480     
+_________________________________________________________________
+attention_8 (Attention)      (None, 128)               628       
+_________________________________________________________________
+dense_2 (Dense)              (None, 2)                 258       
+=================================================================
+Total params: 1,085,366
+Trainable params: 1,085,366
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span>
+              <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;categorical_accuracy&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span><span class="n">epochs</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/6
+196/196 [==============================] - 126s 643ms/step - loss: 0.4488 - categorical_accuracy: 0.7836 - val_loss: 0.3027 - val_categorical_accuracy: 0.8777
+Epoch 2/6
+196/196 [==============================] - 125s 638ms/step - loss: 0.2596 - categorical_accuracy: 0.8984 - val_loss: 0.3228 - val_categorical_accuracy: 0.8691
+Epoch 3/6
+196/196 [==============================] - 126s 640ms/step - loss: 0.2071 - categorical_accuracy: 0.9197 - val_loss: 0.6833 - val_categorical_accuracy: 0.7630
+Epoch 4/6
+196/196 [==============================] - 123s 630ms/step - loss: 0.1791 - categorical_accuracy: 0.9323 - val_loss: 0.2992 - val_categorical_accuracy: 0.8779
+Epoch 5/6
+196/196 [==============================] - 128s 654ms/step - loss: 0.1553 - categorical_accuracy: 0.9417 - val_loss: 0.3247 - val_categorical_accuracy: 0.8788
+Epoch 6/6
+196/196 [==============================] - 130s 666ms/step - loss: 0.1335 - categorical_accuracy: 0.9509 - val_loss: 0.3339 - val_categorical_accuracy: 0.8695
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;categorical_accuracy&#39;</span><span class="p">]</span>
+<span class="n">val_acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_categorical_accuracy&#39;</span><span class="p">]</span>
+<span class="n">max_val_acc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">val_acc</span><span class="p">)</span>
+
+<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Training and validation accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/04CNN_63_0.png" src="../_images/04CNN_63_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>782/782 [==============================] - 29s 37ms/step - loss: 0.3339 - categorical_accuracy: 0.8695
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.33391639590263367, 0.8695200085639954]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, the achieved accuracy is in the same range as for the other architectures. None of the architectures has been optimized, e.g. through hyperparameter-tuning. However, the goal of this notebook is not the determination of an optimal model, but the demonstration of how modern neural network architectures can be implemented for text-classification.</p>
 </div>
 </div>
 </div>
@@ -851,7 +1224,7 @@ Epoch 5/5
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="03ConvolutionNeuralNetworks.html" title="previous page"><span class="section-number">10.3. </span>Convolutional Neural Networks</a>
-    <a class='right-next' id="next-link" href="05biDirectionalLSTM.html" title="next page"><span class="section-number">10.5. </span>CNN for IMDB Movie Review classification</a>
+    <a class='right-next' id="next-link" href="../referenceSection.html" title="next page"><span class="section-number">11. </span>References</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

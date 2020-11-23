@@ -1,156 +1,111 @@
-<h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#CNN-for-IMDB-Movie-Review-classification" data-toc-modified-id="CNN-for-IMDB-Movie-Review-classification-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>CNN for IMDB Movie Review classification</a></span><ul class="toc-item"><li><span><a href="#Access-IMDB-dataset" data-toc-modified-id="Access-IMDB-dataset-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Access IMDB dataset</a></span></li><li><span><a href="#Transform-data-into-sequences-of-integers" data-toc-modified-id="Transform-data-into-sequences-of-integers-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Transform data into sequences of integers</a></span></li><li><span><a href="#Prepare-training--and-validation-data" data-toc-modified-id="Prepare-training--and-validation-data-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Prepare training- and validation data</a></span></li><li><span><a href="#Load-glove-word-embeddings" data-toc-modified-id="Load-glove-word-embeddings-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Load glove word-embeddings</a></span></li><li><span><a href="#CNN-with-3-Convolutional-Layers" data-toc-modified-id="CNN-with-3-Convolutional-Layers-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>CNN with 3 Convolutional Layers</a></span><ul class="toc-item"><li><span><a href="#Prepare-Embedding-Matrix-and--Layer" data-toc-modified-id="Prepare-Embedding-Matrix-and--Layer-1.5.1"><span class="toc-item-num">1.5.1&nbsp;&nbsp;</span>Prepare Embedding Matrix and -Layer</a></span></li><li><span><a href="#Define-CNN-architecture" data-toc-modified-id="Define-CNN-architecture-1.5.2"><span class="toc-item-num">1.5.2&nbsp;&nbsp;</span>Define CNN architecture</a></span></li><li><span><a href="#Train-Network" data-toc-modified-id="Train-Network-1.5.3"><span class="toc-item-num">1.5.3&nbsp;&nbsp;</span>Train Network</a></span></li></ul></li><li><span><a href="#CNN-with-different-filter-sizes-in-one-layer" data-toc-modified-id="CNN-with-different-filter-sizes-in-one-layer-1.6"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>CNN with different filter sizes in one layer</a></span><ul class="toc-item"><li><span><a href="#Prepare-Embedding-Matrix-and--Layer" data-toc-modified-id="Prepare-Embedding-Matrix-and--Layer-1.6.1"><span class="toc-item-num">1.6.1&nbsp;&nbsp;</span>Prepare Embedding Matrix and -Layer</a></span></li><li><span><a href="#Define-Architecture" data-toc-modified-id="Define-Architecture-1.6.2"><span class="toc-item-num">1.6.2&nbsp;&nbsp;</span>Define Architecture</a></span></li><li><span><a href="#Train-Network" data-toc-modified-id="Train-Network-1.6.3"><span class="toc-item-num">1.6.3&nbsp;&nbsp;</span>Train Network</a></span></li></ul></li></ul></li></ul></div>
-
-# CNN for IMDB Movie Review classification
+# CNN, LSTM and Attention for IMDB Movie Review classification
 * Author: Johannes Maucher
-* Last Update: 20.02.2018
+* Last Update: 23.11.2020
 
-The IMDB Movie Review corpus is a standard dataset for the evaluation of text-classifiers. It consists of 25000 movies reviews from IMDB, labeled by sentiment (positive/negative). In a series of notebooks this dataset is applied for the development and evaluation of 
-* Convolutional Neural Networks (CNN) (this notebook)
-* [Bidirectional LSTMs](K05biDirectionalLSTM.ipynb)
-* [Hierarchical Attention Network (HAN)](K05HAN.ipynb)
-
-Goals of the experiments in these notebooks are
-* show how to configure advanced network architectures in Keras
-* compare these advanced architectures
-
-The current notebook on CNNs does not introduce architectures, which have not already applied before. It is just used as a baseline.
+The IMDB Movie Review corpus is a standard dataset for the evaluation of text-classifiers. It consists of 25000 movies reviews from IMDB, labeled by sentiment (positive/negative). In this notebook a Convolutional Neural Network (CNN) is implemented for sentiment classification of IMDB reviews.
 
 import numpy as np
 import pandas as pd
-from collections import defaultdict
-import re
-from bs4 import BeautifulSoup
-import sys
-import os
-from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
-from keras.utils.np_utils import to_categorical
-from keras.layers import Embedding
-from keras.layers import Dense, Input, Flatten
-from keras.layers import Conv1D, MaxPooling1D, Embedding, Dropout
-from keras.layers.merge import Concatenate
-from keras.models import Model
-os.environ['KERAS_BACKEND']='tensorflow'
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.layers import Embedding, Dense, Input, Flatten, Conv1D, MaxPooling1D, Dropout, Concatenate, GlobalMaxPool1D
+from tensorflow.keras.models import Model
+from tensorflow.keras.datasets import imdb
+
+MAX_SEQUENCE_LENGTH = 500  # all text-sequences are padded to this length
+MAX_NB_WORDS = 10000        # number of most-frequent words that are regarded, all others are ignored
+EMBEDDING_DIM = 100         # dimension of word-embedding
+INDEX_FROM=3
 
 ## Access IMDB dataset
 The [IMDB dataset](https://keras.io/datasets/) is already available in Keras and can easily be accessed by
 
 `imdb.load_data()`. 
 
-The returned dataset contains the sequence of word indices for each review. However, for Hierarchical Attention Network (HAN), not only the two levels *reviews* and *words* are reguired, but in addition the sentence-level. The Keras imdb dataset does not provide sentence information. Therefore, we apply the original dataset from [Kaggle](https://www.kaggle.com/c/word2vec-nlp-tutorial/data) and preprocess it accordingly:
+The returned dataset contains the sequence of word indices for each review. 
 
-MAX_SEQUENCE_LENGTH = 1000  # all text-sequences are padded to this length
-MAX_NB_WORDS = 20000        # number of most-frequent words that are regarded, all others are ignored
-EMBEDDING_DIM = 100         # dimension of word-embedding
-VALIDATION_SPLIT = 0.2      # ratio of test-data 
+(X_train, y_train), (X_test, y_test) = imdb.load_data(num_words=MAX_NB_WORDS,index_from=INDEX_FROM)
 
-Define a function to normalize all words into lower-case and to remove backslashes.
+print(X_train.shape)
+print(X_test.shape)
+print(y_train.shape)
+print(y_test.shape)
 
-def clean_str(string):
-    string = re.sub(r"\\", "", string)    
-    string = re.sub(r"\'", "", string)    
-    string = re.sub(r"\"", "", string)    
-    return string.strip().lower()
+X_train[0][:10] #plot first 10 elements of the sequence
 
-Access locally stored IMDB data (downloaded from Kaggle). Raw-text is extracted by applying [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/):
+The representation of text as sequence of integers is good for Machine Learning algorithms, but useless for human text understanding. Therefore, we also access the word-index from [Keras IMDB dataset](https://keras.io/api/datasets/imdb/), which maps words to the associated integer-IDs. Since we like to map integer-IDs to words we calculate the inverse wordindex `inv_wordindex`: 
 
-#data_train = pd.read_csv('/Users/maucher/DataSets/imdb/labeledTrainData.tsv', sep='\t')
-data_train = pd.read_csv('../Data/imdb/labeledTrainData.tsv', sep='\t')
-print (data_train.shape)
+wordindex=imdb.get_word_index(path="imdb_word_index.json")
 
-texts = []
-labels = []
+wordindex = {k:(v+INDEX_FROM) for k,v in wordindex.items()}
+wordindex["<PAD>"] = 0
+wordindex["<START>"] = 1
+wordindex["<UNK>"] = 2
+wordindex["<UNUSED>"] = 3
 
-for idx in range(data_train.review.shape[0]):
-    text = BeautifulSoup(data_train.review[idx],"html5lib")
-    texts.append(clean_str(text.get_text()))
-    labels.append(data_train.sentiment[idx])
+inv_wordindex = {value:key for key,value in wordindex.items()}
 
-## Transform data into sequences of integers
-Apply the Keras `Tokenizer`-class for representing each review as a sequence of integer word-indices. These sequences actually contain only indices of those words, which belong to the `MAX_NB_WORDS` most frequent words in the corpus.
-Then pad all sequences to unique length of `MAX_SEQUENCE_LENGTH`. This means, that longer sequences are cut and shorter sequences are filled with zeros.
+The first film-review of the training-partition then reads as follows:
 
-tokenizer = Tokenizer(num_words=MAX_NB_WORDS)
-tokenizer.fit_on_texts(texts)
-sequences = tokenizer.texts_to_sequences(texts)
+print(' '.join(inv_wordindex[id] for id in X_train[0] ))
 
-word_index = tokenizer.word_index
-print('Found %s unique tokens.' % len(word_index))
+Next the distribution of review-lengths (words per review) is calculated:
 
-data = pad_sequences(sequences, maxlen=MAX_SEQUENCE_LENGTH)
+textlenghtsTrain=[len(t) for t in X_train]
 
-Represent class-labels in one-hot-encoded form:
+from matplotlib import pyplot as plt
 
-labels = to_categorical(np.asarray(labels))
-print('Shape of data tensor:', data.shape)
-print('Shape of label tensor:', labels.shape)
+plt.hist(textlenghtsTrain,bins=20)
+plt.title("Distribution of text lengths in words")
+plt.xlabel("number of words per document")
+plt.show()
 
-## Prepare training- and validation data
-Split data in random training- and test-partiton:
+## Preparing Text Sequences and Labels
+All sequences must be padded to unique length of `MAX_SEQUENCE_LENGTH`. This means, that longer sequences are cut and shorter sequences are filled with zeros. For this Keras provides the `pad_sequences()`-function. 
 
-np.random.seed(1234)
-indices = np.arange(data.shape[0])
-np.random.shuffle(indices)
-data = data[indices]
-labels = labels[indices]
-nb_validation_samples = int(VALIDATION_SPLIT * data.shape[0])
+X_train = pad_sequences(X_train, maxlen=MAX_SEQUENCE_LENGTH)
 
-x_train = data[:-nb_validation_samples]
-y_train = labels[:-nb_validation_samples]
-x_val = data[-nb_validation_samples:]
-y_val = labels[-nb_validation_samples:]
+X_test = pad_sequences(X_test, maxlen=MAX_SEQUENCE_LENGTH)
 
-print('Number of positive and negative reviews in traing and validation set ')
+Moreover, all class-labels must be represented in one-hot-encoded form:
+
+y_train = to_categorical(np.asarray(y_train))
+y_test = to_categorical(np.asarray(y_test))
+print('Shape of Training Data Input:', X_train.shape)
+print('Shape of Training Data Labels:', y_train.shape)
+
+print('Number of positive and negative reviews in training and validation set ')
 print (y_train.sum(axis=0))
-print (y_val.sum(axis=0))
+print (y_test.sum(axis=0))
 
-## Load glove word-embeddings
+## CNN with 2 Convolutional Layers
 
-GLOVE_DIR = "/Users/maucher/DataSets/glove.6B" #MacBook
-#GLOVE_DIR = "../../../../DataSets/glove" #deepthought
-#GLOVE_DIR = "./Data/glove.6B"
-embeddings_index = {}
-f = open(os.path.join(GLOVE_DIR, 'glove.6B.100d.txt'))
-for line in f:
-    values = line.split()
-    word = values[0]
-    coefs = np.asarray(values[1:], dtype='float32')
-    embeddings_index[word] = coefs
-f.close()
+The first network architecture consists of
+* an embedding layer. This layer takes sequences of integers and learns word-embeddings. The sequences of word-embeddings are then passed to the first convolutional layer
+* two 1D-convolutional layers with different number of filters and different filter-sizes
+* two Max-Pooling layers to reduce the number of neurons, required in the following layers
+* a MLP classifier with one hidden layer and the output layer
 
-print('Total %s word vectors in Glove 6B 100d.' % len(embeddings_index))
-
-## CNN with 3 Convolutional Layers
 ### Prepare Embedding Matrix and -Layer 
 
-embedding_matrix = np.random.random((len(word_index) + 1, EMBEDDING_DIM))
-for word, i in word_index.items():
-    embedding_vector = embeddings_index.get(word)
-    if embedding_vector is not None:
-        # words not found in embedding index will be all-zeros.
-        embedding_matrix[i] = embedding_vector
-        
-embedding_layer = Embedding(len(word_index) + 1,
+embedding_layer = Embedding(MAX_NB_WORDS,
                             EMBEDDING_DIM,
-                            weights=[embedding_matrix],
+                            #weights=[embedding_matrix],
                             input_length=MAX_SEQUENCE_LENGTH,
-                            trainable=False)
+                            trainable=True)
 
 ### Define CNN architecture
 
 sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
 embedded_sequences = embedding_layer(sequence_input)
-l_cov1= Conv1D(128, 5, activation='relu')(embedded_sequences)
-l_pool1 = MaxPooling1D(5)(l_cov1)
-l_cov2 = Conv1D(128, 5, activation='relu')(l_pool1)
+l_cov1= Conv1D(32, 5, activation='relu')(embedded_sequences)
+l_pool1 = MaxPooling1D(2)(l_cov1)
+l_cov2 = Conv1D(64, 3, activation='relu')(l_pool1)
 l_pool2 = MaxPooling1D(5)(l_cov2)
-l_cov3 = Conv1D(128, 5, activation='relu')(l_pool2)
-l_pool3 = MaxPooling1D(35)(l_cov3)  # global max pooling
-l_flat = Flatten()(l_pool3)
-l_dense = Dense(128, activation='relu')(l_flat)
+l_flat = Flatten()(l_pool2)
+l_dense = Dense(64, activation='relu')(l_flat)
 preds = Dense(2, activation='softmax')(l_dense)
-
 model = Model(sequence_input, preds)
 
 ### Train Network
@@ -161,7 +116,7 @@ model.compile(loss='categorical_crossentropy',
 model.summary()
 
 print("model fitting - simplified convolutional neural network")
-history=model.fit(x_train, y_train, validation_data=(x_val, y_val),epochs=10, batch_size=128)
+history=model.fit(X_train, y_train, validation_data=(X_test, y_test),epochs=6, verbose=False, batch_size=128)
 
 %matplotlib inline
 from matplotlib import pyplot as plt
@@ -172,13 +127,18 @@ max_val_acc=np.max(val_acc)
 
 epochs = range(1, len(acc) + 1)
 
-plt.figure()
+plt.figure(figsize=(8,6))
 
 plt.plot(epochs, acc, 'bo', label='Training accuracy')
 plt.plot(epochs, val_acc, 'b', label='Validation accuracy')
 plt.title('Training and validation accuracy')
+plt.grid(True)
 plt.legend()
 plt.show()
+
+model.evaluate(X_test,y_test)
+
+As shown above, after 6 epochs of training the cross-entropy-loss is 0.475 and the accuracy is 87.11%. However, it seems that the accuracy-value after 3 epochs has been higher, than the accuracy after 6 epochs. This indicates overfitting due to too long learning.
 
 ## CNN with different filter sizes in one layer
 In [Y. Kim; Convolutional Neural Networks for Sentence Classification](https://arxiv.org/pdf/1408.5882v2.pdf) a CNN with different filter-sizes in one layer has been proposed. This CNN is implemented below:
@@ -189,16 +149,9 @@ Source: [Y. Kim; Convolutional Neural Networks for Sentence Classification](http
 
 ### Prepare Embedding Matrix and -Layer
 
-embedding_matrix = np.random.random((len(word_index) + 1, EMBEDDING_DIM))
-for word, i in word_index.items():
-    embedding_vector = embeddings_index.get(word)
-    if embedding_vector is not None:
-        # words not found in embedding index will be all-zeros.
-        embedding_matrix[i] = embedding_vector
-        
-embedding_layer = Embedding(len(word_index) + 1,
+embedding_layer = Embedding(MAX_NB_WORDS,
                             EMBEDDING_DIM,
-                            weights=[embedding_matrix],
+                            #weights=[embedding_matrix],
                             input_length=MAX_SEQUENCE_LENGTH,
                             trainable=True)
 
@@ -211,20 +164,22 @@ sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
 embedded_sequences = embedding_layer(sequence_input)
 
 for fsz in filter_sizes:
-    l_conv = Conv1D(filters=128,kernel_size=fsz,activation='relu')(embedded_sequences)
-    l_pool = MaxPooling1D(5)(l_conv)
+    l_conv = Conv1D(filters=32,kernel_size=fsz,activation='relu')(embedded_sequences)
+    l_pool = MaxPooling1D(4)(l_conv)
     convs.append(l_pool)
     
 l_merge = Concatenate(axis=1)(convs)
-l_cov1= Conv1D(128, 5, activation='relu')(l_merge)
-l_pool1 = MaxPooling1D(5)(l_cov1)
-l_cov2 = Conv1D(128, 5, activation='relu')(l_pool1)
-l_pool2 = MaxPooling1D(30)(l_cov2)
-l_flat = Flatten()(l_pool2)
-l_dense = Dense(128, activation='relu')(l_flat)
+l_cov1= Conv1D(64, 5, activation='relu')(l_merge)
+l_pool1 = GlobalMaxPool1D()(l_cov1)
+#l_cov2 = Conv1D(128, 5, activation='relu')(l_pool1)
+#l_pool2 = MaxPooling1D(30)(l_cov2)
+l_flat = Flatten()(l_pool1)
+l_dense = Dense(64, activation='relu')(l_flat)
 preds = Dense(2, activation='softmax')(l_dense)
 
 model = Model(sequence_input, preds)
+
+model.summary()
 
 ### Train Network
 
@@ -233,9 +188,7 @@ model.compile(loss='categorical_crossentropy',
               metrics=['categorical_accuracy'])
 
 print("model fitting - more complex convolutional neural network")
-model.summary()
-history=model.fit(x_train, y_train, validation_data=(x_val, y_val),
-          epochs=5, batch_size=50)
+history=model.fit(X_train, y_train, validation_data=(X_test, y_test),epochs=8, batch_size=128)
 
 acc = history.history['categorical_accuracy']
 val_acc = history.history['val_categorical_accuracy']
@@ -243,11 +196,187 @@ max_val_acc=np.max(val_acc)
 
 epochs = range(1, len(acc) + 1)
 
-plt.figure()
+plt.figure(figsize=(8,6))
 
 plt.plot(epochs, acc, 'bo', label='Training accuracy')
 plt.plot(epochs, val_acc, 'b', label='Validation accuracy')
 plt.title('Training and validation accuracy')
+plt.grid(True)
 plt.legend()
 plt.show()
+
+model.evaluate(X_test,y_test)
+
+As shown above, after 8 epochs of training the cross-entropy-loss is 0.467 and the accuracy is 88.47%.
+
+## LSTM
+
+from tensorflow.keras.layers import LSTM, Bidirectional
+
+embedding_layer = Embedding(MAX_NB_WORDS,
+                            EMBEDDING_DIM,
+                            #weights=[embedding_matrix],
+                            input_length=MAX_SEQUENCE_LENGTH,
+                            trainable=True)
+
+sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
+embedded_sequences = embedding_layer(sequence_input)
+l_lstm = Bidirectional(LSTM(64))(embedded_sequences)
+preds = Dense(2, activation='softmax')(l_lstm)
+model = Model(sequence_input, preds)
+
+model.summary()
+
+model.compile(loss='categorical_crossentropy',
+              optimizer='rmsprop',
+              metrics=['categorical_accuracy'])
+
+print("model fitting - Bidirectional LSTM")
+
+history=model.fit(X_train, y_train, validation_data=(X_test, y_test),epochs=6, batch_size=128)
+
+acc = history.history['categorical_accuracy']
+val_acc = history.history['val_categorical_accuracy']
+max_val_acc=np.max(val_acc)
+
+epochs = range(1, len(acc) + 1)
+
+plt.figure(figsize=(8,6))
+
+plt.plot(epochs, acc, 'bo', label='Training accuracy')
+plt.plot(epochs, val_acc, 'b', label='Validation accuracy')
+plt.title('Training and validation accuracy')
+plt.grid(True)
+plt.legend()
+plt.show()
+
+model.evaluate(X_test,y_test)
+
+As shown above, after 6 epochs of training the cross-entropy-loss is 0.467 and the accuracy is 86.7%. However, it seems that the accuracy-value after 2 epochs has been higher, than the accuracy after 6 epochs. This indicates overfitting due to too long learning.
+
+## Bidirectional LSTM architecture with Attention
+
+### Define Custom Attention Layer
+Since Keras does not provide an attention-layer, we have to implement this type on our own. The implementation below corresponds to the attention-concept as introduced in [Bahdanau et al: Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/pdf/1409.0473.pdf).
+
+The general concept of writing custom Keras layers is described in the corresponding [Keras documentation](https://keras.io/layers/writing-your-own-keras-layers/). 
+
+Any custom layer class inherits from the layer-class and must implement three methods:
+
+- `build(input_shape)`: this is where you will define your weights. This method must set `self.built = True`, which can be done by calling `super([Layer], self).build()`.
+- `call(x)`: this is where the layer's logic lives. Unless you want your layer to support masking, you only have to care about the first argument passed to call: the input tensor.
+- `compute_output_shape(input_shape)`: in case your layer modifies the shape of its input, you should specify here the shape transformation logic. This allows Keras to do automatic shape inference.
+
+from tensorflow.keras import regularizers, initializers,constraints
+from tensorflow.keras.layers import Layer
+
+
+class Attention(Layer):
+    def __init__(self, step_dim,
+                 W_regularizer=None, b_regularizer=None,
+                 W_constraint=None, b_constraint=None,
+                 bias=True, **kwargs):
+        self.supports_masking = True
+        self.init = initializers.get('glorot_uniform')
+
+        self.W_regularizer = regularizers.get(W_regularizer)
+        self.b_regularizer = regularizers.get(b_regularizer)
+
+        self.W_constraint = constraints.get(W_constraint)
+        self.b_constraint = constraints.get(b_constraint)
+
+        self.bias = bias
+        self.step_dim = step_dim
+        self.features_dim = 0
+        super(Attention, self).__init__(**kwargs)
+
+    def build(self, input_shape):
+        assert len(input_shape) == 3
+
+        self.W = self.add_weight(shape=(input_shape[-1],),
+                                 initializer=self.init,
+                                 name='{}_W'.format(self.name),
+                                 regularizer=self.W_regularizer,
+                                 constraint=self.W_constraint)
+        self.features_dim = input_shape[-1]
+
+        if self.bias:
+            self.b = self.add_weight(shape=(input_shape[1],),
+                                     initializer='zero',
+                                     #name='{}_b'.format(self.name),
+                                     regularizer=self.b_regularizer,
+                                     constraint=self.b_constraint)
+        else:
+            self.b = None
+
+        self.built = True
+
+    def compute_mask(self, input, input_mask=None):
+        return None
+
+    def call(self, x, mask=None):
+        features_dim = self.features_dim
+        step_dim = self.step_dim
+
+        eij = K.reshape(K.dot(K.reshape(x, (-1, features_dim)),
+                        K.reshape(self.W, (features_dim, 1))), (-1, step_dim))
+
+        if self.bias:
+            eij += self.b
+
+        eij = K.tanh(eij)
+
+        a = K.exp(eij)
+
+        if mask is not None:
+            a *= K.cast(mask, K.floatx())
+
+        a /= K.cast(K.sum(a, axis=1, keepdims=True) + K.epsilon(), K.floatx())
+
+        a = K.expand_dims(a)
+        weighted_input = x * a
+        return K.sum(weighted_input, axis=1)
+
+    def compute_output_shape(self, input_shape):
+        return input_shape[0],  self.features_dim
+
+embedding_layer = Embedding(MAX_NB_WORDS,
+                            EMBEDDING_DIM,
+                            #weights=[embedding_matrix],
+                            input_length=MAX_SEQUENCE_LENGTH,
+                            trainable=True)
+
+sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
+embedded_sequences = embedding_layer(sequence_input)
+l_gru = Bidirectional(LSTM(64, return_sequences=True))(embedded_sequences)
+l_att = Attention(MAX_SEQUENCE_LENGTH)(l_gru)
+preds = Dense(2, activation='softmax')(l_att)
+model = Model(sequence_input, preds)
+
+model.summary()
+
+model.compile(loss='categorical_crossentropy',
+              optimizer='rmsprop',
+              metrics=['categorical_accuracy'])
+
+history=model.fit(X_train, y_train, validation_data=(X_test, y_test),epochs=6, batch_size=128)
+
+acc = history.history['categorical_accuracy']
+val_acc = history.history['val_categorical_accuracy']
+max_val_acc=np.max(val_acc)
+
+epochs = range(1, len(acc) + 1)
+
+plt.figure(figsize=(8,6))
+
+plt.plot(epochs, acc, 'bo', label='Training accuracy')
+plt.plot(epochs, val_acc, 'b', label='Validation accuracy')
+plt.title('Training and validation accuracy')
+plt.grid(True)
+plt.legend()
+plt.show()
+
+model.evaluate(X_test,y_test)
+
+Again, the achieved accuracy is in the same range as for the other architectures. None of the architectures has been optimized, e.g. through hyperparameter-tuning. However, the goal of this notebook is not the determination of an optimal model, but the demonstration of how modern neural network architectures can be implemented for text-classification.
 

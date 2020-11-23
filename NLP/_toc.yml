@@ -33,7 +33,6 @@
         - file: 07neuralnetworks/02RecurrentNeuralNetworks.ipynb
         - file: 07neuralnetworks/03ConvolutionNeuralNetworks.ipynb
         - file: 07neuralnetworks/04CNN.ipynb
-        - file: 07neuralnetworks/05biDirectionalLSTM.ipynb
 - file: referenceSection
 
   
