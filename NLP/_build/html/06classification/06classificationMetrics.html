@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>9.1. Validation of Classifiers &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9.2. Naive Bayes Text Classification" href="07classificationNaiveBayes.html" />
+    <link rel="prev" title="9. Text Classification" href="06classification.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01access/01access.html">
+   1. Access and Preprocess Text
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02normalisation/02normalisation.html">
+   2. Word Normalisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03postagging/03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04ngram/04ngram.html">
+   4. N-Gram Language Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/05representations.html">
+   5. Vector Representations of Words and Documents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/01WordEmbeddingImplementation.html">
+   6. Applying Word-Embeddings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/02gensimDocModelSimple.html">
+   7. Document models and similarity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/05topicextraction.html">
+   8. Topic Extraction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="06classification.html">
+   9. Text Classification
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     9.1. Validation of Classifiers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07classificationNaiveBayes.html">
+     9.2. Naive Bayes Text Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="FakeNewsClassification.html">
+     9.3. Text Classification Application: Fake News detection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07neuralnetworks/07neuralnetworks.html">
+   10. Neural Networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referenceSection.html">
+   11. References
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/06classification/06classificationMetrics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/06classification/06classificationMetrics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/06classification/06classificationMetrics.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#confusion-matrix">
+   9.1.1. Confusion matrix
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accuracy">
+   9.1.2. Accuracy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recall">
+   9.1.3. Recall
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#precision">
+   9.1.4. Precision
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#f1-score">
+   9.1.5. F1-Score
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="validation-of-classifiers">
+<h1><span class="section-number">9.1. </span>Validation of Classifiers<a class="headerlink" href="#validation-of-classifiers" title="Permalink to this headline">¶</a></h1>
+<img alt="http://maucher.home.hdm-stuttgart.de/Pics/SupervisedLearningSchemaValidation.png" class="align-center" src="http://maucher.home.hdm-stuttgart.de/Pics/SupervisedLearningSchemaValidation.png" />
+<p>Text classification is part of supervised Machine Learning (ML). As depicted in the picture above, supervised ML relies on labeled data - not only for training, but also for model testing. It is important that training- and test-datasets are disjoint.</p>
+<p>Once a model is trained, it is applied on test-data and calculates predictions for the test-data input. Since for test-data also the true label (output) is known, these true labels can be compared with the predicted labels. Based on this comparison, different  <strong>metrics</strong> for classifier evaluations can be calculated. The most important classifier metrics are described below.</p>
+<p>Assume that for 10 test-data samples the true and predicted labels (class-indeces) are as listed in the table below:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>True Label</p></th>
+<th class="text-align:center head"><p>Predicted Label</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>All of the metrics described below, can be calculated from this comparison.</p>
+<div class="section" id="confusion-matrix">
+<h2><span class="section-number">9.1.1. </span>Confusion matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The confusion matrix contains for each pair of classes <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>, the number of class <span class="math notranslate nohighlight">\(i\)</span> elements, which have been predicted to be class <span class="math notranslate nohighlight">\(j\)</span>. Usually, each row corresponds to a true-class label and each column corresponds to a predicted class label.</p>
+<p>In the general 2-class confusion matrix, depicted below, the class labels are <span class="math notranslate nohighlight">\(P\)</span> (positive) and <span class="math notranslate nohighlight">\(N\)</span>. The matrix entries are then</p>
+<ul class="simple">
+<li><p><strong>TP (True Positives):</strong> Number of samples, which belong to class <span class="math notranslate nohighlight">\(P\)</span>
+and have correctly been predicted to be class <span class="math notranslate nohighlight">\(P\)</span></p></li>
+<li><p><strong>TN (True Negative):</strong> Number of samples, which belong to class <span class="math notranslate nohighlight">\(N\)</span>
+and have correctly been predicted to be class <span class="math notranslate nohighlight">\(N\)</span></p></li>
+<li><p><strong>FP (False Positives):</strong> Number of samples, which belong to class <span class="math notranslate nohighlight">\(N\)</span>
+but have falsely been predicted to be class <span class="math notranslate nohighlight">\(P\)</span></p></li>
+<li><p><strong>FN (False Negatives):</strong> Number of samples, which belong to class <span class="math notranslate nohighlight">\(P\)</span>
+but have falsely been predicted to be class <span class="math notranslate nohighlight">\(N\)</span></p></li>
+</ul>
+<img alt="http://maucher.home.hdm-stuttgart.de/Pics/confusionMatrixTN.png" class="align-center" src="http://maucher.home.hdm-stuttgart.de/Pics/confusionMatrixTN.png" />
+<p>For the given example of predicted and true class labels the confusion matrix is:</p>
+<img alt="http://maucher.home.hdm-stuttgart.de/Pics/confusionMatrixExample.png" class="align-center" src="http://maucher.home.hdm-stuttgart.de/Pics/confusionMatrixExample.png" />
+</div>
+<div class="section" id="accuracy">
+<h2><span class="section-number">9.1.2. </span>Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this headline">¶</a></h2>
+<p>Accuracy is the ratio of correct predictions among all predictions. For the 2-class problem and the labels <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(N\)</span>, accuracy can be calculated from the entries of the confusion matrix:</p>
+<div class="math notranslate nohighlight">
+\[
+Acc =\frac{TP+TN}{TP+TN+FP+FN}
+\]</div>
+<p>In the example the accuracy is
+$<span class="math notranslate nohighlight">\(
+Acc =\frac{5+2}{5+2+1+2}=0.7
+\)</span>$</p>
+</div>
+<div class="section" id="recall">
+<h2><span class="section-number">9.1.3. </span>Recall<a class="headerlink" href="#recall" title="Permalink to this headline">¶</a></h2>
+<p>The recall of class <span class="math notranslate nohighlight">\(i\)</span> is the ratio of correctly predicted class <span class="math notranslate nohighlight">\(i\)</span> elements, among all elements, which truly belong to class <span class="math notranslate nohighlight">\(i\)</span>. The recall of class <span class="math notranslate nohighlight">\(P\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+Rec_P =\frac{TP}{TP+FN}
+\]</div>
+<p>and for class <span class="math notranslate nohighlight">\(N\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+Rec_N =\frac{TN}{TN+FP}
+\]</div>
+<p>In the example:</p>
+<div class="math notranslate nohighlight">
+\[
+Rec_1=\frac{2}{4} \quad \mbox{ and } \quad Rec_0=\frac{5}{6}
+\]</div>
+</div>
+<div class="section" id="precision">
+<h2><span class="section-number">9.1.4. </span>Precision<a class="headerlink" href="#precision" title="Permalink to this headline">¶</a></h2>
+<p>The precision of class <span class="math notranslate nohighlight">\(i\)</span> is the ratio of true class <span class="math notranslate nohighlight">\(i\)</span> elements, among all elements, which have been predicted to be class <span class="math notranslate nohighlight">\(i\)</span>. The precision of class <span class="math notranslate nohighlight">\(P\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+Pre_P =\frac{TP}{TP+FP}
+\]</div>
+<p>and for class <span class="math notranslate nohighlight">\(N\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+Pre_N =\frac{TN}{TN+FN}
+\]</div>
+<p>In the example:</p>
+<div class="math notranslate nohighlight">
+\[
+Pre_1=\frac{2}{3}  \quad \mbox{ and } \quad Pre_0=\frac{5}{7}
+\]</div>
+</div>
+<div class="section" id="f1-score">
+<h2><span class="section-number">9.1.5. </span>F1-Score<a class="headerlink" href="#f1-score" title="Permalink to this headline">¶</a></h2>
+<p>The F1-score of a class <span class="math notranslate nohighlight">\(i\)</span> is the harmonic mean of this class’ precision and recall:</p>
+<div class="math notranslate nohighlight">
+\[
+F1_i = 2 \cdot \frac{Pre_i \cdot Rec_i}{Pre_i + Rec_i}
+\]</div>
+<p>In the example:</p>
+<div class="math notranslate nohighlight">
+\[
+F1_1= 2 \cdot \frac{\frac{2}{4} \frac{2}{3}}{\frac{2}{4} + \frac{2}{3}}  \quad \mbox{ and } \quad F1_0= 2 \cdot \frac{\frac{5}{6} \frac{5}{7}}{\frac{5}{6} + \frac{5}{7}} 
+\]</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./06classification"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="06classification.html" title="previous page"><span class="section-number">9. </span>Text Classification</a>
+    <a class='right-next' id="next-link" href="07classificationNaiveBayes.html" title="next page"><span class="section-number">9.2. </span>Naive Bayes Text Classification</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

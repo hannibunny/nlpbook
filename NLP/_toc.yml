@@ -27,6 +27,10 @@
         - file: 05representations/05lsi
         - file: 05representations/02LatentSemanticIndexing.ipynb
     - file: 06classification/06classification
+      sections:
+        - file: 06classification/06classificationMetrics.ipynb
+        - file: 06classification/07classificationNaiveBayes
+        - file: 06classification/FakeNewsClassification.ipynb
     - file: 07neuralnetworks/07neuralnetworks
       sections:
         - file: 07neuralnetworks/01NeuralNets.ipynb

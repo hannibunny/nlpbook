@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>
+      Microservices Adoption in 2020 – O’Reilly     </title>
+
+    <link rel="stylesheet" href="https://cdn.oreillystatic.com/assets/css/wp_sites/style-20200701.css">
+
+    
+    <link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.oreilly.com\/radar\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.3.6"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://www.oreilly.com/radar/wp-includes/css/dist/block-library/style.min.css?ver=5.3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='mo_saml_admin_settings_style-css'  href='https://www.oreilly.com/radar/wp-content/plugins/miniorange-saml-20-single-sign-on/includes/css/jquery.ui.css?ver=5.3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='ssp-frontend-player-css'  href='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/css/player.css?ver=1.20.10' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-content/plugins/miniorange-saml-20-single-sign-on/includes/js/settings.js?ver=5.3.6'></script>
+<link rel="canonical" href="https://www.oreilly.com/radar/microservices-adoption-in-2020/" />
+<link rel='shortlink' href='https://www.oreilly.com/radar/?p=13077' />
+
+<link rel="alternate" type="application/rss+xml" title="Podcast RSS feed" href="https://www.oreilly.com/radar/feed/podcast" />
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="language_name" content="English">
+<meta name="native_language_name" content="English">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="icon" type="image/png" href="//www.oreilly.com/favicon.ico">
+
+<!--[if lte IE 9]>
+<script>
+  'article aside footer header main nav section time'.replace(/\w+/g,function(n){document.createElement(n)})
+</script>
+<![endif]-->
+
+<!--[if IE 9]>
+<style type="text/css">
+  #menu-toggle:checked ~ .mobile-nav { display:block; }
+  .mobile-nav { display: none; }
+</style>
+<![endif]-->
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:site" content="@OReillyMedia" />
+<meta property="twitter:title" content="Microservices Adoption in 2020" />
+<meta property="twitter:description" content="Everyone’s talking about microservices. Who’s actually doing it?" />
+<meta property="twitter:url" content="https://www.oreilly.com/radar/microservices-adoption-in-2020" />
+<meta property="twitter:image" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chaos_clock_-_the_steampunk_spell-shaper_crop-ea14b21cc21b4ea8d4dc35b7151d5117-1.jpg" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="O’Reilly Media" />
+<meta property="og:title" content="Microservices Adoption in 2020" />
+<meta property="og:description" content="Everyone’s talking about microservices. Who’s actually doing it?" />
+<meta property="og:url" content="https://www.oreilly.com/radar/microservices-adoption-in-2020/" />
+<meta property="og:image" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chaos_clock_-_the_steampunk_spell-shaper_crop-ea14b21cc21b4ea8d4dc35b7151d5117-1.jpg" />
+<meta name="description" content="Everyone’s talking about microservices. Who’s actually doing it?" />
+<meta name="author" content="Mike Loukides, Steve Swoyer" />
+<meta name="description:site" content="Everyone’s talking about microservices. Who’s actually doing it?" />
+<meta property="article:published_time" content="2020-07-15T09:33:44-04:00" />
+<meta name="article:author" content="Mike Loukides, Steve Swoyer" />
+<meta name="date" content="2020-07-15" />
+<meta name="thumbnail" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chaos_clock_-_the_steampunk_spell-shaper_crop-ea14b21cc21b4ea8d4dc35b7151d5117-1.jpg" />
+<meta name="graphic_medium" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chaos_clock_-_the_steampunk_spell-shaper_crop-ea14b21cc21b4ea8d4dc35b7151d5117-1.jpg" />
+<meta name="oreilly:content_type" content="text" />
+
+<script>
+  loggedInObject = new Object();
+  var dataLayer = window.dataLayer || [];
+
+  //Check for O'Reilly Unified logged-in status
+  if (document.cookie.split(';').filter(function(item) {
+    return item.indexOf('orm-jwt=') >= 0;
+  }).length) {
+    loggedInObject.loggedIn = 'yes';
+    dataLayer.push(loggedInObject);
+  }
+</script>
+
+
+  <script>
+    dataLayer = [{"content.author":"Mike Loukides, Steve Swoyer","content.formatType":"article","content.free":"yes","content.identifier":"none","content.parentTopic":"Next Architecture","content.publisher":"O'Reilly Media Inc.","content.releaseDate":"2020-07-15","content.subTopic":"none","content.subdirectory":"radar","content.title":"Microservices Adoption in 2020","product.identifier":"none","product.title":"none","product.type":"none"}];
+  </script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P4V6Z');</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- Start Visual Website Optimizer Asynchronous Code -->
+<script type='text/javascript'>
+var _vwo_code=(function(){
+var account_id=27087,
+settings_tolerance=2000,
+library_tolerance=2500,
+use_existing_jquery=false,
+// DO NOT EDIT BELOW THIS LINE
+f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+</script>
+<!-- End Visual Website Optimizer Asynchronous Code -->
+
+
+</head>
+<body class="post-template-default single single-post postid-13077 single-format-standard multisite-radar">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P4V6Z" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="skipToMain" id="skipToMain"><a href="#maincontent"><span class="skipToMain-text">Skip to main content</span></a></div>
+
+<header role="banner">
+  <div class="content">
+    <nav role="navigation" aria-label="site sections">
+      <a href="https://www.oreilly.com/" class="logo" title="home page"><img src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg" onerror="this.src='https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red_@2x.png'; this.onerror=null;" alt="O'Reilly home"></a>
+
+      <button id="mobileNavButton" class="mobileNavButton mobileNavButton--collapse mobileNavButton--3dx" type="button" aria-expanded="false" aria-controls="menuList">
+        <span class="mobileNavButton-box">
+          <span class="mobileNavButton-inner"></span>
+        </span>
+      </button>
+
+      <ul id="menuList" class="menuList mobileHidden">
+        <li class="menuList-itemsP1">
+          <ul>
+            <li class="menuList-item menuList-signIn"><a href="https://learning.oreilly.com/accounts/login-check/">Sign In</a></li>
+            <li class="menuList-item menuList-tryNow"><a class="menuList-cta" href="https://oreilly.com/online-learning/try-now.html">Try Now</a></li>
+          </ul>
+        </li>
+        <li class="menuList-itemsP2">
+          <ul>
+            <li class="menuList-item"><a href="https://www.oreilly.com/online-learning/teams.html">Teams</a></li>
+            <li class="menuList-item"><a href="https://www.oreilly.com/online-learning/individuals.html">Individuals</a></li>
+            <li class="menuList-item menuList-itemWithSub"><a href="https://www.oreilly.com/online-learning/features.html">Features</a>
+              <ul class="menuList-subList">
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/feature-certification.html">Certifications</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/intro-interactive-learning.html">Interactive learning</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/live-online-sessions.html">Live online sessions</a></li>
+              </ul>
+            </li>
+            <li class="menuList-item"><a href="https://www.oreilly.com/whats-new.html">What’s New</a></li>
+            <li class="menuList-item menuList-forMarketers"><a href="https://www.oreilly.com/content-marketing-solutions.html">O’Reilly for marketers</a></li>
+            <li class="menuList-item menuList-item-search">
+              <form id="js-searchForm" class="searchForm" action="https://www.oreilly.com/search/"><input id="search" type="search" name="query" placeholder="Explore our content" autocomplete="off" required=""></form>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- <div class="head-search-bar">
+
+    <div class="content">
+      <p>This is where the search bar goes</p>
+    </div>
+  </div> -->
+
+</header>
+
+<main role="main" id="maincontent">
+      <section class="hero hero-wp">
+      <div class="content">
+        <div class="hero-textWrap">
+          <div class="hero-breadcrumbs">
+            <a href="https://www.oreilly.com/radar">Radar</a> / <a href="https://www.oreilly.com/radar/topics/next-architecture/">Next Architecture</a>          </div>
+          <h1 class="radar-post-page-head">Microservices Adoption in 2020</h1>
+                      <div class="radar-post-page-subhead">
+              <p>Everyone’s talking about microservices. Who’s actually doing it?</p>
+            </div>
+          	      </div>
+      </div>
+    </section>
+
+
+    <section class="textSection post-radar">
+      <div class="content">
+
+                              <div class="radar-post-page-meta">
+              <span class="radar-post-page-author">
+                By <a href="https://www.oreilly.com/people/mike-loukides/">Mike Loukides</a> and <a href="https://www.oreilly.com/people/steve-swoyer/">Steve Swoyer</a>              </span>
+            </div>
+          
+          <div class="radar-post-page-meta">
+            <span class="radar-post-page-date">
+              July 15, 2020            </span>
+          </div>
+        
+        <div class="radar-post-flex-wrap">
+
+          <div class="right-rail" id="right-rail">
+            
+              <div id="post-featured-image" class="post-featured-image">
+                <img width="1400" height="950" src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chaos_clock_-_the_steampunk_spell-shaper_crop-ea14b21cc21b4ea8d4dc35b7151d5117-1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Chaos Clock." srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chaos_clock_-_the_steampunk_spell-shaper_crop-ea14b21cc21b4ea8d4dc35b7151d5117-1.jpg 1400w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chaos_clock_-_the_steampunk_spell-shaper_crop-ea14b21cc21b4ea8d4dc35b7151d5117-1-300x204.jpg 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chaos_clock_-_the_steampunk_spell-shaper_crop-ea14b21cc21b4ea8d4dc35b7151d5117-1-768x521.jpg 768w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/chaos_clock_-_the_steampunk_spell-shaper_crop-ea14b21cc21b4ea8d4dc35b7151d5117-1-1048x711.jpg 1048w" sizes="(max-width: 1400px) 100vw, 1400px" />
+                                  <span class="post-featured-image-caption">
+                    Chaos Clock. <span class="source-name">(source: <a class="secondary" target="_blank" href="https://commons.wikimedia.org/wiki/File:Chaos_Clock_-_The_Steampunk_Spell-Shaper.jpg" rel="noopener noreferrer">San Jaya Prime on Wikimedia Commons</a>)</span>                  </span>
+                                </div>
+
+                        </div>
+
+          <div class="post-radar-content" id="post-radar-content">
+
+            <div class="main-post-radar-content">
+
+              
+              
+              
+              
+              
+              
+<p><a href="http://shop.oreilly.com/product/0636920033158.do">Microservices</a>&nbsp;seem to be everywhere. Scratch that:&nbsp;<em>talk</em>&nbsp;about microservices seems to be everywhere.</p>
+
+
+
+<p>And that’s the problem. Thinkers as dissimilar as<a href="https://ndpr.nd.edu/news/plato-on-the-rhetoric-of-philosophers-and-sophists/">&nbsp;Plato</a>,<a href="https://web.stanford.edu/class/history34q/readings/ShapinSchaffer/ShapinSchaffer_Seeing.html">&nbsp;Robert Boyle</a>, and<a href="https://en.wikipedia.org/wiki/Talk_Is_Cheap">&nbsp;Keith Richards</a>&nbsp;tend to agree about one thing: Talk is cheap. So we wanted to determine to what extent, and how, O’Reilly subscribers are empirically&nbsp;<em>using</em>&nbsp;microservices. In other words, how long have people been using them? What are they using them for? Are they having success? If so, what kinds of benefits are they seeing? What can we learn from their failures?</p><div class="vWMfOrm8"><div itemscope="" itemtype="http://schema.org/Product" class="inline-cta trial-cta" id="trial-cta">
+  <div class="thumb">
+    <a href="https://www.oreilly.com/online-learning/">
+      <img itemprop="image" src="https://d3ansictanv2wj.cloudfront.net/safari-topic-cta-1f60e6f96856da19ba3cb25660472ca5.jpg" class="">
+    </a>
+  </div>
+  <div class="title">
+    <h2>
+      Learn faster. Dig deeper. See farther.
+    </h2>
+  </div>
+   <div class="meta">
+    <p class="dek">Join the O'Reilly online learning platform. Get a free trial today and find answers on the fly, or master something new and useful.</p>
+    <a href="https://www.oreilly.com/online-learning/" class="textCTA-small more">Learn more</a>
+  </div>
+</div></div>
+
+
+
+<p>So we did what we usually do: we ran a survey. The survey ran from January 31, 2020 through February 29; we had 1502 respondents from the readers of our mailing lists. Here’s a summary of our key findings:</p>
+
+
+
+<p><em>Most adopters are successful with microservices.</em></p>
+
+
+
+<blockquote class="wp-block-quote"><p>A minority (under 10%) reports “complete success,” but a clear majority (54%) describes their use as at least “mostly successful” and 92% of the respondents had at least some success.</p></blockquote>
+
+
+
+<p><em>Microservices practices are surprisingly mature</em></p>
+
+
+
+<blockquote class="wp-block-quote"><p> About 28% of respondents say their organizations have been using microservices for at least three years; more than three-fifths (61%) of the respondents have been using microservices for a year or more.</p></blockquote>
+
+
+
+<p><em>Adopters are betting big on microservices</em></p>
+
+
+
+<blockquote class="wp-block-quote"><p> Almost one-third (29%) of respondents say their employers are migrating or implementing a majority of their systems (over 50%) using microservices.</p></blockquote>
+
+
+
+<p><em>Success with microservices means owning the software lifecycle</em></p>
+
+
+
+<blockquote class="wp-block-quote"><p>Most (74%) respondents say their teams own the build-test-deploy-maintain phases of the software lifecycle. Teams that own the lifecycle succeed at a rate 18% higher than those that don’t.</p></blockquote>
+
+
+
+<p><em>Success with containers</em></p>
+
+
+
+<blockquote class="wp-block-quote"><p>Respondents who used containers to deploy microservices were significantly more likely to report success than those who didn’t. For our audience, use of containers is one of the strongest predictors of success with microservices.</p></blockquote>
+
+
+
+<p><em>It’s the culture</em></p>
+
+
+
+<blockquote class="wp-block-quote"><p>A plurality of adopters cite cultural or mindset barriers to adoption. Decomposing monolithic applications into microservices is also a major challenge, but complexity may be the biggest challenge of all.</p></blockquote>
+
+
+
+<h2><strong>Respondent Demographics</strong></h2>
+
+
+
+<p><em>Technical roles dominate, but management roles are represented, too.&nbsp;</em>Software engineers comprise the survey audience’s single largest cluster, over one quarter (27%) of respondents (Figure 1). If you combine the different architectural roles—i.e., software and systems architects, technical leads—architects represent almost 28% of the sample. Adding architects and engineers, we see that roughly 55% of the respondents are directly involved in software development. Respondents in management roles constitute close to 23% of the audience; executive-level positions (vice presidents and CxOs) account for roughly 13%, overall.</p>
+
+
+
+<p>That said, the audience for this survey—like those of almost all Radar surveys—is disproportionately technical. Technical roles represented in the “Other” category include IT managers, data engineers, DevOps practitioners, data scientists, systems engineers, and systems administrators. Each of these roles comprised less than 3% of all respondents.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_01-1-1048x699.png" alt="" class="wp-image-13104" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_01-1-1048x699.png 1048w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_01-1-300x200.png 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_01-1-768x512.png 768w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_01-1.png 1088w" sizes="(max-width: 1048px) 100vw, 1048px" /><figcaption><em>Figure 1: Respondent roles</em></figcaption></figure>
+
+
+
+<p><em>Respondents work in more than 25 different vertical industries</em>.The single largest cluster consists of respondents (26%) from the software industry. Combined, technology verticals—software, computers/hardware, and telecommunications—account for about 35% of the audience (Figure 2).</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_02-1-1048x825.png" alt="" class="wp-image-13103" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_02-1-1048x825.png 1048w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_02-1-300x236.png 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_02-1-768x605.png 768w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_02-1.png 1054w" sizes="(max-width: 1048px) 100vw, 1048px" /><figcaption><em>Figure 2: Respondent industries</em></figcaption></figure>
+
+
+
+<p>The second-largest cluster (exclusive of “Other”) was finance, at close to 12%, followed by consulting/professional services, at roughly 10%. The “Other” category, at more than 22% of the total, includes respondents from education (3%, combining K12 and higher education), insurance (3%), energy and utilities (2%), media/entertainment (2%), non-profit (2%), consumer products (1%) and other verticals.</p>
+
+
+
+<p><em>Microservices aren’t just for the big guys</em>. Large companies are amply represented, and respondents affiliated with organizations of 1,000 or more employees comprise 42% of the audience. Overall, however, small- and medium-sized organizations predominate. The largest single cluster (33% of all respondents) was organizations with under 100 employees.</p>
+
+
+
+<p><em>A good global mix</em>. We’re used to seeing a North American-centric tilt in our Radar surveys. This is true, too, of the audience for this survey, nearly half of which (over 49%) works in North America. Europe—inclusive of the United Kingdom—was the next largest region, comprising almost 26% of all respondents. Asia-Pacific accounts for roughly 15% of respondents. In total, just over half of the audience hails from outside of North America. This roughly mirrors usage on the O’Reilly learning platform.</p>
+
+
+
+<h2><strong>Microservices Adoption: Explication and Analysis</strong></h2>
+
+
+
+<p>Slightly more than one-third of respondents say their organizations have been using microservices for between 1 and 3 years (Figure 3). This is the single largest cluster in our sample. The second-largest cluster, at nearly one-quarter (over 23%) of respondent organizations, does not use microservices at all. Mature adopters, companies that first adopted microservices between 3 and 5 years ago, comprise the third-largest cluster, at 18%. If you factor in the respondents whose organizations first adopted microservices over 5 years ago, this means that more than 28% of respondent organizations have been using microservices for at least three years. A little under one-sixth of companies (15%) are just beginning microservice adoption, however; they’ve been using microservices for less than 1 year.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_03-1.png" alt="" class="wp-image-13105" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_03-1.png 994w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_03-1-300x169.png 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_03-1-768x433.png 768w" sizes="(max-width: 994px) 100vw, 994px" /><figcaption><em>Figure 3: Duration of use of microservices</em></figcaption></figure>
+
+
+
+<p>The pace of adoption, in which a clear majority (61%) of respondents say their organizations have used microservices for between 1 and 5 years, roughly tracks with empirical trends we’ve observed internally (e.g., with respect to keyword search and topic usage activity on the O’Reilly online learning platform) and&nbsp;<a href="https://trends.google.com/trends/explore?date=today%205-y&amp;geo=US&amp;q=%2Fm%2F011spz0k">in other contexts</a>. The share of adoption for the 12-month period between January of 2019 and January of 2020 likewise suggests that microservices remains a topic of interest to O’Reilly users. On the other hand, there’s evidence from other quarters that interest in microservices—<a href="https://trends.google.com/trends/explore?date=2019-01-31%202020-01-31&amp;geo=US&amp;q=%2Fm%2F011spz0k">both as a topic</a>&nbsp;and as a general&nbsp;<a href="https://trends.google.com/trends/explore?date=2019-01-31%202020-01-31&amp;geo=US&amp;q=Microservices">search term</a>—has flattened (and perhaps even cooled) over the 12 months.</p>
+
+
+
+<p>So not only are most respondents using microservices, but three-fifths (61%) have been using them for a year or more. But do they describe their experience as successful? What share of the systems they’re deploying or maintaining are built to microservices architecture? What characteristics do successful adopters share? What can we learn from those who say they’ve failed with microservices?</p>
+
+
+
+<h2><strong>Critical Factors for Success</strong></h2>
+
+
+
+<p>A majority of respondents (55%) say their organization’s use of microservices has been either a “complete success” (close to 9%) or “mostly successful” (Figure 4).</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_04-1.png" alt="" class="wp-image-13106" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_04-1.png 973w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_04-1-300x189.png 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_04-1-768x483.png 768w" sizes="(max-width: 973px) 100vw, 973px" /><figcaption><em>Figure 4: Success with microservices</em></figcaption></figure>
+
+
+
+<p>More than one-third (37%) say they’ve had “some success” with microservices. Approximately 8% say they haven’t been successful at all. However, relationships in the data hint at several critical factors for success. For example, in organizations in which development teams own the entire development cycle (i.e., building, testing, deployment, and maintenance), close to half (almost 49%) also reported being “mostly successful” with microservices—and more than 10% said their microservices development efforts were a “complete success. (Figure 5). The combined tally (close to 59%) is about 18% higher than the baseline tally for the survey audience as a whole.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_05-1.png" alt="" class="wp-image-13107" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_05-1.png 837w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_05-1-300x163.png 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_05-1-768x417.png 768w" sizes="(max-width: 837px) 100vw, 837px" /><figcaption><em>Figure 5: Do dev teams own/not own the software lifecycle?</em></figcaption></figure>
+
+
+
+<p>Do we see meaningful connections between success with microservices and the use, or disuse, of specific technologies? Perhaps; we’ll take a look at that next, specifically with respect to containers, centrally managed databases, and monolithic UIs. The semantics get a bit twisted, but the connections we identify seem more strongly associated with “disuse” than with “use.”</p>
+
+
+
+<p>We emphasize the qualifier “seem” because—with respect to the problem of identifying factors for success—we lack detailed data to draw rigorous conclusions. We kept our survey simple; our priority was to develop a general sense of how, why, and in which scenarios people are using microservices. For the most part, our questions didn’t drill down into specifics. We emphasize “seem” for another reason, too. When we asked respondents to cite the biggest challenges to microservices adoption, two problems—<a href="https://en.wikipedia.org/wiki/Decomposition_(computer_science)">decomposition</a>&nbsp;and complexity—stood out for us. Decomposition because it came in at #2, trailing only corporate culture / mindset, which (in almost all Radar surveys) is #1; complexity because two ostensibly different kinds of complexity—“increased complexity” (#4) and the “complexity of managing many services” (#5)—cracked the top 5. Add them together and respondents view complexity in one form or another as the biggest challenge.</p>
+
+
+
+<p>The upshot is that complexity in general and (more specifically) the complexity associated with decomposition are the shoals in which most microservices projects seem to run aground. That’s hard to argue with; complexity is rarely (if ever) associated with success. But it’s easy to pretend that complexity is the enemy when it’s really only one variable in a set of tradeoffs.</p>
+
+
+
+<p>What does that mean? Although it’s not a question we asked, anecdotally we hear that most microservices projects are replacing large, legacy, monolithic software systems. Those monoliths are themselves very complex, having evolved over decades. The complexity of the monolith that’s being replaced is a “sunk cost” that has only partially been paid; it continues to extract a toll as that software is extended to support new features, changing business models, changing modes of user interaction, and more. Microservices may require paying a complexity cost again, but that’s where the tradeoff comes in: in return for the complexity of re-engineering the system, you get increased flexibility, including a simpler path to adding new features, simpler management, simplified scaling as the organization grows.</p>
+
+
+
+<h3>Use of Containers for Microservice Deployment</h3>
+
+
+
+<p>We asked respondents what proportion of their microservices they deploy using containers.</p>
+
+
+
+<p>The largest single cluster (38%) for this question consists of respondents that do not deploy their microservices in containers. One might reasonably expect that containers would be the most common means of instantiating microservices. This just isn’t the case, however. Our findings indicate that, for our survey audience as a whole, most respondents (58%) deploy microservices using some medium other than containers (Figure 6).</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_06-1.png" alt="" class="wp-image-13108" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_06-1.png 903w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_06-1-300x176.png 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_06-1-768x451.png 768w" sizes="(max-width: 903px) 100vw, 903px" /><figcaption><em>Figure 6: Proportion of microservices deployed using containers</em></figcaption></figure>
+
+
+
+<p>There are valid reasons not to use containers. For some adopters, technical debt (in the form of custom-built, proprietary and monolithic systems, applications, or architectures) is a constraining factor. So it just makes sense to instantiate microservices at the level of the&nbsp;<a href="https://en.wikipedia.org/wiki/Hardware_virtualization">virtual machine</a>&nbsp;(VM), as distinct to that of the container. Or maybe it’s faster and less costly, at least in the short term, to build and instantiate microservices as non-virtualized code running in the context of a conventional operating system, a database, application server, etc..</p>
+
+
+
+<p>This doesn’t mean respondents aren’t using containers; most of the survey audience is. It’s just that containers are not yet the most popular means of instantiating microservices, although that could be changing. For example, the second-largest cluster (31%) for this question consists of organizations that deploy between 75% and 100% of their microservices using containers. And 11% use containers to deploy between 50 and 75% of their microservices.</p>
+
+
+
+<p>The upshot is that more than two-fifths (42%) of respondent organizations use containers to deploy at least half of their microservices—and that, for the survey audience as a whole, nearly two-thirds (62%) are using containers to deploy at least&nbsp;<em>some</em>&nbsp;of their microservices. So we have a split: on the one hand, most microservices are instantiated using a technique other than containers; on the other hand, most organizations that use microservices also instantiate at least some of them in containersFor example, 10% of respondents say they use containers to deploy between 10-25% of their microservices; a little more than 9% deploy between 25-50% of microservices with containers; and, again, 11% deploy between 50-75% using containers.<sup>1</sup> It seems adopters either go (mostly) all-in on containers, using them for most microservices, or use them sparingly.</p>
+
+
+
+<p>There’s a critical, and intriguing, “but” here: a higher than average proportion of respondents who report success with microservices opt to instantiate them using containers; conversely, a much higher proportion of respondents who describe their microservices efforts as “Not successful at all”&nbsp;<em>do not</em>&nbsp;instantiate them in containers. For example, almost half (49%) of respondents who describe their deployments as “a complete success” also instantiate most of their microservices (75-100%) in containers. This is more than 5x the baseline (9%) for this question. Conversely, an overwhelming majority (83%) of respondents who describe their microservices efforts as “Not successful at all” are instantiating them by some means other than containers. (These are respondents who use containers in conjunction with less than 10% of their microservices.) This is about 11x the baseline for this question (Figure 4).</p>
+
+
+
+<p>This observation makes intuitive sense. With microservices, instead of deploying one monolithic application, you may need to deploy and manage hundreds or thousands of services. Using containers to standardize deployment, and container orchestration tools to automate ongoing management, greatly simplifies the burden of deployment and management. It’s worth remembering that “containers” get their name by analogy to shipping containers: instead of loading a ship with 10,000 cases of canned soup, 20,000 board-feet of lumber, and a few thousand automobile tires, the shippers would pack their goods in standardized containers that could be stacked up on the ship. This represents a significant reduction in the cost of shipping–or the operational cost of deploying and maintaining software. Containers are a simplifying technology.</p>
+
+
+
+<h3>Use of a Central, Managed Database</h3>
+
+
+
+<p>When we asked respondents what proportion of their microservices share a central, managed database (Figure 7), we found that not using a centrally managed database with microservices tends to be associated with failure. That said, the question itself (i.e., “What percentage of your microservices share a centrally-managed database?”) doesn’t give us much to go on. We don’t know what respondents considered a centrally managed database; what kind of database they were using (relational or non-relational); or whether transactional integrity was an issue.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_07-1.png" alt="" class="wp-image-13109" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_07-1.png 901w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_07-1-300x180.png 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_07-1-768x462.png 768w" sizes="(max-width: 901px) 100vw, 901px" /><figcaption><em>Figure 7: Proportion of microservices that use a centrally managed database</em></figcaption></figure>
+
+
+
+<p>Granted that there’s a lot we’d like to know that we don’t, let’s think about why this question is important, and dig a bit deeper. The point of microservices is breaking an application into separate, decoupled services. Using the database as the integration point between services is counter to this purpose. The result is a software system that looks like it’s built from microservices, but really isn’t, and which realizes few of the promised advantages because the individual services are still coupled to each other at the database layer.</p>
+
+
+
+<p>Are our respondents succeeding with decoupled databases? For our survey audience, it looks like the smaller the proportion of microservices that share access to a central, managed database, the greater the likelihood of failure. Think of this as what&nbsp;<a href="https://en.wikipedia.org/wiki/Survivorship_bias">survivorship bias</a>&nbsp;is most apt to miss: i.e., failure. The lesson in such cases is usually that failure&nbsp;<a href="https://medium.com/@penguinpress/an-excerpt-from-how-not-to-be-wrong-by-jordan-ellenberg-664e708cfc3d">tells a valuable story of its own</a>.</p>
+
+
+
+<p>Of the respondents who said that they are “not successful at all,” 71% said that they did not make much use of a centrally managed database (under 10% of their microservices). The problem is that we don’t actually know what using (or not using) a centrally managed database entails because the question itself is imprecise. For example, a recommended practice is to implement a separate namespace for each microservice. This can be accomplished in several ways—including by using a centralized database!<sup>2</sup> But implementing a separate namespace for each service raises a number of hard problems, starting with transactional integrity and data consistency, and (notionally) encompassing security and privacy, too. Working through these issues isn’t easy, even with a centralized database. It’s much harder without one, however.</p>
+
+
+
+<p>However, while it’s easy to look at these failures and suppose that using a separate database (or database schema) per service is a bad idea that leads to failure, that’s far from the whole picture. Think back to where we started this section: microservices represents a tradeoff of complexity against flexibility. (And also a tradeoff of complexity now versus complexity accreted over the years in a legacy system–we could perhaps think of paying off technical debt with a big “balloon payment.”) Replacing a legacy monolith with microservices isn’t easy. But working through the current complexity to build a system that’s more likely to serve your future needs is what good engineering is all about. And when you’re building a complex system, you need to know where the pain points are. That’s what this data is really telling us: redesigning databases to eliminate dependencies between services is a significant pain point.</p>
+
+
+
+<h3><strong>Monolithic UI</strong></h3>
+
+
+
+<p>We also asked users what percentage of the systems deployed as microservices had a monolithic user interface (Figure 8). This question is also problematic. First, what is a monolithic UI? More to the point, what would our respondents assume we mean by a monolithic UI, and what are they doing if they’re not building a monolithic UI? There are several possibilities, none of which is entirely convincing. One recent trend in web development is&nbsp;<a href="https://martinfowler.com/articles/micro-frontends.html">“micro frontends”</a>, but this doesn’t appear to be&nbsp;<a href="https://trends.google.com/trends/explore?geo=US&amp;q=micro%20frontend,microservice">well-known enough</a>&nbsp;to have a significant effect on our data. Respondents are likely to associate a “monolithic UI” with traditional web development (or perhaps even desktop applications or ancient “green screens”), as opposed to the use of components within a framework like React. (Since micro frontends are built with frameworks like React, these may be two names for almost the same thing. Once you’re using a component-based framework, associating components with individual back-end services isn’t a big leap.) In any case, it is likely that a monolithic UI represents a tradeoff for simplicity over flexibility and complexity. A front end built with a modern reactive web framework is almost certainly more flexible–and more complex–than a 1990s-era web form.</p>
+
+
+
+<p>Use of a monolithic UI is another possible example of survivorship bias; it’s also another case in which respondents who are successful with microservices are much less interesting than those who aren’t.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_08-1.png" alt="" class="wp-image-13110" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_08-1.png 904w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_08-1-300x177.png 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_08-1-768x454.png 768w" sizes="(max-width: 904px) 100vw, 904px" /><figcaption><em>Figure 8: Proportion of microservices that use a monolithic UI</em></figcaption></figure>
+
+
+
+<p>Take the cluster of respondents who&nbsp;<em>don’t</em>&nbsp;build a monolithic UI. (That is, &lt;10% of their microservices use a monolithic UI.) At 31% of all respondents, this is the largest group. But it also has the highest rate of complete failure: 17% describe their implementations as “Not successful at all.” Respondents in this group were also more likely to describe their projects as a “complete success” (12%); 37% said they were “mostly successful.”</p>
+
+
+
+<p>At the other end of this spectrum, among respondents who used a monolithic UI for 50-75% of their systems, only 2% said they were not successful at all. 8% said their projects were a “complete success,” while 52% said their projects were “mostly successful.”</p>
+
+
+
+<p>What are we to make of this? It’s hard to say, given that the notion of a monolithic UI (and its opposite) are poorly defined. But this looks similar to what we observed for databases. Reactive web frameworks (like React and Angular), which are used to build many modern web interfaces, are very complex systems in their own right. It’s not surprising that systems that don’t use a monolithic UI have a high failure rate, and that systems that implement a monolithic UI have a fairly high success rate; if simplicity for developers were the only criteria, we’d all go back to green screens.</p>
+
+
+
+<p>Rather than just looking at a “complexity tax,” we have to consider what the goal is: building systems that can easily be extended and scaled as conditions change. Is a UI that isn’t monolithic (regardless of the technology) more complex? Probably so. Ideally, moving a monolithic application’s back end to microservices while maintaining the legacy front-end would be minimal work (though “minimal” is always more minimal in theory than in practice). What’s gained in return? Additional flexibility; in this case, we’d be looking for the ability to support different kinds of user interfaces and different kind of interactions. Adding a mobile or voice UI to a legacy front end can easily become a nightmare; but it’s hard to imagine any modern application that doesn’t have a mobile front-end, and in a few years, it will be hard to imagine an application without a voice-driven front end. Re-envisioning the front end in terms of services (however they may be implemented) is building flexibility into the system. What other user interfaces will we need in the next few years? Again, the issue is never simply “complexity”; it’s what you get in return.</p>
+
+
+
+<h2><strong>Benefits and Challenges</strong></h2>
+
+
+
+<p>Respondents were asked which benefits, if any, they attribute to their successful use of microservices (Figure 9). They were asked to select all applicable benefits.</p>
+
+
+
+<p>The largest cluster for this response (at 45%) named “feature flexibility,” followed (at just under 45%) by “responding quickly to changing technology and business requirements.” Just under 44% cited the benefit of “better overall scalability,” followed (43%) by “more frequent code refreshes.” The least-cited benefit (15%) was that of lower development costs; just 20% of respondents say they realized one of the core promises of microservices: improved availability by virtue of multiple, redundant functions (i.e., services).</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_09-1-1048x730.png" alt="" class="wp-image-13111" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_09-1-1048x730.png 1048w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_09-1-300x209.png 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_09-1-768x535.png 768w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_09-1.png 1223w" sizes="(max-width: 1048px) 100vw, 1048px" /><figcaption><em>Figure 9: Benefits of using microservices</em></figcaption></figure>
+
+
+
+<p>Almost all of our Radar surveys have found that respondents cite corporate culture as one of the top two or three impediments to adoption or success. This survey was no exception. Culture was the most oft-cited challenge: almost 40% of respondents cited culture—or, alternatively, the problem of “overcoming existing mindset”—as among the biggest challenges they faced in adopting microservices (Figure 10). This was the largest cluster for this response, followed (37%) by the challenge of decomposing requirements into primitive/granular functions. The challenge of integrating with legacy systems was third, cited by approximately 30% of respondents.</p>
+
+
+
+<p>If we combine the two responses that have to do with complexity (“Increased complexity” and “Complexity of managing many services”), we find that complexity in one form or another is the biggest overall challenge, cited by 56% of respondents.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_10-1-768x1048.png" alt="" class="wp-image-13112" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_10-1-768x1048.png 768w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_10-1-220x300.png 220w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_10-1-1126x1536.png 1126w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/07/ma20_10-1.png 1253w" sizes="(max-width: 768px) 100vw, 768px" /><figcaption><em>Figure 10: Challenges encountered in adoption of microservices</em></figcaption></figure>
+
+
+
+<p>Other results of note: at No. 6, technical debt (cited by 28% of respondents) just missed the top five. It’s the kind of hard problem that cannot be wished, willed, or architected away–indeed, replacing a monolithic system with microservices can be seen as a “lump sum” payment of years of accrued technical debt. The rest of the top 10 reads like a laundry list of hard problems: API quality (28%), talent and skill shortages (28%), training and retraining challenges (also 28%) and monitoring/observability (27%) round out the top 10. The high showing for API quality—i.e., their richness, robustness, transparency, accessibility, stability (over time) and usefulness—shouldn’t be surprising. The relatively low result for security (No. 11, cited by 21% of respondents) is surprising.</p>
+
+
+
+<h2><strong>Takeaways</strong></h2>
+
+
+
+<p>For the most part, adopters say they’re having success with microservices: more than half (55%) describe their efforts as at least “mostly” successful. Respondents commonly attribute several clear benefits to their use of microservices, including feature flexibility; the ability to respond to changing business requirements; improved scalability; and more frequent code releases. And, at least among adopters, microservices comprise a growing share of production systems: almost half (46%) of respondents say their organizations are currently developing for or migrating one-quarter or more of their production systems to microservices. Nearly one-sixth (15%) say they’re developing or migrating between 75-100% of their systems to a microservices-oriented architecture. For our audience, microservices architecture is not only established but (for a majority of adopters) used to support systems or workloads in production.</p>
+
+
+
+<p>There’s evidence here for the microservices skeptic, too. About 8% of would-be adopters describe their experiences with microservices as “not successful at all.” Proponents will claim that 8% is a shockingly low rate of failure for any software development project, particularly given the&nbsp;<a href="https://www.zdnet.com/article/study-68-percent-of-it-projects-fail/">historical failure rates of large IT projects</a>; but skeptics will counter that 8% is still, well, 8%. And even if a majority of respondents say they’ve been “mostly successful” with microservices, a sizable percentage (37%) say they’ve had only “some” success. The upshot is that a little under half (45%) of all users have had bad, middling, or only modestly successful experiences with microservices. A skeptic might also point to selection bias: not only is our audience dominated by people in technical roles, but software developers and architects are overrepresented. A survey like this is bound to attract a disproportionate share of participants with an interest in seeing microservices succeed—or fail. In the same way, the person who volunteers her time to complete our survey is more likely than not to be working with or to have an interest in (for or against) microservices. These are all valid objections.</p>
+
+
+
+<p>Our results emphasize the importance of&nbsp;<em>pragmatic</em>&nbsp;microservices development. Microservices can be complex–there’s no point in denying that. And complexity frequently leads to failure–there’s no point in denying that, either. Using containers for deployment is a way of minimizing complexity. We’ve seen that decoupling databases is frequently a pain point, along with redesigning the user interface as a set of components. But again, it’s important to recognize that microservices rarely arise out of nowhere. Many microservice projects are replacing existing systems. And that existing system has its own complexity: complexity that grew over the years, complexity that’s preventing you from achieving your current goals. If you&#8217;ve become accustomed to your legacy systems, you probably don&#8217;t realize how complex they are–but if you’ve made the decision to migrate from a monolith to microservices, the complexity of maintaining your monolith is almost certainly the reason.</p>
+
+
+
+<p>Replacing one kind of complexity with another–is that a gain? Absolutely, if it’s done correctly and enables you to achieve your goals. Complexity is an engineering problem, and engineering problems are always about tradeoffs. When you’re building microservices, keep your eye on the goal–whether that’s supporting new features, scaling for more customers, providing a new experience for users, or something else. Don&#8217;t be surprised that microservices bring their own complexity, and don&#8217;t let that daunt you. But don&#8217;t underestimate the challenge, either.</p>
+
+
+
+<p><em>Special thanks to Kristen Haring, Phil Harvey, Mark Madsen, Roger Magoulas, Larry “Catfish” Murdock, Sam Newman, and Mac Slocum for—among other invaluable contributions—questions, comments, context, and, above all, constructive criticism.</em></p>
+
+
+
+<p></p>
+
+
+
+<h3>Footnotes</h3>
+
+
+
+<p><sup>1</sup> For example, 10% of respondents say they use containers to deploy between 10-25% of their microservices; a little more than 9% deploy between 25-50% of microservices with containers; and, again, 11% deploy between 50-75% using containers.</p>
+
+
+
+<p><sup>2</sup> A development team could use a centrally managed database to create separate namespaces for each service. This practice is notionally consistent with the idea that each microservice should own its data. It also saves developers the headache of coding logic to manage data consistency, transactional durability, and other issues. Or, alternatively, software developers could opt to manage data persistence (along with data consistency and transactional durability) on a per-microservices basis, a practice that is strictly consistent with the idea of data sovereignty, but which radically ups the complexity factor.</p>
+
+                          </div>
+
+                        
+            <div class="post-radar-end">
+
+              
+                              <div class="radar-post-page-meta" >
+      Post topics: <a href="https://www.oreilly.com/radar/topics/next-architecture/" title="Next Architecture">Next Architecture</a></div>              
+                              <div class="radar-post-page-meta" >
+      Post tags: <a href="https://www.oreilly.com/radar/tag/research/" title="Research">Research</a></div>              
+              <div class="radar-post-page-meta radar-post-page-meta-share">
+                Share:
+                <ul>
+                  <li>
+                    <a data-via="oreillymedia" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Microservices Adoption in 2020">Tweet</a>                  </li>
+                  <li>
+                    <div class="fb-share-button" data-href="https://www.oreilly.com/radar/microservices-adoption-in-2020" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>                  </li>
+                  <li>
+                    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+    <script type="IN/Share"></script>                  </li>
+                </ul>
+              </div>
+
+              <!-- Marketo -->
+<link rel="stylesheet" type="text/css" href="https://www.oreilly.com/radar/wp-content/themes/odot/files/mkto-multiform-subscribe-20190821.css">
+<script src="https://get.oreilly.com/js/forms2/js/forms2.min.js" type="text/javascript"></script>
+<div class="radar-newsletter inline-nls" id="newsletter">
+	<h2>Get the O’Reilly Infrastructure & Ops Newsletter</h2>
+	<div class="newsletter-text">
+		<p>Receive weekly insight from industry insiders—plus exclusive content, offers, and more on the topic of infrastructure and operations.</p>
+		<a href="http://www.oreilly.com/emails/newsletters/?display=preview#ops" target="_blank" data-source="http://www.oreilly.com/emails/newsletters/?display=preview#ops">View sample newsletter</a>
+		<div class="mktoForm-email large -medium -small smallContainer">
+			<form class="mktoForm subscribe" data-formid="1114" data-forminstance="topicRow" data-formtopic="SysEngOps"></form>
+		</div>
+	</div>
+	<div class="newsletter-quote">
+		<blockquote>
+			<p>Really one of the best tech newsletters available&hellip; easy-to-process info, always on the edge.</p>
+			<footer>— <strong>Sebastien Portebois</strong>, Technical Director</footer>
+		</blockquote>
+	</div>
+	</div>
+<div class="radar-newsletter inline-nls" id="newsletter2">
+	<h2>Get the O’Reilly Infrastructure & Ops Newsletter</h2>
+	<div class="newsletter-text">
+		<p>Receive weekly insight from industry insiders—plus exclusive content, offers, and more on the topic of infrastructure and operations.</p>
+		<a href="http://www.oreilly.com/emails/newsletters/?display=preview#ops" target="_blank" data-source="http://www.oreilly.com/emails/newsletters/?display=preview#ops">View sample newsletter</a>
+		<div class="mktoForm-email large -medium -small smallContainer">
+			<form class="mktoForm subscribe" data-formid="1114" data-forminstance="topicRow" data-formtopic="SysEngOps"></form>
+		</div>
+	</div>
+	</div>
+<script src="https://cdn.oreillystatic.com/assets/js/mkto-multiform-subscribe-20190814.js" type="text/javascript"></script>
+                
+              <script type="text/javascript" src="https://www.oreilly.com/radar/wp-content/themes/odot/files/cta-191118.js"></script>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+  
+<!-- twitter button script  -->
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="content">
+
+      <div class="footer-main" aria-label="company info">
+        <div class="footer-mainLeft">
+          <div class="footer-mainLeftOne">
+            <div class="footer-approach">
+              <h2 class="footer-header"><a href="https://www.oreilly.com/about/">About O’Reilly</a></h2>
+              <ul class="footer-links">
+                <li><a href="https://www.oreilly.com/work-with-us.html">Teach/write/train</a></li>
+                <li><a href="https://www.oreilly.com/careers/">Careers</a></li>
+                <li><a href="https://www.oreilly.com/partner/signup.csp">Community partners</a></li>
+                <li><a href="https://www.oreilly.com/affiliates/">Affiliate program</a></li>
+                <li><a href="https://www.oreilly.com/online-learning/rfp.html">Submit an RFP</a></li>
+                <li><a href="https://www.oreilly.com/diversity/">Diversity</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-mainLeftTwo">
+            <div class="footer-contact">
+              <h2 class="footer-header"><a href="https://www.oreilly.com/online-learning/support/">Support</a></h2>
+
+              <ul class="footer-links">
+                <li><a href="https://www.oreilly.com/about/contact.html">Contact us</a></li>
+                <li><a href="https://www.oreilly.com/emails/newsletters/">Newsletters</a></li>
+                <li><a href="https://www.oreilly.com/privacy.html">Privacy policy</a></li>
+              </ul>
+            
+              <a href="https://twitter.com/oreillymedia" target="_blank"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve"><style type="text/css">.st0{fill:#ee0000;}.st1{fill:#FFFFFF;}</style><g id="Red"><circle class="st0" cx="200" cy="200" r="200"/></g><g id="Logo__x2014__FIXED"><path class="st1" d="M163.4,305.5c88.7,0,137.2-73.5,137.2-137.2c0-2.1,0-4.2-0.1-6.2c9.4-6.8,17.6-15.3,24.1-25 c-8.6,3.8-17.9,6.4-27.7,7.6c10-6,17.6-15.4,21.2-26.7c-9.3,5.5-19.6,9.5-30.6,11.7c-8.8-9.4-21.3-15.2-35.2-15.2 c-26.6,0-48.2,21.6-48.2,48.2c0,3.8,0.4,7.5,1.3,11c-40.1-2-75.6-21.2-99.4-50.4c-4.1,7.1-6.5,15.4-6.5,24.2 c0,16.7,8.5,31.5,21.5,40.1c-7.9-0.2-15.3-2.4-21.8-6c0,0.2,0,0.4,0,0.6c0,23.4,16.6,42.8,38.7,47.3c-4,1.1-8.3,1.7-12.7,1.7 c-3.1,0-6.1-0.3-9.1-0.9c6.1,19.2,23.9,33.1,45,33.5c-16.5,12.9-37.3,20.6-59.9,20.6c-3.9,0-7.7-0.2-11.5-0.7 C110.8,297.5,136.2,305.5,163.4,305.5"/></g></svg></a>
+              <a href="https://www.facebook.com/OReilly/" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>facebook-logo</title><path class="cls-1" d="M16.13,0A16.13,16.13,0,1,0,32.25,16.12,16.13,16.13,0,0,0,16.13,0Zm5.12,9.54H19.57a1.52,1.52,0,0,0-1.51,1.51v1.14h3.19v3.42H18.06V26.12H13.57V15.61H10.69V12.19h2.88v-2a4,4,0,0,1,4-4h3.65Z"/></svg></a>
+              <a href="https://www.linkedin.com/company/oreilly-media" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>linkedin-logo</title><path class="cls-1" d="M17.43,13.53v0l0,0ZM16.12,0A16.13,16.13,0,1,0,32.25,16.12,16.12,16.12,0,0,0,16.12,0ZM11.77,22.92H8.12v-11h3.65ZM9.94,10.44h0a1.89,1.89,0,0,1-2-1.89A1.91,1.91,0,0,1,10,6.65a1.9,1.9,0,1,1,0,3.79Zm15,12.48H21.28V17.05c0-1.48-.53-2.49-1.85-2.49a2,2,0,0,0-1.88,1.34,2.63,2.63,0,0,0-.12.89v6.13H13.79s.05-10,0-11h3.64V13.5a3.63,3.63,0,0,1,3.29-1.82c2.4,0,4.21,1.57,4.21,4.95Z"/></svg></a>
+              <a href="https://www.youtube.com/user/OreillyMedia" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>youtube-logo</title><path class="cls-1" d="M18.35,18.68a.89.89,0,0,0-.86.63V16.94h-1v7.59h1v-.59a.92.92,0,0,0,.89.74c.52,0,.86-.36,1-1.07a8.56,8.56,0,0,0,.14-1.9,10.47,10.47,0,0,0-.12-1.93C19.21,19.05,18.87,18.68,18.35,18.68Zm.09,4.14c-.05.52-.2.77-.45.77s-.43-.21-.49-.63a7.22,7.22,0,0,1,0-1c0-.72,0-1.14,0-1.26.07-.58.23-.88.51-.88s.4.27.46.79c0,.09,0,.47,0,1.13S18.46,22.71,18.44,22.82ZM8.61,18.19H9.86v6.34H11V18.19H12.2V16.94H8.61Zm7.71-6.12c.27,0,.43-.22.49-.66,0-.09,0-.45,0-1.07V9.78c0-.58,0-.93,0-1-.07-.43-.23-.65-.48-.65s-.41.19-.48.57a8.79,8.79,0,0,0,0,1v.53c0,.71,0,1.09,0,1.16C15.88,11.82,16.05,12.07,16.32,12.07Zm-1.74,10.4a2.92,2.92,0,0,1-.06.71c-.07.25-.2.37-.4.37s-.32-.11-.38-.34a2.63,2.63,0,0,1-.05-.66V18.83h-1v4.48c0,.91.33,1.37,1,1.37A1,1,0,0,0,14.6,24v.57h1v-5.7h-1Zm7.1-3.79a1.35,1.35,0,0,0-1.22.59,2.48,2.48,0,0,0-.3,1.07c0,.23,0,.61,0,1.16s0,1.13,0,1.37a2.93,2.93,0,0,0,.35,1.27,1.25,1.25,0,0,0,1.14.54,1.36,1.36,0,0,0,1.13-.45,2.29,2.29,0,0,0,.37-1.43s0-.07,0-.11v-.12h-1c0,.75-.17,1.12-.51,1.12s-.38-.18-.45-.56a4.68,4.68,0,0,1-.06-.9c0-.18,0-.31,0-.37h2v-.43a4.86,4.86,0,0,0-.3-2.11A1.28,1.28,0,0,0,21.68,18.68ZM22.15,21h-1c0-.05,0-.11,0-.16v-.08a1.64,1.64,0,0,1,.11-.8.39.39,0,0,1,.38-.23.42.42,0,0,1,.43.33,2.32,2.32,0,0,1,.07.7Zm-6-21A16.13,16.13,0,1,0,32.25,16.12,16.12,16.12,0,0,0,16.12,0Zm2.51,7.2h1V11a2.52,2.52,0,0,0,.06.66c.06.23.18.34.38.34s.34-.12.41-.37a3.76,3.76,0,0,0,.05-.71V7.2h1v5.74h-1v-.57a1,1,0,0,1-.93.72c-.66,0-1-.46-1-1.38ZM15,8a1.29,1.29,0,0,1,1.33-.92A1.3,1.3,0,0,1,17.65,8a6.77,6.77,0,0,1,.23,2.1,6.77,6.77,0,0,1-.23,2.1,1.3,1.3,0,0,1-1.32.92A1.29,1.29,0,0,1,15,12.17a6.77,6.77,0,0,1-.23-2.1A6.86,6.86,0,0,1,15,8ZM11.45,5.3l.89,2.87.88-2.87H14.4L12.88,9.7v3.24h-1.1V9.7L10.24,5.3ZM24.93,23.91a3,3,0,0,1-3,3h-12a3,3,0,0,1-3-3V18.05a3,3,0,0,1,3-3h12a3,3,0,0,1,3,3Z"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-download" id="download-info">
+          <h2 class="footer-header">Download the O&rsquo;Reilly App</h2>
+
+          <div class="footer-downloadLinks">
+            <a href="https://itunes.apple.com/us/app/safari-to-go/id881697395"><img src="https://cdn.oreillystatic.com/oreilly/images/app-store-logo.png" alt="Apple app store" /></a>
+            <a href="https://play.google.com/store/apps/details?id=com.safariflow.queue"><img src="https://cdn.oreillystatic.com/oreilly/images/google-play-logo.png"  alt="Google play store" /></a>
+          </div>
+
+          <p>Take O&rsquo;Reilly online learning with you and learn anywhere, anytime on your phone <span class="nowrap">and tablet.</span></p>
+
+          <ul>
+            <li>Get unlimited access to books, videos, and <span class="nowrap">live training.</span></li>
+            <li>Sync all your devices and never lose your place.</li>
+            <li>Learn even when there’s no signal with <span class="nowrap">offline access.</span></li>
+          </ul>
+        </div>
+        
+        <div class="footer-donotsell" id="donotsell-info">
+          <h2 class="footer-header">Do not sell my personal information</h2>
+
+          <p style="line-height: 1.5em;">Exercise your consumer rights by contacting us at <a href="mailto:donotsell@oreilly.com?subject=Do Not Sell My Personal Information Request" style="text-decoration:underline;">donotsell@oreilly.com</a>.</p>
+        </div>
+      </div>
+
+      <div class="footer-subfooter">
+
+        <a href="https://www.oreilly.com/" title="home page" aria-current="page">
+          <img 
+          class="footer-subfooterLogo" 
+          id="footer-subfooterLogo"
+          src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg" 
+          onerror="this.src='https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red_@2x.png'; this.onerror=null;" 
+          alt="O'Reilly home">
+        </a>
+
+        <p>&copy; 2020, O&rsquo;Reilly Media, Inc.  All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+        <p><a href="https://www.oreilly.com/terms/">Terms of service</a> • <a href="https://www.oreilly.com/privacy.html">Privacy policy</a> • <a href="https://www.oreilly.com/about/editorial_independence.html">Editorial independence</a></p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- <script src="https://cdn.oreillystatic.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+
+  <script>
+  (function($) {
+    //Toggle isActive and mobileHidden classes for mobileNavButton
+    $('nav #mobileNavButton').on('click', function() {
+      var expanded = $(this).attr('aria-expanded') === 'true' || false;
+      $(this).attr('aria-expanded', !expanded);
+      $(this).toggleClass("isActive");
+      $(this).next().toggleClass("mobileHidden");
+    });
+
+    //Toggle isFocused class for keyboard navigation of submenus
+    $('nav #menuList .menuList-subItem a').each(function(navItem) {
+      $(this).on('focus', function() {
+        $(this).parent().parent().toggleClass('isFocused');
+      });
+      $(this).on('blur', function() {
+        $(this).parent().parent().toggleClass('isFocused');
+      });
+    });
+
+    //Toggle mobileHidden class accordian elements
+    $('.mobileAccordian').each(function() {
+      var $btn = $(this).find('button');
+      var $target =  $(this).next();
+      $btn.on('click', function() {
+        var expanded = $btn.attr('aria-expanded') === 'true' || false;
+
+        $btn.attr('aria-expanded', !expanded);
+        $target.toggleClass("mobileHidden");  
+      });
+    });
+
+    // truncate months in footer conf listings
+    var months = $('.confMonth');
+    months.each(function(){    
+      var m = $(this).text();        
+      if(m.length < 3 ) return;
+      $(this).html(m.slice(0,3));
+    });
+
+    //Search platform form action
+    function searchSubmit(e) {
+      e.preventDefault();
+      sParameter = searchForm.search.value;
+      sParameter = encodeURIComponent(sParameter.trim());
+      sURL = searchForm.action + '?query=' + sParameter;
+      window.location = sURL;
+
+      //GA event for search
+      dataLayer.push({
+        'event': 'eventTracker',
+        'eventCat':'site search',
+        'eventAct':'search box',
+        'eventLbl':'explore our content',
+        'eventVal':0, 
+        'nonInteraction': 0,
+      });
+    }
+    const searchForm = document.getElementById('js-searchForm');
+    searchForm.addEventListener('submit', searchSubmit);
+  })(jQuery);
+  </script>
+
+  		<style type="text/css">
+			.ssp-wave wave wave {
+				background: #00d4f7 !important;
+			}
+		</style>
+		<script type='text/javascript' src='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/js/media.player.js?ver=1.20.10'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/js/html5.player.js?ver=1.20.10'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/wp-embed.min.js?ver=5.3.6'></script>
+
+  <script type="text/javascript" id="MathJax-script">
+
+    var math = document.getElementsByClassName('math-tex');
+    if (math.length > 0) includeMathJax();
+    function includeMathJax() {
+      var head = document.getElementsByTagName('head')[0];
+      var script = document.createElement('script');
+      script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+      script.type = 'text/javascript';
+      script.async = 'async';
+      head.appendChild(script)
+    }   
+  </script>
+  </body>
+</html>

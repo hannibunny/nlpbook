@@ -1,0 +1,855 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="typepad-standard" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+        <!-- head-common-individual -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="generator" content="http://www.typepad.com/" />
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+        
+        <meta name="description" content="by Hong Ooi I’m pleased to announce that the AzureTableStor package, providing a simple yet powerful interface to the Azure table storage service, is now on CRAN. This is something that many people have requested since the initial release of the AzureR packages nearly two years ago. Azure table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Because table storage is schemaless, it’s easy to adapt your data as the needs of your application evolve. Access to table storage data is fast and cost-effective for many types of..." />
+
+    <link rel="canonical" href="https://blog.revolutionanalytics.com/2020/11/azuretablestor-announcement.html" />
+
+
+
+
+        <link rel="stylesheet" href="https://blog.revolutionanalytics.com/styles.css?v=6" type="text/css" media="screen" />
+        <link rel="stylesheet" href="https://static.typepad.com/.shared/themes/common/print.css" type="text/css" media="print" />
+
+
+<link rel="stylesheet" href="https://static.typepad.com/.shared/css/featherlight-gallery.css">
+
+        <link rel="alternate" type="application/atom+xml" title="Posts on 'Revolutions' (Atom)" href="https://blog.revolutionanalytics.com/atom.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Posts on 'Revolutions' (RSS 1.0)" href="https://blog.revolutionanalytics.com/index.rdf" />
+        <link rel="alternate" type="application/rss+xml" title="Posts on 'Revolutions' (RSS 2.0)" href="https://blog.revolutionanalytics.com/rss.xml" />
+        <script type="text/javascript">
+                var TPApp = {};
+                TPApp.app_uri = "https://www.typepad.com/";
+        </script>
+        <script type="text/javascript" src="https://static.typepad.com/.shared/js/yui/yahoo-dom-event.js,/js/app/thumbnail-gallery-min.js"></script>
+
+<!--- head google analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-225723-36', 'auto', {'name': 'Typepad'}, {'allowLinker': true} );  // Separate tracker for Typepad.
+ga('Typepad.require', 'linker');
+ga('Typepad.linker:autoLink', ['none']);
+ga('Typepad.set', 'dimension1', '6a010534b1db25970b010536040741970b');
+ga('Typepad.set', 'dimension2', 'Individual');
+ga('Typepad.send', 'pageview');
+</script>
+
+
+
+<meta property="og:title" content="AzureTableStor: R interface to Azure table storage service" />
+<meta property="og:site_name" content="Revolutions" />
+<meta property="og:type" content="blog" />
+<meta property="og:url" content="https://blog.revolutionanalytics.com/2020/11/azuretablestor-announcement.html" />
+<meta property="og:description" content="by Hong Ooi I’m pleased to announce that the AzureTableStor package, providing a simple yet powerful interface to the Azure table storage service, is now on CRAN. This is something that many people have requested since the initial release of the AzureR packages nearly two years ago. Azure table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Because table storage is schemaless, it’s easy to adapt your data as the needs of your application evolve. Access to table storage data is fast and cost-effective for many types of..." />
+<meta property="fb:admins" content="" />
+<meta property="fb:app_id" content="55753818692" />
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="">
+<meta name="twitter:creator" content="">
+<meta name="twitter:title" content="AzureTableStor: R interface to Azure table storage service">
+<meta name="twitter:description" content="by Hong Ooi I’m pleased to announce that the AzureTableStor package, providing a simple yet powerful interface to the Azure table storage service, is now on CRAN. This is something that many people have requested since the initial release of the AzureR packages nearly two years ago. Azure table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Because table storage is schemaless, it’s easy to adapt your data as the needs of your application evolve. Access to table storage data is fast and cost-effective for many types of...">
+
+
+
+        <link rel="alternate" type="application/atom+xml" title="Comments on 'AzureTableStor: R interface to Azure table storage service' (Atom)" href="https://blog.revolutionanalytics.com/2020/11/azuretablestor-announcement/comments/atom.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Comments on 'AzureTableStor: R interface to Azure table storage service' (RSS 2.0)" href="https://blog.revolutionanalytics.com/2020/11/azuretablestor-announcement/comments/rss.xml" />
+        <title>AzureTableStor: R interface to Azure table storage service (Revolutions)</title>
+        <link rel="start" href="https://blog.revolutionanalytics.com/" title="Home" />
+        <link rel="prev" href="https://blog.revolutionanalytics.com/2020/10/r-403-now-available.html?no_prefetch=1" title="R 4.0.3 now available" />
+
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+
+
+
+<body class="layout-two-column-right post">
+	
+	<div id="container" class="container">
+		<div id="container-inner" class="pkg">
+			
+                <div class="row">
+     
+
+
+<a id="home"></a>
+   
+
+<!-- banner -->
+<div id="banner">
+	<div id="banner-inner" class="pkg">
+		
+		<h1 id="banner-header"><a href="https://blog.revolutionanalytics.com/" accesskey="1">Revolutions</a></h1>
+		<h2 id="banner-description">
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		</h2>
+	</div>
+</div>
+
+
+
+
+
+
+			<div id="pagebody">
+
+
+				<div id="pagebody-inner" class="pkg">
+                                        <div id="alpha">
+						<div id="alpha-inner" class="pkg">
+							<!-- the plain version removes the extra jquery -->
+<!-- content nav -->
+<p class="content-nav">
+	<a class="content-nav-prev" href="https://blog.revolutionanalytics.com/2020/10/r-403-now-available.html">&laquo; R 4.0.3 now available</a> |
+	<a class="content-nav-main" href="https://blog.revolutionanalytics.com/">Main</a>
+	
+</p>
+<script type="text/javascript">
+   $(function(){
+       var query = window.location.search.substring(1);
+       if( query == "pintix=1" ) {
+          var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','https://static.typepad.com/.shared//js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e);
+       }
+   });
+</script>
+<!-- entry -->
+
+	<h2 class="date-header">November 18, 2020</h2>
+
+
+<div class="entry-category-microsoft entry-category-packages entry-category-r entry-author-hong_ooi entry-type-post entry" id="entry-6a010534b1db25970b026bdea2246b200c">
+   <div class="entry-inner">
+			<h3 class="entry-header">AzureTableStor: R interface to Azure table storage service</h3>
+	
+
+
+
+	<div class="entry-content">
+		<div class="entry-body">
+			<p><em>by Hong Ooi</em></p>
+<p>I’m pleased to announce that the <a href="https://github.com/Azure/AzureTableStor">AzureTableStor</a> package, providing a simple yet powerful interface to the <a href="https://azure.microsoft.com/services/storage/tables/?WT.mc_id=data-11060-davidsmi">Azure table storage service</a>, is <a href="https://cran.r-project.org/package=AzureTableStor">now on CRAN</a>. This is something that many people have requested since the initial release of the AzureR packages nearly two years ago.</p>
+<p>Azure table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Because table storage is schemaless, it’s easy to adapt your data as the needs of your application evolve. Access to table storage data is fast and cost-effective for many types of applications, and is typically lower in cost than traditional SQL for similar volumes of data.</p>
+<p>You can use table storage to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.</p>
+<p>AzureTableStor builds on the functionality provided by the <a href="https://github.com/Azure/AzureStor">AzureStor</a> package. The table storage service is available both as part of general <a href="https://azure.microsoft.com/en-us/services/storage/">Azure storage</a> and via <a href="https://azure.microsoft.com/en-us/services/cosmos-db/">Azure Cosmos DB</a>; AzureTableStor is able to work with either.</p>
+<div class="section level2" id="tables">
+<h2>Tables</h2>
+<p>AzureTableStor provides a <code>table_endpoint</code> function that is the analogue of AzureStor’s <code>blob_endpoint</code>, <code>file_endpoint</code> and <code>adls_endpoint</code> functions. There are methods for retrieving, creating, listing and deleting tables within the endpoint.</p>
+<pre class="r"><code class="hljs"><span class="hljs-keyword">library</span>(AzureTableStor)
+
+<span class="hljs-comment"># storage account endpoint</span>
+endp &lt;- table_endpoint(<br /><span class="hljs-string">    &quot;https://mystorageacct.table.core.windows.net&quot;</span>,<br />    key=<span class="hljs-string">&quot;mykey&quot;</span>)
+<span class="hljs-comment"># Cosmos DB w/table API endpoint</span>
+endp &lt;- table_endpoint(<br /><span class="hljs-string">    &quot;https://mycosmosdb.table.cosmos.azure.com:443&quot;</span>,<br />    key=<span class="hljs-string">&quot;mykey&quot;</span>)
+
+create_storage_table(endp, <span class="hljs-string">&quot;mytable&quot;</span>)
+list_storage_tables(endp)
+tab &lt;- storage_table(endp, <span class="hljs-string">&quot;mytable&quot;</span>)</code></pre>
+</div>
+<div class="section level2" id="entities">
+<h2>Entities</h2>
+<p>In table storage jargon, an <em>entity</em> is a row in a table. The columns of the table are <em>properties</em>. Note that table storage does not enforce a schema; that is, individual entities in a table can have different properties. An entity is identified by its <code>RowKey</code> and <code>PartitionKey</code> properties, which must be unique for each entity.</p>
+<p>AzureTableStor provides the following functions to work with data in a table:</p>
+<ul>
+<li><code>insert_table_entity</code>: inserts a row into the table.</li>
+<li><code>update_table_entity</code>: updates a row with new data, or inserts a new row if it doesn’t already exist.</li>
+<li><code>get_table_entity</code>: retrieves an individual row from the table.</li>
+<li><code>delete_table_entity</code>: deletes a row from the table.</li>
+<li><code>import_table_entities</code>: inserts multiple rows of data from a data frame into the table.</li>
+</ul>
+<pre class="r"><code class="hljs">insert_table_entity(tab, list(
+    RowKey=<span class="hljs-string">&quot;row1&quot;</span>,
+    PartitionKey=<span class="hljs-string">&quot;partition1&quot;</span>,
+    firstname=<span class="hljs-string">&quot;Bill&quot;</span>,
+    lastname=<span class="hljs-string">&quot;Gates&quot;</span>
+))
+
+get_table_entity(tab, <span class="hljs-string">&quot;row1&quot;</span>, <span class="hljs-string">&quot;partition1&quot;</span>)
+
+<span class="hljs-comment"># we can import to the same table as above:<br /># table storage doesn&#39;t enforce a schema</span>
+import_table_entities(tab, mtcars,
+    row_key=row.names(mtcars),
+    partition_key=as.character(mtcars$cyl))
+
+list_table_entities(tab)
+list_table_entities(tab, filter=<span class="hljs-string">&quot;firstname eq &#39;Satya&#39;&quot;</span>)
+list_table_entities(tab, filter=<span class="hljs-string">&quot;RowKey eq &#39;Toyota Corolla&#39;&quot;</span>)</code></pre>
+</div>
+<div class="section level2" id="batch-transactions">
+<h2>Batch transactions</h2>
+<p>With the exception of <code>import_table_entities</code>, all of the above entity functions work on a single row of data. Table storage provides a batch execution facility, which lets you bundle up single-row operations into a single transaction that will be executed atomically. In the jargon, this is known as an <em>entity group transaction</em>. <code>import_table_entities</code> is an example of an entity group transaction: it bundles up multiple rows of data into batch jobs, which is much more efficient than sending each row individually to the server.</p>
+<p>The <code>create_table_operation</code>, <code>create_batch_transaction</code> and <code>do_batch_transaction</code> functions let you perform entity group transactions. Here is an example of a simple batch insert. The actual <code>import_table_entities</code> function is more complex as it can also handle multiple partition keys and more than 100 rows of data.</p>
+<pre class="r"><code class="hljs">ir &lt;- subset(iris, Species == <span class="hljs-string">&quot;setosa&quot;</span>)
+
+<span class="hljs-comment"># property names must be valid C# variable names</span>
+names(ir) &lt;- sub(<span class="hljs-string">&quot;\\.&quot;</span>, <span class="hljs-string">&quot;_&quot;</span>, names(ir))
+
+<span class="hljs-comment"># create the PartitionKey and RowKey properties</span>
+ir$PartitionKey &lt;- ir$Species
+ir$RowKey &lt;- sprintf(<span class="hljs-string">&quot;%03d&quot;</span>, seq_len(nrow(ir)))
+
+<span class="hljs-comment"># generate the array of insert operations: 1 per row</span>
+ops &lt;- lapply(seq_len(nrow(ir)), <span class="hljs-keyword">function</span>(i)
+    create_table_operation(endp, <span class="hljs-string">&quot;mytable&quot;</span>, body=ir[i, ],<br />                           http_verb=<span class="hljs-string">&quot;POST&quot;</span>)))
+
+<span class="hljs-comment"># create a batch transaction and send it to the endpoint</span>
+bat &lt;- create_batch_transaction(endp, ops)
+do_batch_transaction(bat)</code></pre>
+<p>If you have any feedback, or to report bugs with the package, please contact me at <a class="email" href="mailto:hongooi73@gmail.com">hongooi73@gmail.com</a> or <a href="https://github.com/Azure/AzureTableStor/issues">open an issue</a> on GitHub.</p>
+</div>
+		</div>
+		
+
+                        <!-- SIGNATURE -->
+                        
+
+		
+	</div>
+
+	<div class="entry-footer">
+			<p class="entry-footer-info">
+				<span class="post-footers">Posted by <a rel="author" href="https://profile.typepad.com/6p01b8d158cece970c">Hong Ooi</a> at 09:30 in <a href="https://blog.revolutionanalytics.com/microsoft/">Microsoft</a>, <a href="https://blog.revolutionanalytics.com/packages/">packages</a>, <a href="https://blog.revolutionanalytics.com/r/">R</a> </span> <span class="separator">|</span> <a class="permalink" href="https://blog.revolutionanalytics.com/2020/11/azuretablestor-announcement.html">Permalink</a>
+			</p>
+		
+		<!-- technorati tags -->
+
+
+		<!-- post footer links -->
+	<p class="entry-footer-share">
+		<span class="entry-footer-links-favorite"></span>
+	</p>
+
+
+	</div>
+   </div>
+</div>
+
+
+
+        
+        
+        <a id="comments"></a>
+	<div class="comments" id="all-comments">
+		<h3 class="comments-header">Comments</h3>
+					<div class="comments-info">
+				<p><a href="https://blog.revolutionanalytics.com/2020/11/azuretablestor-announcement/comments/atom.xml"><img src="https://static.typepad.com/.shared/images/feed.png" alt="Feed" width="10" height="10" /></a> You can follow this conversation by subscribing to the <a href="https://blog.revolutionanalytics.com/2020/11/azuretablestor-announcement/comments/atom.xml">comment feed</a> for this post.</p>
+			</div>
+		
+		<div class="comments-content" id="comments-content">
+                <!-- comment list -->
+
+		</div>
+        
+	</div>
+<script type="text/javascript">var c943723d42e77e9214eb884a1d898ea="</form>";</script>
+<script type="text/javascript">var ffe51c373e0873b7778b6324a0b5533 = '<form id="comment-form" action="';</script>
+<script type="text/javascript">var c943723d42e77e9214eb884a1d898za = '" method="post"><input type="hidden" name="entry_xid" id="comment-entry-xid" value="6a010534b1db25970b026bdea2246b200c" \/><input type="hidden" name="token" value="1606320825-9cba8d6db9df8d468da079b461af886f6cafeccd:e10a2NiInHjf1nlE" \/>';</script>
+<script type="text/javascript">var OOcd55d4dc47109d7b462b01c7dd4dab = "aHR0cHM6Ly9ibG9nLnJldm9sdXRpb25hbmFseXRpY3MuY29tLy5zZXJ2aWNlcy9jb21tZW50cw";</script>
+<script type="text/javascript">var bad4dd7c10b264b7d90174cd4d55dc00 = atob(OOcd55d4dc47109d7b462b01c7dd4dab);</script>
+
+<!-- comment-form-atp -->
+
+	
+<div id="atp-comments">
+    
+        <div id="comment-preview" class="hiddenBox">
+	<h3 id="header-verify-comment" class="comments-header font-entryheader  hiddenBox">Verify your Comment</h3>
+    <h3 id="header-preview-comment" class="comments-header font-entryheader  hiddenBox">Previewing your Comment</h3>
+	<div class="comments-content font-entrybody">
+		<div class="comment">
+			<div id="comment-preview-content" class="comment-content">
+			</div>
+			<p class="comment-footer">
+				Posted by: 
+				<span id="comment-preview-author"></span>&nbsp;|&nbsp;<span id="comment-preview-datetime"></span>
+			</p>
+		</div>
+	</div>
+</div>
+<div id="comment-preview-confirmation" class="font-entrybody hiddenBox yellowBox">
+    <p>This is only a preview. Your comment has not yet been posted.</p>
+        <form id="comment-preview-form"
+                method="post"
+                onsubmit="atpComments.interceptPost(1); return false;">
+                <input type="submit" class="form-control font-entrybody" name="post" id="comment-confirm-post" value="&nbsp;Post&nbsp;" onclick="atpComments.interceptPost(1); return false;"/>
+                <input type="submit" class="form-control font-entrybody"  name="edit" id="comment-edit" value="&nbsp;&nbsp;Edit&nbsp;&nbsp;" onclick="atpComments.previewOnly(2); return false;"/>
+        <span id="previewFormSpinner" class="hiddenBox"><img src="/.shared/images/spinner.gif" alt="Working..." /></span>
+        </form>
+</div>
+
+<div id="comment-error" class="hiddenBox font-entrybody redBox">	    
+   Your comment could not be posted. Error type: <span id="comment-error-msg"></span> 
+</div>	
+<div id="comment-complete" class="hiddenBox font-entrybody  yellowGreenBox">
+    Your comment has been posted. <a href="javascript:void 0;" onclick="window.location.hash='#comment-form';window.location.reload(false)">Post another comment</a>
+</div>	
+<div id="comment-captcha" class="hiddenBox yellowBox font-entrybody">	
+    <div id="captchaText">
+	    <p id="captchaFailMsg" class="captchaErrorText hiddenBox">The letters and numbers you entered did not match the image. Please try again.</p>	    	        
+	    <p>As a final step before posting your comment, enter the letters and numbers you see in the image below. This prevents automated programs from posting comments.</p>
+	    <p><span id="comment-captcha-viewalt">Having trouble reading this image? <a href="#comment-captcha" onClick="atpComments.generateReCaptcha();">View an alternate.</a></span></p>
+    </div>
+    <form id="comment-captcha-form" 
+		  method="post"
+		  onsubmit="atpComments.submitWithReCaptcha(); return false;">
+    <div id="recaptcha_content">
+      <noscript>
+        <iframe src="6Ldg1s4SAAAAAEvvZX2ILFkWp7KB-jjdL4v0JV2e" height="300" width="500" frameborder="0"></iframe><br />
+        <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+        <input type='hidden' name='recaptcha_response_field' value='manual_challenge' />
+      </noscript>
+    </div>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        Recaptcha.create("6Ldg1s4SAAAAAEvvZX2ILFkWp7KB-jjdL4v0JV2e",
+                         "recaptcha_content", {
+                             theme: "red",
+                             callback: Recaptcha.focus_response_field
+        });
+    });
+  </script>
+        <p>
+            <input type="submit" name="continue" id="captcha-continue" value="&nbsp;Continue&nbsp;" />
+            <span id="captchaFormSpinner" class="commentSpinner hiddenBox"><img src="/.shared/images/spinner.gif" alt="Working..." /></span>
+        </p>
+    </form>
+</div>
+
+    
+	<div id="primary-comment-form" class="comment-form">
+	    
+	    <script type="text/javascript">document.write(ffe51c373e0873b7778b6324a0b5533+bad4dd7c10b264b7d90174cd4d55dc00+c943723d42e77e9214eb884a1d898za);</script>
+	    
+    		<div class="comments-open">
+    		<i class="fas fa-comment"></i><h2 class="comments-open-header font-entryheader" id="comment-title">Post a comment</h2>
+    			<div id="comments-open-content" class="comments-open-content font-entrybody">
+    				
+				
+    									
+    					<div id="comments-open-login" style="display: none;">
+                  <div class="login-list font-entrybody">
+                      
+                      <span class="first">Comment below or sign in with</span> <span class="typepad"><a href="https://www.typekey.com/t/typekey/login?v=1.0&t=29aa65a81125d0856c87ce5d926aecd2f059d3d6&lang=en_US&_return=https%3A%2F%2Fblog.revolutionanalytics.com%2F2020%2F11%2Fazuretablestor-announcement.html&_portal=typepad">Typepad</a></span> <span class="facebook"><a href="https://www.typekey.com/t/typekey/login?v=1.0&t=29aa65a81125d0856c87ce5d926aecd2f059d3d6&lang=en_US&_return=https%3A%2F%2Fblog.revolutionanalytics.com%2F2020%2F11%2Fazuretablestor-announcement.html&_portal=typepad&service=facebook">Facebook</a></span> <span class="twitter"><a href="https://www.typekey.com/t/typekey/login?v=1.0&t=29aa65a81125d0856c87ce5d926aecd2f059d3d6&lang=en_US&_return=https%3A%2F%2Fblog.revolutionanalytics.com%2F2020%2F11%2Fazuretablestor-announcement.html&_portal=typepad&service=twitter">Twitter</a></span><span>and <a href="https://www.typekey.com/t/typekey/login?v=1.0&t=29aa65a81125d0856c87ce5d926aecd2f059d3d6&lang=en_US&_return=https%3A%2F%2Fblog.revolutionanalytics.com%2F2020%2F11%2Fazuretablestor-announcement.html&_portal=typepad&service=openid">more...</a></span>
+                      
+                  </div>
+                  <div class="clr"></div>
+    					</div>
+    					<div id="comments-open-logout" style="display: none;">
+    						You are currently signed in as
+    						<span id="commenter-name">(nobody)</span>.
+    						<a href="https://blog.revolutionanalytics.com/.services/sitelogout?to=https%3A%2F%2Fwww.typekey.com%2Ft%2Ftypekey%2F%3F__mode%3Dlogout%26_return%3Dhttps%253A%252F%252Fblog.revolutionanalytics.com%252F2020%252F11%252Fazuretablestor-announcement.html">Sign Out</a>
+    					</div>
+    				
+                    	<div id="comments-open-text" style="display:none;">
+        					<textarea id="comment-text" name="text" rows="10" cols="30" onkeyup="atpComments.maxTextArea(this, 64000);" class="form-control"></textarea>
+            				
+            				<p class="comments-open-subtext font-entrybody">
+            				    (You can use HTML tags like &lt;b&gt; &lt;i&gt; and &lt;ul&gt; to style your text.)
+            				</p>			
+            				                    					
+        				</div>
+    				    <div id="comments-open-data" class="font-entrybody">
+                            <p>Your Information</p>
+                            <p>
+                                (Name and email address are required. Email address will not be displayed with the comment.)
+                            
+                            </p>
+			    
+    						<p>
+    							<input id="comment-author" at:default="Name" name="author" size="30" value="Name" onfocus="if(this.value==this.getAttribute('at:default')) this.value='';"  onBlur="if(this.value=='') this.value=this.getAttribute('at:default');" class="grayText"/>
+    							<label for="comment-author" id="comment-author-error" class="comment-error hiddenBox">Name is required to post a comment</label>
+    						</p>
+    						<p>
+    							<input id="comment-email" at:default="Email Address" name="email" size="30" value="Email Address" onfocus="if(this.value==this.getAttribute('at:default')) this.value='';"  onBlur="if(this.value=='') this.value=this.getAttribute('at:default');" class="grayText"/>
+    							<label for="comment-email" id="comment-email-error" class="comment-error hiddenBox">Please enter a valid email address</label>
+    						</p>
+    						<p>
+    							<input id="comment-url" at:default="Web Site URL" name="url" size="30" value="Web Site URL" onfocus="if(this.value==this.getAttribute('at:default')) this.value='';"  onBlur="if(this.value=='') this.value=this.getAttribute('at:default');" class="grayText"/>
+    							<label for="comment-url" id="comment-url-error" class="comment-error hiddenBox">Invalid URL</label>
+    						</p>
+
+    					</div>
+    		    </div>
+                <div id="comments-open-footer" class="comments-open-footer font-entrybody" style="display:none;">
+    				<input type="submit" name="post" id="comment-post-button" value="&nbsp;Post&nbsp;" onclick="atpComments.interceptPost(1); return false;" disabled="true" class="form-control font-entrybody"/>
+    				<input type="submit" name="preview" id="comment-preview-button" value="&nbsp;Preview&nbsp;" onclick="atpComments.previewOnly(1); return false;" disabled="true" class="form-control font-entrybody  preview-button"/>
+
+    				<span id="commentEntryFormSpinner" class="commentSpinner hiddenBox"><img src="/.shared/images/spinner.gif" alt="Working..." /></span>
+    			</div>
+    		</div>
+	    		
+	    <script type="text/javascript">document.write(c943723d42e77e9214eb884a1d898ea);</script>
+	    
+	    <noscript>
+		
+		<p>Please enable JavaScript if you would like to comment on this blog.</p>
+				
+		
+	    </noscript>
+	</div>
+</div>
+
+
+
+
+
+    
+    
+
+
+
+
+						</div>
+					</div>
+                                        <div id="beta">
+						<div id="beta-inner" class="pkg">
+							
+<!-- sidebar -->
+
+
+	<div class="module-archives module">
+		<h2 class="module-header">Information</h2>
+		<div class="module-content">
+			<ul class="module-list">
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/about.html">About this blog</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/comments-policy.html">Comments Policy</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/categories.html">About Categories</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/authors.html">About the Authors</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/local-r-groups.html">Local R User Group Directory</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/tips-on-starting-an-r-user-group.html">Tips on Starting an R User Group</a></li>
+				
+			</ul>
+		</div>
+	</div>
+<!-- list_inlcude.tt  -->
+<div id="search_revolutions_blog" class="module-typelist module">
+<h2 class="module-header">Search Revolutions Blog</h2>
+	<div class="typelist-plain module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><div class="typelist-note"><form method="get" action="https://www.google.com/search">
+  <input type="hidden" name="ie" value="UTF-8" /> 
+  <input type="hidden" name="oe" value="UTF-8" />
+  <div style="background-color:white;"></div>
+   <input type="text" name="q" size="18" maxlength="255" value="" />
+  <input type="submit" name="btnG" value=" Search Blog " />
+   <br />
+<small>
+    <input type="hidden" name="domains" value="blog.revolutionanalytics.com" />
+<br />
+    <input type="hidden" name="sitesearch" value="blog.revolutionanalytics.com" checked="checked" />
+   <br /></small>
+</form>
+ <!-- SiteSearch Google --></div></li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+Got comments or suggestions for the blog editor? <br>
+Email <a href="mailto:davidsmi@microsoft.com">David Smith</a>.
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<a href="https://www.twitter.com/revodavid"><img src="https://twitter-badges.s3.amazonaws.com/t_small-b.png" alt="Follow revodavid on Twitter" /></a> Follow David on Twitter: <a href="https://twitter.com/revodavid">@revodavid</a>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+Get this blog via email with <a href="https://blogtrottr.com/?subscribe=http://blog.revolutionanalytics.com" title='Get this feed delivered by email'><img src='https://blogtrottr.com/images/icons/blogtrottr-button-91x17px.gif' alt='Blogtrottr' /></a>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<div class="module-categories module">
+	<h2 class="module-header"><a href="https://blog.revolutionanalytics.com/archives.html">Categories</a></h2>
+	<div class="module-content">
+                   <ul class="module-list">
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/academia/">academia</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/advanced-tips/">advanced tips</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/ai/">AI</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/airoundups/">airoundups</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/announcements/">announcements</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/applications/">applications</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/beginner-tips/">beginner tips</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/big-data/">big data</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/courses/">courses</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/current-events/">current events</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/data-science/">data science</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/developers/">developer tips</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/events/">events</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/finance/">finance</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/government/">government</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/graphics/">graphics</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/high-performance-computing/">high-performance computing</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/life-sciences/">life sciences</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/microsoft/">Microsoft</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/mlops/">mlops</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/open-source/">open source</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/other-industry/">other industry</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/packages/">packages</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/popularity/">popularity</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/predictive-analytics/">predictive analytics</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/profiles/">profiles</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/python/">python</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/r/">R</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/r-is-hot/">R is Hot</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/random/">random</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/reviews/">reviews</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/revolution/">Revolution</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/rmedia/">Rmedia</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/roundups/">roundups</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/sports-1/">sports</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/statistics/">statistics</a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/user-groups/">user groups</a></li>
+</span>
+		</ul>
+
+<a style="font-size:85%;display:none;" class="cat-more" href="https://blog.revolutionanalytics.com/archives.html">See More</a>
+	</div>
+</div>
+<!-- list_inlcude.tt  -->
+<div id="r_links" class="module-typelist module">
+<h2 class="module-header">R links</h2>
+	<div class="module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><a href="https://docs.microsoft.com/azure/machine-learning/r-developers-guide?WT.mc_id=RevolutionsSidebar-blog-davidsmi" >R on Azure</a><br />Developer's guide and documentation</li>
+							<li class="module-list-item"><a href="https://mran.microsoft.com/packages/" >Find R packages</a><br />CRAN package directory at MRAN</li>
+							<li class="module-list-item"><a href="https://mran.microsoft.com/download" >Download Microsoft R Open</a><br />Free, high-performance R</li>
+							<li class="module-list-item"><a href="https://www.r-project.org">R Project site</a><br />Information about the R project</li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- list_inlcude.tt  -->
+<div id="recommended_sites" class="module-typelist module">
+<h2 class="module-header">Recommended Sites</h2>
+	<div class="module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><a href="https://twitter.com/rlangtip" >@RLangTip</a><br />Daily tips on using R</li>
+							<li class="module-list-item"><a href="https://flowingdata.com">FlowingData</a><br />Modern data visualization</li>
+							<li class="module-list-item"><a href="http://www.statisticsblog.com/" >Probability and statistics blog</a><br />Monte Carlo simulations in R</li>
+							<li class="module-list-item"><a href="http://www.r-bloggers.com" >R Bloggers</a><br />Daily news and tutorials about R, contributed by R bloggers worldwide.</li>
+							<li class="module-list-item"><a href="http://www.analyticbridge.com/group/rprojectandotherfreesoftwaretools" >R Project group on analyticbridge.com</a><br />Community and discussion forum</li>
+							<li class="module-list-item"><a href="http://www.stat.columbia.edu/~cook/movabletype/mlm/" >Statistical Modeling, Causal Inference, and Social Science</a><br />Andrew Gelman's statistics blog</li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- archives -->
+
+	<div class="module-archives module">
+		<h2 class="module-header"><a href="https://blog.revolutionanalytics.com/archives.html">Archives</a></h2>
+		<div class="module-content">
+			<ul class="module-list">
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/11/index.html">November 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/10/index.html">October 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/09/index.html">September 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/08/index.html">August 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/07/index.html">July 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/06/index.html">June 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/05/index.html">May 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/04/index.html">April 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/03/index.html">March 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/02/index.html">February 2020</a></li>
+				
+			</ul>
+		</div>
+	</div>
+
+<div class="module-syndicate module">
+	<div class="module-content">
+	<a href="https://blog.revolutionanalytics.com/atom.xml"><i class="fas fa-rss"></i> Subscribe to this blog's feed</a>
+	</div>
+</div>
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<script type="text/javascript">
+  var varAutoFirePV = 1;
+  var varClickTracking = 1;
+  var varCustomerTracking = 1;
+  var Route = "123865";
+  var Ctrl = "";
+  document.write("<script type='text/javascript' src='" + (window.location.protocol) + "//c.microsoft.com/ms.js'" + "'><\/script>");
+</script>​
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var firstTracker = _gat._getTracker("UA-6984166-10");
+firstTracker._setDomainName(".revolutionanalytics.com");
+firstTracker._setAllowLinker(true);
+firstTracker._setAllowHash(false);
+firstTracker._trackPageview();
+var secondTracker = _gat._getTracker("UA-6984166-9");
+secondTracker._setDomainName(".revolutionanalytics.com");
+secondTracker._setAllowLinker(true);
+secondTracker._setAllowHash(false);
+secondTracker._trackPageview();
+} catch (err) { }
+</script>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+</div> <!-- row -->
+			
+
+
+
+		</div>
+	</div>
+	
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+<!--
+var extra_happy = Math.floor(1000000000 * Math.random());
+document.write('<img src="https://www.typepad.com/t/stats?blog_id=1774446&amp;user_id=3164880&amp;page=' + escape(location.href) + '&amp;referrer=' + escape(document.referrer) + '&amp;i=' + extra_happy + '" width="1" height="1" alt="" style="position: absolute; top: 0; left: 0;" />');
+// -->
+</script>
+
+
+
+
+<!-- script type="text/javascript" src="//www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script -->
+<script type="text/javascript">
+var captchaImgAttempts = 0;
+var allowAnonComments = '0';
+var registrationRequired = 0;
+var registrationOptional = 1;
+var emailRequired = 1;
+var useAvatars = 0;
+
+var showSignInMessaging = 0;
+var jsonURL = "/.services/json-rpc";
+
+var captchaSrc = "/.services/captcha?code_encrypted=";
+var alertCommentCannotBeBlank = "You can not leave an empty comment. Please enter some text in the Comment field.";
+var alertEditingExpired = "Sorry, you're no longer allowed to edit this comment. You may have taken too much time before submitting your edit or someone may have already replied to it.";
+
+var alertAuthorCannotBeBlank = "Name must not be blank.";
+var alertEmailCannotBeBlank = "Email Address must not be blank.";
+var alertAuthorAndEmailCannotBeBlank = "Name and email address are both required!";
+var alertEmailIsInvalid = "The Email Address you entered is invalid. Please enter a valid email address.";
+var alertUnauthorizedAction = "The comments on this post are closed.";
+var msgPostReplyTo = "Reply to ";
+var msgInReplyTo = "In reply to ";
+var msgPostAComment = "Post a comment ";
+var atpCommentsPath = "/.shared/js/atpcomments_yui.js?v=5";
+var hasChanged = 0;
+var hostName = ".revolutionanalytics.com/";
+var tp_comment_token = "1606320825-0c3ec54fb5a0d4cd59161d8e423a6b62de9e307e:ltZkF1fboFdZiyRM";
+
+var use_recaptcha = 0;
+var recaptcha_publickey = "6Ldg1s4SAAAAAEvvZX2ILFkWp7KB-jjdL4v0JV2e";
+var isPage = 0;
+var blog_xid = "6a010534b1db25970b010536040741970b";
+var xid = "";
+var injectCode = '<div id=\"comment-preview\" class=\"hiddenBox\">\n\t<h3 id=\"header-verify-comment\" class=\"comments-header font-entryheader  hiddenBox\">Verify your Comment<\/h3>\n    <h3 id=\"header-preview-comment\" class=\"comments-header font-entryheader  hiddenBox\">Previewing your Comment<\/h3>\n\t<div class=\"comments-content font-entrybody\">\n\t\t<div class=\"comment\">\n\t\t\t<div id=\"comment-preview-content\" class=\"comment-content\">\n\t\t\t<\/div>\n\t\t\t<p class=\"comment-footer\">\n\t\t\t\tPosted by: \n\t\t\t\t<span id=\"comment-preview-author\"><\/span>&nbsp;|&nbsp;<span id=\"comment-preview-datetime\"><\/span>\n\t\t\t<\/p>\n\t\t<\/div>\n\t<\/div>\n<\/div>\n<div id=\"comment-preview-confirmation\" class=\"font-entrybody hiddenBox yellowBox\">\n    <p>This is only a preview. Your comment has not yet been posted.<\/p>\n        <form id=\"comment-preview-form\"\n                method=\"post\"\n                onsubmit=\"atpComments.interceptPost(1); return false;\">\n                <input type=\"submit\" class=\"form-control font-entrybody\" name=\"post\" id=\"comment-confirm-post\" value=\"&nbsp;Post&nbsp;\" onclick=\"atpComments.interceptPost(1); return false;\"/>\n                <input type=\"submit\" class=\"form-control font-entrybody\"  name=\"edit\" id=\"comment-edit\" value=\"&nbsp;&nbsp;Edit&nbsp;&nbsp;\" onclick=\"atpComments.previewOnly(2); return false;\"/>\n        <span id=\"previewFormSpinner\" class=\"hiddenBox\"><img src=\"/.shared/images/spinner.gif\" alt=\"Working...\" /><\/span>\n        <\/form>\n<\/div>\n\n<div id=\"comment-error\" class=\"hiddenBox font-entrybody redBox\">\t    \n   Your comment could not be posted. Error type: <span id=\"comment-error-msg\"><\/span> \n<\/div>\t\n<div id=\"comment-complete\" class=\"hiddenBox font-entrybody  yellowGreenBox\">\n    Your comment has been posted. <a href=\"javascript:void 0;\" onclick=\"window.location.hash=\'#comment-form\';window.location.reload(false)\">Post another comment<\/a>\n<\/div>\t\n<div id=\"comment-captcha\" class=\"hiddenBox yellowBox font-entrybody\">\t\n    <div id=\"captchaText\">\n\t    <p id=\"captchaFailMsg\" class=\"captchaErrorText hiddenBox\">The letters and numbers you entered did not match the image. Please try again.<\/p>\t    \t        \n\t    <p>As a final step before posting your comment, enter the letters and numbers you see in the image below. This prevents automated programs from posting comments.<\/p>\n\t    <p><span id=\"comment-captcha-viewalt\">Having trouble reading this image? <a href=\"#comment-captcha\" onClick=\"atpComments.generateReCaptcha();\">View an alternate.<\/a><\/span><\/p>\n    <\/div>\n    <form id=\"comment-captcha-form\" \n\t\t  method=\"post\"\n\t\t  onsubmit=\"atpComments.submitWithReCaptcha(); return false;\">\n    <div id=\"recaptcha_content\">\n      <noscript>\n        <iframe src=\"6Ldg1s4SAAAAAEvvZX2ILFkWp7KB-jjdL4v0JV2e\" height=\"300\" width=\"500\" frameborder=\"0\"><\/iframe><br />\n        <textarea name=\"recaptcha_challenge_field\" rows=\"3\" cols=\"40\"><\/textarea>\n        <input type=\'hidden\' name=\'recaptcha_response_field\' value=\'manual_challenge\' />\n      <\/noscript>\n    <\/div>\n  <script type=\"text/javascript\">\n    $(document).ready(function() {\n        Recaptcha.create(\"6Ldg1s4SAAAAAEvvZX2ILFkWp7KB-jjdL4v0JV2e\",\n                         \"recaptcha_content\", {\n                             theme: \"red\",\n                             callback: Recaptcha.focus_response_field\n        });\n    });\n  <\/script>\n        <p>\n            <input type=\"submit\" name=\"continue\" id=\"captcha-continue\" value=\"&nbsp;Continue&nbsp;\" />\n            <span id=\"captchaFormSpinner\" class=\"commentSpinner hiddenBox\"><img src=\"/.shared/images/spinner.gif\" alt=\"Working...\" /><\/span>\n        <\/p>\n    <\/form>\n<\/div>\n';
+var entryPermalink = "https://blog.revolutionanalytics.com/2020/11/azuretablestor-announcement.html";
+var inlineReply = document.createElement("div");
+var commentFooterLinks;
+var commentHeader;
+var commentReplyXID;
+var commentReplyAuthor;
+var commentReplyComplete;
+var inlineReplyLoaded = 0;
+var commentFormNum = undefined; /* Deprecated but still exists in advanced template sets, so must be defined */
+
+function xidToCommentPermalink (entryUrl, xid) {
+    return entryUrl + "?cid=" + xid + "#comment-" + xid;
+}
+
+
+/* Deprecated advanced template functions */
+function handleSubmit() { return true; };
+function handleChange() { return true; };
+</script>
+<script type="text/javascript" src="/.shared/yui/2.9.0/yuiloader/yuiloader.js"></script>
+<script type="text/javascript" src="/.shared/js/atpcomments.js?v=5"></script>
+
+<!-- Begin disqus Tag -->
+
+<!-- End disqus Tag -->
+</body>
+</html>
+
+<!-- ph=1 -->

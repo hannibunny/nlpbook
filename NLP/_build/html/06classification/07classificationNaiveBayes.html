@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>9.2. Naive Bayes Text Classification &#8212; Natural Language Processing Lecture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9.3. Text Classification Application: Fake News detection" href="FakeNewsClassification.html" />
+    <link rel="prev" title="9.1. Validation of Classifiers" href="06classificationMetrics.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01access/01access.html">
+   1. Access and Preprocess Text
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02normalisation/02normalisation.html">
+   2. Word Normalisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03postagging/03postagging.html">
+   3. Part-Of-Speech Tagging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04ngram/04ngram.html">
+   4. N-Gram Language Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/05representations.html">
+   5. Vector Representations of Words and Documents
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/01WordEmbeddingImplementation.html">
+   6. Applying Word-Embeddings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/02gensimDocModelSimple.html">
+   7. Document models and similarity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/05topicextraction.html">
+   8. Topic Extraction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="06classification.html">
+   9. Text Classification
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="06classificationMetrics.html">
+     9.1. Validation of Classifiers
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     9.2. Naive Bayes Text Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="FakeNewsClassification.html">
+     9.3. Text Classification Application: Fake News detection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07neuralnetworks/07neuralnetworks.html">
+   10. Neural Networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../referenceSection.html">
+   11. References
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/06classification/07classificationNaiveBayes.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="naive-bayes-text-classification">
+<h1><span class="section-number">9.2. </span>Naive Bayes Text Classification<a class="headerlink" href="#naive-bayes-text-classification" title="Permalink to this headline">¶</a></h1>
+<p>Classifiers must determine the most likely class <span class="math notranslate nohighlight">\(C_i\)</span> for a given input <span class="math notranslate nohighlight">\(\underline{x}\)</span>. Using probability theory, this task can be described as follows: For all possible classes <span class="math notranslate nohighlight">\(C_i\)</span> determine the conditional probability</p>
+<div class="math notranslate nohighlight">
+\[
+P(C_i | \underline{x}),
+\]</div>
+<p>i.e. the probability that the given input <span class="math notranslate nohighlight">\(\underline{x}\)</span> falls into class <span class="math notranslate nohighlight">\(C_i\)</span>. Then select the class for which this probability is maximum.</p>
+<p>In the training phase the Naive Bayes Algorithm estimates the so-called <strong>likelihood function</strong></p>
+<div class="math notranslate nohighlight">
+\[
+p(\underline{x} \mid C_i)
+\]</div>
+<p>and the <strong>a-priori</strong> class probabilities</p>
+<div class="math notranslate nohighlight">
+\[
+P(C_i)
+\]</div>
+<p>from the given training data. In the inference phase it then applies the <strong>Bayes-Rule</strong> for determining the <strong>a-posteriori</strong>-probability</p>
+<div class="math notranslate nohighlight" id="equation-bayes-rule">
+<span class="eqno">(9.1)<a class="headerlink" href="#equation-bayes-rule" title="Permalink to this equation">¶</a></span>\[
+P(C_i \mid \underline{x}) = \frac{p(\underline{x} \mid C_i) \cdot P(C_i)}{p(\underline{x})}.
+\]</div>
+<p>Then the class <span class="math notranslate nohighlight">\(C_i\)</span>, for which <span class="math notranslate nohighlight">\(P(C_i \mid \underline{x})\)</span> is maximum is determined. Note that for determining the class, for which <span class="math notranslate nohighlight">\(P(C_i \mid \underline{x})\)</span> is maximal, doesn’t require the so-called <em>evidence</em> <span class="math notranslate nohighlight">\(p(\underline{x})\)</span>, since this value is independent of the class, i.e.</p>
+<div class="math notranslate nohighlight" id="equation-bayes-inference">
+<span class="eqno">(9.2)<a class="headerlink" href="#equation-bayes-inference" title="Permalink to this equation">¶</a></span>\[
+argmax_i(P(C_i \mid \underline{x})) = argmax_i (\frac{p(\underline{x} \mid C_i) \cdot P(C_i)}{p(\underline{x})})  = argmax_i (p(\underline{x} \mid C_i) \cdot P(C_i))
+\]</div>
+<p>The calculation of the likelihood function <span class="math notranslate nohighlight">\(p(\underline{x} \mid C_i)\)</span> is quite difficult if <span class="math notranslate nohighlight">\(\underline{x}=(x_1,x_2,\ldots,x_Z)\)</span> is a vector of interdependent variables <span class="math notranslate nohighlight">\(x_i\)</span>. However, the <strong>Naive Bayes Classification</strong> is based on the simplifying assumption that the input variables <span class="math notranslate nohighlight">\(x_i\)</span> are independent of each other. In this case, the conditional compound probability function <span class="math notranslate nohighlight">\(p(x_1,x_2,\ldots,x_Z \mid C_i)\)</span> is simplified to</p>
+<div class="math notranslate nohighlight" id="equation-bayes-assumption">
+<span class="eqno">(9.3)<a class="headerlink" href="#equation-bayes-assumption" title="Permalink to this equation">¶</a></span>\[
+p(x_1,x_2,\ldots,x_Z \mid C_i)=\prod\limits_{j=1}^Z p(x_j | C_i).
+\]</div>
+<p>Hence, in the inference face the classifier must determine</p>
+<div class="math notranslate nohighlight" id="equation-bayes-inference-general">
+<span class="eqno">(9.4)<a class="headerlink" href="#equation-bayes-inference-general" title="Permalink to this equation">¶</a></span>\[
+argmax_i \left( \prod\limits_{j=1}^Z p(x_j | C_i) \cdot P(C_i) \right)
+\]</div>
+<p>The conditional probability <span class="math notranslate nohighlight">\(p(x_j | C_i)\)</span> is the probability, that in documents of class <span class="math notranslate nohighlight">\(C_i\)</span> the value of the <span class="math notranslate nohighlight">\(j.th\)</span> component in the feature-vector is <span class="math notranslate nohighlight">\(x_j\)</span>.</p>
+<p><strong>If the Naive Bayes Classifier is applied for text-classification</strong>, then <span class="math notranslate nohighlight">\(p(x_j | C_i)\)</span> describes the probability, that word <span class="math notranslate nohighlight">\(x_j\)</span> appears at least once in a document of class <span class="math notranslate nohighlight">\(C_i\)</span>. This probability can be estimated by</p>
+<div class="math notranslate nohighlight" id="equation-bayes-estimate-conditional">
+<span class="eqno">(9.5)<a class="headerlink" href="#equation-bayes-estimate-conditional" title="Permalink to this equation">¶</a></span>\[
+p(x_j | C_i) = \frac{\#(x_j,C_i)}{\#(C_i)},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\#(x_j,C_i)\)</span> is the number of class <span class="math notranslate nohighlight">\(C_i\)</span>-training-documents, which contain word <span class="math notranslate nohighlight">\(x_j\)</span> and <span class="math notranslate nohighlight">\(\#(C_i)\)</span> is the number of class <span class="math notranslate nohighlight">\(C_i\)</span>-training-documents.</p>
+<p>The a-priori-possiblities are estimated by</p>
+<div class="math notranslate nohighlight" id="equation-bayes-estimate-apriori">
+<span class="eqno">(9.6)<a class="headerlink" href="#equation-bayes-estimate-apriori" title="Permalink to this equation">¶</a></span>\[
+P(C_i)=\frac{\#(C_i)}{N},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the total number of training-documents.</p>
+<p>Moreover, inference, in the case that the Naive Bayes algorithm is applied for text-classification applies the following variant of equation <a class="reference internal" href="#equation-bayes-inference-general">(9.4)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-bayes-inference-text">
+<span class="eqno">(9.7)<a class="headerlink" href="#equation-bayes-inference-text" title="Permalink to this equation">¶</a></span>\[
+argmax_i \left( \prod\limits_{x_j \in D} p(x_j | C_i) \cdot P(C_i) \right),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(D\)</span> is the set of all words, which are contained in the document that shall be classified. In contrast to equation <a class="reference internal" href="#equation-bayes-inference-general">(9.4)</a>, in equation <a class="reference internal" href="#equation-bayes-inference-text">(9.7)</a> the product is calculated only over the words, contained in the current document.</p>
+<div class="admonition-example-naive-bayes-spam-filter admonition" id="examplenb">
+<p class="admonition-title">Example: Naive Bayes Spam Filter</p>
+<p>The following labeled Emails are available for training a Naive Bayes Classifier:</p>
+<ul>
+<li><p>4 Training documents labeled with class <code class="docutils literal notranslate"><span class="pre">Good</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  - nobody owns the water
+  - the quick rabbit jumps fences
+  - the quick brown fox jumps
+  - next meeting is at night
+</pre></div>
+</div>
+</li>
+<li><p>4 Training documents labeled with class <code class="docutils literal notranslate"><span class="pre">Bad</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  - buy pharmaceuticals now
+  - make quick money at the online casino
+  - meeting with your superstar
+  - money like water
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Task:</strong> Determine the class (Bad or Good) which is assigned to the new Email</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>	- the money jumps
+</pre></div>
+</div>
+<p>by a Naive Bayes Classifier.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><p>Determine for the relevant words <code class="docutils literal notranslate"><span class="pre">the</span></code>, <code class="docutils literal notranslate"><span class="pre">money</span></code> and <code class="docutils literal notranslate"><span class="pre">jumps</span></code> and both classes the conditional probabilites according to equation <a class="reference internal" href="#equation-bayes-estimate-conditional">(9.5)</a>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+ 		P(the|Bad) &amp; = &amp; 0.25 \\
+ 		P(the|Good) &amp; = &amp; 0.75 \\
+ 		P(money|Bad) &amp; = &amp; 0.5  \\
+ 		P(money|Good) &amp; = &amp; 0.0 \\
+ 		P(jumps|Bad) &amp; = &amp; 0.0  \\
+ 		P(jumps|Good) &amp; = &amp; 0.5 \\
+ 	\end{eqnarray*}\]</div>
+</li>
+<li><p>Determine for both classes the a-priori probability according to equation <a class="reference internal" href="#equation-bayes-estimate-apriori">(9.6)</a>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+		P(Bad) &amp; = &amp; 0.5 \\
+		P(Good) &amp; = &amp; 0.5 \\
+	\end{eqnarray*}\]</div>
+</li>
+<li><p>Determine the class, for which the argument of equation <a class="reference internal" href="#equation-bayes-inference-text">(9.7)</a> is maximal:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+		\mbox{Class Bad:  }  &amp; 0.25 \cdot 0.5 \cdot 0.0 \cdot 0.5 = 0 \\
+		\mbox{Class Good:  } &amp; 0.75 \cdot 0.0 \cdot 0.5 \cdot 0.5 = 0 \\
+    \end{eqnarray*}\]</div>
+</li>
+</ol>
+<p>For both classes the same a-posteriori probability value has been calculated. In this case no classification is possible!</p>
+</div>
+<p>The example above uncovers a drawback of Naive Bayes classification. If the document, that shall be classified, contains a word <span class="math notranslate nohighlight">\(x_j\)</span>, which does not appear in the class <span class="math notranslate nohighlight">\(C_i\)</span>-training data, the corresponding conditional probability <span class="math notranslate nohighlight">\(P(x_j|C_i)\)</span> is zero and as soon as one of the factors of <a class="reference internal" href="#equation-bayes-inference-text">(9.7)</a> is zero, the entire product is zero. In order to avoid this problem of zero-factors, Naive Bayes classifiers are usually modified by applying <font color="red"> smoothing </font>.</p>
+<p>Smoothing in the context of Naive Bayes classification means, that the conditional probabilities are estimated not as defined in equation <a class="reference internal" href="#equation-bayes-estimate-conditional">(9.5)</a>, but in a slightly modified form, which guarantees that the values of the smoothed conditional probabilities are always non-zero. There exist different smoothing techniques. An approach, which is frequently applied for smoothing in the context of Naive Bayes document classification is defined by replacing the conditional probabilities <span class="math notranslate nohighlight">\(p(x_j|C_i)\)</span>
+in equation <a class="reference internal" href="#equation-bayes-inference-text">(9.7)</a> by the following weighted conditional probabilities:</p>
+<div class="math notranslate nohighlight" id="equation-nb-smoothing">
+<span class="eqno">(9.8)<a class="headerlink" href="#equation-nb-smoothing" title="Permalink to this equation">¶</a></span>\[
+	p_{weight}(x_j \mid C_i)=\frac{w \cdot P_{ass,i,j} + |x_j| \cdot P(x_j \mid C_i)}{w+|x_j|},
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P_{ass,i,j}\)</span> is an assumed probability that a word <span class="math notranslate nohighlight">\(x_j\)</span> belongs to class <span class="math notranslate nohighlight">\(C_i\)</span>. By default this probability can be set to <span class="math notranslate nohighlight">\(1/K\)</span>, where <span class="math notranslate nohighlight">\(K\)</span> is the number of classes, that must be distinguished. However, this probability can also be set individually, e.g. for word <em>viagra</em> the probabilities may be <span class="math notranslate nohighlight">\(P_{ass,viagra,bad}=0.95\)</span> and <span class="math notranslate nohighlight">\(P_{ass,viagra,good}=0.05\)</span>. I.e. this term provides the possibility to integrate prior-knowledge.</p></li>
+<li><p><span class="math notranslate nohighlight">\(w\)</span> is a weight-factor, which can be set in order to control how strong the assumed probability <span class="math notranslate nohighlight">\(P_{ass,i,j}\)</span> contributes to the smoothed probability <span class="math notranslate nohighlight">\(p_{weight}(x_j \mid C_i)\)</span>. Default: <span class="math notranslate nohighlight">\(w=1\)</span>.</p></li>
+</ul>
+<p>For the classification of a new document containing words <span class="math notranslate nohighlight">\(D\)</span>, instead of equation <a class="reference internal" href="#equation-bayes-inference-text">(9.7)</a>, the following equation is applied:</p>
+<div class="math notranslate nohighlight" id="equation-bayes-inference-text-smoothed">
+<span class="eqno">(9.9)<a class="headerlink" href="#equation-bayes-inference-text-smoothed" title="Permalink to this equation">¶</a></span>\[
+     argmax_i \left( \prod\limits_{x_j \in D} p_{weight}(x_j | C_i) \cdot P(C_i) \right),
+ \]</div>
+<div class="admonition-example-naive-bayes-spam-filter-with-smooting admonition">
+<p class="admonition-title">Example: Naive Bayes Spam Filter with Smooting</p>
+<p>The given training data is the same as in example <span class="xref std std-ref">exampleNB</span>. The smoothed conditional probabilities according to <a class="reference internal" href="#equation-nb-smoothing">(9.8)</a> are then:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+     P_{weight}(the|Bad) &amp; = &amp; \frac{0.5 + 4 \cdot 0.25}{1+4}=0.3 \\
+     P_{weight}(the|Good) &amp; = &amp; \frac{0.5 + 4 \cdot 0.75}{1+4}=0.7 \\
+     P_{weight}(money|Bad) &amp; = &amp; \frac{0.5 + 2 \cdot 0.5}{1+2}=0.5 \\
+     P_{weight}(money|Good) &amp; = &amp; \frac{0.5 + 2 \cdot 0.0}{1+2}=0.167 \\
+     P_{weight}(jumps|Bad) &amp; = &amp; \frac{0.5 + 2 \cdot 0.0}{1+2}=0.167 \\
+     P_{weight}(jumps|Good) &amp; = &amp; \frac{0.5 + 2 \cdot 0.5}{1+2}=0.5 \\
+    \end{eqnarray*}\]</div>
+<p>The a-priori class probabilities are unchanged:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+   	\mbox{Class Bad:  }  &amp; 0.25 \cdot 0.5 \cdot 0.0 \cdot 0.5 = 0 \\
+   	\mbox{Class Good:  } &amp; 0.75 \cdot 0.0 \cdot 0.5 \cdot 0.5 = 0 \\
+   \end{eqnarray*}\]</div>
+<p>Applying the smoothed probabilities, the class, for which the argument of equation <a class="reference internal" href="#equation-bayes-inference-text-smoothed">(9.9)</a> is maximal for the new email <span class="math notranslate nohighlight">\((the, money, jumps)\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+   	\mbox{Class Bad:  }   &amp; 0.3 \cdot 0.5 \cdot 0.167 \cdot 0.5 = 0.0125 \\
+   	\mbox{Class Good:  }  &amp; 0.7 \cdot 0.167 \cdot 0.5 \cdot 0.5 = 0.029 \\
+   \end{eqnarray*}\]</div>
+<p>Hence this email is classified to be <code class="docutils literal notranslate"><span class="pre">Good</span></code>.</p>
+</div>
+<p>Note, that for classification it was sufficient to calculate</p>
+<div class="math notranslate nohighlight">
+\[
+  p(\underline{x} \mid C_i) \cdot P(C_i),
+ \]</div>
+<p>for all classes <span class="math notranslate nohighlight">\(C_i\)</span> and decide on the class, for which this value is maximal. However, the calculated values are not the a-posteriori-probabilities <span class="math notranslate nohighlight">\(P(C_i | \underline{x})\)</span>, since we ignored the evidence <span class="math notranslate nohighlight">\(p(\underline{x})\)</span> (see equation <a class="reference internal" href="#equation-bayes-inference">(9.2)</a>).
+However, we can easily obtain the a-posteriori-probabilities <span class="math notranslate nohighlight">\(P(C_i | \underline{x})\)</span>, by applying the marginalisation-rule for the calculation of the evidence in the denominator of the Bayes Rule (equation <a class="reference internal" href="#equation-bayes-rule">(9.1)</a>)</p>
+<div class="math notranslate nohighlight">
+\[
+    p(\underline{x}) = \sum\limits_{i=1}^K p(\underline{x},C_i) = \sum\limits_{i=1}^K p(\underline{x} | C_i) \cdot P(C_i).
+ \]</div>
+<p>In the example above, the a-posteriori probabilities are then:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+  P(Bad | (the,money,jumps)) &amp; = &amp; \frac{0.0125}{0.0125+0.029} &amp; = &amp; 0.30 \\
+  P(Good | (the,money,jumps)) &amp; = &amp; \frac{0.029}{0.0125+0.029} &amp; = &amp; 0.70 \\   
+
+ \end{eqnarray*}\]</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./06classification"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="06classificationMetrics.html" title="previous page"><span class="section-number">9.1. </span>Validation of Classifiers</a>
+    <a class='right-next' id="next-link" href="FakeNewsClassification.html" title="next page"><span class="section-number">9.3. </span>Text Classification Application: Fake News detection</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

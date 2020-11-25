@@ -1,0 +1,19 @@
+
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		
+« R 4.0.3 now available |
+	Main
+AzureTableStor: R interface to Azure table storage serviceI’m pleased to announce that the AzureTableStor package, providing a simple yet powerful interface to the Azure table storage service, is now on CRAN. This is something that many people have requested since the initial release of the AzureR packages nearly two years ago.Azure table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Because table storage is schemaless, it’s easy to adapt your data as the needs of your application evolve. Access to table storage data is fast and cost-effective for many types of applications, and is typically lower in cost than traditional SQL for similar volumes of data.You can use table storage to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.AzureTableStor builds on the functionality provided by the AzureStor package. The table storage service is available both as part of general Azure storage and via Azure Cosmos DB; AzureTableStor is able to work with either.AzureTableStor provides a table_endpoint function that is the analogue of AzureStor’s blob_endpoint, file_endpoint and adls_endpoint functions. There are methods for retrieving, creating, listing and deleting tables within the endpoint.In table storage jargon, an entity is a row in a table. The columns of the table are properties. Note that table storage does not enforce a schema; that is, individual entities in a table can have different properties. An entity is identified by its RowKey and PartitionKey properties, which must be unique for each entity.AzureTableStor provides the following functions to work with data in a table:With the exception of import_table_entities, all of the above entity functions work on a single row of data. Table storage provides a batch execution facility, which lets you bundle up single-row operations into a single transaction that will be executed atomically. In the jargon, this is known as an entity group transaction. import_table_entities is an example of an entity group transaction: it bundles up multiple rows of data into batch jobs, which is much more efficient than sending each row individually to the server.The create_table_operation, create_batch_transaction and do_batch_transaction functions let you perform entity group transactions. Here is an example of a simple batch insert. The actual import_table_entities function is more complex as it can also handle multiple partition keys and more than 100 rows of data.If you have any feedback, or to report bugs with the package, please contact me at hongooi73@gmail.com or open an issue on GitHub.
+Posted by Hong Ooi at 09:30 in Microsoft, packages, R  | Permalink
+ You can follow this conversation by subscribing to the comment feed for this post.This is only a preview. Your comment has not yet been posted.The letters and numbers you entered did not match the image. Please try again.As a final step before posting your comment, enter the letters and numbers you see in the image below. This prevents automated programs from posting comments.Having trouble reading this image? View an alternate.
+            				    (You can use HTML tags like <b> <i> and <ul> to style your text.)
+            				
+                                (Name and email address are required. Email address will not be displayed with the comment.)
+                            
+                            
+
+Name is required to post a comment
+
+
+Please enter a valid email address
+Please enable JavaScript if you would like to comment on this blog.
