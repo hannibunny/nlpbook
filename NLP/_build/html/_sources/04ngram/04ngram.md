@@ -77,7 +77,7 @@ P(x_1 \ldots, x_Z) \\
 = P(x_Z \mid x_1 \ldots, x_{Z-1}) \cdot P(x_{Z-1} \mid x_1 \ldots, x_{Z-2}) \cdot P(x_1 \ldots, x_{Z-2}) \\
 = P(x_Z \mid x_1 \ldots, x_{Z-1}) \cdot P(x_{Z-1} \mid x_1 \ldots, x_{Z-2}) \cdot \ldots \cdot P(x_2 \mid x_1) \cdot P(x_1) 
 $$
-	
+
 
 In the case of an N-gram language model and $Z>N$ this chain rule becomes much simpler, because the N-Gram model assumes, that each word depends only on it's $(N-1)$ predecessors. If this assumption is true, than
 
@@ -248,7 +248,7 @@ $$
 P_{GT}(x) = \frac{r*}{Z}
 $$
 
- 
+
 
 In our example of drawing balls of different colors, the Good-Turing smoothded probability for drawing a black ball is then 
 
@@ -322,8 +322,9 @@ An example for perplexity of a Unigram- and a Bigram language model is given bel
 The following example is from {cite}`Jurafsky2009`, the underlying corpus is the *Berkeley Restaurant Project corpus* {cite}`Jurafsky1994`. In the first two tables the Bigram and Unigram frequencies of 8 words from the corpus are listed. In total, there are $\mid V \mid = 1446$ different words in the corpus. In the Bigram-table (first table) the entry in the row of $word_x$ and column of $word_y$ is the frequency of the Bigram $(word_x,word_y)$. For example 
 
 $$
-\#(I,want) = 827
-$$.
+\#(I,want) = 827.
+$$
+
 
 
 From the Bigram- and Unigram-counts the Bigram probabilities (third table) can be Maximum-Likelihood estimated by applying equation $\eqref{eq:condprobest}$. For example
