@@ -1,51 +1,68 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>8.2. Implementation of Topic Extraction and Document Clustering &#8212; Natural Language Processing Lecture</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/togglebutton.js"></script>
-    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
-    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script type="text/javascript">
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="9. Text Classification" href="../06classification/06classification.html" />
     <link rel="prev" title="8.1. Latent Semantic Indexing (LSI)" href="05lsi.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -54,44 +71,117 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
    Introduction
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01access/01access.html">
    1. Access and Preprocess Text
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01access/01AccessTextFromFile.html">
+     1.1. Access and Analyse Contents of Textfiles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01access/02crawlHTMLcontent.html">
+     1.2. Access Contents of HTML Page
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01access/03crawlWebSites.html">
+     1.3. Download HTML Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01access/04crawlRSSFeeds.html">
+     1.4. Access RSS Feed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01access/05RegularExpressions.html">
+     1.5. Regular expressions in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01access/06accessTweets.html">
+     1.6. Access Tweets
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../02normalisation/02normalisation.html">
    2. Word Normalisation
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02normalisation/01morphology.html">
+     2.1. Morphology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02normalisation/03StemLemma.html">
+     2.2. TextBlob Stemming and Lemmatization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02normalisation/01LevenstheinDistance.html">
+     2.3. Correction of Spelling Errors
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../03postagging/03postagging.html">
    3. Part-Of-Speech Tagging
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03postagging/01tagsetsAndAlgorithms.html">
+     3.1. PoS Tagsets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03postagging/02PosTagging.html">
+     3.3. POS Tagging with NLTK
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../04ngram/04ngram.html">
@@ -113,10 +203,15 @@
    7. Document models and similarity
   </a>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="05topicextraction.html">
    8. Topic Extraction
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="05lsi.html">
@@ -130,15 +225,64 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../06classification/06classification.html">
    9. Text Classification
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06classification/06classificationMetrics.html">
+     9.1. Validation of Classifiers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06classification/07classificationNaiveBayes.html">
+     9.2. Naive Bayes Text Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06classification/FakeNewsClassification.html">
+     9.3. Text Classification Application: Fake News detection
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../07neuralnetworks/07neuralnetworks.html">
    10. Neural Networks
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07neuralnetworks/01NeuralNets.html">
+     10.1. Neural Networks Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07neuralnetworks/02RecurrentNeuralNetworks.html">
+     10.2. Recurrent Neural Networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07neuralnetworks/03ConvolutionNeuralNetworks.html">
+     10.3. Convolutional Neural Networks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07neuralnetworks/04CNN.html">
+     10.4. CNN, LSTM and Attention for IMDB Movie Review classification
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../referenceSection.html">
@@ -147,9 +291,8 @@
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -164,25 +307,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -194,17 +337,18 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
 
+            <!-- Source interaction buttons -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Launch buttons -->
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -219,24 +363,20 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/05representations/02LatentSemanticIndexing.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
         
     </div>
 </div>
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#collect-and-filter-text-documents">
    8.2.1. Collect and filter text documents
@@ -259,7 +399,8 @@
  </li>
 </ul>
 
-        </nav>
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -307,15 +448,53 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;human&#39;, &#39;interface&#39;, &#39;computer&#39;]
-[&#39;survey&#39;, &#39;user&#39;, &#39;computer&#39;, &#39;system&#39;, &#39;response&#39;, &#39;time&#39;]
-[&#39;eps&#39;, &#39;user&#39;, &#39;interface&#39;, &#39;system&#39;]
-[&#39;system&#39;, &#39;human&#39;, &#39;system&#39;, &#39;eps&#39;]
-[&#39;user&#39;, &#39;response&#39;, &#39;time&#39;]
-[&#39;trees&#39;]
-[&#39;graph&#39;, &#39;trees&#39;]
-[&#39;graph&#39;, &#39;minors&#39;, &#39;trees&#39;]
-[&#39;graph&#39;, &#39;minors&#39;, &#39;survey&#39;]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">40</span><span class="n">ef81fb0940</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">corpora</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">similarities</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">documents</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Human machine interface for lab abc computer applications&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>               <span class="s2">&quot;A survey of user opinion of computer system response time&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>               <span class="s2">&quot;The EPS user interface management system&quot;</span><span class="p">,</span>
+
+<span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">books</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">logging</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">parsing</span><span class="p">,</span> <span class="n">corpora</span><span class="p">,</span> <span class="n">matutils</span><span class="p">,</span> <span class="n">interfaces</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">similarities</span><span class="p">,</span> <span class="n">utils</span>  <span class="c1"># noqa:F401</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> 
+<span class="g g-Whitespace">     </span><span class="mi">13</span> 
+
+<span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">books</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="n">corpora</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># bring corpus classes directly into package namespace, to save some typing</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">.indexedcorpus</span> <span class="kn">import</span> <span class="n">IndexedCorpus</span>  <span class="c1"># noqa:F401 must appear before the other classes</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">.mmcorpus</span> <span class="kn">import</span> <span class="n">MmCorpus</span>  <span class="c1"># noqa:F401</span>
+
+<span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">books</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="n">corpora</span><span class="o">/</span><span class="n">indexedcorpus</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">import</span> <span class="nn">numpy</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> 
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">interfaces</span><span class="p">,</span> <span class="n">utils</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> 
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">books</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="n">interfaces</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">import</span> <span class="nn">logging</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> 
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">utils</span><span class="p">,</span> <span class="n">matutils</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> 
+<span class="g g-Whitespace">     </span><span class="mi">21</span> 
+
+<span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">books</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="n">matutils</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1022</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span>     <span class="c1"># try to load fast, cythonized code if possible</span>
+<span class="ne">-&gt; </span><span class="mi">1024</span>     <span class="kn">from</span> <span class="nn">gensim._matutils</span> <span class="kn">import</span> <span class="n">logsumexp</span><span class="p">,</span> <span class="n">mean_absolute_difference</span><span class="p">,</span> <span class="n">dirichlet_expectation</span>
+<span class="g g-Whitespace">   </span><span class="mi">1025</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1026</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/envs/books/lib/python3.8/site-packages/gensim/_matutils.pyx</span> in <span class="ni">init gensim._matutils</span><span class="nt">()</span>
+
+<span class="ne">ValueError</span>: numpy.ndarray size changed, may indicate binary incompatibility. Expected 88 from C header, got 80 from PyObject
 </pre></div>
 </div>
 </div>
@@ -429,7 +608,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0,
-  &#39;0.703*&quot;trees&quot; + 0.538*&quot;graph&quot; + 0.402*&quot;minors&quot; + 0.187*&quot;survey&quot; + 0.061*&quot;system&quot; + 0.060*&quot;time&quot; + 0.060*&quot;response&quot; + 0.058*&quot;user&quot; + 0.049*&quot;computer&quot; + 0.035*&quot;interface&quot;&#39;),
+  &#39;0.703*&quot;trees&quot; + 0.538*&quot;graph&quot; + 0.402*&quot;minors&quot; + 0.187*&quot;survey&quot; + 0.061*&quot;system&quot; + 0.060*&quot;response&quot; + 0.060*&quot;time&quot; + 0.058*&quot;user&quot; + 0.049*&quot;computer&quot; + 0.035*&quot;interface&quot;&#39;),
  (1,
   &#39;-0.460*&quot;system&quot; + -0.373*&quot;user&quot; + -0.332*&quot;eps&quot; + -0.328*&quot;interface&quot; + -0.320*&quot;time&quot; + -0.320*&quot;response&quot; + -0.293*&quot;computer&quot; + -0.280*&quot;human&quot; + -0.171*&quot;survey&quot; + 0.161*&quot;trees&quot;&#39;)]
 </pre></div>
@@ -451,15 +630,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Document  0: 	 [(0, 0.06600783396090112), (1, -0.5200703306361858)]
-Document  1: 	 [(0, 0.1966759285914222), (1, -0.7609563167700055)]
-Document  2: 	 [(0, 0.08992639972446145), (1, -0.7241860626752512)]
-Document  3: 	 [(0, 0.07585847652177907), (1, -0.6320551586003429)]
-Document  4: 	 [(0, 0.10150299184979919), (1, -0.5737308483002959)]
-Document  5: 	 [(0, 0.7032108939378323), (1, 0.16115180214025526)]
-Document  6: 	 [(0, 0.8774787673119846), (1, 0.16758906864659084)]
-Document  7: 	 [(0, 0.909862468681859), (1, 0.1408655362871869)]
-Document  8: 	 [(0, 0.6165825350569283), (1, -0.053929075663895765)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Document  0: 	 [(0, 0.06600783396090314), (1, -0.5200703306361848)]
+Document  1: 	 [(0, 0.1966759285914248), (1, -0.7609563167700046)]
+Document  2: 	 [(0, 0.08992639972446378), (1, -0.7241860626752512)]
+Document  3: 	 [(0, 0.07585847652178099), (1, -0.6320551586003431)]
+Document  4: 	 [(0, 0.10150299184980117), (1, -0.5737308483002954)]
+Document  5: 	 [(0, 0.7032108939378308), (1, 0.16115180214025726)]
+Document  6: 	 [(0, 0.8774787673119829), (1, 0.16758906864659323)]
+Document  7: 	 [(0, 0.9098624686818578), (1, 0.14086553628718937)]
+Document  8: 	 [(0, 0.6165825350569285), (1, -0.053929075663894196)]
 </pre></div>
 </div>
 </div>
@@ -521,15 +700,15 @@ Document  8: 	 [(0, 0.6165825350569283), (1, -0.053929075663895765)]
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="05lsi.html" title="previous page"><span class="section-number">8.1. </span>Latent Semantic Indexing (LSI)</a>
     <a class='right-next' id="next-link" href="../06classification/06classification.html" title="next page"><span class="section-number">9. </span>Text Classification</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -537,7 +716,7 @@ Document  8: 	 [(0, 0.6165825350569283), (1, -0.053929075663895765)]
         
           By Prof. Dr. Johannes Maucher<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -546,8 +725,9 @@ Document  8: 	 [(0, 0.6165825350569283), (1, -0.053929075663895765)]
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    <script src="../_static/js/index.js"></script>
-    
+  
   </body>
 </html>

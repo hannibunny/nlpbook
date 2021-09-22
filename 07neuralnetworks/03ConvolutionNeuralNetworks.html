@@ -1,51 +1,68 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>10.3. Convolutional Neural Networks &#8212; Natural Language Processing Lecture</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/togglebutton.js"></script>
-    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
-    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script type="text/javascript">
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" type="text/javascript" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10.4. CNN, LSTM and Attention for IMDB Movie Review classification" href="04CNN.html" />
     <link rel="prev" title="10.2. Recurrent Neural Networks" href="02RecurrentNeuralNetworks.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -54,44 +71,117 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/hdmlogomed.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Natural Language Processing Lecture</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
    Introduction
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01access/01access.html">
    1. Access and Preprocess Text
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01access/01AccessTextFromFile.html">
+     1.1. Access and Analyse Contents of Textfiles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01access/02crawlHTMLcontent.html">
+     1.2. Access Contents of HTML Page
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01access/03crawlWebSites.html">
+     1.3. Download HTML Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01access/04crawlRSSFeeds.html">
+     1.4. Access RSS Feed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01access/05RegularExpressions.html">
+     1.5. Regular expressions in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01access/06accessTweets.html">
+     1.6. Access Tweets
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../02normalisation/02normalisation.html">
    2. Word Normalisation
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02normalisation/01morphology.html">
+     2.1. Morphology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02normalisation/03StemLemma.html">
+     2.2. TextBlob Stemming and Lemmatization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02normalisation/01LevenstheinDistance.html">
+     2.3. Correction of Spelling Errors
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../03postagging/03postagging.html">
    3. Part-Of-Speech Tagging
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03postagging/01tagsetsAndAlgorithms.html">
+     3.1. PoS Tagsets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03postagging/02PosTagging.html">
+     3.3. POS Tagging with NLTK
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../04ngram/04ngram.html">
@@ -113,20 +203,64 @@
    7. Document models and similarity
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../05representations/05topicextraction.html">
    8. Topic Extraction
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05representations/05lsi.html">
+     8.1. Latent Semantic Indexing (LSI)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05representations/02LatentSemanticIndexing.html">
+     8.2. Implementation of Topic Extraction and Document Clustering
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../06classification/06classification.html">
    9. Text Classification
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06classification/06classificationMetrics.html">
+     9.1. Validation of Classifiers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06classification/07classificationNaiveBayes.html">
+     9.2. Naive Bayes Text Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06classification/FakeNewsClassification.html">
+     9.3. Text Classification Application: Fake News detection
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="07neuralnetworks.html">
    10. Neural Networks
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01NeuralNets.html">
@@ -157,9 +291,8 @@
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -174,25 +307,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -204,17 +337,18 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
 
+            <!-- Source interaction buttons -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Launch buttons -->
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -229,24 +363,20 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/07neuralnetworks/03ConvolutionNeuralNetworks.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
         
     </div>
 </div>
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overall-architecture">
    10.3.1. Overall Architecture
@@ -396,7 +526,8 @@
  </li>
 </ul>
 
-        </nav>
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -427,11 +558,10 @@
 <div class="section" id="overall-architecture">
 <h2><span class="section-number">10.3.1. </span>Overall Architecture<a class="headerlink" href="#overall-architecture" title="Permalink to this headline">¶</a></h2>
 <p>On an abstract level the architecture of a Deep Neural Network looks like this:</p>
-<img alt="Drawing" src="https://maucher.home.hdm-stuttgart.de/Pics/dnnExtractorClassifier.png" />
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/dnnExtractorClassifier.png" alt="Drawing" style="width: 800px;"/>
 <p>The goal of deep learning is to extract meaningful features. The <em>Extractor-Part</em> of the network learns from low-level features (e.g. pixel values) at the input of the network a hierarchy of increasingly meaningful features. Using informative features a classifier at the end of the Deep Neural Network can easily determine the correct class (see also the sketch below and the <a class="reference external" href="#cnnconceptcat">cat-example-image</a>).</p>
 <p><strong>Example:</strong> Four different types of feature-representations to be used as input for a classifier, which shall be able to detect houses and cars:</p>
-<img alt="https://maucher.home.hdm-stuttgart.de/Pics/betterFeatures.png" src="https://maucher.home.hdm-stuttgart.de/Pics/betterFeatures.png" />
-<p><strong>Visualization of learned features</strong></p>
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/betterFeatures.png"> <p><strong>Visualization of learned features</strong></p>
 <p>Source: <a class="reference external" href="https://arxiv.org/pdf/1311.2901.pdf">Zeiler and Fergus: Visualizing and Understanding of Convolutional Neural Networks</a></p>
 <p>Learned features in layers 1 and 2:
 <img src="https://maucher.home.hdm-stuttgart.de/Pics/zeilerLayers1-2.PNG"></p>
@@ -492,11 +622,10 @@ If the filter is applied with a stepsize of <span class="math notranslate nohigh
 <blockquote>
 <div><p><strong>Note:</strong> In signal processing convolution and correlation is not the same. Convolution is correlation with the filter rotated 180 degrees. In context of neural networks, where filter coefficients are learned, this distinction can be ignored. As it is common in machine learning literature, in this notebook convolution and correlation are the same.</p>
 </div></blockquote>
-<a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/ConvolutionConceptSmall.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/ConvolutionConceptSmall.png" class="align-center" src="https://maucher.home.hdm-stuttgart.de/Pics/ConvolutionConceptSmall.png" style="width: 600px;" /></a>
-<div class="section" id="stepsize">
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/ConvolutionConceptSmall.png" width="600" align="center"><div class="section" id="stepsize">
 <h4><span class="section-number">10.3.2.1.1. </span>Stepsize<a class="headerlink" href="#stepsize" title="Permalink to this headline">¶</a></h4>
 <p>The filter need not be convolved in steps of <span class="math notranslate nohighlight">\(s=1\)</span> across the input. Larger stepsizes yield a correspondingly smaller output. In the picture below filtering with stepsize of <span class="math notranslate nohighlight">\(s=2\)</span> is shown below filtering the same input with a stepsize of <span class="math notranslate nohighlight">\(s=1\)</span>.</p>
-<a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/ConvStepSizeSmall.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/ConvStepSizeSmall.png" class="align-center" src="https://maucher.home.hdm-stuttgart.de/Pics/ConvStepSizeSmall.png" style="width: 600px;" /></a>
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/ConvStepSizeSmall.png" width="600" align="center">
 </div>
 <div class="section" id="zero-padding">
 <h4><span class="section-number">10.3.2.1.2. </span>Zero-Padding<a class="headerlink" href="#zero-padding" title="Permalink to this headline">¶</a></h4>
@@ -506,14 +635,13 @@ Often zero-padding is set such that the size of output is equal to the size of t
 \[
 p=\frac{a-1}{2}
 \]</div>
-<a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/ConvPaddingSmall.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/ConvPaddingSmall.png" class="align-center" src="https://maucher.home.hdm-stuttgart.de/Pics/ConvPaddingSmall.png" style="width: 600px;" /></a>
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/ConvPaddingSmall.png" width="600" align="center">
 <p>For a quadratic input with sidelength <code class="docutils literal notranslate"><span class="pre">r</span></code>, a quadratic filter of side-length <code class="docutils literal notranslate"><span class="pre">a</span></code>,  a padding of <code class="docutils literal notranslate"><span class="pre">p</span></code>, and a stepsize of <code class="docutils literal notranslate"><span class="pre">s</span></code>, the quadratic output of convolution-filtering has a side-length of</p>
 <div class="math notranslate nohighlight">
 \[
 o=\frac{r-a+2p}{s}+1.
 \]</div>
-<img alt="http://maucher.home.hdm-stuttgart.de/Pics/ConvolutionFilterDemo3.gif" class="align-center" src="http://maucher.home.hdm-stuttgart.de/Pics/ConvolutionFilterDemo3.gif" />
-</div>
+<img src="http://maucher.home.hdm-stuttgart.de/Pics/ConvolutionFilterDemo3.gif" style="width:800px" align="center"></div>
 <div class="section" id="example-2d-convolution-filter">
 <h4><span class="section-number">10.3.2.1.3. </span>Example: 2D-convolution filter<a class="headerlink" href="#example-2d-convolution-filter" title="Permalink to this headline">¶</a></h4>
 <p>Below, a 2D input <code class="docutils literal notranslate"><span class="pre">x1</span></code> of shape (10,10) is defined as a numpy-array. The signal values are <code class="docutils literal notranslate"><span class="pre">1</span></code> (white) in the (4,4)-center region and <code class="docutils literal notranslate"><span class="pre">0</span></code> (black) elsewhere. For the display of the 2-dimensional signal the matplotlib method imshow() is applied.</p>
@@ -715,7 +843,7 @@ o=\frac{r-a+2p}{s}+1.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fcc9c312710&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fe8fed68130&gt;
 </pre></div>
 </div>
 <img alt="../_images/03ConvolutionNeuralNetworks_37_1.png" src="../_images/03ConvolutionNeuralNetworks_37_1.png" />
@@ -781,26 +909,24 @@ o=\frac{r-a+2p}{s}+1.
 <div class="section" id="simple-convolutional-layer-1-dimensional">
 <h4><span class="section-number">10.3.2.2.2. </span>Simple Convolutional Layer 1-Dimensional<a class="headerlink" href="#simple-convolutional-layer-1-dimensional" title="Permalink to this headline">¶</a></h4>
 <p>A single feature map calculated from a single channel in a 1-dimensional convolutional layer is shown below:</p>
-<img alt="https://maucher.home.hdm-stuttgart.de/Pics/convLayer1DTikz.png" src="https://maucher.home.hdm-stuttgart.de/Pics/convLayer1DTikz.png" />
-</div>
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/convLayer1DTikz.png" style="width: 600px" /></div>
 <div class="section" id="simple-convolutional-layer-2-dimensional">
 <h4><span class="section-number">10.3.2.2.3. </span>Simple Convolutional Layer 2-Dimensional<a class="headerlink" href="#simple-convolutional-layer-2-dimensional" title="Permalink to this headline">¶</a></h4>
 <p>A single feature map calculated from a single channel in a 2-dimensional convolutional layer is shown below:</p>
-<img alt="https://maucher.home.hdm-stuttgart.de/Pics/convLayer2DTikz.png" src="https://maucher.home.hdm-stuttgart.de/Pics/convLayer2DTikz.png" />
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/convLayer2DTikz.png" style="width: 600px" />
 <p>In the sequel, neurons and weights in convolutional layers are represented as 2-dimensional arrays. The picture below represents the same operation as the picture above.</p>
-<img alt="https://maucher.home.hdm-stuttgart.de/Pics/convLayer2DarrayTikz.png" src="https://maucher.home.hdm-stuttgart.de/Pics/convLayer2DarrayTikz.png" />
-<p><a id="multichannels"></a></p>
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/convLayer2DarrayTikz.png" style="width: 500px" /><p><a id="multichannels"></a></p>
 </div>
 <div class="section" id="multiple-channels-at-the-input-of-the-convolutional-layer">
 <h4><span class="section-number">10.3.2.2.4. </span>Multiple Channels at the input of the Convolutional Layer<a class="headerlink" href="#multiple-channels-at-the-input-of-the-convolutional-layer" title="Permalink to this headline">¶</a></h4>
 <p>In CNNs the input to a convolutional layer is in general not a single 2D-array, but a set of multiple arrays (channels). For example in object recognition the input of the first convolutional layer <span class="math notranslate nohighlight">\(conv_1\)</span> is usually the image. The number of channels is then 3 for a RGB-image and 1 for a greyscale image. For all of the following convolutional layers <span class="math notranslate nohighlight">\(conv_i, \; i&gt;1,\)</span> the input is typically the set of (pooled) feature maps of the previous layer <span class="math notranslate nohighlight">\(conv_{i-1}\)</span>. In the picture below the calculation of the values of a single feature map from <span class="math notranslate nohighlight">\(L=3\)</span> channels at the input of the convolutional layer is depicted. Note that for calculating the values of a single feature map, for each channel an individual filter is learned and applied.</p>
-<a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/ConvolutionMultChan.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/ConvolutionMultChan.png" class="align-center" src="https://maucher.home.hdm-stuttgart.de/Pics/ConvolutionMultChan.png" style="width: 500px;" /></a>
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/ConvolutionMultChan.png" width="500" align="center">
 <p><a id="multifeatures"></a></p>
 </div>
 <div class="section" id="multiple-feature-maps-at-the-output-of-the-convolutional-layer">
 <h4><span class="section-number">10.3.2.2.5. </span>Multiple Feature Maps at the output of the Convolutional Layer<a class="headerlink" href="#multiple-feature-maps-at-the-output-of-the-convolutional-layer" title="Permalink to this headline">¶</a></h4>
 <p>The previous subsection demonstrated the calulation of a single feature map from multiple channels at the input of the convolutional layer. <strong>In a CNN there are multiple channels at the input and multiple feature maps at the output of a convolutional layer.</strong> For sake of simplicity - and because we already know how multiple channels at the input influence a single feature map at the output - the picture and the code cells below demonstrate how multiple feature maps at the output are calculated from a single channel. Note that each feature map has it’s own set of shared weights (filter-coeffients) for each channel at the input of the convolutional layer:</p>
-<a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/ConvolutionMultFeats.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/ConvolutionMultFeats.png" class="align-center" src="https://maucher.home.hdm-stuttgart.de/Pics/ConvolutionMultFeats.png" style="width: 500px;" /></a>
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/ConvolutionMultFeats.png" width="500" align="center">
 </div>
 </div>
 <div class="section" id="activation-function">
@@ -916,7 +1042,7 @@ These functions are defined and visualized below.</p></li>
 <li><p>the common stepsize <span class="math notranslate nohighlight">\(s\)</span> in a pooling layer is equal to the width of the filter <span class="math notranslate nohighlight">\(w\)</span>, i.e. the pooling filter operates on <em>non-overlapping</em> regions. Even though <span class="math notranslate nohighlight">\(s=w\)</span> is the common configuration, it is not mandatory and there exist some good CNNs, whose pooling layers operate in a overlapping manner with <span class="math notranslate nohighlight">\(s&lt;w\)</span>.</p></li>
 </ul>
 <p>In the picture below max-pooling with a filter width of <span class="math notranslate nohighlight">\(w=s=2\)</span> is shown. In this case pooling reduces the size of the 2D-input by a factor of 2.</p>
-<a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/MaxPooling.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/MaxPooling.png" class="align-center" src="https://maucher.home.hdm-stuttgart.de/Pics/MaxPooling.png" style="width: 600px;" /></a>
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/MaxPooling.png" width="600" align="center">
 <p>The configuration sketched in the picture above is implemented in the code cells below.</p>
 </div>
 <div class="section" id="concatenation-of-convolution-and-pooling">
@@ -944,8 +1070,7 @@ These functions are defined and visualized below.</p></li>
 <li><p>third dimension is the number of columns in each featuremap at the output of the convolutional layer</p></li>
 </ul>
 <p>The picture below sketches the sequence of convolution, activation and pooling in an abstract manner: For <span class="math notranslate nohighlight">\(L_i\)</span> input channels of convolutional layer <span class="math notranslate nohighlight">\(conv_i\)</span> <span class="math notranslate nohighlight">\(L_{i+1}\)</span> feature maps are calculated. These feature maps are processed by an activation function and fed to a pooling layer. The pooled <span class="math notranslate nohighlight">\(L_{i+1}\)</span> feature maps are the <span class="math notranslate nohighlight">\(L_{i+1}\)</span> input channel for the next convolutional layer. If no further convolution-layer is applied, the pooled feature maps are serialized and fed to a fully connected layer.</p>
-<a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/ChannelCubes.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/ChannelCubes.png" class="align-center" src="https://maucher.home.hdm-stuttgart.de/Pics/ChannelCubes.png" style="width: 400px;" /></a>
-</div>
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/ChannelCubes.png" width="400" align="center"></div>
 <div class="section" id="fully-connected-layers">
 <h2><span class="section-number">10.3.5. </span>Fully Connected Layers<a class="headerlink" href="#fully-connected-layers" title="Permalink to this headline">¶</a></h2>
 <p>In CNNs cascades of convolution- and pooling layer learn to extract meaningful features. These learned features are then fed to a classifier or to a regressor, which outputs the estimated class or the estimated numeric value, respectively. The final classifier or regressor is usually implemented by a usual single- or multilayer perceptron (SLP or MLP). The layers of the SLP or MLP are called <strong>fully connected layers</strong>, since each neuron in layer <span class="math notranslate nohighlight">\(k\)</span> is connected to all neurons in layer <span class="math notranslate nohighlight">\(k-1\)</span>.</p>
@@ -964,11 +1089,10 @@ These functions are defined and visualized below.</p></li>
 		\right)\end{split}\]</div>
 <p>is the weight matrix. Entry <span class="math notranslate nohighlight">\(w_{i,j}\)</span> is the weight from the <span class="math notranslate nohighlight">\(j.th\)</span> element in <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> to the <span class="math notranslate nohighlight">\(i.th\)</span> element in <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>.</p>
 <p>As shown in the picture below, the output of the last pooling layer is serialized before it is fed into a fully connected layer. In this example only one fully connected layer is applied, i.e. the classifier is just a SLP. Since there are 8 neurons in the output of the fully connected layer, this example architecture can be applied for a classification into 8 classes. In this case the output is usually processed by a <strong>softmax-activation function</strong>, which is not depicted in the image below.</p>
-<a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/ConvActPoolFC.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/ConvActPoolFC.png" class="align-center" src="https://maucher.home.hdm-stuttgart.de/Pics/ConvActPoolFC.png" style="width: 800px;" /></a>
-<p><a id='cnnconceptcat'></a></p>
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/ConvActPoolFC.png" width="800" align="center"><p><a id='cnnconceptcat'></a></p>
 <div class="section" id="cnn-summary">
 <h3><span class="section-number">10.3.5.1. </span>CNN Summary<a class="headerlink" href="#cnn-summary" title="Permalink to this headline">¶</a></h3>
-<img alt="Drawing" src="https://maucher.home.hdm-stuttgart.de/Pics/cnnConceptCat.png" />
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/cnnConceptCat.png" alt="Drawing" style="width: 400px;"/>
 <p>Image source: <a class="reference external" href="https://www.manning.com/books/deep-learning-with-python">F. Chollet, Deep Learning with Python</a></p>
 <ul class="simple">
 <li><p>The <strong>Extractor-Part of a CNN</strong> learns filters, which are able to extract <strong>local structures</strong>, which frequently occur in the training data.</p></li>
@@ -1234,15 +1358,15 @@ Standard-deviation of normalized data:
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="02RecurrentNeuralNetworks.html" title="previous page"><span class="section-number">10.2. </span>Recurrent Neural Networks</a>
     <a class='right-next' id="next-link" href="04CNN.html" title="next page"><span class="section-number">10.4. </span>CNN, LSTM and Attention for IMDB Movie Review classification</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -1250,7 +1374,7 @@ Standard-deviation of normalized data:
         
           By Prof. Dr. Johannes Maucher<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -1259,8 +1383,9 @@ Standard-deviation of normalized data:
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    <script src="../_static/js/index.js"></script>
-    
+  
   </body>
 </html>
