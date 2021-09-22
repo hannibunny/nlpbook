@@ -1,8 +1,14 @@
-# CNN, LSTM and Attention for IMDB Movie Review classification
-* Author: Johannes Maucher
-* Last Update: 23.11.2020
+#!/usr/bin/env python
+# coding: utf-8
 
-The IMDB Movie Review corpus is a standard dataset for the evaluation of text-classifiers. It consists of 25000 movies reviews from IMDB, labeled by sentiment (positive/negative). In this notebook a Convolutional Neural Network (CNN) is implemented for sentiment classification of IMDB reviews.
+# # CNN, LSTM and Attention for IMDB Movie Review classification
+# * Author: Johannes Maucher
+# * Last Update: 23.11.2020
+# 
+# The IMDB Movie Review corpus is a standard dataset for the evaluation of text-classifiers. It consists of 25000 movies reviews from IMDB, labeled by sentiment (positive/negative). In this notebook a Convolutional Neural Network (CNN) is implemented for sentiment classification of IMDB reviews.
+
+# In[1]:
+
 
 import numpy as np
 import pandas as pd
@@ -13,30 +19,54 @@ from tensorflow.keras.layers import Embedding, Dense, Input, Flatten, Conv1D, Ma
 from tensorflow.keras.models import Model
 from tensorflow.keras.datasets import imdb
 
+
+# In[2]:
+
+
 MAX_SEQUENCE_LENGTH = 500  # all text-sequences are padded to this length
 MAX_NB_WORDS = 10000        # number of most-frequent words that are regarded, all others are ignored
 EMBEDDING_DIM = 100         # dimension of word-embedding
 INDEX_FROM=3
 
-## Access IMDB dataset
-The [IMDB dataset](https://keras.io/datasets/) is already available in Keras and can easily be accessed by
 
-`imdb.load_data()`. 
+# ## Access IMDB dataset
+# The [IMDB dataset](https://keras.io/datasets/) is already available in Keras and can easily be accessed by
+# 
+# `imdb.load_data()`. 
+# 
+# The returned dataset contains the sequence of word indices for each review. 
 
-The returned dataset contains the sequence of word indices for each review. 
+# In[3]:
+
 
 (X_train, y_train), (X_test, y_test) = imdb.load_data(num_words=MAX_NB_WORDS,index_from=INDEX_FROM)
+
+
+# In[4]:
+
 
 print(X_train.shape)
 print(X_test.shape)
 print(y_train.shape)
 print(y_test.shape)
 
+
+# In[5]:
+
+
 X_train[0][:10] #plot first 10 elements of the sequence
 
-The representation of text as sequence of integers is good for Machine Learning algorithms, but useless for human text understanding. Therefore, we also access the word-index from [Keras IMDB dataset](https://keras.io/api/datasets/imdb/), which maps words to the associated integer-IDs. Since we like to map integer-IDs to words we calculate the inverse wordindex `inv_wordindex`: 
+
+# The representation of text as sequence of integers is good for Machine Learning algorithms, but useless for human text understanding. Therefore, we also access the word-index from [Keras IMDB dataset](https://keras.io/api/datasets/imdb/), which maps words to the associated integer-IDs. Since we like to map integer-IDs to words we calculate the inverse wordindex `inv_wordindex`: 
+
+# In[6]:
+
 
 wordindex=imdb.get_word_index(path="imdb_word_index.json")
+
+
+# In[7]:
+
 
 wordindex = {k:(v+INDEX_FROM) for k,v in wordindex.items()}
 wordindex["<PAD>"] = 0
@@ -46,48 +76,84 @@ wordindex["<UNUSED>"] = 3
 
 inv_wordindex = {value:key for key,value in wordindex.items()}
 
-The first film-review of the training-partition then reads as follows:
+
+# The first film-review of the training-partition then reads as follows:
+
+# In[8]:
+
 
 print(' '.join(inv_wordindex[id] for id in X_train[0] ))
 
-Next the distribution of review-lengths (words per review) is calculated:
+
+# Next the distribution of review-lengths (words per review) is calculated:
+
+# In[9]:
+
 
 textlenghtsTrain=[len(t) for t in X_train]
 
+
+# In[10]:
+
+
 from matplotlib import pyplot as plt
+
+
+# In[11]:
+
 
 plt.hist(textlenghtsTrain,bins=20)
 plt.title("Distribution of text lengths in words")
 plt.xlabel("number of words per document")
 plt.show()
 
-## Preparing Text Sequences and Labels
-All sequences must be padded to unique length of `MAX_SEQUENCE_LENGTH`. This means, that longer sequences are cut and shorter sequences are filled with zeros. For this Keras provides the `pad_sequences()`-function. 
+
+# ## Preparing Text Sequences and Labels
+# All sequences must be padded to unique length of `MAX_SEQUENCE_LENGTH`. This means, that longer sequences are cut and shorter sequences are filled with zeros. For this Keras provides the `pad_sequences()`-function. 
+
+# In[12]:
+
 
 X_train = pad_sequences(X_train, maxlen=MAX_SEQUENCE_LENGTH)
 
+
+# In[13]:
+
+
 X_test = pad_sequences(X_test, maxlen=MAX_SEQUENCE_LENGTH)
 
-Moreover, all class-labels must be represented in one-hot-encoded form:
+
+# Moreover, all class-labels must be represented in one-hot-encoded form:
+
+# In[14]:
+
 
 y_train = to_categorical(np.asarray(y_train))
 y_test = to_categorical(np.asarray(y_test))
 print('Shape of Training Data Input:', X_train.shape)
 print('Shape of Training Data Labels:', y_train.shape)
 
+
+# In[15]:
+
+
 print('Number of positive and negative reviews in training and validation set ')
 print (y_train.sum(axis=0))
 print (y_test.sum(axis=0))
 
-## CNN with 2 Convolutional Layers
 
-The first network architecture consists of
-* an embedding layer. This layer takes sequences of integers and learns word-embeddings. The sequences of word-embeddings are then passed to the first convolutional layer
-* two 1D-convolutional layers with different number of filters and different filter-sizes
-* two Max-Pooling layers to reduce the number of neurons, required in the following layers
-* a MLP classifier with one hidden layer and the output layer
+# ## CNN with 2 Convolutional Layers
+# 
+# The first network architecture consists of
+# * an embedding layer. This layer takes sequences of integers and learns word-embeddings. The sequences of word-embeddings are then passed to the first convolutional layer
+# * two 1D-convolutional layers with different number of filters and different filter-sizes
+# * two Max-Pooling layers to reduce the number of neurons, required in the following layers
+# * a MLP classifier with one hidden layer and the output layer
+# 
+# ### Prepare Embedding Matrix and -Layer 
 
-### Prepare Embedding Matrix and -Layer 
+# In[16]:
+
 
 embedding_layer = Embedding(MAX_NB_WORDS,
                             EMBEDDING_DIM,
@@ -95,7 +161,11 @@ embedding_layer = Embedding(MAX_NB_WORDS,
                             input_length=MAX_SEQUENCE_LENGTH,
                             trainable=True)
 
-### Define CNN architecture
+
+# ### Define CNN architecture
+
+# In[17]:
+
 
 sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
 embedded_sequences = embedding_layer(sequence_input)
@@ -108,18 +178,34 @@ l_dense = Dense(64, activation='relu')(l_flat)
 preds = Dense(2, activation='softmax')(l_dense)
 model = Model(sequence_input, preds)
 
-### Train Network
+
+# ### Train Network
+
+# In[18]:
+
 
 model.compile(loss='categorical_crossentropy',
               optimizer='rmsprop',
               metrics=['categorical_accuracy'])
 model.summary()
 
+
+# In[19]:
+
+
 print("model fitting - simplified convolutional neural network")
 history=model.fit(X_train, y_train, validation_data=(X_test, y_test),epochs=6, verbose=False, batch_size=128)
 
-%matplotlib inline
+
+# In[90]:
+
+
+get_ipython().run_line_magic('matplotlib', 'inline')
 from matplotlib import pyplot as plt
+
+
+# In[91]:
+
 
 acc = history.history['categorical_accuracy']
 val_acc = history.history['val_categorical_accuracy']
@@ -136,18 +222,26 @@ plt.grid(True)
 plt.legend()
 plt.show()
 
+
+# In[92]:
+
+
 model.evaluate(X_test,y_test)
 
-As shown above, after 6 epochs of training the cross-entropy-loss is 0.475 and the accuracy is 87.11%. However, it seems that the accuracy-value after 3 epochs has been higher, than the accuracy after 6 epochs. This indicates overfitting due to too long learning.
 
-## CNN with different filter sizes in one layer
-In [Y. Kim; Convolutional Neural Networks for Sentence Classification](https://arxiv.org/pdf/1408.5882v2.pdf) a CNN with different filter-sizes in one layer has been proposed. This CNN is implemented below:
+# As shown above, after 6 epochs of training the cross-entropy-loss is 0.475 and the accuracy is 87.11%. However, it seems that the accuracy-value after 3 epochs has been higher, than the accuracy after 6 epochs. This indicates overfitting due to too long learning.
 
-![KimCnn](https://maucher.home.hdm-stuttgart.de/Pics/KimCnn.png)
+# ## CNN with different filter sizes in one layer
+# In [Y. Kim; Convolutional Neural Networks for Sentence Classification](https://arxiv.org/pdf/1408.5882v2.pdf) a CNN with different filter-sizes in one layer has been proposed. This CNN is implemented below:
 
-Source: [Y. Kim; Convolutional Neural Networks for Sentence Classification](https://arxiv.org/pdf/1408.5882v2.pdf)
+# ![KimCnn](https://maucher.home.hdm-stuttgart.de/Pics/KimCnn.png)
+# 
+# Source: [Y. Kim; Convolutional Neural Networks for Sentence Classification](https://arxiv.org/pdf/1408.5882v2.pdf)
 
-### Prepare Embedding Matrix and -Layer
+# ### Prepare Embedding Matrix and -Layer
+
+# In[44]:
+
 
 embedding_layer = Embedding(MAX_NB_WORDS,
                             EMBEDDING_DIM,
@@ -155,7 +249,11 @@ embedding_layer = Embedding(MAX_NB_WORDS,
                             input_length=MAX_SEQUENCE_LENGTH,
                             trainable=True)
 
-### Define Architecture
+
+# ### Define Architecture
+
+# In[45]:
+
 
 convs = []
 filter_sizes = [3,4,5]
@@ -179,16 +277,32 @@ preds = Dense(2, activation='softmax')(l_dense)
 
 model = Model(sequence_input, preds)
 
+
+# In[46]:
+
+
 model.summary()
 
-### Train Network
+
+# ### Train Network
+
+# In[47]:
+
 
 model.compile(loss='categorical_crossentropy',
               optimizer='rmsprop',
               metrics=['categorical_accuracy'])
 
+
+# In[48]:
+
+
 print("model fitting - more complex convolutional neural network")
 history=model.fit(X_train, y_train, validation_data=(X_test, y_test),epochs=8, batch_size=128)
+
+
+# In[49]:
+
 
 acc = history.history['categorical_accuracy']
 val_acc = history.history['val_categorical_accuracy']
@@ -205,13 +319,25 @@ plt.grid(True)
 plt.legend()
 plt.show()
 
+
+# In[73]:
+
+
 model.evaluate(X_test,y_test)
 
-As shown above, after 8 epochs of training the cross-entropy-loss is 0.467 and the accuracy is 88.47%.
 
-## LSTM
+# As shown above, after 8 epochs of training the cross-entropy-loss is 0.467 and the accuracy is 88.47%.
+
+# ## LSTM
+
+# In[26]:
+
 
 from tensorflow.keras.layers import LSTM, Bidirectional
+
+
+# In[27]:
+
 
 embedding_layer = Embedding(MAX_NB_WORDS,
                             EMBEDDING_DIM,
@@ -219,13 +345,25 @@ embedding_layer = Embedding(MAX_NB_WORDS,
                             input_length=MAX_SEQUENCE_LENGTH,
                             trainable=True)
 
+
+# In[28]:
+
+
 sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
 embedded_sequences = embedding_layer(sequence_input)
 l_lstm = Bidirectional(LSTM(64))(embedded_sequences)
 preds = Dense(2, activation='softmax')(l_lstm)
 model = Model(sequence_input, preds)
 
+
+# In[29]:
+
+
 model.summary()
+
+
+# In[30]:
+
 
 model.compile(loss='categorical_crossentropy',
               optimizer='rmsprop',
@@ -233,7 +371,15 @@ model.compile(loss='categorical_crossentropy',
 
 print("model fitting - Bidirectional LSTM")
 
+
+# In[31]:
+
+
 history=model.fit(X_train, y_train, validation_data=(X_test, y_test),epochs=6, batch_size=128)
+
+
+# In[32]:
+
 
 acc = history.history['categorical_accuracy']
 val_acc = history.history['val_categorical_accuracy']
@@ -250,22 +396,30 @@ plt.grid(True)
 plt.legend()
 plt.show()
 
+
+# In[33]:
+
+
 model.evaluate(X_test,y_test)
 
-As shown above, after 6 epochs of training the cross-entropy-loss is 0.467 and the accuracy is 86.7%. However, it seems that the accuracy-value after 2 epochs has been higher, than the accuracy after 6 epochs. This indicates overfitting due to too long learning.
 
-## Bidirectional LSTM architecture with Attention
+# As shown above, after 6 epochs of training the cross-entropy-loss is 0.467 and the accuracy is 86.7%. However, it seems that the accuracy-value after 2 epochs has been higher, than the accuracy after 6 epochs. This indicates overfitting due to too long learning.
 
-### Define Custom Attention Layer
-Since Keras does not provide an attention-layer, we have to implement this type on our own. The implementation below corresponds to the attention-concept as introduced in [Bahdanau et al: Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/pdf/1409.0473.pdf).
+# ## Bidirectional LSTM architecture with Attention
+# 
+# ### Define Custom Attention Layer
+# Since Keras does not provide an attention-layer, we have to implement this type on our own. The implementation below corresponds to the attention-concept as introduced in [Bahdanau et al: Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/pdf/1409.0473.pdf).
+# 
+# The general concept of writing custom Keras layers is described in the corresponding [Keras documentation](https://keras.io/layers/writing-your-own-keras-layers/). 
+# 
+# Any custom layer class inherits from the layer-class and must implement three methods:
+# 
+# - `build(input_shape)`: this is where you will define your weights. This method must set `self.built = True`, which can be done by calling `super([Layer], self).build()`.
+# - `call(x)`: this is where the layer's logic lives. Unless you want your layer to support masking, you only have to care about the first argument passed to call: the input tensor.
+# - `compute_output_shape(input_shape)`: in case your layer modifies the shape of its input, you should specify here the shape transformation logic. This allows Keras to do automatic shape inference.
 
-The general concept of writing custom Keras layers is described in the corresponding [Keras documentation](https://keras.io/layers/writing-your-own-keras-layers/). 
+# In[63]:
 
-Any custom layer class inherits from the layer-class and must implement three methods:
-
-- `build(input_shape)`: this is where you will define your weights. This method must set `self.built = True`, which can be done by calling `super([Layer], self).build()`.
-- `call(x)`: this is where the layer's logic lives. Unless you want your layer to support masking, you only have to care about the first argument passed to call: the input tensor.
-- `compute_output_shape(input_shape)`: in case your layer modifies the shape of its input, you should specify here the shape transformation logic. This allows Keras to do automatic shape inference.
 
 from tensorflow.keras import regularizers, initializers,constraints
 from tensorflow.keras.layers import Layer
@@ -340,11 +494,19 @@ class Attention(Layer):
     def compute_output_shape(self, input_shape):
         return input_shape[0],  self.features_dim
 
+
+# In[64]:
+
+
 embedding_layer = Embedding(MAX_NB_WORDS,
                             EMBEDDING_DIM,
                             #weights=[embedding_matrix],
                             input_length=MAX_SEQUENCE_LENGTH,
                             trainable=True)
+
+
+# In[65]:
+
 
 sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
 embedded_sequences = embedding_layer(sequence_input)
@@ -353,13 +515,29 @@ l_att = Attention(MAX_SEQUENCE_LENGTH)(l_gru)
 preds = Dense(2, activation='softmax')(l_att)
 model = Model(sequence_input, preds)
 
+
+# In[66]:
+
+
 model.summary()
+
+
+# In[68]:
+
 
 model.compile(loss='categorical_crossentropy',
               optimizer='rmsprop',
               metrics=['categorical_accuracy'])
 
+
+# In[69]:
+
+
 history=model.fit(X_train, y_train, validation_data=(X_test, y_test),epochs=6, batch_size=128)
+
+
+# In[70]:
+
 
 acc = history.history['categorical_accuracy']
 val_acc = history.history['val_categorical_accuracy']
@@ -376,7 +554,17 @@ plt.grid(True)
 plt.legend()
 plt.show()
 
+
+# In[71]:
+
+
 model.evaluate(X_test,y_test)
 
-Again, the achieved accuracy is in the same range as for the other architectures. None of the architectures has been optimized, e.g. through hyperparameter-tuning. However, the goal of this notebook is not the determination of an optimal model, but the demonstration of how modern neural network architectures can be implemented for text-classification.
+
+# Again, the achieved accuracy is in the same range as for the other architectures. None of the architectures has been optimized, e.g. through hyperparameter-tuning. However, the goal of this notebook is not the determination of an optimal model, but the demonstration of how modern neural network architectures can be implemented for text-classification.
+
+# In[ ]:
+
+
+
 

@@ -1,22 +1,36 @@
-# Access Contents of HTML Page
+#!/usr/bin/env python
+# coding: utf-8
 
-- Author:      Johannes Maucher
-- Last update: 2018-10-21
+# # Access Contents of HTML Page
+# 
+# - Author:      Johannes Maucher
+# - Last update: 2018-10-21
+# 
+# This notebook demonstrates how to parse a HTML document and access dedicated elements of the parse tree.
+# [Beautiful Soup](http://www.crummy.com/software/BeautifulSoup/bs4/doc/#) is a python package for parsing HTML. Download and install version 4 by typing:
+# 
+# > `pip install beautifulsoup4`
+# 
+# into the command shell. Once it is installed it can be imported by
 
-This notebook demonstrates how to parse a HTML document and access dedicated elements of the parse tree.
-[Beautiful Soup](http://www.crummy.com/software/BeautifulSoup/bs4/doc/#) is a python package for parsing HTML. Download and install version 4 by typing:
+# In[1]:
 
-> `pip install beautifulsoup4`
-
-into the command shell. Once it is installed it can be imported by
 
 from bs4 import BeautifulSoup
 
-For accessing arbitrary resources by URL the python modul [urllib](https://docs.python.org/2/library/urllib.html) must also be installed. Import the method _urlopen()_ from this module:  
+
+# For accessing arbitrary resources by URL the python modul [urllib](https://docs.python.org/2/library/urllib.html) must also be installed. Import the method _urlopen()_ from this module:  
+
+# In[2]:
+
 
 from urllib.request import urlopen
 
-If these two modules are available the HTML parse tree of the specified URL can easily be generated as follows.
+
+# If these two modules are available the HTML parse tree of the specified URL can easily be generated as follows.
+
+# In[3]:
+
 
 #url="http://www.zeit.de"
 url="http://www.spiegel.de"
@@ -24,13 +38,21 @@ url="http://www.spiegel.de"
 html=urlopen(url).read()
 soup=BeautifulSoup(html,"html.parser")
 
-Now e.g. the title of the URL can be accessed by:
+
+# Now e.g. the title of the URL can be accessed by:
+
+# In[4]:
+
 
 titleTag = soup.html.head.title
 print("Title of page:  ",titleTag.string)
 
-## Get all links in the page
-All links in the page can be retrieven by the following code (only the first 20 links are printed)
+
+# ## Get all links in the page
+# All links in the page can be retrieven by the following code (only the first 20 links are printed)
+
+# In[5]:
+
 
 hreflinks=[]
 Alllinks=soup.findAll('a') #The <a> tag defines a hyperlink, which is used to link from one page to another.
@@ -41,8 +63,12 @@ print("Number of links in this page: ",len(hreflinks))
 for l in hreflinks[:20]:
     print(l['href'])
 
-## Get all news titles
-Get title of all news, which are currently listed on [www.zeit.de](http://www.zeit.de):
+
+# ## Get all news titles
+# Get title of all news, which are currently listed on [www.zeit.de](http://www.zeit.de):
+
+# In[6]:
+
 
 #print soup.get_text()hreflinks=[]
 AllTitles=soup.findAll('h2')
@@ -61,9 +87,13 @@ for l in AllTitles:
     except:
         pass
 
-## Get all images of the page
 
-Get url of all images, which are currently displayed on [www.zeit.de](http://www.zeit.de):
+# ## Get all images of the page
+# 
+# Get url of all images, which are currently displayed on [www.zeit.de](http://www.zeit.de):
+
+# In[7]:
+
 
 imglinks=[]
 AllImgs=soup.findAll('img')
@@ -74,7 +104,11 @@ for l in AllImgs:
 for l in imglinks[:10]:
     print(l['src'])
 
-## Get entire text of a news-article
+
+# ## Get entire text of a news-article
+
+# In[8]:
+
 
 IDX=0
 suburl=alltitleLinks[IDX]
@@ -87,8 +121,14 @@ AllP=soup.findAll('p')
 for p in AllP:
     print(p.get_text())
 
-## Questions and Remarks
-1. This notebook demonstrates how raw-text can be crawled from news-sites. But what is the drawback of this method?
-2. Execute the entire notebook also for `www.spiegel.de` and `www.sueddeutsche.de`.
-3. What do you observe? How to solve the problem?
+
+# ## Questions and Remarks
+# 1. This notebook demonstrates how raw-text can be crawled from news-sites. But what is the drawback of this method?
+# 2. Execute the entire notebook also for `www.spiegel.de` and `www.sueddeutsche.de`.
+# 3. What do you observe? How to solve the problem?
+
+# In[ ]:
+
+
+
 

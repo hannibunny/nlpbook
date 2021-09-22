@@ -1,55 +1,43 @@
 Traceback (most recent call last):
-  File "/Users/johannes/opt/anaconda3/envs/tf2/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
-    record_timing=False,
-  File "/Users/johannes/opt/anaconda3/envs/tf2/lib/python3.7/site-packages/nbclient/client.py", line 1082, in execute
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 1087, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/johannes/opt/anaconda3/envs/tf2/lib/python3.7/site-packages/nbclient/util.py", line 74, in wrapped
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/Users/johannes/opt/anaconda3/envs/tf2/lib/python3.7/site-packages/nbclient/util.py", line 53, in just_run
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
     return loop.run_until_complete(coro)
-  File "/Users/johannes/opt/anaconda3/envs/tf2/lib/python3.7/asyncio/base_events.py", line 579, in run_until_complete
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/asyncio/base_events.py", line 608, in run_until_complete
     return future.result()
-  File "/Users/johannes/opt/anaconda3/envs/tf2/lib/python3.7/site-packages/nbclient/client.py", line 536, in async_execute
-    cell, index, execution_count=self.code_cells_executed + 1
-  File "/Users/johannes/opt/anaconda3/envs/tf2/lib/python3.7/site-packages/nbclient/client.py", line 827, in async_execute_cell
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 540, in async_execute
+    await self.async_execute_cell(
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 832, in async_execute_cell
     self._check_raise_for_error(cell, exec_reply)
-  File "/Users/johannes/opt/anaconda3/envs/tf2/lib/python3.7/site-packages/nbclient/client.py", line 735, in _check_raise_for_error
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 740, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-singleDoc=rssreader.paras(categories="TECH")[0]
-print("The first paragraph:\n",singleDoc)
-print("Number of paragraphs in the corpus: ",len(rssreader.paras(categories="TECH")))
+from nltk.corpus.reader import CategorizedPlaintextCorpusReader
+from nltk.corpus import stopwords
+stopwordlist=stopwords.words('german')
+from wordcloud import WordCloud
+
+rootDir="../01access/GERMAN"
+filepattern=r"(?!\.)[\w_]+(/RSS/FeedText/)[\w-]+/[\w-]+\.txt"
+#filepattern=r"(?!\.)[\w_]+(/RSS/FullText/)[\w-]+/[\w-]+\.txt"
+catpattern=r"([\w_]+)/.*"
+rssreader=CategorizedPlaintextCorpusReader(rootDir,filepattern,cat_pattern=catpattern)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mValueError[0m                                Traceback (most recent call last)
-[0;32m<ipython-input-3-4f9e2780dd5b>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0msingleDoc[0m[0;34m=[0m[0mrssreader[0m[0;34m.[0m[0mparas[0m[0;34m([0m[0mcategories[0m[0;34m=[0m[0;34m"TECH"[0m[0;34m)[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m [0mprint[0m[0;34m([0m[0;34m"The first paragraph:\n"[0m[0;34m,[0m[0msingleDoc[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0mprint[0m[0;34m([0m[0;34m"Number of paragraphs in the corpus: "[0m[0;34m,[0m[0mlen[0m[0;34m([0m[0mrssreader[0m[0;34m.[0m[0mparas[0m[0;34m([0m[0mcategories[0m[0;34m=[0m[0;34m"TECH"[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-dba57f427e96>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mcorpus[0m [0;32mimport[0m [0mstopwords[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mstopwordlist[0m[0;34m=[0m[0mstopwords[0m[0;34m.[0m[0mwords[0m[0;34m([0m[0;34m'german'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mwordcloud[0m [0;32mimport[0m [0mWordCloud[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0mrootDir[0m[0;34m=[0m[0;34m"../01access/GERMAN"[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m~/opt/anaconda3/envs/tf2/lib/python3.7/site-packages/nltk/corpus/reader/plaintext.py[0m in [0;36mparas[0;34m(self, fileids, categories)[0m
-[1;32m    192[0m [0;34m[0m[0m
-[1;32m    193[0m     [0;32mdef[0m [0mparas[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mfileids[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0mcategories[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 194[0;31m         [0;32mreturn[0m [0mPlaintextCorpusReader[0m[0;34m.[0m[0mparas[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0m_resolve[0m[0;34m([0m[0mfileids[0m[0;34m,[0m [0mcategories[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    195[0m [0;34m[0m[0m
-[1;32m    196[0m [0;34m[0m[0m
-
-[0;32m~/opt/anaconda3/envs/tf2/lib/python3.7/site-packages/nltk/corpus/reader/plaintext.py[0m in [0;36m_resolve[0;34m(self, fileids, categories)[0m
-[1;32m    178[0m             [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m'Specify fileids or categories, not both'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    179[0m         [0;32mif[0m [0mcategories[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 180[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mfileids[0m[0;34m([0m[0mcategories[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    181[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    182[0m             [0;32mreturn[0m [0mfileids[0m[0;34m[0m[0;34m[0m[0m
-
-[0;32m~/opt/anaconda3/envs/tf2/lib/python3.7/site-packages/nltk/corpus/reader/api.py[0m in [0;36mfileids[0;34m(self, categories)[0m
-[1;32m    367[0m                 [0;32mreturn[0m [0msorted[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_c2f[0m[0;34m[[0m[0mcategories[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    368[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 369[0;31m                 [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m'Category %s not found'[0m [0;34m%[0m [0mcategories[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    370[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    371[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0m_f2c[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-
-[0;31mValueError[0m: Category TECH not found
-ValueError: Category TECH not found
+[0;31mModuleNotFoundError[0m: No module named 'wordcloud'
+ModuleNotFoundError: No module named 'wordcloud'
 

@@ -1,9 +1,15 @@
-# Levensthein Distance Calculation
+#!/usr/bin/env python
+# coding: utf-8
 
-* Author: Johannes Maucher
-* Last Update: 2020-09-09
+# # Levensthein Distance Calculation
+# 
+# * Author: Johannes Maucher
+# * Last Update: 2020-09-09
+# 
+# Define function for Levensthein distance:
 
-Define function for Levensthein distance:
+# In[1]:
+
 
 def levdist(first, second):
     if len(first) > len(second):
@@ -27,9 +33,23 @@ def levdist(first, second):
             distance_matrix[i][j] = min(insertion, deletion, substitution)
     return distance_matrix[first_length-1][second_length-1]
 
-Apply the function defined above for calculation of Levensthein distance between two words:
+
+# Apply the function defined above for calculation of Levensthein distance between two words:
+
+# In[2]:
+
 
 print(levdist("rakete","rokete"))
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
 
 
 

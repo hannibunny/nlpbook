@@ -1,15 +1,21 @@
-# Access RSS Feed
+#!/usr/bin/env python
+# coding: utf-8
 
-- Author:      Johannes Maucher
-- Last update: 2020-09-09
+# # Access RSS Feed
+# 
+# - Author:      Johannes Maucher
+# - Last update: 2020-09-09
+# 
+# This notebook demonstrates how the contents of an RSS feed can be extracted and saved to a file. For each of the parsed feeds
+# 1. the short-texts of all current posts are stored in a single file. The file-name is the time `hh:mm` when the feed was parsed. I.e for each new parsing of a feed a new file with the short-texts of all current posts is allocated. The name of the folder, which contains these files, contains the current date and the name of the feed.
+# 2. for each post the .html page, which contains the full message is stored (optionally).
+# 3. for each post the raw-text of the .html page, which contains the full message is stored (optionally.)
 
-This notebook demonstrates how the contents of an RSS feed can be extracted and saved to a file. For each of the parsed feeds
-1. the short-texts of all current posts are stored in a single file. The file-name is the time `hh:mm` when the feed was parsed. I.e for each new parsing of a feed a new file with the short-texts of all current posts is allocated. The name of the folder, which contains these files, contains the current date and the name of the feed.
-2. for each post the .html page, which contains the full message is stored (optionally).
-3. for each post the raw-text of the .html page, which contains the full message is stored (optionally.)
+# ## Feedparser
+# The contents of a RSS feeds can easily parsed by the python [feedparser](https://pypi.python.org/pypi/feedparser) package. This package must be installed and imported. The `parse()`-method of the feedparser returns the contents of the feed in a structured form. This return-object usually consists of a set of *entries*, which represent the current messages in the feed. The relevant text of an entry is contained in the fields `title` and `description`. Moreover, each entry has a `link`-element, which refers to the .html site of the full article.
 
-## Feedparser
-The contents of a RSS feeds can easily parsed by the python [feedparser](https://pypi.python.org/pypi/feedparser) package. This package must be installed and imported. The `parse()`-method of the feedparser returns the contents of the feed in a structured form. This return-object usually consists of a set of *entries*, which represent the current messages in the feed. The relevant text of an entry is contained in the fields `title` and `description`. Moreover, each entry has a `link`-element, which refers to the .html site of the full article.
+# In[1]:
+
 
 import feedparser
 import requests
@@ -17,22 +23,26 @@ import bs4
 import datetime
 import os
 
-## Define category and language of feeds
-For each of the supported languages (currently *German* and *English*) and each of the supported categories (currently *general* and *tech*), a list of feeds is provided. The directories for storing the parsed contents, are sturured with respect to the selected language and category.
-* The name of the top-level directory is the language name, i.e. currently either `GERMAN` or `ENGLISH`,
-* The name of the 2nd level directory is the category name, i.e. currently either `GENERAL` or `TECH`,
-* In the 3rd level currently there is only one folder `RSS`.
-* In the 4th level, 3 directories exist:
-    * `FeedText`
-    * `FullText`
-    * `HTML`
-* 5th level: Each of the 3 directories in the 4th level has an arbitrary number of subdirectories, each identified by `FEEDNAME-DATE`. 
-* 6th level under 
-    * `FeedText`: for each parsing process a single file, whose name is the time of parsing and whose contents are all short-texts in this feed at the time of parsing.
-    * `HTML`: All .html files of the full messages, to which the links in the feed-posts point to.
-    * `FullText`: The parsed raw text of all .html files of the full messages, to which the links in the feed-posts point to.
 
-Choose the language and category:
+# ## Define category and language of feeds
+# For each of the supported languages (currently *German* and *English*) and each of the supported categories (currently *general* and *tech*), a list of feeds is provided. The directories for storing the parsed contents, are sturured with respect to the selected language and category.
+# * The name of the top-level directory is the language name, i.e. currently either `GERMAN` or `ENGLISH`,
+# * The name of the 2nd level directory is the category name, i.e. currently either `GENERAL` or `TECH`,
+# * In the 3rd level currently there is only one folder `RSS`.
+# * In the 4th level, 3 directories exist:
+#     * `FeedText`
+#     * `FullText`
+#     * `HTML`
+# * 5th level: Each of the 3 directories in the 4th level has an arbitrary number of subdirectories, each identified by `FEEDNAME-DATE`. 
+# * 6th level under 
+#     * `FeedText`: for each parsing process a single file, whose name is the time of parsing and whose contents are all short-texts in this feed at the time of parsing.
+#     * `HTML`: All .html files of the full messages, to which the links in the feed-posts point to.
+#     * `FullText`: The parsed raw text of all .html files of the full messages, to which the links in the feed-posts point to.
+
+# Choose the language and category:
+
+# In[35]:
+
 
 today=datetime.datetime.now().strftime("%Y-%m-%d")
 #cat="GENERAL"
@@ -41,7 +51,11 @@ cat="TECH"
 #lang="GERMAN"
 lang="ENGLISH"
 
-Some feed lists for all languages and categories:
+
+# Some feed lists for all languages and categories:
+
+# In[36]:
+
 
 tech_feeds_en = [{'title': 'districtdatalabs', 'link': 'http://blog.districtdatalabs.com/feed'},
                  {'title': 'oreillyradar', 'link': 'http://feeds.feedburner.com/oreilly/radar/atom'},
@@ -67,7 +81,11 @@ general_feeds_de = [{'title': 'zeit', 'link': 'http://newsfeed.zeit.de/index'},
                     {'title': 'faz', 'link': 'http://www.faz.net/rss/aktuell/'}
                     ]
 
-For the defined language and category, determine a suitable feedlist:
+
+# For the defined language and category, determine a suitable feedlist:
+
+# In[37]:
+
 
 if lang=="ENGLISH":
     if cat=="GENERAL":
@@ -80,8 +98,16 @@ else:
     else:
         feeds=tech_feeds_de
 
+
+# In[38]:
+
+
 TAGS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'p']
 MINLEN=30 #Write only texts, whose length (number of characters) exceeds this size.
+
+
+# In[39]:
+
 
 def rss_parse(feed,category="GENERAL",lang="GERMAN",savehtml=False,savefulltext=True):
     #Create directories
@@ -144,6 +170,16 @@ def rss_parse(feed,category="GENERAL",lang="GERMAN",savehtml=False,savefulltext=
                         ft.write(text)
             f.close()
 
+
+# In[40]:
+
+
 for f in feeds:
     rss_parse(f,category=cat,lang=lang,savehtml=True,savefulltext=True)
+
+
+# In[ ]:
+
+
+
 

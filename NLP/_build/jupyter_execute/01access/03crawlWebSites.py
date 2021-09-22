@@ -1,11 +1,21 @@
-# Download HTML Files
+#!/usr/bin/env python
+# coding: utf-8
 
-- Author:      Johannes Maucher
-- Last update: 2018-10-12
+# # Download HTML Files
+# 
+# - Author:      Johannes Maucher
+# - Last update: 2018-10-12
+# 
+# 
 
+# In[1]:
 
 
 #!pip install slugify
+
+
+# In[2]:
+
 
 import bs4
 import requests
@@ -14,16 +24,28 @@ import datetime
 import os
 from urllib.request import urlopen
 
-## Define lists of news domains for different languages and categories
+
+# ## Define lists of news domains for different languages and categories
+
+# In[3]:
+
 
 today=datetime.datetime.now().strftime("%Y-%m-%d")
 print(today)
+
+
+# In[4]:
+
 
 cat="GENERAL"
 #cat="TECH"
 #cat="SPORT"
 lang="GERMAN"
 #lang="ENGLISH"
+
+
+# In[5]:
+
 
 general_sources_de = ['http://www.zeit.de',
                       'http://www.spiegel.de/',
@@ -49,6 +71,10 @@ tech_sources_en=['http://radar.oreilly.com/',
                  'http://www.techradar.com/news/computing'
                 ]                 
 
+
+# In[6]:
+
+
 if lang=="ENGLISH":
     if cat=="GENERAL":
         sources=general_sources_en
@@ -62,8 +88,12 @@ else:
     
     
 
-## Download subdomain HTML pages 
-The below defined function `crawl()` determines all subdomains of the specified url and saves the HTML files of these subdomains.
+
+# ## Download subdomain HTML pages 
+# The below defined function `crawl()` determines all subdomains of the specified url and saves the HTML files of these subdomains.
+
+# In[7]:
+
 
 def crawl(url,maxSubSites=5,category="GENERAL",lang="GERMAN"):
     domain = url.split("//www.")[-1].split("/")[0]
@@ -98,14 +128,26 @@ def crawl(url,maxSubSites=5,category="GENERAL",lang="GERMAN"):
                 pass
     return dirname
 
+
+# In[8]:
+
+
 htmlDirs=[]
 for url in sources:
     htmldir=crawl(url,maxSubSites=50,category=cat,lang=lang)
     htmlDirs.append(htmldir)
 
+
+# In[10]:
+
+
 print(htmlDirs)
 
-## Crawl raw text from local HTML files
+
+# ## Crawl raw text from local HTML files
+
+# In[11]:
+
 
 TAGS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'p']
 def read_html(path,minlen=15):
@@ -116,6 +158,10 @@ def read_html(path,minlen=15):
             text = tag.get_text()
             if len(text)>minlen:
                 yield text
+
+
+# In[12]:
+
 
 rawtextlist=[]
 for dir in htmlDirs:
@@ -137,5 +183,6 @@ for dir in htmlDirs:
 #print len(rawtextlist)
         
 
-## Questions
-1. Inspect some of the created raw-text files and suggest improvements.
+
+# ## Questions
+# 1. Inspect some of the created raw-text files and suggest improvements.
