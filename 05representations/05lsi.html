@@ -365,7 +365,7 @@
                 
   <div class="section" id="latent-semantic-indexing-lsi">
 <h1><span class="section-number">8.1. </span>Latent Semantic Indexing (LSI)<a class="headerlink" href="#latent-semantic-indexing-lsi" title="Permalink to this headline">¶</a></h1>
-<p>LSI has been developed in <a href="#id1"><span class="problematic" id="id2">:cite:`Deerwester1990`</span></a> as a method for topic-extraction. For the description of LSI, assume that we have 5 simple documents, which contain the follwing words:</p>
+<p>LSI has been developed in <span id="id1">[<a class="reference internal" href="../referenceSection.html#id4">DDF+90</a>]</span> as a method for topic-extraction. For the description of LSI, assume that we have 5 simple documents, which contain the follwing words:</p>
 <ul class="simple">
 <li><p>document d1: <em>cosmonaut, moon, car</em></p></li>
 <li><p>document d2: <em>astronaut, moon</em></p></li>
@@ -424,7 +424,7 @@ d6 \\
 \right)
 \end{split}\]</div>
 <p>In the Inverted-Index each column represents a document. Each column is an <span class="math notranslate nohighlight">\(n\)</span>-dimensional vector, where <span class="math notranslate nohighlight">\(n\)</span> is the number of words in the corpus. Hence, each document can be considered as a point in the n-dimensional space. LSI defines a transformation from this <span class="math notranslate nohighlight">\(n\)</span>-dimensional space into a <span class="math notranslate nohighlight">\(k\)</span>-dimensional space, where <span class="math notranslate nohighlight">\(k\)</span> is usually much smaller than <span class="math notranslate nohighlight">\(n\)</span>. The representation of the documents in this new <span class="math notranslate nohighlight">\(k\)</span>-dimensional space is such that, documents which refer to the same topics, have similar k-dimensional vectors (are nearby points in the <span class="math notranslate nohighlight">\(k\)</span>-dimensional space).</p>
-<p>For example the 2-dimensional space, the 6 documents of the example may have the following representations:<a class="footnote-reference brackets" href="#f1" id="id3">1</a></p>
+<p>For example the 2-dimensional space, the 6 documents of the example may have the following representations:<a class="footnote-reference brackets" href="#f1" id="id2">1</a></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \left(
@@ -439,7 +439,7 @@ d6 \\
 <p>As can be seen in this 2-dimensional vector space document 2 and 3 are described by the same vector <span class="math notranslate nohighlight">\((1,0)\)</span>, even though in the original 6-dimensional space their vectors are orthogonal to each other, because these documents have no word in common.</p>
 <p>As sketched in the matrix above, the new dimensions in the 2-dimensional space, do not belong to single words, but to topics and each topic is represented by a list of words, which frequently appear in the documents, which belong to this topic. More accurate: The new dimensions (topics) in the <span class="math notranslate nohighlight">\(k\)</span>-dimensional space are linear combinations of the old dimensions (words) in the <span class="math notranslate nohighlight">\(n\)</span>-dimensional space.</p>
 <p>Note that this implies a different understanding of <em>semantically related words</em>, than the concept implied by <a class="reference internal" href="05representations.html#dsm-label"><span class="std std-ref">Distributional Semantic Models</span></a>. In DSMs two words are semantically related, if they frequently appear in the same context, where context is given by the surrounding words. In LSI two words are “semantically related”, if they frequently appear in the same documents.</p>
-<p>Latent Semantic Indexing (LSI) applies <strong>Singular Value Decomposition (SVD)</strong> for calculating the low-dimensional topic space <a href="#id4"><span class="problematic" id="id5">:cite:`Manning2000`</span></a>. SVD calculates a factorisation of the term-by-document matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>:</p>
+<p>Latent Semantic Indexing (LSI) applies <strong>Singular Value Decomposition (SVD)</strong> for calculating the low-dimensional topic space <span id="id3">[<a class="reference internal" href="../referenceSection.html#id3">MS00</a>]</span>. SVD calculates a factorisation of the term-by-document matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-svd-factors">
 <span class="eqno">(8.1)<a class="headerlink" href="#equation-svd-factors" title="Permalink to this equation">¶</a></span>\[
 A_{t \times d} = T_{t \times n} S_{n \times n} (D_{d \times n})^T,
@@ -621,7 +621,7 @@ T'^T \cdot q^T =
 </div>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
-<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
 <dd><p>Note that this representation is not the true result of the transformation, but a simplified one, just for desribing the idea of the approach.</p>
 </dd>
 </dl>
