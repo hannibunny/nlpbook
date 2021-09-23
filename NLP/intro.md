@@ -52,8 +52,7 @@ Vector Representations of Words
 * Word-Embedding
 * Word2Vec: CBow and Skipgram
 * Learning word-embeddings
-* Work with pretrained word-embeddings
-* Contextual embeddings (BERT)
+* Apply pretrained word-embeddings
 ---
 Document Models and Similarities
 ^^^

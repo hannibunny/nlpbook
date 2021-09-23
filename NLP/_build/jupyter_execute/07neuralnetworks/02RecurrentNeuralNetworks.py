@@ -19,9 +19,9 @@
 
 # If the output of the neurons in layer $k$ are denoted by
 # 
-# \begin{equation}
+# $$
 # \mathbf{h}^k=(h_1^k,h_2^k,\ldots,h_{z_k}^k),
-# \end{equation}
+# $$
 # 
 # the input to the network is $\mathbf{h}^0=\mathbf{x}$ and the bias values of the $z_k$ neurons in layer $k$ are arranged in the vector
 # 
