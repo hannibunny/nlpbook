@@ -26,17 +26,17 @@ from slugify import slugify
 # 
 # My personal credentials are saved in the file `twitterCredentials.json`. The contents of this file are loaded in the following code-cell.
 
-# In[7]:
+# In[3]:
 
 
-with open("/Users/maucher/Keys/twitterCredentials.json") as data_file:    
+with open("/Users/johannes/Dropbox (Privat)/twitterCredentials.json") as data_file:    
     credentials = json.load(data_file)
 #print credentials
 
 
 # Tweepy authentification:
 
-# In[8]:
+# In[4]:
 
 
 auth = tweepy.OAuthHandler(credentials["consumerKey"], credentials["consumerSecret"])
@@ -46,7 +46,7 @@ api = tweepy.API(auth)
 
 # The `API`-object can now be applied for example in order to read the own timeline of the Twitter homepage:
 
-# In[9]:
+# In[5]:
 
 
 public_tweets = api.home_timeline(count=10)
@@ -58,7 +58,7 @@ for tweet in public_tweets:
 
 # The `API`-object can also be applied for sending a new tweet (a.k.a. update status):
 
-# In[10]:
+# In[6]:
 
 
 #api.update_status("This is just for testing tweepy api")
@@ -66,39 +66,39 @@ for tweet in public_tweets:
 
 # The API does not only provide access to content (tweets), but also to user-, friendship-, list-data and much more:
 
-# In[11]:
+# In[7]:
 
 
-user = api.get_user('realDonaldTrump')
-#ser = api.get_user('RegSprecher')
+#user = api.get_user('realDonaldTrump')
+user = api.get_user('RegSprecher')
 user.id
 
 
-# In[12]:
+# In[8]:
 
 
 print(user.description)
 
 
-# In[13]:
+# In[9]:
 
 
 user.followers_count
 
 
-# In[14]:
+# In[10]:
 
 
 user.location
 
 
-# In[15]:
+# In[11]:
 
 
 user.friends_count
 
 
-# In[16]:
+# In[12]:
 
 
 for friend in user.friends():
@@ -106,11 +106,11 @@ for friend in user.friends():
 print(len(user.friends()))
 
 
-# In[21]:
+# In[13]:
 
 
 dirname="./TWEETS/"
-users = ["mxlearn","reddit_python","ML_NLP","realDonaldTrump"]
+users = ["mxlearn","reddit_python","ML_NLP"]
 numTweets=300
 for user in users:
     print(user)
@@ -125,7 +125,7 @@ for user in users:
 
 # Alternative way to access timeline using the cursor-object:
 
-# In[22]:
+# In[14]:
 
 
 with open("twitterTimeline.json", 'w+') as f:
@@ -133,17 +133,23 @@ with open("twitterTimeline.json", 'w+') as f:
         json.dump(status._json,f)
 
 
-# In[23]:
+# In[15]:
 
 
 for friend in list(tweepy.Cursor(api.friends).items()):
     print(friend.name)
 
 
-# In[24]:
+# In[16]:
 
 
 for tweet in tweepy.Cursor(api.user_timeline).items(1):
     print("-"*10)
     print(tweet.text)
+
+
+# In[ ]:
+
+
+
 

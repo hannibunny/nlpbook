@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>
+      A Way Forward with Communal Computing – O’Reilly     </title>
+
+    <link rel="stylesheet" href="https://cdn.oreillystatic.com/assets/css/wp_sites/style-20200701.css?1626819590">
+
+    
+    <link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.oreilly.com\/radar\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.3.9"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://www.oreilly.com/radar/wp-includes/css/dist/block-library/style.min.css?ver=5.3.9' type='text/css' media='all' />
+<link rel='stylesheet' id='ssp-frontend-player-css'  href='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/css/player.css?ver=1.20.10' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel="canonical" href="https://www.oreilly.com/radar/a-way-forward-with-communal-computing/" />
+<link rel='shortlink' href='https://www.oreilly.com/radar/?p=13910' />
+
+<link rel="alternate" type="application/rss+xml" title="Podcast RSS feed" href="https://www.oreilly.com/radar/feed/podcast" />
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="language_name" content="English">
+<meta name="native_language_name" content="English">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="icon" type="image/png" href="//www.oreilly.com/favicon.ico">
+
+<!--[if lte IE 9]>
+<script>
+  'article aside footer header main nav section time'.replace(/\w+/g,function(n){document.createElement(n)})
+</script>
+<![endif]-->
+
+<!--[if IE 9]>
+<style type="text/css">
+  #menu-toggle:checked ~ .mobile-nav { display:block; }
+  .mobile-nav { display: none; }
+</style>
+<![endif]-->
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:site" content="@OReillyMedia" />
+<meta property="twitter:title" content="A Way Forward with Communal Computing" />
+<meta property="twitter:description" content="Do’s and Don'ts when Designing for the Community" />
+<meta property="twitter:url" content="https://www.oreilly.com/radar/a-way-forward-with-communal-computing" />
+<meta property="twitter:image" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/05/radar-ai-shoppers-at-mall-crop.jpg" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="O’Reilly Media" />
+<meta property="og:title" content="A Way Forward with Communal Computing" />
+<meta property="og:description" content="Do’s and Don'ts when Designing for the Community" />
+<meta property="og:url" content="https://www.oreilly.com/radar/a-way-forward-with-communal-computing/" />
+<meta property="og:image" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/05/radar-ai-shoppers-at-mall-crop.jpg" />
+<meta name="description" content="Do’s and Don'ts when Designing for the Community" />
+<meta name="author" content="Chris Butler" />
+<meta name="description:site" content="Do’s and Don'ts when Designing for the Community" />
+<meta property="article:published_time" content="2021-08-17T08:45:50-04:00" />
+<meta name="article:author" content="Chris Butler" />
+<meta name="date" content="2021-08-17" />
+<meta name="thumbnail" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/05/radar-ai-shoppers-at-mall-crop.jpg" />
+<meta name="graphic_medium" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/05/radar-ai-shoppers-at-mall-crop.jpg" />
+<meta name="oreilly:content_type" content="text" />
+
+<script>
+  loggedInObject = new Object();
+  var dataLayer = window.dataLayer || [];
+
+  //Check for O'Reilly Unified logged-in status
+  if (document.cookie.split(';').filter(function(item) {
+    return item.indexOf('orm-jwt=') >= 0;
+  }).length) {
+    loggedInObject.loggedIn = 'yes';
+    dataLayer.push(loggedInObject);
+  }
+</script>
+
+
+  <script>
+    dataLayer = [{"content.author":"Chris Butler","content.formatType":"article","content.free":"yes","content.identifier":"none","content.parentTopic":"Artificial Intelligence","content.publisher":"O'Reilly Media Inc.","content.releaseDate":"2021-08-17","content.subTopic":"none","content.subdirectory":"radar","content.title":"A Way Forward with Communal Computing","product.identifier":"none","product.title":"none","product.type":"none"}];
+  </script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P4V6Z');</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- Start Visual Website Optimizer Asynchronous Code -->
+<script type='text/javascript'>
+var _vwo_code=(function(){
+var account_id=27087,
+settings_tolerance=2000,
+library_tolerance=2500,
+use_existing_jquery=false,
+// DO NOT EDIT BELOW THIS LINE
+f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+</script>
+<!-- End Visual Website Optimizer Asynchronous Code -->
+
+
+</head>
+<body class="post-template-default single single-post postid-13910 single-format-standard multisite-radar">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P4V6Z" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="skipToMain" id="skipToMain"><a href="#maincontent"><span class="skipToMain-text">Skip to main content</span></a></div>
+
+<header role="banner">
+  <div class="content">
+    <nav role="navigation" aria-label="site sections">
+      <a href="https://www.oreilly.com/" class="logo" title="home page"><img src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg" onerror="this.src='https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red_@2x.png'; this.onerror=null;" alt="O'Reilly home"></a>
+
+      <button id="mobileNavButton" class="mobileNavButton mobileNavButton--collapse mobileNavButton--3dx" type="button" aria-expanded="false" aria-controls="menuList">
+        <span class="mobileNavButton-box">
+          <span class="mobileNavButton-inner"></span>
+        </span>
+      </button>
+
+      <ul id="menuList" class="menuList mobileHidden">
+        <li class="menuList-itemsP1">
+          <ul>
+            <li class="menuList-item menuList-signIn"><a href="https://learning.oreilly.com/accounts/login-check/">Sign In</a></li>
+            <li class="menuList-item menuList-tryNow"><a class="menuList-cta" href="https://oreilly.com/online-learning/try-now.html">Try Now</a></li>
+          </ul>
+        </li>
+        <li class="menuList-itemsP2">
+          <ul>
+            <li class="menuList-item menuList-itemWithSub"><csif cond="{cs.var.site-section}" eq="teams"><a href="https://www.oreilly.com/online-learning/teams.html" aria-current="page"><cselse><a href="https://www.oreilly.com/online-learning/teams.html"></csif>Teams</a>
+              <ul class="menuList-subList">
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/business.html">For business</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/government.html">For government</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/academic.html">For higher ed</a></li>
+              </ul>
+            </li>
+            <li class="menuList-item"><csif cond="{cs.var.site-section}" eq="individuals"><a href="https://www.oreilly.com/online-learning/individuals.html" aria-current="page"><cselse><a href="https://www.oreilly.com/online-learning/individuals.html"></csif>Individuals</a></li>
+            <li class="menuList-item menuList-itemWithSub"><csif cond="{cs.var.site-section}" eq="features"><a href="https://www.oreilly.com/online-learning/features.html" aria-current="page"><cselse><a href="https://www.oreilly.com/online-learning/features.html"></csif>Features</a>
+              <ul class="menuList-subList">
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/feature-certification.html">Certifications</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/intro-interactive-learning.html">Interactive learning</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/live-events.html">Live events</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/feature-answers.html">Answers</a></li>
+              </ul>
+            </li>
+            <li class="menuList-item"><a href="https://www.oreilly.com/radar/">Blog</a></li>
+            <li class="menuList-item" id="nav-forMarketers"><csif cond="{cs.var.site-section}" eq="content-sponsorship"><a href="https://www.oreilly.com/content-marketing-solutions.html" aria-current="page"><cselse><a href="https://www.oreilly.com/content-marketing-solutions.html"></csif>Content sponsorship</a></li>
+            <li class="menuList-item menuList-item-search" id="nav-search">
+              <form id="js-searchForm" class="searchForm" action="https://www.oreilly.com/search/"><input id="search" type="search" name="query" placeholder="Explore our content" autocomplete="off" required=""><button id="js-searchCloseButton" class="navSearchCloseButton">Close</button></form>
+              <button id="js-searchButton" class="navSearchButton">Search</button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- <div class="head-search-bar">
+
+    <div class="content">
+      <p>This is where the search bar goes</p>
+    </div>
+  </div> -->
+
+</header>
+
+<main role="main" id="maincontent">
+      <section class="hero hero-wp">
+      <div class="content">
+        <div class="hero-textWrap">
+          <div class="hero-breadcrumbs">
+            <a href="https://www.oreilly.com/radar">Radar</a> / <a href="https://www.oreilly.com/radar/topics/ai/">Artificial Intelligence</a>          </div>
+          <h1 class="radar-post-page-head">A Way Forward with Communal Computing</h1>
+                      <div class="radar-post-page-subhead">
+              <p>Do’s and Don'ts when Designing for the Community</p>
+            </div>
+          	      </div>
+      </div>
+    </section>
+
+
+    <section class="textSection post-radar">
+      <div class="content">
+
+                              <div class="radar-post-page-meta">
+              <span class="radar-post-page-author">
+                By <a href="https://www.oreilly.com/people/chris-butler/">Chris Butler</a>              </span>
+            </div>
+          
+          <div class="radar-post-page-meta">
+            <span class="radar-post-page-date">
+              August 17, 2021            </span>
+          </div>
+        
+        <div class="radar-post-flex-wrap">
+
+          <div class="right-rail" id="right-rail">
+            
+              <div id="post-featured-image" class="post-featured-image">
+                <img width="1400" height="933" src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/05/radar-ai-shoppers-at-mall-crop.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="People at a mall" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/05/radar-ai-shoppers-at-mall-crop.jpg 1400w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/05/radar-ai-shoppers-at-mall-crop-300x200.jpg 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/05/radar-ai-shoppers-at-mall-crop-768x512.jpg 768w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/05/radar-ai-shoppers-at-mall-crop-1048x698.jpg 1048w" sizes="(max-width: 1400px) 100vw, 1400px" />
+                                  <span class="post-featured-image-caption">
+                    People at a mall <span class="source-name">(source: <a class="secondary" target="_blank" href="https://pixabay.com/photos/architecture-building-infrastructure-2557567/" rel="noopener noreferrer">StockSnap via Pixabay</a>)</span>                  </span>
+                                </div>
+
+                        </div>
+
+          <div class="post-radar-content" id="post-radar-content">
+
+            <div class="main-post-radar-content">
+
+              
+              
+              
+              
+              
+              
+<p>Communal devices in our homes and offices aren’t quite right. In previous articles, we discussed the <a href="https://www.oreilly.com/radar/communal-computing/">history of communal computing and the origin of the single user model</a>. Then we reviewed the <a href="https://www.oreilly.com/radar/communal-computings-many-problems/">problems that arise due to identity, privacy, security, experience, and ownership issues</a>. They aren’t solvable by just making a quick fix. They require a huge reorientation in how these devices are framed and designed. </p>
+
+
+
+<p>This article focuses on modeling the communal device you want to build and understanding how it fits into the larger context. This includes how it interoperates with services that are connected, and how it communicates across boundaries with other devices in peoples’ homes. Ignore these warnings at your own peril. They can always unplug the device and recycle it.</p><div class="Zilrl4Dw"><div itemscope="" itemtype="http://schema.org/Product" class="inline-cta trial-cta" id="trial-cta">
+  <div class="thumb">
+    <a href="https://www.oreilly.com/online-learning/">
+      <img itemprop="image" src="https://d3ansictanv2wj.cloudfront.net/safari-topic-cta-1f60e6f96856da19ba3cb25660472ca5.jpg" class="">
+    </a>
+  </div>
+  <div class="title">
+    <h2>
+      Learn faster. Dig deeper. See farther.
+    </h2>
+  </div>
+   <div class="meta">
+    <p class="dek">Join the O'Reilly online learning platform. Get a free trial today and find answers on the fly, or master something new and useful.</p>
+    <a href="https://www.oreilly.com/online-learning/" class="textCTA-small more">Learn more</a>
+  </div>
+</div></div>
+
+
+
+<p>Let’s first talk about how we gain an understanding of the environment inside homes and offices.</p>
+
+
+
+<h3>Mapping the communal space</h3>
+
+
+
+<p>We have seen a long list of problems that keep communal computing from aligning with people’s needs. This misalignment arises from the assumption that there is a single relationship between a person and a device, rather than between all the people involved and their devices. </p>
+
+
+
+<p>Dr. S.A. Applin has referred to this assumption as “design individualism”; it is a common misframing used by technology organizations. She uses this term most recently in the paper “<a href="https://www.sciencedirect.com/science/article/pii/S2666659621000032">Facebook&#8217;s Project Aria indicates problems for responsible innovation when broadly deploying AR and other pervasive technology in the Commons</a>:”</p>
+
+
+
+<blockquote class="wp-block-quote"><p>“Unfortunately, this is not an uncommon assumption in technology companies, but is a flaw in conceptual modelling that can cause great problems when products based on this ‘design individualism’ are deployed into the Commons (Applin, 2016b). In short, Facebook acknowledges the plural of ‘people’, but sees them as individuals collectively, not as a collective that is enmeshed, intertwined and exists based on multiple, multiplex, social, technological, and socio-technological relationships as described through [<a href="https://posr.org/wiki/Main_Page">PolySocial Reality</a>].”</p></blockquote>
+
+
+
+<p><a href="https://posr.org/wiki/Main_Page">PolySocial Reality (PoSR)</a> is a theory described in a series of papers by Applin and Fisher (2010-ongoing) on the following:</p>
+
+
+
+<blockquote class="wp-block-quote"><p>“[PoSR] models the outcomes when all entities in networks send both synchronous and asynchronous messages to maintain social relationships. These messages can be human-to-human, human-to-machine, and machine-to-machine. PoSR contains the entirety of all messages at all times between all entities, and we can use this idea to understand how various factors in the outcomes from the way that messages are sent and received, can impact our ability to communicate, collaborate, and most importantly, cooperate with each other.”</p></blockquote>
+
+
+
+<p>In the case of PoSR, we need to consider how agents make decisions about the messages between entities. The designers of these non-human entities will make decisions that impact all entities in a system.</p>
+
+
+
+<p>The reality is that the “self” only exists as <a href="https://aeon.co/essays/the-self-is-not-singular-but-a-fluid-network-of-identities">part of a larger network</a>. It is the connections between us and the rest of the network that is meaningful. We pull all of the pseudo identities for those various connections together to create our “one” self.</p>
+
+
+
+<p>The model that I’ve found most helpful to address this problem attempts to describe the complete environment of the communal space. It culminates in a map of the connections between nodes, or relationships between entities. This web of interactions includes all the individuals, the devices they use, and the services that intermediate them. The key is to understand how non-human entities intermediate the humans, and how those messages eventually make it to human actors.</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh5.googleusercontent.com/sSvfMJ84vO_LHJCB3nfs3s4sv_aaSQPTyiezAkS9AzTk_9ToSfJpgeMxAbIGqW5gHwb16KGMbwBhCfisCG4c9Ec5p29OgG6wR2qWfhHmVJf9hDc4_VZUqrWNTu7z9HNmLA" alt="" /><figcaption><br><br>The home is a network, like an ecosystem, of people, devices, and services all interacting to create an experience. It is connected with services, people, and devices outside the home as well as my mom, my mom’s picture frame, and Google’s services that enable it.</figcaption></figure>
+
+
+
+<p>To see why this map is helpful, consider an ecosystem (or <a href="https://en.wikipedia.org/wiki/Food_web">food web</a>). When we only consider interactions between individual animals, like a wolf eating a sheep, we ignore how the changes in population of each animal impacts other actors in the web: too many wolves mean the sheep population dies off. In turn, this change has an impact on other elements of the ecosystem like how much the grass grows. Likewise, when we only consider a single person interacting with one device, we find that most interactions are simple: some input from the user is followed by a response from the device. We often don’t consider other people interacting with the device, nor do we consider how other personal devices exist within that space. We start to see these interactions when we consider other people in the communal space, the new communal device, and all other personal devices. In a communal map, these all interact.</p>
+
+
+
+<p>These ecosystems already exist within a home or office. They are made up of items ranging from refrigerator magnets for displaying physical pictures to a connected TV, and they include personal smartphones. The ecosystem extends to the services that the devices connect to outside the home, and to the other people whom they intermediate. We get an incomplete picture if we don’t consider the entire graph. Adding a new device isn’t about filling a specific gap in the ecosystem. The ecosystem may have many problems or challenges, but the ecosystem isn’t actively seeking to solve them. The new device needs to adapt and find its own <a href="https://en.wikipedia.org/wiki/Ecological_niche">niche</a>. This includes making the ecosystem more beneficial to the device, something that evolutionary biologists call <a href="https://royalsocietypublishing.org/doi/10.1098/rspb.2018.2603">‘niche expansion’</a>. Technologists would think about this as building a need for their services.</p>
+
+
+
+<p>Thinking about how a device creates a space within an already complex ecosystem is key to understanding what kinds of experiences the team building the device should create. It will help us do things like building for everyone and evolving with the space. It will also help us to avoid the things we should not do, like assuming that every device has to do everything. </p>
+
+
+
+<h3>Do’s and don’ts of building communal devices</h3>
+
+
+
+<p>With so much to consider when building communal devices, where do you start? Here are a few do’s and don’ts:</p>
+
+
+
+<h4><strong>Do user research in the users’ own environment</strong></h4>
+
+
+
+<p>Studying and understanding expectations and social norms is the key discovery task for building communal devices. Expectations and norms dictate the rules of the environment into which your device needs to fit, including people’s pseudo-identities, their expectations around privacy, and how willing they are to deal with the friction of added security. Just doing a survey isn’t enough.  Find people who are willing to let you see how they use these devices in their homes, and ask lots of questions about how they feel about the devices.</p>
+
+
+
+<blockquote class="wp-block-quote"><p>“If you are going to deal with social, people, communal, community, and general sociability, I would suggest hiring applied anthropologists and/or other social scientists on product teams. These experts will save you time and money, by providing you with more context and understanding of what you are making and its impact on others. This translates into more accurate and useful results.” </p><cite>&#8211; Dr. S.A. Applin</cite></blockquote>
+
+
+
+<p>Observing where the devices are placed and how the location’s use changes over time will give you fascinating insights about the context in which the device is used. A living room may be a children’s play area in the morning, a home office in the middle of the day, and a guest bedroom at night. People in these contexts have different sets of norms and privacy expectations. </p>
+
+
+
+<p>As part of the user research, you should be building an ecosystem graph of all people present and the devices that they use. What people not present are intermediated by technology? Are there stories where this intermediation went wrong? Are there frictions that are created between people that your device should address? Are there frictions that the device should get out of the way of?</p>
+
+
+
+<h4><strong>Do build for everyone who might have access</strong></h4>
+
+
+
+<p>Don’t focus on the identity of the person who buys and sets up the device. You need to consider the identity (or lack) of everyone who could have access. Consider whether they feel that information collected about them violates their desire to control the information (as in Contextual Integrity). This could mean you need to put up walls to prevent users from doing something sensitive without authorization. Using the Zero Trust framework’s “trust engine” concept, you should ask for the appropriate level of authentication before proceeding.</p>
+
+
+
+<p>Most of today’s user experience design is focused on making frictionless or seamless experiences. This goal doesn’t make sense when considering a risk tradeoff. In some cases, adding friction increases the chance that a user won’t move forward with a risky action, which could be a good thing. If the potential risk of showing a private picture is high, you should make it harder to show that picture.</p>
+
+
+
+<p>Realize you may not always understand the right context. Having good and safe default states for those cases is important. It is your job to adjust or simplify the model so that people can understand and interpret why the device does something.</p>
+
+
+
+<h4><strong>Do consider pseudo-identities for individuals and groups</strong></h4>
+
+
+
+<p>Avoid singular identities and focus on group pseudo-identities. If users don’t consider these devices their own, why not have the setup experience mirror those expectations? Build device setup, usage, and management around everyone who should have a say in the device’s operation.</p>
+
+
+
+<p>Pseudo-identities become very interesting when you start to learn what certain behaviors mean for subgroups. Is this music being played for an individual with particular tastes? Or does the choice reflect a compromise between multiple people in the room? Should it avoid explicit language since there are children present?</p>
+
+
+
+<p>Group norms and relationships need to be made more understandable. It will take technology advances to make these norms more visible. These advances include using machine learning to help the device understand what kind of content it is showing, and who (or what) is depicted in that content. Text, image, and video analysis needs to take place to answer the question: what type of content is this and who is currently in that context? It also means using contextual prediction to consider who may be in the room, their relationship to the people in the content, and how they may feel about the content. When in doubt, restrict what you do.</p>
+
+
+
+<h4>Do evolve with the space</h4>
+
+
+
+<p>As time goes on, life events will change the environment in which the device operates. Try to detect those changes and adapt accordingly. New pseudo-identities could be present, or the identity representing the group may shift. It is like moving into a new home. You may set things up in one way only to find months later there is a better configuration. Be aware of these changes and adapt. </p>
+
+
+
+<p>If behavior that would be considered anomalous becomes the norm, something may have changed about the use of that space. Changes in use are usually led by a change in life–for example, someone moving in or out could trigger a change in how a device is used. Unplugging the device and moving it to a different part of the room or to a different shelf symbolizes a new need for contextual understanding. If you detect a change in the environment but don’t know why the change was made, ask.</p>
+
+
+
+<h4>Do use behavioral data carefully, or don’t use it at all</h4>
+
+
+
+<p>All communal devices end up collecting data. For example, Spotify uses what you are listening to when building recommendation systems. When dealing with behavioral information, the group’s identity is important, not the individual’s. If you don’t know who is in front of the device, you should consider whether you can use that behavioral data at all. Rather than using an individual identity, you may want to default to the group pseudo-identity’s recommendations. What does the whole house usually like to listen to? </p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/d5DE4zyTjswiJeWQi5q3yPcr-HofP4npTKlkdfa5--24Xm-7wFPZw3NHycMAm_LZP-iWqwh02gfckLqwR94H1Zx_yvRmZItU5aoAibpIP_oUerXLnptSuO5gk8ndg6gUlw" alt="" /><figcaption><br><br>When the whole family is watching, how do we find a common ground based on all of our preferences, rather than the owner’s? Spotify has a <a href="https://www.spotify.com/us/family/">Premium Family package</a> where each person gets a recommended playlist based on everyone’s listening behavior called a <a href="https://support.spotify.com/us/article/family-mix/">Family Mix</a>, whereas Netflix requires users to choose between individual profiles.</figcaption></figure>
+
+
+
+<p>Spotify has <a href="https://www.spotify.com/us/family/">family</a> and <a href="https://www.spotify.com/us/duo/">couple</a> accounts that allow multiple people to have an account under one bill. Each person gets their own login and recommendations. Spotify gives all sub-accounts on the subscription access to a shared playlist (like a <a href="https://support.spotify.com/us/article/family-mix/">Family Mix</a>) that makes recommendations based on the group’s preferences.</p>
+
+
+
+<p>Spotify, and services like it, should go a step further to reduce the weight of a song in their recommendations algorithm when it is being played on a shared device in a communal place–a kitchen, for example. It’s impossible to know everyone who is in a communal space. There’s a strong chance that a song played in a kitchen may not be preferred by anyone that lives there. To give that particular song a lot of weight will start to change recommendations on the group members’ personal devices.</p>
+
+
+
+<p>If you can’t use behavioral data appropriately, don’t bring it into a user’s profile on your services. You should probably not collect it at all until you can handle the many people who could be using the device. Edge processing can allow a device to build context that respects the many people and their pseudo-identities that are at play in a communal environment. Sometimes it is just safer to not track.</p>
+
+
+
+<h4>Don’t assume that automation will work in all contexts</h4>
+
+
+
+<p>Prediction technology helps communal devices by finding behavior patterns. These patterns allow the device to calculate what content should be displayed and the potential trust. If a student always listens to music after school while doing homework, the device can assume that contextual integrity holds if the student is the only person there. These assumptions get problematic when part of the context is no longer understood, like when the student has other classmates over. That’s when violations of norms or of privacy expectations are likely to occur. If other people are around, different content is being requested, or if it is a different time of day, the device may not know enough to predict the correct information to display.</p>
+
+
+
+<p>Amazon’s Alexa has started wading into these waters with their <a href="https://www.theverge.com/2021/1/25/22249044/amazon-alexa-update-proactive-hunches-guard-plus-subscription">Hunches feature</a>. If you say “good night” to Alexa, it can decide to turn off the lights. What happens if someone is quietly reading in the living room when the lights go out?  We’ve all accidentally turned the lights out on a friend or partner, but such mistakes quickly become more serious when they’re made by algorithm.</p>
+
+
+
+<p>When the prediction algorithm’s confidence is low, it should disengage and try to learn the new behavior. Worst case, just ask the user what is appropriate and gauge the trust vs risk tradeoff accordingly. The more unexpected the context, the less likely it is that the system should presume anything. It should progressively restrict features until it is at its core: for home assistants, that may just mean displaying the current time.</p>
+
+
+
+<h4>Don’t include all service functionality on the device</h4>
+
+
+
+<p>All product teams consider what they should add next to make a device “fully functional” and reflect all of the service possibilities. For a communal device, you can’t just think about what you could put there; you also have to consider what you will never put there. An example could be allowing access to Gmail messages from a Google Home Hub. If it doesn’t make sense for most people to have access to some feature, it shouldn’t be there in the first place. It just creates clutter and makes the device harder to use. It is entirely appropriate to allow people to change personal preferences and deal with highly personal information on their own, private devices. There is a time and place for the appropriate content.</p>
+
+
+
+<p>Amazon has considered whether Echo users should be allowed to complete a purchase, or limit them to just adding items to a shopping list. They have had to add four digit codes and voice profiles. The resulting interface is complex enough to warrant a <a href="https://www.amazon.com/gp/help/customer/display.html/ref=hp_left_v4_sib?ie=UTF8&amp;nodeId=GLSQSWPWZMLR3RA5">top level help article on why people can’t make the purchases</a>.</p>
+
+
+
+<p>If you have already built too much, think about how to sunset certain features so that the value and differentiator of your device is clearer. Full access to personal data doesn’t work in the communal experience. It is a chance for some unknown privacy violation to occur.</p>
+
+
+
+<h4>Don’t assume your devices will be the only ones</h4>
+
+
+
+<p>Never assume that your company’s devices will be the only ones in the space. Even for large companies like Amazon, there is no future in which the refrigerator, oven, and TV will all be Amazon devices (even if they are trying really hard). The communal space is built up over a long time, and devices like refrigerators have lifetimes that <a href="https://www.mrappliance.ca/blog/2016/july/what-is-the-lifespan-of-your-refrigerator-/#:~:text=According%20to%20the%2023rd%20annual,life%20expectancy%20of%208%20years.">can span decades</a>.</p>
+
+
+
+<p>Think about how your device might work alongside other devices, including personal devices. To do this, you need to integrate with network services (e.g. Google Calendar) or local device services (e.g. Amazon Ring video feed). This is the case for services within a communal space as well. People have different preferences for the services they use to communicate and entertain themselves. For example, Snapchat’s adoption by 13-24 year olds (<a href="https://zephoria.com/top-10-valuable-snapchat-statistics/#:~:text=90%20percent%20of%20the%20US,75%20percent%20of%20the%20audience.">~90% in the US market</a>) accounts for 70% of its usage. This means that people over 24 years old are using very different services to interact with their family and peers.</p>
+
+
+
+<p>Apple’s iOS has started to realize that apps need to ask for permission before collecting information from other devices on a <a href="https://support.apple.com/en-us/HT211870">local network</a>. It verifies that an app is allowed to access other devices on the network. Local network access is not a foregone conclusion either: different routers and wifi access points are increasingly managed by network providers.</p>
+
+
+
+<p>Communal device manufacturers must build for interoperability between devices whether they like it or not, taking into account industry standards for communicating state, messaging, and more. A device that isn’t networked with the other devices in the home is much more likely to be replaced when the single, non-networked use is no longer valid or current.</p>
+
+
+
+<h4>Don’t change the terms without an ‘out’ for owners</h4>
+
+
+
+<p>Bricking a device because someone doesn’t want to pay for a subscription or doesn’t like the new data use policy is bad. Not only will it create distrust in users but it violates the idea that they are purchasing something for their home.</p>
+
+
+
+<p>When you need to change terms, allow owners to make a decision about whether they want new functionality or to stop getting updates. Not having an active subscription is no excuse for a device to fail, since devices should be able to work when a home’s WiFi is down or when <a href="https://www.theguardian.com/technology/2017/mar/01/amazon-web-services-outage-smart-homes">AWS has a problem that stops a home’s light bulbs from working</a>. Baseline functionality should always be available, even if leading edge features (for example, features using machine learning) require a subscription. “Smart” or not, there should be no such thing as a light bulb that can’t be turned on.</p>
+
+
+
+<p>When a company can no longer support a device–either because they’re sunsetting it or, in the worst case, because they are going out of business–they should consider how to allow people to keep using their devices. In some cases, a motivated community can take on the support; this happened with <a href="https://www.theverge.com/2019/6/19/18682780/jibo-death-server-update-social-robot-mourning">the Jibo community when the device creator shut down</a>.</p>
+
+
+
+<h4>Don’t require personal mobile apps to use the device</h4>
+
+
+
+<p>One bad limitation that I’ve seen is requiring an app to be installed on the purchaser’s phone, and requiring the purchaser to be logged in to use the device. Identity and security aren’t always necessary, and being too strict about identity tethers the device to a particular person’s phone.</p>
+
+
+
+<p>The <a href="https://www.philips-hue.com/en-us/products/smart-lightbulbs">Philips Hue</a> smart light bulbs are a way to turn any light fixture into a component in a smart lighting system. However, you need one of their <a href="https://www.philips-hue.com/en-us/explore-hue/appshttps://www.philips-hue.com/en-us/explore-hue/apps">branded apps</a> to control the lightbulbs. If you integrate your lighting system with your Amazon or Google accounts, you still need to know what the bulb or “zone” of your house is called. As a host you end up having to take the action for someone else (say by yelling at your Echo for them) or put a piece of paper in the room with all of the instructions. We are back in the age of overly complicated instructions to turn on a TV and AV system.</p>
+
+
+
+<p>In addition to making sure you can integrate with other touch and voice interfaces, you need to consider physical ways to allow anyone to interact. IoT power devices like the <a href="https://www.amazon.com/Etekcity-Voltson-Outlet-Monitoring-Required/dp/B074GVPYPY">VeSync Smart Plug by Etekcity</a> (I have a bunch around the house) have a physical button to allow manual switching, in addition to integrating with your smart home or using their branded apps. If you can’t operate the device manually if you are standing in front of it, is it really being built for everyone in the home?</p>
+
+
+
+<h3>How do you know you got this right? </h3>
+
+
+
+<p>Once you have implemented all of the recommendations, how do you know you are on the right track? </p>
+
+
+
+<p>A simple way to figure out whether you are building a communal-friendly device is to look for people adding their profiles to the device. This means linking their accounts to other services like Spotify (if you allow that kind of linking). However, not everyone will want to or be able to add their accounts, especially people who are passing through (guests) or who cannot legally consent (children).</p>
+
+
+
+<p>Using behavior to detect whether someone else is using the device can be difficult. While people don’t change their taste in music or other interests quickly, they slowly drift through the space of possible options. We seek things that are similar to what we like, but <a href="https://medium.com/people-ai-research/just-different-enough-ai-recommendations-newsfeeds-jokes-and-civil-society-c0704bc7a548">just different enough</a> to be novel. In fact, we see that <a href="https://www.nytimes.com/2018/02/10/opinion/sunday/favorite-songs.html">most of our music tastes are set in our teenage years</a>. Therefore, if a communal device is asked to play songs in a different language or genre whereas a personal device does not, it’s more likely that someone new is listening than that the owner has suddenly learned a new language. Compare what users are doing on your device to their behavior on other platforms (for example, compare a Google Home Hub in the kitchen to a personal iPhone) to determine whether new users are accessing the platform.</p>
+
+
+
+<p>Behavioral patterns can also be used to predict demographic information. For example, you may be able to predict that someone is a parent based on their usage patterns. If this confidence is high, and you only see their interests showing up in the behavioral data, that means that other people who are around the device are not using it.</p>
+
+
+
+<p>Don’t forget that you can ask the users themselves about who is likely to use the device. This is information that you can collect during initial setup. This can help ensure you are not making incorrect assumptions about the placement and use of the device.</p>
+
+
+
+<p>Finally, consider talking with customers about how they use the device, the issues that come up, and how it fits into their lives. Qualitative user research doesn’t end after the initial design phase. You need to be aware of how the device has changed the environment it fits into. Without social scientists you can’t know this.</p>
+
+
+
+<h4>Is everything a communal experience? </h4>
+
+
+
+<p>Up until this point we have been talking about devices that are part of the infrastructure of a home, like a smart screen or light switch. Once we realize that technology serves as an intermediary between people, everything is communal.</p>
+
+
+
+<p>Inside of a home, roommates generally have to share expenses like utilities with each other. Companies like <a href="https://www.klarna.com/uk/blog/sharing-your-home-and-money/">Klarna</a> and <a href="https://braid.co/">Braid</a> make finances communal. How you pay together is an important aspect to harmony within a home.</p>
+
+
+
+<p>You are also part of communities in your neighborhoods. <a href="https://www.wired.com/story/how-amazon-sidewalk-works/">Amazon Sidewalk</a> extends your devices into the neighborhood you live in. This mesh technology starts to map and extend further with each communal space. Where does your home’s communal space end? If you misplaced your keys a block away, a <a href="https://www.amazon.com/stores/Tile/Tile/page/9F8516EE-7F3B-4C96-8287-D795123CF742">Tile</a> could help you find them. It could also identify people in your neighborhood without considering your neighbors’ privacy expectations.</p>
+
+
+
+<p>Communities aren’t just based on proximity. We can extend the household to connect with other households far away. Amazon’s <a href="https://www.amazon.com/gp/help/customer/display.html/ref=hp_left_v4_sib?ie=UTF8&amp;nodeId=GS3WRTSRKD2U6MCK">Drop In</a> has started their own calling network between households. <a href="https://www.loopfamily.com/">Loop</a>, a new startup, is focused on building a device for connecting families in their own social network. </p>
+
+
+
+<p>Google/Alphabet’s <a href="https://www.sidewalklabs.com/">Sidewalk Labs</a> has taken on projects that aim to make the connected world part of the cityscape. An early project called <a href="https://en.wikipedia.org/wiki/LinkNYC">LinkNYC</a> (owned through a shell corporation) was digital signage that included free calling and USB hubs. This changed how homeless people used the built environment. When walking down the street you could see people’s smartphones dangling from a LinkNYC while they were panhandling nearby. Later, a district-wide project called <a href="https://www.sidewalktoronto.ca/innovations/public-realm/">Sidewalk Toronto</a> was rejected by voters. Every object within the urban environment becomes something that not only collects data but that could be interactive. </p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/dtorIpi6uLY6vTojBGIHX0rvi2xZ2a6lYbAuCcNolsN1jiiXYcTk7F4HhoSC0qkf3oYU6UQNtKm6gA_R6VmhCUsjFwps0UUdLEbFM9_sZBNWqKCZJNMWwdX90vxKsqpt2A" alt="" /><figcaption><br>The town square and public park has been built to be welcoming to people and set expectations of what they do there, unlike online social media. <a href="https://newpublic.org/">New Public</a> is taking cues from this type of physical shared space for reimagining the online public square.</figcaption></figure>
+
+
+
+<p>Taking cues from the real world, groups like <a href="https://newpublic.org/signals">New Public</a> are asking what would happen if we built social media the same way we build public spaces. What if social media followed the norms that we have in social spaces like the public parks or squares?</p>
+
+
+
+<p>A key aspect to communal computing is the natural limitations of physical and temporal use. Only so many people can fit inside a kitchen or a meeting room. Only so many people can use a device at once, even if it is a subway ticket machine that services millions of people per month. Only so many can fit onto a sidewalk. We need to consider the way that space and time play a part in these experiences.</p>
+
+
+
+<h3>Adapt or be unplugged</h3>
+
+
+
+<p>Rethinking how people use devices together inside our homes, offices, and other spaces is key to the future of ubiquitous computing. We have a long way to go in understanding how context changes the expectations and norms of the people in those spaces. Without updating how we design and build these devices, the device you build will just be one more addition to the landfill.</p>
+
+
+
+<p>To understand how devices are used in these spaces, we need to expand our thinking beyond the single owner and design for communal use from the start. If we don’t, the devices will never fit properly into our shared and intimate spaces. The mismatch between expectations and what is delivered will grow greater and lead to more dire problems.</p>
+
+
+
+<p>This is a call for change in how we consider devices integrated into our lives. We shouldn’t assume that because humans are adaptive, we can adapt to the technologies built. We should design the technologies to fit into our lives, making sure the devices understand the context in which they’re working. </p>
+
+
+
+<p>The future of computing that is contextual, is communal.</p>
+
+
+
+<p>   </p>
+
+
+
+<hr class="wp-block-separator" />
+
+
+
+<h3>Thanks</h3>
+
+
+
+<p>Thanks to Adam Thomas, Mark McCoy, Hugo Bowne-Anderson, and Danny Nou for their thoughts and edits on the early draft of this. Also, Dr. S.A. Applin for all of the great work on PoSR. Finally, from O’Reilly, Mike Loukides for being a great editor and Susan Thompson for the art.</p>
+
+                          </div>
+
+                        
+            <div class="post-radar-end">
+
+              
+                              <div class="radar-post-page-meta" >
+      Post topics: <a href="https://www.oreilly.com/radar/topics/ai/" title="Artificial Intelligence">Artificial Intelligence</a>, <a href="https://www.oreilly.com/radar/topics/data-culture/" title="Building a data culture">Building a data culture</a>, <a href="https://www.oreilly.com/radar/topics/emerging-tech/" title="Emerging Tech">Emerging Tech</a></div>              
+                              <div class="radar-post-page-meta" >
+      Post tags: <a href="https://www.oreilly.com/radar/tag/deep-dive/" title="Deep Dive">Deep Dive</a></div>              
+              <div class="radar-post-page-meta radar-post-page-meta-share">
+                Share:
+                <ul>
+                  <li>
+                    <a data-via="oreillymedia" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=A Way Forward with Communal Computing">Tweet</a>                  </li>
+                  <li>
+                    <div class="fb-share-button" data-href="https://www.oreilly.com/radar/a-way-forward-with-communal-computing" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>                  </li>
+                  <li>
+                    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+    <script type="IN/Share"></script>                  </li>
+                </ul>
+              </div>
+
+              <!-- Marketo -->
+<link rel="stylesheet" type="text/css" href="https://www.oreilly.com/radar/wp-content/themes/odot/files/mkto-multiform-subscribe-20190821.css">
+<script src="https://get.oreilly.com/js/forms2/js/forms2.min.js" type="text/javascript"></script>
+<div class="radar-newsletter inline-nls" id="newsletter">
+	<h2>Get the O’Reilly Artificial Intelligence Newsletter</h2>
+	<div class="newsletter-text">
+		<p>Receive weekly insight from industry insiders—plus exclusive content, offers, and more on the topic of AI.</p>
+		<a href="http://www.oreilly.com/emails/newsletters/?display=preview#ai" target="_blank" data-source="http://www.oreilly.com/emails/newsletters/?display=preview#ai">View sample newsletter</a>
+		<div class="mktoForm-email large -medium -small smallContainer">
+			<form class="mktoForm subscribe" data-formid="1114" data-forminstance="topicRow" data-formtopic="AI"></form>
+		</div>
+	</div>
+	<div class="newsletter-quote">
+		<blockquote>
+			<p>We&rsquo;re just at the beginning of an explosion of intelligent software.</p>
+			<footer>— <strong>Tim O&rsquo;Reilly</strong></footer>
+		</blockquote>
+	</div>
+	</div>
+<div class="radar-newsletter inline-nls" id="newsletter2">
+	<h2>Get the O’Reilly Artificial Intelligence Newsletter</h2>
+	<div class="newsletter-text">
+		<p>Receive weekly insight from industry insiders—plus exclusive content, offers, and more on the topic of AI.</p>
+		<a href="http://www.oreilly.com/emails/newsletters/?display=preview#ai" target="_blank" data-source="http://www.oreilly.com/emails/newsletters/?display=preview#ai">View sample newsletter</a>
+		<div class="mktoForm-email large -medium -small smallContainer">
+			<form class="mktoForm subscribe" data-formid="1114" data-forminstance="topicRow" data-formtopic="AI"></form>
+		</div>
+	</div>
+	</div>
+<script src="https://cdn.oreillystatic.com/assets/js/mkto-multiform-subscribe-20190814.js" type="text/javascript"></script>
+                
+              <script type="text/javascript" src="https://www.oreilly.com/radar/wp-content/themes/odot/files/cta-191118.js"></script>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+  
+<!-- twitter button script  -->
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="content">
+
+      <div class="footer-main" aria-label="company info">
+        <div class="footer-mainLeft">
+          <div class="footer-mainLeftOne">
+            <div class="footer-approach">
+              <h2 class="footer-header"><a href="https://www.oreilly.com/about/">About O’Reilly</a></h2>
+              <ul class="footer-links">
+                <li><a href="https://www.oreilly.com/work-with-us.html">Teach/write/train</a></li>
+                <li><a href="https://www.oreilly.com/careers/">Careers</a></li>
+                <li><a href="https://www.oreilly.com/partner/signup.csp">Community partners</a></li>
+                <li><a href="https://www.oreilly.com/affiliates/">Affiliate program</a></li>
+                <li><a href="https://www.oreilly.com/online-learning/rfp.html">Submit an RFP</a></li>
+                <li><a href="https://www.oreilly.com/diversity/">Diversity</a></li>
+                <li><a href="https://www.oreilly.com/content-marketing-solutions.html" id="footerSponsorshipLink">O&rsquo;Reilly for marketers</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-mainLeftTwo">
+            <div class="footer-contact">
+              <h2 class="footer-header"><a href="https://www.oreilly.com/online-learning/support/">Support</a></h2>
+
+              <ul class="footer-links">
+                <li><a href="https://www.oreilly.com/about/contact.html">Contact us</a></li>
+                <li><a href="https://www.oreilly.com/emails/newsletters/">Newsletters</a></li>
+                <li><a href="https://www.oreilly.com/privacy.html">Privacy policy</a></li>
+              </ul>
+            
+              <a href="https://twitter.com/oreillymedia" target="_blank"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve"><style type="text/css">.st0{fill:#ee0000;}.st1{fill:#FFFFFF;}</style><g id="Red"><circle class="st0" cx="200" cy="200" r="200"/></g><g id="Logo__x2014__FIXED"><path class="st1" d="M163.4,305.5c88.7,0,137.2-73.5,137.2-137.2c0-2.1,0-4.2-0.1-6.2c9.4-6.8,17.6-15.3,24.1-25 c-8.6,3.8-17.9,6.4-27.7,7.6c10-6,17.6-15.4,21.2-26.7c-9.3,5.5-19.6,9.5-30.6,11.7c-8.8-9.4-21.3-15.2-35.2-15.2 c-26.6,0-48.2,21.6-48.2,48.2c0,3.8,0.4,7.5,1.3,11c-40.1-2-75.6-21.2-99.4-50.4c-4.1,7.1-6.5,15.4-6.5,24.2 c0,16.7,8.5,31.5,21.5,40.1c-7.9-0.2-15.3-2.4-21.8-6c0,0.2,0,0.4,0,0.6c0,23.4,16.6,42.8,38.7,47.3c-4,1.1-8.3,1.7-12.7,1.7 c-3.1,0-6.1-0.3-9.1-0.9c6.1,19.2,23.9,33.1,45,33.5c-16.5,12.9-37.3,20.6-59.9,20.6c-3.9,0-7.7-0.2-11.5-0.7 C110.8,297.5,136.2,305.5,163.4,305.5"/></g></svg></a>
+              <a href="https://www.facebook.com/OReilly/" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>facebook-logo</title><path class="cls-1" d="M16.13,0A16.13,16.13,0,1,0,32.25,16.12,16.13,16.13,0,0,0,16.13,0Zm5.12,9.54H19.57a1.52,1.52,0,0,0-1.51,1.51v1.14h3.19v3.42H18.06V26.12H13.57V15.61H10.69V12.19h2.88v-2a4,4,0,0,1,4-4h3.65Z"/></svg></a>
+              <a href="https://www.linkedin.com/company/oreilly-media" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>linkedin-logo</title><path class="cls-1" d="M17.43,13.53v0l0,0ZM16.12,0A16.13,16.13,0,1,0,32.25,16.12,16.12,16.12,0,0,0,16.12,0ZM11.77,22.92H8.12v-11h3.65ZM9.94,10.44h0a1.89,1.89,0,0,1-2-1.89A1.91,1.91,0,0,1,10,6.65a1.9,1.9,0,1,1,0,3.79Zm15,12.48H21.28V17.05c0-1.48-.53-2.49-1.85-2.49a2,2,0,0,0-1.88,1.34,2.63,2.63,0,0,0-.12.89v6.13H13.79s.05-10,0-11h3.64V13.5a3.63,3.63,0,0,1,3.29-1.82c2.4,0,4.21,1.57,4.21,4.95Z"/></svg></a>
+              <a href="https://www.youtube.com/user/OreillyMedia" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>youtube-logo</title><path class="cls-1" d="M18.35,18.68a.89.89,0,0,0-.86.63V16.94h-1v7.59h1v-.59a.92.92,0,0,0,.89.74c.52,0,.86-.36,1-1.07a8.56,8.56,0,0,0,.14-1.9,10.47,10.47,0,0,0-.12-1.93C19.21,19.05,18.87,18.68,18.35,18.68Zm.09,4.14c-.05.52-.2.77-.45.77s-.43-.21-.49-.63a7.22,7.22,0,0,1,0-1c0-.72,0-1.14,0-1.26.07-.58.23-.88.51-.88s.4.27.46.79c0,.09,0,.47,0,1.13S18.46,22.71,18.44,22.82ZM8.61,18.19H9.86v6.34H11V18.19H12.2V16.94H8.61Zm7.71-6.12c.27,0,.43-.22.49-.66,0-.09,0-.45,0-1.07V9.78c0-.58,0-.93,0-1-.07-.43-.23-.65-.48-.65s-.41.19-.48.57a8.79,8.79,0,0,0,0,1v.53c0,.71,0,1.09,0,1.16C15.88,11.82,16.05,12.07,16.32,12.07Zm-1.74,10.4a2.92,2.92,0,0,1-.06.71c-.07.25-.2.37-.4.37s-.32-.11-.38-.34a2.63,2.63,0,0,1-.05-.66V18.83h-1v4.48c0,.91.33,1.37,1,1.37A1,1,0,0,0,14.6,24v.57h1v-5.7h-1Zm7.1-3.79a1.35,1.35,0,0,0-1.22.59,2.48,2.48,0,0,0-.3,1.07c0,.23,0,.61,0,1.16s0,1.13,0,1.37a2.93,2.93,0,0,0,.35,1.27,1.25,1.25,0,0,0,1.14.54,1.36,1.36,0,0,0,1.13-.45,2.29,2.29,0,0,0,.37-1.43s0-.07,0-.11v-.12h-1c0,.75-.17,1.12-.51,1.12s-.38-.18-.45-.56a4.68,4.68,0,0,1-.06-.9c0-.18,0-.31,0-.37h2v-.43a4.86,4.86,0,0,0-.3-2.11A1.28,1.28,0,0,0,21.68,18.68ZM22.15,21h-1c0-.05,0-.11,0-.16v-.08a1.64,1.64,0,0,1,.11-.8.39.39,0,0,1,.38-.23.42.42,0,0,1,.43.33,2.32,2.32,0,0,1,.07.7Zm-6-21A16.13,16.13,0,1,0,32.25,16.12,16.12,16.12,0,0,0,16.12,0Zm2.51,7.2h1V11a2.52,2.52,0,0,0,.06.66c.06.23.18.34.38.34s.34-.12.41-.37a3.76,3.76,0,0,0,.05-.71V7.2h1v5.74h-1v-.57a1,1,0,0,1-.93.72c-.66,0-1-.46-1-1.38ZM15,8a1.29,1.29,0,0,1,1.33-.92A1.3,1.3,0,0,1,17.65,8a6.77,6.77,0,0,1,.23,2.1,6.77,6.77,0,0,1-.23,2.1,1.3,1.3,0,0,1-1.32.92A1.29,1.29,0,0,1,15,12.17a6.77,6.77,0,0,1-.23-2.1A6.86,6.86,0,0,1,15,8ZM11.45,5.3l.89,2.87.88-2.87H14.4L12.88,9.7v3.24h-1.1V9.7L10.24,5.3ZM24.93,23.91a3,3,0,0,1-3,3h-12a3,3,0,0,1-3-3V18.05a3,3,0,0,1,3-3h12a3,3,0,0,1,3,3Z"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-download" id="download-info">
+          <h2 class="footer-header">Download the O&rsquo;Reilly App</h2>
+
+          <p>Take O&rsquo;Reilly with you and learn anywhere, anytime on your phone <span class="nowrap">and tablet.</span></p>
+
+          <div class="footer-downloadLinks">
+            <a href="https://itunes.apple.com/us/app/safari-to-go/id881697395"><img src="https://cdn.oreillystatic.com/oreilly/images/app-store-logo.png" alt="Apple app store" /></a>
+            <a href="https://play.google.com/store/apps/details?id=com.safariflow.queue"><img src="https://cdn.oreillystatic.com/oreilly/images/google-play-logo.png" alt="Google play store" /></a>
+          </div>
+        </div>
+        
+        <div class="footer-download" id="tv-info">
+          <h2 class="footer-header">Watch on your big screen</h2>
+
+          <p>View all O&rsquo;Reilly videos, Superstream events, and Meet the Expert sessions on your <span class="nowrap">home TV.</span></p>
+
+          <div class="footer-downloadLinks">
+            <a href="https://channelstore.roku.com/details/c8a2d0096693eb9455f6ac165003ee06/oreilly"><img src="https://cdn.oreillystatic.com/oreilly/images/roku-tv-logo.png" alt="Roku Payers and TVs" /></a>
+            <a href="https://www.amazon.com/OReilly-Media-Inc/dp/B087YYHL5C/ref=sr_1_2?dchild=1&keywords=oreilly&qid=1604964116&s=mobile-apps&sr=1-2"><img src="https://cdn.oreillystatic.com/oreilly/images/amazon-appstore-logo.png" alt="Amazon appstore" /></a>
+          </div>
+        </div>
+        
+        <div class="footer-donotsell" id="donotsell-info">
+          <h2 class="footer-header"><a href="https://www.oreilly.com/privacy.html?donotsell=show">Do not sell my personal information</a></h2>
+        </div>
+      </div>
+
+      <div class="footer-subfooter">
+
+        <a href="https://www.oreilly.com/" title="home page" aria-current="page">
+          <img 
+          class="footer-subfooterLogo" 
+          id="footer-subfooterLogo"
+          src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg" 
+          onerror="this.src='https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red_@2x.png'; this.onerror=null;" 
+          alt="O'Reilly home">
+        </a>
+
+        <p>&copy; 2021, O&rsquo;Reilly Media, Inc.  All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+        <p><a href="https://www.oreilly.com/terms/">Terms of service</a> • <a href="https://www.oreilly.com/privacy.html">Privacy policy</a> • <a href="https://www.oreilly.com/about/editorial_independence.html">Editorial independence</a></p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- <script src="https://cdn.oreillystatic.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    		<style type="text/css">
+			.ssp-wave wave wave {
+				background: #00d4f7 !important;
+			}
+		</style>
+		<script type='text/javascript' src='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/js/media.player.js?ver=1.20.10'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/js/html5.player.js?ver=1.20.10'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/wp-embed.min.js?ver=5.3.9'></script>
+
+  <script>
+  (function($) {
+    //Toggle isActive and mobileHidden classes for mobileNavButton
+    $('nav #mobileNavButton').on('click', function() {
+      var expanded = $(this).attr('aria-expanded') === 'true' || false;
+      $(this).attr('aria-expanded', !expanded);
+      $(this).toggleClass("isActive");
+      $(this).next().toggleClass("mobileHidden");
+    });
+
+    //Toggle isFocused class for keyboard navigation of submenus
+    $('nav #menuList .menuList-subItem a').each(function(navItem) {
+      $(this).on('focus', function() {
+        $(this).parent().parent().toggleClass('isFocused');
+      });
+      $(this).on('blur', function() {
+        $(this).parent().parent().toggleClass('isFocused');
+      });
+    });
+
+    //Toggle mobileHidden class accordian elements
+    $('.mobileAccordian').each(function() {
+      var $btn = $(this).find('button');
+      var $target =  $(this).next();
+      $btn.on('click', function() {
+        var expanded = $btn.attr('aria-expanded') === 'true' || false;
+
+        $btn.attr('aria-expanded', !expanded);
+        $target.toggleClass("mobileHidden");  
+      });
+    });
+
+    // truncate months in footer conf listings
+    var months = $('.confMonth');
+    months.each(function(){    
+      var m = $(this).text();        
+      if(m.length < 3 ) return;
+      $(this).html(m.slice(0,3));
+    });
+
+    //Search platform form action
+    function searchSubmit(e) {
+      e.preventDefault();
+      sParameter = searchForm.search.value;
+      sParameter = encodeURIComponent(sParameter.trim());
+      sURL = searchForm.action + '?query=' + sParameter;
+      window.location = sURL;
+
+      //GA event for search
+      dataLayer.push({
+        'event': 'eventTracker',
+        'eventCat':'site search',
+        'eventAct':'search box',
+        'eventLbl':'explore our content',
+        'eventVal':0, 
+        'nonInteraction': 0,
+      });
+    }
+    const searchForm = document.getElementById('js-searchForm');
+    searchForm.addEventListener('submit', searchSubmit);
+
+    //Search button action
+    function showNavSearch(e) {
+      $('.menuList-item-search').addClass('overlay');
+      $('.menuList-item-search input#search').focus();
+    }
+    const searchButton = document.getElementById('js-searchButton');
+    searchButton.addEventListener('click', showNavSearch);
+
+
+    //Close search button action
+    function hideNavSearch(e) {
+      $('.menuList-item-search').removeClass('overlay');
+    }
+    const searchCloseButton = document.getElementById('js-searchCloseButton');
+    searchCloseButton.addEventListener('click', hideNavSearch);
+  })(jQuery);
+  </script>
+
+
+  <script type="text/javascript" id="MathJax-script">
+
+    var math = document.getElementsByClassName('math-tex');
+    if (math.length > 0) includeMathJax();
+    function includeMathJax() {
+      var head = document.getElementsByTagName('head')[0];
+      var script = document.createElement('script');
+      script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+      script.type = 'text/javascript';
+      script.async = 'async';
+      head.appendChild(script)
+    }   
+  </script>
+  </body>
+</html>

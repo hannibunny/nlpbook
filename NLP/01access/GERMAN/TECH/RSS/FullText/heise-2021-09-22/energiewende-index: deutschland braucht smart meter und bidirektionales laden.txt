@@ -1,0 +1,53 @@
+
+    Energiewende-Index: Deutschland braucht Smart Meter und bidirektionales Laden
+  
+        Deutschland landet in einer Studie zur Transformation des Strommarkts im Zuge der Energiewende nur im Mittelfeld. Kunden sollten stärker eingebunden werden.
+      
+      (Bild: TimSiegert-batcam/Shutterstock.com)
+    Bei der Umsetzung der Energiewende liegt Deutschland weiter hinter den skandinavischen Spitzenreitern zurück. Dies geht aus dem zweiten Bericht für den Index für die Bereitschaft zur Transformation des Strommarkts (Energy Transition Readiness Index) hervor, den die britische Association for Renewable Energy and Clean Technology (REA) am Dienstag in Kooperation mit dem Energiemanagement-Unternehmen Eaton veröffentlicht. Um die deutschen Klimaziele für 2030 zu erreichen, muss die Flexibilität des Strommarkts demnach auch durch dezentrale Technologien erhöht werden, mit denen Verbraucher selbst Energie ins Netz einspeisen können.Die REA untersucht im Rahmen der Studie zwölf europäische Länder. Auf der gewählten Skala von eins bis fünf, auf der fünf den höchsten Wert darstellt, schafft Deutschland laut der neuen Ausgabe eine drei. Das gleiche Ergebnis erzielen Frankreich, Großbritannien und die Schweiz. Finnland, Norwegen und Schweden liegen dagegen je mit der Bestmarke an der Spitze.Deutschland verfügt unter den Vergleichsstaaten über den größten Strommarkt und weist auch die höchste Produktionsmenge an Strom aus erneuerbaren Energien in Terawattstunden (TWh) aus. Länder wie Norwegen und die Schweiz decken ihren Bedarf durch die Erneuerbaren aber prozentual besser ab. Durch die hohe Stromnachfrage hierzulande beträgt ihr Anteil am gesamten Verbrauch nur 41 Prozent. In Norwegen etwa ist der Bedarf so niedrig, dass dieser durch das Angebot an Wind-, Wasser- und Solarkraft sogar übertroffen wird.Mit der jüngsten Reform des Erneuerbare-Energien-Gesetzes (EEG) beschloss der Bundestag eine Steigerung des Anteils an "grünem" Strom auf 65 Prozent bis 2030. Damit dies gelingt, müssen der Analyse zufolge zusätzliche 138 TWh mithilfe von Solar- und Windenergie produziert werden, was einem Plus von 85 Prozent entspricht.Laut den Forschern benötigt Deutschland künftig dringend mehr Ressourcen, um die Flexibilität des Strommarkts zu erhöhen und so die Ziele der Energiewende zu erreichen. Die Stromproduktion aus neuen Energiequellen sowie der Bedarf könnten mitunter minütlich schwanken. Die Elektrizitätssysteme müssten daher in der Lage sein, die Leistung entsprechend zu erhöhen oder zu verringern. Dezentrale Technologien spielten dabei eine zunehmend wichtigere Rolle.Derzeit verfügen hierzulande der Studie zufolge 17 Prozent der Bevölkerung über Smart Meter. Solche intelligenten Stromzähler und die zugehörigen Schnittstellen gelten als Schlüsselkomponente für die Kontrolle und Abrechnung einschlägiger dezentraler Flexibilitätsoptionen wie etwa Photovoltaik-Anlagen auf dem Dach. Länder wie Dänemark, Finnland, Italien und Spanien erreichen dagegen bereits eine Durchdringungsquote von über 97 Prozent. Vorgeschrieben ist der Einsatz eines Smart-Meter-Gateways in der Bundesrepublik derzeit etwa für Haushalte mit einem Jahresstromverbrauch von über 6000 kWh, was durchschnittlich mit fünf oder mehr Personen erreicht sein dürfte.Auch Elektroautos könnten künftig Strom aus ihren Antriebsakkus in das öffentliche Netz zurückführen. Zwar förderte die Politik hierzulande die Elektromobilität, bislang betrage der Anteil an E-Fahrzeugen aber erst 0,6 Prozent und der entsprechender batteriegetriebener Autos bei Neuzulassungen nicht mehr als etwa sieben Prozent. Zudem müssten die Grundlagen für bidirektionale Lademöglichkeiten wie Vehicle-to-Grid (V2G) erst geschaffen werden.Der gesellschaftliche Konsens für die Energiewende sei in der Bundesrepublik nach wie vor groß, haben die Verfasser herausgefunden. Herausforderungen wie fehlende oder unklare regulatorische Vorgaben etwa bei Smart Metern führten aber weiter zu Verzögerungen. Am Energiemarkt würden zudem kleinere Akteure benachteiligt, die mit Innovationen die Energiewende vorantreiben wollten.
+
+  heise online
+
+
+      Newsletter
+      
+
+    Keine News verpassen! Jeden Morgen der frische Nachrichtenüberblick von heise online
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

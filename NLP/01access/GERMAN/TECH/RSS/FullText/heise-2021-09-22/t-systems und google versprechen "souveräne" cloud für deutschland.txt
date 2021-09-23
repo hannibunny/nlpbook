@@ -1,0 +1,53 @@
+
+    T-Systems und Google versprechen "souveräne" Cloud für Deutschland
+  
+        Nach dem Scheitern der "Microsoft Cloud Deutschland" kooperiert die Telekom nun mit Google. Schon 2022 soll eine "souveräne" Cloud für deutsche Kunden starten.
+      
+      (Bild: Tommy Lee Walker / Shutterstock.com)
+    T-Systems und Google planen den Aufbau einer "souveränen Cloud" für deutsche Unternehmen und Behörden. Im Rahmen der Kooperation soll die Telekom-Tochter die Kontrolle über einen Teil der Server in Googles deutschen Rechenzentren erhalten, wie die beiden Unternehmen am Mittwoch bekanntgaben. So soll unter anderem die Einhaltung europäischer Datenschutzstandards sichergestellt werden.Man werde Kunden "die volle Kontrolle über ihre Daten, ihre Software und ihren Betrieb"  und gleichzeitig "die volle Leistungsfähigkeit der Google-Cloud" bieten, sagte T-Systems-Chef Adel Al-Saleh. Ab Mitte 2022 werde das Angebot zur Verfügung stehen. Außerdem gebe es Überlegungen für ein separates Angebot für Österreich und die Schweiz.Für die Telekom ist die neue Partnerschaft mit Google auch ein Schritt weg von Microsoft. Sie hatte in den vergangenen Jahren als "Datentreuhänder" Cloud-Dienste von Microsoft angeboten. Das "Microsoft Cloud Deutschland" getaufte Angebot fand jedoch nur wenige Kunden. Nun setzen die Bonner beim Thema "souveräne Cloud" voll auf Google, wie Al-Saleh in einem Pressegespräch klarstellte.Die Microsoft Cloud Deutschland sei bei den Funktionen nicht auf Augenhöhe mit der Konkurrenz und obendrein zu teuer gewesen, sagte Al-Saleh. Diese Fehler will die Telekom nun nicht noch einmal machen: Die neue Lösung werde "Versions- und Funktionsparität" zum globalen Netzwerk von Google bieten, also stets dieselben Cloud-Dienste anbieten. Außerdem werde man die Preise "wettbewerbsfähig" gestalten, betonte Al-Saleh.T-Systems soll Google-Server kontrollierenT-Systems wird die Cloud-Dienste vorerst nicht aus eigenen Rechenzentren heraus anbieten. Stattdessen sollen die Server in Googles deutschem Rechenzentrum in Frankfurt sowie künftig im geplanten Google-Rechenzentrum im Raum Berlin/Brandenburg stehen. Um dennoch Datenschutz und einen unabhängigen Betrieb zu gewährleisten, soll T-Systems "die Verantwortung für eine Reihe von operativen Maßnahmen und Kontrollmechanismen übernehmen", darunter das Identitätsmanagement und die Verschlüsselung. Alle physischen und virtuellen Zugriffe sollen "unter der Aufsicht von T-Systems und Google gemeinsam erfolgen", teilten die beiden Partner mit.Auf Nachfrage von c't erklärte T-Systems, dass die Server "physisch tatsächlich separiert von den anderen Public-Cloud-Servern" stehen sollen. Security-Personal von T-Systems werde in den Google-Rechenzentren vor Ort arbeiten. Zudem würden "logische Zugriffe" durch Google-Mitarbeiter nur nach Freigabe durch das Security Operations Center von T-Systems möglich sein. Al-Saleh kündigte darüber hinaus noch zusätzliche, optionale Sicherheitsstufen an. So könne die Telekom zum Beispiel Googles Software-Updates detailliert analysieren und freigeben oder ablehnen.Konkurrenz zu Microsoft-AngebotAls Zielgruppe für das geplante Angebot nennen Google und die Telekom deutsche Unternehmen aus Branchen wie Gesundheit, Automobil, öffentlicher Nahverkehr, aber auch den öffentlichen Sektor. Man befinde sich auch in Gesprächen mit der Bundesregierung und strebe an, die "roten Linien" des Bundesamts für Sicherheit in der Informationstechnik zu erfüllen, sagte Al-Saleh.Damit treten die beiden Partner auch in Konkurrenz zu Microsoft: Der US-Konzern verhandelt bereits seit Jahren mit der Bundesregierung über den Aufbau einer "souveränen" Cloud für Ministerien und Behörden und unterbreitete dem Bund im Frühjahr ein konkretes Angebot. Dabei sollen die Server nicht bei Microsoft stehen, stattdessen soll eine noch zu gründende deutsche Gesellschaft neue Rechenzentren bauen und betreiben.
+
+  c't Magazin
+
+
+      Newsletter
+      
+
+    c't Magazin – alles zur neuen Ausgabe: Tests, Praxis, Wissen und vieles mehr, jeden 2. Freitag.
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

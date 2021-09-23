@@ -1,0 +1,54 @@
+
+    OMIGOD: Microsoft lässt Azure-Admins mit Linux-Lücke allein
+  
+        Kritische Lücken in der Microsoft-Cloud ermöglichen Root-Angriffe auf Linux-VMs. Microsoft weist die Verantwortung für wichtige Updates allerdings von sich.
+
+      
+      (Bild: VDB Photos/Shutterstock.com)
+    Microsoft-Kunden, die Linux-VMs in der Azure Cloud des Unternehmens betreiben, sollten schnellstens aktiv werden und eine Reihe von gefährlichen Sicherheitslücken patchen. Entgegen aller Erwartungen wird Microsoft dies nämlich nicht selbst tun. Angesichts der Gefahr für seine Kunden unternimmt der Konzern in diesem Fall überhaupt überraschend wenig, um diese zu schützen.Microsoft hatte diese Woche als Teil seines monatlichen Patch Days Probleme mit der Software Open Management Infrastructure (OMI) behoben, welche unter anderem in Linux-VMs in der Azure Cloud installiert wird, um Verwaltungsfunktionen zu übernehmen. Die Probleme mit OMI gehen auf vier Schwachstellen zurück, welche die Sicherheitsfirma Wiz in der Software entdeckt hatte. Sie ermöglichen es einem nicht angemeldeten Nutzer, beliebigen Schadcode mit Root-Rechten in der betroffenen VM auszuführen. Alles, was der Angreifer dazu braucht, ist Zugang zu der VM aus dem öffentlichen Netz. Die Sicherheitsforscher von Wiz gaben diesen Lücken den Namen OMIGOD, wahrscheinlich weil das genau der Satz ist, den man auf den Lippen hat, sobald man versteht, wie unglaublich einfach es ist, die Lücken auszunutzen.Verschärft wird die Sicherheitslage auch dadurch, dass OMI keine Software ist, mit der Linux-Administratoren von sich aus vertraut sind, da sie ein Microsoft-spezifisches Phänomen der Azure-Umgebung ist. Auf sich allein gestellt wird der Admin der Linux-VM höchstwahrscheinlich auch gar nicht wissen, dass OMI im Einsatz ist, denn der Dienst wird still und heimlich in der VM installiert, wenn eine Reihe von Azure-Diensten für automatische Updates, Log-Analyse oder Konfigurations- und Diagnosefunktionen aktiviert werden. Meist wird der Dienst mit neuen VMs gleich mitinstalliert, wenn beim Einrichten diese Funktionen mitkonfiguriert werden.Nun stellt sich die Frage, warum Microsoft als Teil seiner Patch-Day-Fixes das Problem nicht genauso automatisch behoben hat, wie es auch den OMI-Dienst automatisch ohne Nachfrage beim Kunden installiert. Schließlich ist das zentrale Werbeargument für Cloud-Dienste, auch bei Microsoft, dass sich der Nutzer um möglichst wenig kümmern muss. Normalerweise beheben Cloud-Anbieter solche Sicherheitslücken still und leise, bevor sie überhaupt öffentlich werden. Der Kunde braucht sich um nichts zu kümmern und seine Systeme sind sicherer, als wenn er selbst aktiv werden und Patches einspielen muss, da der Cloud-Anbieter dies viel schneller und effektiver für alle Systeme auf einmal tun kann.Das sieht Microsoft offensichtlich anders. In seinen aktuellen Hinweisen zu den OMIGOD-Lücken empfiehlt das Unternehmen seinen Kunden, entsprechende Updates selbst zu installieren, sobald sie zur Verfügung stehen. Dazu liefert das Unternehmen eine übersichtliche Tabelle – Microsoft liebt Tabellen – mit den einzelnen OMI-Komponenten, wo diese zu finden sind und wann ein Fix zu erwarten ist.Microsoft hat die Tabelle aber nicht so formatiert, dass Webbrowser diese vernünftig anzeigen können. Auf den ersten, und auch den zweiten, Blick ist die Spalte für die Fixes unsichtbar. Erst wenn man die horizontale Scroll-Leiste ganz am Ende der Tabelle entdeckt, wird klar, dass die eigentlich wichtigen Informationen gut versteckt rechts außerhalb des sichtbaren Bereiches der Tabelle lauern. Auch ein Ultra-Widscreen-Bildschirm nutzt hier übrigens nichts, das Layout von Microsofts Webseite ist das Problem. Immerhin wurde irgendwann nach der Erstveröffentlichung der Hinweise über der Tabelle ein Hinweis zur Scroll-Leiste am Ende der Tabelle eingefügt.Rundum-Sorglos-Cloud geht andersDie Tabelle enthält 13 spezifische Probleme, die auf die OMIGOD-Lücken zurückgehen. Sechs davon wird Microsoft nach eigenen Angaben automatisch beheben. Um sieben weitere Lücken muss sich der Admin betroffener Linux-VMs allerdings selbst kümmern. Anwender müssen also selbst herausfinden, ob ihre Systeme die jeweils neuste Version der OMI-Software verwenden und ob ihre VMs nicht bereits über die Lücken angegriffen und kompromittiert wurden. Erschwerend kommt hinzu, dass Microsoft anscheinend auch nach Veröffentlichung der Updates am Patch Day noch verwundbare OMI-Services in Linux-VMs installiert hat, wenn diese neu aufgesetzt wurden. Für eine Firma von der Größe Microsofts ist ein solch laxer Umgang mit einer derart kritischen Remote-Code-Execution-Lücke peinlich. Kunden, die eine Rundum-Sorglos-Cloud erwarten, werden mit einer schweren Sicherheitslücke in einer Software, die sie nicht explizit installieren wollten, im Stich gelassen.Glücklicherweise scheint es bisher keine massenhaften Angriffe wie bei Microsofts Exchange-Lücke Anfang des Jahres zu geben. Die Sicherheitsfirma Censys hat bei einer Untersuchung nur ein paar Dutzende verwundbare Server gefunden – wahrscheinlich, weil nur wenige der betroffenen VMs öffentlich im Internet erreichbar sind. Trotzdem sollten betroffene Systeme schnellstens gepatcht werden. Die OMIGOD-Lücken auszunutzen, ist derart leicht und das Ergebnis so durchschlagend (Root-Zugang), dass es nicht lange dauern wird, bis Angreifer betroffene Systeme finden und aufs Korn nehmen. Proof-of-Concept-Angriffscode für die Schwachstellen liegt heise Security bereits vor.
+
+  Security
+
+
+      Newsletter
+      
+
+    Ob Sicherheitslücken, Viren oder Trojaner – alle sicherheitsrelevanten Meldungen gibts bei heise Security
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

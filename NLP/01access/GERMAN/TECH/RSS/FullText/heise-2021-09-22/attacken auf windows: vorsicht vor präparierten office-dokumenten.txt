@@ -1,0 +1,51 @@
+
+    Attacken auf Windows: Vorsicht vor präparierten Office-Dokumenten
+  
+        Derzeit haben es Angreifer auf eine Sicherheitslücke in Windows abgesehen. Standardmäßig sollten aber Schutzmaßnahmen greifen. 
+      Angreifer bringen zurzeit gezielt präparierte Microsoft-Office-Dokumente in Umlauf, die nach dem Öffnen Windows-Computer mit Schadcode infizieren. Mit den Standardeinstellungen von Office sollten laut der Aussage von Microsoft zusätzliche Schutzmaßnahmen die aktuellen Angriffe verhindern. Admins können Systeme über einen Workaround absichern.Die einer Warnmeldung von Microsoft zufolge mit dem Bedrohungsgrad "hoch" eingestufte Sicherheitslücke (CVE-2021-40444) betrifft die HTML-Rendering-Engine MSHTML von Windows. Diese setzt neben dem Internet Explorer auch Microsoft Office ein. Von der Lücke sind Windows 8.1 bis 10 und Windows Server 2008 bis 2019 betroffen.Auf die Lücke sind mehrere Sicherheitsforscher unter anderem von Expmon gestoßen. Sie berichten, dass wenn Opfer eine Office-Datei öffnet, der Internet Explorer eine von Angreifern kontrollierte Website öffnet. Über ein darauf platziertes ActiveX-Steuerelement kommt dann ein Trojaner auf Computer.Standardmäßig öffnet Office Dokumente aus dem Internet aber in einem abgesicherten Modus. Außerdem soll der Schutzmechnanismus von Office Application Guard Dokumente isolieren und so Microsoft zufolge Angriffe dieser Art verhindern.Generell gilt, dass man keine Dateien aus unbekannten Quellen öffnen sollte. Auch wenn ein E-Mail-Absender bekannt ist, sollte man sich kurzschließen, ob dieser die Datei wirklich versendet hat. Außerdem sollte man nicht, ohne nachzudenken, auf Links in Mails klicken.Microsoft stellt ein Sicherheitsupdate für den kommenden Patchday nächste Woche in Aussicht. Bis dahin müssen Admins Systeme über einen Workaround absichern und ActiveX-Steurelemente im Internet Explorer deaktivieren.Um das zu tun, müssen Admins eine Textdatei erzeugen, folgenden Inhalt reinkopieren und die Datei mit der Endung .reg speichern.Windows Registry Editor Version 5.00[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\0][HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\1][HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\2][HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3]Im Anschluss müssen sie die Datei mit einem Doppelklick öffnen, um die Einträge der Windows Registry hinzuzufügen. Dann ist noch ein Neustart nötig.Formulierung in Bezug auf schützende Standard-Maßnahmen präzisiert.
+
+  Security
+
+
+      Newsletter
+      
+
+    Ob Sicherheitslücken, Viren oder Trojaner – alle sicherheitsrelevanten Meldungen gibts bei heise Security
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

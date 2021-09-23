@@ -1,0 +1,53 @@
+
+    Astro Pi Wettbewerb: Raspi-Programme von Kindern und Jugendlichen kommen ins All
+  
+        Die europäische Astro Pi Challenge startet erneut einen Programmierwettbewerb für unter 19-Jährige. Dafür hat der Raspberry Pi sogar ein Upgrade erhalten.
+      
+      (Bild: IM_photo/Shutterstock.com)
+    Der Wettbewerb Astro Pi ist gestartet und ermöglicht jungen Menschen Programme zu entwickeln, die auf einem Raspberry Pi Computer laufen und Daten im Weltall sammeln sollen. Veranstaltet werden die sich an Anfänger richtende Mission Zero und Mission Space Lab von der europäischen Weltraumorganisation ESA und der Raspberry Pi Foundation.Seit Dezember 2015 haben 54.000 junge Menschen aus 25 verschiedenen Ländern an dem Wettbewerb teilgenommen und ihren Code auf den speziell angepassten Raspberry Pi Rechnern geschrieben. Doch zwei Jahre lang wurde von den Veranstaltern an einem Upgrade der Hardware gebastelt. Jetzt beinhaltet die Hardware für die Challenge neben einem Coral USB Accelerator für maschinelles Lernen und einer HQ Kamera mit 12 Megapixeln und Objektivanschluss auch zusätzliche Sensoren, etwa einen Farb- und Lichtsensor und einen Passiv-Infrarot-Sensor (PIR).Mission Zero richtet sich an Anfänger, die ein einfaches Programm in der Programmiersprache Python schreiben sollen, das einen Sensorwert erfasst, um die Luftfeuchtigkeit an Bord der internationalen Raumstation ISS zu messen. Alle Skripte werden anschließend für 30 Sekunden an Bord der ISS ausgeführt. Die Teilnahme an dem Wettbewerb dauert hingegen nur eine Stunde. Alle Teilnehmer von Mission Zero haben zudem die Möglichkeit, sich bei der Namenswahl zweier neuer Astro Pi Computer zu beteiligen. Zum Abstimmen soll dem Mission Zero Programm folgender Code zugefügt werden: sense.show_message("My name should be Ada Lovelace")Mission Space Lab hingegen richtet sich an Fortgeschrittene und endet im Juli 2022. In fünf Projektphasen können Jugendliche in Gruppen an einem gemeinsamen Projekt arbeiten. Die erste Phase beinhaltet die Registrierung einer Idee und die letzte Phase den Abschluss durch eine Datenanalyse.Ideen für Mission Space Lab sollten bis zum 29. Oktober eingereicht werden. Es kann jeder im Alter von sieben bis 19 Jahren an den Missionen teilnehmen. Alle Teilnehmer erhalten anschließend ein Zertifikat. Für Mission Zero ist eine Registrierung durch die Lehrkräfte der Kinder erforderlich, welche dann die fertigen Skripte einreichen.
+
+  heise online
+
+
+      Newsletter
+      
+
+    Keine News verpassen! Jeden Morgen der frische Nachrichtenüberblick von heise online
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

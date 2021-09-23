@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>
+      Seven Legal Questions for Data Scientists – O’Reilly     </title>
+
+    <link rel="stylesheet" href="https://cdn.oreillystatic.com/assets/css/wp_sites/style-20200701.css?1626819590">
+
+    
+    <link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.oreilly.com\/radar\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.3.9"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://www.oreilly.com/radar/wp-includes/css/dist/block-library/style.min.css?ver=5.3.9' type='text/css' media='all' />
+<link rel='stylesheet' id='ssp-frontend-player-css'  href='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/css/player.css?ver=1.20.10' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel="canonical" href="https://www.oreilly.com/radar/seven-legal-questions-for-data-scientists/" />
+<link rel='shortlink' href='https://www.oreilly.com/radar/?p=13610' />
+
+<link rel="alternate" type="application/rss+xml" title="Podcast RSS feed" href="https://www.oreilly.com/radar/feed/podcast" />
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="language_name" content="English">
+<meta name="native_language_name" content="English">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="icon" type="image/png" href="//www.oreilly.com/favicon.ico">
+
+<!--[if lte IE 9]>
+<script>
+  'article aside footer header main nav section time'.replace(/\w+/g,function(n){document.createElement(n)})
+</script>
+<![endif]-->
+
+<!--[if IE 9]>
+<style type="text/css">
+  #menu-toggle:checked ~ .mobile-nav { display:block; }
+  .mobile-nav { display: none; }
+</style>
+<![endif]-->
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:site" content="@OReillyMedia" />
+<meta property="twitter:title" content="Seven Legal Questions for Data Scientists" />
+<meta property="twitter:description" content="" />
+<meta property="twitter:url" content="https://www.oreilly.com/radar/seven-legal-questions-for-data-scientists" />
+<meta property="twitter:image" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/architecture-skyline-city-monument-travel-statue-770889-pxhere_crop-dc0b6103af40aa2c1afb7be0d7e415cb-1.jpg" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="O’Reilly Media" />
+<meta property="og:title" content="Seven Legal Questions for Data Scientists" />
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://www.oreilly.com/radar/seven-legal-questions-for-data-scientists/" />
+<meta property="og:image" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/architecture-skyline-city-monument-travel-statue-770889-pxhere_crop-dc0b6103af40aa2c1afb7be0d7e415cb-1.jpg" />
+<meta name="description" content="" />
+<meta name="author" content="Patrick Hall, Ayoub Ouederni" />
+<meta name="description:site" content="" />
+<meta property="article:published_time" content="2021-01-19T07:21:18-05:00" />
+<meta name="article:author" content="Patrick Hall, Ayoub Ouederni" />
+<meta name="date" content="2021-01-19" />
+<meta name="thumbnail" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/architecture-skyline-city-monument-travel-statue-770889-pxhere_crop-dc0b6103af40aa2c1afb7be0d7e415cb-1.jpg" />
+<meta name="graphic_medium" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/architecture-skyline-city-monument-travel-statue-770889-pxhere_crop-dc0b6103af40aa2c1afb7be0d7e415cb-1.jpg" />
+<meta name="oreilly:content_type" content="text" />
+
+<script>
+  loggedInObject = new Object();
+  var dataLayer = window.dataLayer || [];
+
+  //Check for O'Reilly Unified logged-in status
+  if (document.cookie.split(';').filter(function(item) {
+    return item.indexOf('orm-jwt=') >= 0;
+  }).length) {
+    loggedInObject.loggedIn = 'yes';
+    dataLayer.push(loggedInObject);
+  }
+</script>
+
+
+  <script>
+    dataLayer = [{"content.author":"Patrick Hall, Ayoub Ouederni","content.formatType":"article","content.free":"yes","content.identifier":"none","content.parentTopic":"AI & ML - DISPLAY","content.publisher":"O'Reilly Media Inc.","content.releaseDate":"2021-01-19","content.subTopic":"none","content.subdirectory":"radar","content.title":"Seven Legal Questions for Data Scientists","product.identifier":"none","product.title":"none","product.type":"none"}];
+  </script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P4V6Z');</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- Start Visual Website Optimizer Asynchronous Code -->
+<script type='text/javascript'>
+var _vwo_code=(function(){
+var account_id=27087,
+settings_tolerance=2000,
+library_tolerance=2500,
+use_existing_jquery=false,
+// DO NOT EDIT BELOW THIS LINE
+f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+</script>
+<!-- End Visual Website Optimizer Asynchronous Code -->
+
+
+</head>
+<body class="post-template-default single single-post postid-13610 single-format-standard multisite-radar">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P4V6Z" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="skipToMain" id="skipToMain"><a href="#maincontent"><span class="skipToMain-text">Skip to main content</span></a></div>
+
+<header role="banner">
+  <div class="content">
+    <nav role="navigation" aria-label="site sections">
+      <a href="https://www.oreilly.com/" class="logo" title="home page"><img src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg" onerror="this.src='https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red_@2x.png'; this.onerror=null;" alt="O'Reilly home"></a>
+
+      <button id="mobileNavButton" class="mobileNavButton mobileNavButton--collapse mobileNavButton--3dx" type="button" aria-expanded="false" aria-controls="menuList">
+        <span class="mobileNavButton-box">
+          <span class="mobileNavButton-inner"></span>
+        </span>
+      </button>
+
+      <ul id="menuList" class="menuList mobileHidden">
+        <li class="menuList-itemsP1">
+          <ul>
+            <li class="menuList-item menuList-signIn"><a href="https://learning.oreilly.com/accounts/login-check/">Sign In</a></li>
+            <li class="menuList-item menuList-tryNow"><a class="menuList-cta" href="https://oreilly.com/online-learning/try-now.html">Try Now</a></li>
+          </ul>
+        </li>
+        <li class="menuList-itemsP2">
+          <ul>
+            <li class="menuList-item menuList-itemWithSub"><csif cond="{cs.var.site-section}" eq="teams"><a href="https://www.oreilly.com/online-learning/teams.html" aria-current="page"><cselse><a href="https://www.oreilly.com/online-learning/teams.html"></csif>Teams</a>
+              <ul class="menuList-subList">
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/business.html">For business</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/government.html">For government</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/academic.html">For higher ed</a></li>
+              </ul>
+            </li>
+            <li class="menuList-item"><csif cond="{cs.var.site-section}" eq="individuals"><a href="https://www.oreilly.com/online-learning/individuals.html" aria-current="page"><cselse><a href="https://www.oreilly.com/online-learning/individuals.html"></csif>Individuals</a></li>
+            <li class="menuList-item menuList-itemWithSub"><csif cond="{cs.var.site-section}" eq="features"><a href="https://www.oreilly.com/online-learning/features.html" aria-current="page"><cselse><a href="https://www.oreilly.com/online-learning/features.html"></csif>Features</a>
+              <ul class="menuList-subList">
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/feature-certification.html">Certifications</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/intro-interactive-learning.html">Interactive learning</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/live-events.html">Live events</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/feature-answers.html">Answers</a></li>
+              </ul>
+            </li>
+            <li class="menuList-item"><a href="https://www.oreilly.com/radar/">Blog</a></li>
+            <li class="menuList-item" id="nav-forMarketers"><csif cond="{cs.var.site-section}" eq="content-sponsorship"><a href="https://www.oreilly.com/content-marketing-solutions.html" aria-current="page"><cselse><a href="https://www.oreilly.com/content-marketing-solutions.html"></csif>Content sponsorship</a></li>
+            <li class="menuList-item menuList-item-search" id="nav-search">
+              <form id="js-searchForm" class="searchForm" action="https://www.oreilly.com/search/"><input id="search" type="search" name="query" placeholder="Explore our content" autocomplete="off" required=""><button id="js-searchCloseButton" class="navSearchCloseButton">Close</button></form>
+              <button id="js-searchButton" class="navSearchButton">Search</button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- <div class="head-search-bar">
+
+    <div class="content">
+      <p>This is where the search bar goes</p>
+    </div>
+  </div> -->
+
+</header>
+
+<main role="main" id="maincontent">
+      <section class="hero hero-wp">
+      <div class="content">
+        <div class="hero-textWrap">
+          <div class="hero-breadcrumbs">
+            <a href="https://www.oreilly.com/radar">Radar</a>           </div>
+          <h1 class="radar-post-page-head">Seven Legal Questions for Data Scientists</h1>
+          	      </div>
+      </div>
+    </section>
+
+
+    <section class="textSection post-radar">
+      <div class="content">
+
+                              <div class="radar-post-page-meta">
+              <span class="radar-post-page-author">
+                By <a href="https://www.oreilly.com/people/patrick-hall/">Patrick Hall</a> and <a href="https://www.oreilly.com/people/ayoub-ouederni/">Ayoub Ouederni</a>              </span>
+            </div>
+          
+          <div class="radar-post-page-meta">
+            <span class="radar-post-page-date">
+              January 19, 2021            </span>
+          </div>
+        
+        <div class="radar-post-flex-wrap">
+
+          <div class="right-rail" id="right-rail">
+            
+              <div id="post-featured-image" class="post-featured-image">
+                <img width="1400" height="950" src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/architecture-skyline-city-monument-travel-statue-770889-pxhere_crop-dc0b6103af40aa2c1afb7be0d7e415cb-1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Lady Justice" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/architecture-skyline-city-monument-travel-statue-770889-pxhere_crop-dc0b6103af40aa2c1afb7be0d7e415cb-1.jpg 1400w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/architecture-skyline-city-monument-travel-statue-770889-pxhere_crop-dc0b6103af40aa2c1afb7be0d7e415cb-1-300x204.jpg 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/architecture-skyline-city-monument-travel-statue-770889-pxhere_crop-dc0b6103af40aa2c1afb7be0d7e415cb-1-768x521.jpg 768w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/architecture-skyline-city-monument-travel-statue-770889-pxhere_crop-dc0b6103af40aa2c1afb7be0d7e415cb-1-1048x711.jpg 1048w" sizes="(max-width: 1400px) 100vw, 1400px" />
+                                  <span class="post-featured-image-caption">
+                    Lady Justice <span class="source-name">(source: <a class="secondary" target="_blank" href="https://pxhere.com/en/photo/770889" rel="noopener noreferrer">Pxhere.com</a>)</span>                  </span>
+                                </div>
+
+                        </div>
+
+          <div class="post-radar-content" id="post-radar-content">
+
+            <div class="main-post-radar-content">
+
+              
+              
+              
+              
+              
+              
+<blockquote class="wp-block-quote"><p><em>“[T]he threats to consumers arising from data abuse, including those posed by algorithmic harms, are mounting and urgent.”</em></p><cite><br><a href="https://www.ftc.gov/system/files/documents/public_statements/1564883/remarks_of_commissioner_rebecca_kelly_slaughter_on_algorithmic_and_economic_justice_01-24-2020.pdf"><em>FTC Commissioner Rebecca K. Slaughter</em></a></cite></blockquote>
+
+
+
+<p>Variants of artificial intelligence (AI), such as predictive modeling, statistical learning, and machine learning (ML), can create new value for organizations. AI can also cause costly reputational damage, get your organization slapped with a lawsuit, and run afoul of local, federal, or international regulations. Difficult questions about compliance and legality often pour cold water on late-stage AI deployments as well, because data scientists rarely get attorneys or oversight personnel involved in the build-stages of AI systems. Moreover, like many powerful commercial technologies, AI is likely to be highly regulated in the future.</p><div class="ZioG9Q1R"><div itemscope="" itemtype="http://schema.org/Product" class="inline-cta trial-cta" id="trial-cta">
+  <div class="thumb">
+    <a href="https://www.oreilly.com/online-learning/">
+      <img itemprop="image" src="https://d3ansictanv2wj.cloudfront.net/safari-topic-cta-1f60e6f96856da19ba3cb25660472ca5.jpg" class="">
+    </a>
+  </div>
+  <div class="title">
+    <h2>
+      Learn faster. Dig deeper. See farther.
+    </h2>
+  </div>
+   <div class="meta">
+    <p class="dek">Join the O'Reilly online learning platform. Get a free trial today and find answers on the fly, or master something new and useful.</p>
+    <a href="https://www.oreilly.com/online-learning/" class="textCTA-small more">Learn more</a>
+  </div>
+</div></div>
+
+
+
+<p>This article poses seven legal questions that data scientists should address before they deploy AI. This article is not legal advice. However, these questions and answers should help you better align your organization’s technology with existing and future laws, leading to less discriminatory and invasive customer interactions, fewer regulatory or litigation headwinds, and better return on AI investments. As the questions below indicate, it’s important to think about the legal implications of your AI system as you’re building it. Although many organizations wait until there’s an incident to call in legal help, compliance by design saves resources and reputations.</p>
+
+
+
+<h3><strong>Fairness: </strong>Are there outcome or accuracy differences in model decisions across protected groups? Are you documenting efforts to find and fix these differences?</h3>
+
+
+
+<p><strong>Examples: </strong><a href="https://www.nbcnews.com/tech/apple/ny-regulator-investigating-apple-card-possible-gender-bias-n1079581">Alleged discrimination in credit lines</a>; <a href="https://www.startribune.com/regulators-probe-racial-bias-with-unitedhealth-algorithm/563997722/">Poor experimental design in healthcare algorithms</a></p>
+
+
+
+<p>Federal regulations require non-discrimination in consumer finance, employment, and other practices in the U.S. Local laws often extend these protections or define separate protections. Even if your AI isn’t directly affected by existing laws today, algorithmic discrimination can lead to <a href="https://algorithmwatch.org/en/story/google-vision-racism/">reputational damage</a> and <a href="https://news.bloomberglaw.com/class-action/youtube-sued-for-race-discrimination-profiting-from-hate-speech">lawsuits</a>, and the current political winds are blowing toward broader regulation of AI. To deal with the issue of algorithmic discrimination and to prepare for pending future regulations, organizations must improve cultural competencies, business processes, and tech stacks.</p>
+
+
+
+<p>Technology alone cannot solve algorithmic discrimination problems. Solid technology must be paired with culture and process changes, like increased demographic and professional diversity on the teams that build AI systems and better audit processes for those systems. Some additional non-technical solutions involve ethical principles for organizational AI usage, and a general mindset change. Going fast and breaking things isn’t the best idea when what you&#8217;re breaking are people’s loans, jobs, and healthcare.</p>
+
+
+
+<p>From a technical standpoint, you’ll need to start with careful experimental design and data that truly represents modeled populations. After your system is trained, all aspects of AI-based decisions should be tested for disparities across demographic groups: the system’s primary outcome, follow-on decisions, such as limits for credit cards, and manual overrides of automated decisions, along with the accuracy of all these decisions. In many cases, discrimination tests and any subsequent remediation must also be conducted using legally sanctioned techniques—not just your new favorite Python package. Measurements like adverse impact ratio, marginal effect, and standardized mean difference, along with prescribed methods for fixing discovered discrimination, are enshrined in regulatory commentary. Finally, you should document your efforts to address algorithmic discrimination. Such documentation shows your organization takes accountability for its AI systems seriously and can be invaluable if legal questions arise after deployment.</p>
+
+
+
+<h3><strong>Privacy</strong>: Is your model complying with relevant privacy regulations?</h3>
+
+
+
+<p><strong>Examples: </strong><a href="https://www.biometricupdate.com/202007/facial-biometrics-training-dataset-leads-to-bipa-lawsuits-against-amazon-alphabet-and-microsoft">Training data violates new state privacy laws</a></p>
+
+
+
+<p>Personal data is highly regulated, <a href="https://www.dlapiperdataprotection.com/">even in the U.S.</a>, and nothing about using data in an AI system changes this fact. If you are using personal data in your AI system, you need to be mindful of existing laws and watch evolving state regulations, like the <a href="https://www.natlawreview.com/article/illinois-biometric-information-privacy-act-bipa-when-will-companies-heed-warning">Biometric Information Privacy Act</a> (BIPA) in Illinois or the new <a href="https://www.manatt.com/insights/newsletters/client-alert/the-california-privacy-rights-act-has-passed">California Privacy Rights Act</a> (CPRA). </p>
+
+
+
+<p>To cope with the reality of privacy regulations, teams that are engaged in AI also need to comply with organizational data privacy policies. Data scientists should familiarize themselves with these policies from the early stages of an AI project to help avoid privacy problems. At a minimum, these policies will likely address:</p>
+
+
+
+<ul><li><strong>Consent for use:</strong> how consumer consent for data-use is obtained; the types of information collected; and ways for consumers to opt-out of data collection and processing.<br></li><li><strong>Legal basis:</strong> any applicable privacy regulations to which your data or AI are adhering; why you’re collecting certain information; and associated consumer rights.<br></li><li><strong>Anonymization requirements:</strong> how consumer data is aggregated and anonymized.<br></li><li><strong>Retention requirements:</strong> how long you store consumer data; the security you have to protect that data; and if and how consumers can request that you delete their data. </li></ul>
+
+
+
+<p>Given that most AI systems will change over time, you should also regularly audit your AI to ensure that it remains in compliance with your privacy policy over time. Consumer requests to delete data, or the addition of new data-hungry functionality, can cause legal problems, even for AI systems that were in compliance at the time of their initial deployment.</p>
+
+
+
+<p>One last general tip is to have an incident response plan. This is a lesson learned from general IT security. Among many other considerations, that plan should detail systematic ways to inform regulators and consumers if data has been breached or misappropriated.</p>
+
+
+
+<h3><strong>Security:</strong> Have you incorporated applicable security standards in your model? Can you detect if and when a breach occurs?</h3>
+
+
+
+<p><strong>Examples: </strong><a href="https://www.pcmag.com/news/report-ai-company-leaks-over-25m-medical-records">Poor physical security for AI systems</a>; <a href="https://www.wired.com/2016/09/how-to-steal-an-ai/">Security attacks on ML</a>; <a href="https://www.engadget.com/2019-12-16-facial-recognition-fooled-masks.html">Evasion attacks</a></p>
+
+
+
+<p>As consumer software systems, AI systems likely fall under various security standards and breach reporting laws. You’ll need to update your organization’s IT security procedures to apply to AI systems, and you’ll need to make sure that you can report if AI systems—data or algorithms—are compromised. </p>
+
+
+
+<p>Luckily, the basics of IT security are <a href="https://www.ftc.gov/system/files/attachments/cybersecurity-small-business/cybersecuirty_sb_factsheets_all.pdf">well-understood</a>. First, ensure that these are applied uniformly across your IT assets, including that super-secret new AI project and the rock-star data scientists working on it. Second, start preparing for <a href="https://github.com/mitre/advmlthreatmatrix">inevitable attacks on AI</a>. These attacks tend to involve adversarial manipulation of AI-based decisions or the exfiltration of sensitive data from AI system endpoints. While these attacks are not common today, you don’t want to be the object lesson in AI security for years to come. So update your IT security policies to consider these new attacks. Standard counter-measures such as authentication and throttling at system endpoints go a long way toward promoting AI security, but newer approaches such as robust ML, differential privacy, and federated learning can make AI hacks even more difficult for bad actors.</p>
+
+
+
+<p>Finally, you’ll need to report breaches if they occur in your AI systems. If your AI system is a labyrinthian black-box, that could be difficult. Avoid overly complex, black-box algorithms whenever possible, monitor AI systems in real-time for performance, security, and discrimination problems, and ensure system documentation is applicable for incident response and breach reporting purposes.</p>
+
+
+
+<h3><strong>Agency:</strong> Is your AI system making unauthorized decisions on behalf of your organization?</h3>
+
+
+
+<p><strong>Examples: </strong><a href="https://www.bbc.com/news/business-54698858">Gig economy robo-firing</a>; <a href="https://futurism.com/investing-lawsuit-ai-trades-cost-millions">AI executing equities trades</a></p>
+
+
+
+<p>If your AI system is making material decisions, it is crucial to ensure that it cannot make unauthorized decisions. If your AI is based on ML, as most are today, your system&#8217;s outcome is probabilistic: it <em>will</em> make wrong decisions. Wrong AI-based decisions about material matters—lending, financial transactions, employment, healthcare, or criminal justice, among others—can cause serious legal liabilities (see <strong>Negligence</strong> below). Worse still, using AI to mislead consumers can put your organization on the wrong side of an FTC enforcement action or a class action. </p>
+
+
+
+<p>Every organization approaches risk management differently, so setting necessary limits on automated predictions is a business decision that requires input from many stakeholders. Furthermore, humans should review any AI decisions that implicate such limits before a customer&#8217;s final decision is issued. And don&#8217;t forget to routinely test your AI system with edge cases and novel situations to ensure it stays within those preset limits.</p>
+
+
+
+<p>Relatedly, and to quote the FTC, &#8220;[d]on&#8217;t deceive consumers about how you use automated tools.&#8221; In their <a href="https://www.ftc.gov/news-events/blogs/business-blog/2020/04/using-artificial-intelligence-algorithms"><em>Using Artificial Intelligence and Algorithms</em></a> guidance, the FTC specifically called out companies for manipulating consumers with digital avatars posing as real people. To avoid this kind of violation, always inform your consumers that they are interacting with an automated system. It&#8217;s also a best practice to implement recourse interventions directly into your AI-enabled customer interactions. Depending on the context, an intervention might involve options to interact with a human instead, options to avoid similar content in the future, or a full-blown appeals process.</p>
+
+
+
+<h3><strong>Negligence:</strong> How are you ensuring your AI is safe and reliable?</h3>
+
+
+
+<p><strong>Examples: </strong><a href="https://www.thedailyjournal.com/story/news/2019/07/10/nj-vineland-jules-black-christian-rodgers-june-district-court-rodriquez-product-liability-decision/1698558001/">Releasing the wrong person from jail</a>; <a href="https://www.reuters.com/article/us-uber-crash/in-review-of-fatal-arizona-crash-u-s-agency-says-uber-software-had-flaws-idUSKBN1XF2HA">autonomous vehicle kills pedestrian</a></p>
+
+
+
+<p>AI decision-making can lead to serious safety issues, including physical injuries. To keep your organization’s AI systems in check, the practice of model risk management–based roughly on the Federal Reserve’s <a href="https://www.federalreserve.gov/supervisionreg/srletters/sr1107a1.pdf">SR 11-7 letter</a>–is among the most tested frameworks for safeguarding predictive models against stability and performance failures.</p>
+
+
+
+<p>For more advanced AI systems, a lot can go wrong. When creating autonomous vehicle or robotic process automation (RPA) systems, be sure to incorporate practices from the nascent discipline of <a href="https://arxiv.org/abs/1904.07204">safe and reliable machine learning</a>. Diverse teams, including domain experts, should think through possible incidents, compare their designs to <a href="https://arxiv.org/pdf/2011.08512.pdf">known past incidents</a>, document steps taken to prevent such incidents, and develop response plans to prevent inevitable glitches from spiraling out of control. </p>
+
+
+
+<h3><strong>Transparency:</strong> Can you explain how your model arrives at a decision?</h3>
+
+
+
+<p><strong>Examples: </strong>Proprietary algorithms hide data errors in <a href="https://washingtonmonthly.com/magazine/junejulyaugust-2017/code-of-silence/">criminal sentencing</a> and <a href="https://www.wired.com/story/trueallele-software-transforming-how-courts-treat-dna-evidence/">DNA testing</a></p>
+
+
+
+<p>Federal law already requires explanations for certain consumer finance decisions. Beyond meeting regulatory requirements, interpretability of AI system mechanisms enables human trust and understanding of these high-impact technologies, meaningful recourse interventions, and proper system documentation. Over recent years, two promising technological approaches have increased AI systems&#8217; interpretability: interpretable ML models and post-hoc explanations. Interpretable ML models (<em>e.g.</em>, <a href="https://github.com/interpretml/interpret">explainable boosting machines</a>) are algorithms that are both highly accurate and highly transparent. Post-hoc explanations (<em>e.g.</em>, <a href="https://github.com/slundberg/shap">Shapley values</a>) attempt to summarize ML model mechanisms and decisions. These two tools can be used together to increase your AI’s transparency. Given both the fundamental importance of interpretability and the technological process made toward this goal, it&#8217;s not surprising that new regulatory initiatives, like the FTC&#8217;s AI guidance and the CPRA, prioritize both consumer-level explanations and overall transparency of AI systems.</p>
+
+
+
+<h3><strong>Third Parties:</strong> Does your AI system depend on third-party tools, services, or personnel? Are they addressing these questions?</h3>
+
+
+
+<p><strong>Examples:</strong><a href="https://fortune.com/2020/09/29/artificial-intelligence-openai-gpt3-toxic/">Natural language processing tools</a> and <a href="https://venturebeat.com/2020/11/03/researchers-show-that-computer-vision-algorithms-pretrained-on-imagenet-exhibit-multiple-distressing-biases/">training data images</a> conceal discriminatory biases</p>
+
+
+
+<p>It is rare for an AI system to be built entirely in-house without dependencies on third-party software, data, or consultants. When you use these third-party resources, third-party risk is introduced into your AI system. And, as the old saying goes, a chain is only as strong as its weakest link. Even if your organization takes the utmost precaution, any incidents involving your AI system, even if they stem from a third-party you relied on, can potentially be blamed on you. Therefore, it is essential to ensure that any parties involved in the design, implementation, review, or maintenance of your AI systems follow all applicable laws, policies, and regulations. </p>
+
+
+
+<p>Before contracting with a third party, due diligence is required. Ask third parties for documentary proof that they take discrimination, privacy, security, and transparency seriously. And be on the lookout for signs of negligence, such as shoddy documentation, erratic software release cadences, lack of warranty, or unreasonably broad exceptions in terms of service or end-user license agreements (EULAs). You should also have contingency plans, including technical redundancies, incident response plans, and insurance covering third-party dependencies. Finally, don&#8217;t be shy about grading third-party vendors on a risk-assessment report card. Make sure these assessments happen over time, and not just at the beginning of the third-party contract. While these precautions may increase costs and delay your AI implementation in the short-term, they are the only way to mitigate third-party risks in your system consistently over time.</p>
+
+
+
+<h4>Looking Ahead</h4>
+
+
+
+<p>Several U.S. states and federal agencies have telegraphed their intentions regarding the future regulation of AI. Three of the broadest efforts to be aware of include the <a href="https://www.theverge.com/2019/4/10/18304960/congress-algorithmic-accountability-act-wyden-clarke-booker-bill-introduced-house-senate">Algorithmic Accountability Act</a>, the FTC’s AI guidance, and the CPRA. Numerous other industry-specific guidance documents are being drafted, such as the FDA’s proposed <a href="https://www.fda.gov/media/122535/download?mod=article_inline">framework</a> for AI in medical devices and FINRA’s <a href="https://www.finra.org/sites/default/files/2020-06/ai-report-061020.pdf"><em>Artificial Intelligence (AI) in the Securities Industry</em></a>. Furthermore, other countries are setting examples for U.S. policymakers and regulators to follow. <a href="https://www.priv.gc.ca/en/about-the-opc/what-we-do/consultations/completed-consultations/consultation-ai/reg-fw_202011/">Canada</a>, <a href="https://www.europarl.europa.eu/doceo/document/TA-9-2020-0276_EN.pdf">the European Union</a>, <a href="https://www.pdpc.gov.sg/Help-and-Resources/2020/01/Model-AI-Governance-Framework">Singapore</a>, and the <a href="https://ico.org.uk/about-the-ico/news-and-events/ai-blog-an-overview-of-the-auditing-framework-for-artificial-intelligence-and-its-core-components/">United Kingdom</a>, among others, have all drafted or implemented detailed regulations for different aspects of AI and automated decision-making systems. In light of this government movement, and the growing public and government distrust of big tech, now is the perfect time to start minimizing AI system risk and prepare for future regulatory compliance.</p>
+
+                          </div>
+
+                        
+            <div class="post-radar-end">
+
+              
+                              <div class="radar-post-page-meta" >
+      Post topics: <a href="https://www.oreilly.com/radar/topics/ai/" title="Artificial Intelligence">Artificial Intelligence</a></div>              
+                              <div class="radar-post-page-meta" >
+      Post tags: <a href="https://www.oreilly.com/radar/tag/deep-dive/" title="Deep Dive">Deep Dive</a></div>              
+              <div class="radar-post-page-meta radar-post-page-meta-share">
+                Share:
+                <ul>
+                  <li>
+                    <a data-via="oreillymedia" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Seven Legal Questions for Data Scientists">Tweet</a>                  </li>
+                  <li>
+                    <div class="fb-share-button" data-href="https://www.oreilly.com/radar/seven-legal-questions-for-data-scientists" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>                  </li>
+                  <li>
+                    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+    <script type="IN/Share"></script>                  </li>
+                </ul>
+              </div>
+
+              <!-- Marketo -->
+<link rel="stylesheet" type="text/css" href="https://www.oreilly.com/radar/wp-content/themes/odot/files/mkto-multiform-subscribe-20190821.css">
+<script src="https://get.oreilly.com/js/forms2/js/forms2.min.js" type="text/javascript"></script>
+<div class="radar-newsletter inline-nls" id="newsletter">
+	<h2>Get the O’Reilly Artificial Intelligence Newsletter</h2>
+	<div class="newsletter-text">
+		<p>Receive weekly insight from industry insiders—plus exclusive content, offers, and more on the topic of AI.</p>
+		<a href="http://www.oreilly.com/emails/newsletters/?display=preview#ai" target="_blank" data-source="http://www.oreilly.com/emails/newsletters/?display=preview#ai">View sample newsletter</a>
+		<div class="mktoForm-email large -medium -small smallContainer">
+			<form class="mktoForm subscribe" data-formid="1114" data-forminstance="topicRow" data-formtopic="AI"></form>
+		</div>
+	</div>
+	<div class="newsletter-quote">
+		<blockquote>
+			<p>We&rsquo;re just at the beginning of an explosion of intelligent software.</p>
+			<footer>— <strong>Tim O&rsquo;Reilly</strong></footer>
+		</blockquote>
+	</div>
+	</div>
+<div class="radar-newsletter inline-nls" id="newsletter2">
+	<h2>Get the O’Reilly Artificial Intelligence Newsletter</h2>
+	<div class="newsletter-text">
+		<p>Receive weekly insight from industry insiders—plus exclusive content, offers, and more on the topic of AI.</p>
+		<a href="http://www.oreilly.com/emails/newsletters/?display=preview#ai" target="_blank" data-source="http://www.oreilly.com/emails/newsletters/?display=preview#ai">View sample newsletter</a>
+		<div class="mktoForm-email large -medium -small smallContainer">
+			<form class="mktoForm subscribe" data-formid="1114" data-forminstance="topicRow" data-formtopic="AI"></form>
+		</div>
+	</div>
+	</div>
+<script src="https://cdn.oreillystatic.com/assets/js/mkto-multiform-subscribe-20190814.js" type="text/javascript"></script>
+                
+              <script type="text/javascript" src="https://www.oreilly.com/radar/wp-content/themes/odot/files/cta-191118.js"></script>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+  
+<!-- twitter button script  -->
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="content">
+
+      <div class="footer-main" aria-label="company info">
+        <div class="footer-mainLeft">
+          <div class="footer-mainLeftOne">
+            <div class="footer-approach">
+              <h2 class="footer-header"><a href="https://www.oreilly.com/about/">About O’Reilly</a></h2>
+              <ul class="footer-links">
+                <li><a href="https://www.oreilly.com/work-with-us.html">Teach/write/train</a></li>
+                <li><a href="https://www.oreilly.com/careers/">Careers</a></li>
+                <li><a href="https://www.oreilly.com/partner/signup.csp">Community partners</a></li>
+                <li><a href="https://www.oreilly.com/affiliates/">Affiliate program</a></li>
+                <li><a href="https://www.oreilly.com/online-learning/rfp.html">Submit an RFP</a></li>
+                <li><a href="https://www.oreilly.com/diversity/">Diversity</a></li>
+                <li><a href="https://www.oreilly.com/content-marketing-solutions.html" id="footerSponsorshipLink">O&rsquo;Reilly for marketers</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-mainLeftTwo">
+            <div class="footer-contact">
+              <h2 class="footer-header"><a href="https://www.oreilly.com/online-learning/support/">Support</a></h2>
+
+              <ul class="footer-links">
+                <li><a href="https://www.oreilly.com/about/contact.html">Contact us</a></li>
+                <li><a href="https://www.oreilly.com/emails/newsletters/">Newsletters</a></li>
+                <li><a href="https://www.oreilly.com/privacy.html">Privacy policy</a></li>
+              </ul>
+            
+              <a href="https://twitter.com/oreillymedia" target="_blank"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve"><style type="text/css">.st0{fill:#ee0000;}.st1{fill:#FFFFFF;}</style><g id="Red"><circle class="st0" cx="200" cy="200" r="200"/></g><g id="Logo__x2014__FIXED"><path class="st1" d="M163.4,305.5c88.7,0,137.2-73.5,137.2-137.2c0-2.1,0-4.2-0.1-6.2c9.4-6.8,17.6-15.3,24.1-25 c-8.6,3.8-17.9,6.4-27.7,7.6c10-6,17.6-15.4,21.2-26.7c-9.3,5.5-19.6,9.5-30.6,11.7c-8.8-9.4-21.3-15.2-35.2-15.2 c-26.6,0-48.2,21.6-48.2,48.2c0,3.8,0.4,7.5,1.3,11c-40.1-2-75.6-21.2-99.4-50.4c-4.1,7.1-6.5,15.4-6.5,24.2 c0,16.7,8.5,31.5,21.5,40.1c-7.9-0.2-15.3-2.4-21.8-6c0,0.2,0,0.4,0,0.6c0,23.4,16.6,42.8,38.7,47.3c-4,1.1-8.3,1.7-12.7,1.7 c-3.1,0-6.1-0.3-9.1-0.9c6.1,19.2,23.9,33.1,45,33.5c-16.5,12.9-37.3,20.6-59.9,20.6c-3.9,0-7.7-0.2-11.5-0.7 C110.8,297.5,136.2,305.5,163.4,305.5"/></g></svg></a>
+              <a href="https://www.facebook.com/OReilly/" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>facebook-logo</title><path class="cls-1" d="M16.13,0A16.13,16.13,0,1,0,32.25,16.12,16.13,16.13,0,0,0,16.13,0Zm5.12,9.54H19.57a1.52,1.52,0,0,0-1.51,1.51v1.14h3.19v3.42H18.06V26.12H13.57V15.61H10.69V12.19h2.88v-2a4,4,0,0,1,4-4h3.65Z"/></svg></a>
+              <a href="https://www.linkedin.com/company/oreilly-media" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>linkedin-logo</title><path class="cls-1" d="M17.43,13.53v0l0,0ZM16.12,0A16.13,16.13,0,1,0,32.25,16.12,16.12,16.12,0,0,0,16.12,0ZM11.77,22.92H8.12v-11h3.65ZM9.94,10.44h0a1.89,1.89,0,0,1-2-1.89A1.91,1.91,0,0,1,10,6.65a1.9,1.9,0,1,1,0,3.79Zm15,12.48H21.28V17.05c0-1.48-.53-2.49-1.85-2.49a2,2,0,0,0-1.88,1.34,2.63,2.63,0,0,0-.12.89v6.13H13.79s.05-10,0-11h3.64V13.5a3.63,3.63,0,0,1,3.29-1.82c2.4,0,4.21,1.57,4.21,4.95Z"/></svg></a>
+              <a href="https://www.youtube.com/user/OreillyMedia" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>youtube-logo</title><path class="cls-1" d="M18.35,18.68a.89.89,0,0,0-.86.63V16.94h-1v7.59h1v-.59a.92.92,0,0,0,.89.74c.52,0,.86-.36,1-1.07a8.56,8.56,0,0,0,.14-1.9,10.47,10.47,0,0,0-.12-1.93C19.21,19.05,18.87,18.68,18.35,18.68Zm.09,4.14c-.05.52-.2.77-.45.77s-.43-.21-.49-.63a7.22,7.22,0,0,1,0-1c0-.72,0-1.14,0-1.26.07-.58.23-.88.51-.88s.4.27.46.79c0,.09,0,.47,0,1.13S18.46,22.71,18.44,22.82ZM8.61,18.19H9.86v6.34H11V18.19H12.2V16.94H8.61Zm7.71-6.12c.27,0,.43-.22.49-.66,0-.09,0-.45,0-1.07V9.78c0-.58,0-.93,0-1-.07-.43-.23-.65-.48-.65s-.41.19-.48.57a8.79,8.79,0,0,0,0,1v.53c0,.71,0,1.09,0,1.16C15.88,11.82,16.05,12.07,16.32,12.07Zm-1.74,10.4a2.92,2.92,0,0,1-.06.71c-.07.25-.2.37-.4.37s-.32-.11-.38-.34a2.63,2.63,0,0,1-.05-.66V18.83h-1v4.48c0,.91.33,1.37,1,1.37A1,1,0,0,0,14.6,24v.57h1v-5.7h-1Zm7.1-3.79a1.35,1.35,0,0,0-1.22.59,2.48,2.48,0,0,0-.3,1.07c0,.23,0,.61,0,1.16s0,1.13,0,1.37a2.93,2.93,0,0,0,.35,1.27,1.25,1.25,0,0,0,1.14.54,1.36,1.36,0,0,0,1.13-.45,2.29,2.29,0,0,0,.37-1.43s0-.07,0-.11v-.12h-1c0,.75-.17,1.12-.51,1.12s-.38-.18-.45-.56a4.68,4.68,0,0,1-.06-.9c0-.18,0-.31,0-.37h2v-.43a4.86,4.86,0,0,0-.3-2.11A1.28,1.28,0,0,0,21.68,18.68ZM22.15,21h-1c0-.05,0-.11,0-.16v-.08a1.64,1.64,0,0,1,.11-.8.39.39,0,0,1,.38-.23.42.42,0,0,1,.43.33,2.32,2.32,0,0,1,.07.7Zm-6-21A16.13,16.13,0,1,0,32.25,16.12,16.12,16.12,0,0,0,16.12,0Zm2.51,7.2h1V11a2.52,2.52,0,0,0,.06.66c.06.23.18.34.38.34s.34-.12.41-.37a3.76,3.76,0,0,0,.05-.71V7.2h1v5.74h-1v-.57a1,1,0,0,1-.93.72c-.66,0-1-.46-1-1.38ZM15,8a1.29,1.29,0,0,1,1.33-.92A1.3,1.3,0,0,1,17.65,8a6.77,6.77,0,0,1,.23,2.1,6.77,6.77,0,0,1-.23,2.1,1.3,1.3,0,0,1-1.32.92A1.29,1.29,0,0,1,15,12.17a6.77,6.77,0,0,1-.23-2.1A6.86,6.86,0,0,1,15,8ZM11.45,5.3l.89,2.87.88-2.87H14.4L12.88,9.7v3.24h-1.1V9.7L10.24,5.3ZM24.93,23.91a3,3,0,0,1-3,3h-12a3,3,0,0,1-3-3V18.05a3,3,0,0,1,3-3h12a3,3,0,0,1,3,3Z"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-download" id="download-info">
+          <h2 class="footer-header">Download the O&rsquo;Reilly App</h2>
+
+          <p>Take O&rsquo;Reilly with you and learn anywhere, anytime on your phone <span class="nowrap">and tablet.</span></p>
+
+          <div class="footer-downloadLinks">
+            <a href="https://itunes.apple.com/us/app/safari-to-go/id881697395"><img src="https://cdn.oreillystatic.com/oreilly/images/app-store-logo.png" alt="Apple app store" /></a>
+            <a href="https://play.google.com/store/apps/details?id=com.safariflow.queue"><img src="https://cdn.oreillystatic.com/oreilly/images/google-play-logo.png" alt="Google play store" /></a>
+          </div>
+        </div>
+        
+        <div class="footer-download" id="tv-info">
+          <h2 class="footer-header">Watch on your big screen</h2>
+
+          <p>View all O&rsquo;Reilly videos, Superstream events, and Meet the Expert sessions on your <span class="nowrap">home TV.</span></p>
+
+          <div class="footer-downloadLinks">
+            <a href="https://channelstore.roku.com/details/c8a2d0096693eb9455f6ac165003ee06/oreilly"><img src="https://cdn.oreillystatic.com/oreilly/images/roku-tv-logo.png" alt="Roku Payers and TVs" /></a>
+            <a href="https://www.amazon.com/OReilly-Media-Inc/dp/B087YYHL5C/ref=sr_1_2?dchild=1&keywords=oreilly&qid=1604964116&s=mobile-apps&sr=1-2"><img src="https://cdn.oreillystatic.com/oreilly/images/amazon-appstore-logo.png" alt="Amazon appstore" /></a>
+          </div>
+        </div>
+        
+        <div class="footer-donotsell" id="donotsell-info">
+          <h2 class="footer-header"><a href="https://www.oreilly.com/privacy.html?donotsell=show">Do not sell my personal information</a></h2>
+        </div>
+      </div>
+
+      <div class="footer-subfooter">
+
+        <a href="https://www.oreilly.com/" title="home page" aria-current="page">
+          <img 
+          class="footer-subfooterLogo" 
+          id="footer-subfooterLogo"
+          src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg" 
+          onerror="this.src='https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red_@2x.png'; this.onerror=null;" 
+          alt="O'Reilly home">
+        </a>
+
+        <p>&copy; 2021, O&rsquo;Reilly Media, Inc.  All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+        <p><a href="https://www.oreilly.com/terms/">Terms of service</a> • <a href="https://www.oreilly.com/privacy.html">Privacy policy</a> • <a href="https://www.oreilly.com/about/editorial_independence.html">Editorial independence</a></p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- <script src="https://cdn.oreillystatic.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    		<style type="text/css">
+			.ssp-wave wave wave {
+				background: #00d4f7 !important;
+			}
+		</style>
+		<script type='text/javascript' src='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/js/media.player.js?ver=1.20.10'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/js/html5.player.js?ver=1.20.10'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/wp-embed.min.js?ver=5.3.9'></script>
+
+  <script>
+  (function($) {
+    //Toggle isActive and mobileHidden classes for mobileNavButton
+    $('nav #mobileNavButton').on('click', function() {
+      var expanded = $(this).attr('aria-expanded') === 'true' || false;
+      $(this).attr('aria-expanded', !expanded);
+      $(this).toggleClass("isActive");
+      $(this).next().toggleClass("mobileHidden");
+    });
+
+    //Toggle isFocused class for keyboard navigation of submenus
+    $('nav #menuList .menuList-subItem a').each(function(navItem) {
+      $(this).on('focus', function() {
+        $(this).parent().parent().toggleClass('isFocused');
+      });
+      $(this).on('blur', function() {
+        $(this).parent().parent().toggleClass('isFocused');
+      });
+    });
+
+    //Toggle mobileHidden class accordian elements
+    $('.mobileAccordian').each(function() {
+      var $btn = $(this).find('button');
+      var $target =  $(this).next();
+      $btn.on('click', function() {
+        var expanded = $btn.attr('aria-expanded') === 'true' || false;
+
+        $btn.attr('aria-expanded', !expanded);
+        $target.toggleClass("mobileHidden");  
+      });
+    });
+
+    // truncate months in footer conf listings
+    var months = $('.confMonth');
+    months.each(function(){    
+      var m = $(this).text();        
+      if(m.length < 3 ) return;
+      $(this).html(m.slice(0,3));
+    });
+
+    //Search platform form action
+    function searchSubmit(e) {
+      e.preventDefault();
+      sParameter = searchForm.search.value;
+      sParameter = encodeURIComponent(sParameter.trim());
+      sURL = searchForm.action + '?query=' + sParameter;
+      window.location = sURL;
+
+      //GA event for search
+      dataLayer.push({
+        'event': 'eventTracker',
+        'eventCat':'site search',
+        'eventAct':'search box',
+        'eventLbl':'explore our content',
+        'eventVal':0, 
+        'nonInteraction': 0,
+      });
+    }
+    const searchForm = document.getElementById('js-searchForm');
+    searchForm.addEventListener('submit', searchSubmit);
+
+    //Search button action
+    function showNavSearch(e) {
+      $('.menuList-item-search').addClass('overlay');
+      $('.menuList-item-search input#search').focus();
+    }
+    const searchButton = document.getElementById('js-searchButton');
+    searchButton.addEventListener('click', showNavSearch);
+
+
+    //Close search button action
+    function hideNavSearch(e) {
+      $('.menuList-item-search').removeClass('overlay');
+    }
+    const searchCloseButton = document.getElementById('js-searchCloseButton');
+    searchCloseButton.addEventListener('click', hideNavSearch);
+  })(jQuery);
+  </script>
+
+
+  <script type="text/javascript" id="MathJax-script">
+
+    var math = document.getElementsByClassName('math-tex');
+    if (math.length > 0) includeMathJax();
+    function includeMathJax() {
+      var head = document.getElementsByTagName('head')[0];
+      var script = document.createElement('script');
+      script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+      script.type = 'text/javascript';
+      script.async = 'async';
+      head.appendChild(script)
+    }   
+  </script>
+  </body>
+</html>

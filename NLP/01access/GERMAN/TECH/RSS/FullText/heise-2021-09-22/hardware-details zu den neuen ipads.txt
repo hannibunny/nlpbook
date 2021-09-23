@@ -1,0 +1,60 @@
+
+    Hardware-Details zu den neuen iPads
+  
+        Apple hält sich wie üblich bedeckt, was die RAM-Ausstattung seiner Tablets anbelangt. Nun sind genauere Informationen durchgesickert.
+      
+      
+        Das iPad mini 6 liefert ein vollflächiges Display. Touch ID sitzt im Sleep/Wake-Knopf.
+      
+    Endlich hat Apple sich erbarmt und sein iPad mini auf einen technisch aktuellen Stand gebracht. Das kompakte Tablet kommt nun mit einem 8,3 Zoll großen, vollflächigen Bildschirm, Apples aktuellem A15-SoC, einer 12-Megapixel-Kamera vorne und hinten und weiteren interessanten Neuerungen wie der Unterstützung des Apple Pencil 2. Der Hersteller nennt allerdings einmal mehr nicht alle Details zur Hardware. Die sickern nun durch.So gönnt Apple dem iPad mini 6 offenbar etwas mehr RAM, wie MacRumors erfahren hat. Statt 3 GByte wie beim Vormodell mit altem Design und A12-SoC sollen es nun immerhin 4 GByte sein. Das entspricht dem RAM-Ausbau des aktuellen iPad Air 4, das dem iPad mini 6 wohl als Vorbild gedient hat – etwa bei der Verwendung eines kompakten Touch-ID-Fingerabdrucksensors im Sleep/Wake-Knopf. Apple liefert allerdings bei anderen Modellen mittlerweile signifikant mehr Hauptspeicher. So kann man das iPad Pro M1 mittlerweile mit bis zu 16 GByte RAM bestellen, was wirklich für Profi-Anwendungen reichen sollte. Der 5G-Funkchip im iPad mini 6 unterstützt im Gegensatz zum aktuellen iPad Pro kein mmWave, was allerdings sowieso nur in den USA funktioniert(e).RAM-Details gibt es nun auch zum iPad der neunten Generation. Apples Einsteiger-Tablet mit 10,2 Zoll, dessen Design sich nicht verändert hat, dafür nun aber mit A13-SoC (aus dem iPhone 11) kommt, bleibt laut dem Bericht bei 3 GByte RAM. Alle Angaben beruhen auf Infos, die sich aus der aktuellen Betaversion von Apples Entwicklungsumgebung Xcode 13 auslesen lassen, so MacRumors. Diese hatten sich in der Vergangenheit als zuverlässig erwiesen.Das iPad mini 6 ist aktuell bereits vorbestellbar, die Lieferzeiten sind aber längst in den Oktober gerutscht. Das Modell wird in den zwei Speichergrößen 64 und 256 GByte angeboten, zudem kann man zwischen WLAN und 5G wählen. Apple bietet vier Farben: Spacegrau, Rosé, Violett und "Polarstern". Die Hardware wiegt mit 5G maximal 297 Gramm. Passende Hüllen bietet Apple auch, allerdings keine Tastaturen aus der Magic-Keyboard-Serie – die wären dem Hersteller wohl zu klein geworden.
+
+
+(bsc)
+
+
+
+  Mac & i
+
+
+      Newsletter
+      
+
+    Mac & i informiert Sie täglich über alles Wichtige rund um Mac, iPhone und Apple Watch.
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

@@ -1,0 +1,691 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="typepad-standard" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+        <!-- head-common-individual -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="generator" content="http://www.typepad.com/" />
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+        
+        <meta name="description" content="by Hong Ooi I’m happy to announce that version 2.0 of Microsoft365R, the R interface to Microsoft 365, is now on CRAN! This version adds support for Microsoft Teams, a much-requested feature. To access a team in Microsoft Teams, use the get_team() function and provide the team name or ID. You can also list the teams you’re in with list_teams(). These return objects of R6 class ms_team, which has methods for working with channels and drives. list_teams() team &lt;- get_team(&quot;My team&quot;) # list the channels in a team (including your private channels) team$list_channels() # get the primary channel for a..." />
+
+    <link rel="canonical" href="https://blog.revolutionanalytics.com/2021/03/teams-support-in-microsoft365r.html" />
+
+
+
+
+        <link rel="stylesheet" href="https://blog.revolutionanalytics.com/styles.css?v=6" type="text/css" media="screen" />
+        <link rel="stylesheet" href="https://static.typepad.com/.shared/themes/common/print.css" type="text/css" media="print" />
+
+
+<link rel="stylesheet" href="https://static.typepad.com/.shared/css/featherlight-gallery.css">
+
+        <link rel="alternate" type="application/atom+xml" title="Posts on 'Revolutions' (Atom)" href="https://blog.revolutionanalytics.com/atom.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Posts on 'Revolutions' (RSS 1.0)" href="https://blog.revolutionanalytics.com/index.rdf" />
+        <link rel="alternate" type="application/rss+xml" title="Posts on 'Revolutions' (RSS 2.0)" href="https://blog.revolutionanalytics.com/rss.xml" />
+        <script type="text/javascript">
+                var TPApp = {};
+                TPApp.app_uri = "https://www.typepad.com/";
+        </script>
+        <script type="text/javascript" src="https://static.typepad.com/.shared/js/yui/yahoo-dom-event.js,/js/app/thumbnail-gallery-min.js"></script>
+
+<!--- head google analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-225723-36', 'auto', {'name': 'Typepad'}, {'allowLinker': true} );  // Separate tracker for Typepad.
+ga('Typepad.require', 'linker');
+ga('Typepad.linker:autoLink', ['none']);
+ga('Typepad.set', 'dimension1', '6a010534b1db25970b010536040741970b');
+ga('Typepad.set', 'dimension2', 'Individual');
+ga('Typepad.send', 'pageview');
+</script>
+
+
+
+<meta property="og:title" content="Teams support in Microsoft365R" />
+<meta property="og:site_name" content="Revolutions" />
+<meta property="og:type" content="blog" />
+<meta property="og:url" content="https://blog.revolutionanalytics.com/2021/03/teams-support-in-microsoft365r.html" />
+<meta property="og:description" content="by Hong Ooi I’m happy to announce that version 2.0 of Microsoft365R, the R interface to Microsoft 365, is now on CRAN! This version adds support for Microsoft Teams, a much-requested feature. To access a team in Microsoft Teams, use the get_team() function and provide the team name or ID. You can also list the teams you’re in with list_teams(). These return objects of R6 class ms_team, which has methods for working with channels and drives. list_teams() team &lt;- get_team(&quot;My team&quot;) # list the channels in a team (including your private channels) team$list_channels() # get the primary channel for a..." />
+<meta property="fb:admins" content="" />
+<meta property="fb:app_id" content="55753818692" />
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="">
+<meta name="twitter:creator" content="">
+<meta name="twitter:title" content="Teams support in Microsoft365R">
+<meta name="twitter:description" content="by Hong Ooi I’m happy to announce that version 2.0 of Microsoft365R, the R interface to Microsoft 365, is now on CRAN! This version adds support for Microsoft Teams, a much-requested feature. To access a team in Microsoft Teams, use the get_team() function and provide the team name or ID. You can also list the teams you’re in with list_teams(). These return objects of R6 class ms_team, which has methods for working with channels and drives. list_teams() team &lt;- get_team(&quot;My team&quot;) # list the channels in a team (including your private channels) team$list_channels() # get the primary channel for a...">
+
+
+
+        <link rel="alternate" type="application/atom+xml" title="Comments on 'Teams support in Microsoft365R' (Atom)" href="https://blog.revolutionanalytics.com/2021/03/teams-support-in-microsoft365r/comments/atom.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Comments on 'Teams support in Microsoft365R' (RSS 2.0)" href="https://blog.revolutionanalytics.com/2021/03/teams-support-in-microsoft365r/comments/rss.xml" />
+        <title>Teams support in Microsoft365R (Revolutions)</title>
+        <link rel="start" href="https://blog.revolutionanalytics.com/" title="Home" />
+        <link rel="prev" href="https://blog.revolutionanalytics.com/2021/02/microsoft365r.html?no_prefetch=1" title="Microsoft365R: an R interface to the Microsoft 365 suite" />
+        <link rel="next" href="https://blog.revolutionanalytics.com/2021/03/outlook-client-in-microsoft365r-beta.html?no_prefetch=1" title="Outlook client support in Microsoft365R available for beta test" />
+
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+
+
+
+<body class="layout-two-column-right post">
+	
+	<div id="container" class="container">
+		<div id="container-inner" class="pkg">
+			
+                <div class="row">
+     
+
+
+<a id="home"></a>
+   
+
+<!-- banner -->
+<div id="banner">
+	<div id="banner-inner" class="pkg">
+		
+		<h1 id="banner-header"><a href="https://blog.revolutionanalytics.com/" accesskey="1">Revolutions</a></h1>
+		<h2 id="banner-description">
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		</h2>
+	</div>
+</div>
+
+
+
+
+
+
+			<div id="pagebody">
+
+
+				<div id="pagebody-inner" class="pkg">
+                                        <div id="alpha">
+						<div id="alpha-inner" class="pkg">
+							<!-- the plain version removes the extra jquery -->
+<!-- content nav -->
+<p class="content-nav">
+	<a class="content-nav-prev" href="https://blog.revolutionanalytics.com/2021/02/microsoft365r.html">&laquo; Microsoft365R: an R interface to the Microsoft 365 suite</a> |
+	<a class="content-nav-main" href="https://blog.revolutionanalytics.com/">Main</a>
+	| <a class="content-nav-next" href="https://blog.revolutionanalytics.com/2021/03/outlook-client-in-microsoft365r-beta.html">Outlook client support in Microsoft365R available for beta test &raquo;</a>
+</p>
+<script type="text/javascript">
+   $(function(){
+       var query = window.location.search.substring(1);
+       if( query == "pintix=1" ) {
+          var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','https://static.typepad.com/.shared//js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e);
+       }
+   });
+</script>
+<!-- entry -->
+
+	<h2 class="date-header">March 10, 2021</h2>
+
+
+<div class="entry-category-microsoft entry-category-packages entry-category-r entry-author-hong_ooi entry-type-post entry" id="entry-6a010534b1db25970b0263e9949903200b">
+   <div class="entry-inner">
+			<h3 class="entry-header">Teams support in Microsoft365R</h3>
+	
+
+
+
+	<div class="entry-content">
+		<div class="entry-body">
+			<p><em>by Hong Ooi</em></p>
+<p>I’m happy to announce that version 2.0 of <a href="https://github.com/Azure/Microsoft365R">Microsoft365R</a>, the R interface to <a href="https://docs.microsoft.com/microsoft-365/?view=o365-worldwide&amp;WT.mc_id=aiml-19889-davidsmi">Microsoft 365</a>, is now <a href="https://cran.r-project.org/package=Microsoft365R">on CRAN</a>! This version adds support for <a href="https://docs.microsoft.com/MicrosoftTeams/deploy-apps-microsoft-teams-landing-page?WT.mc_id=aiml-19889-davidsmi">Microsoft Teams</a>, a much-requested feature.</p>
+<p>To access a team in Microsoft Teams, use the <code>get_team()</code> function and provide the team name or ID. You can also list the teams you’re in with <code>list_teams()</code>. These return objects of R6 class <code>ms_team</code>, which has methods for working with channels and drives.</p>
+<pre class="r"><code class="hljs">list_teams()
+team &lt;- get_team(<span class="hljs-string">&quot;My team&quot;</span>)
+
+<span class="hljs-comment"># list the channels in a team (including your private channels)</span>
+team$list_channels()
+
+<span class="hljs-comment"># get the primary channel for a team</span>
+team$get_channel()
+
+<span class="hljs-comment"># get a specific channel</span>
+team$get_channel(<span class="hljs-string">&quot;My channel&quot;</span>)
+
+<span class="hljs-comment"># drives for a team</span>
+team$list_drives()
+team$get_drive()</code></pre>
+<p>A drive is an <code>ms_drive</code> object, so if you’re already using Microsoft365R to interface with OneDrive and SharePoint document libraries, you already know how to use a team’s drives. Each team will generally have at least one drive, and possibly two: the default “Shared Documents” drive, which is where uploaded files are stored, and the “Teams Wiki Data” drive, if the team has a wiki. Each team channel will usually also have an associated folder in each drive.</p>
+<pre class="r"><code class="hljs">drv &lt;- team$get_drive()
+
+<span class="hljs-comment"># one folder per channel</span>
+drv$list_files()
+
+<span class="hljs-comment"># upload will appear in Files tab of &quot;My channel&quot; in the Teams client</span>
+drv$upload_file(<span class="hljs-string">&quot;myfile.csv&quot;</span>, <span class="hljs-string">&quot;My channel/myfile.csv&quot;</span>)</code></pre>
+<div class="section level2" id="channels">
+<h2>Channels</h2>
+<p>A team object has methods for listing, retrieving, creating and deleting channels. However you should not create and delete channels unnecessarily, since Teams tracks all channels ever created, even after you delete them. In turn, a channel object has methods for listing and sending messages, and uploading and deleting files.</p>
+<div class="section level3" id="channel-messages">
+<h3>Channel messages</h3>
+<p>Teams channels are semi-threaded. Getting the list of messages for a channel retrieves only the first message in each thread; to get an entire thread, you get the starting message and then retrieve the replies to it. Note that channels don’t have nested replies, so you can’t reply to a reply—only to the starting message.</p>
+<p>The body of a message is part of the list of properties returned from the host, and can be found in the <code>properties</code> field of the object. Other properties include metadata such as the author, date, list of attachments, etc.</p>
+<pre class="r"><code class="hljs">chan &lt;- team$get_channel()
+
+<span class="hljs-comment"># retrieve most recent messages from the server</span>
+msgs &lt;- chan$list_messages()
+
+<span class="hljs-comment"># get the latest message by ID</span>
+msg &lt;- chan$get_message(msgs[[<span class="hljs-number">1</span>]]$properties$id)
+
+<span class="hljs-comment"># body of the message</span>
+msg$properties$body
+
+<span class="hljs-comment"># 10 most recent replies</span>
+repl_list &lt;- msg$list_replies(n=<span class="hljs-number">10</span>)
+
+<span class="hljs-comment"># body of an individual reply</span>
+repl_list[[<span class="hljs-number">1</span>]]$properties$body</code></pre>
+<p>You can send a message to a channel as plain text (the default) or HTML. A message can also include attachments and inline images.</p>
+<pre class="r"><code class="hljs"><span class="hljs-comment"># sending messages to a channel</span>
+chan$send_message(<span class="hljs-string">&quot;Hello from R&quot;</span>)
+chan$send_message(
+    <span class="hljs-string">&quot;&lt;div&gt;Hello from &lt;em&gt;R&lt;/em&gt;&lt;/div&gt;&quot;</span>, content_type=<span class="hljs-string">&quot;html&quot;</span>)
+
+<span class="hljs-comment"># attachments and inline images</span>
+chan$send_message(<span class="hljs-string">&quot;Hello with attachments&quot;</span>,
+    attachments=c(<span class="hljs-string">&quot;intro.md&quot;</span>, <span class="hljs-string">&quot;myfile.csv&quot;</span>))
+chan$send_message(<span class="hljs-string">&quot;&quot;</span>,
+    content_type=<span class="hljs-string">&quot;html&quot;</span>, inline=<span class="hljs-string">&quot;graph.png&quot;</span>)
+
+<span class="hljs-comment"># send a reply to a message</span>
+msg &lt;- chan$send_message(<span class="hljs-string">&quot;Starting a new thread in R&quot;</span>)
+msg$send_reply(<span class="hljs-string">&quot;Reply from R&quot;</span>)</code></pre>
+<p>Currently, Microsoft365R only supports messaging in channels. Support for chats between individuals may come later.</p>
+</div>
+<div class="section level3" id="channel-files">
+<h3>Channel files</h3>
+<p>Uploading a file to a channel will place it in the channel’s drive folder. The channel object itself provides convenience functions to list, upload and download files. It also provides a <code>get_folder()</code> method to retrieve the folder for the channel, as an <code>ms_drive_item</code> object; this object has more general methods for working with files.</p>
+<pre class="r"><code class="hljs"><span class="hljs-comment"># files for the channel</span>
+chan$list_files()
+
+<span class="hljs-comment"># upload a file to the channel</span>
+chan$upload_file(<span class="hljs-string">&quot;myfile.docx&quot;</span>)
+
+<span class="hljs-comment"># open the uploaded document for editing in Word Online</span>
+chan_folder &lt;- chan$get_folder()
+item &lt;- chan_folder$get_item(<span class="hljs-string">&quot;myfile.docx&quot;</span>)
+item$open()
+
+<span class="hljs-comment"># download it again</span>
+item$download(overwrite=<span class="hljs-literal">TRUE</span>)</code></pre>
+<h2>Providing Feedback</h2>
+<p>Let us know how this works for you! You can provide feedback and make feature requests by <a href="https://github.com/Azure/Microsoft365R/issues">opening an issue</a>&#0160;at the repo, or by emailing me at hongooi73 (@) gmail.com.</p>
+</div>
+</div>
+		</div>
+		
+
+                        <!-- SIGNATURE -->
+                        
+
+		
+	</div>
+
+	<div class="entry-footer">
+			<p class="entry-footer-info">
+				<span class="post-footers">Posted by <a rel="author" href="https://profile.typepad.com/6p01b8d158cece970c">Hong Ooi</a> at 09:30 in <a href="https://blog.revolutionanalytics.com/microsoft/">Microsoft</a>, <a href="https://blog.revolutionanalytics.com/packages/">packages</a>, <a href="https://blog.revolutionanalytics.com/r/">R</a> </span> <span class="separator">|</span> <a class="permalink" href="https://blog.revolutionanalytics.com/2021/03/teams-support-in-microsoft365r.html">Permalink</a>
+			</p>
+		
+		<!-- technorati tags -->
+
+
+		<!-- post footer links -->
+	<p class="entry-footer-share">
+		<span class="entry-footer-links-favorite"></span>
+	</p>
+
+
+	</div>
+   </div>
+</div>
+
+
+
+        
+        
+        <a id="comments"></a>
+	<div class="comments" id="all-comments">
+		<h3 class="comments-header">Comments</h3>
+					<div class="comments-info">
+				<p><a href="https://blog.revolutionanalytics.com/2021/03/teams-support-in-microsoft365r/comments/atom.xml"><img src="https://static.typepad.com/.shared/images/feed.png" alt="Feed" width="10" height="10" /></a> You can follow this conversation by subscribing to the <a href="https://blog.revolutionanalytics.com/2021/03/teams-support-in-microsoft365r/comments/atom.xml">comment feed</a> for this post.</p>
+			</div>
+		
+		<div class="comments-content" id="comments-content">
+                <!-- comment list --><a id="c6a010534b1db25970b0263e9979625200b"></a>
+<div class="comment font-entrybody comment-odd" id="comment-6a010534b1db25970b0263e9979625200b">
+	<div class="comment-content font-entrybody" id="comment-6a010534b1db25970b0263e9979625200b-content">
+		<span id="comment-6a010534b1db25970b0263e9979625200b-content"><p>Good job! :)<br />
+</p></span>
+	</div>
+	<p class="comment-footer font-entryfooter">
+		Posted by:
+		<a rel="nofollow" target="_blank" title="https://coolstorybro.pl/" href="https://coolstorybro.pl/">Adrew</a> |
+		<a rel="nofollow" href="https://blog.revolutionanalytics.com/2021/03/teams-support-in-microsoft365r.html?cid=6a010534b1db25970b0263e9979625200b#comment-6a010534b1db25970b0263e9979625200b">March 18, 2021 at 14:47</a>
+	</p>
+</div>
+
+		</div>
+        
+	</div>
+<script type="text/javascript">var c943723d42e77e9214eb884a1d898ea="</form>";</script>
+<script type="text/javascript">var ffe51c373e0873b7778b6324a0b5533 = '<form id="comment-form" action="';</script>
+<script type="text/javascript">var c943723d42e77e9214eb884a1d898za = '" method="post"><input type="hidden" name="entry_xid" id="comment-entry-xid" value="6a010534b1db25970b0263e9949903200b" \/><input type="hidden" name="token" value="1632317155-34153b057c1616053558af4f2f11a8630a0492e2:RCCi07HONZaicjqB" \/>';</script>
+<script type="text/javascript">var OOcd55d4dc47109d7b462b01c7dd4dab = "aHR0cHM6Ly9ibG9nLnJldm9sdXRpb25hbmFseXRpY3MuY29tLy5zZXJ2aWNlcy9jb21tZW50cw";</script>
+<script type="text/javascript">var bad4dd7c10b264b7d90174cd4d55dc00 = atob(OOcd55d4dc47109d7b462b01c7dd4dab);</script>
+
+<!-- comment-form-atp -->
+
+
+<p class="comments-closed font-entrybody">
+	The comments to this entry are closed.
+</p>
+
+
+
+
+
+    
+    
+
+
+
+
+						</div>
+					</div>
+                                        <div id="beta">
+						<div id="beta-inner" class="pkg">
+							
+<!-- sidebar -->
+
+
+	<div class="module-archives module">
+		<h2 class="module-header">Information</h2>
+		<div class="module-content">
+			<ul class="module-list">
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/about.html">About this blog</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/comments-policy.html">Comments Policy</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/categories.html">About Categories</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/authors.html">About the Authors</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/local-r-groups.html">Local R User Group Directory</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/tips-on-starting-an-r-user-group.html">Tips on Starting an R User Group</a></li>
+				
+			</ul>
+		</div>
+	</div>
+<!-- list_inlcude.tt  -->
+<div id="search_revolutions_blog" class="module-typelist module">
+<h2 class="module-header">Search Revolutions Blog</h2>
+	<div class="typelist-plain module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><div class="typelist-note"><form method="get" action="https://www.google.com/search">
+  <input type="hidden" name="ie" value="UTF-8" /> 
+  <input type="hidden" name="oe" value="UTF-8" />
+  <div style="background-color:white;"></div>
+   <input type="text" name="q" size="18" maxlength="255" value="" />
+  <input type="submit" name="btnG" value=" Search Blog " />
+   <br />
+<small>
+    <input type="hidden" name="domains" value="blog.revolutionanalytics.com" />
+<br />
+    <input type="hidden" name="sitesearch" value="blog.revolutionanalytics.com" checked="checked" />
+   <br /></small>
+</form>
+ <!-- SiteSearch Google --></div></li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+Got comments or suggestions for the blog editor? <br>
+Email <a href="mailto:davidsmi@microsoft.com">David Smith</a>.
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<a href="https://www.twitter.com/revodavid"><img src="https://twitter-badges.s3.amazonaws.com/t_small-b.png" alt="Follow revodavid on Twitter" /></a> Follow David on Twitter: <a href="https://twitter.com/revodavid">@revodavid</a>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+Get this blog via email with <a href="https://blogtrottr.com/?subscribe=http://blog.revolutionanalytics.com" title='Get this feed delivered by email'><img src='https://blogtrottr.com/images/icons/blogtrottr-button-91x17px.gif' alt='Blogtrottr' /></a>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<div class="module-categories module">
+	<h2 class="module-header"><a href="https://blog.revolutionanalytics.com/archives.html">Categories</a></h2>
+	<div class="module-content">
+                   <ul class="module-list">
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/academia/">academia <span class="category-count">(41)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/advanced-tips/">advanced tips <span class="category-count">(218)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/ai/">AI <span class="category-count">(62)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/airoundups/">airoundups <span class="category-count">(20)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/announcements/">announcements <span class="category-count">(200)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/applications/">applications <span class="category-count">(288)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/beginner-tips/">beginner tips <span class="category-count">(106)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/big-data/">big data <span class="category-count">(272)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/courses/">courses <span class="category-count">(60)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/current-events/">current events <span class="category-count">(126)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/data-science/">data science <span class="category-count">(227)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/developers/">developer tips <span class="category-count">(89)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/events/">events <span class="category-count">(280)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/finance/">finance <span class="category-count">(126)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/government/">government <span class="category-count">(25)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/graphics/">graphics <span class="category-count">(378)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/high-performance-computing/">high-performance computing <span class="category-count">(115)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/life-sciences/">life sciences <span class="category-count">(35)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/microsoft/">Microsoft <span class="category-count">(311)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/mlops/">mlops <span class="category-count">(4)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/open-source/">open source <span class="category-count">(78)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/other-industry/">other industry <span class="category-count">(58)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/packages/">packages <span class="category-count">(388)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/popularity/">popularity <span class="category-count">(54)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/predictive-analytics/">predictive analytics <span class="category-count">(163)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/profiles/">profiles <span class="category-count">(15)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/python/">python <span class="category-count">(69)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/r/">R <span class="category-count">(2439)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/r-is-hot/">R is Hot <span class="category-count">(8)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/random/">random <span class="category-count">(464)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/reviews/">reviews <span class="category-count">(22)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/revolution/">Revolution <span class="category-count">(422)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/rmedia/">Rmedia <span class="category-count">(136)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/roundups/">roundups <span class="category-count">(121)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/sports-1/">sports <span class="category-count">(55)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/statistics/">statistics <span class="category-count">(297)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/user-groups/">user groups <span class="category-count">(127)</span></a></li>
+</span>
+		</ul>
+
+<a style="font-size:85%;display:none;" class="cat-more" href="https://blog.revolutionanalytics.com/archives.html">See More</a>
+	</div>
+</div>
+<!-- list_inlcude.tt  -->
+<div id="r_links" class="module-typelist module">
+<h2 class="module-header">R links</h2>
+	<div class="module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><a href="https://docs.microsoft.com/azure/machine-learning/r-developers-guide?WT.mc_id=RevolutionsSidebar-blog-davidsmi" >R on Azure</a><br />Developer's guide and documentation</li>
+							<li class="module-list-item"><a href="https://mran.microsoft.com/packages/" >Find R packages</a><br />CRAN package directory at MRAN</li>
+							<li class="module-list-item"><a href="https://mran.microsoft.com/download" >Download Microsoft R Open</a><br />Free, high-performance R</li>
+							<li class="module-list-item"><a href="https://www.r-project.org">R Project site</a><br />Information about the R project</li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- list_inlcude.tt  -->
+<div id="recommended_sites" class="module-typelist module">
+<h2 class="module-header">Recommended Sites</h2>
+	<div class="module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><a href="https://twitter.com/rlangtip" >@RLangTip</a><br />Daily tips on using R</li>
+							<li class="module-list-item"><a href="https://flowingdata.com">FlowingData</a><br />Modern data visualization</li>
+							<li class="module-list-item"><a href="http://www.statisticsblog.com/" >Probability and statistics blog</a><br />Monte Carlo simulations in R</li>
+							<li class="module-list-item"><a href="http://www.r-bloggers.com" >R Bloggers</a><br />Daily news and tutorials about R, contributed by R bloggers worldwide.</li>
+							<li class="module-list-item"><a href="http://www.analyticbridge.com/group/rprojectandotherfreesoftwaretools" >R Project group on analyticbridge.com</a><br />Community and discussion forum</li>
+							<li class="module-list-item"><a href="http://www.stat.columbia.edu/~cook/movabletype/mlm/" >Statistical Modeling, Causal Inference, and Social Science</a><br />Andrew Gelman's statistics blog</li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- archives -->
+
+	<div class="module-archives module">
+		<h2 class="module-header"><a href="https://blog.revolutionanalytics.com/archives.html">Archives</a></h2>
+		<div class="module-content">
+			<ul class="module-list">
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/07/index.html">July 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/06/index.html">June 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/04/index.html">April 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/03/index.html">March 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/02/index.html">February 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/01/index.html">January 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/12/index.html">December 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/11/index.html">November 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/10/index.html">October 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/09/index.html">September 2020</a></li>
+				
+			</ul>
+		</div>
+	</div>
+
+<div class="module-syndicate module">
+	<div class="module-content">
+	<a href="https://blog.revolutionanalytics.com/atom.xml"><i class="fas fa-rss"></i> Subscribe to this blog's feed</a>
+	</div>
+</div>
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<script type="text/javascript">
+  var varAutoFirePV = 1;
+  var varClickTracking = 1;
+  var varCustomerTracking = 1;
+  var Route = "123865";
+  var Ctrl = "";
+  document.write("<script type='text/javascript' src='" + (window.location.protocol) + "//c.microsoft.com/ms.js'" + "'><\/script>");
+</script>​
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var firstTracker = _gat._getTracker("UA-6984166-10");
+firstTracker._setDomainName(".revolutionanalytics.com");
+firstTracker._setAllowLinker(true);
+firstTracker._setAllowHash(false);
+firstTracker._trackPageview();
+var secondTracker = _gat._getTracker("UA-6984166-9");
+secondTracker._setDomainName(".revolutionanalytics.com");
+secondTracker._setAllowLinker(true);
+secondTracker._setAllowHash(false);
+secondTracker._trackPageview();
+} catch (err) { }
+</script>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+</div> <!-- row -->
+			
+
+
+
+		</div>
+	</div>
+	
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+<!--
+var extra_happy = Math.floor(1000000000 * Math.random());
+document.write('<img src="https://www.typepad.com/t/stats?blog_id=1774446&amp;user_id=3164880&amp;page=' + escape(location.href) + '&amp;referrer=' + escape(document.referrer) + '&amp;i=' + extra_happy + '" width="1" height="1" alt="" style="position: absolute; top: 0; left: 0;" />');
+// -->
+</script>
+
+
+
+
+<!-- Begin disqus Tag -->
+
+<!-- End disqus Tag -->
+</body>
+</html>
+
+<!-- ph=1 -->

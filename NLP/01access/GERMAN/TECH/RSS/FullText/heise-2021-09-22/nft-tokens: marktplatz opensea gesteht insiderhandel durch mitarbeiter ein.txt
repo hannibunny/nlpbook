@@ -1,0 +1,57 @@
+
+    NFT-Tokens: Marktplatz Opensea gesteht Insiderhandel durch Mitarbeiter ein
+  
+        Ein Mitarbeiter des NFT-Marktplatzes Opensea soll sein Wissen über prominente Platzierungen von Tokenangeboten für eigenen Handel genutzt haben.
+      
+      (Bild: HollyHarry/Shutterstock.com)
+    Auf Opensea, einer der wichtigsten Handelsplattformen für NFT-Tokens, ist es zu einer Art von Insiderhandel gekommen. Wie Plattform-Chef Devin Finzer eingestand, habe einer seiner Mitarbeiter das Wissen darum ausgenutzt, wann bestimmte Tokens prominent auf der Open-Sea-Startseite platziert werden. Die nicht namentlich genannte Person habe dann die Tokens vor der Platzierung aufgekauft, wohl in der Hoffnung auf nachfolgende Wertsteigerungen.In seiner Mitteilung sprach Finzer von einer großen Enttäuschung und betonte, dass dieses Verhalten nicht den Werten seines Teams entspreche. Er habe eine Untersuchung des Falls durch Dritte beauftragt. Zudem würden neue Regeln festgelegt, laut denen die Opensea-Belegschaft keine Tokens aus laufenden Promotionaktionen kaufen oder verkaufen dürfe. Ferner solle ihnen auch untersagt sein, NFTs zu kaufen, über die sie vertrauliche Informationen haben.Zuvor hatte es auf Twitter Vorwürfe gegen Openseas derzeitigen Head of Product Nate Chastain gegeben, berichtet das Kryptogeldmagazin The Block. Warum scheine es so, dass Chastain mit einigen Wallets NFTs vor der Startseitenplatzierung aufkaufe und dann mitten im Hype mit gestiegenen Preisen verkaufe, fragte ein Nutzer unter Verweis auf Transaktionsdaten. Chastain sei als Besitzer eines Cryptopunk-NFTs bekannt, womit auch eine seiner Ethereum-Adressen publik ist. Das habe anderen ermöglicht, seine Transaktionen nachzuvollziehen und ihn unter Verdacht zu stellen, schreibt The Block.Opensea gehört im nach wie vor boomenden Geschäft mit NFTs zu den wichtigsten Plattformen. Eigenen Angaben nach wurden über den Marktplatz allein im vergangenen August Transaktionen im Wert von über 2,3 Milliarden US-Dollar abgewickelt. Ende Juli gab das Unternehmen auch eine neue Finanzierungsrunde mit 100 Millionen US-Dollar frischem Risikokapital bekannt, das man in weiteres Wachstum stecken will. Derzeit liegt die Bewertung des Start-ups bei 1,5 Milliarden US-Dollar.Nicht-fungible Tokens, kurz NFTs, sind Kryptogeld-Technik. Der Hash eines Datenpakets, das von der Urheberin oder dem Urheber der Originaldatei auf einer Blockchain-Infrastruktur mit ihrem private Key signiert wird, lässt sich mit solchen Tokens öffentlich nachvollziehbar verwalten. Die Idee dahinter ist die Schaffung digitaler Einzigartigkeit. Die Blockchainurkunde soll gewissermaßen der Nachweis sein, das virtuelle Original zu besitzen. Häufig wird für die Tokenisierung die Plattform Ethereum genutzt, die mit ERC-721 und ERC-1155 spezielle Standards für solche Tokens besitzt.
+
+          NFTs erklärt: Was die Kryptotoken ausmacht und wie man selbst welche erstellt
+        
+Ein NFT hindert allerdings niemanden daran, die damit verbundenen digitalen Inhalte einfach zu kopieren. Auch hat eine solche Urkunde in der Blockchain bislang keine Rechtsgültigkeit, die man irgendwo einklagen könnte. Dennoch sind die Tokens vor allem in der Kunstszene ein Millionengeschäft. Den bisherigen Rekord markiert die Auktion eines Digitalkunstwerks des Künstler Beepl, das für 69 Millionen US-Dollar über das Auktionshaus Christie's versteigert wurde. Für 5,4 Millionen US-Dollar wiederum kam bei Sotheby‘s auch schon ein NFT auf ein Datenpaket mit dem Quellcode des World Wide Web unter den Hammer. Vergangene Woche wurde eine NFT-Kollektion von 101 Affen-Cartoonbildern aus der digitalen Sammelbildreihe "Bored Apes Yacht Club“ für 24,4 Millionen US-Dollar über Sotheby's an nicht-genannte Bieter verkauft.
+
+  heise online
+
+
+      Newsletter
+      
+
+    Keine News verpassen! Jeden Morgen der frische Nachrichtenüberblick von heise online
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

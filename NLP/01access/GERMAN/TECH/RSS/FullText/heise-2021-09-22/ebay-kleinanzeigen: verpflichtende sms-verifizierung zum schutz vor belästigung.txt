@@ -1,0 +1,57 @@
+
+    Ebay-Kleinanzeigen: Verpflichtende SMS-Verifizierung zum Schutz vor Belästigung
+  
+        Ebay-Kleinanzeigen führt SMS-Verifizierung ein, um seine Nutzerinnen und Nutzer zu schützen – momentan freiwillig, in den kommenden Wochen verpflichtend.
+      
+      
+        SMS-Verifizierung in Ebay Kleinanzeigen
+      
+    
+      (Bild: Ebay Kleinanzeigen)
+    Sobald Ebay-Kleinanzeigen-Nutzer eine Anzeige aufgeben oder Verkäufer kontaktieren wollen, wird Ebay sie innerhalb der nächsten Wochen auffordern, ihre Telefonnummer anzugeben. Anschließend erhalten sie über die angegebene Nummer einen sechsstelligen SMS-Code zur Verifikation. Ziel ist es, die Nutzerinnen und Nutzer vor Belästigung und Kriminellen zu schützen.Schutz vor sexueller BelästigungZu den ersten fünf Kategorien, die eine SMS-Verifikation erfordern, gehören "Babysitter & Kinder", "Mini- & Nebenjobs", "Tierbetreuung & Training", "Nachhilfe" sowie "Praktika". Aufgrund vermeintlicher Anonymität werden laut dem Geschäftsführer des Portals, Paul Heimann, insbesondere Kinder, Jugendliche und junge Frauen auf der Plattform sexuell belästigt. Er erhofft sich von der Sicherheitsmaßnahme "positive Auswirkungen auf die Problematik sexueller Belästigung".In den ersten Wochen haben rund 250.000 Nutzerinnen und Nutzer von der SMS-Verifizierung Gebrauch gemacht. Mittelfristig will Ebay-Kleinanzeigen alle Nutzerkonten – inklusive die der Bestandskunden – auf SMS-Verifikation umstellen. Für die Verifizierung sind ausschließlich Rufnummern aus EU-Mitgliedsstaaten zugelassen.Ende 2020 hatte das Kartellamt den milliardenschweren Verkauf von Ebay-Kleinanzeigen an Adevinta, den weltweit größten Betreiber von Online-Kleinanzeigenportalen freigegeben. Adevinta hatte bereits in der Vergangenheit einige Modernisierungsmaßnahmen eingeleitet, zum Beispiel die Funktion "Sicher bezahlen". Außerdem will sich Ebay-Kleinanzeigen jetzt von seinem ehemaligen Mutterkonzern Ebay freimachen.
+
+  heise online
+
+
+      Newsletter
+      
+
+    Keine News verpassen! Jeden Morgen der frische Nachrichtenüberblick von heise online
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

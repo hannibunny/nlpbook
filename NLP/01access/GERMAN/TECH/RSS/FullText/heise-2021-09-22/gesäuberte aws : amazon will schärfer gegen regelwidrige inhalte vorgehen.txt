@@ -1,0 +1,58 @@
+
+    Gesäuberte AWS : Amazon will schärfer gegen regelwidrige Inhalte vorgehen
+  
+        Amazon will, dass der Content der Kunden den AWS-Richtlinien nicht widerspricht. Doch mit dem geplanten proaktiven Vorgehen begibt sich Amazon in ein Dilemma.
+      
+      (Bild: Ioan Panaite/Shutterstock.com)
+    Amazon wird künftig offenbar stärker gegen Inhalte auf seiner Cloud vorgehen, die gegen die Richtlinien der Amazon Web Services (AWS) verstoßen, etwa Aufrufe zur Gewalt. Dies berichtet die Nachrichtenagentur Reuters am Donnerstag unter Berufung auf zwei nicht näher genannte Quellen. Amazon könnte damit weltweit mehr Einfluss nehmen, welche Inhalte im Internet sichtbar sind und als weltweit größter Cloud-Anbieter die freie Meinungsäußerung beeinflussen.Zunächst wolle Amazon ein Team innerhalb der AWS aufstellen, das zusammen mit externen Wissenschaftlern Fachwissen entwickeln soll, wie künftige Regelverletzungen überwacht und ihnen proaktiv begegnet werden können, heißt es von Reuters in Bezug auf eine mit der Angelegenheit vertraute Quelle.Ganz neu ist der proaktive Ansatz, den Amazon AWS wohl nun stärker vorantreiben will, allerdings nicht. Bereits nach dem Aufstand vor dem US-Kapitol am 06. Januar hatte Amazon den bei AWS gehosteten Mikro-Blogging-Dienst Parler aus der Cloud verbannt, nachdem darüber Aufrufe zur Gewalt und Aufruhr stattgefunden hatten. Ende August hatte Amazon eine Website des Islamischen Staates vom Netz genommen, die dort extremistische Propaganda verbreitet hatte, wie die Washington Post berichtete.Diese Löschungen erfolgten aufgrund der geltenden Richtlinien, die die Nutzung Amazons Cloud-Dienste für illegale und betrügerische Aktivitäten wie Anstiftung zur Gewalt und sexuelle Ausbeutung von Kindern untersagt. Sofern ein Verstoß bekannt wird, sucht Amazon den Kontakt zum Kunden und fordert dazu auf, die Inhalte zu entfernen. Scheitern die Bemühungen, kann Amazon die entsprechende Website vom Netz nehmen.In vielen Fällen geschieht dies aber zu spät. Künftig wolle Amazon deshalb ein System einrichten, das den Machenschaften etwa extremistischer Gruppen zuvorkommen kann. Die Massen an Content, die über AWS gehostet werden, sollen dazu aber nicht gesichtet werden. Stattdessen sollen Mechanismen entwickeln werden, die vorzeitig feststellen, wann Desinformation auf einer AWS-gehosteten Website eine kritische Masse überschreitet.Offenbar will Amazon mit dieser proaktiven Vorgehensweise der Entwicklung vorbeugen, dass zunehmend nicht nur die Anbieter illegalen Contents verantwortlich gemacht werden, sondern zusätzlich die Unternehmen, die dafür die Infrastruktur zur Verfügung stellen. In solchen Fällen könnten die Cloud-Anbieter in die Kritik geraten und an Reputation einbüßen. Außerdem könnte es für Amazon rechtliche Konsequenzen haben, solche Gruppen indirekt zu unterstützen.Doch das geplante Vorgehen Amazons hat auch eine Schattenseite: Amazon dominiert den Cloud-Dienste-Markt nach Angaben des Marktforschungsunternehmens Gartner vom Juni 2021 mit einem Anteil von 40,8 Prozent weltweit. Erst danach folgen Microsoft mit 19,7 Prozent, Alibaba mit 9,5 Prozent und Google mit 6,1 Prozent. Kritiker befürchten nun, dass Amazon stärker bestimmen könnte, welche Inhalte künftig im Web sichtbar sind, wenn die eigenen Richtlinien als Maßstab für Content-Löschungen herangezogen werden.Das kann Amazon wie auch den anderen Anbieter wenig schmecken, wenn ihnen nun als Infrastrukturanbieter eine Schiedsrichterrolle bei der Bewertung von Content anderer zugeschrieben wird. Amazon steckt so in einem Dilemma: auf der einen Seite die Einhaltung der eigenen Richtlinien gegenüber den Kunden durchzusetzen und Missbrauch zu verhindern und auf der anderen Seite keinen Einfluss auf die freie Meinungsäußerung zu nehmen.[Update v. 07.09.2021, 13:38 Uhr]: Mittlerweile hat AWS gegenüber Reuters mitgeteilt, dass es keine Pläne von AWS Trust & Policy zu Änderungen der Richtlinien oder Prozesse gäbe und das Team bereits existiert hätte. Reuters bleibt jedoch bei seiner Darstellung. 
+
+
+(olb)
+
+
+
+  heise online
+
+
+      Newsletter
+      
+
+    Keine News verpassen! Jeden Morgen der frische Nachrichtenüberblick von heise online
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

@@ -1,0 +1,61 @@
+
+    Wirkung und Schutz – die zwei Hebel der Rüstungsspirale
+  
+        Die vom Cyberpunk beschriebene Verschmelzung von Körper und Technik bringt neue Angriffsvektoren hervor, klassische Schusswaffen werden mit KI ausgestattet.
+      
+      
+        Der Unterschied zwischen Wirklichkeit und Computerspielfantasie löst sich auf.
+      
+    
+      (Bild: Elbit Systems / ARCAS - Assault Rifle Combat App System)
+    In der 7000 Jahre währenden Geschichte des Krieges hat bislang stets die kinetische Energie im Vordergrund gestanden: Schwerter, Lanzen, Pfeile und seit etwa 700 Jahren auch mit chemischer Energie beschleunigte Projektile wurden auf den Gegner geschleudert, um ihn zu töten oder zumindest kampfunfähig zu machen. Mit der globalen digitalen Vernetzung und mit Laserwaffen sind jedoch andere, nicht-kinetische Methoden hinzugekommen, mit denen sich reichlich Schaden anrichten lässt. Die lassen sich wiederum mit der konventionellen Kriegführung kombinieren.Beim Forum Wirkung und Schutz #neu der Deutschen Gesellschaft für Wehrtechnik (DWT) in Bonn präsentierte Sebastian Jansen von der Firma CGI das wohl eindrücklichste Beispiel solcher "hybriden Bedrohungen": Das erst vor wenigen Tagen von der israelischen Firma Elbit Systems vorgestellte Waffensystem ARCAS (Assault Rifle Combat Application System) kombiniert eine klassische Schusswaffe mit Künstlicher Intelligenz und digitalen Sensoren. Ein im vorderen Griff integrierter Rechner erlaubt nicht nur Schussfelder zu erkennen, Freund und Feind zu unterscheiden und notfalls um die Ecke zu schießen, sondern ist auch mit taktischen Führungssystemen verbunden und kann auf die Daten anderer ARCAS-Nutzer im Team zugreifen.Der Blick durch die Zieloptik ähnle dem Szenario eines Computerspiels, so Jansen. Eine Gegenüberstellung mit einem Screenshot aus dem Spiel Cyberpunk 2077, in dem die Ego-Shooter-Perspektive mit einem Hackerangriff auf den Gegner verbunden ist, unterstrich diese Einschätzung.Die im Titel seines Vortrags formulierte Frage "Wird Cyberpunk Realität?" war damit eigentlich schon beantwortet: Zumindest visuell hat sich die Wirklichkeit der Kriegführung den Visionen genähert, wie sie in Romanen wie William Gibsons "Neuromancer" oder in Filmen wie "Blade Runner" entworfen worden sind. Doch auch inhaltlich sieht Jansen Parallelen.Die vom Cyberpunk schon frühzeitig beschriebene Verschmelzung von Körper und Technik, physischer und virtueller Realität bringe neue Angriffsvektoren hervor, die mehr und mehr ausgenutzt würden. Allein in diesem Jahr habe es bereits 1,5 Milliarden Angriffe auf cyber-physische Systeme (das "Internet der Dinge") gegeben. Eine Quelle für diese erstaunlich hohe Zahl nannte er allerdings nicht.Andere Schauplätze, andere MittelGleichwohl gibt es keinen Zweifel, dass diese hybriden Bedrohungen ernst zu nehmen sind. Hans Peter Stuch (Fraunhofer FKIE) hob hervor, dass sie sich nicht auf Cyberoperationen im engeren Sinne beschränken, sondern auch (Des-) Informationskampagnen beinhalten können, die sowohl von regulären wie irregulären Kräften durchgeführt würden. Sie nutzten Grauzonen von Zuständigkeiten aus, erfolgten auf verschiedenen zeitlichen Ebenen und zielten auf unterschiedliche Bereiche der Gesellschaft wie Politik, Wirtschaft, Infrastrukturen oder Informationsmedien. Die Bedrohungen und Gefahren könnten in einzelnen dieser Domänen zudem unterschwellig und daher kaum wahrnehmbar sein.Am FKIE werde daher an einem Demonstrator zur Erkennung hybrider Bedrohungen gearbeitet. Durch Zusammenführung und Aggregation von Informationen aus vielfältigen Quellen, soll er ein Lagebild erzeugen, Entscheidungsprozesse unterstützen und in bestehende Führungs- und Planungssysteme integrierbar sein. Anlässlich eines feierlichen Gelöbnisses von Soldaten vor dem Reichstag habe es einen Testlauf gegeben, sagte Stuch, bei dem die Umgebung nach Drohnen und Jammern gescannt worden sei. Für die sozialen Medien seien beispielhaft die Aktivitäten auf Twitter analysiert worden, zur Abwehr von Cyberbedrohungen eine Domain-Name-Service-Analyse durchgeführt worden. Der Verkehr auf Schienen und Straßen wurde überwacht, um Blockaden frühzeitig zu erkennen. Die Verfügbarkeit der Energieversorgung wurde anhand von Ladestationen für Elektroautos kontrolliert.Die klassischen kinetischen Bedrohungen sind damit natürlich nicht aus der Welt. Im Gegenteil, die Durchschlagskraft von Munition steige, sagte Werner Riedel (Fraunhofer EMI), weswegen auch der Körperschutz von Soldaten verbessert werden müsse. Dabei kämen Schutzwesten aus einer Kombination von Keramik und Polyäthylen-basierten Kunststoffen zum Einsatz, die das auftreffende Geschoss entweder zerstäuben oder durch schräg gestellte Platten aus der Orientierung bringen. Um die Westen zugleich leichter und ergonomischer zu gestalten, greifen die Forscher auf kommerziell verfügbare digitale Körpermodelle zurück, wie sie auch in der Autoindustrie verwendet werden.Gepanzerte Fahrzeuge müssten sich angesichts der zunehmenden Bedeutung von Landes- und Bündnisverteidigung und der damit verbundenen Einstellung auf gleichwertige Gegner auf stärkeren Beschuss einstellen, sagte Matthias Wickert (Fraunhofer EMI). Hier hätten aktive Panzerungen eine besondere Bedeutung, die ähnlich wie ein Airbag beim Auftreffen eines Geschosses oder bereits bei dessen Annäherung reagierten und die Energie durch Schrägstellung abschwächten.Unterdessen forschen Kollegen von Riedel und Wickert an anderen Fraunhofer-Instituten daran, wie solche Panzerungen mit leistungsfähigerer Munition überwunden werden können. Sebastian Wurster (Fraunhofer ICT) erläuterte, wie die Gasproduktionsrate von Treibladungspulvern durch 3D-Druck gezielt beeinflusst und dadurch die Mündungsgeschwindigkeit von Geschossen gesteigert werden kann. Beim niederländischen Forschungsinstitut TNO sei es gelungen, auf diese Weise durch optimierte Außengeometrie eine bis zu 18 Prozent höhere Ladedichte zu erreichen. Allerdings stießen die gängigen Optimierungsrechnungen beim 3D-Druck von Treibladungspulver an Grenzen, sagte Wurster. Es werde daher an einer neuen innenballistischen Softwarefamilie gearbeitet.
+
+          Bundeswehr: Mehr Cyber, mehr Angriff, mehr auf eigenem Boden?
+        
+Daniel Mitró (Fraunhofer ICT) berichtete von laufenden Experimenten mit verschiedenen 3D-Druckern. Bei der Fertigung von Treibladungen seien nahezu beliebige Geometrien möglich und es könnten verschiedene Materialien gemischt werden. Es gebe daher seit gut zehn Jahren ein zunehmendes Interesse an "additiv gefertigten energetischen Formkörpern". Allerdings handle es sich um einen sehr aufwendigen Prozess. Die Versuche befänden sich derzeit im Übergang von nicht-energetischen zu energetischen Materialien.Wirkung und Schutz müssten in ihrer Wechselwirkung berücksichtigt werden, sagte Wolfgang Gäbelein, Chef des Planungsamtes der Bundeswehr, zum Abschluss der Tagung. Er zeigte sich angetan von der Leidenschaft, mit der die Forschungen betrieben und präsentiert würden.Gleichwohl stellt sich die Frage, ob es der internationalen Sicherheit nicht dienlicher wäre, mit mindestens der gleichen Leidenschaft zu erforschen, wie die Rüstungsspirale gestoppt werden kann, statt sie mit beiden Hebeln in Schwung zu halten. Im Tagungsprogramm war dafür leider kein Platz vorgesehen.
+
+  heise online
+
+
+      Newsletter
+      
+
+    Keine News verpassen! Jeden Morgen der frische Nachrichtenüberblick von heise online
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

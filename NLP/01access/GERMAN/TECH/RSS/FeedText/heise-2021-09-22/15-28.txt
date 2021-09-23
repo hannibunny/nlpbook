@@ -1,0 +1,180 @@
+Vorzeitige Todesfälle: WHO verschärft Leitlinien zur Luftqualität deutlich
+Die Weltgesundheitsorganisation empfiehlt, die Belastungsgrenzen für Feinstaub und Stickstoffdioxid teils massiv zu senken. Die EU-Grenzwerte liegen darüber.
+ 
+Windows: September-Updates verursachen Druckprobleme, Workarounds verfügbar
+Sicherheitsupdates vom 14. September gegen die "PrintNightmare"-Schwachstellen können neue Probleme verursachen. Workarounds & weitere Maßnahmen helfen dagegen.
+ 
+Babbel legt geplanten Börsengang auf Eis
+Aufgeschoben ist nicht aufgehoben, sagt Babbel und bläst seinen Börsengang ab. Dabei habe der Zeitpunkt dafür vor einer Woche noch gut ausgesehen.
+ 
+Salesforce: Slack als digitale Firmenzentrale, Cloud reduziert CO2
+Auf der Dreamforce gab es neue Slack-Integrationen zu sehen. Für die eigene Cloud hat Salesforce hohe Ziele: Sie soll Corona und den Klimawandel bekämpfen.
+ 
+Ebay-Kleinanzeigen: Verpflichtende SMS-Verifizierung zum Schutz vor Belästigung
+Ebay-Kleinanzeigen führt SMS-Verifizierung ein, um seine Nutzerinnen und Nutzer zu schützen – momentan freiwillig, in den kommenden Wochen verpflichtend.
+ 
+Wirkung und Schutz – die zwei Hebel der Rüstungsspirale
+Die vom Cyberpunk beschriebene Verschmelzung von Körper und Technik bringt neue Angriffsvektoren hervor, klassische Schusswaffen werden mit KI ausgestattet.
+ 
+Fritzbox 6850 5G: Erster AVM-Router für 5G-Mobilfunk erhältlich
+Zwei Jahre nach der Ankündigung kommt AVMs erster Router für Internet per 5G-Mobilfunk endlich auf den deutschen Markt - zu einem gesalzenen Preis.
+ 
+Neuer Safari-Browser vorab für ältere macOS-Versionen
+Safari 15 steht für macOS Big Sur und macOS Catalina bereit. macOS Mojave bleibt draußen.
+ 
+Sicherheitsupdates: Lücken in McAfee Endpoint Security gefährden Windows-PCs
+In aktuellen Versionen von McAfee Endpoint Security haben die Entwickler unter anderem kritische Sicherheitslücken geschlossen.
+ 
+Raumstation: NASA prüft gut ein Dutzend Vorschläge für privaten ISS-Nachfolger
+Ein paar Jahre soll die ISS noch durchhalten, ihr Ende ist aber in Sicht. Mehrere Unternehmen wollen mit Geld der NASA einen privaten Nachfolger entwickeln.
+ 
+Kleintransporter leiden unter Paketboom – schlechtere TÜV-Quote
+Die Corona-Pandemie wirkt sich auf viele Lebensbereiche aus – bis hin zur Schadenstatistik des TÜV. Kleintransporter werden besonders beansprucht.
+ 
+Energiewende-Index: Deutschland braucht Smart Meter und bidirektionales Laden
+Deutschland landet in einer Studie zur Transformation des Strommarkts im Zuge der Energiewende nur im Mittelfeld. Kunden sollten stärker eingebunden werden.
+ 
+Beratungstool AKUT: Vorsorge gegen Überflutungen mit neuem digitalen Werkzeug
+Forschende der Hochschule Mainz haben eine Software erstellt, die Kommunen einen Überblick über Gefährdungslagen und mögliche Vorsorgemaßnahmen bietet.
+ 
+Schulpolitik: Im Streit um Vergabe von Videosystem legt Hessen Beschwerde ein
+Hunderte Schulen müssten mittlerweile eigentlich aus Datenschutzgründen ein anderes Videokonferenzsystem nutzen, ein Nachprüfungsantrag unterbindet das.
+ 
+Bundeswehr: Mehr Cyber, mehr Angriff, mehr auf eigenem Boden?
+Während des wehrtechnischen Forums "Wirkung und Schutz #neu" plädieren Teilnehmende für eine andere Aufstellung und Ausstattung der Bundeswehr.
+ 
+Studie: Straßenverkehr deckt Kostenbedarf nur zu 36 Prozent
+Die öffentliche Hand gibt jährlich 70 Milliarden Euro für Straßenunterhalt, Verkehrspolizei und Unfallfolgekosten aus. Eisenbahner fühlen sich benachteiligt.
+ 
+Impfung für jüngere Kinder – positive Studienergebnisse von Biontech
+Bislang gibt es in Deutschland keinen Corona-Impfstoff für Kinder zwischen fünf und elf Jahren. Biontech legt nun Studiendaten für deren Immunisierung vor.
+ 
+Dreamliner-Jubiläum: Pannenjet 787 macht Boeing weiter Probleme
+Der Langstreckenjet entwickelte sich rasch vom Hoffnungsträger zum Pannenprojekt. Daran hat sich auch zehn Jahre nach der ersten Auslieferung nichts geändert.
+ 
+OMIGOD: Microsoft lässt Azure-Admins mit Linux-Lücke allein
+Kritische Lücken in der Microsoft-Cloud ermöglichen Root-Angriffe auf Linux-VMs. Microsoft weist die Verantwortung für wichtige Updates allerdings von sich.
+ 
+Pybricks: MicroPython für Lego-Robotik-Sets
+Das Open-Source-Projekt hat MicroPython auf die meisten Lego-Robotik-Controller portiert und bietet viel Komfort, eine Web-IDE und hohe Geschwindigkeit.
+ 
+Cyborg-Debatte: Wenn Technik unter die Haut geht und die Genschere kommt
+Der Biohacker Patrick Kramer fordert Mikrochip-Implantate, um RFID-Karten zu ersetzen. Eine Bischöfin warnt vor paradoxen Nebeneffekten der Selbstoptimierung.
+ 
+Pandora: Kleiner Satellit soll bei Suche nach habitablen Exoplaneten helfen
+Pandora unterstützt die Suche nach Exoplaneten mit wasserdampfhaltigen Atmosphären -  mit der Entwirrung der Lichtspektren ferner Sterne und ihrer Planeten.
+ 
+Verfahren gegen Lilith Wittmann eingestellt – weil CDU connect ungeschützt war
+Die Staatsanwaltschaft Berlin ermittelt nicht mehr gegen die Sicherheitsforscherin. Laut den Ermittlungsakten greift der Hackerparagraph in ihrem Fall nicht.
+ 
+Kritische Sicherheitslücke ohne Patch gefährdet ältere IBM-System-X-Server
+Die Server werden seit 2020 nicht mehr mit Updates versorgt. Angreifer können sie nun über eine Lücke in der Firmware der Admin-Schnittstelle IMM kapern.
+ 
+NFT-Tokens: Marktplatz Opensea gesteht Insiderhandel durch Mitarbeiter ein
+Ein Mitarbeiter des NFT-Marktplatzes Opensea soll sein Wissen über prominente Platzierungen von Tokenangeboten für eigenen Handel genutzt haben.
+ 
+Hardware-Details zu den neuen iPads
+Apple hält sich wie üblich bedeckt, was die RAM-Ausstattung seiner Tablets anbelangt. Nun sind genauere Informationen durchgesickert.
+ 
+Inspiration4: Erstmals vier Laien alleine ins Weltall gestartet
+Nach Branson und Bezos ist der nächste Milliardär ins All gestartet. Jared Isaacman mietete dafür ein "Dragon"-Raumschiff und nahm drei Passagiere mit.
+ 
+HP Omen: Software für Gaming-Rechner über Sicherheitslücke in Treiber angreifbar
+Die Software "OMEN Gaming Hub" für Gaming-Laptops und -Desktops von HP nutzte einen verwundbaren Treiber. Seit Ende Juli stehen Updates bereit.
+ 
+Astro Pi Wettbewerb: Raspi-Programme von Kindern und Jugendlichen kommen ins All
+Die europäische Astro Pi Challenge startet erneut einen Programmierwettbewerb für unter 19-Jährige. Dafür hat der Raspberry Pi sogar ein Upgrade erhalten.
+ 
+OMIGOD: Kritische Root-Lücke bedroht Azure-Kunden mit virtuellen Linux-PCs
+Angreifer könnten vier Sicherheitslücken kombinieren, um bestimmte Kunden der Cloud-Computing-Plattform Azure zu attackieren.
+ 
+Apple Watch Series 7: Deutlich schnelleres Laden und vollwertige Tastatur
+Apple spendiert seiner Computeruhr nicht nur einen größeren Bildschirm, der Konzern behebt mit der neuen Modellreihe auch zentrale "Pain Points" der Geräte.
+ 
+Patchday: Adobe schließt Schadcode-Lücken in Photoshop & Co.
+Es sind wichtige Sicherheitsupdates für verschiedene Anwendungen von Adobe erschienen. Der Softwarehersteller stuft viele Schwachstellen als kritisch ein.
+ 
+Patchday: Microsoft schließt von Angreifern ausgenutzte Lücke in Windows
+Seit Anfang September haben Angreifer eine Windows-Lücke im Visier. Nun gibt es Sicherheitsupdates. Auch PrintNightmare spielt am Patchday nochmal eine Rolle.
+ 
+Microsoft will Aktien für 60 Milliarden Dollar zurückkaufen und erhöht Dividende
+Das Cloud-Geschäft von Microsoft beschert genug Geld, um die Aktionäre mit 11 Prozent höherer Dividende zu beglücken und Aktien zurückzukaufen.
+ 
+iPhone 13 und 13 Pro: Bessere Bildschirme und Kameras, größerer Akku
+Apple stellt Leistungs- und Detailverbesserungen bei den neuen iPhones in den Mittelpunkt. Ein größerer Akku soll ein Manko des iPhone 12 ausräumen.
+ 
+iPad 9 und iPad mini 6: Apple legt Einstiegs-Tablets neu auf
+Mit schnelleren Chips, mehr Speicherplatz und Kameraverbesserungen wertet Apple die Tablets auf. Das iPad mini wurde grundlegend erneuert.
+ 
+Ab 19 Uhr: iPhone 13, Apple Watch 7 und mehr im Liveticker und Live-Kommentar
+Es ist soweit: Am Dienstagabend stellt Apple endlich seiner 2021er iPhones vor. Auch neue Computeruhren und AirPods werden erwartet – und Überraschungen.
+ 
+Gravitationslinse: Bereits beobachtete Supernova 2037 noch einmal sichtbar
+Auf einer alten Aufnahme des Weltraumteleskops Hubble wurden drei Abbilder einer Supernova entdeckt. Um 2037 wird ein weiteres auftauchen, wurde nun ermittelt.
+ 
+Statistik der Woche: Wie die Deutschen den Ausbau des 5G-Netzes sehen
+Die 5G-Anschlüsse nehmen weltweit zu, doch nicht alle trauen der Technologie, wie unsere Infografik zeigt.
+ 
+NSO-Skandal: Apple-Updates beheben endlich Pegasus-Lücke
+Mit iOS 14.8, macOS 11.6 und watchOS 7.6.2 soll ein Zero-Day behoben sein, mit dem die Spyware der NSO-Group auf die Geräte kam.
+ 
+Sonderregeln für Promis auf Facebook: Wenig oder keine Moderation dank "XCheck"
+Wer auf Facebook nicht erlaubte Beiträge teilt, muss eine Sperrung oder Account-Löschung befürchten. Für Promis gelten andere Regeln, enthüllt eine US-Zeitung.
+ 
+CCC: Seit 40 Jahren "Prellbock gegen die Gesetzgebung"
+Seit 1981 kümmert sich der Chaos Computer Club um den schöpferisch-kritischen Umgang mit Technologie. Er will weiter für ungehinderte Kommunikation kämpfen.
+ 
+c't 3003: Redmi 10 im Test – High-End-Smartphone für 150 Euro?
+Ein Handy für 150 Euro mit Funktionen aus der Oberklasse? Auf das Redmi 10 wirft c't 3003 im Video einen genaueren Blick.
+ 
+Trotz Teilsieg: "Fortnite" bleibt aus dem App Store draußen
+Epic Games plant zunächst nicht, sein Hitspiel wieder in den Apple-Laden zu stellen. Dabei dürfte die Firma nun auf eigene Bezahldienste verlinken.
+ 
+Warten auf Windows-Patches: Selbstbau-Anleitung für MSHTML-Exploit in Umlauf
+Sicherheitsforscher warnen, wie Angreifer Microsofts Schutzmaßnahmen vor Windows-Attacken umgehen könnten. Außerdem ist ein Exploit-Baukasten verfügbar.
+ 
+Apple will Rechteprobleme bei DJ-Mixen "wegshazamen"
+Künftig erfasst der Konzern bei Apple Music laufende DJ-Shows mit seiner Musikerkennung, um sie besser abzurechnen.
+ 
+Neuverfilmung von "Dune": Ein Wüstenplanet für alle
+Denis Villeneuves Neuverfilmung von "Dune" kommt am Donnerstag in die Kinos. Für Kenner ein Muss, aber auch gewöhnliche Kinogänger kommen auf ihre Kosten.
+ 
+Studie: Faktenchecks "wirksames Werkzeug" gegen Desinformation
+Im Rahmen einer Analyse in vier verschiedenen Ländern haben zwei Forscher herausgefunden, dass Faktenchecks effektiv gegen Desinformation helfen.
+ 
+Unternehmensbefragung: Corona trägt zum Risiko von Cyberangriffen bei
+Schon vor Corona war es um die IT-Sicherheit in vielen Firmen nicht gut bestellt. Pandemiebedingte Einbußen und Homeoffice verstärken das Problem, wird gewarnt.
+ 
+Streit um Vorratsdatenspeicherung in Deutschland beschäftigt EuGH
+Im Auftrag des Bundesverwaltungsgerichts soll die Frage beantwortet werden, ob die deutsche Regelung mit europäischen Grundrechten vereinbar ist.
+ 
+Mars-Gesteinsproben weisen auf frühere habitable Bedingungen hin
+Die NASA ist nach erster Analyse der ersten Gesteinsproben nun gewisser, dass es lange Zeit Wasser auf dem Mars gegeben hat.
+ 
+T-Systems und Google versprechen "souveräne" Cloud für Deutschland
+Nach dem Scheitern der "Microsoft Cloud Deutschland" kooperiert die Telekom nun mit Google. Schon 2022 soll eine "souveräne" Cloud für deutsche Kunden starten.
+ 
+Attacken auf Windows: Vorsicht vor präparierten Office-Dokumenten
+Derzeit haben es Angreifer auf eine Sicherheitslücke in Windows abgesehen. Standardmäßig sollten aber Schutzmaßnahmen greifen.
+ 
+Spyware-Skandal: BKA soll "Pegasus" gekauft haben
+Das Bundeskriminalamt soll eine Variante der Spionagesoftware eingekauft haben. Ob sie auch eingesetzt wurde, sei noch unklar, heißt es in einem Medienbericht.
+ 
+Die Neuland-Interviews #6: AfD verzettelt sich im Digitalen
+Wer soll Hassrede sperren? Ist Deutschland ohne Sportschau normal? Sollte man Steuerhinterzieher schützen? Joana Cotar (AfD) gibt widersprüchliche Antworten.
+ 
+Umstrittene Kinderporno-Scanner in iOS 15: Apple schiebt Einführung auf
+Nach scharfer Kritik will Apple erst "Input" zur Foto-Kontrolle auf iPhones sammeln und das System verbessern. Ein Stopp scheint nicht vorgesehen.
+ 
+Ransomware: Qakbot tritt in Emotets Fußstapfen
+Das von Emotet erfundene Dynamit-Phishing erwies sich als besonders erfolgreich. Jetzt ahmen es andere Kriminelle nach.
+ 
+Gesäuberte AWS : Amazon will schärfer gegen regelwidrige Inhalte vorgehen
+Amazon will, dass der Content der Kunden den AWS-Richtlinien nicht widerspricht. Doch mit dem geplanten proaktiven Vorgehen begibt sich Amazon in ein Dilemma.
+ 
+Die Neuland-Interviews #5: FDP fordert mehr Apps statt mehr Personal
+Verwaltung, Bildung, Gesundheit: Statt mehr Geld für Personal auszugeben, will die FDP mit Apps die Effizienz steigern, erläutert Manuel Höferlin im Interview.
+ 
+EuGH: Zero Rating von Telekom und Vodafone verstößt gegen Netzneutralität
+Schwere Schlappe für Vodafone und die Deutsche Telekom: Der Europäische Gerichtshof hält Optionstarife wie Vodafone Pass und Stream On für rechtswidrig.
+ 

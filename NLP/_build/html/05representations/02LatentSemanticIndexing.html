@@ -448,53 +448,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">40</span><span class="n">ef81fb0940</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">corpora</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">similarities</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">documents</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Human machine interface for lab abc computer applications&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>               <span class="s2">&quot;A survey of user opinion of computer system response time&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>               <span class="s2">&quot;The EPS user interface management system&quot;</span><span class="p">,</span>
-
-<span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">books</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">logging</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> 
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">parsing</span><span class="p">,</span> <span class="n">corpora</span><span class="p">,</span> <span class="n">matutils</span><span class="p">,</span> <span class="n">interfaces</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">similarities</span><span class="p">,</span> <span class="n">utils</span>  <span class="c1"># noqa:F401</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> 
-<span class="g g-Whitespace">     </span><span class="mi">13</span> 
-
-<span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">books</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="n">corpora</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># bring corpus classes directly into package namespace, to save some typing</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">.indexedcorpus</span> <span class="kn">import</span> <span class="n">IndexedCorpus</span>  <span class="c1"># noqa:F401 must appear before the other classes</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> 
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">.mmcorpus</span> <span class="kn">import</span> <span class="n">MmCorpus</span>  <span class="c1"># noqa:F401</span>
-
-<span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">books</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="n">corpora</span><span class="o">/</span><span class="n">indexedcorpus</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">import</span> <span class="nn">numpy</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> 
-<span class="ne">---&gt; </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">interfaces</span><span class="p">,</span> <span class="n">utils</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> 
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-
-<span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">books</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="n">interfaces</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">import</span> <span class="nn">logging</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> 
-<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">utils</span><span class="p">,</span> <span class="n">matutils</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> 
-<span class="g g-Whitespace">     </span><span class="mi">21</span> 
-
-<span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">books</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="n">matutils</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1022</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1023</span>     <span class="c1"># try to load fast, cythonized code if possible</span>
-<span class="ne">-&gt; </span><span class="mi">1024</span>     <span class="kn">from</span> <span class="nn">gensim._matutils</span> <span class="kn">import</span> <span class="n">logsumexp</span><span class="p">,</span> <span class="n">mean_absolute_difference</span><span class="p">,</span> <span class="n">dirichlet_expectation</span>
-<span class="g g-Whitespace">   </span><span class="mi">1025</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1026</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-
-<span class="nn">~/opt/anaconda3/envs/books/lib/python3.8/site-packages/gensim/_matutils.pyx</span> in <span class="ni">init gensim._matutils</span><span class="nt">()</span>
-
-<span class="ne">ValueError</span>: numpy.ndarray size changed, may indicate binary incompatibility. Expected 88 from C header, got 80 from PyObject
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;human&#39;, &#39;interface&#39;, &#39;computer&#39;]
+[&#39;survey&#39;, &#39;user&#39;, &#39;computer&#39;, &#39;system&#39;, &#39;response&#39;, &#39;time&#39;]
+[&#39;eps&#39;, &#39;user&#39;, &#39;interface&#39;, &#39;system&#39;]
+[&#39;system&#39;, &#39;human&#39;, &#39;system&#39;, &#39;eps&#39;]
+[&#39;user&#39;, &#39;response&#39;, &#39;time&#39;]
+[&#39;trees&#39;]
+[&#39;graph&#39;, &#39;trees&#39;]
+[&#39;graph&#39;, &#39;minors&#39;, &#39;trees&#39;]
+[&#39;graph&#39;, &#39;minors&#39;, &#39;survey&#39;]
 </pre></div>
 </div>
 </div>
@@ -608,9 +570,9 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0,
-  &#39;0.703*&quot;trees&quot; + 0.538*&quot;graph&quot; + 0.402*&quot;minors&quot; + 0.187*&quot;survey&quot; + 0.061*&quot;system&quot; + 0.060*&quot;response&quot; + 0.060*&quot;time&quot; + 0.058*&quot;user&quot; + 0.049*&quot;computer&quot; + 0.035*&quot;interface&quot;&#39;),
+  &#39;0.703*&quot;trees&quot; + 0.538*&quot;graph&quot; + 0.402*&quot;minors&quot; + 0.187*&quot;survey&quot; + 0.061*&quot;system&quot; + 0.060*&quot;time&quot; + 0.060*&quot;response&quot; + 0.058*&quot;user&quot; + 0.049*&quot;computer&quot; + 0.035*&quot;interface&quot;&#39;),
  (1,
-  &#39;-0.460*&quot;system&quot; + -0.373*&quot;user&quot; + -0.332*&quot;eps&quot; + -0.328*&quot;interface&quot; + -0.320*&quot;time&quot; + -0.320*&quot;response&quot; + -0.293*&quot;computer&quot; + -0.280*&quot;human&quot; + -0.171*&quot;survey&quot; + 0.161*&quot;trees&quot;&#39;)]
+  &#39;-0.460*&quot;system&quot; + -0.373*&quot;user&quot; + -0.332*&quot;eps&quot; + -0.328*&quot;interface&quot; + -0.320*&quot;response&quot; + -0.320*&quot;time&quot; + -0.293*&quot;computer&quot; + -0.280*&quot;human&quot; + -0.171*&quot;survey&quot; + 0.161*&quot;trees&quot;&#39;)]
 </pre></div>
 </div>
 </div>
@@ -630,15 +592,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Document  0: 	 [(0, 0.06600783396090314), (1, -0.5200703306361848)]
-Document  1: 	 [(0, 0.1966759285914248), (1, -0.7609563167700046)]
-Document  2: 	 [(0, 0.08992639972446378), (1, -0.7241860626752512)]
-Document  3: 	 [(0, 0.07585847652178099), (1, -0.6320551586003431)]
-Document  4: 	 [(0, 0.10150299184980117), (1, -0.5737308483002954)]
-Document  5: 	 [(0, 0.7032108939378308), (1, 0.16115180214025726)]
-Document  6: 	 [(0, 0.8774787673119829), (1, 0.16758906864659323)]
-Document  7: 	 [(0, 0.9098624686818578), (1, 0.14086553628718937)]
-Document  8: 	 [(0, 0.6165825350569285), (1, -0.053929075663894196)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Document  0: 	 [(0, 0.0660078339609074), (1, -0.5200703306361846)]
+Document  1: 	 [(0, 0.1966759285914296), (1, -0.7609563167700032)]
+Document  2: 	 [(0, 0.08992639972446892), (1, -0.7241860626752501)]
+Document  3: 	 [(0, 0.07585847652178601), (1, -0.6320551586003422)]
+Document  4: 	 [(0, 0.10150299184980463), (1, -0.5737308483002947)]
+Document  5: 	 [(0, 0.7032108939378305), (1, 0.16115180214026248)]
+Document  6: 	 [(0, 0.8774787673119828), (1, 0.16758906864659967)]
+Document  7: 	 [(0, 0.9098624686818577), (1, 0.14086553628719595)]
+Document  8: 	 [(0, 0.616582535056929), (1, -0.053929075663889894)]
 </pre></div>
 </div>
 </div>

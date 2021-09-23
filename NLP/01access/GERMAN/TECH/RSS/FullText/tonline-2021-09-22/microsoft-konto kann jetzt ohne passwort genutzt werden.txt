@@ -1,0 +1,29 @@
+App zur Authentifizierung: Microsoft-Konto kann jetzt ohne Passwort genutzt werden 20.09.2021, 08:31 Uhr  | 
+dpa 
+Microsoft wirbt mit einem Pop-up fürs kennwortlose Konto. Foto: Microsoft/account.microsoft.com/dpa-tmn. (Quelle:  dpa)Berlin (dpa/tmn) - Microsoft schaltet nach und nach das kennwortlose Anmelden für alle Nutzerinnen und Nutzer frei. Bisher war das Einloggen ins Microsoft-Konto ohne Passwort insbesondere Geschäftskundinnen und -kunden vorbehalten. Log-ins ohne Passwort sind nicht nur meist bequemer, sondern vor allem und in aller Regel auch sicherer.Denn wenn es kein fixes Passwort gibt, kann es niemand abgreifen. Zudem hat man selbst auch keine Last damit, sich ein komplexes Passwort merken zu müssen. Und man gerät nicht in die Versuchung, einfach ein schwaches Passwort zu nehmen, um es sich überhaupt merken zu können.Vielleicht haben Sie die App schon installiert? 
+Taucher finden iPhone – ein Detail verblüfft
+  
+Neunjähriger ist bestbezahlte Youtuber
+  
+Aufregung bei deutschen Kunden: Betrüger klauen Punkte
+  
+Verfahren gegen Apple wegen Wettbewerbsverzerrung
+  
+Versteckt sich hier die Lösung für ein Medikament?
+  
+Blinder singt Hit von Popstar – Sänger reagiert
+  
+Samsung leistet sich eine peinliche Panne
+  
+Tipps vom Sicherheitsexperten: So schützen Sie sich vor Spam-Mails
+  
+Aldi lockt Handy-Kunden mit Billig-Tarif
+  
+App erweckt Berliner Mauer zum Leben
+  
+WhatsApp bringt neue Funktion
+  
+Heidi Klum ist Deutschlands gefährlichster Google-Promi
+ Und wie funktioniert das kennwortlose Anmelden bei Microsoft? Etwa über Microsofts Authenticator-App fürAndroidundiOS. Einmal auf dem Smartphone installiert, muss sie mit dem eigenen Microsoft-Konto verbunden werden. Der eine oder die andere hat die App vielleicht schon auf dem Mobilgerät, weil sie auch das Anmelden bei Online-Konten in zwei Schritten mit Passwort und einem zweiten Überprüfungsmerkmal (Zwei-Faktor-Authentifizierung) ermöglicht - nicht nur bei Microsoft, sondern auch bei vielen anderen Diensten.Um sich vom Microsoft-Passwort zu trennen, muss man noch dieVerwaltungsseiteseines Microsoft-Kontos öffnen, und unter "Sicherheit/Zusätzliche Sicherheitsoptionen" die Option "Kennwortloses Konto" aktivieren. Auf dem Weg dorthin kann es sein, dass man von einem Pop-up-Fenster zum Herunterladen der App umworben wird. Darin heißt es: "Befreien Sie sich von Ihren Kennwörtern!" Wer die App schon installiert und verbunden hat, kann das natürlich ignorieren.Eine Rückkehr zum Passwort ist möglichWill man sich fortan bei seinem Microsoft-Konto, bei Windows (ab Windows 10) oder einem Microsoft-Dienst wie Onedrive oder Outlook anmelden, nutzt die App zur Authentifizierung Fingerabdruck, Gesichtserkennung oder eine PIN. Eine Rückkehr zum Passwort ist über die Verwaltungsseite des Microsoft-Kontos möglich. Dort lässt sich jederzeit wieder eines setzen, wenn man das kennwortlose Anmelden nicht fortführen möchte.Für Kritik oder Anregungen füllen Sie bitte die nachfolgenden
+              Felder aus. Damit wir antworten können, geben Sie bitte
+              Ihre E-Mail-Adresse an. Vielen Dank für Ihre Mitteilung.Boris Becker - Jetzt darf auch seine Lilian mitDer Internet Explorer wird nicht länger von t-online unterstützt!Um sicherer und schneller zu surfen, wechseln Sie jetzt auf einen aktuellen Browser.Wir empfehlen unseren kostenlosen t-online-Browser:

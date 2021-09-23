@@ -1,0 +1,10 @@
+
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		
+« Attend the Create:Data free online event, December 7 |
+	Main
+	| Azure Functions with R and plumber »
+I was my great pleasure yesterday to be a presenter in the "Why R Webinar" series, on the topic R at Microsoft. In the talk (which you can watch below) I recounted the history of Microsoft's acquisition of Revolution Analytics, and the various way the Microsoft supports R: its membership of the R Consortium, integration with many products (including demos of Azure ML Service with GitHub Actions, and Azure Functions), and how Microsoft has driven adoption of R in large organizations by making R "IT approved". Many thanks to the Why R Foundation for hosting the talk, and to everyone who asked questions and prompted a lively discussion at the end:You can also find links and resources associated with the talk, including the slides, at the GitHub repository linked below.GitHub (revodavid): R at Microsoft 
+Posted by David Smith at 10:39 in Microsoft, mlops, R  | Permalink
+ You can follow this conversation by subscribing to the comment feed for this post.
+	The comments to this entry are closed.

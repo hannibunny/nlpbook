@@ -1,0 +1,664 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="typepad-standard" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+        <!-- head-common-individual -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="generator" content="http://www.typepad.com/" />
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+        
+        <meta name="description" content="I’m very happy to announce Microsoft365R, a package for working with the Microsoft 365 (formerly known as Office 365) suite of cloud services. Microsoft365R extends the interface to the Microsoft Graph API provided by the AzureGraph package to provide a lightweight yet powerful interface to SharePoint and OneDrive, with support for Teams and Outlook soon to come. Microsoft365R is now available on CRAN, or you can install the development version from GitHub with devtools::install_github(&quot;Azure/Microsoft365R&quot;). Authentication The first time you call one of the Microsoft365R functions (see below), it will use your Internet browser to authenticate with Azure Active Directory (AAD),..." />
+
+    <link rel="canonical" href="https://blog.revolutionanalytics.com/2021/02/microsoft365r.html" />
+
+
+
+
+        <link rel="stylesheet" href="https://blog.revolutionanalytics.com/styles.css?v=6" type="text/css" media="screen" />
+        <link rel="stylesheet" href="https://static.typepad.com/.shared/themes/common/print.css" type="text/css" media="print" />
+
+
+<link rel="stylesheet" href="https://static.typepad.com/.shared/css/featherlight-gallery.css">
+
+        <link rel="alternate" type="application/atom+xml" title="Posts on 'Revolutions' (Atom)" href="https://blog.revolutionanalytics.com/atom.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Posts on 'Revolutions' (RSS 1.0)" href="https://blog.revolutionanalytics.com/index.rdf" />
+        <link rel="alternate" type="application/rss+xml" title="Posts on 'Revolutions' (RSS 2.0)" href="https://blog.revolutionanalytics.com/rss.xml" />
+        <script type="text/javascript">
+                var TPApp = {};
+                TPApp.app_uri = "https://www.typepad.com/";
+        </script>
+        <script type="text/javascript" src="https://static.typepad.com/.shared/js/yui/yahoo-dom-event.js,/js/app/thumbnail-gallery-min.js"></script>
+
+<!--- head google analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-225723-36', 'auto', {'name': 'Typepad'}, {'allowLinker': true} );  // Separate tracker for Typepad.
+ga('Typepad.require', 'linker');
+ga('Typepad.linker:autoLink', ['none']);
+ga('Typepad.set', 'dimension1', '6a010534b1db25970b010536040741970b');
+ga('Typepad.set', 'dimension2', 'Individual');
+ga('Typepad.send', 'pageview');
+</script>
+
+
+
+<meta property="og:title" content="Microsoft365R: an R interface to the Microsoft 365 suite" />
+<meta property="og:site_name" content="Revolutions" />
+<meta property="og:type" content="blog" />
+<meta property="og:url" content="https://blog.revolutionanalytics.com/2021/02/microsoft365r.html" />
+<meta property="og:description" content="I’m very happy to announce Microsoft365R, a package for working with the Microsoft 365 (formerly known as Office 365) suite of cloud services. Microsoft365R extends the interface to the Microsoft Graph API provided by the AzureGraph package to provide a lightweight yet powerful interface to SharePoint and OneDrive, with support for Teams and Outlook soon to come. Microsoft365R is now available on CRAN, or you can install the development version from GitHub with devtools::install_github(&quot;Azure/Microsoft365R&quot;). Authentication The first time you call one of the Microsoft365R functions (see below), it will use your Internet browser to authenticate with Azure Active Directory (AAD),..." />
+<meta property="fb:admins" content="" />
+<meta property="fb:app_id" content="55753818692" />
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="">
+<meta name="twitter:creator" content="">
+<meta name="twitter:title" content="Microsoft365R: an R interface to the Microsoft 365 suite">
+<meta name="twitter:description" content="I’m very happy to announce Microsoft365R, a package for working with the Microsoft 365 (formerly known as Office 365) suite of cloud services. Microsoft365R extends the interface to the Microsoft Graph API provided by the AzureGraph package to provide a lightweight yet powerful interface to SharePoint and OneDrive, with support for Teams and Outlook soon to come. Microsoft365R is now available on CRAN, or you can install the development version from GitHub with devtools::install_github(&quot;Azure/Microsoft365R&quot;). Authentication The first time you call one of the Microsoft365R functions (see below), it will use your Internet browser to authenticate with Azure Active Directory (AAD),...">
+
+
+
+        <link rel="alternate" type="application/atom+xml" title="Comments on 'Microsoft365R: an R interface to the Microsoft 365 suite' (Atom)" href="https://blog.revolutionanalytics.com/2021/02/microsoft365r/comments/atom.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Comments on 'Microsoft365R: an R interface to the Microsoft 365 suite' (RSS 2.0)" href="https://blog.revolutionanalytics.com/2021/02/microsoft365r/comments/rss.xml" />
+        <title>Microsoft365R: an R interface to the Microsoft 365 suite (Revolutions)</title>
+        <link rel="start" href="https://blog.revolutionanalytics.com/" title="Home" />
+        <link rel="prev" href="https://blog.revolutionanalytics.com/2021/01/azurecosmosr-interface-to-azure-cosmos-db.html?no_prefetch=1" title="AzureCosmosR: interface to Azure Cosmos DB" />
+        <link rel="next" href="https://blog.revolutionanalytics.com/2021/03/teams-support-in-microsoft365r.html?no_prefetch=1" title="Teams support in Microsoft365R" />
+
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+
+
+
+<body class="layout-two-column-right post">
+	
+	<div id="container" class="container">
+		<div id="container-inner" class="pkg">
+			
+                <div class="row">
+     
+
+
+<a id="home"></a>
+   
+
+<!-- banner -->
+<div id="banner">
+	<div id="banner-inner" class="pkg">
+		
+		<h1 id="banner-header"><a href="https://blog.revolutionanalytics.com/" accesskey="1">Revolutions</a></h1>
+		<h2 id="banner-description">
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		</h2>
+	</div>
+</div>
+
+
+
+
+
+
+			<div id="pagebody">
+
+
+				<div id="pagebody-inner" class="pkg">
+                                        <div id="alpha">
+						<div id="alpha-inner" class="pkg">
+							<!-- the plain version removes the extra jquery -->
+<!-- content nav -->
+<p class="content-nav">
+	<a class="content-nav-prev" href="https://blog.revolutionanalytics.com/2021/01/azurecosmosr-interface-to-azure-cosmos-db.html">&laquo; AzureCosmosR: interface to Azure Cosmos DB</a> |
+	<a class="content-nav-main" href="https://blog.revolutionanalytics.com/">Main</a>
+	| <a class="content-nav-next" href="https://blog.revolutionanalytics.com/2021/03/teams-support-in-microsoft365r.html">Teams support in Microsoft365R &raquo;</a>
+</p>
+<script type="text/javascript">
+   $(function(){
+       var query = window.location.search.substring(1);
+       if( query == "pintix=1" ) {
+          var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','https://static.typepad.com/.shared//js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e);
+       }
+   });
+</script>
+<!-- entry -->
+
+	<h2 class="date-header">February 09, 2021</h2>
+
+
+<div class="entry-category-announcements entry-category-microsoft entry-category-packages entry-category-r entry-author-hong_ooi entry-type-post entry" id="entry-6a010534b1db25970b02788010c945200d">
+   <div class="entry-inner">
+			<h3 class="entry-header">Microsoft365R: an R interface to the Microsoft 365 suite</h3>
+	
+
+
+
+	<div class="entry-content">
+		<div class="entry-body">
+			<p>I’m very happy to announce <a href="https://github.com/Azure/Microsoft365R">Microsoft365R</a>, a package for working with the <a href="https://docs.microsoft.com/microsoft-365/?view=o365-worldwide&amp;WT.mc_id=aiml-14621-davidsmi">Microsoft 365</a> (formerly known as Office 365) suite of cloud services. Microsoft365R extends the interface to the Microsoft Graph API provided by the <a href="https://github.com/Azure/AzureGraph">AzureGraph</a> package to provide a lightweight yet powerful interface to <a href="https://docs.microsoft.com/sharepoint/?WT.mc_id=aiml-14621-davidsmi">SharePoint</a> and <a href="https://docs.microsoft.com/onedrive/?WT.mc_id=aiml-14621-davidsmi">OneDrive</a>, with support for Teams and Outlook soon to come.</p>
+<p>Microsoft365R is now <a href="https://cran.r-project.org/package=Microsoft365R">available on CRAN</a>, or you can install the development version from <a href="https://github.com/Azure/Microsoft365R">GitHub</a> with <code>devtools::install_github(&quot;Azure/Microsoft365R&quot;)</code>.</p>
+<div class="section level2" id="authentication">
+<h2>Authentication</h2>
+<p>The first time you call one of the Microsoft365R functions (see below), it will use your Internet browser to authenticate with <a href="https://docs.microsoft.com/azure/active-directory/?WT.mc_id=aiml-14621-davidsmi">Azure Active Directory</a> (AAD), in a similar manner to other web apps. You will get a dialog box asking for permission to access your information.</p>
+<p>Microsoft365R is registered as an app in the “aicatr” AAD tenant. Because it needs read/write access to groups and SharePoint sites, you’ll need an admin to grant it access to your tenant. Alternatively, if the environment variable <code>CLIMICROSOFT365_AADAPPID</code> is set, Microsoft365R will use its value as the app ID for authenticating; or you can specify the app ID as an argument when calling the functions below. See also <a href="https://github.com/Azure/Microsoft365R/issues/5">this issue</a> at the GitHub repo for some possible workarounds.</p>
+</div>
+<div class="section level2" id="onedrive">
+<h2>OneDrive</h2>
+<p>To access your personal OneDrive, call the <code>personal_onedrive()</code> function, and to access OneDrive for Business call <code>business_onedrive()</code>. Both functions return an R6 client object of class <code>ms_drive</code>, which has methods for working with files and folders. Note that OneDrive for Business is technically part of SharePoint, and requires a Microsoft 365 Business subscription.</p>
+<pre class="r"><code class="hljs">od &lt;- personal_onedrive()
+odb &lt;- business_onedrive(tenant=<span class="hljs-string">&quot;mycompany&quot;</span>)
+
+<span class="hljs-comment"># use the device code authentication flow in RStudio Server</span>
+od &lt;- personal_onedrive(auth_type=<span class="hljs-string">&quot;device_code&quot;</span>)
+
+<span class="hljs-comment"># list files and folders</span>
+od$list_items()
+od$list_items(<span class="hljs-string">&quot;Documents&quot;</span>)
+
+<span class="hljs-comment"># upload and download files</span>
+od$download_file(<span class="hljs-string">&quot;Documents/myfile.docx&quot;</span>)
+od$upload_file(<span class="hljs-string">&quot;somedata.xlsx&quot;</span>)
+
+<span class="hljs-comment"># create a folder</span>
+od$create_folder(<span class="hljs-string">&quot;Documents/newfolder&quot;</span>)</code></pre>
+<p>You can open a file or folder in your browser with the <code>open_item()</code> method. For example, a Word document or Excel spreadsheet will open in Word or Excel Online, and a folder will be shown in OneDrive.</p>
+<pre class="r"><code class="hljs">od$open_item(<span class="hljs-string">&quot;Documents/myfile.docx&quot;</span>)</code></pre>
+<p>You can get and set the metadata properties for a file or folder with <code>get_item_properties()</code> and <code>set_item_properties()</code>. For the latter, provide the new properties as named arguments to the method. Not all properties can be changed; some, like the file size and last modified date, are read-only. You can also retrieve an object representing the file or folder with <code>get_item()</code>, which has methods appropriate for drive items.</p>
+<pre class="r"><code class="hljs">od$get_item_properties(<span class="hljs-string">&quot;Documents/myfile.docx&quot;</span>)
+
+<span class="hljs-comment"># rename a file -- version control via filename is bad, mmkay</span>
+od$set_item_properties(<span class="hljs-string">&quot;Documents/myfile.docx&quot;</span>, name=<span class="hljs-string">&quot;myfile version 2.docx&quot;</span>)
+
+<span class="hljs-comment"># alternatively, you can call the file object&#39;s update() method</span>
+item &lt;- od$get_item(<span class="hljs-string">&quot;Documents/myfile.docx&quot;</span>)
+item$update(name=<span class="hljs-string">&quot;myfile version 2.docx&quot;</span>)</code></pre>
+</div>
+<div class="section level2" id="sharepoint">
+<h2>SharePoint</h2>
+<p>To access a SharePoint site, use the <code>sharepoint_site()</code> function and provide the site URL or ID.</p>
+<pre class="r"><code class="hljs">site &lt;- sharepoint_site(<span class="hljs-string">&quot;https://myaadtenant.sharepoint.com/sites/my-site-name&quot;</span>)</code></pre>
+<p>The client object has methods to retrieve drives (document libraries) and lists. To show all drives in a site, use the <code>list_drives()</code> method, and to retrieve a specific drive, use <code>get_drive()</code>. Each drive is an object of class <code>ms_drive</code>, just like the OneDrive clients above.</p>
+<pre class="r"><code class="hljs"><span class="hljs-comment"># list of all document libraries under this site</span>
+site$list_drives()
+
+<span class="hljs-comment"># default document library</span>
+drv &lt;- site$get_drive()
+
+<span class="hljs-comment"># same methods as for OneDrive</span>
+drv$list_items()
+drv$open_item(<span class="hljs-string">&quot;teamproject/plan.xlsx&quot;</span>)</code></pre>
+<p>To show all lists in a site, use the <code>get_lists()</code> method, and to retrieve a specific list, use <code>get_list()</code> and supply either the list name or ID.</p>
+<pre class="r"><code class="hljs">site$get_lists()
+lst &lt;- site$get_list(<span class="hljs-string">&quot;my-list&quot;</span>)</code></pre>
+<p>You can retrieve the items in a list as a data frame, with <code>list_items()</code>. This has arguments <code>filter</code> and <code>select</code> to do row and column subsetting respectively. <code>filter</code> should be an OData expression provided as a string, and <code>select</code> should be a string containing a comma-separated list of columns. Any column names in the <code>filter</code> expression must be prefixed with <code>fields/</code> to distinguish them from item metadata.</p>
+<pre class="r"><code class="hljs"><span class="hljs-comment"># return a data frame containing all list items</span>
+lst$list_items()
+
+<span class="hljs-comment"># get subset of rows and columns</span>
+lst$list_items(
+    filter=<span class="hljs-string">&quot;startsWith(fields/firstname, &#39;John&#39;)&quot;</span>,
+    select=<span class="hljs-string">&quot;firstname,lastname,title&quot;</span>
+)</code></pre>
+<p>Finally, you can retrieve subsites with <code>list_subsites()</code> and <code>get_subsite()</code>. These also return SharePoint site objects, so all the methods above are available for a subsite.</p>
+</div>
+<div class="section level2" id="future-plans">
+<h2>Future plans</h2>
+<p>Currently, Microsoft365R supports OneDrive and SharePoint Online; future updates will add the ability to post to Teams channels and send emails via Outlook. You can also provide feedback and make feature requests by <a href="https://github.com/Azure/Microsoft365R/issues">opening an issue</a> at the repo, or by emailing me at hongooi73 (@) gmail.com.</p>
+</div>
+		</div>
+		
+
+                        <!-- SIGNATURE -->
+                        
+
+		
+	</div>
+
+	<div class="entry-footer">
+			<p class="entry-footer-info">
+				<span class="post-footers">Posted by <a rel="author" href="https://profile.typepad.com/6p01b8d158cece970c">Hong Ooi</a> at 09:30 in <a href="https://blog.revolutionanalytics.com/announcements/">announcements</a>, <a href="https://blog.revolutionanalytics.com/microsoft/">Microsoft</a>, <a href="https://blog.revolutionanalytics.com/packages/">packages</a>, <a href="https://blog.revolutionanalytics.com/r/">R</a> </span> <span class="separator">|</span> <a class="permalink" href="https://blog.revolutionanalytics.com/2021/02/microsoft365r.html">Permalink</a>
+			</p>
+		
+		<!-- technorati tags -->
+
+
+		<!-- post footer links -->
+	<p class="entry-footer-share">
+		<span class="entry-footer-links-favorite"></span>
+	</p>
+
+
+	</div>
+   </div>
+</div>
+
+
+
+        
+        
+        <a id="comments"></a>
+	<div class="comments" id="all-comments">
+		<h3 class="comments-header">Comments</h3>
+					<div class="comments-info">
+				<p><a href="https://blog.revolutionanalytics.com/2021/02/microsoft365r/comments/atom.xml"><img src="https://static.typepad.com/.shared/images/feed.png" alt="Feed" width="10" height="10" /></a> You can follow this conversation by subscribing to the <a href="https://blog.revolutionanalytics.com/2021/02/microsoft365r/comments/atom.xml">comment feed</a> for this post.</p>
+			</div>
+		
+		<div class="comments-content" id="comments-content">
+                <!-- comment list -->
+
+		</div>
+        
+	</div>
+<script type="text/javascript">var c943723d42e77e9214eb884a1d898ea="</form>";</script>
+<script type="text/javascript">var ffe51c373e0873b7778b6324a0b5533 = '<form id="comment-form" action="';</script>
+<script type="text/javascript">var c943723d42e77e9214eb884a1d898za = '" method="post"><input type="hidden" name="entry_xid" id="comment-entry-xid" value="6a010534b1db25970b02788010c945200d" \/><input type="hidden" name="token" value="1632317156-99a830552e13ecc0aeba8f2abc260df39314c09f:FNbQZOJZMwMjpuWj" \/>';</script>
+<script type="text/javascript">var OOcd55d4dc47109d7b462b01c7dd4dab = "aHR0cHM6Ly9ibG9nLnJldm9sdXRpb25hbmFseXRpY3MuY29tLy5zZXJ2aWNlcy9jb21tZW50cw";</script>
+<script type="text/javascript">var bad4dd7c10b264b7d90174cd4d55dc00 = atob(OOcd55d4dc47109d7b462b01c7dd4dab);</script>
+
+<!-- comment-form-atp -->
+
+
+<p class="comments-closed font-entrybody">
+	The comments to this entry are closed.
+</p>
+
+
+
+
+
+    
+    
+
+
+
+
+						</div>
+					</div>
+                                        <div id="beta">
+						<div id="beta-inner" class="pkg">
+							
+<!-- sidebar -->
+
+
+	<div class="module-archives module">
+		<h2 class="module-header">Information</h2>
+		<div class="module-content">
+			<ul class="module-list">
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/about.html">About this blog</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/comments-policy.html">Comments Policy</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/categories.html">About Categories</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/authors.html">About the Authors</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/local-r-groups.html">Local R User Group Directory</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/tips-on-starting-an-r-user-group.html">Tips on Starting an R User Group</a></li>
+				
+			</ul>
+		</div>
+	</div>
+<!-- list_inlcude.tt  -->
+<div id="search_revolutions_blog" class="module-typelist module">
+<h2 class="module-header">Search Revolutions Blog</h2>
+	<div class="typelist-plain module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><div class="typelist-note"><form method="get" action="https://www.google.com/search">
+  <input type="hidden" name="ie" value="UTF-8" /> 
+  <input type="hidden" name="oe" value="UTF-8" />
+  <div style="background-color:white;"></div>
+   <input type="text" name="q" size="18" maxlength="255" value="" />
+  <input type="submit" name="btnG" value=" Search Blog " />
+   <br />
+<small>
+    <input type="hidden" name="domains" value="blog.revolutionanalytics.com" />
+<br />
+    <input type="hidden" name="sitesearch" value="blog.revolutionanalytics.com" checked="checked" />
+   <br /></small>
+</form>
+ <!-- SiteSearch Google --></div></li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+Got comments or suggestions for the blog editor? <br>
+Email <a href="mailto:davidsmi@microsoft.com">David Smith</a>.
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<a href="https://www.twitter.com/revodavid"><img src="https://twitter-badges.s3.amazonaws.com/t_small-b.png" alt="Follow revodavid on Twitter" /></a> Follow David on Twitter: <a href="https://twitter.com/revodavid">@revodavid</a>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+Get this blog via email with <a href="https://blogtrottr.com/?subscribe=http://blog.revolutionanalytics.com" title='Get this feed delivered by email'><img src='https://blogtrottr.com/images/icons/blogtrottr-button-91x17px.gif' alt='Blogtrottr' /></a>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<div class="module-categories module">
+	<h2 class="module-header"><a href="https://blog.revolutionanalytics.com/archives.html">Categories</a></h2>
+	<div class="module-content">
+                   <ul class="module-list">
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/academia/">academia <span class="category-count">(41)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/advanced-tips/">advanced tips <span class="category-count">(218)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/ai/">AI <span class="category-count">(62)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/airoundups/">airoundups <span class="category-count">(20)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/announcements/">announcements <span class="category-count">(200)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/applications/">applications <span class="category-count">(288)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/beginner-tips/">beginner tips <span class="category-count">(106)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/big-data/">big data <span class="category-count">(272)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/courses/">courses <span class="category-count">(60)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/current-events/">current events <span class="category-count">(126)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/data-science/">data science <span class="category-count">(227)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/developers/">developer tips <span class="category-count">(89)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/events/">events <span class="category-count">(280)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/finance/">finance <span class="category-count">(126)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/government/">government <span class="category-count">(25)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/graphics/">graphics <span class="category-count">(378)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/high-performance-computing/">high-performance computing <span class="category-count">(115)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/life-sciences/">life sciences <span class="category-count">(35)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/microsoft/">Microsoft <span class="category-count">(311)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/mlops/">mlops <span class="category-count">(4)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/open-source/">open source <span class="category-count">(78)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/other-industry/">other industry <span class="category-count">(58)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/packages/">packages <span class="category-count">(388)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/popularity/">popularity <span class="category-count">(54)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/predictive-analytics/">predictive analytics <span class="category-count">(163)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/profiles/">profiles <span class="category-count">(15)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/python/">python <span class="category-count">(69)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/r/">R <span class="category-count">(2439)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/r-is-hot/">R is Hot <span class="category-count">(8)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/random/">random <span class="category-count">(464)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/reviews/">reviews <span class="category-count">(22)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/revolution/">Revolution <span class="category-count">(422)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/rmedia/">Rmedia <span class="category-count">(136)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/roundups/">roundups <span class="category-count">(121)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/sports-1/">sports <span class="category-count">(55)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/statistics/">statistics <span class="category-count">(297)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/user-groups/">user groups <span class="category-count">(127)</span></a></li>
+</span>
+		</ul>
+
+<a style="font-size:85%;display:none;" class="cat-more" href="https://blog.revolutionanalytics.com/archives.html">See More</a>
+	</div>
+</div>
+<!-- list_inlcude.tt  -->
+<div id="r_links" class="module-typelist module">
+<h2 class="module-header">R links</h2>
+	<div class="module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><a href="https://docs.microsoft.com/azure/machine-learning/r-developers-guide?WT.mc_id=RevolutionsSidebar-blog-davidsmi" >R on Azure</a><br />Developer's guide and documentation</li>
+							<li class="module-list-item"><a href="https://mran.microsoft.com/packages/" >Find R packages</a><br />CRAN package directory at MRAN</li>
+							<li class="module-list-item"><a href="https://mran.microsoft.com/download" >Download Microsoft R Open</a><br />Free, high-performance R</li>
+							<li class="module-list-item"><a href="https://www.r-project.org">R Project site</a><br />Information about the R project</li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- list_inlcude.tt  -->
+<div id="recommended_sites" class="module-typelist module">
+<h2 class="module-header">Recommended Sites</h2>
+	<div class="module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><a href="https://twitter.com/rlangtip" >@RLangTip</a><br />Daily tips on using R</li>
+							<li class="module-list-item"><a href="https://flowingdata.com">FlowingData</a><br />Modern data visualization</li>
+							<li class="module-list-item"><a href="http://www.statisticsblog.com/" >Probability and statistics blog</a><br />Monte Carlo simulations in R</li>
+							<li class="module-list-item"><a href="http://www.r-bloggers.com" >R Bloggers</a><br />Daily news and tutorials about R, contributed by R bloggers worldwide.</li>
+							<li class="module-list-item"><a href="http://www.analyticbridge.com/group/rprojectandotherfreesoftwaretools" >R Project group on analyticbridge.com</a><br />Community and discussion forum</li>
+							<li class="module-list-item"><a href="http://www.stat.columbia.edu/~cook/movabletype/mlm/" >Statistical Modeling, Causal Inference, and Social Science</a><br />Andrew Gelman's statistics blog</li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- archives -->
+
+	<div class="module-archives module">
+		<h2 class="module-header"><a href="https://blog.revolutionanalytics.com/archives.html">Archives</a></h2>
+		<div class="module-content">
+			<ul class="module-list">
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/07/index.html">July 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/06/index.html">June 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/04/index.html">April 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/03/index.html">March 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/02/index.html">February 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/01/index.html">January 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/12/index.html">December 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/11/index.html">November 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/10/index.html">October 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/09/index.html">September 2020</a></li>
+				
+			</ul>
+		</div>
+	</div>
+
+<div class="module-syndicate module">
+	<div class="module-content">
+	<a href="https://blog.revolutionanalytics.com/atom.xml"><i class="fas fa-rss"></i> Subscribe to this blog's feed</a>
+	</div>
+</div>
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<script type="text/javascript">
+  var varAutoFirePV = 1;
+  var varClickTracking = 1;
+  var varCustomerTracking = 1;
+  var Route = "123865";
+  var Ctrl = "";
+  document.write("<script type='text/javascript' src='" + (window.location.protocol) + "//c.microsoft.com/ms.js'" + "'><\/script>");
+</script>​
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var firstTracker = _gat._getTracker("UA-6984166-10");
+firstTracker._setDomainName(".revolutionanalytics.com");
+firstTracker._setAllowLinker(true);
+firstTracker._setAllowHash(false);
+firstTracker._trackPageview();
+var secondTracker = _gat._getTracker("UA-6984166-9");
+secondTracker._setDomainName(".revolutionanalytics.com");
+secondTracker._setAllowLinker(true);
+secondTracker._setAllowHash(false);
+secondTracker._trackPageview();
+} catch (err) { }
+</script>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+</div> <!-- row -->
+			
+
+
+
+		</div>
+	</div>
+	
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+<!--
+var extra_happy = Math.floor(1000000000 * Math.random());
+document.write('<img src="https://www.typepad.com/t/stats?blog_id=1774446&amp;user_id=3164880&amp;page=' + escape(location.href) + '&amp;referrer=' + escape(document.referrer) + '&amp;i=' + extra_happy + '" width="1" height="1" alt="" style="position: absolute; top: 0; left: 0;" />');
+// -->
+</script>
+
+
+
+
+<!-- Begin disqus Tag -->
+
+<!-- End disqus Tag -->
+</body>
+</html>
+
+<!-- ph=1 -->

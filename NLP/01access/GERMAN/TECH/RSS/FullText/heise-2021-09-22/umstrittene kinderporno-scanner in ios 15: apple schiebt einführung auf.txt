@@ -1,0 +1,57 @@
+
+    Umstrittene Kinderporno-Scanner in iOS 15: Apple schiebt Einführung auf
+  
+        Nach scharfer Kritik will Apple erst "Input" zur Foto-Kontrolle auf iPhones sammeln und das System verbessern. Ein Stopp scheint nicht vorgesehen.
+      
+      (Bild: lisyl/Shutterstock.com)
+    Apple tritt bei zwei für iOS 15 geplanten Kinderschutzfunktionen, die auf massive Kritik gestoßen sind, auf die Bremse: Man wolle über die "kommenden Monate" nun erst "Input sammeln" und "Verbesserungen vornehmen" und sich deshalb mit der Umsetzung mehr Zeit lassen, wie der iPhone-Konzern am Freitag mitteilte. Als Grund wurden Rückmeldungen unter anderem von Kunden und Sicherheitsforschern und Interessengruppen angeführt.Es sei aber weiterhin geplant, diese "äußerst wichtigen Funktionen" einzuführen, so Apple. Diese sollen Kinder vor einer Kontaktaufnahme durch Pädokriminelle schützen und die Verbreitung von Fotos einschränken, die sexuellen Missbrauch von Kindern zeigen.iMessage respektive Apples App "Nachrichten" soll Apples Plan zufolge künftig Nacktfotos erkennen und diese verschwommen sowie mit einem Warnhinweis darstellen. Die Funktion lasse sich von Eltern wahlweise auf den iPhones ihrer Kinder scharfschalten, so der Hersteller. Öffnen Kinder unter 13 Jahren ein derart markiertes Foto trotz der Warnhinweise, erhalten Eltern eine Mitteilung.Eine solche Funktion zerstöre das Versprechen eines Krypto-Messengers mit Ende-zu-Ende-Verschlüsselung, monierten Bürgerrechtler, da die Kommunikation so nicht länger in jedem Fall privat bleibt. Für Kinder in Missbrauchssituationen könne die Funktion zudem eine Bedrohung darstellen statt für Schutz zu sorgen. Auch gilt als wahrscheinlich, dass die auf maschinellem Lernen fußende Nacktbilderkennung längst nicht nur bei pornografischen Inhalten anschlägt: Apples Software-Chef räumte bereits ein, dass diese Fehler machen und getäuscht werden könne.iPhones sollen Bildmaterial prüfenAuf noch mehr Kritik ist bislang das zweite von Apple geplante System gestoßen, mit dem der Konzern gegen die Verbreitung von Missbrauchsfotos über seinen iCloud-Dienst vorgehen will. Statt wie andere Cloud-Anbieter auf solches Material, das sexuellen Missbrauch von Kindern zeigt (Child Sexual Abuse Material – CSAM) serverseitig zu scannen, sieht Apple die Erkennung lokal auf dem iPhone des Kunden vor. Dafür werden iCloud-Fotos direkt auf dem Gerät mit einer Datenbank abgeglichen, die Hashes von bekannten Missbrauchsmaterial enthalten soll.
+
+          Kommentar: Apples CSAM-Scans – Ein Tabubruch, der in die Totalüberwachung führt
+        
+Ab rund 30 Treffern werden Apple-Mitarbeiter informiert und können eine niedrig aufgelöste Version des von dem System markierten Materials dann entschlüsseln und prüfen. Sollten diese zu dem Schluss kommen, dass es sich tatsächlich um Missbrauchsfotos handelt, wird in den USA die Organisation NCMEC informiert, welche sich wiederum an Strafverfolger wenden kann.Kritiker fordern das Aus für die FunktionenDer Konzern pochte mehrfach darauf, das Matching des Bildmaterials lokal auf dem iPhone sei datenschutzfreundlicher und besser extern überprüfbar als ein serverseitiger Scan. Kritiker warnen aber vor dem Präzedenzfall: Ist ein lokaler Scan auf illegale Inhalte durch die Geräte etabliert, werden andere Hersteller mit ähnlichen Systemen nachziehen – sowie bei Regierungen zwangsläufig Begehrlichkeiten geweckt, damit auch die Verbreitung anderer Inhalte zu überwachen und unterdrücken. Apple schaffe so ein Überwachungssystem, bei dem iPhones sich einfach selbst durchsuchen, so der NSA-Whistleblower Edward Snowden, die Geräte verraten damit ihre Besitzer.Zahlreiche Bürgerrechtsorganisationen, Datenschützer, Politiker, Sicherheitsforscher, Kryptografen und Informatiker haben Apple dazu aufgerufen, die Einführung der geplanten Funktionen zu stoppen – und ein solches System einzustampfen. Welche Änderungen der iPhone-Konzern an den bislang präsentierten Funktionen nun plant, wurde vorerst nicht mitgeteilt.
+
+  Mac & i
+
+
+      Newsletter
+      
+
+    Mac & i informiert Sie täglich über alles Wichtige rund um Mac, iPhone und Apple Watch.
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

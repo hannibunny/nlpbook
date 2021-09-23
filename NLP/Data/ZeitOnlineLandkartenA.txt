@@ -1,28 +1,10 @@
 Landkarten mit Mehrwert
-Ob als Reiseführer, Nachrichtenkanal oder Bürgerinitiative: Digitale Landkarten lassen
-sich vielseitig nutzen. ZEIT ONLINE stellt einige der interessantesten Dienste vor.
+Ob als Reiseführer, Nachrichtenkanal oder Bürgerinitiative: Digitale Landkarten lassen sich vielseitig nutzen. 
+ZEIT ONLINE stellt einige der interessantesten Dienste vor.
  
-Die Zeit, in der Landkarten im Netz bloß der Routenplanung dienten, ist längst vorbei. 
-Denn mit den digitalen Karten von Google Maps und der Open-Source-Alternative 
-OpenStreetMap kann man sich spannendere Dinge als den Weg von A nach B anzeigen 
-lassen. Über offene Programmschnittstellen (API) lassen sich Daten von anderen 
-Websites mit dem Kartenmaterial verknüpfen oder eigene Informationen eintragen. 
-Das Ergebnis nennt sich Mashup – ein Mischmasch aus Karten und Daten sozusagen.
-Die Bewertungscommunity Qype nutzt diese Möglichkeit schon lange, um Adressen und 
-Bewertungen miteinander zu verknüpfen und mithilfe von Google Maps darzustellen. 
-Auch Immobilienbörsen, Branchenbücher und Fotodienste kommen kaum noch ohne eigene 
-Kartenfunktion aus. Dank der Integration von Geodaten in Smartphones werden soziale 
-Kartendienste immer beliebter. Auch sie nutzen die offenen Schnittstellen.
-Neben kommerziellen Diensten profitieren aber auch Privatpersonen und unabhängige 
-Projekte von den Möglichkeiten des frei zugänglichen Kartenmaterials. 
-Das Open-Data-Netzwerk versucht, öffentlich zugängliche Daten zu sammeln und neue 
-Möglichkeiten für Bürger herauszuarbeiten. So können Anwohner in England schon länger 
-über FixMyStreet Reparaturaufträge direkt an die Behörden übermitteln.
-Unter dem Titel Frankfurt-Gestalten gibt es seit Frühjahr ein ähnliches Pilotprojekt 
-für Frankfurt am Main. Hier geht es um weit mehr als Reparaturen. Die Seite soll 
-einen aktiven Dialog zwischen Bürgern und ihrer Stadt ermöglichen – partizipative 
-Lokalpolitik ist das Stichwort.
-Tausende dieser Mashups und Initiativen gibt es inzwischen. 
-Sie bewegen sich zwischen bizarr und faszinierend, unterhaltsam und informierend. 
-ZEIT ONLINE stellt einige der interessantesten vor. Sie zeigen, was man mit 
-öffentlichen Datensammlungen alles machen kann.
+Die Zeit, in der Landkarten im Netz bloß der Routenplanung dienten, ist längst vorbei. Denn mit den digitalen Karten von Google Maps und der Open-Source-Alternative OpenStreetMap kann man sich spannendere Dinge als den Weg von A nach B anzeigen lassen. Über offene Programmschnittstellen (API) lassen sich Daten von anderen Websites mit dem Kartenmaterial verknüpfen oder eigene Informationen eintragen. Das Ergebnis nennt sich Mashup – ein Mischmasch aus Karten und Daten sozusagen. Die Bewertungscommunity Qype nutzt diese Möglichkeit schon lange, um Adressen und Bewertungen miteinander zu verknüpfen und mithilfe von Google Maps darzustellen. Auch Immobilienbörsen, Branchenbücher und Fotodienste kommen kaum noch ohne eigene Kartenfunktion aus. Dank der Integration von Geodaten in Smartphones werden soziale 
+Kartendienste immer beliebter. Auch sie nutzen die offenen Schnittstellen. Neben kommerziellen Diensten profitieren aber auch Privatpersonen und unabhängige 
+Projekte von den Möglichkeiten des frei zugänglichen Kartenmaterials. Das Open-Data-Netzwerk versucht, öffentlich zugängliche Daten zu sammeln und neue 
+Möglichkeiten für Bürger herauszuarbeiten. So können Anwohner in England schon länger über FixMyStreet Reparaturaufträge direkt an die Behörden übermitteln.
+Unter dem Titel Frankfurt-Gestalten gibt es seit Frühjahr ein ähnliches Pilotprojekt für Frankfurt am Main. Hier geht es um weit mehr als Reparaturen. Die Seite soll 
+einen aktiven Dialog zwischen Bürgern und ihrer Stadt ermöglichen – partizipative Lokalpolitik ist das Stichwort. Tausende dieser Mashups und Initiativen gibt es inzwischen. Sie bewegen sich zwischen bizarr und faszinierend, unterhaltsam und informierend. ZEIT ONLINE stellt einige der interessantesten vor. Sie zeigen, was man mit öffentlichen Datensammlungen alles machen kann.

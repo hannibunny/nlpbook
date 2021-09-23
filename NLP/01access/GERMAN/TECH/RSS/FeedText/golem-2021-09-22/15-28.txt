@@ -1,0 +1,120 @@
+Call of Duty: Vanguard schon in der Beta von Cheatern geplagt
+Die uralte Code-Basis fällt Activision auf die Füße. Schon jetzt klagen Spieler der Beta-Version des neuen Call of Duty über Cheater. (Activision, Playstation 4) 
+ 
+Five9: US-Regierung prüft Zoom-Übernahme auf Sicherheitsrisikos
+Die Übernahme von Five9 für fast 15 Milliarden US-Dollar durch Zoom wird wegen vermeintlichen nationalen Sicherheitsinteressen in den USA überprüft. (Zoom, Verschlüsselung) 
+ 
+Internet der Dinge: Temperaturmesser Marke Eigenbau
+Sensordaten lassen sich kostengünstig per Lorawan versenden. Wir zeigen, wie sich ein Temperatursensor per TTN nutzen lässt. (Anleitung, Arduino) 
+ 
+Browser: Safari 15 für MacOS Big Sur und Catalina erhält neues Design
+Apple gibt seinem Browser Safari ein neues Aussehen auch auf älteren Betriebssystemen. Wem das nicht gefällt, kann teilweise zum alten Design zurück. (Safari, Apple) 
+ 
+Google: Chrome testet Rust und sicheres C++
+Die Mehrheit der schweren Sicherheitslücken in Chrome wird durch Speicherfehler verursacht. Das Team sucht nun nach weitgehenden Lösungen. (Chrome, Browser) 
+ 
+Apple: Aktuelle iTunes-Version läuft unter Windows vielfach nicht
+Vorsicht vor der Installation von iTunes 12.12: Die aktuelle Version funktioniert auf deutschen Windows-Rechnern nicht mehr. (iTunes, Apple) 
+ 
+Anzeige: Einstieg ins Data Engineering mit Apache Spark
+Im Bereich Data Engineering hat sich Apache Spark zum Standard entwickelt. Ein Zwei-Tage-Workshop der Golem Akademie erleichtert Big-Data-Einsteigern die Arbeit mit dem mächtigen Werkzeug. (Golem Akademie, PostgreSQL) 
+ 
+Betriebssystem: Einige Windows-11-Apps funktionieren nicht ohne Internet
+Um Platz zu sparen, müssen sich einige vorinstallierte Windows-11-Apps mit dem Internet verbinden. Auch ein Microsoft-Konto ist dafür nötig. (Windows 11, Windows) 
+ 
+Amiga, Atari, Mac: Rust bekommt Support für Motorola 68000
+Dank eines LLVM-Ports kommt nun auch die Sprache Rust experimentell auf die alte M68k-Architektur. Das hilft vielleicht beim Retro-Computing. (Rust, LLVM) 
+ 
+PC-Integritätsprüfung: Microsofts neue App prüft Kompatibilität mit Windows 11
+Die neue Version der PC-Integritätsprüfung gibt besseren Aufschluss darüber, warum das eigene System mit Windows 11 nicht kompatibel ist. (Windows 11, Microsoft) 
+ 
+Grafik: Red Hat will endlich HDR-Support unter Linux
+Seit Jahren gibt es verschiedene, meist halb fertige Arbeiten für den HDR-Support unter Linux. Red Hat will das nun ändern. (Linux, Linux-Kernel) 
+ 
+Apple: Neue Software für Homepod-Lautsprecher erschienen
+Mit der Softwareversion 15 sollen die Homepod-Lautsprecher vor allem eine bessere Anbindung an Apple TV erhalten. (Homepod, Apple) 
+ 
+Apple: TVOS 15 noch ohne Shareplay und mit einer Beschränkung
+Mit TVOS 15 lassen sich Homepod Mini mit einem Apple TV verbinden - das setzt aber einen Apple TV mit 4K-Unterstützung voraus. (TVOS, Apple) 
+ 
+iPad-Betriebssystem: iPadOS 15 mit Schnellnotizen und App-Mediathek
+Apple hat mit iPadOS 15 ein neues Betriebssystem veröffentlicht, das mehr Freiheiten für Widgets, systemweite Schnellnotizen und die App-Mediathek von iOS bietet. (iPad OS, Apple) 
+ 
+Mobiles Betriebssystem: iOS 15 mit Focus, OCR und schickem Facetime
+Apple hat iOS 15 für iPhones und den iPod Touch vorgestellt. Radikale Neuerungen sind nicht dabei, dafür aber einige interessante Funktionen. (iOS 10, Apple) 
+ 
+Oppo: Oneplus-Smartphones bekommen neu entwickeltes Android
+In einem Blogpost deutet Oneplus-CEO Pete Lau außerdem an, dass es im Jahr 2021 kein weiteres Oberklassemodell geben wird. (Oneplus, Smartphone) 
+ 
+Google: Android setzt Berechtigungen auf Milliarden Geräten zurück
+Eine für Android 11 geplante Änderungen kommt nun über den Play Store auch auf viele Alt-Geräte: Berechtigungen könnten automatisch zurückgesetzt werden. (Android, Google) 
+ 
+Windows 11: Geplante Obsoleszenz ist schlecht, Microsoft!
+Kunden ärgern sich darüber, dass ihre vier Jahre alten Prozessoren bereits kein Windows 11 mehr unterstützen. Zu Recht. (Windows 11, Microsoft) 
+ 
+FreeBSD: Netflix streamt mit fast 400 GBit/s pro Server
+Für sein Streaming-Angebot hat Netflix AMD-Hardware und das genutzte FreeBSD über Jahre extrem optimiert. Pläne für mehr gibt es bereits. (Netflix, FreeBSD) 
+ 
+Suchmaschine: Mozilla testet Bing als Suche im Firefox-Browser
+Ein kleiner Teil der Firefox-Desktop-Nutzer bekommt für einige Monate statt Google künftig Microsofts Bing als Standardsuche angezeigt. (Firefox, Yahoo) 
+ 
+Google: Android 12.1 enthält Funktionen für faltbare Smartphones
+Google soll bereits kurz nach der Veröffentlichung von Android 12 eine Zwischenversion bringen - vielleicht ein Hinweis auf ein eigenes faltbares Smartphone. (Android 12, Google) 
+ 
+Microsoft: Windows-11-VMs sollen Hardware-Anforderung von PCs erfüllen
+Bisher galten die strikten Hardware-Anforderung von Windows 11 nicht für VMs. Das will Microsoft nun offenbar ändern. (Windows 11, Microsoft) 
+ 
+Wochenrückblick: Frischobst
+Apple zeigt neue Geräte und Windows wird schneller: die Woche im Video. (Golem-Wochenrückblick, Amazon) 
+ 
+OMIGOD: Microsoft empfiehlt Nutzer-Updates für Azure-Lücke
+Ein von Microsoft in Azure-VMs untergebrachter Dienst enthält eine kritische Sicherheitslücke. Updates werden aber nicht direkt selbst ausgespielt. (Azure, Virtualisierung) 
+ 
+Bürosuite: Kaufversion von Microsoft Office 2021 kommt im Oktober
+Wer Office nicht abonnieren, sondern kaufen will, kann ab 5. Oktober 2021 die neue Version Office 2021 erwerben. (Office, Microsoft) 
+ 
+Windows und Office: Microsoft-Accounts funktionieren jetzt auch ohne Passwörter
+Das passwortlose Anmelden wird bereits von einigen Microsoft-Kunden genutzt. Die Funktion wird nun auf alle Konten ausgeweitet. (Microsoft, Office-Suite) 
+ 
+Xbox-App: Windows unterstützt Cloud-Gaming und Remote Play
+Microsoft verpasst der Xbox-App für Windows ein großes Update: Neben Cloud-Gaming hält die Remote-Play-Funktion Einzug auf dem PC. (Cloud Gaming, Microsoft) 
+ 
+Gopro Hero 10 Black ausprobiert: Gopros neue Kamera ist die Schnellste
+Endlich ein neuer Chip und mehr Zeitlupe! Wo Gopros Action-Kamera das Vorgängermodell schlägt, konnten wir vor dem Produktstart ausprobieren. (Gopro, Digitalkamera) 
+ 
+Anzeige: Container-Orchestrierung mit Kubernetes
+In dem in vier Module unterteilten Dive-in-Workshop der Golem Akademie erhalten Entwickler und Sysadmins einen einfachen Einstieg in die Container-Orchestrierung mit Kubernetes - dem De-facto-Standard. (Golem Akademie, Server-Applikationen) 
+ 
+Apple Watch: Entwickler verklagt Apple wegen Watch-Tastatur
+Die Tastatur der neuen Apple Watch erinnert Kostas Eleftheriou sehr an seine eigene App - die Apple vor Kurzem aus dem App Store verbannt hat. (Apple Watch, Apple) 
+ 
+Security: Travis-CI könnte Secrets Tausender Projekte geleakt haben
+Durch einen Fehler von Travis CI konnten Secrets von Open-Source-Projekten eingesehen werden. Die Finder der Lücke kritisieren den Anbieter massiv. (Security, API) 
+ 
+OpenJDK: Java 17 bringt LTS, Sealed Classes und M1-Support
+Das JDK 17 erscheint und Oracle schlägt vor, die Zeit zwischen LTS-Versionen zu verkürzen. Und Java bekommt lang vorbereitete Neuerungen. (Java, OpenJDK) 
+ 
+Anzeige: Wie sich Hacker-Attacken aushebeln lassen
+Wer Datenschutzmaßnahmen implementieren will, sollte geläufige Angriffsszenarien kennen. Ein Kurs der Golem Akademie vermittelt dieses Wissen anhand praktischer Übungen. (Golem Akademie, Server-Applikationen) 
+ 
+Seamless Update: Intel bereitet Firmware-Updates ohne Neustart vor
+Um ein UEFI-Update nutzen zu können, ist bislang ein Neustart des Rechners nötig. Intel will das offenbar ändern. (Intel, Prozessor) 
+ 
+Messenger: Verschlüsselung von Matrix konnte ausgehebelt werden
+Unter bestimmten Bedingungen konnten Matrix-Clients die Schlüssel für die Ende-zu-Ende-Verschlüsselung anfordern und Nachrichten mitlesen. (Matrix, Instant Messenger) 
+ 
+Superpack: Facebook nutzt Compiler-Technik zur App-Kompression
+Mit Superpack kann Facebook seine Android-Apps um rund 20 Prozent kleiner packen als bisher. Möglich macht das Compiler-Technik. (Facebook, Soziales Netz) 
+ 
+Knights of the Old Republic: Details zum Star-Wars-Remake für PC und PS5 enthüllt
+Sony hat im Zuge eines PS5-Events ein Remake von Star Wars - Knights of the Old Republic angekündigt und erste Details zum Rollenspiel verraten. (Playstation 5, Sony) 
+ 
+Mozilla: Firefox wird in Windows 10 einfacher zum Standardbrowser
+Firefox Version 91 kann auch aus dem Browser heraus als Standardprogramm festgelegt werden. Das war bisher Microsoft Edge vorbehalten. (Mozilla, Firefox) 
+ 
+Künstliche Intelligenz: Deep-Fake-App ermöglicht extrem einfache Porno-Generierung
+Nur ein Bild und ein Klick sollen reichen, um einen Deep-Fake-Porno zu generieren. Das Problem scheint immer größer zu werden. (Deep_fake, KI) 
+ 
+Rozy: Virtuelles Model wird für immer wie 22 aussehen
+Mittels KI und 3D-Animation wurde Rozy erschaffen. Sie soll einer möglichst großen Zielgruppe gefallen und Werbung machen. (Instagram, KI) 
+ 

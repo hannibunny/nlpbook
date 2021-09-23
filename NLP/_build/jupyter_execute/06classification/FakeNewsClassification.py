@@ -251,7 +251,8 @@ freq_term_matrix_test = count_vectorizer.transform(X_test)
 tf_idf_matrix_test = tfidf.transform(freq_term_matrix_test)
 
 
-# ## Train a linear classificator
+# ## Train a linear classifier
+# 
 # Below a [Logistic Regression model](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression) is trained. This is just a linear classifier with a sigmoid- or softmax- activity-function. 
 
 # In[24]:

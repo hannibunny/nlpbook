@@ -1,0 +1,180 @@
+Ethical Social Media: Oxymoron or Attainable Goal?
+Humans have wrestled with ethics for millennia. Each generation spawns a fresh batch of ethical dilemmas and then wonders how to deal with them. For this generation, social media has generated a vast set of new ethical challenges, which is unsurprising when you consider the degree of its influence. Social media has been linked to […]
+ 
+2021 Data/AI Salary Survey
+In June 2021, we asked the recipients of our Data & AI Newsletter to respond to a survey about compensation. The results gave us insight into what our subscribers are paid, where they’re located, what industries they work for, what their concerns are, and what sorts of career development opportunities they’re pursuing. While it’s sadly premature to […]
+ 
+Radar trends to watch: September 2021
+Let’s start with a moment of silence for O’Reilly Author Toby Segaran, who passed away on August 11, 2021.  Toby was one of the people who got the Data Science movement started. His book, Programming Collective Intelligence, taught many how to start using their data. Throughout his career, he mentored many, and was particularly influential […]
+ 
+Rebranding Data
+There’s a flavor of puzzle in which you try to determine the next number or shape in a sequence. We’re living that now, but for naming the data field.  “Predictive analytics.” “Big Data.” “Data science.” “Machine learning.” “AI.” What’s next? It’s hard to say.  These terms all claim to be different, but they are very […]
+ 
+A Way Forward with Communal Computing
+Communal devices in our homes and offices aren’t quite right. In previous articles, we discussed the history of communal computing and the origin of the single user model. Then we reviewed the problems that arise due to identity, privacy, security, experience, and ownership issues. They aren’t solvable by just making a quick fix. They require […]
+ 
+Defending against ransomware is all about the basics
+The concept behind ransomware is simple. An attacker plants malware on your system that encrypts all the files, making your system useless, then offers to sell you the key you need to decrypt the files. Payment is usually in bitcoin (BTC), and the decryption key is deleted if you don’t pay within a certain period. […]
+ 
+Radar trends to watch: August 2021
+Security continues to be in the news: most notably the Kaseya ransomware attack, which was the first case of a supply chain ransomware attack that we’re aware of. That’s new and very dangerous territory. However, the biggest problem in security remains simple: take care of the basics. Good practices for authentication, backups, and software updates […]
+ 
+Communal Computing’s Many Problems
+In the first article of this series, we discussed communal computing devices and the problems they create–or, more precisely, the problems that arise because we don’t really understand what “communal” means. Communal devices are intended to be used by groups of people in homes and offices. Examples include popular home assistants and smart displays like […]
+ 
+Thinking About Glue
+In Glue: the Dark Matter of Software, Marcel Weiher asks why there’s so much code. Why is Microsoft Office 400 million lines of code? Why are we always running into the truth of Alan Kay’s statement that “Software seems ‘large’ and ‘complicated’ for what it does”? Weiher makes an interesting claim: the reason we have […]
+ 
+Radar trends to watch: July 2021
+Certainly the biggest news of the past month has been a continuation of the trend towards regulating the biggest players in the tech industry.  The US House of Representatives is considering 5 antitrust bills that would lead to major changes in the way the largest technology companies do business; and the Biden administration has appointed […]
+ 
+Hand Labeling Considered Harmful
+We are traveling through the era of Software 2.0, in which the key components of modern software are increasingly determined by the parameters of machine learning models, rather than hard-coded in the language of for loops and if-else statements. There are serious challenges with such software and models, including the data they’re trained on, how […]
+ 
+Two economies. Two sets of rules.
+At one point early this year, Elon Musk briefly became the richest person in the world. After a 750% increase in Tesla’s stock market value added over $180 billion to his fortune, he briefly had a net worth of over $200 billion. It’s now back down to “only” $155 billion. Understanding how our economy produced […]
+ 
+Communal Computing
+Home assistants and smart displays are being sold in record numbers, but they are built wrong. They are designed with one person in mind: the owner. These technologies need to fit into the communal spaces where they are placed, like homes and offices. If they don’t fit, they will be unplugged and put away due […]
+ 
+Code as Infrastructure
+A few months ago, I was asked if there were any older technologies other than COBOL where we were in serious danger of running out of talent. They wanted me to talk about Fortran, but I didn’t take the bait. I don’t think there will be a critical shortage of Fortran programmers now or at […]
+ 
+Radar trends to watch: June 2021
+The most fascinating idea this month is POET, a self-enclosed system in which bots that are part of the system overcome obstacles that are generated by the system. It’s a learning feedback loop that might conceivably be a route to much more powerful AI, if not general intelligence. It’s also worth noting the large number […]
+ 
+AI Powered Misinformation and Manipulation at Scale #GPT-3
+OpenAI’s text generating system GPT-3 has captured mainstream attention. GPT-3 is essentially an auto-complete bot whose underlying Machine Learning (ML) model has been trained on vast quantities of text available on the Internet. The output produced from this autocomplete bot can be used to manipulate people on social media and spew political propaganda, argue about […]
+ 
+DeepCheapFakes
+Back in 2019, Ben Lorica and I wrote about  deepfakes. Ben and I argued (in agreement with The Grugq and others in the infosec community) that the real danger wasn’t “Deep Fakes.” The real danger is cheap fakes, fakes that can be produced quickly, easily, in bulk, and at virtually no cost. Tactically, it makes […]
+ 
+Radar trends to watch: May 2021
+We’ll start with a moment of silence. RIP Dan Kaminski, master hacker, teacher, FOO, and a great showman who could make some of the more arcane corners of security fun.  And one of the few people who could legitimately claim to have saved the internet. AI Snorkel is making progress automating the labeling process for […]
+ 
+Checking Jeff Bezos’s Math
+“If you want to be successful in business (in life, actually), you have to create more than you consume. Your goal should be to create value for everyone you interact with. Any business that doesn’t create value for those it touches, even if it appears successful on the surface, isn’t long for this world. It’s […]
+ 
+AI Adoption in the Enterprise 2021
+During the first weeks of February, we asked recipients of our Data and AI Newsletters to participate in a survey on AI adoption in the enterprise. We were interested in answering two questions. First, we wanted to understand how the use of AI grew in the past year. We were also interested in the practice […]
+ 
+NFTs: Owning Digital Art
+It would be hard to miss the commotion around non-fungible tokens (NFTs). Non-fungible tokens are, to a first approximation, purchased digital goods that exist on a blockchain. At this point, NFTs exist on the Ethereum blockchain, but there’s no reason that they couldn’t be implemented on others; it seems reasonably likely that specialized blockchains will […]
+ 
+Radar trends to watch: April 2021
+March was a busy month. There’s been a lot of talk about augmented and virtual reality, with hints and speculation about products from Apple and Facebook. In the next two years, we’ll see whether this is more than just talk. We’ve also seen more people discussing operations for machine learning and AI, including a substantive […]
+ 
+InfoTribes, Reality Brokers
+It seems harder than ever to agree with others on basic facts, let alone to develop shared values and goals: we even claim to live in a post-truth era1. With anti-vaxxers, QAnon, Bernie Bros, flat earthers, the intellectual dark web, and disagreement worldwide as to the seriousness of COVID-19 and the effectiveness of masks, have […]
+ 
+The End of Silicon Valley as We Know It?
+High-profile entrepreneurs like Elon Musk, venture capitalists like Peter Thiel and Keith Rabois, and big companies like Oracle and HP Enterprise are all leaving California. During COVID-19, Zoom-enabled tech workers have discovered the benefits of remote work from cheaper, less congested communities elsewhere. Is this the end of Silicon Valley as we know it? Perhaps. […]
+ 
+The Next Generation of AI
+Programs like AlphaZero and GPT-3 are massive accomplishments: they represent years of sustained work solving a difficult problem. But these problems are squarely within the domain of traditional AI. Playing Chess and Go or building ever-better language models have been AI projects for decades. The following projects have a different flavor: In February, PLOS Genetics […]
+ 
+Radar trends to watch: March 2021
+For a short month, a lot happened in February–perhaps because the US elections are behind us, perhaps because COVID case numbers are dropping, perhaps for any number of reasons. Some of the most interesting articles I’ve seen have been about the Internet of Things, ranging from wireless peas to Elon Musk’s neural interfaces. AI and […]
+ 
+Product Management for AI
+A couple of years ago, Pete Skomoroch, Roger Magoulas, and I talked about the problems of being a product manager for an AI product. We decided that would be a good topic for an article, and possibly more. After Pete and I wrote the first article for O’Reilly Radar, it was clear that there was […]
+ 
+5 things on our data and AI radar for 2021
+Here are some of the most significant themes we see as we look toward 2021. Some of these are emerging topics and others are developments on existing concepts, but all of them will inform our thinking in the coming year. MLOps FTW MLOps attempts to bridge the gap between Machine Learning (ML) applications and the […]
+ 
+5 infrastructure and operations trends to watch in 2021
+Change is the only constant in the technology world, and that’s particularly true in the realm of sysops, infrastructure, and security. Here’s a look ahead to 2021 and five of the trends we’re watching closely. Kubernetes Complexity To say that Kubernetes is the leading container orchestration platform is an understatement.  It’s the only container orchestration […]
+ 
+The Wrong Question
+“If they can get you asking the wrong questions, they don’t have to worry about answers.” Thomas Pynchon, Gravity’s Rainbow The deplatforming of Donald Trump and his alt-right coterie has led to many discussions of free speech.  Some of the discussions make good points, most don’t, but it seems to me that all of them […]
+ 
+Radar trends to watch: February 2021
+A lot happened in the last month, and not just in Washington. Important developments appeared all through the technology world. Perhaps the most spectacular was the use of Natural Language Processing techniques to analyze viral DNA. It’s actually sort of obvious once you think about it. If DNA is a language, then it should have […]
+ 
+Where Programming, Ops, AI, and the Cloud are Headed in 2021
+In this report, we look at the data generated by the O’Reilly online learning platform to discern trends in the technology industry—trends technology leaders need to follow. But what are “trends”? All too often, trends degenerate into horse races over languages and platforms. Look at all the angst heating up social media when TIOBE or […]
+ 
+Seven Legal Questions for Data Scientists
+“[T]he threats to consumers arising from data abuse, including those posed by algorithmic harms, are mounting and urgent.” FTC Commissioner Rebecca K. Slaughter Variants of artificial intelligence (AI), such as predictive modeling, statistical learning, and machine learning (ML), can create new value for organizations. AI can also cause costly reputational damage, get your organization slapped […]
+ 
+Patterns
+A few months ago, I said that “making everything into a design pattern is a sign that you don’t know what design patterns really are.” So now, I feel obliged to say something about what design patterns are. Design patterns are frequently observed solutions to common problems. The idea comes from the work of Christopher […]
+ 
+Radar trends to watch: January 2021
+The last month of the old year showed a lot of activity on the border of AI and biology. The advances in protein folding with deep learning are a huge breakthrough that could revolutionize drug design. It’s important to remember the role AI had in developing the vaccine for COVID—and also worth remembering that we […]
+ 
+Four short links: 14 Dec 2020
+End-to-end Entity Resolution for Big Data — Introduction to the entity resolution pipeline and the algorithms at the different stages. Includes a summary of open source tools and their features. (via Adrian Colyer) 33 Engineering Challenges of Building Mobile Apps at Scale — Part 1, covering the first 10, is up. They are: 1. State […]
+ 
+Four short links: 8 Dec 2020
+TextAttack — Framework for generating adversarial examples for NLP models. (Paper) (via The Data Exchange) Measuring Developer Productivity — There is no useful measure that operates at a finer grain than “tasks multiplied by complexity.” Measuring commits, lines of code, or hours spent coding, as some tools do, is no more useful at a team […]
+ 
+O’Reilly’s top 20 live online training courses of 2020
+2020 has been a year of great challenges for so many, but it’s not all negative. Around the world, organizations and their workforces have risen to the occasion, recognizing the importance of expanding their knowledge, taking on new tasks, and bettering themselves both personally and professionally. With the uptick in virtual conferencing, remote work, and, […]
+ 
+What is functional programming?
+It has long seemed to me that functional programming is, essentially, programming viewed as mathematics. Many ideas in functional programming came from Alonzo Church’s Lambda Calculus, which significantly predates anything that looks remotely like a modern computer. Though the actual history of computing runs differently: in the early days of computing, Von Neumann’s ideas were […]
+ 
+Four short links: 4 Dec 2020
+NAND Game — You start with a single component, the nand gate. Using this as the fundamental building block, you will build all other components necessary. (See also NAND to Tetris) Facebook’s Game AI — today we are unveiling Recursive Belief-based Learning (ReBeL), a general RL+Search algorithm that can work in all two-player zero-sum games, […]
+ 
+Four short links: 1 Dec 2020
+AlphaFold — This is astonishing: protein-folding solved by Google’s DeepMind. Figuring out what shapes proteins fold into is known as the “protein folding problem”, and has stood as a grand challenge in biology for the past 50 years. In a major scientific advance, the latest version of our AI system AlphaFold has been recognised as […]
+ 
+Radar trends to watch: December 2020
+This month’s collection of interesting articles that point to important trends is dominated by AI. That’s not surprising; AI has probably been the biggest single category all year. But its dominance over other topics seems to be increasing. That’s partly because there’s more research into why AI fails; partly because we’re beginning to see AI […]
+ 
+Four short links: 27 Nov 2020
+Brian Kernighan Interviews Ken Thompson — From a fun interview: McIlroy keeps coming up. He’s the smartest of all of us and the least remembered (or written down)… McIlroy sat there and wrote —on a piece of paper, now, not on a computer— TMG [a proprietary yacc-like program] written in TMG… And then! He now […]
+ 
+Four short links: 24 Nov 2020
+OpenStreetMap is Having a Moment — Apple was responsible for more edits in 2019 than Mapbox accounted for in its entire corporate history. See also the 2020: Curious Cases of Corporations in OpenStreetMap talk from State of the Map. (via Simon Willison) Drone Warfare — The second point, “SkyNet”, is the interesting bit. Azerbaijan and […]
+ 
+Four short links: 20 Nov 2020
+epr — Terminal/CLI Epub reader. I Should Have Loved Biology — Conveys well the magic of the field. Notable also for the reference to A Computer Scientist’s Guide to Cell Biology, which I didn’t realise existed. Ur-Technical Debt — Reviving Ward Cunningham’s take on technical debt. Simply put, ur-technical debt arises when my ideas diverge […]
+ 
+On Exactitude in Technical Debt
+If software is such stuff as dreams are made on, how do we talk about nightmares? Software is not the tangible, kickable stuff our senses are tuned to, so we draw on metaphor to communicate and reason about it. The 1970s offered up spaghetti code to describe the tangle of unstructured control flow. This has […]
+ 
+Four short links: 17 Nov 2020
+NDSS Symposium 2020 Papers — Large pile of security research from the 2020 Network and Distributed System Security Symposium, including papers on topics as wide-reaching as hypervisor fuzzing and The Attack of the Clones Against Proof-of-Authority which sounds like a very niche Star Wars sequel indeed. Liquid Information Flow Control — We present Lifty, a […]
+ 
+Four short links: 13 Nov 2020
+Advanced System on a Chip Lecture Notes (2016) — Topics: 1. Basic Processor & Memory hierarchy; 2. Advanced Out-of-Order Processor; 3. Data-parallel processors; 4. Micro-controller introduction; 5. Multicore; 6. RISC-V core; 7. Advanced Multicore; 8. Multicore programming; 9. Graphics Processing Unit (GPU); 10. Heterogeneous SoC; 11. GPU Programming; 12. Application-Specific Instruction-Set Processor (ASIP); 13 PULP: […]
+ 
+Multi-Paradigm Languages
+The programming world used to be split into functional languages, object-oriented languages, and everything else (mostly procedural languages). One “was” a functional programmer (at least as a hobby) writing Lisp, Haskell, or Erlang; or one “was” an OO programmer (at least professionally), writing code in Java or C++.  (One never called oneself a “procedural programmer”; […]
+ 
+Four short links: 10 November 2020
+Hypothesis as Liability — Would the mental focus on a specific hypothesis prevent us from making a discovery? To test this, we made up a dataset and asked students to analyze it. […] The most notable “discovery” in the dataset was that if you simply plotted the number of steps versus the BMI, you would […]
+ 
+Four short links: 6 Nov 2020
+Dealing with Security Holes in Chips — system security starts at the hardware layer. Ubooquity — free home server for your comics and ebooks library. “Like plex for books.” Noisepage — a relational database management system developed by the Carnegie Mellon Database Group. The research goal of the NoisePage project is to develop high-performance system […]
+ 
+Four short links: 4 Nov 2020
+The AI Who Mistook a Bald Head for a Football — Second-tier Scottish football club Inverness Caledonian Thistle doesn’t have a camera operator for matches at their stadium so the club uses an AI-controlled camera that’s programmed to follow the ball for their broadcasts. But in a recent match against Ayr United, the AI controller […]
+ 
+Radar trends to watch: November 2020
+Perhaps the most important event this month isn’t technical, but the start of the US Justice Dept.’s lawsuit against Google. That will certainly play out over years rather than months, but it’s significance is less about this particular case than the idea that legal and regulatory systems will play a large role in the evolution […]
+ 
+Four short links: 30 Oct 2020
+Mutation Testing — in this paper, we semi-automatically learn error-inducing patterns from a corpus of common Java coding errors and from changes that caused operational anomalies at Facebook specifically. We combine the mutations with instrumentation that measures which tests exactly visited the mutated piece of code. Results on more than 15,000 generated mutants show that […]
+ 
+Four short links: 28 Oct 2020
+Phantom of the ADAS — In this paper, we investigate “split-second phantom attacks,” a scientific gap that causes two commercial advanced driver-assistance systems (ADASs), Telsa Model X (HW 2.5 and HW 3) and Mobileye 630, to treat a depthless object that appears for a few milliseconds as a real obstacle/object. Turns out neural networks can […]
+ 
+Our Favorite Questions
+“On peut interroger n’importe qui, dans n’importe quel état; ce sont rarement les réponses qui apportent la vérité, mais l’enchaînement des questions.“ “You can interrogate anyone, no matter what their state of being.  It’s rarely their answers that unveil the truth, but the sequence of questions that you have to ask.“–  Inspector Pastor in La […]
+ 
+Four short links: 21 Oct 2020
+Justice Department Antitrust Filing Against Google — Claims advertising was an artificially limited market because of their exclusivity deals, including the Android anti-forking arrangements and Browser paid-default-search deals. New York Times has a write-up. This may be more important, historically, than the election results. Differential Dataflow — Differential dataflow programs look like many standard “big […]
+ 
+Four Short Links: 16 October 2020
+Automerge — (Github) Data structure library for Javascript (and Rust) providing Conflict-Free Replicated Data Types (CRDTs). Automerge is designed for creating local-first software, i.e. software that treats a user’s local copy of their data (on their own device) as primary, rather than centralising data in a cloud service. Alan Turing — (BBC) An excellent episode […]
+ 
+Four short links: 14 Oct 2020
+Data Organization in Spreadsheets — Focusing on the data entry and storage aspects, this article offers practical recommendations for organizing spreadsheet data to reduce errors and ease later analyses. The basic principles are: be consistent, write dates like YYYY-MM-DD, do not leave any cells empty, put just one thing in a cell, organize the data […]
+ 
+AI Product Management After Deployment
+The field of AI product management continues to gain momentum. As the AI product management role advances in maturity, more and more information and advice has become available. Our previous articles in this series introduce our own take on AI product management, discuss the skills that AI product managers need, and detail how to bring […]
+ 

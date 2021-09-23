@@ -1,0 +1,59 @@
+
+    Unternehmensbefragung: Corona trägt zum Risiko von Cyberangriffen bei
+  
+        Schon vor Corona war es um die IT-Sicherheit in vielen Firmen nicht gut bestellt. Pandemiebedingte Einbußen und Homeoffice verstärken das Problem, wird gewarnt.
+      
+      (Bild: Katya Rekina/Shutterstock.com)
+    Die Corona-Krise wirkt sich häufig negativ auf die IT-Sicherheit von Unternehmen aus. Zu diesem Ergebnis kommt ein am Montag veröffentlichter Forschungsbericht des Kriminologischen Forschungsinstituts Niedersachsen (KFN).Arbeit im Homeoffice und die Nutzung privater Hard- und Software erhöhen demnach das Risiko einer Infektion mit Schadsoftware sowie von Phishing-Attacken. Bedroht seien allerdings vor allem Firmen mit angespannter wirtschaftlicher Situation, die seltener zusätzliche IT-Sicherheitsmaßnahmen ergreifen.
+      (Bild: "Cyberangriffe gegen Unternehmen", KFN (PDF))
+    Die Autoren des Berichts hatten in den Jahren 2018/19 insgesamt 5000 Unternehmen mit mehr als zehn Beschäftigten befragt. An einer Folgebefragung zwischen Juli und September 2020 nahmen mehr als 600 Firmen erneut teil. 60 Prozent von ihnen berichteten, dass sie innerhalb eines Jahres mindestens auf einen Cyberangriff reagieren mussten. Automatisch abgewehrte Angriffe, durch eine Firewall etwa, sind darin nicht enthalten. In 85 Prozent der Fälle konnten die Angreifer in einem frühen Versuchsstadium abgewehrt werden.
+      (Bild: "Cyberangriffe gegen Unternehmen", KFN (PDF))
+    Nach Angaben des KFN wurden in dem Projekt "Cybersicherheit in Unternehmen" erstmals über einen längeren Zeitraum sogenannten Dunkelfeld-Daten zum Thema Cyberangriffe gegen Unternehmen gesammelt. Denn die Anzeigequote solcher Delikte ist niedrig: In der ersten Runde lag sie bei 12 und jetzt bei 9 Prozent. Als Gründe wurde hierfür am häufigsten die geringe Schadenshöhe genannt, danach die fehlende Aussicht auf Ermittlungserfolg.
+      (Bild: "Cyberangriffe gegen Unternehmen", KFN (PDF))
+    Partner in dem vom Bundeswirtschaftsministerium geförderten Projekt "Cyberangriffe gegen Unternehmen" war die Leibniz Universität Hannover. Die Befragung basierte laut KFN auf einer geschichteten Zufallsstichprobe aus zwei Unternehmensdatenbanken und umfasst Unternehmen ab zehn Beschäftigten nahezu aller Branchen. Interviewpartner waren vor allem IT-Verantwortliche und Mitglieder der Geschäftsführung.Die Zufallsstichprobe wurde nachträglich gewichtet. Bei der Interpretation der zentralen Ergebnisse ist den Autorinnen und Autoren zufolge zu berücksichtigen, dass kleine Unternehmen mit 10-49 Beschäftigten den größten Anteil (79 Prozent) bilden, wohingegen große Unternehmen mit mehr als 500 Beschäftigen lediglich 2 Prozent in der gewichteten Stichprobe ausmachen.
+
+  heise online
+
+
+      Newsletter
+      
+
+    Keine News verpassen! Jeden Morgen der frische Nachrichtenüberblick von heise online
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

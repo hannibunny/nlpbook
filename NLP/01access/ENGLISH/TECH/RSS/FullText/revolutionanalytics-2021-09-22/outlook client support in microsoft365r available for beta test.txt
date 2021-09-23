@@ -1,0 +1,10 @@
+
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		
+« Teams support in Microsoft365R |
+	Main
+	| Microsoft365R 2.1.0 with Outlook support now on CRAN »
+Outlook client support in Microsoft365R available for beta testThis is an announcement that a beta Outlook email client is now part of the Microsoft365R package. You can install it from the GitHub repository with:The client provides the following features:The plan is to submit this to CRAN sometime next month, after a period of public testing. Please give it a try and give me your feedback: either via email or by opening an issue at the repo.Here’s a small sample of the client in action (taken from the README):Please note though, that if you’re using one of the workarounds mentioned in the authentication vignette, they won’t work with Outlook. You’ll need to get the Microsoft365R app approved for your tenant, or alternatively, if you have admin rights you can create your own tenant with the required permissions. (This applies if you’re using Microsoft365R at work; if you’re using it at home on your personal account, you shouldn’t have any problems.)
+Posted by Hong Ooi at 09:30 in Microsoft, packages, R  | Permalink
+ You can follow this conversation by subscribing to the comment feed for this post.
+	The comments to this entry are closed.

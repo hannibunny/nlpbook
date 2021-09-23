@@ -41,12 +41,12 @@ import os
 
 # Choose the language and category:
 
-# In[35]:
+# In[2]:
 
 
 today=datetime.datetime.now().strftime("%Y-%m-%d")
-#cat="GENERAL"
-cat="TECH"
+cat="GENERAL"
+#cat="TECH"
 #cat="SPORT"
 #lang="GERMAN"
 lang="ENGLISH"
@@ -54,12 +54,10 @@ lang="ENGLISH"
 
 # Some feed lists for all languages and categories:
 
-# In[36]:
+# In[3]:
 
 
-tech_feeds_en = [{'title': 'districtdatalabs', 'link': 'http://blog.districtdatalabs.com/feed'},
-                 {'title': 'oreillyradar', 'link': 'http://feeds.feedburner.com/oreilly/radar/atom'},
-                 {'title': 'kaggle', 'link': 'http://blog.kaggle.com/feed/'},
+tech_feeds_en = [{'title': 'oreillyradar', 'link': 'http://feeds.feedburner.com/oreilly/radar/atom'},
                  {'title': 'revolutionanalytics', 'link': 'http://blog.revolutionanalytics.com/atom.xml'}]
 general_feeds_en = [{'title': 'bbcnews', 'link': 'http://feeds.bbci.co.uk/news/rss.xml?edition=uk'},
                  {'title': 'bbcbusiness', 'link': 'http://feeds.bbci.co.uk/news/business/rss.xml?edition=uk'},
@@ -77,14 +75,13 @@ general_feeds_de = [{'title': 'zeit', 'link': 'http://newsfeed.zeit.de/index'},
                     {'title': 'welt_wirtschaft', 'link': 'http://www.welt.de/wirtschaft/?service=Rss'},
                     {'title': 'welt_politik', 'link': 'http://www.welt.de/politik/?service=Rss'},
                     {'title': 'spiegel', 'link': 'http://www.spiegel.de/schlagzeilen/tops/index.rss'},
-                    {'title': 'sueddeutsche', 'link': 'http://www.sueddeutsche.de/app/service/rss/alles/rss.xml'},
                     {'title': 'faz', 'link': 'http://www.faz.net/rss/aktuell/'}
                     ]
 
 
 # For the defined language and category, determine a suitable feedlist:
 
-# In[37]:
+# In[4]:
 
 
 if lang=="ENGLISH":
@@ -99,14 +96,14 @@ else:
         feeds=tech_feeds_de
 
 
-# In[38]:
+# In[5]:
 
 
 TAGS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'p']
 MINLEN=30 #Write only texts, whose length (number of characters) exceeds this size.
 
 
-# In[39]:
+# In[6]:
 
 
 def rss_parse(feed,category="GENERAL",lang="GERMAN",savehtml=False,savefulltext=True):
@@ -154,24 +151,24 @@ def rss_parse(feed,category="GENERAL",lang="GERMAN",savehtml=False,savefulltext=
         # Go to the .html-site of the full message
         page = requests.get(post.link).content
         if savehtml:
-            htmlfilename = htmldirname+post.title.lower() + '.html'
+            htmlfilename = htmldirname+post.title.lower().replace("/","-") + '.html'
             with open(htmlfilename, 'w',encoding="utf-8") as f:
                 f.write(page.decode("utf-8"))
             f.close()
         
         # Parse raw text from the .html page of the full message
         if savefulltext:
-            fullfilename = fulldirname+post.title.lower() + '.txt'
+            fullfilename = fulldirname+post.title.lower().replace("/","-") + '.txt'
             soup = bs4.BeautifulSoup(page, "lxml")
             with open(fullfilename, 'w',encoding="utf-8") as ft:
                 for tag in soup.find_all(TAGS):
                     text = tag.get_text()
                     if len(text)>MINLEN:
                         ft.write(text)
-            f.close()
+            ft.close()
 
 
-# In[40]:
+# In[7]:
 
 
 for f in feeds:

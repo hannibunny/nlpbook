@@ -1,0 +1,10 @@
+
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		
+« Outlook client support in Microsoft365R available for beta test |
+	Main
+	| AzureR update: new in May/June »
+Microsoft365R 2.1.0 with Outlook support now on CRANI’m happy to announce that Microsoft365R 2.1.0 is now on CRAN with Outlook email support! Here’s a quick summary of the new features:Here’s a sample of how to write an email using blastula:And on the other side, here’s a sample of how to work with the emails in your inbox:In addition, this release fixes a bug in the list_files() method for OneDrive/Sharepoint drives and drive items, and adds the ability to create nested drive folders in one call.Please note that if you’re using one of the workarounds mentioned in the authentication vignette, they won’t work with Outlook. You’ll need to get the Microsoft365R app approved for your tenant, or alternatively, if you have admin rights you can create your own tenant with the required permissions. (This applies if you’re using Microsoft365R at work; if you’re using it at home on your personal account, you shouldn’t have any problems.)If you have any feedback or comments, you can email me or open an issue at the repo.
+Posted by Hong Ooi at 09:30 in Microsoft, packages, R  | Permalink
+ You can follow this conversation by subscribing to the comment feed for this post.
+	The comments to this entry are closed.

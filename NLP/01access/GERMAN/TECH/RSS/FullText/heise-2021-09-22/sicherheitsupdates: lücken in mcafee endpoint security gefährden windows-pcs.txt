@@ -1,0 +1,53 @@
+
+    Sicherheitsupdates: Lücken in McAfee Endpoint Security gefährden Windows-PCs
+  
+        In aktuellen Versionen von McAfee Endpoint Security haben die Entwickler unter anderem kritische Sicherheitslücken geschlossen.
+      
+      (Bild: Tatiana Popova/Shutterstock.com)
+    Eigentlich soll Endpoint Security (ENS) Windows-PCs schützen. Durch mehrere Sicherheitslücken sind damit ausgestattete Systeme derzeit aber gefährdet. Reparierte Ausgaben schaffen Abhilfe.Davon sind ausschließlich Windows-Computer betroffen. Nutzen Angreifer zwei Lücken (CVE-2021-31843 "hoch", CVE-2021-31842 "mittel") erfolgreich aus, könnten sie unberechtigt auf Dateien zugreifen oder einen DoS-Zustand auslösen. Das sorgt in der Regel für Softwareabstürze."Kritische" Lücken betreffen die Dateiübertragungssoftware cURL, die ENS einsetzt, warnen die Entwickler in einem Beitrag. Hier könnten Angreifer etwa Sicherheitsmechanismen umgehen. Die ENS-Versionen ENS 10.6.1 September 2021 Update und 10.7.0 sind gegen die geschilderten Attacken abgesichert. Alle vorigen Ausgaben sollen verwundbar sein. 
+
+  Security
+
+
+      Newsletter
+      
+
+    Ob Sicherheitslücken, Viren oder Trojaner – alle sicherheitsrelevanten Meldungen gibts bei heise Security
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

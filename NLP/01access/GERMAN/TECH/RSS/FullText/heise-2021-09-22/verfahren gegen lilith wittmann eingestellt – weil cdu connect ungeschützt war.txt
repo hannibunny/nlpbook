@@ -1,0 +1,53 @@
+
+    Verfahren gegen Lilith Wittmann eingestellt – weil CDU connect ungeschützt war
+  
+        Die Staatsanwaltschaft Berlin ermittelt nicht mehr gegen die Sicherheitsforscherin. Laut den Ermittlungsakten greift der Hackerparagraph in ihrem Fall nicht.
+      
+      (Bild: Shutterstock/Electric Egg)
+    Gegen die bisher aufgrund des Aufdeckens von Sicherheitslücken in der App und Datenbank von CDU connect diverser mutmaßlicher Vergehen beschuldigte Softwareentwicklerin Lilith Wittmann wird nicht weiter ermittelt. Dies geht aus einem ausführlichen Blogeintrag von Wittmann hervor.Sie hatte im Mai 2021 gravierende Sicherheitslücken dokumentiert und an die Partei sowie das BSI und den Berliner Datenschutzbeauftragten gemeldet. Die App wurde zuvor durch die Partei offline genommen. CDU connect diente beim Haustürwahlkampf Parteiunterstützern dazu, ihre Besuche zu koordinieren. Dabei wurden aber auch offenbar über Jahre persönliche Daten bis hin zu politischen Neigungen von Bürgern dokumentiert. Die landeten in einer Datenbank der CDU. CSU und die österreichische Volkspartei ÖVP verwendete baugleiche Systeme.Jene Datenbank, so Wittmanns Darstellung damals wie heute, sei aber gänzlich ungeschützt gewesen: Über simple API-Abrufe habe sie Zugriff erlangen können, ohne dass dabei einfachste Mechanismen wie eine Passwortabfrage überwunden werden mussten. Dieser Auffassung schloss sich nun die Staatsanwaltschaft Berlin an. In den Unterlagen, die Wittmann auszugsweise veröffentlicht hat, findet sich dazu ein Aktenvermerk eines Ermittlers:  "Die Daten waren somit nicht vor einem unberechtigten Zugriff geschützt und aus technischer Sicht öffentlich abrufbar." Damit ist der berüchtigte "Hackerparagraph" 202 a/b/c des Strafgesetzbuchs nicht anwendbar.Zu den Ermittlungen war es gekommen, weil die Union Betriebs GmbH, mithin die CDU, Strafanzeige gegen Wittmann gestellt hatte. Als sie dies auf Twitter veröffentlichte, ergab sich eine lebhafte Diskussion. Der CCC kündigte an, keine Lücken mehr an die CDU zu melden, wenn dafür trotz des üblichen Verfahrens von "responsible disclosure" Ermittlungsverfahren folgen. Kurz darauf gab CDU-Bundesgeschäftsführer Stefan Henning an, man habe die Anzeige zurückgezogen – was in diesem Fall aber wenig geholfen hat, denn bei Kenntnis einer Straftat muss eine Staatsanwaltschaft auch ohne Anzeige eines Geschädigten ermitteln. Das ist nun vom Tisch. Den Ablauf der Entwicklungen bis dahin erklärte Wittmann auch in einem Interview mit heise online.Trotz der Entlastung von Wittmann hat die gesamte Affäre noch zwei wichtige Nebenaspekte: Zum einen war ihr auch vorgeworfen worden, die mit CDU connect gesammelten Datensätze auf Pastebin veröffentlicht zu haben. Wittmann bestritt stets, die Daten überhaupt gespeichert oder gar veröffentlicht zu haben, und auch die Staatsanwaltschaft fand dafür keine Hinweise. Ob es die Daten jemals bei Pastebin gab, und wie sie gegebenenfalls dort hinkamen, ist damit weiter unklar. Auch eine Weiterverbreitung an anderer Stelle, so die Behörde, konnte nicht festgestellt werden.Prüfung der Datenschützerin läuft nochZum Anderen gibt es noch ein laufendes Verfahren der Berliner Datenschutzbeauftragten. Da nun eine Staatsanwaltschaft festgestellt hat, dass die persönlichen Daten von Bürgern ungeschützt im Web standen, könnte das für die Partei recht unangenehm werden. Ein Ende der Untersuchung wegen möglichen Verstößen gegen die DSGVO ist noch nicht abzusehen, wie die Behörde heise online Anfang August 2021 mitteilte.Darüber hinaus dürfte die Einstellung der Ermittlungen gegen Wittmann auch endlich etwas Licht in die Frage bringen, wann der Hackerparagraph überhaupt anwendbar ist. Das bloße Benutzen von standardisierten Zugriffsfunktionen auf Daten, die in keinster Weise geschützt online stehen, reicht dafür jetzt wohl nicht mehr aus.
+
+  heise online
+
+
+      Newsletter
+      
+
+    Keine News verpassen! Jeden Morgen der frische Nachrichtenüberblick von heise online
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

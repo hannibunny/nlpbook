@@ -1,0 +1,51 @@
+
+    Pandora: Kleiner Satellit soll bei Suche nach habitablen Exoplaneten helfen
+  
+        Pandora unterstützt die Suche nach Exoplaneten mit wasserdampfhaltigen Atmosphären -  mit der Entwirrung der Lichtspektren ferner Sterne und ihrer Planeten.
+      Die Suche nach Exoplaneten ist ein Dauerbrenner. Schließlich schwingt dabei immer auch die Frage mit, ob und wo in einem fernen Sternensystem vielleicht potenzielle Welten existieren, die möglicherweise Leben entwickelt haben könnten. Sorgten die ersten Nachweise von Exoplaneten in den 1990er-Jahren noch für Aufsehen, sind mittlerweile Tausende nachgewiesen.Aber welche davon sind lohnenswert für die weitere Erforschung? Darüber können spektroskopische Analysen Auskunft geben. Sie ermöglichen die Fernerkundung der Zusammensetzung ferner planetarer Gashüllen. Wissenschaftler suchen dabei gezielt nach Wasserdampf und organischen Verbindungen in den Exo-Atmosphären, die nach derzeitigem Forschungsstand ein Hinweis auf Habitabilität sein könnten. Ein weiterer Vorteil ist, dass Wasserdampf starke Absorptionsbänder im Nahinfrarot-Bereich erzeugt.Beim  Planeten-Transit vor dem Zentralgestirn verändert die planetare Gashülle das beobachtete Sternenlicht. Dadurch ermöglicht die indirekte Beobachtung der Alien-Atmosphäre, darunter auch mögliche Spektrallinien von Wasserdampf. Allerdings stoßen die Exoplanetenjäger dabei an ihre Grenzen: Auch die Sternflecken kühler Sterne können Wasserdampf enthalten und dadurch die Spektren der planetaren Gashüllen optisch "verunreinigen".Genau diese Wissenslücke soll nun eine sogenannter SmallSat namens Pandora schließen. Das Missionsziel lautet: "Welche Auswirkungen können unkorrigierte Fehler in der Datenanalyse auf das wissenschaftliche Verständnis der Atmosphären von Exoplaneten haben?" erklärt der Astrophysiker und stellvertretende Projektleiter Tom Barclay. Pandora beobachtet also gezielt die Helligkeitsschwankungen der Sterne, um diese optischen Störsignale aus der Exo-Atmosphären-Beobachtung in Zukunft herausrechnen zu können.Mit seinem einzigen Instrument, einem 0.45-Meter Cassegrain-Spiegel aus Aluminium, wird der Mini-Satellit Exoplaneten-Transits um kühle, massereiche Sterne des K- and M-Typs ausspähen, erzählt der Astrophysiker Benjamin Rackham, er leitet Pandoras Stellar Contamination Science Working Group. Wenn die fernen Planeten vor ihrem Stern vorüberziehen, wird Pandora erstmals simultan gleich zwei Detektoren einsetzen: einen lichtempfindlichen CCD (Charge Coupled Device) für ein breites Spektrum des sichtbaren Lichts und einen für den kurzwelligen NIR-Bereich (Nahinfrarot-Bereich). "Während die optischen Daten die Helligkeitsschwankungen des Sterns übermitteln, ermöglicht das NIR-Spektrum uns die Suche nach dem spektralen ‚Fingerabdruck‘ von Wasserdampf. Der zweite große Vorteil Pandoras ist die Aufnahme sehr langer Datensätze vor und nach dem Transit, die mögliche stellare Helligkeitsschwankungen besonders deutlich zeigen werden", erläutert Rackham."Bei Missionen wie dem Hubble Space Telescope und seinem Nachfolger, dem James Webb Space Telescope (JWST), ist Zeit ein limitierter Faktor, darum bekommen wir dort nur etwa 40 Minuten Beobachtungszeit vor und nach einem Transit. Pandora hingegen hat nur diese eine Aufgabe und ermöglicht uns damit für jeden Exoplaneten-Transit eine 24 Stunden dauernde Observation, außerdem können wir die gleichen Ziele bis zu 10-mal jährlich beobachten", freut sich Rackham. "Damit bekommen wir erstmals Langzeit-Datensätze für optische und NIR-Spektren."Damit können die Astrophysiker dann erstmals modellieren, welche Lichtsignale vom Exoplaneten stammen und auf Wasserdampf – wie etwa in der Mars-Atmosphäre – oder sogar organische Moleküle – wie etwa bei Titan – hinweisen und welche vom Zentralgestirn stammen. Rackham leitet dann die Datenanalyse, also das Herausrechnen der stellaren Störsignale. Daraus erstellen die Nachwuchsforscher digitale Modelle, um die Auswirkungen der Sternenflecken-Aktivitäten auf die Transitbeobachtungen besser zu verstehen. Damit lösen sie eines der bislang größten Probleme bei der Untersuchung von Alien-Atmosphären.Mini-Satellit auf großer MissionNach derzeitiger Planung soll Pandora 2024 gestartet werden, meint Tom Barclay zuversichtlich: "Der SmallSat wird als sekundäre Payload in einem anderen Projekt mitreisen und seine Position in einem niedrigen Erdorbit einnehmen – da dies ein beliebter Orbit ist, wird es viele geeignete Missionen geben." Die kleine Raumsonde soll während ihrer 5-jährigen Mission das gewaltige JWST unterstützen und mindestens 20 Sterne und deren 39 Exoplaneten beobachten. "Das JWST wird für ausgewählte Sternsysteme die bestmöglichen Transmissionsspektren sammeln", meint Rackham. Pandora soll dann helfen, Wasserdampf-dominierte Atmosphären zuverlässiger zu identifizieren und herauszufinden, welche Planeten von Wolken und Dunst bedeckt sind.Als SmallSat ist Pandora im Bau und im Betrieb besonders kostengünstig. NASA hatte sie als eine von vier Mini-Missionen im  PIONEERS-Programm ausgewählt – PIONEERS richtet sich mit dem übersichtlichen Budget von 20 Millionen Dollar für 5 Jahre vor allem an Nachwuchswissenschaftler. Die weniger als 180 Kilogramm schweren SmartSats sind dabei die idealen Astro-Vehikel: "Das gesamte Observatorium ist nur ungefähr 1 m × 1 m × 1,3 m groß, diese Größenkonfiguration ist als ESPA-Grande bekannt", erklärt Barclay.Bestückt wird der SmallSat mit Instrumenten und Technik, die bereits für andere Missionen entwickelt wurden, wie etwa ein NIR-Sensor des JWST. "Pandora wird mit den CCDs und NIR-Detektoren bereits erprobte Technologie einsetzen, sie allerdings auf eine neuartige Weise kombinieren und damit neue Ergebnisse ermöglichen", meint Rackham. Aufgrund ihrer geringen Entwicklungs- und Transportkosten ermöglichen SmallSats also kleine Missionen mit sehr spezifischen Aufgaben und sind damit ideal, um mit Spezialaufgaben größere Missionen zu unterstützen.
+
+  heise online
+
+
+      Newsletter
+      
+
+    Keine News verpassen! Jeden Morgen der frische Nachrichtenüberblick von heise online
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

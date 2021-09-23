@@ -25,18 +25,25 @@
 # In[1]:
 
 
+#!pip install numpy==1.20.1
+
+
+# In[2]:
+
+
 from gensim.models import KeyedVectors
 import numpy as np
 import warnings
+np.__version__
 
 
-# In[8]:
+# In[3]:
 
 
 warnings.filterwarnings("ignore")
 
 
-# In[ ]:
+# In[4]:
 
 
 # Creating the model

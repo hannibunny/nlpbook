@@ -1,0 +1,55 @@
+
+    Neuer Safari-Browser vorab für ältere macOS-Versionen
+  
+        Safari 15 steht für macOS Big Sur und macOS Catalina bereit. macOS Mojave bleibt draußen.
+      
+      
+        Safari 15, hier auf einem älteren Mac – unter Big Sur würde es auch noch einen neuen Tab-Look geben.
+      
+    Noch vor Erscheinen von macOS 12 alias Monterey hat Apple eine neue Hauptversion seines hauseigenen Browsers Safari für den Mac publiziert – nachdem diese bereits Bestandteil von iOS 15 und iPadOS 15 war. Das Update steht für macOS 11 alias Big Sur sowie macOS 10.15 alias Catalina zur Verfügung und wird über Apples Softwareaktualisierung verteilt.macOS 10.14 alias Mojave, das zuvor noch mit allen Updates von Safari 14 bedacht worden war, wird künftig offenbar nicht mehr unterstützt. Das ist unschön, weil diese Betriebssystemversion noch vielfach verwendet wird – aus dem einfachen Grund, dass Apple hier letztmalig 32-Bit-Apps unterstützt. Wer solche Programme für die tägliche Arbeit benötigt, musste auf macOS 10.14 verbleiben, da nicht jeder Entwickler seine Software auf 64-Bit hievt. Apple hatte zuletzt auch ein wichtiges Sicherheitsupdate für Mojave unterlassen.Die neuen Features im EinzelnenSafari 15 liefert eine ganze Reihe an Neuerungen. Neben einer beschleunigten WebKit-Engine und verbesserten Sicherheitsfunktionen gibt es nun erstmals Tab-Gruppen, in die man vorhandene und neue Tabs einsortieren kann. Die Steuerung erfolgt über eine ebenfalls veränderte Seitenleiste oder ein Drop-Down-Menü. Tabs zeigen – allerdings nicht unter Catalina – zudem einen neuen, runderen Look und können (abschaltbar) die Farbe einer Website annehmen. Weiterhin kann man nun die Startseite zwischen Geräten synchronisieren. Apple bietet zudem eine neue Sicherheitsfunktion an, mit der ungesicherte Sites automatisch auf HTTPS (SSL/TLS) umgeschaltet werden, sollte eine entsprechende Version bereitstehen.Safari 15 enthält zusätzlich eine Reihe sicherheitskritischer Fehlerbehebungen. Laut Liste, die womöglich noch nicht vollständig ist, gibt es allein vier gefixte WebKit-Bugs, die allesamt zur Code-Ausführung über manipulierte Websites genutzt werden konnten. Auch das ist für Mojave-Nutzer äußerst schlecht, die ungeschützt bleiben. Safari ist Systembestandteil aller Macs.
+
+  Mac & i
+
+
+      Newsletter
+      
+
+    Mac & i informiert Sie täglich über alles Wichtige rund um Mac, iPhone und Apple Watch.
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

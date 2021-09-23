@@ -3,6 +3,9 @@ title: Natural Language Processing Lecture
 author: Prof. Dr. Johannes Maucher
 logo: hdmlogomed.jpg
 
+bibtex_bibfiles:
+  - nlpreferences.bib
+
 parse:
   myst_extended_syntax: true
 

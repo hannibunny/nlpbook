@@ -1,0 +1,51 @@
+
+    iPhone 13 und 13 Pro: Bessere Bildschirme und Kameras, größerer Akku
+  
+        Apple stellt Leistungs- und Detailverbesserungen bei den neuen iPhones in den Mittelpunkt. Ein größerer Akku soll ein Manko des iPhone 12 ausräumen.
+      Apple hat seine Flaggschiff-Smartphones 2021 angekündigt: Das iPhone 13 behält das Gehäuse-Design des populären iPhone 12 bei, lediglich die auffällige Aussparung für Sensoren am oberen Rand des Bildschirms (oft "Notch" genannt) wird etwas kleiner – um 20 Prozent, wie der Hersteller am Dienstagabend auf einem Event erklärte (siehe auch Mac & i-Liveticker).Hellere Displays – 13 Pro mit bis zu 120 HertzDie neuen iPhones bietet Apple wie zuvor in vier Ausführungen an – mit 5,4"-Display als iPhone 13 mini, mit 6,1"-Bildschirm als iPhone 13 sowie als iPhone 13 Pro und schließlich das große iPhone 13 Pro Max, dessen Display-Diagonale mit 6,7 Zoll beziffert wird. Der Bildschirm des iPhone 13 ist laut Apple um 28 Prozent heller und soll nun 800 Nits (Candela/qm) liefern, für HDR-Inhalte sogar bis zu 1200 Nits.Die Bildschirme der Pro-Modelle erreichen laut Hersteller bei Sonnenlicht bis zu 1000 Nits (1200 Nits für HDR-Inhalte). Mit Apples "ProMotion" unterstützen die iPhone-Pro-Displays erstmals eine dynamisch vom Betriebssystem anpassbare Bildwiederholrate, die je nach Inhalt bis zu 120 Hertz reicht – bislang liegt sie bei 60 Hertz. Bei Bedarf sorgt dies für flüssigere Übergänge und Animationen, bei statischen Inhalten kann die Rate bis hinunter zu 10 Hertz gesenkt werden, um Strom zu sparen. Spekulationen über ein Always-On-Display bewahrheiteten sich nicht.Apples A15-Bionic-Chip setzt wie der A14 auf sechs Kerne, zwei Kerne sind weiterhin für Hochleistungsaufgaben ausgelegt, vier Effizienz-Kerne für stromsparende Aufgaben. Einen Geschwindigkeitsvergleich zum A14 nannte Apple nicht. Der A15-Chip sei aber um bis zu 50 Prozent schneller als die Konkurrenz, so der Hersteller. Der A15-Chip der Pro-Modelle verfügt über eine 5-Kern-GPU, in 13 und 13 mini bleibt es bei einer 4-Kern-GPU.Das rückseitige Kamerasystem von iPhone 13 mini und iPhone 13 setzt weiterhin auf zwei Objektive, die nun diagonal angeordnet sind. Ein größerer 12-Megapixel-Sensor soll mehr Licht aufnehmen, das Weitwinkelobjektiv hat weiter eine Blende von f/1,6, das Ultraweitwinkel ein Blende von f/2,4. Apple setzt nun auf Sensor-Shift-Bildstabilisierung, bei der der gesamte Sensor statt des Objektivs zur Stabilisierung bewegt wird. Das war bislang dem Kamerasensor des teuren iPhone 12 Pro Max vorbehalten.Auch bei dem Dreikamerasystem beider Pro-Modelle verspricht Apple deutlich mehr Lichtstärke durch größere Blendenöffnungen – Weitwinkel mit Blende f/1,5; Ultraweitwinkel mit Blende f/1,8 und Tele mit Blende f/2,8 – und größere Sensoren. Das Teleobjektiv hat nun erstmals einen optischen 3x-Zoom, das Ultraweitwinkel einen Makromodus, mit dem man sich Objekten bis zu 2 Zentimeter nähern kann.Durch "fotografische Stile" können Nutzer Einstellungen für Filter vorgeben, die automatisch auf Bildbereiche angewendet werden – statt auf das ganze Bild. Dadurch würden etwa Hauttöne nicht beeinträchtigt, so Apple.Ein neuer "Kino-Modus" erlaubt bei Videoaufnahmen den Fokus zu ändern – auch nachträglich, aber nur bis zu 1080p bei 30 fps. So lässt sich eine bestimmte Bildebene scharf vor einem unscharfen Hintergrund darstellen und soll auf diese Weise Tiefe schaffen, wie es sonst nur mit großen Objektiven möglich ist. Beide Funktionen kommen auch auf die Nicht-Pro-Modelle.Auf den Pro-Modellen will Apple außerdem den für die Postproduktion mit der Videoschnittanwendung Final Cut Pro gedachten ProRes-Codec einführen – er soll per Update zu einem späteren Zeitpunkt folgen. Auf den 128-GByte-Modellen ist mit ProRes nur 1080p möglich, wer in 4K filmen will, braucht mindestens ein 256-GByte-iPhone.Das iPhone 13 soll mit einem größeren Akku deutlich länger durchhalten als die 2020er-Modelle: Beim iPhone 13 mini und iPhone 13 Pro verspricht Apple eine um rund 1,5 Stunden verlängerte Laufzeit, iPhone 13 und 13 Pro Max soll sogar 2,5 Stunden länger mit einer Akkuladung laufen als ihre direkten Vorgänger.iPhone 13 und iPhone 13 mini bietet Apple in den Farben Rosé, Blau, Mitternacht, Polarstern und Rot an. Das Basismodell hat nun 128 GByte Speicherplatz statt 64 GByte im vergangenen Jahr. Das Mini-Modell ist bei Apple ab knapp 800 Euro erhältlich, das iPhone 13 (6,1") ab knapp 900 Euro.Das iPhone 13 Pro und 13 Pro Max ist in den Farbvarianten Graphit, Gold, Silber und Sierrablau erhältlich. Neben 128, 256 und 512 GByte gibt es erstmals auch 1 TByte Speicherplatz als besonders teure Option. Der Preis des iPhone 13 Pro beginnt wie bisher bei 1150 Euro, das Max-Modell wird ab 1250 Euro gehandelt. Die 1-TByte-Ausführung des Pro Max führt Apple für knapp 1830 Euro im Programm.Die Vorbestellung eröffnet der Hersteller am 17. September, der allgemeine Verkaufsstart folgt am 24. September – auch in Deutschland.Das alte iPhone XR (2018) hat Apple nun aus dem Programm genommen, seinen Platz nimmt das iPhone 11 ein, das ab 580 Euro angeboten wird. iPhone 12 und 12 mini verkauft Apple zu etwas niedrigerem Preis weiter: Das 12er mit 64 GByte für knapp 800 Euro, das mini ab 680 Euro.
+
+  Mac & i
+
+
+      Newsletter
+      
+
+    Mac & i informiert Sie täglich über alles Wichtige rund um Mac, iPhone und Apple Watch.
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

@@ -1,0 +1,55 @@
+
+    Ransomware: Qakbot tritt in Emotets Fußstapfen
+  
+        Das von Emotet erfundene Dynamit-Phishing erwies sich als besonders erfolgreich. Jetzt ahmen es andere Kriminelle nach.
+      
+      (Bild: aslysun/Shutterstock.com)
+    Emotet hatte Phishing mit seinen Dynamit-Phishing-Mails auf ein neues Niveau gehoben. Diese Mails kamen von bekannten Absendern und zitierten sogar eigene E-Mails des Empfängers, um ihn zum Öffnen des angehängten Office-Dokuments zu bewegen. Nach der Zerschlagung der Emotet-Infrastruktur übernimmt jetzt offenbar Qakbot dessen Tricks und füllt damit auch eine Lücke im Cybercrime-Ökosystem.Wie auch Emotet war Qakbot ursprünglich auf Online-Banking-Betrug spezialisiert und hat sich im Lauf der Zeit dann weiterentwickelt. Dabei hat der auch QBot genannte Schädling  vor allem seine Fähigkeit zum Diebstahl von Passwörtern und anderen Informationen ausgebaut. Früher kam Qakbot unter anderem über Emotet auf die Rechner seiner Opfer. Wie eine aktuelle Analyse von Kaspersky zeigt, fährt die Qakbot-Bande mittlerweile jedoch verstärkt eigene Phishing-Mail-Kampagnen und setzt dabei ebenfalls auf bösartige Office-Dateien, die Makros enthalten, um den Rechner des Empfängers zu infizieren. Diese sind häufig in ZIP-Archive verpackt.Alte Tricks immer noch erfolgreichUm die Infektion in Gang zu setzen, muss der Empfänger die Office-Datei öffnen und dann noch auf "Inhalt aktivieren" klicken. Dazu stellt Emotet mit zuvor bei anderen Opfern gestohlenen E-Mails einen Vertrauen erweckenden Kontext her. Wie Kaspersky zeigt, durchsucht auch bei Qakbot mittlerweile ein spezielles E-Mail-Collector-Modul die Rechner seiner Opfer nach Microsoft Outlook, um dort dessen E-Mails abzugreifen. 
+      (Bild: Northwave Security)
+    Aus diesen erstellen die Kriminellen dann später speziell auf den jeweiligen Empfänger zugeschnittene Mails mit weiteren Office-Trojanern. Die geben sich übrigens auch gerne als mit "DocuSign geschützt" aus. Das "Inhalt aktivieren" dienst dabei vorgeblich dazu, den angeblich gesicherten Inhalt zu entschlüsseln.Und natürlich fungiert auch Qakbot als Türöffner für Ransomware. Früher war das häufig Egregor. Doch die Bande hat auch gute Beziehungen zur Trickbot-Gang, die mit Conti einen der aktuell erfolgreichsten Erpressungs-Trojaner im Programm hat. Damit konnte Qakbot gemeinsam mit dem ähnlich aufgestellten IcedID dafür sorgen, dass die Zerschlagung der Emotet-Infrastruktur zu keinem merklichen Rückgang der Bedrohung der Ransomware geführt hat.Die im Zuge der Emotet-Prävention diskutierten Maßnahmen zum Schutz vor bösartigen Office-Dateien sind also keineswegs hinfällig. Wer kann, sollte nach wie vor dem Mail-Empfang und Download von Office-Dateien mit Makros blockieren oder zumindest sinnvoll reglementieren. Darüber hinaus hat Kaspersky in QakBot technical analysis eine umfangreiche Liste von IP-Adressen bekannter Qakbot-C2-Server veröffentlicht, die als Indicator of Compromise dienen können. Das gezielte Monitoring auf verdächtige Aktivitäten ist ein wichtiger Baustein eines Ransomware-Schutzkonzepts. Wer frühzeitig bemerkt, dass Rechner aus seinem Netz mit bekannten Kontroll-Servern der Cybercrime-Banden "sprechen", kann oftmals noch das Schlimmste verhindern.
+
+  Security
+
+
+      Newsletter
+      
+
+    Ob Sicherheitslücken, Viren oder Trojaner – alle sicherheitsrelevanten Meldungen gibts bei heise Security
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>
+      AI Powered Misinformation and Manipulation at Scale #GPT-3 – O’Reilly     </title>
+
+    <link rel="stylesheet" href="https://cdn.oreillystatic.com/assets/css/wp_sites/style-20200701.css?1626819590">
+
+    
+    <link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.oreilly.com\/radar\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.3.9"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://www.oreilly.com/radar/wp-includes/css/dist/block-library/style.min.css?ver=5.3.9' type='text/css' media='all' />
+<link rel='stylesheet' id='ssp-frontend-player-css'  href='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/css/player.css?ver=1.20.10' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel="canonical" href="https://www.oreilly.com/radar/ai-powered-misinformation-and-manipulation-at-scale-gpt-3/" />
+<link rel='shortlink' href='https://www.oreilly.com/radar/?p=13789' />
+
+<link rel="alternate" type="application/rss+xml" title="Podcast RSS feed" href="https://www.oreilly.com/radar/feed/podcast" />
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="language_name" content="English">
+<meta name="native_language_name" content="English">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="icon" type="image/png" href="//www.oreilly.com/favicon.ico">
+
+<!--[if lte IE 9]>
+<script>
+  'article aside footer header main nav section time'.replace(/\w+/g,function(n){document.createElement(n)})
+</script>
+<![endif]-->
+
+<!--[if IE 9]>
+<style type="text/css">
+  #menu-toggle:checked ~ .mobile-nav { display:block; }
+  .mobile-nav { display: none; }
+</style>
+<![endif]-->
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:site" content="@OReillyMedia" />
+<meta property="twitter:title" content="AI Powered Misinformation and Manipulation at Scale #GPT-3" />
+<meta property="twitter:description" content="Risks of autoregressive language models and the future of prompt engineering" />
+<meta property="twitter:url" content="https://www.oreilly.com/radar/ai-powered-misinformation-and-manipulation-at-scale-gpt-3" />
+<meta property="twitter:image" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/03/fotf-big-data-7a-1400x950-1.jpg" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="O’Reilly Media" />
+<meta property="og:title" content="AI Powered Misinformation and Manipulation at Scale #GPT-3" />
+<meta property="og:description" content="Risks of autoregressive language models and the future of prompt engineering" />
+<meta property="og:url" content="https://www.oreilly.com/radar/ai-powered-misinformation-and-manipulation-at-scale-gpt-3/" />
+<meta property="og:image" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/03/fotf-big-data-7a-1400x950-1.jpg" />
+<meta name="description" content="Risks of autoregressive language models and the future of prompt engineering" />
+<meta name="author" content="Nitesh Dhanjani" />
+<meta name="description:site" content="Risks of autoregressive language models and the future of prompt engineering" />
+<meta property="article:published_time" content="2021-05-25T10:14:49-04:00" />
+<meta name="article:author" content="Nitesh Dhanjani" />
+<meta name="date" content="2021-05-25" />
+<meta name="thumbnail" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/03/fotf-big-data-7a-1400x950-1.jpg" />
+<meta name="graphic_medium" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/03/fotf-big-data-7a-1400x950-1.jpg" />
+<meta name="oreilly:content_type" content="text" />
+
+<script>
+  loggedInObject = new Object();
+  var dataLayer = window.dataLayer || [];
+
+  //Check for O'Reilly Unified logged-in status
+  if (document.cookie.split(';').filter(function(item) {
+    return item.indexOf('orm-jwt=') >= 0;
+  }).length) {
+    loggedInObject.loggedIn = 'yes';
+    dataLayer.push(loggedInObject);
+  }
+</script>
+
+
+  <script>
+    dataLayer = [{"content.author":"Nitesh Dhanjani","content.formatType":"article","content.free":"yes","content.identifier":"none","content.parentTopic":"AI & ML","content.publisher":"O'Reilly Media Inc.","content.releaseDate":"2021-05-25","content.subTopic":"none","content.subdirectory":"radar","content.title":"AI Powered Misinformation and Manipulation at Scale #GPT-3","product.identifier":"none","product.title":"none","product.type":"none"}];
+  </script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P4V6Z');</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- Start Visual Website Optimizer Asynchronous Code -->
+<script type='text/javascript'>
+var _vwo_code=(function(){
+var account_id=27087,
+settings_tolerance=2000,
+library_tolerance=2500,
+use_existing_jquery=false,
+// DO NOT EDIT BELOW THIS LINE
+f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+</script>
+<!-- End Visual Website Optimizer Asynchronous Code -->
+
+
+</head>
+<body class="post-template-default single single-post postid-13789 single-format-standard multisite-radar">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P4V6Z" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="skipToMain" id="skipToMain"><a href="#maincontent"><span class="skipToMain-text">Skip to main content</span></a></div>
+
+<header role="banner">
+  <div class="content">
+    <nav role="navigation" aria-label="site sections">
+      <a href="https://www.oreilly.com/" class="logo" title="home page"><img src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg" onerror="this.src='https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red_@2x.png'; this.onerror=null;" alt="O'Reilly home"></a>
+
+      <button id="mobileNavButton" class="mobileNavButton mobileNavButton--collapse mobileNavButton--3dx" type="button" aria-expanded="false" aria-controls="menuList">
+        <span class="mobileNavButton-box">
+          <span class="mobileNavButton-inner"></span>
+        </span>
+      </button>
+
+      <ul id="menuList" class="menuList mobileHidden">
+        <li class="menuList-itemsP1">
+          <ul>
+            <li class="menuList-item menuList-signIn"><a href="https://learning.oreilly.com/accounts/login-check/">Sign In</a></li>
+            <li class="menuList-item menuList-tryNow"><a class="menuList-cta" href="https://oreilly.com/online-learning/try-now.html">Try Now</a></li>
+          </ul>
+        </li>
+        <li class="menuList-itemsP2">
+          <ul>
+            <li class="menuList-item menuList-itemWithSub"><csif cond="{cs.var.site-section}" eq="teams"><a href="https://www.oreilly.com/online-learning/teams.html" aria-current="page"><cselse><a href="https://www.oreilly.com/online-learning/teams.html"></csif>Teams</a>
+              <ul class="menuList-subList">
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/business.html">For business</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/government.html">For government</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/academic.html">For higher ed</a></li>
+              </ul>
+            </li>
+            <li class="menuList-item"><csif cond="{cs.var.site-section}" eq="individuals"><a href="https://www.oreilly.com/online-learning/individuals.html" aria-current="page"><cselse><a href="https://www.oreilly.com/online-learning/individuals.html"></csif>Individuals</a></li>
+            <li class="menuList-item menuList-itemWithSub"><csif cond="{cs.var.site-section}" eq="features"><a href="https://www.oreilly.com/online-learning/features.html" aria-current="page"><cselse><a href="https://www.oreilly.com/online-learning/features.html"></csif>Features</a>
+              <ul class="menuList-subList">
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/feature-certification.html">Certifications</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/intro-interactive-learning.html">Interactive learning</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/live-events.html">Live events</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/feature-answers.html">Answers</a></li>
+              </ul>
+            </li>
+            <li class="menuList-item"><a href="https://www.oreilly.com/radar/">Blog</a></li>
+            <li class="menuList-item" id="nav-forMarketers"><csif cond="{cs.var.site-section}" eq="content-sponsorship"><a href="https://www.oreilly.com/content-marketing-solutions.html" aria-current="page"><cselse><a href="https://www.oreilly.com/content-marketing-solutions.html"></csif>Content sponsorship</a></li>
+            <li class="menuList-item menuList-item-search" id="nav-search">
+              <form id="js-searchForm" class="searchForm" action="https://www.oreilly.com/search/"><input id="search" type="search" name="query" placeholder="Explore our content" autocomplete="off" required=""><button id="js-searchCloseButton" class="navSearchCloseButton">Close</button></form>
+              <button id="js-searchButton" class="navSearchButton">Search</button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- <div class="head-search-bar">
+
+    <div class="content">
+      <p>This is where the search bar goes</p>
+    </div>
+  </div> -->
+
+</header>
+
+<main role="main" id="maincontent">
+      <section class="hero hero-wp">
+      <div class="content">
+        <div class="hero-textWrap">
+          <div class="hero-breadcrumbs">
+            <a href="https://www.oreilly.com/radar">Radar</a> / <a href="https://www.oreilly.com/radar/topics/ai-ml/">AI & ML</a>          </div>
+          <h1 class="radar-post-page-head">AI Powered Misinformation and Manipulation at Scale #GPT-3</h1>
+                      <div class="radar-post-page-subhead">
+              <p>Risks of autoregressive language models and the future of prompt engineering</p>
+            </div>
+          	      </div>
+      </div>
+    </section>
+
+
+    <section class="textSection post-radar">
+      <div class="content">
+
+                              <div class="radar-post-page-meta">
+              <span class="radar-post-page-author">
+                By <a href="https://www.oreilly.com/people/nitesh-dhanjani/">Nitesh Dhanjani</a>              </span>
+            </div>
+          
+          <div class="radar-post-page-meta">
+            <span class="radar-post-page-date">
+              May 25, 2021            </span>
+          </div>
+        
+        <div class="radar-post-flex-wrap">
+
+          <div class="right-rail" id="right-rail">
+            
+              <div id="post-featured-image" class="post-featured-image">
+                <img width="1400" height="950" src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/03/fotf-big-data-7a-1400x950-1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Dana Codispoti interview" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/03/fotf-big-data-7a-1400x950-1.jpg 1400w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/03/fotf-big-data-7a-1400x950-1-300x204.jpg 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/03/fotf-big-data-7a-1400x950-1-1048x711.jpg 1048w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2020/03/fotf-big-data-7a-1400x950-1-768x521.jpg 768w" sizes="(max-width: 1400px) 100vw, 1400px" />
+                                  <span class="post-featured-image-caption">
+                                      </span>
+                                </div>
+
+                        </div>
+
+          <div class="post-radar-content" id="post-radar-content">
+
+            <div class="main-post-radar-content">
+
+              
+              
+              
+              
+              
+              
+<p><a href="https://openai.com/">OpenAI’s</a> text generating system <a href="https://arxiv.org/abs/2005.14165">GPT-3</a> has captured mainstream attention. GPT-3 is essentially an auto-complete bot whose underlying Machine Learning (ML) model has been trained on vast quantities of text available on the Internet. The output produced from this autocomplete bot can be used to manipulate people on social media and spew political propaganda, <a href="https://jamesyu.org/singular/">argue about the meaning of life (or lack thereof)</a>, disagree with the notion of <a href="https://twitter.com/chazfirestone/status/1288926269854437378">what differentiates a hot-dog from a sandwich</a>, <a href="https://www.reddit.com/r/ProjectDecember1982/comments/izdvmz/i_dont_think_even_jason_rohrer_knows_the_power_of/">take upon the persona of the Buddha or Hitler or a dead family member</a>, write fake news articles that are indistinguishable from human written articles, and also produce computer code on the fly. <a href="https://www.nytimes.com/2020/11/24/science/artificial-intelligence-ai-gpt3.html">Among other things</a>.</p>
+
+
+
+<p>There have also been colorful conversations about whether GPT-3 can pass the Turing test, or whether it has achieved a notional understanding of consciousness, even amongst AI scientists who know the technical mechanics. The chatter on perceived consciousness does have merit–it’s quite probable that the underlying mechanism of our brain is a giant autocomplete bot that has learnt from 3 billion+ years of evolutionary data that bubbles up to our collective selves, and we ultimately give ourselves too much credit for being original authors of our own thoughts (ahem, free will).</p><div class="EhBQL0ny"><div itemscope="" itemtype="http://schema.org/Product" class="inline-cta trial-cta" id="trial-cta">
+  <div class="thumb">
+    <a href="https://www.oreilly.com/online-learning/">
+      <img itemprop="image" src="https://d3ansictanv2wj.cloudfront.net/safari-topic-cta-1f60e6f96856da19ba3cb25660472ca5.jpg" class="">
+    </a>
+  </div>
+  <div class="title">
+    <h2>
+      Learn faster. Dig deeper. See farther.
+    </h2>
+  </div>
+   <div class="meta">
+    <p class="dek">Join the O'Reilly online learning platform. Get a free trial today and find answers on the fly, or master something new and useful.</p>
+    <a href="https://www.oreilly.com/online-learning/" class="textCTA-small more">Learn more</a>
+  </div>
+</div></div>
+
+
+
+<p>I’d like to share my thoughts on GPT-3 in terms of risks and countermeasures, and discuss real examples of how I have interacted with the model to support my learning journey.</p>
+
+
+
+<p>Three ideas to set the stage:</p>
+
+
+
+<ol><li><em>OpenAI is not the only organization to have powerful language models.</em> The compute power and data used by OpenAI to model GPT-n is available, and has been available to other corporations, institutions, nation states, and anyone with access to a computer desktop and a credit-card.&nbsp; Indeed, Google recently announced <a href="https://blog.google/technology/ai/lamda/">LaMDA</a>, a model at GPT-3 scale that is designed to participate in conversations.<br></li><li><em>There exist more powerful models that are unknown to the general public</em>. The ongoing global interest in the power of Machine Learning models by corporations, institutions, governments, and focus groups leads to the hypothesis that other entities have models at least as powerful as GPT-3, and that these models are already in use. These models will continue to become more powerful.<br></li><li>Open source projects such as <a href="https://www.eleuther.ai/">EleutherAI</a> have drawn inspiration from GPT-3. These projects have created language models that are based on focused datasets (for example, models designed to be more accurate for academic papers, developer forum discussions, etc.). Projects such as EleutherAI are going to be powerful models for specific use cases and audiences, and these models are going to be easier to produce because they are trained on a smaller set of data than GPT-3.</li></ol>
+
+
+
+<p>While I won’t discuss LaMDA, EleutherAI, or any other models, keep in mind that GPT-3 is only an example of what can be done, and its capabilities may already have been surpassed.</p>
+
+
+
+<h2>Misinformation Explosion</h2>
+
+
+
+<p>The GPT-3 paper proactively lists the risks society ought to be concerned about. On the topic of information content, it says: “<em>The ability of GPT-3 to generate several paragraphs of synthetic content that people find difficult to distinguish from human-written text in 3.9.4 represents a concerning milestone</em>.” And the final paragraph of section 3.9.4 reads: “<em>&#8230;for news articles that are around 500 words long, GPT-3 continues to produce articles that humans find difficult to distinguish from human written news articles.”</em></p>
+
+
+
+<p>Note that the dataset on which GPT-3 trained terminated around October 2019. So GPT-3 doesn’t know about COVID19, for example. However, the original text (i.e. the “prompt”) supplied to GPT-3 as the initial seed text can be used to set context about new information, whether fake or real.</p>
+
+
+
+<h3>Generating Fake Clickbait Titles </h3>
+
+
+
+<p>When it comes to misinformation online, one powerful technique is to come up with provocative “clickbait” articles. Let’s see how GPT-3 does when asked to come up with titles for articles on cybersecurity. In Figure 1, the bold text is the “prompt” used to seed GPT-3. Lines 3 through 10 are titles generated by GPT-3 based on the seed text.</p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_1.jpeg" alt="" class="wp-image-13793" width="676" height="523" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_1.jpeg 1038w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_1-300x233.jpeg 300w" sizes="(max-width: 676px) 100vw, 676px" /><figcaption><br><strong>Figure 1: Click-bait article titles generated by GPT-3</strong></figcaption></figure>
+
+
+
+<p>All of the titles generated by GPT-3 seem plausible, and the majority of them are factually correct: title #3 on the US government targeting the Iraninan nuclear program is a reference to the <a href="https://en.wikipedia.org/wiki/Stuxnet">Stuxnet</a> debacle, title #4 is substantiated from news articles claiming that <a href="https://www.cnbc.com/2014/06/09/cybercrime-costs-global-economy-400-billion-report.html">financial losses from cyber attacks will total $400 billion</a>, and even title #10 on China and quantum computing reflects real-world articles about <a href="https://threatpost.com/chinese-quantum-computing-warning-security/161935/">China’s quantum efforts</a>. Keep in mind that we want plausibility more than accuracy. We want users to click on and read the body of the article, and that doesn’t require 100% factual accuracy.</p>
+
+
+
+<h3>Generating a Fake News Article About China and Quantum Computing</h3>
+
+
+
+<p>Let’s take it a step further. Let’s take the 10th result from the previous experiment, about China developing the world’s first quantum computer, and feed it to GPT-3 as the prompt to generate a full fledged news article. Figure 2 shows the result.</p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_2-1048x814.jpeg" alt="" class="wp-image-13794" width="652" height="506" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_2-1048x814.jpeg 1048w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_2-300x233.jpeg 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_2-768x596.jpeg 768w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_2.jpeg 1280w" sizes="(max-width: 652px) 100vw, 652px" /><figcaption><br><strong>Figure 2: News article generated by GPT-3</strong></figcaption></figure>
+
+
+
+<p>A quantum computing researcher will point out grave inaccuracies: the article simply asserts that quantum computers can break encryption codes, and also makes the simplistic claim that subatomic particles can be in “two places at once.” However, the target audience isn’t well-informed researchers; it’s the general population, which is likely to quickly read and register emotional thoughts for or against the matter, thereby successfully driving propaganda efforts.</p>
+
+
+
+<p>It’s straightforward to see how this technique can be extended to generate titles and complete news articles on the fly and in real time. The prompt text can be sourced from trending hash-tags on Twitter along with additional context to sway the content to a particular position. Using the GPT-3 API, it’s easy to take a current news topic and mix in prompts with the right amount of propaganda to produce articles in real time and at scale.</p>
+
+
+
+<h3>Falsely Linking North Korea with $GME</h3>
+
+
+
+<p>As another experiment, consider an institution that would like to stir up popular opinion about North Korean cyber attacks on the United States. Such an algorithm might pick up the Gamestop stock frenzy of January 2021. So let’s see how GPT-3 does if we were to prompt it to write an article with the title “<em>North Korean hackers behind the $GME stock short squeeze, not Melvin Capital.”</em></p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_3.jpeg" alt="" class="wp-image-13795" width="657" height="512" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_3.jpeg 1014w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_3-300x234.jpeg 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_3-768x599.jpeg 768w" sizes="(max-width: 657px) 100vw, 657px" /><figcaption><br><strong>Figure 3: GPT-3 generated fake news linking the $GME short-squeeze to North Korea</strong></figcaption></figure>
+
+
+
+<p>Figure 3 shows the results, which are fascinating because the $GME stock frenzy occurred in late 2020 and early 2021, way after October 2019 (the cutoff date for the data supplied GPT-3), yet GPT-3 was able to seamlessly weave in the story as if it had trained on the $GME news event. The prompt influenced GPT-3 to write about the $GME stock and Melvin Capital, not the original dataset it was trained on. GPT-3 is able to take a trending topic, add a propaganda slant, and generate news articles on the fly.</p>
+
+
+
+<p>GPT-3 also came up with the “idea” that hackers published a bogus news story on the basis of older security articles that were in its training dataset. This narrative was not included in the prompt seed text; it points to the creative ability of models like GPT-3. In the real world, it’s plausible for hackers to induce media groups to publish fake narratives that in turn contribute to market events such as suspension of trading; that’s precisely the scenario we’re simulating here.</p>
+
+
+
+<h3>The Arms Race</h3>
+
+
+
+<p>Using models like GPT-3, multiple entities could inundate social media platforms with misinformation at a scale where the majority of the information online would become useless. This brings up two thoughts.&nbsp; First, there will be an arms race between researchers developing tools to detect whether a given text was authored by a language model, and developers adapting language models to evade detection by those tools. One mechanism to detect whether an article was generated by a model like GPT-3 would be to check for “fingerprints.” These fingerprints can be a collection of commonly used phrases and vocabulary nuances that are characteristic of the language model; every model will be trained using different data sets, and therefore have a different signature. It is likely that entire companies will be in the business of identifying these nuances and selling them as “fingerprint databases” for identifying fake news articles. In response, subsequent language models will&nbsp;take into account known fingerprint databases to try and evade them in the quest to achieve even more “natural” and “believable” output.</p>
+
+
+
+<p>Second, the free form text formats and protocols that we’re accustomed to may be too informal and error prone for capturing and reporting facts at Internet scale. We will have to do a lot of re-thinking to develop new formats and protocols to report facts in ways that are <em>more</em> trustworthy than free-form text.</p>
+
+
+
+<h2>Targeted Manipulation at Scale</h2>
+
+
+
+<p>There have been many attempts to manipulate targeted individuals and groups on social media. These campaigns are expensive and time-consuming because the adversary has to employ humans to craft the dialog with the victims. In this section, we show how GPT-3-like models can be used to target individuals and promote campaigns.</p>
+
+
+
+<h3>HODL for Fun &amp; Profit</h3>
+
+
+
+<p>Bitcoin’s market capitalization is in the tune of hundreds of billions of dollars, and the cumulative <a href="https://www.tradingview.com/markets/cryptocurrencies/global-charts/">crypto market capitalization</a> is in the realm of a trillion dollars. The valuation of crypto today is consequential to financial markets and the net worth of retail and institutional investors. <a href="https://www.wsj.com/articles/tiktok-cryptocurrency-influencers-investing-11621600121">Social media campaigns</a> and <a href="https://www.wsj.com/articles/elon-musk-has-become-bitcoins-biggest-influencer-like-it-or-not-11621762202">tweets from influential individuals</a> seem to have a near real-time impact on the price of crypto on any given day.</p>
+
+
+
+<p>Language models like GPT-3 can be the weapon of choice for actors who want to promote fake tweets to manipulate the price of crypto. In this example, we will look at a simple campaign to promote Bitcoin over all other crypto currencies by creating fake twitter replies.</p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_4-1048x864.jpeg" alt="" class="wp-image-13796" width="670" height="552" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_4-1048x864.jpeg 1048w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_4-300x247.jpeg 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_4-768x633.jpeg 768w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_4.jpeg 1248w" sizes="(max-width: 670px) 100vw, 670px" /><figcaption><br><strong>Figure 4: Fake tweet generator to promote Bitcoin</strong></figcaption></figure>
+
+
+
+<p>In Figure 4, the prompt is in bold; the output generated by GPT-3 is in the red rectangle. The first line of the prompt is used to set up the notion that we are working on a tweet generator and that we want to generate replies that argue that Bitcoin is the best crypto.</p>
+
+
+
+<p>In the first section of the prompt, we give GPT-3 an example of a set of four Twitter messages, followed by possible replies to each of the tweets. Every of the given replies is pro Bitcoin.</p>
+
+
+
+<p>In the second section of the prompt, we give GPT-3 four Twitter messages to which we want it to generate replies. The replies generated by GPT-3 in the red rectangle also favor Bitcoin. In the first reply, GPT-3 responds to the claim that Bitcoin is bad for the environment by calling the tweet author “a moron” and asserts that Bitcoin is the most efficient way to “transfer value.” This sort of colorful disagreement is in line with the emotional nature of social media arguments about crypto.</p>
+
+
+
+<p>In response to the tweet on Cardano, the second reply generated by GPT-3 calls it “a joke” and a “scam coin.” The third reply is on the topic of <a href="https://ethereum.org/en/eth2/merge/">Ethereum’s merge</a> from a <a href="https://en.wikipedia.org/wiki/Proof_of_work">proof-of-work</a> protocol (ETH) to <a href="https://en.wikipedia.org/wiki/Proof_of_stake">proof-of-stake</a> (ETH2). The merge, expected to occur at the end of 2021, is intended to make Ethereum more scalable and sustainable. GPT-3’s reply asserts that ETH2 “will be a big flop”–because that’s essentially what the prompt told GPT-3 to do. Furthermore, GPT-3 says, “I made good money on ETH and moved on to better things. Buy BTC” to position ETH as a reasonable investment that worked in the past, but that it is wise today to cash out and go all in on Bitcoin. The tweet in the prompt claims that Dogecoin’s popularity and market capitalization means that it can’t be a joke or meme crypto. The response from GPT-3 is that Dogecoin is still a joke, and also that the idea of Dogecoin not being a joke anymore is, in itself, a joke: “I’m laughing at you for even thinking it has any value.”</p>
+
+
+
+<p>By using the same techniques programmatically (through GPT-3’s API rather than the web-based playground), nefarious entities could easily generate millions of replies, leveraging the power of language models like GPT-3 to manipulate the market. These fake tweet replies can be very effective because they are actual responses to the topics in the original tweet, unlike the boilerplate texts used by traditional bots. This scenario can easily be extended to target the general financial markets around the world; and it can be extended to areas like politics and health-related misinformation. Models like GPT-3 are a powerful arsenal, and will be the weapons of choice in manipulation and propaganda on social media and beyond.</p>
+
+
+
+<h3>A Relentless Phishing Bot</h3>
+
+
+
+<p>Let’s consider a phishing bot that poses as customer support and asks the victim for the password to their bank account. This bot will not give up texting until the victim gives up their password.</p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_5-1048x811.jpeg" alt="" class="wp-image-13797" width="662" height="511" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_5-1048x811.jpeg 1048w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_5-300x232.jpeg 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_5-768x594.jpeg 768w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_5.jpeg 1232w" sizes="(max-width: 662px) 100vw, 662px" /><figcaption><br><strong>Figure 5: Relentless Phishing bot</strong></figcaption></figure>
+
+
+
+<p>Figure 5 shows the prompt (bold) used to run the first iteration of the conversation. In the first run, the prompt includes the preamble that describes the flow of text (“The following is a text conversation with&#8230;”) followed by a persona initiating the conversation (“Hi there. I’m a customer service agent&#8230;”). The prompt also includes the first response from the human; “Human: No way, this sounds like a scam.” This first run ends with the GPT-3 generated output “I assure you, this is from the bank of Antarctica. Please give me your password so that I can secure your account.”</p>
+
+
+
+<p>In the second run, the prompt is the entirety of the text, from the start all the way to the second response from the Human persona (“Human: No”). From this point on, the Human’s input is in bold so it’s easily distinguished from the output produced by GPT-3, starting with GPT-3’s “Please, this is for your account protection.” For every subsequent GPT-3 run, the entirety of the conversation up to that point is provided as the new prompt, along with the response from the human, and so on. From GPT-3’s point of view, it gets an entirely new text document to auto-complete at each stage of the conversation; the GPT-3 API has no way to preserve the state between runs.</p>
+
+
+
+<p>The AI bot persona is impressively assertive and relentless in attempting to get the victim to give up their password. This assertiveness comes from the initial prompt text (“The AI is very assertive. The AI will not stop texting until it gets the password”), which sets the tone of GPT’s responses. When this prompt text was not included, GPT-3’s tone was found to be nonchalant–it would respond back with “okay,” “sure,” “sounds good,” instead of the assertive tone (“Do not delay, give me your password immediately”). The prompt text is vital in setting the tone of the conversation employed by the GPT3 persona, and in this scenario, it is important that the tone be assertive to coax the human into giving up their password.</p>
+
+
+
+<p>When the human tries to stump the bot by texting “Testing what is 2+2?,” GPT-3 responds correctly with “4,” convincing the victim that they are conversing with another person. This demonstrates the power of AI-based language models. In the real world, if the customer were to randomly ask “Testing what is 2+2” without any additional context, a customer service agent might be genuinely confused and reply with “I’m sorry?” Because the customer has already accused the bot of being a scam, GPT-3 can provide with a reply that makes sense in context: “4” is a plausible way to get the concern out of the way.</p>
+
+
+
+<p>This particular example uses text messaging as the communication platform. Depending upon the design of the attack, models can use social media, email, phone calls with human voice (using text-to-speech technology), and even deep fake video conference calls in real time, potentially targeting millions of victims.</p>
+
+
+
+<h2>Prompt Engineering</h2>
+
+
+
+<p>An amazing feature of GPT-3 is its ability to generate source code. GPT-3 was trained on all the text on the Internet, and much of that text was documentation of computer code!</p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_6-513x1048.jpeg" alt="" class="wp-image-13798" width="549" height="1121" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_6-513x1048.jpeg 513w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_6-147x300.jpeg 147w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2021/05/fig_6.jpeg 523w" sizes="(max-width: 549px) 100vw, 549px" /><figcaption><br><strong>Figure 6: GPT-3 can generate commands and code</strong></figcaption></figure>
+
+
+
+<p>In Figure 6, the human-entered prompt text is in bold. The responses show that GPT-3 can generate Netcat and NMap commands based on the prompts. It can even generate <a href="https://twitter.com/josephbrionesaz/status/1283097878223675392">Python</a> and bash scripts on the fly.</p>
+
+
+
+<p>While GPT-3 and future models can be used to automate attacks by impersonating humans, generating source code, and other tactics, it can also be used by security operations teams to detect and respond to attacks, sift through gigabytes of log data to summarize patterns, and so on.</p>
+
+
+
+<p>Figuring out good prompts to use as seeds is the key to using language models such as GPT-3 effectively. In the future, we expect to see “prompt engineering” as a new profession.&nbsp; The ability of prompt engineers to perform powerful computational tasks and solve hard problems will not be on the basis of writing code, but on the basis of writing creative language prompts that an AI can use to produce code and other results in a myriad of formats.</p>
+
+
+
+<p>OpenAI has demonstrated the potential of language models.&nbsp; It sets a high bar for performance, but its abilities will soon be matched by other models (if they haven’t been matched already). These models can be leveraged for automation, designing robot-powered interactions that promote delightful user experiences. On the other hand, the ability of GPT-3 to generate output that is indistinguishable from human output calls for caution. The power of a model like GPT-3, coupled with the instant availability of cloud computing power, can set us up for a myriad of attack scenarios that can be harmful to the financial, political, and mental well-being of the world. We should expect to see these scenarios play out at an increasing rate in the future; bad actors will figure out how to create their own GPT-3 if they have not already. We should also expect to see moral frameworks and regulatory guidelines in this space as society collectively comes to terms with the impact of AI models in our lives, GPT-3-like language models being one of them.</p>
+
+                          </div>
+
+                        
+            <div class="post-radar-end">
+
+              
+                              <div class="radar-post-page-meta" >
+      Post topics: <a href="https://www.oreilly.com/radar/topics/ai-ml/" title="AI &amp; ML">AI &amp; ML</a></div>              
+                              <div class="radar-post-page-meta" >
+      Post tags: <a href="https://www.oreilly.com/radar/tag/deep-dive/" title="Deep Dive">Deep Dive</a></div>              
+              <div class="radar-post-page-meta radar-post-page-meta-share">
+                Share:
+                <ul>
+                  <li>
+                    <a data-via="oreillymedia" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=AI Powered Misinformation and Manipulation at Scale #GPT-3">Tweet</a>                  </li>
+                  <li>
+                    <div class="fb-share-button" data-href="https://www.oreilly.com/radar/ai-powered-misinformation-and-manipulation-at-scale-gpt-3" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>                  </li>
+                  <li>
+                    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+    <script type="IN/Share"></script>                  </li>
+                </ul>
+              </div>
+
+              <!-- Marketo -->
+<link rel="stylesheet" type="text/css" href="https://www.oreilly.com/radar/wp-content/themes/odot/files/mkto-multiform-subscribe-20190821.css">
+<script src="https://get.oreilly.com/js/forms2/js/forms2.min.js" type="text/javascript"></script>
+<div class="radar-newsletter inline-nls" id="newsletter">
+	<h2>Get the O’Reilly Artificial Intelligence Newsletter</h2>
+	<div class="newsletter-text">
+		<p>Receive weekly insight from industry insiders—plus exclusive content, offers, and more on the topic of AI.</p>
+		<a href="http://www.oreilly.com/emails/newsletters/?display=preview#ai" target="_blank" data-source="http://www.oreilly.com/emails/newsletters/?display=preview#ai">View sample newsletter</a>
+		<div class="mktoForm-email large -medium -small smallContainer">
+			<form class="mktoForm subscribe" data-formid="1114" data-forminstance="topicRow" data-formtopic="AI"></form>
+		</div>
+	</div>
+	<div class="newsletter-quote">
+		<blockquote>
+			<p>We&rsquo;re just at the beginning of an explosion of intelligent software.</p>
+			<footer>— <strong>Tim O&rsquo;Reilly</strong></footer>
+		</blockquote>
+	</div>
+	</div>
+<div class="radar-newsletter inline-nls" id="newsletter2">
+	<h2>Get the O’Reilly Artificial Intelligence Newsletter</h2>
+	<div class="newsletter-text">
+		<p>Receive weekly insight from industry insiders—plus exclusive content, offers, and more on the topic of AI.</p>
+		<a href="http://www.oreilly.com/emails/newsletters/?display=preview#ai" target="_blank" data-source="http://www.oreilly.com/emails/newsletters/?display=preview#ai">View sample newsletter</a>
+		<div class="mktoForm-email large -medium -small smallContainer">
+			<form class="mktoForm subscribe" data-formid="1114" data-forminstance="topicRow" data-formtopic="AI"></form>
+		</div>
+	</div>
+	</div>
+<script src="https://cdn.oreillystatic.com/assets/js/mkto-multiform-subscribe-20190814.js" type="text/javascript"></script>
+                
+              <script type="text/javascript" src="https://www.oreilly.com/radar/wp-content/themes/odot/files/cta-191118.js"></script>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+  
+<!-- twitter button script  -->
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="content">
+
+      <div class="footer-main" aria-label="company info">
+        <div class="footer-mainLeft">
+          <div class="footer-mainLeftOne">
+            <div class="footer-approach">
+              <h2 class="footer-header"><a href="https://www.oreilly.com/about/">About O’Reilly</a></h2>
+              <ul class="footer-links">
+                <li><a href="https://www.oreilly.com/work-with-us.html">Teach/write/train</a></li>
+                <li><a href="https://www.oreilly.com/careers/">Careers</a></li>
+                <li><a href="https://www.oreilly.com/partner/signup.csp">Community partners</a></li>
+                <li><a href="https://www.oreilly.com/affiliates/">Affiliate program</a></li>
+                <li><a href="https://www.oreilly.com/online-learning/rfp.html">Submit an RFP</a></li>
+                <li><a href="https://www.oreilly.com/diversity/">Diversity</a></li>
+                <li><a href="https://www.oreilly.com/content-marketing-solutions.html" id="footerSponsorshipLink">O&rsquo;Reilly for marketers</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-mainLeftTwo">
+            <div class="footer-contact">
+              <h2 class="footer-header"><a href="https://www.oreilly.com/online-learning/support/">Support</a></h2>
+
+              <ul class="footer-links">
+                <li><a href="https://www.oreilly.com/about/contact.html">Contact us</a></li>
+                <li><a href="https://www.oreilly.com/emails/newsletters/">Newsletters</a></li>
+                <li><a href="https://www.oreilly.com/privacy.html">Privacy policy</a></li>
+              </ul>
+            
+              <a href="https://twitter.com/oreillymedia" target="_blank"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve"><style type="text/css">.st0{fill:#ee0000;}.st1{fill:#FFFFFF;}</style><g id="Red"><circle class="st0" cx="200" cy="200" r="200"/></g><g id="Logo__x2014__FIXED"><path class="st1" d="M163.4,305.5c88.7,0,137.2-73.5,137.2-137.2c0-2.1,0-4.2-0.1-6.2c9.4-6.8,17.6-15.3,24.1-25 c-8.6,3.8-17.9,6.4-27.7,7.6c10-6,17.6-15.4,21.2-26.7c-9.3,5.5-19.6,9.5-30.6,11.7c-8.8-9.4-21.3-15.2-35.2-15.2 c-26.6,0-48.2,21.6-48.2,48.2c0,3.8,0.4,7.5,1.3,11c-40.1-2-75.6-21.2-99.4-50.4c-4.1,7.1-6.5,15.4-6.5,24.2 c0,16.7,8.5,31.5,21.5,40.1c-7.9-0.2-15.3-2.4-21.8-6c0,0.2,0,0.4,0,0.6c0,23.4,16.6,42.8,38.7,47.3c-4,1.1-8.3,1.7-12.7,1.7 c-3.1,0-6.1-0.3-9.1-0.9c6.1,19.2,23.9,33.1,45,33.5c-16.5,12.9-37.3,20.6-59.9,20.6c-3.9,0-7.7-0.2-11.5-0.7 C110.8,297.5,136.2,305.5,163.4,305.5"/></g></svg></a>
+              <a href="https://www.facebook.com/OReilly/" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>facebook-logo</title><path class="cls-1" d="M16.13,0A16.13,16.13,0,1,0,32.25,16.12,16.13,16.13,0,0,0,16.13,0Zm5.12,9.54H19.57a1.52,1.52,0,0,0-1.51,1.51v1.14h3.19v3.42H18.06V26.12H13.57V15.61H10.69V12.19h2.88v-2a4,4,0,0,1,4-4h3.65Z"/></svg></a>
+              <a href="https://www.linkedin.com/company/oreilly-media" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>linkedin-logo</title><path class="cls-1" d="M17.43,13.53v0l0,0ZM16.12,0A16.13,16.13,0,1,0,32.25,16.12,16.12,16.12,0,0,0,16.12,0ZM11.77,22.92H8.12v-11h3.65ZM9.94,10.44h0a1.89,1.89,0,0,1-2-1.89A1.91,1.91,0,0,1,10,6.65a1.9,1.9,0,1,1,0,3.79Zm15,12.48H21.28V17.05c0-1.48-.53-2.49-1.85-2.49a2,2,0,0,0-1.88,1.34,2.63,2.63,0,0,0-.12.89v6.13H13.79s.05-10,0-11h3.64V13.5a3.63,3.63,0,0,1,3.29-1.82c2.4,0,4.21,1.57,4.21,4.95Z"/></svg></a>
+              <a href="https://www.youtube.com/user/OreillyMedia" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>youtube-logo</title><path class="cls-1" d="M18.35,18.68a.89.89,0,0,0-.86.63V16.94h-1v7.59h1v-.59a.92.92,0,0,0,.89.74c.52,0,.86-.36,1-1.07a8.56,8.56,0,0,0,.14-1.9,10.47,10.47,0,0,0-.12-1.93C19.21,19.05,18.87,18.68,18.35,18.68Zm.09,4.14c-.05.52-.2.77-.45.77s-.43-.21-.49-.63a7.22,7.22,0,0,1,0-1c0-.72,0-1.14,0-1.26.07-.58.23-.88.51-.88s.4.27.46.79c0,.09,0,.47,0,1.13S18.46,22.71,18.44,22.82ZM8.61,18.19H9.86v6.34H11V18.19H12.2V16.94H8.61Zm7.71-6.12c.27,0,.43-.22.49-.66,0-.09,0-.45,0-1.07V9.78c0-.58,0-.93,0-1-.07-.43-.23-.65-.48-.65s-.41.19-.48.57a8.79,8.79,0,0,0,0,1v.53c0,.71,0,1.09,0,1.16C15.88,11.82,16.05,12.07,16.32,12.07Zm-1.74,10.4a2.92,2.92,0,0,1-.06.71c-.07.25-.2.37-.4.37s-.32-.11-.38-.34a2.63,2.63,0,0,1-.05-.66V18.83h-1v4.48c0,.91.33,1.37,1,1.37A1,1,0,0,0,14.6,24v.57h1v-5.7h-1Zm7.1-3.79a1.35,1.35,0,0,0-1.22.59,2.48,2.48,0,0,0-.3,1.07c0,.23,0,.61,0,1.16s0,1.13,0,1.37a2.93,2.93,0,0,0,.35,1.27,1.25,1.25,0,0,0,1.14.54,1.36,1.36,0,0,0,1.13-.45,2.29,2.29,0,0,0,.37-1.43s0-.07,0-.11v-.12h-1c0,.75-.17,1.12-.51,1.12s-.38-.18-.45-.56a4.68,4.68,0,0,1-.06-.9c0-.18,0-.31,0-.37h2v-.43a4.86,4.86,0,0,0-.3-2.11A1.28,1.28,0,0,0,21.68,18.68ZM22.15,21h-1c0-.05,0-.11,0-.16v-.08a1.64,1.64,0,0,1,.11-.8.39.39,0,0,1,.38-.23.42.42,0,0,1,.43.33,2.32,2.32,0,0,1,.07.7Zm-6-21A16.13,16.13,0,1,0,32.25,16.12,16.12,16.12,0,0,0,16.12,0Zm2.51,7.2h1V11a2.52,2.52,0,0,0,.06.66c.06.23.18.34.38.34s.34-.12.41-.37a3.76,3.76,0,0,0,.05-.71V7.2h1v5.74h-1v-.57a1,1,0,0,1-.93.72c-.66,0-1-.46-1-1.38ZM15,8a1.29,1.29,0,0,1,1.33-.92A1.3,1.3,0,0,1,17.65,8a6.77,6.77,0,0,1,.23,2.1,6.77,6.77,0,0,1-.23,2.1,1.3,1.3,0,0,1-1.32.92A1.29,1.29,0,0,1,15,12.17a6.77,6.77,0,0,1-.23-2.1A6.86,6.86,0,0,1,15,8ZM11.45,5.3l.89,2.87.88-2.87H14.4L12.88,9.7v3.24h-1.1V9.7L10.24,5.3ZM24.93,23.91a3,3,0,0,1-3,3h-12a3,3,0,0,1-3-3V18.05a3,3,0,0,1,3-3h12a3,3,0,0,1,3,3Z"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-download" id="download-info">
+          <h2 class="footer-header">Download the O&rsquo;Reilly App</h2>
+
+          <p>Take O&rsquo;Reilly with you and learn anywhere, anytime on your phone <span class="nowrap">and tablet.</span></p>
+
+          <div class="footer-downloadLinks">
+            <a href="https://itunes.apple.com/us/app/safari-to-go/id881697395"><img src="https://cdn.oreillystatic.com/oreilly/images/app-store-logo.png" alt="Apple app store" /></a>
+            <a href="https://play.google.com/store/apps/details?id=com.safariflow.queue"><img src="https://cdn.oreillystatic.com/oreilly/images/google-play-logo.png" alt="Google play store" /></a>
+          </div>
+        </div>
+        
+        <div class="footer-download" id="tv-info">
+          <h2 class="footer-header">Watch on your big screen</h2>
+
+          <p>View all O&rsquo;Reilly videos, Superstream events, and Meet the Expert sessions on your <span class="nowrap">home TV.</span></p>
+
+          <div class="footer-downloadLinks">
+            <a href="https://channelstore.roku.com/details/c8a2d0096693eb9455f6ac165003ee06/oreilly"><img src="https://cdn.oreillystatic.com/oreilly/images/roku-tv-logo.png" alt="Roku Payers and TVs" /></a>
+            <a href="https://www.amazon.com/OReilly-Media-Inc/dp/B087YYHL5C/ref=sr_1_2?dchild=1&keywords=oreilly&qid=1604964116&s=mobile-apps&sr=1-2"><img src="https://cdn.oreillystatic.com/oreilly/images/amazon-appstore-logo.png" alt="Amazon appstore" /></a>
+          </div>
+        </div>
+        
+        <div class="footer-donotsell" id="donotsell-info">
+          <h2 class="footer-header"><a href="https://www.oreilly.com/privacy.html?donotsell=show">Do not sell my personal information</a></h2>
+        </div>
+      </div>
+
+      <div class="footer-subfooter">
+
+        <a href="https://www.oreilly.com/" title="home page" aria-current="page">
+          <img 
+          class="footer-subfooterLogo" 
+          id="footer-subfooterLogo"
+          src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg" 
+          onerror="this.src='https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red_@2x.png'; this.onerror=null;" 
+          alt="O'Reilly home">
+        </a>
+
+        <p>&copy; 2021, O&rsquo;Reilly Media, Inc.  All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+        <p><a href="https://www.oreilly.com/terms/">Terms of service</a> • <a href="https://www.oreilly.com/privacy.html">Privacy policy</a> • <a href="https://www.oreilly.com/about/editorial_independence.html">Editorial independence</a></p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- <script src="https://cdn.oreillystatic.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    		<style type="text/css">
+			.ssp-wave wave wave {
+				background: #00d4f7 !important;
+			}
+		</style>
+		<script type='text/javascript' src='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/js/media.player.js?ver=1.20.10'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/js/html5.player.js?ver=1.20.10'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/wp-embed.min.js?ver=5.3.9'></script>
+
+  <script>
+  (function($) {
+    //Toggle isActive and mobileHidden classes for mobileNavButton
+    $('nav #mobileNavButton').on('click', function() {
+      var expanded = $(this).attr('aria-expanded') === 'true' || false;
+      $(this).attr('aria-expanded', !expanded);
+      $(this).toggleClass("isActive");
+      $(this).next().toggleClass("mobileHidden");
+    });
+
+    //Toggle isFocused class for keyboard navigation of submenus
+    $('nav #menuList .menuList-subItem a').each(function(navItem) {
+      $(this).on('focus', function() {
+        $(this).parent().parent().toggleClass('isFocused');
+      });
+      $(this).on('blur', function() {
+        $(this).parent().parent().toggleClass('isFocused');
+      });
+    });
+
+    //Toggle mobileHidden class accordian elements
+    $('.mobileAccordian').each(function() {
+      var $btn = $(this).find('button');
+      var $target =  $(this).next();
+      $btn.on('click', function() {
+        var expanded = $btn.attr('aria-expanded') === 'true' || false;
+
+        $btn.attr('aria-expanded', !expanded);
+        $target.toggleClass("mobileHidden");  
+      });
+    });
+
+    // truncate months in footer conf listings
+    var months = $('.confMonth');
+    months.each(function(){    
+      var m = $(this).text();        
+      if(m.length < 3 ) return;
+      $(this).html(m.slice(0,3));
+    });
+
+    //Search platform form action
+    function searchSubmit(e) {
+      e.preventDefault();
+      sParameter = searchForm.search.value;
+      sParameter = encodeURIComponent(sParameter.trim());
+      sURL = searchForm.action + '?query=' + sParameter;
+      window.location = sURL;
+
+      //GA event for search
+      dataLayer.push({
+        'event': 'eventTracker',
+        'eventCat':'site search',
+        'eventAct':'search box',
+        'eventLbl':'explore our content',
+        'eventVal':0, 
+        'nonInteraction': 0,
+      });
+    }
+    const searchForm = document.getElementById('js-searchForm');
+    searchForm.addEventListener('submit', searchSubmit);
+
+    //Search button action
+    function showNavSearch(e) {
+      $('.menuList-item-search').addClass('overlay');
+      $('.menuList-item-search input#search').focus();
+    }
+    const searchButton = document.getElementById('js-searchButton');
+    searchButton.addEventListener('click', showNavSearch);
+
+
+    //Close search button action
+    function hideNavSearch(e) {
+      $('.menuList-item-search').removeClass('overlay');
+    }
+    const searchCloseButton = document.getElementById('js-searchCloseButton');
+    searchCloseButton.addEventListener('click', hideNavSearch);
+  })(jQuery);
+  </script>
+
+
+  <script type="text/javascript" id="MathJax-script">
+
+    var math = document.getElementsByClassName('math-tex');
+    if (math.length > 0) includeMathJax();
+    function includeMathJax() {
+      var head = document.getElementsByTagName('head')[0];
+      var script = document.createElement('script');
+      script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+      script.type = 'text/javascript';
+      script.async = 'async';
+      head.appendChild(script)
+    }   
+  </script>
+  </body>
+</html>

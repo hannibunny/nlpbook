@@ -99,28 +99,28 @@ by a Naive Bayes Classifier.
 
 1. Determine for the relevant words `the`, `money` and `jumps` and both classes the conditional probabilites according to equation {eq}`bayes-estimate-conditional`:
  
-     \begin{eqnarray*}
+     $$
  		P(the|Bad) & = & 0.25 \\
  		P(the|Good) & = & 0.75 \\
  		P(money|Bad) & = & 0.5  \\
  		P(money|Good) & = & 0.0 \\
  		P(jumps|Bad) & = & 0.0  \\
  		P(jumps|Good) & = & 0.5 \\
- 	\end{eqnarray*}
+ 	$$
  
 2. Determine for both classes the a-priori probability according to equation {eq}`bayes-estimate-apriori`:
  
-    \begin{eqnarray*}
+    $$
 		P(Bad) & = & 0.5 \\
 		P(Good) & = & 0.5 \\
-	\end{eqnarray*} 
+	$$ 
 
 3. Determine the class, for which the argument of equation {eq}`bayes-inference-text` is maximal:
 
-    \begin{eqnarray*}
+    $$
 		\mbox{Class Bad:  }  & 0.25 \cdot 0.5 \cdot 0.0 \cdot 0.5 = 0 \\
 		\mbox{Class Good:  } & 0.75 \cdot 0.0 \cdot 0.5 \cdot 0.5 = 0 \\
-    \end{eqnarray*}
+    $$
 
 For both classes the same a-posteriori probability value has been calculated. In this case no classification is possible!
 	
@@ -151,32 +151,31 @@ where
  
  The given training data is the same as in example {ref}`exampleNB`. The smoothed conditional probabilities according to {eq}`nb-smoothing` are then:
  
-    \begin{eqnarray*}
+    $$
       P_{weight}(the|Bad) & = & \frac{0.5 + 4 \cdot 0.25}{1+4}=0.3 \\
       P_{weight}(the|Good) & = & \frac{0.5 + 4 \cdot 0.75}{1+4}=0.7 \\
       P_{weight}(money|Bad) & = & \frac{0.5 + 2 \cdot 0.5}{1+2}=0.5 \\
       P_{weight}(money|Good) & = & \frac{0.5 + 2 \cdot 0.0}{1+2}=0.167 \\
       P_{weight}(jumps|Bad) & = & \frac{0.5 + 2 \cdot 0.0}{1+2}=0.167 \\
       P_{weight}(jumps|Good) & = & \frac{0.5 + 2 \cdot 0.5}{1+2}=0.5 \\
-     \end{eqnarray*}
+     $$
 	
 The a-priori class probabilities are unchanged:
 
-    \begin{eqnarray*}
+    $$
 		\mbox{Class Bad:  }  & 0.25 \cdot 0.5 \cdot 0.0 \cdot 0.5 = 0 \\
 		\mbox{Class Good:  } & 0.75 \cdot 0.0 \cdot 0.5 \cdot 0.5 = 0 \\
-    \end{eqnarray*}
+    $$
 	
 Applying the smoothed probabilities, the class, for which the argument of equation {eq}`bayes-inference-text-smoothed` is maximal for the new email $(the, money, jumps)$:
 
-	\begin{eqnarray*}
+	$$
 		\mbox{Class Bad:  }   & 0.3 \cdot 0.5 \cdot 0.167 \cdot 0.5 = 0.0125 \\
 		\mbox{Class Good:  }  & 0.7 \cdot 0.167 \cdot 0.5 \cdot 0.5 = 0.029 \\
-	\end{eqnarray*}
+	$$
 	
 Hence this email is classified to be `Good`.
 	
- 
  ```
  
  
@@ -196,10 +195,10 @@ Hence this email is classified to be `Good`.
  
  In the example above, the a-posteriori probabilities are then:
  
- \begin{eqnarray*}
+ $$
   P(Bad | (the,money,jumps)) & = & \frac{0.0125}{0.0125+0.029} & = & 0.30 \\
   P(Good | (the,money,jumps)) & = & \frac{0.029}{0.0125+0.029} & = & 0.70 \\   
 
- \end{eqnarray*}
+ $$
  
  

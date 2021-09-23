@@ -423,20 +423,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">c9edce5a0093</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">feedparser</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">requests</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">bs4</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">datetime</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">os</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;feedparser&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="define-category-and-language-of-feeds">
@@ -466,8 +452,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="c1">#cat=&quot;GENERAL&quot;</span>
-<span class="n">cat</span><span class="o">=</span><span class="s2">&quot;TECH&quot;</span>
+<span class="n">cat</span><span class="o">=</span><span class="s2">&quot;GENERAL&quot;</span>
+<span class="c1">#cat=&quot;TECH&quot;</span>
 <span class="c1">#cat=&quot;SPORT&quot;</span>
 <span class="c1">#lang=&quot;GERMAN&quot;</span>
 <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;ENGLISH&quot;</span>
@@ -478,9 +464,7 @@
 <p>Some feed lists for all languages and categories:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tech_feeds_en</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;districtdatalabs&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://blog.districtdatalabs.com/feed&#39;</span><span class="p">},</span>
-                 <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;oreillyradar&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://feeds.feedburner.com/oreilly/radar/atom&#39;</span><span class="p">},</span>
-                 <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;kaggle&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://blog.kaggle.com/feed/&#39;</span><span class="p">},</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tech_feeds_en</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;oreillyradar&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://feeds.feedburner.com/oreilly/radar/atom&#39;</span><span class="p">},</span>
                  <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;revolutionanalytics&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://blog.revolutionanalytics.com/atom.xml&#39;</span><span class="p">}]</span>
 <span class="n">general_feeds_en</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;bbcnews&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://feeds.bbci.co.uk/news/rss.xml?edition=uk&#39;</span><span class="p">},</span>
                  <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;bbcbusiness&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://feeds.bbci.co.uk/news/business/rss.xml?edition=uk&#39;</span><span class="p">},</span>
@@ -498,7 +482,6 @@
                     <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;welt_wirtschaft&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.welt.de/wirtschaft/?service=Rss&#39;</span><span class="p">},</span>
                     <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;welt_politik&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.welt.de/politik/?service=Rss&#39;</span><span class="p">},</span>
                     <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;spiegel&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.spiegel.de/schlagzeilen/tops/index.rss&#39;</span><span class="p">},</span>
-                    <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;sueddeutsche&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.sueddeutsche.de/app/service/rss/alles/rss.xml&#39;</span><span class="p">},</span>
                     <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;faz&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.faz.net/rss/aktuell/&#39;</span><span class="p">}</span>
                     <span class="p">]</span>
 </pre></div>
@@ -577,21 +560,21 @@
         <span class="c1"># Go to the .html-site of the full message</span>
         <span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">link</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
         <span class="k">if</span> <span class="n">savehtml</span><span class="p">:</span>
-            <span class="n">htmlfilename</span> <span class="o">=</span> <span class="n">htmldirname</span><span class="o">+</span><span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;.html&#39;</span>
+            <span class="n">htmlfilename</span> <span class="o">=</span> <span class="n">htmldirname</span><span class="o">+</span><span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.html&#39;</span>
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">htmlfilename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                 <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
             <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         
         <span class="c1"># Parse raw text from the .html page of the full message</span>
         <span class="k">if</span> <span class="n">savefulltext</span><span class="p">:</span>
-            <span class="n">fullfilename</span> <span class="o">=</span> <span class="n">fulldirname</span><span class="o">+</span><span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;.txt&#39;</span>
+            <span class="n">fullfilename</span> <span class="o">=</span> <span class="n">fulldirname</span><span class="o">+</span><span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.txt&#39;</span>
             <span class="n">soup</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fullfilename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ft</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">TAGS</span><span class="p">):</span>
                     <span class="n">text</span> <span class="o">=</span> <span class="n">tag</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
                     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">&gt;</span><span class="n">MINLEN</span><span class="p">:</span>
                         <span class="n">ft</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">ft</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -604,10 +587,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created:  ENGLISH/TECH/RSS/FeedText/districtdatalabs-2020-09-09/
-Created:  ENGLISH/TECH/RSS/FeedText/oreillyradar-2020-09-09/
-Created:  ENGLISH/TECH/RSS/FeedText/kaggle-2020-09-09/
-Created:  ENGLISH/TECH/RSS/FeedText/revolutionanalytics-2020-09-09/
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created:  ENGLISH/GENERAL/RSS/FeedText/bbcnews-2021-09-23/
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created:  ENGLISH/GENERAL/RSS/FeedText/bbcbusiness-2021-09-23/
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created:  ENGLISH/GENERAL/RSS/FeedText/bbcpolitics-2021-09-23/
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created:  ENGLISH/GENERAL/RSS/FeedText/washingtonpostworld-2021-09-23/
 </pre></div>
 </div>
 </div>

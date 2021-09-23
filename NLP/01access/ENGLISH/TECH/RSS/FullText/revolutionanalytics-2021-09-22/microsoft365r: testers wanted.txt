@@ -1,0 +1,9 @@
+
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		
+« AzureR update: new in May/June |
+	Main
+Microsoft365R author here. I've just updated the package on GitHub with the following features:However, at the moment I don't have access to a suitable tenant for testing these. This is a request for anyone whose tenant has approved the Microsoft365R app registration to install the development version and try using these features.If you have previously used OneDrive, Teams and Outlook, everything should still work the same as before.If you previously tried to use Sharepoint and got an authentication error, you should see a screen requesting you to grant Microsoft365R permission to access your Sharepoint site. You may or may not need an admin to approve the request, depending on your tenant's policies.Please try it out and let me know of any problems! You can install the package from GitHub withdevtools::install_github("Azure/Microsoft365R")
+Posted by Hong Ooi at 09:30 in Microsoft, R  | Permalink
+ You can follow this conversation by subscribing to the comment feed for this post.
+	The comments to this entry are closed.

@@ -1,0 +1,57 @@
+
+    EuGH: Zero Rating von Telekom und Vodafone verstößt gegen Netzneutralität
+  
+        Schwere Schlappe für Vodafone und die Deutsche Telekom: Der Europäische Gerichtshof hält Optionstarife wie Vodafone Pass und Stream On für rechtswidrig.
+      
+      
+        Zero Rating für Musikdienste hält der EuGH für unzulässig.
+      
+    
+      (Bild: natmac stock/Shutterstock.com)
+    Tarifoptionen für Mobilfunktarife, bei denen der Datenverbrauch bestimmter Anwendungen oder Dienste nicht von dem im Tarif enthaltenen Datenvolumen abgezogen wird, verstoßen gegen das im EU-Recht verankerte Gebot der Netzneutralität. Das hat der Europäische Gerichtshof (EuGH) am Donnerstag auf vom Oberlandesgericht Düsseldorf und dem Verwaltungsgericht Köln vorgelegte Fragen entschieden. Mit den Urteilen folgt der EuGH den Empfehlungen des Generalanwalts und bleibt bei seiner bisherigen Linie (Az. C‑854/19, C‑5/20, C‑34/20).Der EuGH weist in den drei Urteilen darauf hin, dass sich bei "Nulltarif-Optionen" wie Stream On oder Vodafone Pass um eine "Unterscheidung innerhalb des Internetverkehrs" auf "Grundlage kommerzieller Erwägungen" handele. Dies verstoße "gegen die allgemeine, in der Verordnung über den Zugang zum offenen Internet aufgestellte Pflicht, den Verkehr ohne Diskriminierung oder Störung gleich zu behandeln", teilte das Gericht mit. Damit seien auch sämtliche Maßnahmen, die nur im Zusammenhang mit den Tarifoptionen greifen, "mit dem Unionsrecht unvereinbar".In den zugrundeliegenden Verfahren geht es um die sogenannten "Zero Rating"-Tarifoptionen der Mobilfunkanbieter Deutsche Telekom ("Stream On") und Vodafone ("Vodafone Pass"). Bei diesen Optionen wird der Datenbedarf von bestimmten Anwendungen wie Messengern, Musikstreaming oder Video-Apps nicht auf das im jeweiligen Mobilfunktarif enthaltene Datenvolumen angerechnet. O2 bietet vergleichbare Optionen derzeit nicht an.Geklagt hatte zum einen der Verbraucherzentrale Bundesverband (vzbv), der die Praxis des Zero Rating für einen Verstoß gegen die Netzneutralität hält. Hier hatte das Oberlandesgericht Düsseldorf den EuGH um Klarstellung gebeten (Az I-20 U 59/19). In zwei anderen Verfahren geht es um die Klagen von Vodafone und der Deutschen Telekom gegen die Bundesnetzagentur, die die Netzbetreiber zu Änderungen ihrer Tarife gezwungen hatte. Hier hatte das Verwaltungsgericht Köln den EuGH hinzugezogen.Verbraucherschützer halten das Zero Rating grundsätzlich für rechtswidrig: Eine so ungleiche Behandlung von Datenverkehr verstoße gegen das Gebot der Netzneutralität, das für Netzbetreiber in der EU seit 2015 gilt. Auch sieht der vzbv Nachteile etwa für kleinere Netzbetreiber, die für Streaming-Anbieter aufgrund geringerer Reichweite möglicherweise nicht attraktiv genug sind. Damit seien die großen Netzbetreiber im Vorteil.Auch die Bundesnetzagentur war gegen die Tarife von Telekom und Vodafone vorgegangen, hatte sie aber nicht grundsätzlich verboten, sondern nur Details korrigiert. So durfte etwa die Telekom Stream On nicht auf Nutzung in Deutschland beschränken, weil laut der europäischen Roaming-Regulierung die Tarife im EU-Ausland grundsätzlich wie zu Hause gelten müssen. Auch durfte die Telekom bei Stream On die Bandbreite des Videostreaming nicht künstlich begrenzen. Bei Vodafone geht es auch um die Frage, ob die Nutzung über Tethering ausgeschlossen werden kann.Der EuGH hat sich nun aber nicht auf die Detailfragen der deutschen Gerichte beschränkt.  Eine Tarifoption zum sogenannten "Nulltarif" nehme eine Unterscheidung innerhalb des Internetverkehrs vor, heißt es im Urteil. Das verstoße gegen EU-Recht und sei auch nicht mit erlaubten Managementmaßnahmen zu begründen, weil es aus rein kommerziellen Erwägungen erfolge. Damit seien auch die in den Verfahren streitgegenständlichen Einzelmaßnahmen nicht mit EU-Recht zu vereinbaren, folgt das Gericht und verweist auf ein früheres Urteil gegen einen ungarischen Netzbetreiber.Man darf nun gespannt sein, wie die deutschen Gerichte mit dem deutlichen Fingerzeig der Luxemburger Richter umgehen. Die Urteile in den hiesigen Verfahren stehen noch aus, doch geben die EuGH-Urteile den Netzbetreibern durchaus Anlass zu Nervosität. Zunächst lassen die betroffenen Unternehmen sich das aber nicht anmerken. Sie verweisen darauf, dass die Tarifdetails, um die es in den Verfahren geht, so nicht mehr bestehen."Der EuGH hat heute die Bandbreitenanpassung für Videostreams  für unzulässig erklärt", sagt ein Telekom-Sprecher gegenüber heise online. "Diese ist im aktuellen StreamOn-Angebot der Telekom schon nicht mehr enthalten, insoweit ändert sich an StreamOn nichts." Allerdings erkennt die Telekom an, dass der EuGH-Spruch weiter reicht: "Soweit das Urteil darüber hinaus Aussagen zu Zero-Rating im Allgemeinen enthält, haben diese mit dem Verfahrensgegenstand zunächst nichts zu tun. Was daraus folgt, muss der Gesetzgeber klären."Auch Vodafone hält sein Pass-Angebot weiterhin für grundsätzlich rechtskonform. "Nach den heutigen Urteilen des Europäischen Gerichtshofs prüft Vodafone Deutschland die Entscheidungen sorgfältig und wird bei Bedarf das aktuelle Angebot entsprechend den Urteilen anpassen", erklärte ein Sprecher. "Im Interesse der Kunden gestaltet Vodafone seine Tarife sorgfältig gemäß der EU-Netzneutralitäts- und Roaming-Verordnung.""Das heutige EuGH-Urteil gegen den Vodafone-Pass setzt ein Zeichen für Netzneutralität und ist ein Sieg für den Verbraucherschutz", freuen sich hingegen die Verbrauchschützer, die sich von dem weitgehenden Urteil auch überrascht zeigten. "Der EuGH bestätigt die Position des vzbv, dass ausgewählte Produkte, die ein bestimmtes Konsumverhalten privilegieren, den Internetverkehr einschränken und diskriminieren. In ihrer jetzigen Form haben Zero-Rating-Produkte wie der Vodafone-Pass nichts mit einem freien Internet zu tun."Die Bundesnetzagentur teilte mit, man werde die heutigen Entscheidungen in ihren Einzelheiten auswerten, geht aber davon aus, dass die Angebote in ihrer derzeitigen Ausformung nicht aufrechterhalten werden können.Siehe dazu auch die Urteile des EuGH:
+
+  heise online
+
+
+      Newsletter
+      
+
+    Keine News verpassen! Jeden Morgen der frische Nachrichtenüberblick von heise online
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

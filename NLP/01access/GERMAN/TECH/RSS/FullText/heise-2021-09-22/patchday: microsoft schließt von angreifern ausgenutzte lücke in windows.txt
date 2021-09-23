@@ -1,0 +1,51 @@
+
+    Patchday: Microsoft schließt von Angreifern ausgenutzte Lücke in Windows
+  
+        Seit Anfang September haben Angreifer eine Windows-Lücke im Visier. Nun gibt es Sicherheitsupdates. Auch PrintNightmare spielt am Patchday nochmal eine Rolle. 
+      Microsoft stellt über Windows Update wichtige Sicherheitspatches zum Download bereit. Am wichtigsten ist ein Patch, der eine derzeit von unbekannten Angreifern ausgenutzte Lücke in Windows schließt. Außerdem haben die Entwickler Schwachstellen in unter anderem Azure, Edge, Office und SharePoint Server geschlossen.Bislang konnten Admins Windows gegen Attacken über die MSHTML-Lücke (CVE2021-40444 "hoch") nur über Workarounds absichern, die aber laut Aussagen verschiedener Sicherheitsforscher nicht in allen Fällen verlässlich funktionieren. Wie man einer Warnmeldung entnehmen kann, sind nun Sicherheitsupdates erschienen. Von der Lücke sind im Grunde alle Windows- und -Server-Versionen betroffen.Für einen erfolgreichen Angriff muss ein Opfer ein präpariertes Office- oder RTF-Dokument öffnen. Über ActiveX-Steuerlemente gelangt dann ein Trojaner auf Computer. Erste Attacken wurden Anfang September entdeckt.Eine Schwachstelle (CVE-2021-36968 "hoch") in Windows DNS ist Microsoft zufolge schon länger öffentlich bekannt. Hier könnten Attacken bevorstehen. In der Warnmeldung stehen kaum Details. Attacken sollen lokal möglich sein. Dafür muss ein Angreifer entweder physischen Zugriff auf einen Computer haben oder etwa via SSH auf einen PC zugreifen können. Sind Attacken erfolgreich, sollen sich Angreifer höhere Nutzerrechte verschaffen können."Kritische" Sicherheitslücken betreffen Open Management Infrastructure (OMI) (CVE-2021-38647), Windows Scripting Engine (CVE-2021-26435) und Windows WLAN AutoConfig Service (CVE-2021-36965). In diesen Fällen könnten Angreifer Schadcode auf Computer schieben und ausführen. Bei der OMI-Lücke reicht es Microsoft zufolge aus, dass Angreifer lediglich präparierte Nachrichten an verwundbare Systeme schicken, um anschließend Schadcode ausführen zu können.Der Großteil der verbleibenden Sicherheitslücken ist mit dem Bedrohungsgrad "hoch" eingestuft. Angreifer könnten etwa über eine Excel- und weitere Office-Lücken eigenen Code auf Systemen ausführen. Fehler in Scripting Engine könnten ebenfalls als Schlupfloch für Schadcode dienen. Dafür reicht Microsoft zufolge der Besuch einer von einem Angreifer kontrollierten Website aus. Schwachstellen in Win32k könnten Angreifern als Sprungbrett zur Rechteerweiterung dienen.Außerdem gibt Microsoft in einem aktualisierten Beitrag an, noch einen Patch für die PrintNightmare-Lücke (CVE-2021-36958 "hoch") veröffentlicht zu haben. Die Schadcode-Schwachstelle sorgt seit Juli 2021 für Ärger bei Admins.
+
+  Security
+
+
+      Newsletter
+      
+
+    Ob Sicherheitslücken, Viren oder Trojaner – alle sicherheitsrelevanten Meldungen gibts bei heise Security
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

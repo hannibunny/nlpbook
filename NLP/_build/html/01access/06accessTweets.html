@@ -402,24 +402,12 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">40</span><span class="n">f356d014cc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">tweepy</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">json</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">slugify</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;tweepy&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>The tweepy authentification process is described in detail in <a class="reference external" href="http://tweepy.readthedocs.io/en/v3.5.0/auth_tutorial.html">tweepy authentification</a>. This process is implemented in the following two code-cells. It requires that corresponding personal twitter credentials are available. These credentials can be applied from <a class="reference external" href="https://apps.twitter.com/">Twitter Apps</a>.</p>
 <p>My personal credentials are saved in the file <code class="docutils literal notranslate"><span class="pre">twitterCredentials.json</span></code>. The contents of this file are loaded in the following code-cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/Users/maucher/Keys/twitterCredentials.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data_file</span><span class="p">:</span>    
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/Users/johannes/Dropbox (Privat)/twitterCredentials.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data_file</span><span class="p">:</span>    
     <span class="n">credentials</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_file</span><span class="p">)</span>
 <span class="c1">#print credentials</span>
 </pre></div>
@@ -449,43 +437,51 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------
-Steffen Seibert
-RT @BMI_Bund: .@BMI_sprecher zu #Moria: &quot;Wir werden Griechenland helfen. Das ist nicht nur unsere deutsche Position, sondern entspricht auc…
-----------
-Hochschule der Medien (HdM)
-4.000 Follower! 😍
-Vielen lieben Dank an unsere Community auf Twitter. Ihr seid klasse! 😊
-Wir wünschen Euch noch ein… https://t.co/RrogkEBz5j
-----------
-Steffen Seibert
-Das #Kabinett hat beschlossen, den Einsatz bewaffneter deutscher Streitkräfte in #Irak und #Syrien zu verlängern. D… https://t.co/wXiYGJwWxx
-----------
-Steffen Seibert
-RT @BMISprecher: Wir befinden uns seit gestern in intensiven Gesprächen mit der griechischen Regierung. Wir haben Griechenland in der Verga…
-----------
 VfB Stuttgart
-.@nicoivang19 vermisst seinen Freund, den Ball ⚽️👀
+🚀😁
 
-... und sucht sich so seine Ersatzbeschäftigungen 📽️😁
+#VfB | #training ✅ https://t.co/aqhnJtNQgP
+----------
+VfB Stuttgart
+Intensive Spielform ⚽️💪
 
-#VfB… https://t.co/uoPelVqJL4
+#VfB https://t.co/W1EWAns95e
 ----------
 VfB Stuttgart
-Einheit 1⃣/2⃣✔️
+All eyes on ⚽️ 
 
-🔜 Am Nachmittag geht’s weiter auf dem #VfB Trainingsgelände! https://t.co/bmRBVXSGYO
+#VfB | #Führich https://t.co/ZGVEx8sQyK
 ----------
 VfB Stuttgart
-Die Jungs #auscannstatt hängen sich voll rein! 💪😤 #VfB https://t.co/7WzjwHmzJy
+.@MateoKlimowicz ⚽️
+
+#VfB https://t.co/nUccdStmtD
 ----------
 VfB Stuttgart
-Gonzo auf Dida ⚽️✔️ #VfB https://t.co/WGqisGNad4
+💯⚽️🌞
+
+#VfB | 🔜 #BOCVfB https://t.co/FUhLWymzyK
 ----------
 VfB Stuttgart
-.@wataru0209 verteilt die Bälle! ⚽️ #VfB https://t.co/kL7Y0QNAzZ
+Guten Morgen vom Trainingsplatz! 🌞⚽️ 
+
+Die Einheit am Donnerstag läuft...
+
+🔜 #BOCVfB 
+
+#VfB https://t.co/4bXgBG9hvh
+----------
+Steffen Seibert
+RT @BMWi_Bund: .@peteraltmaier: #BMWi stellt über 8 Mrd. € für 62 #Wasserstoff-Projekte zur Verfügung für Zukunft made in Germany! #BMWi, @…
+----------
+Steffen Seibert
+Kanzlerin #Merkel im niedersächsischen Seedorf im Gespräch mit Einsatzkräften, die bei der Evakuierungsmission aus… https://t.co/ekzskqdA4i
+----------
+Steffen Seibert
+RT @UlrikeDemmer: Heute fand die letzte Kabinettssitzung vor der Bundestagswahl statt. Interessante Fakten zum #Kabinett in der 19. Legisla…
 ----------
 VfB Stuttgart
-Guess who❓🤔 #VfB https://t.co/ToCM2IbF8p
+Vieles wird Atakan #Karazor bekannt vorkommen, wenn er am Sonntag mit dem #VfB beim @VfLBochum1848eV antritt. Im Na… https://t.co/J5Tdpnsq7B
 </pre></div>
 </div>
 </div>
@@ -501,14 +497,14 @@ Guess who❓🤔 #VfB https://t.co/ToCM2IbF8p
 <p>The API does not only provide access to content (tweets), but also to user-, friendship-, list-data and much more:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">get_user</span><span class="p">(</span><span class="s1">&#39;realDonaldTrump&#39;</span><span class="p">)</span>
-<span class="c1">#ser = api.get_user(&#39;RegSprecher&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#user = api.get_user(&#39;realDonaldTrump&#39;)</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">get_user</span><span class="p">(</span><span class="s1">&#39;RegSprecher&#39;</span><span class="p">)</span>
 <span class="n">user</span><span class="o">.</span><span class="n">id</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25073877
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>234343491
 </pre></div>
 </div>
 </div>
@@ -520,7 +516,7 @@ Guess who❓🤔 #VfB https://t.co/ToCM2IbF8p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45th President of the United States of America🇺🇸
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sprecher der Bundesregierung und Chef des Bundespresseamtes (BPA). Tweets seiner Mitarbeiter/innen enden mit dem Kürzel (BPA).
 </pre></div>
 </div>
 </div>
@@ -532,7 +528,7 @@ Guess who❓🤔 #VfB https://t.co/ToCM2IbF8p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>85834762
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1002312
 </pre></div>
 </div>
 </div>
@@ -544,7 +540,7 @@ Guess who❓🤔 #VfB https://t.co/ToCM2IbF8p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Washington, DC&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Berlin&#39;
 </pre></div>
 </div>
 </div>
@@ -556,7 +552,7 @@ Guess who❓🤔 #VfB https://t.co/ToCM2IbF8p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>156
 </pre></div>
 </div>
 </div>
@@ -570,27 +566,29 @@ Guess who❓🤔 #VfB https://t.co/ToCM2IbF8p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GOPLeader
-senatemajldr
-MarkMeadows
-kimguilfoyle
-JudgeJeanine
-Jim_Jordan
-MariaBartiromo
-VP
-GOPChairwoman
-parscale
-PressSec
-TuckerCarlson
-JesseBWatters
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>endrifuga
+Celik_Chn
+coronawarnapp
+barrierefrei
+OurWorldInData
+berthoppe
+POTUS
+DerekinBerlin
+StefanLeifert
 WhiteHouse
-Scavino45
-KellyannePolls
-Reince
-RealRomaDowney
-Trump
-TrumpGolf
-20
+JoeBiden
+Luisamneubauer
+germanyintheeu
+martinkaul
+BMWi_Bund
+BMISprecher
+eucopresident
+maithi_nk
+BMJV_Bund
+BMVg_Bundeswehr
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
 </pre></div>
 </div>
 </div>
@@ -598,7 +596,7 @@ TrumpGolf
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dirname</span><span class="o">=</span><span class="s2">&quot;./TWEETS/&quot;</span>
-<span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mxlearn&quot;</span><span class="p">,</span><span class="s2">&quot;reddit_python&quot;</span><span class="p">,</span><span class="s2">&quot;ML_NLP&quot;</span><span class="p">,</span><span class="s2">&quot;realDonaldTrump&quot;</span><span class="p">]</span>
+<span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mxlearn&quot;</span><span class="p">,</span><span class="s2">&quot;reddit_python&quot;</span><span class="p">,</span><span class="s2">&quot;ML_NLP&quot;</span><span class="p">]</span>
 <span class="n">numTweets</span><span class="o">=</span><span class="mi">300</span>
 <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
@@ -614,9 +612,12 @@ TrumpGolf
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mxlearn
-reddit_python
-ML_NLP
-realDonaldTrump
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>reddit_python
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ML_NLP
 </pre></div>
 </div>
 </div>

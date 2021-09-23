@@ -1,0 +1,53 @@
+
+    Spyware-Skandal: BKA soll "Pegasus" gekauft haben
+  
+        Das Bundeskriminalamt soll eine Variante der Spionagesoftware eingekauft haben. Ob sie auch eingesetzt wurde, sei noch unklar, heißt es in einem Medienbericht.
+      
+      (Bild: PORTRAIT IMAGES ASIA BY NONWARIT/Shutterstock.com)
+    Das Bundeskriminalamt (BKA) soll von der NSO Group 2020 eine modifizierte Version der Spionage-Software Pegasus gekauft haben. Das berichten NDR, WDR, Süddeutsche Zeitung und Die Zeit unter Berufung auf eigene Recherchen. Am heutigen Dienstag solle der Innenausschuss des Deutschen Bundestages darüber unterrichtet werden. Ob Pegasus bereits in Deutschland eingesetzt wurde, sei nicht bekannt.2019 hat das BKA laut dem Bericht einen Beschaffungsvorgang in Gang gesetzt, um eine Spionage-Software zu erwerben, mit der verschlüsselte Kommunikation auf mobilen Endgeräten überwacht werden kann. In seiner Grundversion habe mit dem Trojaner Pegasus mehr überwacht werden können, als es die deutsche Gesetzeslage erlaube. Das BKA habe schließlich eine angepasste Version der Software erworben. Der NDR und die anderen berufen sich dabei auf Personen, die mit dem als "geheim" eingestuften Vorgang betraut sind.Die Zentrale Stelle für die Informationstechnik im Sicherheitsbereich (ZITiS) sei nicht in die Beschaffung der Software involviert gewesen sein, heißt es weiter. Die Behörde wurde vor vier Jahren gegründet, um Technik für die Sicherheitsbehörden des Bundes zu entwickeln und auf dem  Markt nach brauchbaren Produkten Ausschau zu halten.NSO soll sich 2017 erstmals an deutsche Sicherheitsbehörden gewandt haben, unter anderem an das BKA in Wiesbaden und das bayerische Landeskriminalamt (LKA). Das Unternehmen soll auf einer "Roadshow" seine Produkte wie Pegasus vorgestellt haben, es sei noch nicht zu einem Verkaufsabschluss gekommen sein.Ein Sprecher des Bundesinnenministeriums habe im Juli erklärt, "zum Schutz der nachrichtendienstlichen und polizeilichen Arbeitsweisen" äußere sich das Ministerium "grundsätzlich nicht zu Einzelheiten und Produkten der technischen Aufklärung und informationstechnischen Überwachung". Auch eine Anfrage nach dem Informationsfreiheitsgesetz zu Kontakten des Ministeriums und seiner nachgeordneten Behörden zu NSO sei erfolglos verlaufen.Mitte Juli hatte ein internationales Journalistenkonsortium öffentlich gemacht, dass auf Smartphones von Journalisten, Menschenrechtlern, deren Familienangehörigen und Geschäftsleuten Spuren von Angriffen mit Pegasus gefunden worden seien. Pegasus nutzt Sicherheitslücken in Smartphone-Software, um weitreichenden Zugriff auf Daten zu erlangen. Die Nummern gehören zu einem Datensatz mit mehr als 50.000 Telefonnummern, der von dem Konsortium ausgewertet wurde. Auf der Liste sollen NSO-Kunden mögliche Überwachgungsziele eingegeben haben Enthalten war demnach sogar eine Nummer von Frankreichs Präsident Emmanuel Macron, in dem Land gibt es inzwischen eine Untersuchung.NSO hatte nach den Enthüllungen von einer "gut orchestrierten Medienkampagne" gesprochen und antwortet seitdem nicht mehr auf Presseanfragen, "um nicht Teil dieser heimtückischen und verleumderischen Kampagne zu sein". Das Unternehmen hatte beteuert, dass mit seiner Software nur Terroristen und Schwerkriminelle überwacht worden seien. Bei der Telefonnummernliste handele es sich um gefälschte Informationen. Es sei keine Liste mit Zielen oder möglichen Zielen von NSO-Kunden, die Firma habe auch keinen Zugang zu Daten ihrer Kunden.Seit einer Änderung der Strafprozessordnung im Jahr 2017 dürfen deutsche Strafermittler bei zahlreichen Delikten die sogenannte Quellen-Telekommunikationsüberwachung und die Online-Durchsuchung nach richterlicher Anordnung durchführen, um verschlüsselte Kommunikation zu überwachen und Computer oder Mobiltelefone heimlich zu durchsuchen. Dafür wird eine Spionagesoftware unbemerkt auf das Gerät aufgespielt. Das BKA hat mehrere solcher Programme selbst entwickelt und weitere kommerzielle Produkte eingekauft.
+
+  heise online
+
+
+      Newsletter
+      
+
+    Keine News verpassen! Jeden Morgen der frische Nachrichtenüberblick von heise online
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

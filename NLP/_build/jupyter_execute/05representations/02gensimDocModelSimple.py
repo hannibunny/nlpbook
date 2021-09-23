@@ -70,7 +70,7 @@ dictionary.save('multiNews.dict') # store the dictionary, for future reference
 print(dictionary.token2id)
 
 
-# In[27]:
+# In[5]:
 
 
 print("Total number of documents in the dictionary: ",dictionary.num_docs)
@@ -82,7 +82,7 @@ print("Total number of different words in the dictionary: ",len(dictionary))
 # ## Bag of Word (BoW) representation
 # Now arbitrary text-strings can be efficiently represented with respect to this dictionary. E.g. the code snippet below demonstrates how the text string _"putin beschützt russen"_ is represented as a list of tuples. The first element of such a tuple is the dictionary index of a word in the text-string and the second number defines how often this word occurs in the text-string. The list contains only tuples for words which occur in the text-string and in the dictionary. This representation is called **sparse Bag of Word** representation (sparse because it contains only the non-zero elements).
 
-# In[28]:
+# In[6]:
 
 
 newDoc = "putin beschützt russen"
@@ -101,7 +101,7 @@ for idx,freq in newVec:
 # The text-string _"schottland stimmt ab"_ is represented as a list of 2 tuples (see code snippet below). The first says, that the word at index 229 ( _ab_ ) appears once, the second tuple says that the word at index _807_ ( _schottland_ ) also appears once in the text-string. Since the word _stimmt_ does not appear in the dictionary, there is no corresponding tuple for this word in the list.  
 # 
 
-# In[29]:
+# In[7]:
 
 
 newDoc2 = "schottland stimmt ab"
@@ -114,7 +114,7 @@ for idx,freq in newVec2:
 # ## Efficient Corpus Representation
 # A corpus is a collection of documents. Such corpora may be annotated with meta-information, e.g. each word is tagged with its part of speech (POS-Tag). In this notebook, the list _docWords_, is a corpus without any annotations. So far this corpus has been applied to build the dictionary. In practical NLP tasks corpora are usually very large and therefore require an efficient representation. Using the already generated dictionary, each document (list of relevant words in a document) in the list _docWords_ can be transformed to its sparse BoW representation. 
 
-# In[30]:
+# In[8]:
 
 
 corpus = [dictionary.doc2bow(doc) for doc in docWords]
@@ -130,7 +130,7 @@ for d in corpus[0:10]:
 # ## Similarity Analysis
 # Typical information retrieval tasks include the task of determining similarities between collections of documents or between a query and a collection of documents. Using gensim a fast similarity calculation and search is supported. For this, first a **cosine-similarity-index** of the given corpus is calculated as follows: 
 
-# In[31]:
+# In[9]:
 
 
 index = similarities.SparseMatrixSimilarity(corpus, num_features=len(dictionary))
@@ -138,7 +138,7 @@ index = similarities.SparseMatrixSimilarity(corpus, num_features=len(dictionary)
 
 # Now, assume that for a given query, e.g. _"putin beschützt russen"_ the best matching document in the corpus must be determined. The sparse BoW representation of this query has already been calculated and stored in the variable _newVec_. The similarity between this query and all documents in the corpus can be calculated as follows:
 
-# In[32]:
+# In[10]:
 
 
 sims = index[newVec]
@@ -149,7 +149,7 @@ print(list(enumerate(sims)))
 # 
 # In order to get a sorted list of increasingly similar documents, the `argsort()`-method can be applied as shown below. The last value in this list is the index of the most similar document:
 
-# In[33]:
+# In[11]:
 
 
 print(sims.argsort())
@@ -161,7 +161,7 @@ print(sims.argsort())
 # 
 # In the same way the similarity between documents in the corpus can be calculated. E.g. the similiarity between _document 1_ and all other documents in the corpus is determined as follows:
 
-# In[34]:
+# In[12]:
 
 
 sims = index[corpus[1]]
@@ -176,7 +176,7 @@ print(sims.argsort())
 # 
 # In _gensim_ the _tfidf_ - model of a corpus can be calculated as follows:
 
-# In[35]:
+# In[13]:
 
 
 tfidf = models.TfidfModel(corpus)
@@ -184,7 +184,7 @@ tfidf = models.TfidfModel(corpus)
 
 # The _tf-idf_-representation of the first 3 documents in the corpus are:
 
-# In[36]:
+# In[14]:
 
 
 idx=0
@@ -200,7 +200,7 @@ for d in corpus[:3]:
 # 
 # The _tf-idf_-representation of the text-string _"putin beschützt russen"_ is determined as follows:
 
-# In[37]:
+# In[15]:
 
 
 newVecTfIdf = tfidf[newVec]
@@ -212,7 +212,7 @@ print("tf-idf BoW representation of %s is:\n %s"%(newDoc,newVecTfIdf))
 
 # **TF-IDF-Model without normalization:**
 
-# In[38]:
+# In[16]:
 
 
 tfidfnoNorm = models.TfidfModel(corpus,normalize=False)
@@ -220,7 +220,7 @@ tfidfnoNorm = models.TfidfModel(corpus,normalize=False)
 
 # Display tf-idf BoW of first 3 documents:
 
-# In[40]:
+# In[17]:
 
 
 idx=0
@@ -232,7 +232,7 @@ for d in corpus[:3]:
 
 # Verify the tf-idf-values as calculated in the code-cell above, by own tf-idf-formula:
 
-# In[41]:
+# In[18]:
 
 
 import numpy as np
@@ -258,7 +258,7 @@ print(tfidf)
 # 
 # Below, a collection of 3 texts is generated as a list of `string`-variables:
 
-# In[45]:
+# In[19]:
 
 
 text1="""Florida shooting: Nikolas Cruz confesses to police Nikolas Cruz is said
@@ -269,13 +269,13 @@ text3="""Theresa May to hold talks with Angela Merkel in Berlin
 The prime minister's visit comes amid calls for the UK to say what it wants from Brexit."""
 
 
-# In[46]:
+# In[20]:
 
 
 print(text1)
 
 
-# In[47]:
+# In[21]:
 
 
 textlist=[text1,text2,text3]
@@ -288,7 +288,7 @@ textlist=[text1,text2,text3]
 # * represent texts as sequences of integers
 # * represent collections of texts in a Bag-of-Words (BOW)-matrix
 
-# In[48]:
+# In[22]:
 
 
 from keras.preprocessing import text

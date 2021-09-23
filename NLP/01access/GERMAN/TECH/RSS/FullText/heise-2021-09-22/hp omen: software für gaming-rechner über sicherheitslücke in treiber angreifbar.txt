@@ -1,0 +1,57 @@
+
+    HP Omen: Software für Gaming-Rechner über Sicherheitslücke in Treiber angreifbar
+  
+        Die Software "OMEN Gaming Hub" für Gaming-Laptops und -Desktops von HP nutzte einen verwundbaren Treiber. Seit Ende Juli stehen Updates bereit.
+      
+      (Bild: Djordje Novakov/Shutterstock.com)
+    In einem Treiber für die auf HP Omen-Gaming -Laptops und -PCs vorinstallierte, aber auch über den Microsoft Store beziehbare Software "HP OMEN Gaming Hub" für Windows 10 klaffte eine Sicherheitslücke mit "High"-Einstufung. Lokale Angreifer mit normalen Zugriffsrechten hätten sie unter bestimmten Voraussetzungen missbrauchen können, um ihre Privilegien auszuweiten, SYSTEM-Rechte zu erlangen und Code im Kernel-Mode auszuführen. Auf diesem Wege hätten sie dauerhafte Manipulationen und Konfigurationsänderungen des Betriebssystems vornehmen und etwa Schadcode installieren oder Schutzsoftware aushebeln können.Nutzer des HP OMEN Gaming Hub, die Software und Treiber schon länger nicht aktualisiert oder ein entsprechendes automatisches Update via HP Support Assistant durchgeführt haben, sollten dies zeitnah nachholen. Schützende Updates sind mindestens teilweise schon seit Ende Juli verfügbar, allerdings wurden erst jetzt ein Security Advisory und technische Details veröffentlicht. Aktive Angriffe auf CVE-2021-3437 (CVSS-Score 7.8) in freier Wildbahn haben die Entdecker der Sicherheitslücke, die Research-Abteilung von SentinelOne (SentinelLabs), bislang nicht beobachtet.Updates und weitere InformationenVerwundbar sind laut HPs Security Advisory zu CVE-2021-3437 OMEN Gaming Hub-Versionen vor 11.6.3.0. Versionen ab 11.6.3.0 und höher entfernen den verwundbaren Treiber laut HP automatisch vom System. Alternativ ist der Treiber als "Softpaq" auch separat aktualisierbar, indem man das OMEN Gaming HUB SDK Package ab Version 1.0.44 aufwärts installiert. Das Advisory liefert eine Übersicht über verschiedene HP-Geräte nebst Update-Links zu den passenden Softpaqs.Wer sich für ausführliche technische Details zur Sicherheitslücke interessiert, findet diese in einem Blogeintrag von SentinelLabs.
+
+          Patchday: Microsoft schließt von Angreifern ausgenutzte Lücke in Windows
+        
+
+
+  Security
+
+
+      Newsletter
+      
+
+    Ob Sicherheitslücken, Viren oder Trojaner – alle sicherheitsrelevanten Meldungen gibts bei heise Security
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

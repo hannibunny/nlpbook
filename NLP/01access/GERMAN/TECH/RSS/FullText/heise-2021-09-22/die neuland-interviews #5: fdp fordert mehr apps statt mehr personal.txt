@@ -1,0 +1,51 @@
+
+    Die Neuland-Interviews #5: FDP fordert mehr Apps statt mehr Personal
+  
+        Verwaltung, Bildung, Gesundheit: Statt mehr Geld für Personal auszugeben, will die FDP mit Apps die Effizienz steigern, erläutert Manuel Höferlin im Interview.
+      In den Neuland-Interviews von c't und heise online sprechen wir mit den sechs im Bundestag vertretenen Parteien und Parteibündnissen über ihr Programm zur Bundestagswahl. In den jeweils etwa eine Stunde dauernden Interviews stehen die digitalpolitischen Sprecherinnen und Sprecher Rede und Antwort zu digitalpolitischen Themen: Wie wollen Sie den Ausbau von Breitband und 5G vorantreiben? Wer darf bei der europäischen Cloud GAIA-X mitmachen? Werden Schüler künftig von KI-Programmen unterrichtet? Halten Polizei und Verfassungsschutz Sicherheitslücken für Staatstrojaner offen? Und was ist eigentlich diese Blockchain, über die Start-ups und Investoren jubeln?Die Interviews haben wir in den vergangenen zwei Wochen aufgezeichnet und veröffentlichen jeden Tag ein Gespräch. Nach der Linken, der CDU/CSU, der SPD und den Grünen steht uns Manuel Höferlin, digitalpolitischer Sprecher der FDP Rede und Antwort. Zum Abschluss der Interview-Reihe sprechen Redakteure von c't und heise online am kommenden Sonntag, den 5. September über die Positionen der Parteien.FDP will durch Digitalisierung Personalkosten senkenDas Wahlprogramm der Liberalen liest sich über weite Strecken wie ein Forderungskatalog der Arbeitgeberverbände. Die Partei will die Digitalisierung massiv ausbauen, um dadurch die Effizienz in der Verwaltung, im Gesundheits- und Bildungssystem zu erhöhen. Das soll das Personal entlasten und Vorgänge beschleunigen. Zwar erkennt Manuell Höferlin, dass etwa in Schulen "zwei Lehrer pro Klasse" häufig sinnvoll wären. Mit öffentlichen Geldern wäre das jedoch nicht zu stemmen, weshalb die FDP verstärkt auf den Einsatz von Lern-Apps setzt. Ähnlich reagiert Höferlin auf die Frage, ob nicht in Behörden mehr Personal eingestellt werden müsse, um beispielsweise Wartezeiten auf eine Ausweisverlängerung zu verkürzen. Der FDP-Sprecher verneinte dies und will stattdessen mit weiteren Digitalisierungen die Zahl der nötigen Gänge zum Amt halbieren.Statt die Resilienz im Gesundheitssystem für Pandemien und andere Katastrophen auszubauen, möchte die FDP laut Programm eine "Überversorgung" prüfen und "bereinigen". Anstatt mehr Pflegekräfte einzustellen, sollen die vorhandenen Kräfte etwa durch Tele-Apps und robotische Lagerungshilfen entlastet werden. Die durch die Digitalisierung und geplante Kürzungen im Sozialsystem eingesparten Kosten möchte die FDP zum einen durch Senkungen der Unternehmenssteuern an Firmen weitergeben, aber auch den Verteidigungshaushalt auf drei Prozent des BIP verdoppeln. Damit soll beispielsweise die Cyberabwehr der Bundeswehr aufgerüstet werden, wie Höferlin ausführt. Die Schaumweinsteuer, ursprünglich 1902 zur Finanzierung der kaiserlichen Kriegsflotte eingeführt, will die FDP indes künftig streichen.Den Ausbau der Breitbandnetze möchte die FDP mit Gigabit-Gutscheinen stimulieren. Diese staatliche Förderung "von unten" sei nötig, wenn die Kräfte des Markts versagen, und solle den Ausbau anhand der Nachfrage vorantreiben. Damit ländliche Regionen nicht zurückbleiben, sollten Ausschreibungen in Clustern zusammengefasst werden. "Wer gefördert ausbauen will, muss die Sahnestücke wie auch die Milchkanne nehmen", erklärte Höferlin.Freiheitszonen für Blockchain-Start-upsEine weitere Spezialität der FDP ist die Forderung nach sogenannten "digitalen Freiheitszonen" in Deutschland. Diese sollen Start-ups von Regularien befreien, damit sie neue IT-Konzepte in Prototypen ausprobieren können. Als Beispiel nannte er neue Blockchain- und Kryptowährungen, die bislang von der BaFin zu stark reguliert würden, weshalb Firmen in die Schweiz abwanderten. Niedrigere Steuern seien in den Freiheitszonen nicht unbedingt nötig, da Start-ups in ihren Testphasen sowieso noch keine Gewinne erwirtschaften würden.Mit den USA schlägt die FDP ein neues Freihandelsabkommen vor. Damit deutsche IT-Mittelstandsfirmen mit Google & Co. konkurrieren können, solle der Staat geringere Anforderungen bei öffentlichen Ausschreibungen stellen, die bislang kleinere Firmen benachteiligten. Deutschland und Europa sollten Internet-Riesen aus den USA nicht mit eigenen Digitalsteuern belegen, sondern im Rahmen des Internet Government Forums (IGF) eine weltweite Angleichung der Steuersätze anstreben – ein Prozess der allerdings viele Jahre dauern könnte.Bei Problemen mit der Wiedergabe des Videos aktivieren Sie bitte JavaScriptDas volle Interview können Sie hier im Videoplayer oder auf Youtube mit einer zugehörigen Themen-Timeline zur schnellen Navigation sehen. Außerdem stellen wir die Gespräche als Podcast bereit.Auf Youtube finden Sie außerdem noch "Reaktionsvideos", die kurz nach den Interviews entstanden sind und auch noch einmal Bezug auf die verschiedenen Gespräche und Situationen nehmen.Passend zu den Interviews lesen Sie in der aktuellen c't-Ausgabe 19/2021 einen Schwerpunkt zur Bundestagswahl mit umfangreichen Analysen und Bewertungen der digitalpolitischen Programme der sechs großen Parteien:In c’t 19/2021 bauen wir einen maßgeschneiderten Server, vergleichen 60 Prozessoren in unserem großen CPU-Ratgeber und widmen uns der anstehenden Bundestagswahl: Wie stehen die Parteien zu Datenschutz, Überwachung und digitaler Souveränität? Außerdem im Heft: Mit der Fritzbox günstig ins Ausland telefonieren, Hotspots mit OpenWRT verwalten und PDF-Tabellen in Excel importieren. Ausgabe 19/2021 finden Sie ab dem 27. August im Heise-Shop und am gut sortierten Zeitschriftenkiosk.Wir haben zudem auf heise online in einer neunteiligen Serie die Wahlprogramme der Parteien, die voraussichtlich im neuen Bundestag vertreten sein werden, anhand wichtiger Themengebiete genauer untersucht:
+
+  c't Magazin
+
+
+      Newsletter
+      
+
+    c't Magazin – alles zur neuen Ausgabe: Tests, Praxis, Wissen und vieles mehr, jeden 2. Freitag.
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

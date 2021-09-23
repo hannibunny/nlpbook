@@ -1,0 +1,643 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="typepad-standard" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+        <!-- head-common-individual -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="generator" content="http://www.typepad.com/" />
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+        
+        <meta name="description" content="Azure Functions is a cloud service that allows you to deploy “serverless” microservices that are triggered by events (timers, HTTP POST events, etc) and automatically scale to serve demand while minimizing latency. The service natively supports functions written in C#, Java, JavaScript, PowerShell, Python and TypeScript, and now supports other languages as well thanks to the launch last week of custom handlers for Azure Functions. A new tutorial walks you through the process of creating a custom handler for a “hello world” R function. The process is fairly straightforward: use a couple of Azure CLI commands to set up a..." />
+
+    <link rel="canonical" href="https://blog.revolutionanalytics.com/2020/12/azure-functions-with-r.html" />
+
+
+
+
+        <link rel="stylesheet" href="https://blog.revolutionanalytics.com/styles.css?v=6" type="text/css" media="screen" />
+        <link rel="stylesheet" href="https://static.typepad.com/.shared/themes/common/print.css" type="text/css" media="print" />
+
+
+<link rel="stylesheet" href="https://static.typepad.com/.shared/css/featherlight-gallery.css">
+
+        <link rel="alternate" type="application/atom+xml" title="Posts on 'Revolutions' (Atom)" href="https://blog.revolutionanalytics.com/atom.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Posts on 'Revolutions' (RSS 1.0)" href="https://blog.revolutionanalytics.com/index.rdf" />
+        <link rel="alternate" type="application/rss+xml" title="Posts on 'Revolutions' (RSS 2.0)" href="https://blog.revolutionanalytics.com/rss.xml" />
+        <script type="text/javascript">
+                var TPApp = {};
+                TPApp.app_uri = "https://www.typepad.com/";
+        </script>
+        <script type="text/javascript" src="https://static.typepad.com/.shared/js/yui/yahoo-dom-event.js,/js/app/thumbnail-gallery-min.js"></script>
+
+<!--- head google analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-225723-36', 'auto', {'name': 'Typepad'}, {'allowLinker': true} );  // Separate tracker for Typepad.
+ga('Typepad.require', 'linker');
+ga('Typepad.linker:autoLink', ['none']);
+ga('Typepad.set', 'dimension1', '6a010534b1db25970b010536040741970b');
+ga('Typepad.set', 'dimension2', 'Individual');
+ga('Typepad.send', 'pageview');
+</script>
+
+
+
+<meta property="og:title" content="Azure Functions with R and plumber" />
+<meta property="og:site_name" content="Revolutions" />
+<meta property="og:type" content="blog" />
+<meta property="og:url" content="https://blog.revolutionanalytics.com/2020/12/azure-functions-with-r.html" />
+<meta property="og:description" content="Azure Functions is a cloud service that allows you to deploy “serverless” microservices that are triggered by events (timers, HTTP POST events, etc) and automatically scale to serve demand while minimizing latency. The service natively supports functions written in C#, Java, JavaScript, PowerShell, Python and TypeScript, and now supports other languages as well thanks to the launch last week of custom handlers for Azure Functions. A new tutorial walks you through the process of creating a custom handler for a “hello world” R function. The process is fairly straightforward: use a couple of Azure CLI commands to set up a..." />
+<meta property="fb:admins" content="" />
+<meta property="fb:app_id" content="55753818692" /><meta property="og:image" content="https://revolution-computing.typepad.com/.a/6a010534b1db25970b026bdeae6558200c-600wi" />
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="">
+<meta name="twitter:creator" content="">
+<meta name="twitter:title" content="Azure Functions with R and plumber">
+<meta name="twitter:description" content="Azure Functions is a cloud service that allows you to deploy “serverless” microservices that are triggered by events (timers, HTTP POST events, etc) and automatically scale to serve demand while minimizing latency. The service natively supports functions written in C#, Java, JavaScript, PowerShell, Python and TypeScript, and now supports other languages as well thanks to the launch last week of custom handlers for Azure Functions. A new tutorial walks you through the process of creating a custom handler for a “hello world” R function. The process is fairly straightforward: use a couple of Azure CLI commands to set up a..."><meta name="twitter:image" content="https://revolution-computing.typepad.com/.a/6a010534b1db25970b026bdeae6558200c-600wi" />
+
+
+
+
+        <link rel="alternate" type="application/atom+xml" title="Comments on 'Azure Functions with R and plumber' (Atom)" href="https://blog.revolutionanalytics.com/2020/12/azure-functions-with-r/comments/atom.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Comments on 'Azure Functions with R and plumber' (RSS 2.0)" href="https://blog.revolutionanalytics.com/2020/12/azure-functions-with-r/comments/rss.xml" />
+        <title>Azure Functions with R and plumber (Revolutions)</title>
+        <link rel="start" href="https://blog.revolutionanalytics.com/" title="Home" />
+        <link rel="prev" href="https://blog.revolutionanalytics.com/2020/12/r-at-microsoft.html?no_prefetch=1" title="R at Microsoft" />
+        <link rel="next" href="https://blog.revolutionanalytics.com/2021/01/whats-new-with-azurer.html?no_prefetch=1" title="What's new with AzureR" />
+
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+
+
+
+<body class="layout-two-column-right post">
+	
+	<div id="container" class="container">
+		<div id="container-inner" class="pkg">
+			
+                <div class="row">
+     
+
+
+<a id="home"></a>
+   
+
+<!-- banner -->
+<div id="banner">
+	<div id="banner-inner" class="pkg">
+		
+		<h1 id="banner-header"><a href="https://blog.revolutionanalytics.com/" accesskey="1">Revolutions</a></h1>
+		<h2 id="banner-description">
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		</h2>
+	</div>
+</div>
+
+
+
+
+
+
+			<div id="pagebody">
+
+
+				<div id="pagebody-inner" class="pkg">
+                                        <div id="alpha">
+						<div id="alpha-inner" class="pkg">
+							<!-- the plain version removes the extra jquery -->
+<!-- content nav -->
+<p class="content-nav">
+	<a class="content-nav-prev" href="https://blog.revolutionanalytics.com/2020/12/r-at-microsoft.html">&laquo; R at Microsoft</a> |
+	<a class="content-nav-main" href="https://blog.revolutionanalytics.com/">Main</a>
+	| <a class="content-nav-next" href="https://blog.revolutionanalytics.com/2021/01/whats-new-with-azurer.html">What's new with AzureR &raquo;</a>
+</p>
+<script type="text/javascript">
+   $(function(){
+       var query = window.location.search.substring(1);
+       if( query == "pintix=1" ) {
+          var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','https://static.typepad.com/.shared//js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e);
+       }
+   });
+</script>
+<!-- entry -->
+
+	<h2 class="date-header">December 17, 2020</h2>
+
+
+<div class="entry-category-microsoft entry-category-mlops entry-category-r entry-author-david_smith entry-type-post entry" id="entry-6a010534b1db25970b026be42d1450200d">
+   <div class="entry-inner">
+			<h3 class="entry-header">Azure Functions with R and plumber</h3>
+	
+
+
+
+	<div class="entry-content">
+		<div class="entry-body">
+			<p><a href="https://docs.microsoft.com/en-us/azure/azure-functions/?WT.mc_id=javascript-10496-davidsmi">Azure Functions</a> is a cloud service that allows you to deploy “serverless” microservices that are triggered by events (timers, HTTP POST events, etc) and automatically scale to serve demand while minimizing latency. The service natively supports functions written in C#, Java, JavaScript, PowerShell, Python and TypeScript, and now supports other languages as well thanks to the launch last week of <a href="https://techcommunity.microsoft.com/t5/apps-on-azure/azure-functions-in-any-language-with-custom-handlers/ba-p/1942744?WT.mc_id=javascript-10496-davidsmi">custom handlers for Azure Functions</a>.</p>
+<p>A new tutorial walks you through the process of creating a <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image?pivots=programming-language-other&amp;tabs=bash%2Cportal&amp;WT.mc_id=aiml-11825-davidsmi">custom handler for a “hello world” R function</a>. The process is fairly straightforward: use a couple of Azure CLI commands to set up a project on your local machine and create Azure resources, write a “handler” script in R to provide a Web service, and push a Docker container with the Azure Functions runtime, R engine, and packages needed to implement your Function. Then, when you want to update your Function all you need to do is push a new version of the container image with the updated R code. The video below shows a brief demo of the process in action:</p>
+<p class="asset-video"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="200" src="https://www.youtube.com/embed/ELUXXUf-NfI?start=2126&amp;feature=oembed" width="356"></iframe></p>
+<p>The tutorial uses the <a href="https://github.com/rstudio/httpuv">httpuv</a> package to implement a stripped-down Web server to implement the Function, but you can make things easier for yourself (at a small cost to performance) by using the <a href="https://www.rplumber.io/">plumber</a> package. With plumber, you can easily annotate an R function you already have, and make it into a web service suitable for Azure Functions.</p>
+<p>In <a href="https://github.com/revodavid/R-custom-handler">this GitHub repository</a> you’ll find code that implements an Azure Function to predict from a GLM model trained with the <a href="https://github.com/topepo/caret/">caret</a> package, and also a Shiny app to consume the function. Follow the instructions in the <a href="https://github.com/revodavid/R-custom-handler/blob/master/README.md">README.md</a> file to deploy your Function, and then launch the associated Shiny app. As you adjust the parameters on the left side of the application, the chart on the right updates in real time with an estimate of the probability that a car accident with those parameters would be fatal.</p>
+<p><a class="asset-img-link" href="https://revodavid.shinyapps.io/accident-app/" style="display: inline;"><img alt="Accident-blog" border="0" class="asset  asset-image at-xid-6a010534b1db25970b026bdeae6558200c image-full img-responsive" src="https://revolution-computing.typepad.com/.a/6a010534b1db25970b026bdeae6558200c-800wi" title="Accident-blog" /></a></p>
+<p>It’s important to note that the model prediction is not being generated by the Shiny app: rather, it’s being generated by an Azure Function running R in the cloud. That means you could integrate the model estimate into <strong>any</strong> application written in any language: a mobile app, or an IoT service, or anything that can call an HTTP endpoint. Furthermore, you don’t need to worry how many apps are running or how often estimates will be requested by the app: Azure Functions will automatically scale to meet the demand as needed.</p>
+<p>Thanks to plumber, the “<a href="https://github.com/revodavid/R-custom-handler/blob/master/handler.R">handler function</a>” providing the Web service is very simple. All I needed to do was to decorate an <a href="https://github.com/revodavid/mlops-r-gha">existing function</a> that made a prediction based on parameters with a couple of comments to make it into an HTTP POST endpoint compatible with Azure Functions.</p>
+<pre>#* Predict probability of fatality from params in body
+#* @post /api/accident
+function(params) {
+  model_path &lt;- &quot;.&quot;
+  model &lt;- readRDS(file.path(model_path, &quot;model.rds&quot;))
+  method &lt;- model$method
+
+  message(paste(method, &quot;model loaded&quot;))
+  
+  prediction &lt;- predict(model, newdata=params, type=&quot;prob&quot;)[,&quot;dead&quot;]
+
+  return(prediction)
+}
+</pre>
+<p>The only other trick is to create a container containing R and the packages to support plumber and your model, but if you’re familiar with <a href="https://github.com/revodavid/R-custom-handler/blob/master/Dockerfile">Dockerfiles</a> this should be quite straightforward.</p>
+<p>If you’d like to try it out yourself, you’ll find complete instructions at the repository linked below.</p>
+<p>GitHub (revodavid): <a href="https://github.com/revodavid/R-custom-handler">Azure Functions for R with Custom Handlers</a></p>
+		</div>
+		
+
+                        <!-- SIGNATURE -->
+                        
+
+		
+	</div>
+
+	<div class="entry-footer">
+			<p class="entry-footer-info">
+				<span class="post-footers">Posted by <a rel="author" href="https://profile.typepad.com/revolutiondavid">David Smith</a> at 09:30 in <a href="https://blog.revolutionanalytics.com/microsoft/">Microsoft</a>, <a href="https://blog.revolutionanalytics.com/mlops/">mlops</a>, <a href="https://blog.revolutionanalytics.com/r/">R</a> </span> <span class="separator">|</span> <a class="permalink" href="https://blog.revolutionanalytics.com/2020/12/azure-functions-with-r.html">Permalink</a>
+			</p>
+		
+		<!-- technorati tags -->
+
+
+		<!-- post footer links -->
+	<p class="entry-footer-share">
+		<span class="entry-footer-links-favorite"></span>
+	</p>
+
+
+	</div>
+   </div>
+</div>
+
+
+
+        
+        
+        <a id="comments"></a>
+	<div class="comments" id="all-comments">
+		<h3 class="comments-header">Comments</h3>
+					<div class="comments-info">
+				<p><a href="https://blog.revolutionanalytics.com/2020/12/azure-functions-with-r/comments/atom.xml"><img src="https://static.typepad.com/.shared/images/feed.png" alt="Feed" width="10" height="10" /></a> You can follow this conversation by subscribing to the <a href="https://blog.revolutionanalytics.com/2020/12/azure-functions-with-r/comments/atom.xml">comment feed</a> for this post.</p>
+			</div>
+		
+		<div class="comments-content" id="comments-content">
+                <!-- comment list --><a id="c6a010534b1db25970b0263e982842f200b"></a>
+<div class="comment font-entrybody comment-odd" id="comment-6a010534b1db25970b0263e982842f200b">
+	<div class="comment-content font-entrybody" id="comment-6a010534b1db25970b0263e982842f200b-content">
+		<span id="comment-6a010534b1db25970b0263e982842f200b-content"><p>Hello David,</p>
+
+<p>First let me say Thank you for this great idea and tutorial. We&#39;re currently developing a scalable R API but I&#39;m having a strange problem when testing the docker run locally (local function and R is working fine).</p>
+
+<p>Seems that the HTTP request is just handeld by the Azure function but not going through the plumber API when testing locally via docker.</p>
+
+<p>I started a discussion at github:<br />
+https://github.com/revodavid/R-custom-handler/discussions/3</p>
+
+<p>Maybe you find the time for helping out because I&#39;m not able to find the problem for myself.</p>
+
+<p>Thanks you in advance, best regards,<br />
+Ralf</p></span>
+	</div>
+	<p class="comment-footer font-entryfooter">
+		Posted by:
+		Ralf |
+		<a rel="nofollow" href="https://blog.revolutionanalytics.com/2020/12/azure-functions-with-r.html?cid=6a010534b1db25970b0263e982842f200b#comment-6a010534b1db25970b0263e982842f200b">December 21, 2020 at 20:45</a>
+	</p>
+</div>
+
+		</div>
+        
+	</div>
+<script type="text/javascript">var c943723d42e77e9214eb884a1d898ea="</form>";</script>
+<script type="text/javascript">var ffe51c373e0873b7778b6324a0b5533 = '<form id="comment-form" action="';</script>
+<script type="text/javascript">var c943723d42e77e9214eb884a1d898za = '" method="post"><input type="hidden" name="entry_xid" id="comment-entry-xid" value="6a010534b1db25970b026be42d1450200d" \/><input type="hidden" name="token" value="1632317160-9c78539dfc6bf76fca1fcf86c06629010a5a8de0:vLakj3btsAOz5nRi" \/>';</script>
+<script type="text/javascript">var OOcd55d4dc47109d7b462b01c7dd4dab = "aHR0cHM6Ly9ibG9nLnJldm9sdXRpb25hbmFseXRpY3MuY29tLy5zZXJ2aWNlcy9jb21tZW50cw";</script>
+<script type="text/javascript">var bad4dd7c10b264b7d90174cd4d55dc00 = atob(OOcd55d4dc47109d7b462b01c7dd4dab);</script>
+
+<!-- comment-form-atp -->
+
+
+<p class="comments-closed font-entrybody">
+	The comments to this entry are closed.
+</p>
+
+
+
+
+
+    
+    
+
+
+
+
+						</div>
+					</div>
+                                        <div id="beta">
+						<div id="beta-inner" class="pkg">
+							
+<!-- sidebar -->
+
+
+	<div class="module-archives module">
+		<h2 class="module-header">Information</h2>
+		<div class="module-content">
+			<ul class="module-list">
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/about.html">About this blog</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/comments-policy.html">Comments Policy</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/categories.html">About Categories</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/authors.html">About the Authors</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/local-r-groups.html">Local R User Group Directory</a></li>
+				
+				<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/tips-on-starting-an-r-user-group.html">Tips on Starting an R User Group</a></li>
+				
+			</ul>
+		</div>
+	</div>
+<!-- list_inlcude.tt  -->
+<div id="search_revolutions_blog" class="module-typelist module">
+<h2 class="module-header">Search Revolutions Blog</h2>
+	<div class="typelist-plain module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><div class="typelist-note"><form method="get" action="https://www.google.com/search">
+  <input type="hidden" name="ie" value="UTF-8" /> 
+  <input type="hidden" name="oe" value="UTF-8" />
+  <div style="background-color:white;"></div>
+   <input type="text" name="q" size="18" maxlength="255" value="" />
+  <input type="submit" name="btnG" value=" Search Blog " />
+   <br />
+<small>
+    <input type="hidden" name="domains" value="blog.revolutionanalytics.com" />
+<br />
+    <input type="hidden" name="sitesearch" value="blog.revolutionanalytics.com" checked="checked" />
+   <br /></small>
+</form>
+ <!-- SiteSearch Google --></div></li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+Got comments or suggestions for the blog editor? <br>
+Email <a href="mailto:davidsmi@microsoft.com">David Smith</a>.
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<a href="https://www.twitter.com/revodavid"><img src="https://twitter-badges.s3.amazonaws.com/t_small-b.png" alt="Follow revodavid on Twitter" /></a> Follow David on Twitter: <a href="https://twitter.com/revodavid">@revodavid</a>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+Get this blog via email with <a href="https://blogtrottr.com/?subscribe=http://blog.revolutionanalytics.com" title='Get this feed delivered by email'><img src='https://blogtrottr.com/images/icons/blogtrottr-button-91x17px.gif' alt='Blogtrottr' /></a>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<div class="module-categories module">
+	<h2 class="module-header"><a href="https://blog.revolutionanalytics.com/archives.html">Categories</a></h2>
+	<div class="module-content">
+                   <ul class="module-list">
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/academia/">academia <span class="category-count">(41)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/advanced-tips/">advanced tips <span class="category-count">(218)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/ai/">AI <span class="category-count">(62)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/airoundups/">airoundups <span class="category-count">(20)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/announcements/">announcements <span class="category-count">(200)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/applications/">applications <span class="category-count">(288)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/beginner-tips/">beginner tips <span class="category-count">(106)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/big-data/">big data <span class="category-count">(272)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/courses/">courses <span class="category-count">(60)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/current-events/">current events <span class="category-count">(126)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/data-science/">data science <span class="category-count">(227)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/developers/">developer tips <span class="category-count">(89)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/events/">events <span class="category-count">(280)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/finance/">finance <span class="category-count">(126)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/government/">government <span class="category-count">(25)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/graphics/">graphics <span class="category-count">(378)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/high-performance-computing/">high-performance computing <span class="category-count">(115)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/life-sciences/">life sciences <span class="category-count">(35)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/microsoft/">Microsoft <span class="category-count">(311)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/mlops/">mlops <span class="category-count">(4)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/open-source/">open source <span class="category-count">(78)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/other-industry/">other industry <span class="category-count">(58)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/packages/">packages <span class="category-count">(388)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/popularity/">popularity <span class="category-count">(54)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/predictive-analytics/">predictive analytics <span class="category-count">(163)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/profiles/">profiles <span class="category-count">(15)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/python/">python <span class="category-count">(69)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/r/">R <span class="category-count">(2439)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/r-is-hot/">R is Hot <span class="category-count">(8)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/random/">random <span class="category-count">(464)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/reviews/">reviews <span class="category-count">(22)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/revolution/">Revolution <span class="category-count">(422)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/rmedia/">Rmedia <span class="category-count">(136)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/roundups/">roundups <span class="category-count">(121)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/sports-1/">sports <span class="category-count">(55)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/statistics/">statistics <span class="category-count">(297)</span></a></li>
+
+
+
+                        <li class="module-list-item"><a href="https://blog.revolutionanalytics.com/user-groups/">user groups <span class="category-count">(127)</span></a></li>
+</span>
+		</ul>
+
+<a style="font-size:85%;display:none;" class="cat-more" href="https://blog.revolutionanalytics.com/archives.html">See More</a>
+	</div>
+</div>
+<!-- list_inlcude.tt  -->
+<div id="r_links" class="module-typelist module">
+<h2 class="module-header">R links</h2>
+	<div class="module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><a href="https://docs.microsoft.com/azure/machine-learning/r-developers-guide?WT.mc_id=RevolutionsSidebar-blog-davidsmi" >R on Azure</a><br />Developer's guide and documentation</li>
+							<li class="module-list-item"><a href="https://mran.microsoft.com/packages/" >Find R packages</a><br />CRAN package directory at MRAN</li>
+							<li class="module-list-item"><a href="https://mran.microsoft.com/download" >Download Microsoft R Open</a><br />Free, high-performance R</li>
+							<li class="module-list-item"><a href="https://www.r-project.org">R Project site</a><br />Information about the R project</li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- list_inlcude.tt  -->
+<div id="recommended_sites" class="module-typelist module">
+<h2 class="module-header">Recommended Sites</h2>
+	<div class="module-content">
+		<ul class="module-list">
+							<li class="module-list-item"><a href="https://twitter.com/rlangtip" >@RLangTip</a><br />Daily tips on using R</li>
+							<li class="module-list-item"><a href="https://flowingdata.com">FlowingData</a><br />Modern data visualization</li>
+							<li class="module-list-item"><a href="http://www.statisticsblog.com/" >Probability and statistics blog</a><br />Monte Carlo simulations in R</li>
+							<li class="module-list-item"><a href="http://www.r-bloggers.com" >R Bloggers</a><br />Daily news and tutorials about R, contributed by R bloggers worldwide.</li>
+							<li class="module-list-item"><a href="http://www.analyticbridge.com/group/rprojectandotherfreesoftwaretools" >R Project group on analyticbridge.com</a><br />Community and discussion forum</li>
+							<li class="module-list-item"><a href="http://www.stat.columbia.edu/~cook/movabletype/mlm/" >Statistical Modeling, Causal Inference, and Social Science</a><br />Andrew Gelman's statistics blog</li>
+			
+		</ul><!-- last /ul -->
+	</div>
+</div>
+<!-- end list_include.tt -->
+
+<!-- archives -->
+
+	<div class="module-archives module">
+		<h2 class="module-header"><a href="https://blog.revolutionanalytics.com/archives.html">Archives</a></h2>
+		<div class="module-content">
+			<ul class="module-list">
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/07/index.html">July 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/06/index.html">June 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/04/index.html">April 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/03/index.html">March 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/02/index.html">February 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2021/01/index.html">January 2021</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/12/index.html">December 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/11/index.html">November 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/10/index.html">October 2020</a></li>
+				
+					
+					<li class="module-list-item"><a href="https://blog.revolutionanalytics.com/2020/09/index.html">September 2020</a></li>
+				
+			</ul>
+		</div>
+	</div>
+
+<div class="module-syndicate module">
+	<div class="module-content">
+	<a href="https://blog.revolutionanalytics.com/atom.xml"><i class="fas fa-rss"></i> Subscribe to this blog's feed</a>
+	</div>
+</div>
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<script type="text/javascript">
+  var varAutoFirePV = 1;
+  var varClickTracking = 1;
+  var varCustomerTracking = 1;
+  var Route = "123865";
+  var Ctrl = "";
+  document.write("<script type='text/javascript' src='" + (window.location.protocol) + "//c.microsoft.com/ms.js'" + "'><\/script>");
+</script>​
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var firstTracker = _gat._getTracker("UA-6984166-10");
+firstTracker._setDomainName(".revolutionanalytics.com");
+firstTracker._setAllowLinker(true);
+firstTracker._setAllowHash(false);
+firstTracker._trackPageview();
+var secondTracker = _gat._getTracker("UA-6984166-9");
+secondTracker._setDomainName(".revolutionanalytics.com");
+secondTracker._setAllowLinker(true);
+secondTracker._setAllowHash(false);
+secondTracker._trackPageview();
+} catch (err) { }
+</script>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+</div> <!-- row -->
+			
+
+
+
+		</div>
+	</div>
+	
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+<!--
+var extra_happy = Math.floor(1000000000 * Math.random());
+document.write('<img src="https://www.typepad.com/t/stats?blog_id=1774446&amp;user_id=3164880&amp;page=' + escape(location.href) + '&amp;referrer=' + escape(document.referrer) + '&amp;i=' + extra_happy + '" width="1" height="1" alt="" style="position: absolute; top: 0; left: 0;" />');
+// -->
+</script>
+
+
+
+
+<!-- Begin disqus Tag -->
+
+<!-- End disqus Tag -->
+</body>
+</html>
+
+<!-- ph=1 -->

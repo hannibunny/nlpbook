@@ -1,0 +1,53 @@
+
+    OMIGOD: Kritische Root-Lücke bedroht Azure-Kunden mit virtuellen Linux-PCs
+  
+        Angreifer könnten vier Sicherheitslücken kombinieren, um bestimmte Kunden der Cloud-Computing-Plattform Azure zu attackieren. 
+      
+      (Bild: Panorama Images/Shutterstock.com)
+    Wer die Azure-Cloud-Umgebung für den Betrieb von virtuellen Linux-Maschinen nutzt, sollte die Installation mehrerer Sicherheitsupdates sicherstellen. Andernfalls könnten Angreifer unter bestimmten Voraussetzungen vier Lücken kombinieren, um mit Root-Rechten Schadcode auszuführen. Der Weg dahin ist zum Teil erschreckend simpel.Davon sind wie eingangs erwähnt ausschließlich Kunden betroffen, die Linux-VMs über Azure realisieren – und das sind eine ganze Menge. Den Entdeckern der Schwachstellen von Wiz zufolge werden laut einer Aussage von Microsoft mehr als die Hälfte der Instanzen für Linux genutzt. Weitere Voraussetzungen für verwundbare Systeme ist der Einsatz von einem der folgenden Services/Tools:Der Kern des Sicherheitsproblems ist der Software-Agent Open Management Infrastructure (OMI), der in vielen Azure-Services zum Einsatz kommt. In diesem Kontext bildet es die Windows Management Infrastruktur (WMI) für UNIX/Linux-Systeme. Damit kann man unter anderem Daten zu Konfigurationen und Statistiken sammeln.Setzt jemand via Azure eine Linux-VM auf und aktiviert einen der genannten Services, wird der OMI-Agent automatisch mit den höchstmöglichen Rechten aktiv, führen die Forscher aus. Davon bekomme der Nutzer gar nichts mit. Wenn etwa die HTTP API von außen erreichbar ist, könnten entfernte Angreifer die vier Sicherheitslücken (CVE-2021-38645 "hoch", CVE-2021-38647 "kritisch", CVE-2021-38648 "hoch", CVE-2021-38649 "hoch") ausnutzen.Simple Attacke mit verheerender AuswirkungIst gar ein HTTPS-Port von außen erreichbar, könnten Angreifer mit einer simplen Anfrage, bei der sie den Authentication Header entfernt haben, aus der Ferne Schadcode mit Root-Rechten ausführen, warnen die Sicherheitsforscher in ihrem Bericht. Der HTTPS-Port soll standardmäßig bei Standalone-Installationen und im Azure Configuration Management oder System Center Operations Manager (SCOM) aktiv sein.Die Forscher haben das Sicherheitslücken-Quartett OMIGOD getauft. Sie warnen davor, dass neben Azure-Kunden auch andere Nutzer von den Lücken bedroht sind. Schließlich kommt das Open-Source-Projekt OMI auch in anderer Software zum Einsatz. Hier zeigt sich einmal mehr, welche weitreichenden Folgen solche Lieferketten-Angriffe durch den flächendeckenden Einsatz von verwundbarer Open-Source-Software haben können.Microsoft hat am Patchday passende Sicherheitsupdates veröffentlicht. Die OMI-Version 1.6.8.1 soll gegen solche Attacken gerüstet sein.
+
+  Security
+
+
+      Newsletter
+      
+
+    Ob Sicherheitslücken, Viren oder Trojaner – alle sicherheitsrelevanten Meldungen gibts bei heise Security
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

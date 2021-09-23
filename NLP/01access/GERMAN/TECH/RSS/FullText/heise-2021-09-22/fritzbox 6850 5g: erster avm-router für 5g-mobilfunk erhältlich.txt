@@ -1,0 +1,51 @@
+
+    Fritzbox 6850 5G: Erster AVM-Router für 5G-Mobilfunk erhältlich
+  
+        Zwei Jahre nach der Ankündigung kommt AVMs erster Router für Internet per 5G-Mobilfunk endlich auf den deutschen Markt - zu einem gesalzenen Preis.
+      Anfang Oktober soll die etwa in Österreich bereits seit dem Sommer erhältliche Fritzbox 6850 5G auch in Deutschland zu kaufen sein. Das zur IFA im September 2019 als weltweit erster "All-in-One-Heimnetz-Router" für die damals neue Mobilfunkgeneration 5G angekündigte Gerät soll die üblichen 5G-Bänder im Bereich bis 6 GHz nutzen (Sub-6-GHz). Mit ihrem Mobilfunkmodem Qualcomm SD X55 soll die Box bei passendem Netzausbau unter Einsatz von 4-Stream-MIMO bis zu 1,3 GBit/s anliefern und maximal 600 MBit/s hochladen. Bei fehlender 5G-Versorgung weicht die Fritzbox laut Hersteller auf LTE CAT-16 aus, das immerhin bis zu 1 GBit/s transportiert. Der Notnagel HSPA ist wegen der laufenden Abschaltung der UMTS-Netze hierzulande inzwischen weitgehend nutzlos.Beim WLAN fürs interne Netz ist die 6850 5G indes nicht auf der Höhe der Zeit: AVM hat schon eine Handvoll Router mit dem aktuellen Wi-Fi 6 (siehe WLAN-FAQ) im Programm, doch der 5G-Erstling funkt nur über zwei MIMO-Streams gemäß Wi-Fi 5 (maximal 400 beziehungsweise 867 MBit/s brutto auf 2,4 und 5 GHz). Dazu gibt es vier Gigabit-Ethernet-Anschlüsse, einen USB-3.0-Port sowie eine DECT-Basisstation für Telefonie und Smart Home-Anwendungen (weitere technische Daten beim Hersteller). AVM ruft für die 6850 5G den stolzen Preis von 569 Euro (UVP) auf. Erfahrungsgemäß wird der Straßenpreis nur wenig darunter liegen.
+
+  c't Magazin
+
+
+      Newsletter
+      
+
+    c't Magazin – alles zur neuen Ausgabe: Tests, Praxis, Wissen und vieles mehr, jeden 2. Freitag.
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

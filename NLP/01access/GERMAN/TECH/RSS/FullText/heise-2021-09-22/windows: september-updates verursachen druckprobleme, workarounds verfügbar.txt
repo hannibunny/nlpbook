@@ -1,0 +1,55 @@
+
+    Windows: September-Updates verursachen Druckprobleme, Workarounds verfügbar
+  
+        Sicherheitsupdates vom 14. September gegen die "PrintNightmare"-Schwachstellen können neue Probleme verursachen. Workarounds & weitere Maßnahmen helfen dagegen.
+      Seit Anfang Juli 2021 versucht Microsoft, mehrere unter dem Namen "PrintNightmare" zusammengefasste Schwachstellen im Windows Drucker-Spooler-Dienst zu schließen. Der jüngste Versuch zum Patchday am 14. September führt in einigen Druckumgebungen allerdings zu Komplikationen, die Microsoft mittlerweile auch bestätigt hat.Eine einheitliche Lösung gibt es zwar bisher noch nicht – wohl aber Workarounds, um des Problems auch ohne Update-Deinstallationen Herr zu werden. Administratoren sollte dabei klar sein, dass die in dieser Meldung beschriebenen Workarounds nur kurzfristige und temporäre Lösungen sind, die später durch aktualisierte Druckertreiber und Nachbesserungen Microsofts final behoben werden sollten.
+
+          Patchday: Microsoft schließt von Angreifern ausgenutzte Lücke in Windows
+        
+"Fehlende" Drucker und AbstürzeBereits kurz nach Freigabe der Sicherheitsupdates zum Patchday meldeten sich beim Autor dieses Artikels mehrere Administratoren vonUnternehmensumgebungen. Im Anschluss an die Updates, so schilderten sie, fehlten freigegebene Netzwerkdrucker (z.B. in Terminalserver-Umgebungen) an Windows-Clients. In anderen Fällen benötigten Nutzer plötzlich administrative Rechte, um Druckertreiber zu installieren oder zu aktualisieren. Auch Abstürze mit Stop-Fehlern wurden beobachtet. Von den Problemen sind Drucker unterschiedlicher Hersteller betroffen.Einige Admins sahen sich zur Deinstallation der Patches gezungen, um die IT-Infrastruktur funktionsfähig zu halten – ein riskantes Unterfangen, da PrintNightmare-Schwachstellen inzwischen für Ransomware-Angriffe ausgenutzt werden. Eine einheitliche Lösung zur Behebung der Druckprobleme gibt es zwar noch nicht; zumindest sind mittlerweile aber einige Lösungsansätze und Workarounds bekannt.Microsoft: Problembestätigung...Microsoft hat zum 17. September 2021 im Windows 10-Statusbereich im Eintrag "Administrator credentials required every time apps attempt to print" prinzipielle Probleme durch die September 2021-Updates eingestanden. Potenziell davon betroffen seien Windows-Clients ab Windows 7 SP1 bis hoch zu Windows 10 21H1 sowie die Windows Server ab Version 2008 R2 SP1 bis hin zu Windows Server 2022.Die Problembeschreibug: Bei bestimmten Druckern, die Point and Print verwenden, erscheine nach der Update-Installation in einigen Umgebungen die Frage: "Vertrauen Sie diesem Drucker?". Daraufhin würden Administratorrechte zur Installation der benötigten Treiber benötigt, sobald eine Anwendung versuche, auf einem Druckserver zu drucken oder ein Druckclient eine Verbindung zu einem Druckserver herstellen wolle.... und (bedingt hilfreiche) HandlungsempfehlungLaut Microsoft wird dieses Verhalten dadurch verursacht, dass ein Druckertreiber auf dem Druckclient und -server jeweils denselben Dateinamen trägt, der Server jedoch eine neuere Version der betreffenden Datei hat. Wenn der Druckclient eine Verbindung mit dem Druckserver herstellt, findet er eine neuere Treiberdatei und wird aufgefordert, die Treiber auf dem Druckclient zu aktualisieren. Der Vorgang scheitere jedoch daran, dass das Paket, das dem Client zur Installation angeboten werde, die neuere Dateiversion gar nicht enthalte.Microsofts recht lapidarer Lösungsvorschlag: Administratoren sollen sich vergewissern, dass für alle verwendeten Drucker die neuesten Treiber installiert sind und möglichst dieselben Versionen des Druckertreibers auf dem Druckclient und dem Druckserver eingesetzt werden. Der Ratschlag zielt darauf ab, dass durch Aktualisierung Druckertreiber, die dem mit Windows 8/Server 2012 eingeführten V4-Treibermodell entsprechen, installiert werden und die auftretenden Probleme behoben sind. In manchen Fällen (z.B. bei HP-Geräten) hilft es auch, die sogenannten Universal-Druckertreiberzur Druckeransteuerung zu verwenden.Allerdings hat diese Handlungsempfehlung einige Haken, die Microsoft unterschlägt: Stellt der Druckerhersteller keine neueren V4-Treiber bereit, scheitert die Problemlösung. Zudem kann es sein, dass ein Administrator einmalig die Treiberaktualisierung an den betroffenen Terminalservern und Druckservern vornehmen muss, bevor das Drucken wieder ohne Administratorberechtigungen klappt. Eine weitere Schwierigkeit kann auftreten, wenn auch Linux- und macOS-Clients an Print-Servern drucken sollen: In gemischten Umgebungen wird bei Problemen mit V4-Druckertreibern mitunter auf V3-Treiber gesetzt.Administratorzwang bei Druckerinstallation deaktivierenDass eine Installation des Druckertreibers Administratorberechtigungen erfordert, wurde bereits mit den Windows-Sicherheitsupdates vom August 2021 eingeführt. Dazu hat Microsoft durch den Registrierungsschlüsseleine Richtlinie implementiert, um bei Point and Print den Administratorzwang zur Treiberinstallation zu aktivieren (Standardwert) oder bei Bedarf zu deaktivieren. Wird der DWORD-Wert RestrictDriverInstallationToAdministrators=0 gesetzt, ist eine Druckertreiberinstallation wieder ohne Administratorberechtigungen möglich. Microsoft beschreibt dies im Supportbeitrag KB5005652.Administratoren, die sich zu diesem Schritt entschließen, sollten aber aus Sicherheitsgründen die im Supportbeitrag skizzierten Maßnahmen zum Festlegen der zugelassenen Druckserver per Gruppenrichtlinie umsetzen. Die Website gruppenrichtlinien.de  beschreibt entsprechende Gruppenrichtlinienobjekte, und in einem Nutzerkommentar im Blog des Autors beschreibt ein Administrator, wie er seine Druckumgebung entsprechend abgesichert hat. Nur so lässt sich vermeiden, dass die PrintNightmare-Schwachstellen aus dem Internet ausgenutzt werden können.Workaround für Fehler 0x0000011bJe nach Umgebung kann es nach dem September 2021-Sicherheitsupdate allerdings auch vorkommen, dass Drucker gar nicht mehr angesprochen werden können oder es zu einem Fehlerabbruch (Fehler 0x0000011b) kommt. Lässt sich dies nicht durch eine Treiberaktualisierung beheben, bleibt nur ein zweiter Workaround, der allerdings mit einem gewissen Sicherheitsrisiko verbunden ist.Hintergrund des Fehlers ist eine mit den September 2021-Sicherheitsupdates ausgeführte Änderung zum Schließen der Spoofing-Schwachstelle CVE-2021-1678. Im Januar 2021 wurde im Zusammenhang mit dieser Schwachstelle per Sicherheitsupdate die Möglichkeit eingeführt, eine neue Authentifizierung zur Printer-RPC-Bindung zu verwenden. Über eine Richtlinie und einen neuen Registrierungsschlüssel können Administratoren seither festlegen, ob diese Authentifizierung für die Printer-RPC-Bindung verwendet wird.Im Januar 2021 waren die Vorgaben für den Registrierungswert RpcAuthnLevelPrivacyEnabled noch standardmäßig auf "inaktiv" gesetzt, um Administratoren Zeit zur Umstellung zu geben. Mit dem September-Update wurde die Richtlinie nun erzwungen, und infolgedessen können manche Druckertreiber keine Verbindung mehr zu Druckservern aufnehmen und scheitern ggf. mit dem Stop-Fehler 0x0000011b. Sofern sich dieser Fehler durch Aktualisierung der Druckertreiber kurzfristig nicht beheben lässt, können Administratoren im Registrierungsschlüsselden 32-Bit-DWORD-Wert RpcAuthnLevelPrivacyEnabled=0 setzen. Im Anschluss ist der Drucker-Spooler neu zu starten. Der geänderte Wert hebt den Erzwingungsmodus auf, macht allerdings die Umgebung wieder für die Spoofing-Schwachstelle anfällig. Mehrere Rückmeldungen von Administratoren an den Autor dieses Beitrags haben bestätigt, dass dieser Workaround geholfen hat. Wer sich dafür entscheidet, sollte sich der möglichen Gefahren durch CVE-2021-1678 bewusst sein.
+
+  heise online
+
+
+      Newsletter
+      
+
+    Keine News verpassen! Jeden Morgen der frische Nachrichtenüberblick von heise online
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

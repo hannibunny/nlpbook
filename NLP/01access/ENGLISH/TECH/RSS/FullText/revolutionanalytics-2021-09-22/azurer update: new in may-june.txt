@@ -1,0 +1,10 @@
+
+			Milestones in AI, Machine Learning, Data Science, and visualization with R and Python since 2008
+		
+« Microsoft365R 2.1.0 with Outlook support now on CRAN |
+	Main
+	| Microsoft365R: testers wanted »
+This is a summary of the updates to AzureR family of packages in May and June 2021.Microsoft365R has some significant new features in the latest version:
+Posted by Hong Ooi at 09:30 in Microsoft, packages, R  | Permalink
+ You can follow this conversation by subscribing to the comment feed for this post.
+	The comments to this entry are closed.

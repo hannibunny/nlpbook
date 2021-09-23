@@ -1,0 +1,57 @@
+
+    Pybricks: MicroPython für Lego-Robotik-Sets
+  
+        Das Open-Source-Projekt hat MicroPython auf die meisten Lego-Robotik-Controller portiert und bietet viel Komfort, eine Web-IDE und hohe Geschwindigkeit.
+      
+      (Bild: pybricks.com)
+    Die Open-Source-Software Pybricks, basierend auf MicroPython, wurde bisher für die meisten Bluetooth-fähigen Controller ("Powered Up") wie Lego Boost, City, Technic sowie Mindstorms und Spike portiert. Dabei werden nicht nur die Controller, sondern auch die vielfältigen Sensoren und Aktuatoren unterstützt. Besonders profitieren hier die kostengünstigen Boost-, City- und Technic-Bricks, die bisher nur über eine App auf dem Smartphone oder Tablet mittels grafischer Programmierung gesteuert werden konnten. Pybricks läuft dagegen autonom auf dem Brick und das bis zu hundertmal schneller.Bei Mindstorms- und Spike-Bricks war es zwar schon immer möglich, diese autonom agieren zu lassen, durch die gemeinsame API wird nun aber eine Portierung der Steuerungen von einem zum anderen Brick viel leichter. Die Web-IDE läuft unter Chrome (Windows, Mac, Linux, Chromebook und Android) und greift per Bluetooth auf die Controller zu. Aus der Webumgebung ist es auch möglich, die Pybricks-Firmware aufzuspielen. Die originale Lego-Firmware kann wieder per Lego-App aufgespielt werden, falls man selbst (oder die Kids) doch dahin zurückmöchte.Auf den kleineren Controllern, wie dem Boost-Hub, ist Pybricks-MicroPython etwas eingeschränkt. So werden z.B. keine Fließkommazahlen unterstützt. Auf dem Hub ist auch kein Platz, um ein Programm zu speichern, daher muss das Programm zusammen mit der Firmware auf den Controller geladen werden, was ein paar Minuten dauert. Solange man aber per Bluetooth mit dem Controller verbunden ist, kann man sein Programm in Sekundenschnelle testen und die Ausgaben auf der REPL-Schnittstelle lesen. In der IDE hat man direkten Zugriff zu der gut gemachten Dokumentation, die auch viele Beispiele liefert.Alles in allem eine sehr willkommene Entwicklung, die sich besonders für Lego Boost lohnt. Der Boost-Hub bringt als Basis zwei smarte, PID-gesteuerte Servo-Motoren, die auch als Dreh-Encoder genutzt werden können, und Anschlussmöglichkeiten für den mitgelieferten, kombinierten Licht-, Farb- und Entfernungssensor. Weiterhin gibt es einen dritten Motor in den Boots-Sets, der ebenso als Encoder dienen kann. Zusammen mit den wirklich brauchbaren in den Sets enthaltenen Lego-Teilen kann man hier schon eine Menge bauen und dank Pybricks seine Konstruktion endlich autonom agieren lassen.
+          Wollen Sie mehr wissen? Einen leichten Einstieg und Umstieg in die Programmierung von Mikrocontrollern mit Python bietet das 86 Seiten starke Make MicroPython Special. Gedruckt, als PDF oder im Bundle.
+        
+          Mehr zum Thema Robotik gibt es im Sonderheft 2019 der Make.
+        
+
+  Make
+
+
+      Newsletter
+      
+
+    Make Magazin – News, Projekte, Hintergründe rund um den kreativen Umgang mit Technik. Immer montags.
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

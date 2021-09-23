@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>
+      Checking Jeff Bezos&#8217;s Math – O’Reilly     </title>
+
+    <link rel="stylesheet" href="https://cdn.oreillystatic.com/assets/css/wp_sites/style-20200701.css?1626819590">
+
+    
+    <link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.oreilly.com\/radar\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.3.9"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://www.oreilly.com/radar/wp-includes/css/dist/block-library/style.min.css?ver=5.3.9' type='text/css' media='all' />
+<link rel='stylesheet' id='ssp-frontend-player-css'  href='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/css/player.css?ver=1.20.10' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel="canonical" href="https://www.oreilly.com/radar/checking-jeff-bezoss-math/" />
+<link rel='shortlink' href='https://www.oreilly.com/radar/?p=13748' />
+
+<link rel="alternate" type="application/rss+xml" title="Podcast RSS feed" href="https://www.oreilly.com/radar/feed/podcast" />
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="language_name" content="English">
+<meta name="native_language_name" content="English">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="icon" type="image/png" href="//www.oreilly.com/favicon.ico">
+
+<!--[if lte IE 9]>
+<script>
+  'article aside footer header main nav section time'.replace(/\w+/g,function(n){document.createElement(n)})
+</script>
+<![endif]-->
+
+<!--[if IE 9]>
+<style type="text/css">
+  #menu-toggle:checked ~ .mobile-nav { display:block; }
+  .mobile-nav { display: none; }
+</style>
+<![endif]-->
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:site" content="@OReillyMedia" />
+<meta property="twitter:title" content="Checking Jeff Bezos's Math" />
+<meta property="twitter:description" content="Stakeholder Capitalism Deserves Clearer Metrics" />
+<meta property="twitter:url" content="https://www.oreilly.com/radar/checking-jeff-bezoss-math" />
+<meta property="twitter:image" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/skyline-photography-skyscraper-new-york-manhattan-cityscape-784912-pxhere_crop-5201be33b65cabd7aa1347c42f1f5b5a-1.jpg" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="O’Reilly Media" />
+<meta property="og:title" content="Checking Jeff Bezos's Math" />
+<meta property="og:description" content="Stakeholder Capitalism Deserves Clearer Metrics" />
+<meta property="og:url" content="https://www.oreilly.com/radar/checking-jeff-bezoss-math/" />
+<meta property="og:image" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/skyline-photography-skyscraper-new-york-manhattan-cityscape-784912-pxhere_crop-5201be33b65cabd7aa1347c42f1f5b5a-1.jpg" />
+<meta name="description" content="Stakeholder Capitalism Deserves Clearer Metrics" />
+<meta name="author" content="Tim O’Reilly" />
+<meta name="description:site" content="Stakeholder Capitalism Deserves Clearer Metrics" />
+<meta property="article:published_time" content="2021-04-23T16:43:28-04:00" />
+<meta name="article:author" content="Tim O’Reilly" />
+<meta name="date" content="2021-04-23" />
+<meta name="thumbnail" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/skyline-photography-skyscraper-new-york-manhattan-cityscape-784912-pxhere_crop-5201be33b65cabd7aa1347c42f1f5b5a-1.jpg" />
+<meta name="graphic_medium" content="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/skyline-photography-skyscraper-new-york-manhattan-cityscape-784912-pxhere_crop-5201be33b65cabd7aa1347c42f1f5b5a-1.jpg" />
+<meta name="oreilly:content_type" content="text" />
+
+<script>
+  loggedInObject = new Object();
+  var dataLayer = window.dataLayer || [];
+
+  //Check for O'Reilly Unified logged-in status
+  if (document.cookie.split(';').filter(function(item) {
+    return item.indexOf('orm-jwt=') >= 0;
+  }).length) {
+    loggedInObject.loggedIn = 'yes';
+    dataLayer.push(loggedInObject);
+  }
+</script>
+
+
+  <script>
+    dataLayer = [{"content.author":"Tim O’Reilly","content.formatType":"article","content.free":"yes","content.identifier":"none","content.parentTopic":"none","content.publisher":"O'Reilly Media Inc.","content.releaseDate":"2021-04-23","content.subTopic":"none","content.subdirectory":"radar","content.title":"Checking Jeff Bezos's Math","product.identifier":"none","product.title":"none","product.type":"none"}];
+  </script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P4V6Z');</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- Start Visual Website Optimizer Asynchronous Code -->
+<script type='text/javascript'>
+var _vwo_code=(function(){
+var account_id=27087,
+settings_tolerance=2000,
+library_tolerance=2500,
+use_existing_jquery=false,
+// DO NOT EDIT BELOW THIS LINE
+f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+</script>
+<!-- End Visual Website Optimizer Asynchronous Code -->
+
+
+</head>
+<body class="post-template-default single single-post postid-13748 single-format-standard multisite-radar">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P4V6Z" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="skipToMain" id="skipToMain"><a href="#maincontent"><span class="skipToMain-text">Skip to main content</span></a></div>
+
+<header role="banner">
+  <div class="content">
+    <nav role="navigation" aria-label="site sections">
+      <a href="https://www.oreilly.com/" class="logo" title="home page"><img src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg" onerror="this.src='https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red_@2x.png'; this.onerror=null;" alt="O'Reilly home"></a>
+
+      <button id="mobileNavButton" class="mobileNavButton mobileNavButton--collapse mobileNavButton--3dx" type="button" aria-expanded="false" aria-controls="menuList">
+        <span class="mobileNavButton-box">
+          <span class="mobileNavButton-inner"></span>
+        </span>
+      </button>
+
+      <ul id="menuList" class="menuList mobileHidden">
+        <li class="menuList-itemsP1">
+          <ul>
+            <li class="menuList-item menuList-signIn"><a href="https://learning.oreilly.com/accounts/login-check/">Sign In</a></li>
+            <li class="menuList-item menuList-tryNow"><a class="menuList-cta" href="https://oreilly.com/online-learning/try-now.html">Try Now</a></li>
+          </ul>
+        </li>
+        <li class="menuList-itemsP2">
+          <ul>
+            <li class="menuList-item menuList-itemWithSub"><csif cond="{cs.var.site-section}" eq="teams"><a href="https://www.oreilly.com/online-learning/teams.html" aria-current="page"><cselse><a href="https://www.oreilly.com/online-learning/teams.html"></csif>Teams</a>
+              <ul class="menuList-subList">
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/business.html">For business</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/government.html">For government</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/academic.html">For higher ed</a></li>
+              </ul>
+            </li>
+            <li class="menuList-item"><csif cond="{cs.var.site-section}" eq="individuals"><a href="https://www.oreilly.com/online-learning/individuals.html" aria-current="page"><cselse><a href="https://www.oreilly.com/online-learning/individuals.html"></csif>Individuals</a></li>
+            <li class="menuList-item menuList-itemWithSub"><csif cond="{cs.var.site-section}" eq="features"><a href="https://www.oreilly.com/online-learning/features.html" aria-current="page"><cselse><a href="https://www.oreilly.com/online-learning/features.html"></csif>Features</a>
+              <ul class="menuList-subList">
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/feature-certification.html">Certifications</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/intro-interactive-learning.html">Interactive learning</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/live-events.html">Live events</a></li>
+                <li class="menuList-subItem"><a href="https://www.oreilly.com/online-learning/feature-answers.html">Answers</a></li>
+              </ul>
+            </li>
+            <li class="menuList-item"><a href="https://www.oreilly.com/radar/">Blog</a></li>
+            <li class="menuList-item" id="nav-forMarketers"><csif cond="{cs.var.site-section}" eq="content-sponsorship"><a href="https://www.oreilly.com/content-marketing-solutions.html" aria-current="page"><cselse><a href="https://www.oreilly.com/content-marketing-solutions.html"></csif>Content sponsorship</a></li>
+            <li class="menuList-item menuList-item-search" id="nav-search">
+              <form id="js-searchForm" class="searchForm" action="https://www.oreilly.com/search/"><input id="search" type="search" name="query" placeholder="Explore our content" autocomplete="off" required=""><button id="js-searchCloseButton" class="navSearchCloseButton">Close</button></form>
+              <button id="js-searchButton" class="navSearchButton">Search</button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- <div class="head-search-bar">
+
+    <div class="content">
+      <p>This is where the search bar goes</p>
+    </div>
+  </div> -->
+
+</header>
+
+<main role="main" id="maincontent">
+      <section class="hero hero-wp">
+      <div class="content">
+        <div class="hero-textWrap">
+          <div class="hero-breadcrumbs">
+            <a href="https://www.oreilly.com/radar">Radar</a>           </div>
+          <h1 class="radar-post-page-head">Checking Jeff Bezos&#8217;s Math</h1>
+                      <div class="radar-post-page-subhead">
+              <p>Stakeholder Capitalism Deserves Clearer Metrics</p>
+            </div>
+          	      </div>
+      </div>
+    </section>
+
+
+    <section class="textSection post-radar">
+      <div class="content">
+
+                              <div class="radar-post-page-meta">
+              <span class="radar-post-page-author">
+                By <a href="https://www.oreilly.com/people/tim-oreilly/">Tim O’Reilly</a>              </span>
+            </div>
+          
+          <div class="radar-post-page-meta">
+            <span class="radar-post-page-date">
+              April 23, 2021            </span>
+          </div>
+        
+        <div class="radar-post-flex-wrap">
+
+          <div class="right-rail" id="right-rail">
+            
+              <div id="post-featured-image" class="post-featured-image">
+                <img width="1400" height="950" src="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/skyline-photography-skyscraper-new-york-manhattan-cityscape-784912-pxhere_crop-5201be33b65cabd7aa1347c42f1f5b5a-1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Observation deck" srcset="https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/skyline-photography-skyscraper-new-york-manhattan-cityscape-784912-pxhere_crop-5201be33b65cabd7aa1347c42f1f5b5a-1.jpg 1400w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/skyline-photography-skyscraper-new-york-manhattan-cityscape-784912-pxhere_crop-5201be33b65cabd7aa1347c42f1f5b5a-1-300x204.jpg 300w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/skyline-photography-skyscraper-new-york-manhattan-cityscape-784912-pxhere_crop-5201be33b65cabd7aa1347c42f1f5b5a-1-768x521.jpg 768w, https://www.oreilly.com/radar/wp-content/uploads/sites/3/2019/06/skyline-photography-skyscraper-new-york-manhattan-cityscape-784912-pxhere_crop-5201be33b65cabd7aa1347c42f1f5b5a-1-1048x711.jpg 1048w" sizes="(max-width: 1400px) 100vw, 1400px" />
+                                  <span class="post-featured-image-caption">
+                    Observation deck <span class="source-name">(source: <a class="secondary" target="_blank" href="https://pxhere.com/en/photo/784912" rel="noopener noreferrer">Pxhere.com</a>)</span>                  </span>
+                                </div>
+
+                        </div>
+
+          <div class="post-radar-content" id="post-radar-content">
+
+            <div class="main-post-radar-content">
+
+              
+              
+              
+              
+              
+              
+<p>“If you want to be successful in business (in life, actually), you have to create more than you consume. Your goal should be to create value for everyone you interact with. Any business that doesn’t create value for those it touches, even if it appears successful on the surface, isn’t long for this world. It’s on the way out.” So wrote Jeff Bezos in his <a href="https://www.aboutamazon.com/news/company-news/2020-letter-to-shareholders">final letter to shareholders</a>, released last week. It’s a great sentiment, one I heartily agree with and wish that more companies embraced. But how well does he practice what he preaches? And why is practicing this so hard by the rules of today’s economy?</p>
+
+
+
+<p>Jeff started out by acknowledging the wealth that Amazon has created for shareholders—$1.6 trillion is the number he cites in the second paragraph. That’s Amazon’s current market capitalization. Jeff himself now owns only about 11% of Amazon stock, and that’s enough to make him the richest person in the world. But while his Amazon stock is worth over $160 billion, that means that over $1.4 trillion is owned by others.</p><div class="CjzThcAi"><div itemscope="" itemtype="http://schema.org/Product" class="inline-cta trial-cta" id="trial-cta">
+  <div class="thumb">
+    <a href="https://www.oreilly.com/online-learning/">
+      <img itemprop="image" src="https://d3ansictanv2wj.cloudfront.net/safari-topic-cta-1f60e6f96856da19ba3cb25660472ca5.jpg" class="">
+    </a>
+  </div>
+  <div class="title">
+    <h2>
+      Learn faster. Dig deeper. See farther.
+    </h2>
+  </div>
+   <div class="meta">
+    <p class="dek">Join the O'Reilly online learning platform. Get a free trial today and find answers on the fly, or master something new and useful.</p>
+    <a href="https://www.oreilly.com/online-learning/" class="textCTA-small more">Learn more</a>
+  </div>
+</div></div>
+
+
+
+<p>“I’m proud of the wealth we’ve created for shareowners,” Jeff continued. “It’s significant, and it improves their lives. But I also know something else: it’s not the largest part of the value we’ve created.” That’s when he went on to make the statement with which I opened this essay. He went on from there to calculate the value created for employees, third-party merchants, and Amazon customers, as well as to explain the company’s <a href="https://sustainability.aboutamazon.com/about/the-climate-pledge">Climate Pledge</a>.</p>
+
+
+
+<p>Jeff’s embrace of <a href="https://www.weforum.org/agenda/2021/01/klaus-schwab-on-what-is-stakeholder-capitalism-history-relevance/">stakeholder capitalism</a> is meaningful and important. Ever since Milton Friedman penned the 1970 op-ed in which he argued that “<a href="http://umich.edu/~thecore/doc/Friedman.pdf">the social responsibility of business is to increase its profits</a>,” other constituencies—workers, suppliers, society at large, and even customers—have too often been sacrificed on the altar of shareholder value. Today’s economy, rife with inequality, is the result.</p>
+
+
+
+<p>While I applaud the goal of understanding “who gets what and why” (which in many ways is the central question of economics), I struggle a bit with Jeff’s math. Let’s walk through those of his assertions that deserve deeper scrutiny.</p>
+
+
+
+<h3>How much went to shareholders?</h3>
+
+
+
+<blockquote class="wp-block-quote"><p><em>“Our net income in 2020 was $21.3 billion. If, instead of being a publicly traded company with thousands of owners, Amazon were a sole proprietorship with a single owner, that’s how much the owner would have earned in 2020.”</em><br></p></blockquote>
+
+
+
+<p>Writing in <em>The Information, </em><a href="https://www.theinformation.com/articles/the-briefing-jeff-bezos-calculates-value-creation-wrong">Martin Peers made what seems to be an obvious catch</a>: “Instead of calculating value by looking at the increase in Amazon’s market cap last year—$679 billion—Bezos uses the company’s net income of $21 billion. That hides the fact that shareholders got the most value out of Amazon last year, far more than any other group.”</p>
+
+
+
+<p>But while Peers has put his finger on an important point, he is wrong. The amount earned by shareholders <em>from Amazon</em> is indeed only the company’s $21.3 billion net income. The difference between that number and the $679 billion increase in market cap didn’t come from Amazon. It came from “the market,” that is from other people trading Amazon’s stock and placing bets on its future value. Understanding this difference is crucial because it undercuts so many <a href="https://twitter.com/rbreich/status/1305921198291779584?lang=en">facile criticisms of Jeff Bezos’s wealth</a>, in which he is pictured as a robber baron hoarding the wealth accumulated from his company at the expense of his employees.</p>
+
+
+
+<p>The fact that Jeff is the world’s richest person makes him an easy target. What we really need to come to grips with is the way that our financial system has been hijacked to make the rich richer. Low interest rates, meant to prop up business investment and hiring, have instead been diverted to driving up the price of stocks beyond reasonable bounds. Surging corporate profits have been used not to fuel hiring or building new factories or bringing new products to market, but on stock buybacks designed to artificially boost the price of stocks. The state of “the market” has become a very bad proxy for prosperity. Those lucky enough to own stocks are enjoying boom times; those who do not are left out in the cold.</p>
+
+
+
+<p>Financial markets, in effect, give owners of stocks the value of future earnings and cash flow today—in Amazon’s case, <a href="https://www.nasdaq.com/market-activity/stocks/amzn/price-earnings-peg-ratios">about 79 years worth</a>. But that’s nothing. Elon Musk is the world’s second-richest person because the market values Tesla at <a href="https://www.nasdaq.com/market-activity/stocks/tsla/price-earnings-peg-ratios">over 1,000 years of its present earnings</a>!</p>
+
+
+
+<p>The genius of this system is that it allows investors and entrepreneurs to bet on the future, bootstrapping companies like Amazon and Tesla long before they are able to demonstrate their worth. But once a company has become established, it often no longer needs money from investors. Someone who buys a share of a hugely profitable company like Apple, Amazon, Google, Facebook, or Microsoft, isn’t investing in these companies. They are simply betting on the future of its stock price, with the profits and losses coming from others around the gaming table.</p>
+
+
+
+<p>In my 2017 book, <a href="https://www.amazon.com/WTF-Whats-Future-Why-Its/dp/0062565710"><em>WTF?: What&#8217;s the Future and Why It&#8217;s Up to Us</em></a>, I wrote a chapter on this betting economy, which I called “supermoney” after <a href="https://www.amazon.com/Supermoney-Adam-Smith/dp/0471786314">the brilliant 1972 book</a> with that title by finance writer George Goodman (alias Adam Smith.) Stock prices are not the only form of supermoney. Real estate is another. Both are rife with what economists call “rents”—that is, <a href="https://www.amazon.com/Rentier-Capitalism-Owns-Economy-Pays/dp/1788739728">income that comes not from what you do but from what you own</a>. And government policy seems designed to prop up the rentier class at the expense of job creation and real investment. Until we come to grips with this two-track economy, we will never tame inequality.</p>
+
+
+
+<p>The fact that in the second paragraph of his letter Jeff cites Amazon’s market cap as the value created for shareholders but uses the company’s net income when comparing gains by shareholders to those received by other stakeholders is a kind of sleight of hand. Because of course corporate profits—especially the prospect of growth of corporate profits—and market capitalization are related. If Amazon gets $79 of market cap for every dollar of profit (which is what that price-earnings ratio of 79 means), then if Amazon were to raise wages for employees or give a better deal to its third-party merchants (many of them small businesses), that would lower its profits, and presumably its market cap, by an enormous ratio.</p>
+
+
+
+<p>Every dollar given up to these other groups isn’t just a dollar out of the pocket of shareholders. It is many times that. This of course <em>does</em> provide a very powerful incentive for public companies to squeeze these other parties for every last dollar of profit, encouraging lower wages, outsourcing to eliminate benefits, and many other ills that contribute to our two-tier economy. It may not be Amazon’s motivation—Jeff has always been a long-term thinker and was able to persuade financial markets to go along for the ride even when the company’s profits were small—but it is most certainly <a href="https://www.amazon.com/Makers-and-Takers-Rana-Foroohar-audiobook/dp/B01CUKFLII">the motivation for much of the extractive behavior by many companies today</a>. The pressure to increase earnings and keep stock prices high is enormous.</p>
+
+
+
+<p>These issues are complex and difficult. Stock prices are <a href="https://www.ft.com/content/0ca06172-bfe9-11de-aed2-00144feab49a">reflexive</a>, as financier George Soros likes to observe. That is, they are based on what people believe about the future. Amazon’s current stock price is based on the collective belief that its profits will be even higher in future. Were people to believe instead that they would be meaningfully lower, the valuation might fall precipitously. To understand the role of expectations of future increases in earnings and cash flow, you have only to <a href="https://finance.yahoo.com/quote/AAPL/key-statistics?p=AAPL">compare Amazon with Apple</a>. Apple’s profits are three times Amazon’s and free cash flow four times, yet it is valued at only 36 times earnings and has a market capitalization less than 50% higher than Amazon. As expectations and reality converge, multiples tend to come down.</p>
+
+
+
+<h3>How did Amazon’s third-party sellers fare?</h3>
+
+
+
+<blockquote class="wp-block-quote"><p><em>“[We] estimate that, in 2020, third-party seller profits from selling on Amazon were between $25 billion and $39 billion, and to be conservative here I’ll go with $25 billion.”</em></p></blockquote>
+
+
+
+<p>That sounds pretty impressive, but how much of a profit margin is it really?</p>
+
+
+
+<p>Amazon doesn’t explicitly disclose the gross merchandise volume of those third-party sellers, but there is enough information in the letter and in <a href="https://s2.q4cdn.com/299287126/files/doc_financials/2021/ar/Amazon-2020-Annual-Report.pdf">the company’s 2020 annual report</a> to make a back-of-the-napkin estimate. The letter says that Amazon’s third-party sales represent “close to 60%” of its online sales. If the 40% delivered by Amazon’s first-party sales come out to $197 billion, that would imply that sales in the third-party marketplace were almost $300 billion. $25 to $39 billion in profit on $300 billion works out to a profit margin between 8% and 13%.</p>
+
+
+
+<p>But is Amazon calculating <a href="https://www.investopedia.com/terms/o/operatingincome.asp">operating income</a>, <a href="https://www.investopedia.com/terms/e/ebitda.asp">EBITDA</a>, or <a href="https://www.investopedia.com/terms/n/netincome.asp">net income</a>? “Profit” could refer to any of the three, yet they have very different values.</p>
+
+
+
+<p>Let’s generously assume that Amazon is calculating net income. In that case, small retailers and manufacturers selling on Amazon are doing quite well, since net income from US retailers’ and manufacturers’ overall operations are <a href="http://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/margin.html">typically between 5 and 8%</a>. Without knowing which profit number Amazon’s team is estimating, though, and the methodology they use to arrive at it, it is difficult to be sure whether these numbers are better or worse than what these sellers achieve through other channels.</p>
+
+
+
+<p>One question that’s also worth asking is whether selling on Amazon in 2020 was more or less profitable than it was in 2019. While Amazon didn’t report a profit number for its third-party sellers in 2019, it did report how much its sellers paid for the services Amazon provided to them. In 2019, that number was about $53.8 billion; in 2020, it was $80.5 billion, which represents a 50% growth rate. Net of these fees, income to Amazon but a cost to sellers, we estimate that seller revenue grew 44%. Since fees appear to be growing faster than revenues, that would suggest that in 2020, Amazon took a larger share of the pie and sellers got less. Of course, without clearer information from Amazon, it is difficult to tell for sure.</p>
+
+
+
+<p>Meanwhile, Amazon took in another $21.5 billion in “other income,” which is primarily from advertising by sellers on Amazon’s platform. That grew by 52% from 2019’s $14 billion, again suggesting that Amazon’s share of the net is growing. And unlike some forms of advertising that bring in new customers, much of Amazon’s ad business represents a zero-sum competition between merchants bidding for top position, a position that in Amazon’s earlier years was granted on the basis of factors such as price, popularity, and user ratings.</p>
+
+
+
+<h3>How about employees?</h3>
+
+
+
+<blockquote class="wp-block-quote"><p><em>“In 2020, employees earned $80 billion, plus another $11 billion to include benefits and various payroll taxes, for a total of $91 billion.”</em></p></blockquote>
+
+
+
+<p>There’s no question that the $91 billion that Amazon paid out in wages and benefits in 2020 is meaningful. Some of those employees were very well compensated, others not so well, but all of them have jobs. Amazon is now one of the largest employers in the country. It is an exception to the tech industry in that it creates a large number of jobs, and not just high-end professional jobs, and that some of the jobs it creates are in locations where work is scarce.</p>
+
+
+
+<p>That being said, Jeff’s description of the amount earned by employees is misleading. In every other case, he makes an effort to estimate the profit earned by a particular group. For employees, he treats the gross earnings of employees as if it were profit, writing, “If each group had an income statement representing their interactions with Amazon, the numbers above would be the ‘bottom lines’ from those income statements.”</p>
+
+
+
+<p>No, Jeff, employee earnings are <em>their top line</em>. Just as a company has gross income before expenses, so do employees. The bottom line is what’s left over after all those expenses have been met. And for many of Amazon’s lower-paid employees—as is the case for lower-paid workers all over the modern economy—that true bottom line is negative, that is, less than they need to survive. Like workers at other giant profitable companies like Walmart and McDonald&#8217;s, <a href="https://thecounter.org/15-minimum-wage-amazon-top-employer-snap-recipients-walmart-mcdonalds/">a significant fraction of Amazon warehouse employees require government assistance</a>. So, in effect, taxpayers are subsidizing Amazon, because the share of the enterprise’s profits allocated to its lowest-paid employees was not enough for them to pay their bills.</p>
+
+
+
+<p>That points to a major omission from the list of Amazon’s stakeholders: society at large. How does Amazon do when it comes to paying its fair share? According to a 2019 study, Amazon was the “<a href="https://www.theguardian.com/business/2019/dec/02/new-study-deems-amazon-worst-for-aggressive-tax-avoidance">worst offender</a>” among a rogues’ gallery of high-tech companies that use aggressive tax avoidance strategies. “Fair Tax Mark said this means Amazon’s effective tax rate was 12.7% over the decade when the headline tax rate in the US has been 35% for most of that period.” In 2020, Amazon made provision for taxes of $2.863 billion on pretax income of $24,178 billion, or about 11.8%. This may be legal, but it isn’t right.</p>
+
+
+
+<p>Amazon is clearly moving in the right direction with employees. It introduced a $15 minimum wage in 2018, ahead of many of its peers. And given the genius of the company, the commitment to workplace safety and other initiatives to make Amazon a better employer that Jeff highlighted in his letter are likely to have a big payoff. When Amazon sets out to do something, it usually invents and learns a great deal along the way.</p>
+
+
+
+<p>“We have always wanted to be Earth’s Most Customer-Centric Company,” Jeff wrote. “We won’t change that. It’s what got us here. But I am committing us to an addition. We are going to be Earth’s Best Employer and Earth’s Safest Place to Work. In my upcoming role as Executive Chair, I’m going to focus on new initiatives. I’m an inventor. It’s what I enjoy the most and what I do best. It’s where I create the most value&#8230;.We have never failed when we set our minds to something, and we’re not going to fail at this either.”</p>
+
+
+
+<p>I find that an extremely heartening statement. At Amazon’s current stage of development, it has the opportunity, and is beginning to make a commitment, to put its remarkable capabilities to work on new challenges.</p>
+
+
+
+<h2>Stakeholder value means solving multiple equations simultaneously</h2>
+
+
+
+<p>I was very taken with Jeff’s statement that “if any shareowners are concerned that Earth’s Best Employer and Earth’s Safest Place to Work might dilute our focus on Earth’s Most Customer-Centric Company, let me set your mind at ease. Think of it this way. If we can operate two businesses as different as consumer ecommerce and AWS, and do both at the highest level, we can certainly do the same with these two vision statements. In fact, I’m confident they will reinforce each other.”</p>
+
+
+
+<p>One of my criticisms of today’s financial-market-driven economy is that by focusing on a single objective, it misses the great opportunity of today’s technology, summed up by Paul Cohen, the former DARPA program manager for AI and now a professor at the University of Pittsburgh, when he said, “The opportunity of AI is to help humans model and manage complex interacting systems.” If any company has the skills to do that, I suspect it will be Amazon. And as Jeff wrote elsewhere in his letter, “When we lead, others follow.”</p>
+
+
+
+<p>Amazon is also considering environmental impact. “Not long ago, most people believed that it would be good to address climate change, but they also thought it would cost a lot and would threaten jobs, competitiveness, and economic growth. We now know better,” Jeff wrote. “Smart action on climate change will not only stop bad things from happening, it will also make our economy more efficient, help drive technological change, and reduce risks. Combined, these can lead to more and better jobs, healthier and happier children, more productive workers, and a more prosperous future.” Amen to that!</p>
+
+
+
+<p>In short, despite my questions and criticisms, there is a great deal to like about the directions Jeff set forth for Amazon in his final shareholder letter. In addition to the commitment to work more deeply on behalf of other stakeholders beyond customers and shareholders, I was taken with his concluding advice to the company: “The world will always try to make Amazon more typical—to bring us into equilibrium with our environment. It will take continuous effort, but we can and must be better than that.”</p>
+
+
+
+<p>It is in the spirit of that aspiration that I offer the critiques found in this essay.</p>
+
+                          </div>
+
+                        
+            <div class="post-radar-end">
+
+              
+                              <div class="radar-post-page-meta" >
+      Post topics: <a href="https://www.oreilly.com/radar/topics/business/" title="Business">Business</a>, <a href="https://www.oreilly.com/radar/topics/economy/" title="Economy">Economy</a>, <a href="https://www.oreilly.com/radar/topics/next-economy/" title="Next Economy">Next Economy</a>, <a href="https://www.oreilly.com/radar/topics/oreilly-insights/" title="O'Reilly Insights">O'Reilly Insights</a></div>              
+                              <div class="radar-post-page-meta" >
+      Post tags: <a href="https://www.oreilly.com/radar/tag/commentary/" title="Commentary">Commentary</a></div>              
+              <div class="radar-post-page-meta radar-post-page-meta-share">
+                Share:
+                <ul>
+                  <li>
+                    <a data-via="oreillymedia" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Checking Jeff Bezos&#8217;s Math">Tweet</a>                  </li>
+                  <li>
+                    <div class="fb-share-button" data-href="https://www.oreilly.com/radar/checking-jeff-bezoss-math" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>                  </li>
+                  <li>
+                    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+    <script type="IN/Share"></script>                  </li>
+                </ul>
+              </div>
+
+              <!-- Marketo -->
+<link rel="stylesheet" type="text/css" href="https://www.oreilly.com/radar/wp-content/themes/odot/files/mkto-multiform-subscribe-20190821.css">
+<script src="https://get.oreilly.com/js/forms2/js/forms2.min.js" type="text/javascript"></script>
+<div class="radar-newsletter inline-nls" id="newsletter">
+	<h2>Get the O’Reilly Next:Economy Newsletter</h2>
+	<div class="newsletter-text">
+		<p>Receive weekly insight from industry insiders—plus exclusive content, offers, and more on the topics of work and the economy.</p>
+		<a href="http://www.oreilly.com/emails/newsletters/?display=preview#economy" target="_blank" data-source="http://www.oreilly.com/emails/newsletters/?display=preview#economy">View sample newsletter</a>
+		<div class="mktoForm-email large -medium -small smallContainer">
+			<form class="mktoForm subscribe" data-formid="1114" data-forminstance="topicRow" data-formtopic="BusinessLeadership"></form>
+		</div>
+	</div>
+	<div class="newsletter-quote">
+		<blockquote>
+			<p>&hellip; this really helps me think about how to shape our company for the future—to be ahead of the pack.</p>
+			<footer>— <strong>Sunny</strong>, Co-Creator Fin15</footer>
+		</blockquote>
+	</div>
+	</div>
+<div class="radar-newsletter inline-nls" id="newsletter2">
+	<h2>Get the O’Reilly Next:Economy Newsletter</h2>
+	<div class="newsletter-text">
+		<p>Receive weekly insight from industry insiders—plus exclusive content, offers, and more on the topics of work and the economy.</p>
+		<a href="http://www.oreilly.com/emails/newsletters/?display=preview#economy" target="_blank" data-source="http://www.oreilly.com/emails/newsletters/?display=preview#economy">View sample newsletter</a>
+		<div class="mktoForm-email large -medium -small smallContainer">
+			<form class="mktoForm subscribe" data-formid="1114" data-forminstance="topicRow" data-formtopic="BusinessLeadership"></form>
+		</div>
+	</div>
+	</div>
+<script src="https://cdn.oreillystatic.com/assets/js/mkto-multiform-subscribe-20190814.js" type="text/javascript"></script>
+                
+              <script type="text/javascript" src="https://www.oreilly.com/radar/wp-content/themes/odot/files/cta-191118.js"></script>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+  
+<!-- twitter button script  -->
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="content">
+
+      <div class="footer-main" aria-label="company info">
+        <div class="footer-mainLeft">
+          <div class="footer-mainLeftOne">
+            <div class="footer-approach">
+              <h2 class="footer-header"><a href="https://www.oreilly.com/about/">About O’Reilly</a></h2>
+              <ul class="footer-links">
+                <li><a href="https://www.oreilly.com/work-with-us.html">Teach/write/train</a></li>
+                <li><a href="https://www.oreilly.com/careers/">Careers</a></li>
+                <li><a href="https://www.oreilly.com/partner/signup.csp">Community partners</a></li>
+                <li><a href="https://www.oreilly.com/affiliates/">Affiliate program</a></li>
+                <li><a href="https://www.oreilly.com/online-learning/rfp.html">Submit an RFP</a></li>
+                <li><a href="https://www.oreilly.com/diversity/">Diversity</a></li>
+                <li><a href="https://www.oreilly.com/content-marketing-solutions.html" id="footerSponsorshipLink">O&rsquo;Reilly for marketers</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-mainLeftTwo">
+            <div class="footer-contact">
+              <h2 class="footer-header"><a href="https://www.oreilly.com/online-learning/support/">Support</a></h2>
+
+              <ul class="footer-links">
+                <li><a href="https://www.oreilly.com/about/contact.html">Contact us</a></li>
+                <li><a href="https://www.oreilly.com/emails/newsletters/">Newsletters</a></li>
+                <li><a href="https://www.oreilly.com/privacy.html">Privacy policy</a></li>
+              </ul>
+            
+              <a href="https://twitter.com/oreillymedia" target="_blank"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve"><style type="text/css">.st0{fill:#ee0000;}.st1{fill:#FFFFFF;}</style><g id="Red"><circle class="st0" cx="200" cy="200" r="200"/></g><g id="Logo__x2014__FIXED"><path class="st1" d="M163.4,305.5c88.7,0,137.2-73.5,137.2-137.2c0-2.1,0-4.2-0.1-6.2c9.4-6.8,17.6-15.3,24.1-25 c-8.6,3.8-17.9,6.4-27.7,7.6c10-6,17.6-15.4,21.2-26.7c-9.3,5.5-19.6,9.5-30.6,11.7c-8.8-9.4-21.3-15.2-35.2-15.2 c-26.6,0-48.2,21.6-48.2,48.2c0,3.8,0.4,7.5,1.3,11c-40.1-2-75.6-21.2-99.4-50.4c-4.1,7.1-6.5,15.4-6.5,24.2 c0,16.7,8.5,31.5,21.5,40.1c-7.9-0.2-15.3-2.4-21.8-6c0,0.2,0,0.4,0,0.6c0,23.4,16.6,42.8,38.7,47.3c-4,1.1-8.3,1.7-12.7,1.7 c-3.1,0-6.1-0.3-9.1-0.9c6.1,19.2,23.9,33.1,45,33.5c-16.5,12.9-37.3,20.6-59.9,20.6c-3.9,0-7.7-0.2-11.5-0.7 C110.8,297.5,136.2,305.5,163.4,305.5"/></g></svg></a>
+              <a href="https://www.facebook.com/OReilly/" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>facebook-logo</title><path class="cls-1" d="M16.13,0A16.13,16.13,0,1,0,32.25,16.12,16.13,16.13,0,0,0,16.13,0Zm5.12,9.54H19.57a1.52,1.52,0,0,0-1.51,1.51v1.14h3.19v3.42H18.06V26.12H13.57V15.61H10.69V12.19h2.88v-2a4,4,0,0,1,4-4h3.65Z"/></svg></a>
+              <a href="https://www.linkedin.com/company/oreilly-media" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>linkedin-logo</title><path class="cls-1" d="M17.43,13.53v0l0,0ZM16.12,0A16.13,16.13,0,1,0,32.25,16.12,16.12,16.12,0,0,0,16.12,0ZM11.77,22.92H8.12v-11h3.65ZM9.94,10.44h0a1.89,1.89,0,0,1-2-1.89A1.91,1.91,0,0,1,10,6.65a1.9,1.9,0,1,1,0,3.79Zm15,12.48H21.28V17.05c0-1.48-.53-2.49-1.85-2.49a2,2,0,0,0-1.88,1.34,2.63,2.63,0,0,0-.12.89v6.13H13.79s.05-10,0-11h3.64V13.5a3.63,3.63,0,0,1,3.29-1.82c2.4,0,4.21,1.57,4.21,4.95Z"/></svg></a>
+              <a href="https://www.youtube.com/user/OreillyMedia" target="_blank"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32.25 32.25"><defs><style>.cls-1{fill:#E00;fill-rule:evenodd;}</style></defs><title>youtube-logo</title><path class="cls-1" d="M18.35,18.68a.89.89,0,0,0-.86.63V16.94h-1v7.59h1v-.59a.92.92,0,0,0,.89.74c.52,0,.86-.36,1-1.07a8.56,8.56,0,0,0,.14-1.9,10.47,10.47,0,0,0-.12-1.93C19.21,19.05,18.87,18.68,18.35,18.68Zm.09,4.14c-.05.52-.2.77-.45.77s-.43-.21-.49-.63a7.22,7.22,0,0,1,0-1c0-.72,0-1.14,0-1.26.07-.58.23-.88.51-.88s.4.27.46.79c0,.09,0,.47,0,1.13S18.46,22.71,18.44,22.82ZM8.61,18.19H9.86v6.34H11V18.19H12.2V16.94H8.61Zm7.71-6.12c.27,0,.43-.22.49-.66,0-.09,0-.45,0-1.07V9.78c0-.58,0-.93,0-1-.07-.43-.23-.65-.48-.65s-.41.19-.48.57a8.79,8.79,0,0,0,0,1v.53c0,.71,0,1.09,0,1.16C15.88,11.82,16.05,12.07,16.32,12.07Zm-1.74,10.4a2.92,2.92,0,0,1-.06.71c-.07.25-.2.37-.4.37s-.32-.11-.38-.34a2.63,2.63,0,0,1-.05-.66V18.83h-1v4.48c0,.91.33,1.37,1,1.37A1,1,0,0,0,14.6,24v.57h1v-5.7h-1Zm7.1-3.79a1.35,1.35,0,0,0-1.22.59,2.48,2.48,0,0,0-.3,1.07c0,.23,0,.61,0,1.16s0,1.13,0,1.37a2.93,2.93,0,0,0,.35,1.27,1.25,1.25,0,0,0,1.14.54,1.36,1.36,0,0,0,1.13-.45,2.29,2.29,0,0,0,.37-1.43s0-.07,0-.11v-.12h-1c0,.75-.17,1.12-.51,1.12s-.38-.18-.45-.56a4.68,4.68,0,0,1-.06-.9c0-.18,0-.31,0-.37h2v-.43a4.86,4.86,0,0,0-.3-2.11A1.28,1.28,0,0,0,21.68,18.68ZM22.15,21h-1c0-.05,0-.11,0-.16v-.08a1.64,1.64,0,0,1,.11-.8.39.39,0,0,1,.38-.23.42.42,0,0,1,.43.33,2.32,2.32,0,0,1,.07.7Zm-6-21A16.13,16.13,0,1,0,32.25,16.12,16.12,16.12,0,0,0,16.12,0Zm2.51,7.2h1V11a2.52,2.52,0,0,0,.06.66c.06.23.18.34.38.34s.34-.12.41-.37a3.76,3.76,0,0,0,.05-.71V7.2h1v5.74h-1v-.57a1,1,0,0,1-.93.72c-.66,0-1-.46-1-1.38ZM15,8a1.29,1.29,0,0,1,1.33-.92A1.3,1.3,0,0,1,17.65,8a6.77,6.77,0,0,1,.23,2.1,6.77,6.77,0,0,1-.23,2.1,1.3,1.3,0,0,1-1.32.92A1.29,1.29,0,0,1,15,12.17a6.77,6.77,0,0,1-.23-2.1A6.86,6.86,0,0,1,15,8ZM11.45,5.3l.89,2.87.88-2.87H14.4L12.88,9.7v3.24h-1.1V9.7L10.24,5.3ZM24.93,23.91a3,3,0,0,1-3,3h-12a3,3,0,0,1-3-3V18.05a3,3,0,0,1,3-3h12a3,3,0,0,1,3,3Z"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-download" id="download-info">
+          <h2 class="footer-header">Download the O&rsquo;Reilly App</h2>
+
+          <p>Take O&rsquo;Reilly with you and learn anywhere, anytime on your phone <span class="nowrap">and tablet.</span></p>
+
+          <div class="footer-downloadLinks">
+            <a href="https://itunes.apple.com/us/app/safari-to-go/id881697395"><img src="https://cdn.oreillystatic.com/oreilly/images/app-store-logo.png" alt="Apple app store" /></a>
+            <a href="https://play.google.com/store/apps/details?id=com.safariflow.queue"><img src="https://cdn.oreillystatic.com/oreilly/images/google-play-logo.png" alt="Google play store" /></a>
+          </div>
+        </div>
+        
+        <div class="footer-download" id="tv-info">
+          <h2 class="footer-header">Watch on your big screen</h2>
+
+          <p>View all O&rsquo;Reilly videos, Superstream events, and Meet the Expert sessions on your <span class="nowrap">home TV.</span></p>
+
+          <div class="footer-downloadLinks">
+            <a href="https://channelstore.roku.com/details/c8a2d0096693eb9455f6ac165003ee06/oreilly"><img src="https://cdn.oreillystatic.com/oreilly/images/roku-tv-logo.png" alt="Roku Payers and TVs" /></a>
+            <a href="https://www.amazon.com/OReilly-Media-Inc/dp/B087YYHL5C/ref=sr_1_2?dchild=1&keywords=oreilly&qid=1604964116&s=mobile-apps&sr=1-2"><img src="https://cdn.oreillystatic.com/oreilly/images/amazon-appstore-logo.png" alt="Amazon appstore" /></a>
+          </div>
+        </div>
+        
+        <div class="footer-donotsell" id="donotsell-info">
+          <h2 class="footer-header"><a href="https://www.oreilly.com/privacy.html?donotsell=show">Do not sell my personal information</a></h2>
+        </div>
+      </div>
+
+      <div class="footer-subfooter">
+
+        <a href="https://www.oreilly.com/" title="home page" aria-current="page">
+          <img 
+          class="footer-subfooterLogo" 
+          id="footer-subfooterLogo"
+          src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg" 
+          onerror="this.src='https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red_@2x.png'; this.onerror=null;" 
+          alt="O'Reilly home">
+        </a>
+
+        <p>&copy; 2021, O&rsquo;Reilly Media, Inc.  All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+        <p><a href="https://www.oreilly.com/terms/">Terms of service</a> • <a href="https://www.oreilly.com/privacy.html">Privacy policy</a> • <a href="https://www.oreilly.com/about/editorial_independence.html">Editorial independence</a></p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- <script src="https://cdn.oreillystatic.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    		<style type="text/css">
+			.ssp-wave wave wave {
+				background: #00d4f7 !important;
+			}
+		</style>
+		<script type='text/javascript' src='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/js/media.player.js?ver=1.20.10'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-content/plugins/seriously-simple-podcasting/assets/js/html5.player.js?ver=1.20.10'></script>
+<script type='text/javascript' src='https://www.oreilly.com/radar/wp-includes/js/wp-embed.min.js?ver=5.3.9'></script>
+
+  <script>
+  (function($) {
+    //Toggle isActive and mobileHidden classes for mobileNavButton
+    $('nav #mobileNavButton').on('click', function() {
+      var expanded = $(this).attr('aria-expanded') === 'true' || false;
+      $(this).attr('aria-expanded', !expanded);
+      $(this).toggleClass("isActive");
+      $(this).next().toggleClass("mobileHidden");
+    });
+
+    //Toggle isFocused class for keyboard navigation of submenus
+    $('nav #menuList .menuList-subItem a').each(function(navItem) {
+      $(this).on('focus', function() {
+        $(this).parent().parent().toggleClass('isFocused');
+      });
+      $(this).on('blur', function() {
+        $(this).parent().parent().toggleClass('isFocused');
+      });
+    });
+
+    //Toggle mobileHidden class accordian elements
+    $('.mobileAccordian').each(function() {
+      var $btn = $(this).find('button');
+      var $target =  $(this).next();
+      $btn.on('click', function() {
+        var expanded = $btn.attr('aria-expanded') === 'true' || false;
+
+        $btn.attr('aria-expanded', !expanded);
+        $target.toggleClass("mobileHidden");  
+      });
+    });
+
+    // truncate months in footer conf listings
+    var months = $('.confMonth');
+    months.each(function(){    
+      var m = $(this).text();        
+      if(m.length < 3 ) return;
+      $(this).html(m.slice(0,3));
+    });
+
+    //Search platform form action
+    function searchSubmit(e) {
+      e.preventDefault();
+      sParameter = searchForm.search.value;
+      sParameter = encodeURIComponent(sParameter.trim());
+      sURL = searchForm.action + '?query=' + sParameter;
+      window.location = sURL;
+
+      //GA event for search
+      dataLayer.push({
+        'event': 'eventTracker',
+        'eventCat':'site search',
+        'eventAct':'search box',
+        'eventLbl':'explore our content',
+        'eventVal':0, 
+        'nonInteraction': 0,
+      });
+    }
+    const searchForm = document.getElementById('js-searchForm');
+    searchForm.addEventListener('submit', searchSubmit);
+
+    //Search button action
+    function showNavSearch(e) {
+      $('.menuList-item-search').addClass('overlay');
+      $('.menuList-item-search input#search').focus();
+    }
+    const searchButton = document.getElementById('js-searchButton');
+    searchButton.addEventListener('click', showNavSearch);
+
+
+    //Close search button action
+    function hideNavSearch(e) {
+      $('.menuList-item-search').removeClass('overlay');
+    }
+    const searchCloseButton = document.getElementById('js-searchCloseButton');
+    searchCloseButton.addEventListener('click', hideNavSearch);
+  })(jQuery);
+  </script>
+
+
+  <script type="text/javascript" id="MathJax-script">
+
+    var math = document.getElementsByClassName('math-tex');
+    if (math.length > 0) includeMathJax();
+    function includeMathJax() {
+      var head = document.getElementsByTagName('head')[0];
+      var script = document.createElement('script');
+      script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+      script.type = 'text/javascript';
+      script.async = 'async';
+      head.appendChild(script)
+    }   
+  </script>
+  </body>
+</html>

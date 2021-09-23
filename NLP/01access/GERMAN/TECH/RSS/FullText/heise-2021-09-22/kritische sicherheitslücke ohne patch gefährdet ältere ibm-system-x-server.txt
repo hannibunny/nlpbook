@@ -1,0 +1,53 @@
+
+    Kritische Sicherheitslücke ohne Patch gefährdet ältere IBM-System-X-Server
+  
+        Die Server werden seit 2020 nicht mehr mit Updates versorgt. Angreifer können sie nun über eine Lücke in der Firmware der Admin-Schnittstelle IMM kapern.
+      
+      (Bild: Tada Images/Shutterstock.com)
+    Lenovo warnt vor einer ernsten Sicherheitslücke in älteren Blade-Servern vom Typ IBM System x 3550 M3 und 3650 M3. Über eine Schwachstelle in der Firmware des Integrated Management Module (IMM) kann ein Angreifer beliebige Befehle ausführen und so potentiell den Server kapern. Updates wird es nicht geben und Lenovo empfiehlt, die Server aus dem Verkehr zu ziehen.Die verwundbaren Server-Typen wurden 2011 zum ersten Mal verkauft und 2015 als veraltet eingestuft. Sie erhielten bis Ende 2019 noch Sicherheits-Updates, werden nun aber nicht mehr mit Patches versorgt. Lenovo hat wohl auch keine Absichten, das für diese Lücke zu ändern.Die Schwachstelle in der IMM-Firmware wird unter CVE-2021-3723 geführt und kann über eine SSH- oder eine Telnet-Verbindung ausgenutzt werden. Die Lücke wurde vom unabhängigen Sicherheitsforscher Denver Abrey gefunden, der bisher anscheinend keine Details dazu veröffentlicht hat, wie genau ein Angriff vonstatten gehen würde. Bisher ist auch nichts darüber bekannt, ob die Lücke bereits für Angriffe missbraucht wird.Entsprechende Server, die sich noch in Betrieb befinden, sollten aber auf jeden Fall, der Empfehlung von Lenovo folgend, so schnell wie möglich deaktiviert werden. Die Tatsache, dass es für die Lücke keine Patches geben wird, macht diese Server jetzt zu einem beliebten Ziel für Angreifer, die einen Weg ins Netzwerk suchen, in dem sich solche Server befinden. Admins, welche die verwundbaren Server nicht direkt aus dem Verkehr ziehen können, empfiehlt Lenovo über das IMM-Web-Interface SSH- und Telnet-Verbindungen zu den Servern zu unterbinden. Zusätzlich sollten Admins das werksseitig eingestellte Passwort gegen ein sicheres eigenes Passwort austauschen und nur vertrauenswürdigen Personen Zugang zu diesen Servern erlauben.
+
+  Security
+
+
+      Newsletter
+      
+
+    Ob Sicherheitslücken, Viren oder Trojaner – alle sicherheitsrelevanten Meldungen gibts bei heise Security
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

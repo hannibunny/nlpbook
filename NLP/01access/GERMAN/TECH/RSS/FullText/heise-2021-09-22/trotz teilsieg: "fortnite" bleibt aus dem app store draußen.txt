@@ -1,0 +1,62 @@
+
+    Trotz Teilsieg: "Fortnite" bleibt aus dem App Store draußen
+  
+        Epic Games plant zunächst nicht, sein Hitspiel wieder in den Apple-Laden zu stellen. Dabei dürfte die Firma nun auf eigene Bezahldienste verlinken.
+      
+      
+        "Fortnite" bleibt mobil ein Android-Titel.
+      
+    
+      (Bild: Joshua Hoehne / Unsplash)
+    Es ist nicht damit zu rechnen, dass der Hit-Shooter "Fortnite", der im aktuellen Rechtsstreit zwischen seinem Hersteller Epic Games und dem App-Store-Betreiber Apple eine zentrale Rolle spielt, zeitnah wieder auf iPhone und iPad zurückkehrt. Davon kann man ausgehen, wenn man eine Botschaft des Epic-Chefs Tim Sweeney vom Freitag richtig liest – die dieser noch vor Epics Entschluss abgesendet hatte, Berufung in dem Prozess einzulegen.Sweeney: Wollen Ersparnisse an Kunden weitergebenApple hatte in einer ersten Entscheidung nahezu alle Klagepunkte Epics abwenden können, muss App-Anbietern allerdings erlauben, auf andere Bezahlmethoden als In-App-Einkäufe (die dem Konzern dicke Provisionen einbringen) zu verlinken. Sweeney sagte am Freitag, "Fortnite" werde erst in den iOS App Store zurückkehren, wenn Epic "In-App-Bezahlungen in fairem Wettbewerb mit Apples In-App-Bezahlungssystem" anbieten könne. Er versprach, "die Ersparnisse an die Endkunden" weiterzugeben. Apple will aktuell 30 Prozent im ersten Abo-Jahr und 15 Prozent ab dem zweiten sehen; reguläre In-App-Käufe kosten einen App-Anbieter stets 30 Prozent Provision.Aktuell sieht Sweeney offenbar nicht, dass die Entscheidung von Richterin Yvonne Gonzalez Rogers Epic Games erlaubt, wirklich mit Apples (sehr leicht nutzbaren) In-App-Einkaufsprozess zu konkurrieren. Ein Link nach außen würde in einen Browser führen, wo Nutzer dann gegebenenfalls ihre Daten neu eingeben müssten; bei In-App-Einkäufen ist alles hinterlegt. Für Gamer heißt dies, dass sie weiterhin auf populären Geräten "Fortnite" nicht zocken können – beziehungsweise keine aktuellen "Episoden" des Spiels, die regelmäßig nachgeliefert werden.Epic soll laut Ansicht von Gonzales Rogers den App-Store-Vertrag mit Apple gebrochen haben. Entsprechend sei die Kündigung des Entwickler-Accounts korrekt und rechtlich richtig gewesen. Epic sieht das naturgemäß nicht so. Mit der in der Nacht zum Montag erfolgten Urteilsanfechtung, deren Wortlaut aktuell noch nicht vorliegt, will Epic wohl erreichen, dass Apple doch noch zum Monopolisten erklärt wird – was im ersten Versuch nicht gelang. Apples Aktie hatte auf das für den Konzern eigentlich relativ gute Urteil sehr negativ reagiert, die Anteilsscheine stürzten am Freitag um rund 3,3 Prozent an der NASDAQ ab. Auch Apple selbst soll eine Berufung planen, will einen kompletten Freispruch, um keine Änderungen im App Store vornehmen zu müssen.
+
+
+(bsc)
+
+
+
+  Mac & i
+
+
+      Newsletter
+      
+
+    Mac & i informiert Sie täglich über alles Wichtige rund um Mac, iPhone und Apple Watch.
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

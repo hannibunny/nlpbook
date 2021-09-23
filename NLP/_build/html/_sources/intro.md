@@ -3,8 +3,101 @@
 
 * Author: Prof. Dr. Johannes Maucher
 * Institution: Stuttgart Media University
-* Document Version: 0.2 (Incomplete DRAFT !!!)
-* Last Update: 01.10.2020
+* Document Version: 0.9 (Incomplete DRAFT !!!)
+* Last Update: 23.09.2021
+
+
+## Lecture Contents
+
+````{panels}
+:column: col-4
+:card: border-2
+Introduction
+^^^
+* What is NLP?
+* Challenges of NLP
+* Applications
+---
+Accessing Text
+^^^
+* from local files
+* from online files
+* from HTML
+* from RSS Feeds
+* from Tweets
+---
+Preprocessing
+^^^
+* Segmentation into words and sentences
+* Regular Expressions
+* Normalisation
+* Stemming and Lemmatisation
+* Error Correction / Levensthein Distance
+---
+PoS-Tagging
+^^^
+* Part of Speech
+* Tagsets
+* Tagging-Algorithms
+---
+N-Gram Language Models
+^^^
+* Applications of LM
+* Probability of word sequences
+* Smoothing
+* Evaluation of LMs
+---
+Vector Representations of Words
+^^^
+* Word-Embedding
+* Word2Vec: CBow and Skipgram
+* Learning word-embeddings
+* Work with pretrained word-embeddings
+* Contextual embeddings (BERT)
+---
+Document Models and Similarities
+^^^
+* Bag-of-Word
+* Similarity Measures
+* Binary Count, Count, TF-IDF
+* Applying gensim/Keras for BoW
+---
+Topic Extraction
+^^^
+* Latent Semantic Indexing (LSI)
+* LSI Topic Extraction with gensim
+---
+Text Classification
+^^^
+* Recap: ML in general 
+* Evaluation metrics
+* Naive Bayes Classifier
+* BoW plus conventional ML (sklearn) 
+---
+Neural Networks
+^^^
+* Recap: Feedforward Nets (MLP)
+* Recap: CNN
+* Recurrent Neural Networks
+* Keras implementation of LSTM and CNN
+---
+Attention and Self-Attention
+^^^
+* Sequence-to-Sequence architectures
+* Language Modelling
+* Machine Translation
+* Attention- and Self-Attention Layer
+---
+Transformer
+^^^
+* Encoder-Decoder architectures
+* Transformer
+* BERT
+* Apply BERT from Tensorflow-Hub
+---
+````
+
+
 
 ## What is NLP?
 

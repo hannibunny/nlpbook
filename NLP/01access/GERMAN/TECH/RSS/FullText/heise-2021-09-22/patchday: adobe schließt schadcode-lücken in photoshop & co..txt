@@ -1,0 +1,53 @@
+
+    Patchday: Adobe schließt Schadcode-Lücken in Photoshop & Co. 
+  
+        Es sind wichtige Sicherheitsupdates für verschiedene Anwendungen von Adobe erschienen. Der Softwarehersteller stuft viele Schwachstellen als kritisch ein. 
+      
+      (Bild: r.classen/Shutterstock.com)
+    Am Patchday im September schließt Adobe gefährliche Sicherheitslücken in unter anderem Acrobat und Reader, ColdFusion, Digital Editions, InCopy und Photoshop. In den meisten Fällen könnten entfernte Angreifer an den "kritischen" Schwachstellen ansetzen und darüber Schadcode auf Computer schieben.Die meisten solcher Lücken betreffen Acrobat und Reader unter macOS und Windows. Wie Attacken im Detail ablaufen könnten, führt Adobe nicht aus. Die folgenden Versionen sollen dagegen abgesichert sein:Die Schadcode-Lücke in Photoshop haben die Entwickler in den Versionen Photoshop 2020 21.2.12 und Photoshop 2021 22.5.1 für macOS und Windows geschlossen. InDesign ist für macOS und Windows in der abgesicherten Version 16.4 erschienen. Premiere Pro ist nur unter Windows verwundbar. Repariert ist die Ausgabe 15.4.1Informationen zu weiteren Sicherheitsupdates und den Lücken kann man in dieser Liste nachlesen:
+
+  Security
+
+
+      Newsletter
+      
+
+    Ob Sicherheitslücken, Viren oder Trojaner – alle sicherheitsrelevanten Meldungen gibts bei heise Security
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

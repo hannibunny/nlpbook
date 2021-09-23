@@ -1,0 +1,58 @@
+
+    NSO-Skandal: Apple-Updates beheben endlich Pegasus-Lücke
+  
+        Mit iOS 14.8, macOS 11.6 und watchOS 7.6.2 soll ein Zero-Day behoben sein, mit dem die Spyware der NSO-Group auf die Geräte kam.
+      
+      (Bild: Den Rise/Shutterstock.com)
+    Apple hat in der Nacht zum Dienstag überraschend neue Betriebssystemversionen vorgelegt. Zentrale Neuerung ist die Tatsache, dass es dem Konzern offenbar endlich gelungen ist, eine von der Sicherheitsfirma NSO Group ausgenutzte "Zero Click"-Sicherheitslücke zu schließen, mit der die Spyware Pegasus über iMessage verbreitet wurde. Apple hatte sich über Wochen nicht dazu geäußert, ob und wie der Konzern beabsichtigt, hier einen Fix zu liefern. Zuletzt war bekannt geworden, dass auch das Bundeskriminalamt Pegasus erworben haben soll.Wie die New York Times schreibt, gelingt es iOS 14.8 nun, den von der Sicherheitsorganisation Citizen Lab "FORCEDENTRY" getauften Exploit zu verhindern. Er hatte Pegasus allumfassenden Zugriff auf Apple-Geräte gegeben – inklusive Mikrofon, Kamera und alle enthaltenen Daten. Citizen Lab hatte Infos dazu am 7. September an Apple weitergeleitet, Apple brauchte dann gut eine Woche für den Fix. Die Lücke soll bereits seit mindestens Frühjahr 2021 ausgenutzt worden sein. Apple gab gegenüber der Zeitung an, dass iOS 15 "neue Spyware-Barrieren" enthalten soll, um ähnliche Angriffe künftig zu vermeiden – ob die wirklich wirksam sind, wird sich zeigen.FORCEDENTRY war nicht nur auf iPhones möglich. Die zugrundeliegende Lücke mit der CVE-ID 2021-30860 steckte laut Apple auch in iPadOS, macOS (Big Sur wie Catalina – ob frühere Versionen, bleibt unklar) und sogar watchOS. Der Bug betrifft CoreGraphics und darin die Verarbeitung von PDF-Dateien, was die Ausführung beliebigen Codes erlaubte. Apple "kennt einen Bericht, laut dem der Fehler bereits aktiv ausgenutzt werden könnte", so der Konzern. Der Integer Overflow sei mit einer verbesserten Eingabevalidierung behoben worden.macOS steht künftig bei Versionsnummer 11.6 und watchOS auf 7.6.2, Catalina erhielt das Bugfix-Update in Form des Security Update 2021-005 Catalina. In iOS / iPadOS 14.8 und macOS 11.6 behob Apple zusätzlich einen WebKit-Fehler (CVE-2021-30858), der ebenfalls nicht ungefährlich ist: Er erlaubt Code-Ausführung über Web-Inhalte. Für macOS Catalina (10.15) und Mojave (10.14) steht hier das Safari-Update 14.1.2 zum Download bereit, dass diesen Bug fixt.Apple brauchte lange bis zum FixApple macht sonst keine weiteren Angaben zu möglichen Neuerungen in macOS 11.6, iPadOS / iOS 14.8 und watchOS 7.6.2 – offenbar handelt es sich um reine Notfall-Patches gegen Pegasus und besagten WebKit-Bug. Unklar bleibt, welche weiteren Zero-Day-Fehler die NSO Group noch in der Hinterhand hat – und wie lange Apple dann braucht, sie endlich zu beheben. Auch weiß man nicht, ob es dem Konzern bei FORCEDENTRY so schnell gelungen wäre, hätte es besagte Hilfe des Citizen Lab nicht gegeben. Apple hatte sich zu möglichen Pegasus-Fixes (oder verbliebenen Lücken in aktuellen Systemen) über Wochen nicht konkret geäußert.
+
+
+(bsc)
+
+
+
+  Mac & i
+
+
+      Newsletter
+      
+
+    Mac & i informiert Sie täglich über alles Wichtige rund um Mac, iPhone und Apple Watch.
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

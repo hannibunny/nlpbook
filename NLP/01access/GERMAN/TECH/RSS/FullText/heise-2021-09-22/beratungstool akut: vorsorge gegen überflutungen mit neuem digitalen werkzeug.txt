@@ -1,0 +1,61 @@
+
+    Beratungstool AKUT: Vorsorge gegen Überflutungen mit neuem digitalen Werkzeug
+  
+        Forschende der Hochschule Mainz haben eine Software erstellt, die Kommunen einen Überblick über Gefährdungslagen und mögliche Vorsorgemaßnahmen bietet. 
+      
+      
+        Monreal in der Eifel im Juli 2021
+      
+    
+      (Bild: M. Volk/Shutterstock.com)
+    Starkregen kann überall schwere Schäden anrichten – nicht nur im Ahrtal. Immer wieder haben sich in den vergangenen Jahren in Rheinland-Pfalz und anderswo kleine Bäche oder Straßen nach heftigen Regenfällen in reißende Fluten verwandelt, Kanalisationen und Keller volllaufen lassen, Erdreich von Äckern in Dörfer gespült und Schlammlawinen verursacht. Viele Wissenschaftler erwarten, dass diese Extremwetterereignisse infolge des Klimawandels häufiger werden.Forscherinnen und Forscher der Hochschule Mainz haben gemeinsam mit Partnern aus der Praxis und Kommunen ein digitales Beratungswerkzeug für die Überflutungsvorsorge entwickelt. Es soll Planern und Entscheidern in Kommunen mit den Interessen von Bürgerinnen und Bürgern, Bäuerinnen und Bauern und Forstleuten zusammenbringen und dabei helfen, etwaige Konflikte zu überwinden und nach gemeinsamen Lösungen zu suchen. Beteiligt an dem Projekt war auch die Hochschule Weihenstephan-Triesdorf (HSWT) in Bayern."Es gibt auf kommunaler Ebene verschiedene Akteure, die etwas für die Überflutungsvorsorge tun können", erklärt Projektleiterin Inka Kaufmann Alves. "Neben den Mitarbeiterinnen und Mitarbeitern in den Verwaltungen und Entwässerungsbetrieben sind das auch Privatleute."So könnten beispielsweise Anwohnerinnen und Anwohner, deren Grundstück tiefer als die Straße liegt, ihre Einfahrten schützen, indem sie mobile Barrieren einbauen. "Das sehen viele Bürgerinnen und Bürger noch ein, wenn es um den Schutz des eigenen Grundstücks geht." Doch je nach Gegebenheit könnte es noch viel wirkungsvoller sein, wenn ein Anwohner seine Begrenzungsmauer erhöhe, weil er damit auch die Nachbarn unterhalb seines Grundstücks schütze."Wir haben in unserem Projekt gezielt den ländlichen Raum betrachtet", erklärt die Siedlungswasserwirtschafterin und Professorin an der Hochschule Mainz. Dort gebe es oft große Grundstücke, auf denen man beispielsweise Regenrückhaltebecken oder Versickerungsmulden anlegen und naturnah gestalten könne. Oder man kann mit Gräben das Wasser dahin leiten, wo es weniger Schaden anrichten wird. Auch multifunktionale Flächen gehören zu diesen Möglichkeiten: Bei schönem Wetter dienen sie etwa als Bolzplätze, bei Starkregen werden sie dann gezielt überflutet, um das Wasser dort zurückzuhalten.Bislang sind nach ihrer Einschätzung größere Städte die Vorreiter in Sachen Überflutungsschutz, die sich mit ihren Mitarbeitern in Tiefbauamt oder Umweltabteilung um diese Fragen besser kümmern können. "Wir haben uns in unserem Projekt gezielt um den ländlichen Raum gekümmert, wo die personelle und finanzielle Situation der Kommunalverwaltung oft weniger gut ist und die Mitarbeitenden in den Tiefbauämtern eventuell einfach keine Zeit haben, sich umfassend mit Fragen der Starkregenvorsorge zu befassen."Die Resonanz auf das Projekt sei sehr positiv, sagt sie. Getestet wurde das Tool mit dem Namen "AKUT" bereits von der Verbandsgemeinde Enkenbach-Alsenborn (Landkreis Kaiserslautern). Außerdem gibt es vier weitere rheinland-pfälzische Kommunen, die ihre topografischen Daten und die Liegenschaftsdaten auf den Server, auf dem das Programm läuft, hochladen. Die Entwicklung des Programms wurde den Angaben zufolge vom Bundesumweltministerium gefördert. Die Nutzung sei daher kostenlos. Für Privatleute ist es nicht gedacht."Unser Programm ist als Zwischenschritt für Kommunen gedacht, um sich zunächst einen Überblick über Gefährdungslagen und die Wirksamkeit möglicher Vorsorgemaßnahmen zu verschaffen", erklärt Kaufmann Alves. Man könne mit dem Tool zum Beispiel testen, welche Maßnahmen möglich seien, wenn man ein Budget von zwei Millionen Euro zur Verfügung habe.Bereits angewendet wurde das Programm in der Verbandsgemeinde Enkenbach-Alsenborn. "Es ist ein gutes Instrument für die ganz frühe Planungsphase", findet Michael Marques Alves, der als stellvertretender Werksleiter für Wasserversorgung und Kanalisation verantwortlich ist. "Durch AKUT können wir den groben Rahmen erkennen: Wo sind Gefahrenpunkte und wer sind die Akteure." In einem nächsten Schritt würden dann die beauftragten Ingenieurbüros mit den betroffenen Menschen reden und die verschiedenen Akteure an einen Tisch holen.Es gebe unbebautes Gelände, das beispielsweise zu nah an Gewässern oder tiefer als Straßen liege und deshalb als Baugebiet ungeeignet sei, sagt er weiter. "Dem versuchen wir beim Aufstellen der Bebauungspläne entgegenzuwirken", betont er.Dabei kann es innerhalb von Gemeinden durchaus zu Interessenkonflikten kommen. Auf der einen Seite hat eine Ortsgemeinde laut Marques Alves als Grundstückseigentümerin natürlich das Interesse, viele Bauplätze zu verkaufen, um Geld in die Gemeindekasse zu bringen. Mit Blick auf die Starkregenvorsorge müsse dann aber mitunter gewarnt werden, etwa wenn das Gebiet bei Starkregen genau in der Fließrichtung liege. Dann empfehle es sich beispielsweise, einen mehrere Meter breiten Streifen freizulassen, damit das Wasser einen Ausweg aus dem Baugebiet finden könne. Und dieser Streifen kann dann nicht verkauft werden – und der Gemeinde entgeht Geld.Generell ist seiner Erfahrung nach aber zu beobachten, dass mit Blick auf die häufigen Starkregenereignisse in den Kommunen und bei Privatleuten das Bewusstsein für die Gefahren und die Bereitschaft zu Veränderungen in den vergangenen Jahren gewachsen ist. "Ohne Kompromisse von allen Seiten geht es nicht", betont er. "Jede Gemeinde sollte das Bewusstsein haben, dass sie da etwas tun muss."
+
+          Klimawandel zwingt Bauern zu Anpassungen – doch in welche Richtung?
+        
+
+
+  heise online
+
+
+      Newsletter
+      
+
+    Keine News verpassen! Jeden Morgen der frische Nachrichtenüberblick von heise online
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        

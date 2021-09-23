@@ -1,0 +1,51 @@
+
+    Salesforce: Slack als digitale Firmenzentrale, Cloud reduziert CO2
+  
+        Auf der Dreamforce gab es neue Slack-Integrationen zu sehen. Für die eigene Cloud hat Salesforce hohe Ziele: Sie soll Corona und den Klimawandel bekämpfen.
+      Der SaaS-Anbieter Salesforce hat am Dienstag seine diesjährige Kundenveranstaltung Dreamforce gestartet und dabei eine Reihe an Neuheiten vorgestellt. Das reicht vom Ausbau von Slack über zwei neue Plattform-Dienste bis hin zu einer neuen Hyperforce Operating Zone in Europa.Salesforce-Chef Marc Benioff sieht derzeit eine Krise des Vertrauens in Unternehmen. Folglich lautete das Motto seiner Keynote: Welcome to the Trusted Enterprise – Willkommen im vertrauensvollen Unternehmen.Das erinnerte zunächst ans Trustworthy Computing von Bill Gates vor knapp zwanzig Jahren. Damals ging es um so praktische Probleme wie Datensicherheit, Datenschutz, Systemsicherheit und Geschäftsintegrität. Doch Benioff geht es um weitaus höhere Güter, wie Gesundheit, Klimaschutz und Nachhaltigkeit. Was er damit genau meint, wurde dann an zwei neuen Cloud-Plattformen deutlich.Cloud gegen Corona und den KlimawandelSo wurde für das Gesundheitswesen die Health Cloud 2.0 vorgestellt, für die es jetzt die Erweiterung Dreampass gibt. Mit letzterer sollen sich Präsenzveranstaltungen unter Corona-Auflagen durchführen lassen. Das System erlaubt die IT-gestützte Implementierung von zuverlässigen und skalierbaren COVID-19-Schutzmaßnahmen für alle Teilnehmer, die Organisations-Mitarbeiter sowie Partner und Zulieferer. Hierbei sieht Salesforce seine Health Cloud mit dem neuen Dreampass nicht nur als eine weitere Businessprocess-Suite, sondern als wichtiges Element dafür, dass ein Unternehmen vertrauenswürdiger erscheinen kann. "Gesundheit, Sicherheit und effektive Geschäftsabläufe zu gewährleisten, ist der Schlüssel zur Vertrauensbildung", sagte Benioff über die neue Plattform.Bei der zweiten Cloud-Ankündigung steht der Klimaschutz im Vordergrund. Die Sustainability Cloud 2.0 richtet sich an Unternehmen, die nach geeigneter IT-Unterstützung für ihre CO2-Reduktion suchen. Mithilfe dieser Plattform lässt sich der CO2-Ausstoß monitoren. In diesem Zusammenhang verwies Benioff darauf, dass Salesforce inzwischen "vollständig klimaneutral sei und zu 100 Prozent erneuerbare Energien nutze". Konkurrent SAP peilt dieses Ziel erst für 2023 an und Cisco hat jüngst bekannt gegeben, dass man die "Netto-Null" für alle globalen Scope-1- und Scope-2-Emissionen erst bis 2025 schaffen kann.Doch es gab auch Produktneuheiten mit viel neuer Technik. Im Zentrum stand die Integration der Anfang des Jahres für 27,7 Milliarden Dollar akquirierten Kollaborations-Plattform Slack. Sie ist jetzt Teil des gesamten Salesforce-SaaS-Angebotes, vermarktet als Customer 360. Laut Salesforce-COO Bret Taylor ist Slack jetzt mit den Segmenten Sales, Service, Commerce, Analytics (Tableau), Trailhead, MuleSoft, Quip, sowie den Cloud-Plattformen Marketing und Experience verknüpft. Hinzu kommen die branchenspezifischen Ausprägungen für das Finanz- und Gesundheitswesen, sowie für Non-Profit-Organisationen und Bildungs-Einrichtungen. Auch einige neue Funktionen wurden hinzugefügt: So lassen sich jetzt Audio-, Video- und Bildschirmaufnahmen einfacher erstellen und teilen. Ziel sind laut Taylor weniger Meetings. Weitere Features erleichtern die Vernetzung mit Anwendern, die Slack nicht benutzen. Gleichzeitig wird noch einmal klar: Das Salesforce-eigene Kollaborationstool Chatter gehört der Vergangenheit an.Vor allem wegen der Integration mit den anderen Modulen sieht Salesforce das neue Slack nicht nur als eine weitere Kommunikations-Plattform. So soll das Programm als eine Art Zentralstelle für alle Unternehmensprozesse genutzt werden. Im Originalton heißt das dann: "Jedes Unternehmen braucht eine digitale Zentrale, über die Mitarbeiter, Kunden und Partner erfolgreich vernetzt werden können", so Taylor über die neue Slack-Positionierung.Alle Daten in Europa mit HyperforceSpeziell für die EU-Kunden kündigt Salesforce noch an, dass man jetzt auch in Europa eine Hyperforce Operating Zone schaffen will. "Wir wissen, dass unsere Kunden die Kontrolle darüber haben möchten, wo ihre Daten gespeichert und verarbeitet werden, wer darauf zugreifen kann und wie sie verwendet werden – für viele unserer Kunden bedeutet das, sie wollen ihre Daten innerhalb der EU verwalten", begründet Lindsey Finch, EVP Global Privacy diesen Schritt. Doch ein solches Speichern und Verarbeiten in Europa darf nicht darüber hinwegtäuschen, dass der Europäische Gerichtshofs (EuGH) im Juli 2020 den Transfer personenbezogener Daten von europäischen Bürgern in die USA wegen ungenügendem Datenschutz als nicht DSGVO-konform erklärt hat. Inzwischen schlägt der IT-Branchenverband Bitkom Alarm. "Wir sind in einer wirtschaftlich riskanten Situation, weil die Problematik des Datentransfers auf die Unternehmen abgewälzt wird", sagte kürzlich deren Präsident Achim Berg.Was die weiteren Unternehmensaussichten angeht, ist Benioff weiterhin optimistisch. Für dieses Jahr rechnet er mit einem Umsatz von knapp 23 Milliarden US-Dollar, und bis 2026 soll die 50-Milliarden-Marke geknackt sein. Die diesjährige Dreamforce läuft noch bis zum 23. September als eine "hybride" Veranstaltung.
+
+  iX Magazin
+
+
+      Newsletter
+      
+
+    Alle Themen der kommenden iX im Überblick. Erscheint monatlich.
+  
+    Ausführliche Informationen zum Versandverfahren und zu Ihren
+    Widerrufsmöglichkeiten erhalten Sie in unserer
+    Datenschutzerklärung.
+  
+
+      Teile diesen Beitrag
+    
+
+          heise+
+        
+
+          Immer mehr Wissen. Das digitale Abo für IT und Technik.
+        
+
+
+          Ethereum schürfen leicht gemacht: Mining-Guide zum Geldverdienen per Grafikkarte
+        
+Liegen die Preise für Kryptowährungen hoch, wirft das private Minen Gewinn ab. Wir zeigen, wie einfach man Ether mit der Grafikkarte errechnet.    
+
+          VW ID.4 vs. Skoda Enyaq: Welches SUV ist in der Anschaffung wirklich günstiger?
+        
+ID.4 und Enyaq teilen sich viele Komponenten, lassen sich aber sehr unterschiedlich ausstatten. Wir zeigen, welches Modell am Ende günstiger ist.    
+
+          Programmieren lernen: Passende Online-Kurse und Tutorials für Anfänger
+        
+
+
+          Marktübersicht: Werkzeuge und Plattformen für Low Code und No Code Development
+        
+
+
+          Einführung in Machine Learning mit Python
+        
+
+
+          Das BIOS-Kompendium: BIOS-Einstellungen erklärt für Tuner, Takter & Problemlöser
+        
