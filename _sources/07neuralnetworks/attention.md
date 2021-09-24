@@ -2,7 +2,7 @@
 
 ## Sequence-To-Sequence
 
-In the context of Machine Learning a sequence is an ordered data structure, whose successive elements are correlated. 
+In the context of Machine Learning a sequence is an ordered data structure, whose successive elements are somehow correlated. 
 
 **Examples:**
 - Univariate Time Series Data:
@@ -29,9 +29,9 @@ The crucial property of sequences is the correlation between the individual data
 * it's feature vector
 * the contextual information, provided by the neighbours
 
-For this type of sequential data, Machine Learning algorithms should learn models, which regard not only individual feature vectors, but also contextual information. For example [Recurrent Networks (RNN)](../neuralnetworks/02RecurrentNeuralNetworks) are capable to do so. In this section more complex ML architectures, suitable for sequential data will be described. Some of these architectures integrate RNNs. More recent architectures, *Transformers*, model the correlations within sequences not by RNNs but by *Attention*. Both, Attention and the integration of Attention in Transformers will be described in this section.
+For this type of sequential data, Machine Learning algorithms should learn models, which regard not only individual feature vectors, but also contextual information. For example [Recurrent Networks (RNN)](02RecurrentNeuralNetworks) are capable to do so. In this section more complex ML architectures, suitable for sequential data will be described. Some of these architectures integrate RNNs. More recent architectures, *Transformers*, model the correlations within sequences not by RNNs but by *Attention*. Both, Attention and the integration of Attention in Transformers will be described in this section.
 
-As already mentioned in section [Recurrent Networks (RNN)](../neuralnetworks/02RecurrentNeuralNetworks), ML algorithms, which take sequential data at their input, either output one element per sequence (many-to-one) or a sequence of elements (many-to-many). The latter is the same as sSequence-To-Sequence learning. 
+As already mentioned in section [Recurrent Networks (RNN)](02RecurrentNeuralNetworks), ML algorithms, which take sequential data at their input, either output one element per sequence (many-to-one) or a sequence of elements (many-to-many). The latter is the same as sSequence-To-Sequence learning. 
 
 Sequence-To-Sequence (Seq2Seq) models ({cite}`cho2014learning`, {cite}`Sutskever2014`) map 
 

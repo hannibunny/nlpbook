@@ -280,6 +280,11 @@
      10.4. CNN, LSTM and Attention for IMDB Movie Review classification
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07neuralnetworks/attention.html">
+     10.5. Sequence-To-Sequence, Attention, Transformer
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -1056,11 +1061,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
-                   intercept_scaling=1, l1_ratio=None, max_iter=100,
-                   multi_class=&#39;auto&#39;, n_jobs=None, penalty=&#39;l2&#39;,
-                   random_state=None, solver=&#39;lbfgs&#39;, tol=0.0001, verbose=0,
-                   warm_start=False)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression()
 </pre></div>
 </div>
 </div>
@@ -1388,27 +1389,27 @@ weighted avg       0.64      0.64      0.64      5200
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;functional_5&quot;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;model&quot;
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-input_3 (InputLayer)         [(None, 800)]             0         
+input_1 (InputLayer)         [(None, 800)]             0         
 _________________________________________________________________
-embedding_2 (Embedding)      (None, 800, 100)          500000    
+embedding (Embedding)        (None, 800, 100)          500000    
 _________________________________________________________________
-conv1d_4 (Conv1D)            (None, 796, 32)           16032     
+conv1d (Conv1D)              (None, 796, 32)           16032     
 _________________________________________________________________
-max_pooling1d_4 (MaxPooling1 (None, 398, 32)           0         
+max_pooling1d (MaxPooling1D) (None, 398, 32)           0         
 _________________________________________________________________
-conv1d_5 (Conv1D)            (None, 396, 64)           6208      
+conv1d_1 (Conv1D)            (None, 396, 64)           6208      
 _________________________________________________________________
-max_pooling1d_5 (MaxPooling1 (None, 79, 64)            0         
+max_pooling1d_1 (MaxPooling1 (None, 79, 64)            0         
 _________________________________________________________________
-flatten_2 (Flatten)          (None, 5056)              0         
+flatten (Flatten)            (None, 5056)              0         
 _________________________________________________________________
-dense_4 (Dense)              (None, 64)                323648    
+dense (Dense)                (None, 64)                323648    
 _________________________________________________________________
-dense_5 (Dense)              (None, 2)                 130       
+dense_1 (Dense)              (None, 2)                 130       
 =================================================================
 Total params: 846,018
 Trainable params: 846,018
@@ -1426,17 +1427,17 @@ _________________________________________________________________
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/6
-163/163 [==============================] - 22s 138ms/step - loss: 0.2304 - categorical_accuracy: 0.8953 - val_loss: 1.9827 - val_categorical_accuracy: 0.6463
+163/163 [==============================] - 27s 154ms/step - loss: 0.2283 - categorical_accuracy: 0.8963 - val_loss: 2.1035 - val_categorical_accuracy: 0.6313
 Epoch 2/6
-163/163 [==============================] - 22s 136ms/step - loss: 0.0531 - categorical_accuracy: 0.9819 - val_loss: 3.0537 - val_categorical_accuracy: 0.6338
+163/163 [==============================] - 25s 154ms/step - loss: 0.0552 - categorical_accuracy: 0.9823 - val_loss: 2.7110 - val_categorical_accuracy: 0.6369
 Epoch 3/6
-163/163 [==============================] - 24s 145ms/step - loss: 0.0272 - categorical_accuracy: 0.9922 - val_loss: 3.9840 - val_categorical_accuracy: 0.6340
+163/163 [==============================] - 25s 153ms/step - loss: 0.0316 - categorical_accuracy: 0.9903 - val_loss: 3.6822 - val_categorical_accuracy: 0.6377
 Epoch 4/6
-163/163 [==============================] - 23s 144ms/step - loss: 0.0146 - categorical_accuracy: 0.9953 - val_loss: 5.3817 - val_categorical_accuracy: 0.6344
+163/163 [==============================] - 25s 152ms/step - loss: 0.0180 - categorical_accuracy: 0.9951 - val_loss: 5.2826 - val_categorical_accuracy: 0.6352
 Epoch 5/6
-163/163 [==============================] - 24s 148ms/step - loss: 0.0066 - categorical_accuracy: 0.9982 - val_loss: 7.9740 - val_categorical_accuracy: 0.6285
+163/163 [==============================] - 25s 156ms/step - loss: 0.0084 - categorical_accuracy: 0.9975 - val_loss: 5.7444 - val_categorical_accuracy: 0.6310
 Epoch 6/6
-163/163 [==============================] - 25s 155ms/step - loss: 0.0074 - categorical_accuracy: 0.9984 - val_loss: 8.2986 - val_categorical_accuracy: 0.6323
+163/163 [==============================] - 26s 158ms/step - loss: 0.0054 - categorical_accuracy: 0.9983 - val_loss: 7.5507 - val_categorical_accuracy: 0.6423
 </pre></div>
 </div>
 </div>
