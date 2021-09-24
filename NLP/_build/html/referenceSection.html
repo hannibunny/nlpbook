@@ -53,7 +53,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="10.4. CNN, LSTM and Attention for IMDB Movie Review classification" href="07neuralnetworks/04CNN.html" />
+    <link rel="prev" title="10.5. Sequence-To-Sequence, Attention, Transformer" href="07neuralnetworks/attention.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -281,6 +281,11 @@
      10.4. CNN, LSTM and Attention for IMDB Movie Review classification
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07neuralnetworks/attention.html">
+     10.5. Sequence-To-Sequence, Attention, Transformer
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active">
@@ -365,11 +370,20 @@
   <div class="section" id="references">
 <h1><span class="section-number">11. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
 <p id="id1"><dl class="citation">
+<dt class="label" id="id13"><span class="brackets">BKH16</span></dt>
+<dd><p>Jimmy Lei Ba, Jamie Ryan Kiros, and Geoffrey E. Hinton. Layer normalization. 2016. <a class="reference external" href="https://arxiv.org/abs/1607.06450">arXiv:1607.06450</a>.</p>
+</dd>
+<dt class="label" id="id17"><span class="brackets">BCB15</span></dt>
+<dd><p>Dzmitry Bahdanau, Kyung Hyun Cho, and Yoshua Bengio. Neural machine translation by jointly learning to align and translate. In <em>3rd International Conference on Learning Representations, ICLR 2015 - Conference Track Proceedings</em>. International Conference on Learning Representations, ICLR, 2015. <a class="reference external" href="https://arxiv.org/abs/1409.0473">arXiv:1409.0473</a>.</p>
+</dd>
 <dt class="label" id="id10"><span class="brackets">Bak18</span></dt>
 <dd><p>Amir Bakarov. A survey of word embeddings evaluation methods. <em>CoRR</em>, 2018. URL: <a class="reference external" href="http://arxiv.org/abs/1801.09536">http://arxiv.org/abs/1801.09536</a>, <a class="reference external" href="https://arxiv.org/abs/1801.09536">arXiv:1801.09536</a>.</p>
 </dd>
 <dt class="label" id="id9"><span class="brackets">BGJM16</span></dt>
 <dd><p>Piotr Bojanowski, Edouard Grave, Armand Joulin, and Tomas Mikolov. Enriching word vectors with subword information. <em>Transactions of the Association for Computational Linguistics</em>, 5:, 07 2016. <a class="reference external" href="https://doi.org/10.1162/tacl_a_00051">doi:10.1162/tacl_a_00051</a>.</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets">CvMG+14</span></dt>
+<dd><p>Kyunghyun Cho, Bart van Merrienboer, Caglar Gulcehre, Dzmitry Bahdanau, Fethi Bougares, Holger Schwenk, and Yoshua Bengio. Learning phrase representations using rnn encoder-decoder for statistical machine translation. 2014. cite arxiv:1406.1078Comment: EMNLP 2014. URL: <a class="reference external" href="http://arxiv.org/abs/1406.1078">http://arxiv.org/abs/1406.1078</a>.</p>
 </dd>
 <dt class="label" id="id11"><span class="brackets">CWB+11</span></dt>
 <dd><p>Ronan Collobert, Jason Weston, Leon Bottou, Michael Karlen, Koray Kavukcuoglu, and Pavel Kuksa. Natural language processing (almost) from scratch. <em>J. Mach. Learn. Res.</em>, 999888:2493–2537, November 2011. URL: <a class="reference external" href="http://dl.acm.org/citation.cfm?id=2078183.2078186">http://dl.acm.org/citation.cfm?id=2078183.2078186</a>.</p>
@@ -377,8 +391,14 @@
 <dt class="label" id="id4"><span class="brackets">DDF+90</span></dt>
 <dd><p>Scott Deerwester, Susan T. Dumais, George W. Furnas, Thomas K. Landauer, and Richard Harshman. Indexing by latent semantic analysis. <em>Journal of the American Society for Information Science</em>, 1990. <a class="reference external" href="https://doi.org/10.1002/(SICI)1097-4571(199009)41:6&lt;391::AID-ASI1&gt;3.0.CO;2-9">doi:10.1002/(SICI)1097-4571(199009)41:6&lt;391::AID-ASI1&gt;3.0.CO;2-9</a>.</p>
 </dd>
+<dt class="label" id="id12"><span class="brackets">DCLT19</span></dt>
+<dd><p>Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. BERT: pre-training of deep bidirectional transformers for language understanding. In <em>Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)</em>, 4171–4186. Minneapolis, Minnesota, June 2019. Association for Computational Linguistics. URL: <a class="reference external" href="https://aclanthology.org/N19-1423">https://aclanthology.org/N19-1423</a>, <a class="reference external" href="https://doi.org/10.18653/v1/N19-1423">doi:10.18653/v1/N19-1423</a>.</p>
+</dd>
 <dt class="label" id="id7"><span class="brackets">Fir57</span></dt>
 <dd><p>J. R. Firth. <em>A synopsis of linguistic theory 1930-55.</em> Volume 1952-59. The Philological Society, Oxford, 1957.</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets">HZRS15</span></dt>
+<dd><p>Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. <em>CoRR</em>, 2015. URL: <a class="reference external" href="http://arxiv.org/abs/1512.03385">http://arxiv.org/abs/1512.03385</a>, <a class="reference external" href="https://arxiv.org/abs/1512.03385">arXiv:1512.03385</a>.</p>
 </dd>
 <dt class="label" id="id2"><span class="brackets">JM09</span></dt>
 <dd><p>Dan Jurafsky and James H. Martin. <em>Speech and language processing : an introduction to natural language processing, computational linguistics, and speech recognition</em>. Pearson Prentice Hall, Upper Saddle River, N.J., 2009. ISBN 9780131873216 0131873210. URL: <a class="reference external" href="http://www.amazon.com/Speech-Language-Processing-2nd-Edition/dp/0131873210/ref=pd_bxgy_b_img_y">http://www.amazon.com/Speech-Language-Processing-2nd-Edition/dp/0131873210/ref=pd_bxgy_b_img_y</a>.</p>
@@ -394,6 +414,15 @@
 </dd>
 <dt class="label" id="id8"><span class="brackets">PSM14</span></dt>
 <dd><p>Jeffrey Pennington, Richard Socher, and Christopher D. Manning. Glove: global vectors for word representation. In <em>Empirical Methods in Natural Language Processing (EMNLP)</em>, 1532–1543. 2014. URL: <a class="reference external" href="http://www.aclweb.org/anthology/D14-1162">http://www.aclweb.org/anthology/D14-1162</a>.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets">RE16</span></dt>
+<dd><p>Colin Raffel and Daniel P W Ellis. Feed-forward networks with attention can solve some long-term memory problems. In <em>Workshop track-ICLR 2016 FEED-FORWARD NETWORKS WITH ATTENTION CAN SOLVE SOME LONG-TERM MEMORY PROBLEMS.pdf:pdf</em>. 2016. <a class="reference external" href="https://arxiv.org/abs/1512.08756v5">arXiv:1512.08756v5</a>.</p>
+</dd>
+<dt class="label" id="id19"><span class="brackets">SVL14</span></dt>
+<dd><p>Ilya Sutskever, Oriol Vinyals, and Quoc V. Le. Sequence to sequence learning with neural networks. In <em>Advances in Neural Information Processing Systems</em>, volume 4, 3104–3112. Neural information processing systems foundation, 2014. <a class="reference external" href="https://arxiv.org/abs/1409.3215">arXiv:1409.3215</a>.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets">VSP+17</span></dt>
+<dd><p>Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Lukasz Kaiser, and Illia Polosukhin. Attention is All you Need. In Isabelle Guyon, Ulrike von Luxburg, Samy Bengio, Hanna M Wallach, Rob Fergus, S V N Vishwanathan, and Roman Garnett, editors, <em>Advances in Neural Information Processing Systems 30: Annual Conference on Neural Information Processing Systems 2017, 4-9 December 2017, Long Beach, CA, \USA\</em>, 6000–6010. 2017. URL: <a class="reference external" href="http://papers.nips.cc/paper/7181-attention-is-all-you-need">http://papers.nips.cc/paper/7181-attention-is-all-you-need</a>.</p>
 </dd>
 </dl>
 </p>
@@ -424,7 +453,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="07neuralnetworks/04CNN.html" title="previous page"><span class="section-number">10.4. </span>CNN, LSTM and Attention for IMDB Movie Review classification</a>
+    <a class='left-prev' id="prev-link" href="07neuralnetworks/attention.html" title="previous page"><span class="section-number">10.5. </span>Sequence-To-Sequence, Attention, Transformer</a>
 
         </div>
         

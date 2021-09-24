@@ -196,21 +196,21 @@ test.head()
 # 
 # For the test-data, however, no new matrix-structure is calculated. Instead the test-data is transformed to the structure of the matrix, defined by the training data.
 
-# In[443]:
+# In[17]:
 
 
 X_train = train['total'].values
 y_train = train['label'].values
 
 
-# In[444]:
+# In[18]:
 
 
 X_test = test['total'].values
 y_test = test['label'].values
 
 
-# In[445]:
+# In[19]:
 
 
 from sklearn.feature_extraction.text import TfidfTransformer
@@ -219,7 +219,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 # Train BoW-models and transform training-data to BoW-matrix:
 
-# In[446]:
+# In[20]:
 
 
 count_vectorizer = CountVectorizer(min_df=4)
@@ -230,13 +230,13 @@ tfidf.fit(freq_term_matrix_train)
 tf_idf_matrix_train = tfidf.transform(freq_term_matrix_train)
 
 
-# In[447]:
+# In[21]:
 
 
 freq_term_matrix_train.toarray().shape
 
 
-# In[448]:
+# In[22]:
 
 
 tf_idf_matrix_train.toarray().shape
@@ -244,7 +244,7 @@ tf_idf_matrix_train.toarray().shape
 
 # Transform test-data to BoW-matrix:
 
-# In[449]:
+# In[23]:
 
 
 freq_term_matrix_test = count_vectorizer.transform(X_test)
@@ -254,7 +254,7 @@ tf_idf_matrix_test = tfidf.transform(freq_term_matrix_test)
 # ## Train a linear classifier
 # Below a [Logistic Regression model](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression) is trained. This is just a linear classifier with a sigmoid- or softmax- activity-function. 
 
-# In[450]:
+# In[24]:
 
 
 X_train=tf_idf_matrix_train
@@ -263,7 +263,7 @@ X_test=tf_idf_matrix_test
 #X_test=freq_term_matrix_test
 
 
-# In[451]:
+# In[25]:
 
 
 from sklearn.linear_model import LogisticRegression
@@ -274,19 +274,19 @@ logreg.fit(X_train, y_train)
 # ## Evaluate trained model
 # First, the trained model is applied to predict the class of the training-samples:
 
-# In[462]:
+# In[26]:
 
 
 y_pred_train = logreg.predict(X_train)
 
 
-# In[463]:
+# In[27]:
 
 
 y_pred_train
 
 
-# In[464]:
+# In[28]:
 
 
 from sklearn.metrics import classification_report
@@ -294,7 +294,7 @@ from sklearn.metrics import classification_report
 
 # The model's prediction are compared with the true classes of the training-samples. The classification-report contains the common metrics for evaluating classifiers:
 
-# In[461]:
+# In[29]:
 
 
 print(classification_report(y_train,y_pred_train))
@@ -304,13 +304,13 @@ print(classification_report(y_train,y_pred_train))
 # 
 # However, accuracy on the training-data, provides no information on the model's capability to classify new data. Therefore, below the model's prediction on the test-dataset is calculated:
 
-# In[465]:
+# In[30]:
 
 
 y_pred_test = logreg.predict(X_test)
 
 
-# In[466]:
+# In[31]:
 
 
 print(classification_report(y_test,y_pred_test))
@@ -320,68 +320,68 @@ print(classification_report(y_test,y_pred_test))
 # 
 # The main drawback in this experiment is possibly the application of the BoW-model to represent texts. BoW disregards word-order and semantic relations between words. The application of word-embeddings and neural networks like CNNs and LSTMs may perform much better.
 
-# In[17]:
+# In[32]:
 
 
 train.head()
 
 
-# In[18]:
+# In[33]:
 
 
 from tensorflow.keras.preprocessing import text
 
 
-# In[81]:
+# In[34]:
 
 
 MAX_NB_WORDS=5000
 
 
-# In[82]:
+# In[35]:
 
 
 tokenizer=text.Tokenizer(num_words=MAX_NB_WORDS)
 tokenizer.fit_on_texts(train["total"])
 
 
-# In[83]:
+# In[36]:
 
 
 trainSeq=tokenizer.texts_to_sequences(train["total"])
 
 
-# In[84]:
+# In[37]:
 
 
 testSeq=tokenizer.texts_to_sequences(test["total"])
 
 
-# In[85]:
+# In[38]:
 
 
 tokenizer.num_words
 
 
-# In[86]:
+# In[39]:
 
 
 textlenghtsTrain=[len(t) for t in trainSeq]
 
 
-# In[87]:
+# In[40]:
 
 
 textlenghtsTest=[len(t) for t in testSeq]
 
 
-# In[88]:
+# In[41]:
 
 
 from matplotlib import pyplot as plt
 
 
-# In[89]:
+# In[42]:
 
 
 plt.hist(textlenghtsTrain,bins=20)
@@ -390,26 +390,26 @@ plt.xlabel("number of words per document")
 plt.show()
 
 
-# In[90]:
+# In[43]:
 
 
 textlenghtsTrain.sort(reverse=True)
 
 
-# In[91]:
+# In[44]:
 
 
 textlenghtsTrain[:10]
 
 
-# In[92]:
+# In[45]:
 
 
 MAX_SEQUENCE_LENGTH=800
 EMBEDDING_DIM=100
 
 
-# In[93]:
+# In[46]:
 
 
 import numpy as np
@@ -417,28 +417,28 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.utils import to_categorical
 
 
-# In[94]:
+# In[47]:
 
 
 X_train = pad_sequences(trainSeq, maxlen=MAX_SEQUENCE_LENGTH)
 X_test = pad_sequences(testSeq, maxlen=MAX_SEQUENCE_LENGTH)
 
 
-# In[95]:
+# In[48]:
 
 
 y_train = to_categorical(np.asarray(train["label"]))
 y_test = to_categorical(np.asarray(test["label"]))
 
 
-# In[96]:
+# In[49]:
 
 
 from tensorflow.keras.layers import Embedding, Dense, Input, Flatten, Conv1D, MaxPooling1D, Dropout, Concatenate, GlobalMaxPool1D
 from tensorflow.keras.models import Model
 
 
-# In[97]:
+# In[50]:
 
 
 embedding_layer = Embedding(MAX_NB_WORDS,
@@ -448,7 +448,7 @@ embedding_layer = Embedding(MAX_NB_WORDS,
                             trainable=True)
 
 
-# In[98]:
+# In[51]:
 
 
 sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
@@ -463,7 +463,7 @@ preds = Dense(2, activation='softmax')(l_dense)
 model = Model(sequence_input, preds)
 
 
-# In[99]:
+# In[52]:
 
 
 model.compile(loss='categorical_crossentropy',
@@ -472,7 +472,7 @@ model.compile(loss='categorical_crossentropy',
 model.summary()
 
 
-# In[100]:
+# In[53]:
 
 
 history=model.fit(X_train, y_train, validation_data=(X_test, y_test),epochs=6, verbose=True, batch_size=128)
