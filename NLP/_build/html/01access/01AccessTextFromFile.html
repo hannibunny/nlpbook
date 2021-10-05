@@ -282,6 +282,11 @@
      10.4. CNN, LSTM and Attention for IMDB Movie Review classification
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07neuralnetworks/attention.html">
+     10.5. Sequence-To-Sequence, Attention, Transformer
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -598,8 +603,9 @@ Number of Characters in Text:   2027
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wordlist</span><span class="o">=</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 12 words of the list:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">wordlist</span><span class="p">[:</span><span class="mi">12</span><span class="p">])</span>
 <span class="n">cleanwordlist</span><span class="o">=</span><span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;().,:;!?-&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">wordlist</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 12 words of the list:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">cleanwordlist</span><span class="p">[:</span><span class="mi">12</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 12 cleaned words of the list:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">cleanwordlist</span><span class="p">[:</span><span class="mi">12</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of tokens:                   &quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">cleanwordlist</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of different tokens (=size of vocabulary):  &quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">cleanwordlist</span><span class="p">)))</span>
 </pre></div>
@@ -607,6 +613,8 @@ Number of Characters in Text:   2027
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First 12 words of the list:
+ [&#39;Landkarten&#39;, &#39;mit&#39;, &#39;Mehrwert&#39;, &#39;Ob&#39;, &#39;als&#39;, &#39;Reiseführer,&#39;, &#39;Nachrichtenkanal&#39;, &#39;oder&#39;, &#39;Bürgerinitiative:&#39;, &#39;Digitale&#39;, &#39;Landkarten&#39;, &#39;lassen&#39;]
+First 12 cleaned words of the list:
  [&#39;landkarten&#39;, &#39;mit&#39;, &#39;mehrwert&#39;, &#39;ob&#39;, &#39;als&#39;, &#39;reiseführer&#39;, &#39;nachrichtenkanal&#39;, &#39;oder&#39;, &#39;bürgerinitiative&#39;, &#39;digitale&#39;, &#39;landkarten&#39;, &#39;lassen&#39;]
 Number of tokens:                    267
 Number of different tokens (=size of vocabulary):   187
@@ -870,16 +878,16 @@ In the average each word is used 6.92 times
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>immediate 1
-sentence 5
-sour--and 1
-tight 1
-spoke; 1
-himself 6
-trees 7
-pigs 2
-`an 1
-little,&#39; 1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>opened 10
+fanning 1
+about; 1
+lonely 2
+want 9
+alone 3
+forgetting 3
+shoes!&#39; 1
+stay 4
+shall 22
 </pre></div>
 </div>
 </div>
@@ -916,21 +924,21 @@ on 182
 had 176
 with 170
 all 166
-be 139
 very 139
+be 139
 for 138
 so 135
 but 126
 little 126
 this 124
-`i 120
 not 120
+`i 120
 they 119
 out 114
 he 112
 down 97
-what 95
 his 95
+what 95
 up 92
 about 90
 is 88
@@ -999,21 +1007,21 @@ little 126
 one 87
 went 82
 like 78
-would 77
 could 77
+would 77
 thought 72
 queen 65
 see 63
 know 61
 * 60
-time 58
 began 58
+time 58
 king 57
 mock 55
 quite 55
 `and 54
-turtle 53
 gryphon 53
+turtle 53
 hatter 53
 way 51
 go 46
@@ -1024,13 +1032,13 @@ get 44
 much 43
 must 43
 first 42
-say 42
 think 42
+say 42
 rabbit 41
 never 41
-head 40
 thing 40
 round 40
+head 40
 came 40
 </pre></div>
 </div>

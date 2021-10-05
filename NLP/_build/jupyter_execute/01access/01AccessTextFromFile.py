@@ -85,8 +85,9 @@ print("\nNumber of Characters in Text:  ",len(text))
 
 
 wordlist=text.split()
+print("First 12 words of the list:\n",wordlist[:12])
 cleanwordlist=[w.strip('().,:;!?-"').lower() for w in wordlist]
-print("First 12 words of the list:\n",cleanwordlist[:12])
+print("First 12 cleaned words of the list:\n",cleanwordlist[:12])
 print("Number of tokens:                   ",len(cleanwordlist))
 print("Number of different tokens (=size of vocabulary):  ",len(set(cleanwordlist)))
 
@@ -263,4 +264,10 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 fd=nltk.FreqDist(aliceWords)
 print(fd.most_common(20))
 fd.plot(20)
+
+
+# In[ ]:
+
+
+
 
