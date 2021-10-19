@@ -75,7 +75,7 @@ AllTitles=soup.findAll('h2')
 alltitles=[]
 alltitleLinks=[]
 for l in AllTitles:
-    #print l
+    #print(l)
     try:
         title = l.find('a')['title']
         link = l.find('a')['href']

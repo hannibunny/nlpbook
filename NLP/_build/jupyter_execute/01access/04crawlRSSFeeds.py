@@ -47,7 +47,6 @@ import os
 today=datetime.datetime.now().strftime("%Y-%m-%d")
 cat="GENERAL"
 #cat="TECH"
-#cat="SPORT"
 #lang="GERMAN"
 lang="ENGLISH"
 
