@@ -766,9 +766,8 @@ before se
 <p>Save textfile in local directory:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fout</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../Data/AliceEnglish.txt&quot;</span><span class="p">,</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
-<span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">rawAlice</span><span class="p">)</span>
-<span class="n">fout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../Data/AliceEnglish.txt&quot;</span><span class="p">,</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+    <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">rawAlice</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -777,7 +776,7 @@ before se
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../Data/AliceEnglish.txt&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
-    <span class="n">rawAliceIn</span><span class="o">=</span><span class="n">fin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">rawAlice</span><span class="o">=</span><span class="n">fin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -830,7 +829,17 @@ Number of characters in the book:  150886
 <p>Split the relevant text into a list of words:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aliceWords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;?!.:&quot;,&lt;&gt;-»«&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">rawAlice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aliceWords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[\s.,;´`:&#39;()!?</span><span class="se">\&quot;</span><span class="s2">-]+&quot;</span><span class="p">,</span> <span class="n">rawAlice</span><span class="p">)]</span>
+<span class="c1">#aliceWords = [word.lower() for word in re.split(r&quot;[\W`´]+&quot;, rawAlice)]</span>
+<span class="c1">#aliceWords =[&quot;&quot;.join(x for x in word if x not in &#39;?!().´`:\&#39;&quot;,&lt;&gt;-»«&#39;) for word in rawAlice.lower().split()] </span>
+<span class="c1">#aliceWords =[&quot;&quot;.join(x for x in word if x not in &#39;?!.´`:\&#39;&quot;,&lt;&gt;-»«&#39;) for word in rawAlice.lower().split()] </span>
 </pre></div>
 </div>
 </div>
@@ -850,9 +859,9 @@ Number of characters in the book:  150886
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of words in the book:  26406
-Number of different words in the book:  3815
-In the average each word is used 6.92 times
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of words in the book:  27341
+Number of different words in the book:  2583
+In the average each word is used 10.58 times
 </pre></div>
 </div>
 </div>
@@ -872,22 +881,92 @@ In the average each word is used 6.92 times
 <p>Sort the word-frequency dictionary according to decreasing word-frequency.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">wordFrequencies</span><span class="o">.</span><span class="n">keys</span><span class="p">())[:</span><span class="mi">10</span><span class="p">]:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">wordFrequencies</span><span class="o">.</span><span class="n">keys</span><span class="p">())[:</span><span class="mi">80</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">wordFrequencies</span><span class="p">[</span><span class="n">word</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>opened 10
-fanning 1
-about; 1
-lonely 2
-want 9
-alone 3
-forgetting 3
-shoes!&#39; 1
-stay 4
-shall 22
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1
+milk 2
+upset 3
+suppose 14
+speak 15
+dare 5
+constant 2
+shouted 9
+flashed 1
+distance 8
+lullaby 1
+branch 1
+instantly 5
+shutting 2
+still 13
+chatte 1
+am 16
+really 13
+faint 1
+alive 3
+trees 7
+personal 2
+come 45
+vulgar 1
+sobbing 3
+which 49
+opposite 1
+from 34
+flat 2
+guinea 6
+lovely 2
+frame 1
+plates 2
+fish 8
+latin 1
+says 4
+pigs 6
+respect 1
+e 7
+enormous 1
+various 1
+dropping 1
+ache 1
+execution 3
+miserable 2
+push 1
+useful 2
+witness 10
+dainties 1
+may 13
+archbishop 2
+inside 2
+meat 1
+free 3
+appear 2
+subjects 1
+fifth 1
+men 1
+puppy 7
+footmen 1
+stolen 1
+signed 2
+sides 4
+paris 2
+tillie 1
+putting 3
+dive 1
+race 6
+spectacles 3
+singing 2
+sudden 5
+sadly 5
+content 1
+doors 2
+sorts 3
+under 16
+ix 1
+heavy 2
+spreading 1
+fix 1
 </pre></div>
 </div>
 </div>
@@ -903,46 +982,46 @@ shall 22
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40 most frequent words:
 
-the 1597
-and 786
-to 711
-a 612
-she 522
-of 492
-said 453
-it 427
-alice 361
-in 350
-was 349
-you 300
-i 272
-as 251
-her 242
-that 233
-at 206
-on 182
-had 176
-with 170
-all 166
-very 139
-be 139
-for 138
-so 135
-but 126
-little 126
-this 124
-not 120
-`i 120
-they 119
-out 114
-he 112
-down 97
-his 95
-what 95
-up 92
-about 90
-is 88
-one 87
+the 1635
+and 872
+to 730
+a 630
+it 593
+she 552
+i 543
+of 513
+said 461
+you 409
+alice 397
+in 366
+was 356
+that 316
+as 263
+her 246
+t 218
+at 211
+s 200
+on 194
+all 182
+with 178
+had 177
+but 170
+for 153
+they 153
+so 151
+be 148
+not 145
+very 144
+what 140
+this 133
+little 128
+he 125
+out 118
+is 108
+one 103
+down 102
+up 100
+there 99
 </pre></div>
 </div>
 </div>
@@ -955,8 +1034,8 @@ one 87
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
 <span class="n">stopwordlist</span><span class="o">=</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
-<span class="n">aliceWords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;?!.:&quot;,&lt;&gt;-»« &#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">rawAlice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> 
-              <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;?!.:&quot;,&lt;&gt;-»« &#39;</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwordlist</span><span class="p">]</span> 
+<span class="n">aliceWords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[\s.,;´`:&#39;()!?</span><span class="se">\&quot;</span><span class="s2">-]+&quot;</span><span class="p">,</span> <span class="n">rawAlice</span><span class="p">)</span> 
+              <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwordlist</span><span class="p">]</span> 
 </pre></div>
 </div>
 </div>
@@ -973,8 +1052,8 @@ one 87
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of words in the book:  13599
-Number of different words in the book:  3667
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of words in the book:  12283
+Number of different words in the book:  2437
 </pre></div>
 </div>
 </div>
@@ -1000,46 +1079,46 @@ Number of different words in the book:  3667
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40 most frequent words:
 
-said 453
-alice 361
-little 126
-`i 120
-one 87
+said 461
+alice 397
+little 128
+one 103
+know 88
+like 85
+would 83
 went 82
-like 78
 could 77
-would 77
-thought 72
-queen 65
-see 63
-know 61
+queen 75
+thought 74
+time 71
+see 68
+well 63
+king 63
 * 60
+turtle 58
 began 58
-time 58
-king 57
-mock 55
+way 57
+hatter 56
 quite 55
-`and 54
-gryphon 53
-turtle 53
-hatter 53
-way 51
-go 46
+mock 55
+gryphon 54
+think 53
+say 52
+rabbit 51
+first 51
+much 50
+go 50
+head 50
+thing 49
+voice 48
+never 48
+get 46
+come 45
+oh 45
 got 45
-voice 45
 looked 45
-get 44
-much 43
-must 43
-first 42
-think 42
-say 42
-rabbit 41
-never 41
-thing 40
-round 40
-head 40
-came 40
+mouse 44
+must 44
 </pre></div>
 </div>
 </div>
@@ -1055,11 +1134,11 @@ came 40
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;said&#39;, 453), (&#39;alice&#39;, 361), (&#39;little&#39;, 126), (&#39;`i&#39;, 120), (&#39;one&#39;, 87), (&#39;went&#39;, 82), (&#39;like&#39;, 78), (&#39;could&#39;, 77), (&#39;would&#39;, 77), (&#39;thought&#39;, 72), (&#39;queen&#39;, 65), (&#39;see&#39;, 63), (&#39;know&#39;, 61), (&#39;*&#39;, 60), (&#39;time&#39;, 58), (&#39;began&#39;, 58), (&#39;king&#39;, 57), (&#39;quite&#39;, 55), (&#39;mock&#39;, 55), (&#39;`and&#39;, 54)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;said&#39;, 461), (&#39;alice&#39;, 397), (&#39;little&#39;, 128), (&#39;one&#39;, 103), (&#39;know&#39;, 88), (&#39;like&#39;, 85), (&#39;would&#39;, 83), (&#39;went&#39;, 82), (&#39;could&#39;, 77), (&#39;queen&#39;, 75), (&#39;thought&#39;, 74), (&#39;time&#39;, 71), (&#39;see&#39;, 68), (&#39;well&#39;, 63), (&#39;king&#39;, 63), (&#39;*&#39;, 60), (&#39;began&#39;, 58), (&#39;turtle&#39;, 58), (&#39;way&#39;, 57), (&#39;hatter&#39;, 56)]
 </pre></div>
 </div>
-<img alt="../_images/01AccessTextFromFile_42_1.png" src="../_images/01AccessTextFromFile_42_1.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Samples&#39;, ylabel=&#39;Counts&#39;&gt;
+<img alt="../_images/01AccessTextFromFile_43_1.png" src="../_images/01AccessTextFromFile_43_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fd35a042080&gt;
 </pre></div>
 </div>
 </div>

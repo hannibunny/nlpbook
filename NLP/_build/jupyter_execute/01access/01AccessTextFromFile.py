@@ -104,7 +104,7 @@ import re
 
 # Download **Alice in Wonderland (Lewis Carol)** from [http://textfiles.com/etext](http://textfiles.com/etext):
 
-# In[7]:
+# In[8]:
 
 
 print("-"*100)
@@ -114,7 +114,7 @@ urlAlice="http://textfiles.com/etext/FICTION/alice.txt"
 rawAlice=urlopen(urlAlice).read().decode("latin-1")
 
 
-# In[8]:
+# In[9]:
 
 
 print("First 4000 characters of downloaded text:\n",rawAlice[:4000])
@@ -122,24 +122,23 @@ print("First 4000 characters of downloaded text:\n",rawAlice[:4000])
 
 # Save textfile in local directory:
 
-# In[9]:
+# In[10]:
 
 
-fout=open("../Data/AliceEnglish.txt","w")
-fout.write(rawAlice)
-fout.close()
+with open("../Data/AliceEnglish.txt","w") as fout:
+    fout.write(rawAlice)
 
 
 # Read textfile from local directory:
 
-# In[10]:
+# In[11]:
 
 
 with open("../Data/AliceEnglish.txt","r") as fin:
-    rawAliceIn=fin.read()
+    rawAlice=fin.read()
 
 
-# In[11]:
+# In[13]:
 
 
 print("Type of variable: ", type(rawAlice))
@@ -155,7 +154,7 @@ print("Number of characters in the book: ",len(rawAlice))
 # ### Remove Meta-Text
 # The downloaded file does not only contain the story of *Alice in Wonderland*, but also some meta-information at the start and the end of the file. This meta-information can be excluded, by determining the true start and end of the story. The true start is at the phrase `CHAPTER I` and the true end is before the phrase `THE END`.
 
-# In[12]:
+# In[14]:
 
 
 startText=rawAlice.find("CHAPTER I")
@@ -168,15 +167,24 @@ rawAlice=rawAlice[startText:endText]
 # ### Tokenisation
 # Split the relevant text into a list of words:
 
-# In[13]:
+# In[15]:
 
 
-aliceWords = [word.strip(u'?!.:",<>-»«') for word in rawAlice.lower().split()]
+import re
+
+
+# In[77]:
+
+
+aliceWords = [word.lower() for word in re.split(r"[\s.,;´`:'()!?\"-]+", rawAlice)]
+#aliceWords = [word.lower() for word in re.split(r"[\W`´]+", rawAlice)]
+#aliceWords =["".join(x for x in word if x not in '?!().´`:\'",<>-»«') for word in rawAlice.lower().split()] 
+#aliceWords =["".join(x for x in word if x not in '?!.´`:\'",<>-»«') for word in rawAlice.lower().split()] 
 
 
 # ### Generate Vocabulary and determine number of words
 
-# In[14]:
+# In[78]:
 
 
 numWordsAll=len(aliceWords)
@@ -189,7 +197,7 @@ print("In the average each word is used %2.2f times"%(float(numWordsAll)/numWord
 
 # ### Determine Frequency of each word
 
-# In[15]:
+# In[79]:
 
 
 wordFrequencies={}
@@ -199,14 +207,14 @@ for word in aliceVocab:
 
 # Sort the word-frequency dictionary according to decreasing word-frequency.
 
-# In[16]:
+# In[80]:
 
 
-for word in list(wordFrequencies.keys())[:10]:
+for word in list(wordFrequencies.keys())[:80]:
     print(word, wordFrequencies[word])
 
 
-# In[17]:
+# In[81]:
 
 
 print("40 most frequent words:\n")
@@ -217,16 +225,16 @@ for w in sorted(wordFrequencies, key=wordFrequencies.get, reverse=True)[:40]:
 # ### Optimization by stop-word removal
 # Stopwords are words, with low information content, such as determiners (*the, a,* ...), conjunctions (*and, or,* ...), prepositions (*in, on, over,* ...) and so on. For typical information retrieval tasks stopwords are usually ignored. In the code snippet below, a stopword-list from [NLTK](http://www.nltk.org/) is applied in order to remove these non-relevant words from the document-word lists. NLTK provides stopwordlists for many different languages. Since our text is written in English, we apply the English stopwordlist:
 
-# In[18]:
+# In[82]:
 
 
 from nltk.corpus import stopwords
 stopwordlist=stopwords.words('english')
-aliceWords = [word.strip(u'?!.:",<>-»« ') for word in rawAlice.lower().split() 
-              if word.strip(u'?!.:",<>-»« ') not in stopwordlist] 
+aliceWords = [word.lower() for word in re.split(r"[\s.,;´`:'()!?\"-]+", rawAlice) 
+              if word.lower() not in stopwordlist] 
 
 
-# In[19]:
+# In[83]:
 
 
 numWordsAll=len(aliceWords)
@@ -239,7 +247,7 @@ print("Number of different words in the book: ",numWordsVocab)
 
 # Generate the dictionary for the cleaned text and display it in an ordered form: 
 
-# In[20]:
+# In[84]:
 
 
 wordFrequencies={}
@@ -247,7 +255,7 @@ for word in aliceVocab:
     wordFrequencies[word]=aliceWords.count(word)
 
 
-# In[21]:
+# In[85]:
 
 
 print("40 most frequent words:\n")
@@ -257,7 +265,7 @@ for w in sorted(wordFrequencies, key=wordFrequencies.get, reverse=True)[:40]:
 
 # Another option to calculate the word frequencies in an ordered manner is to apply the `nltk`-class [FreqDist](http://www.nltk.org/api/nltk.html#nltk.probability.FreqDist). 
 
-# In[22]:
+# In[86]:
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
