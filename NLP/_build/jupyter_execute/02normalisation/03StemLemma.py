@@ -5,9 +5,9 @@
 # =====================================
 # 
 # - Author:      Johannes Maucher
-# - Last update: 2020-09-15
+# - Last update: 2021-10-26
 # 
-# In this notebook the application of stemming and lemmatization shall be demonstrated. For this we apply the correponding modules provided by the NLP package [**TextBlob**](https://textblob.readthedocs.io/en/dev/). Since stemming and lemmatization both require the segmentation of texts into lists of words, segmentation and other preprocessing-functions of TextBlob are also shown. In notebook [Regular Expressions](../01access/05RegularExpressions.ipynb) it has already been demonstrated how to implement segementation in python without additional packages. If you like to go directly to [Word Normalisation click here](#word_normalisation). 
+# In this notebook the application of stemming and lemmatization shall be demonstrated. For this we apply the correponding modules provided by the NLP package [**TextBlob**](https://textblob.readthedocs.io/en/dev/). Since stemming and lemmatization both require the segmentation of texts into lists of words, segmentation and other preprocessing-functions of TextBlob are also shown. In notebook [Regular Expressions](../01access/05RegularExpressions.ipynb) it has already been demonstrated how to implement segmentation in Python without additional packages. If you like to go directly to [Word Normalisation click here](#word_normalisation). 
 # 
 # [**TextBlob**](https://textblob.readthedocs.io/en/dev/) is a Python library for Natural Language Processing. It provides a simple API for, e.g.
 # * Noun phrase extraction
@@ -99,7 +99,7 @@ for s in myBlob2.sentences:
 
 # ## Part-of-Speech Tagging
 
-# [Meaning of POS Tags according to Penn Treebank II tagset](https://www.clips.uantwerpen.be/pages/mbsp-tags).
+# [Meaning of POS Tags according to Penn Treebank II tagset](https://gist.github.com/nlothian/9240750).
 
 # In[9]:
 

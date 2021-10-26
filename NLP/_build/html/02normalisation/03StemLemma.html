@@ -282,6 +282,11 @@
      10.4. CNN, LSTM and Attention for IMDB Movie Review classification
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07neuralnetworks/attention.html">
+     10.5. Sequence-To-Sequence, Attention, Transformer
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -461,9 +466,9 @@
 <h1><span class="section-number">2.2. </span>TextBlob Stemming and Lemmatization<a class="headerlink" href="#textblob-stemming-and-lemmatization" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>Author:      Johannes Maucher</p></li>
-<li><p>Last update: 2020-09-15</p></li>
+<li><p>Last update: 2021-10-26</p></li>
 </ul>
-<p>In this notebook the application of stemming and lemmatization shall be demonstrated. For this we apply the correponding modules provided by the NLP package <a class="reference external" href="https://textblob.readthedocs.io/en/dev/"><strong>TextBlob</strong></a>. Since stemming and lemmatization both require the segmentation of texts into lists of words, segmentation and other preprocessing-functions of TextBlob are also shown. In notebook <a class="reference internal" href="../01access/05RegularExpressions.html"><span class="doc std std-doc">Regular Expressions</span></a> it has already been demonstrated how to implement segementation in python without additional packages. If you like to go directly to <a class="reference external" href="#word_normalisation">Word Normalisation click here</a>.</p>
+<p>In this notebook the application of stemming and lemmatization shall be demonstrated. For this we apply the correponding modules provided by the NLP package <a class="reference external" href="https://textblob.readthedocs.io/en/dev/"><strong>TextBlob</strong></a>. Since stemming and lemmatization both require the segmentation of texts into lists of words, segmentation and other preprocessing-functions of TextBlob are also shown. In notebook <a class="reference internal" href="../01access/05RegularExpressions.html"><span class="doc std std-doc">Regular Expressions</span></a> it has already been demonstrated how to implement segmentation in Python without additional packages. If you like to go directly to <a class="reference external" href="#word_normalisation">Word Normalisation click here</a>.</p>
 <p><a class="reference external" href="https://textblob.readthedocs.io/en/dev/"><strong>TextBlob</strong></a> is a Python library for Natural Language Processing. It provides a simple API for, e.g.</p>
 <ul class="simple">
 <li><p>Noun phrase extraction</p></li>
@@ -598,7 +603,7 @@ eine Physio-Praxis.
 </div>
 <div class="section" id="part-of-speech-tagging">
 <h2><span class="section-number">2.2.4. </span>Part-of-Speech Tagging<a class="headerlink" href="#part-of-speech-tagging" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://www.clips.uantwerpen.be/pages/mbsp-tags">Meaning of POS Tags according to Penn Treebank II tagset</a>.</p>
+<p><a class="reference external" href="https://gist.github.com/nlothian/9240750">Meaning of POS Tags according to Penn Treebank II tagset</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span><span class="p">,</span><span class="n">pos</span> <span class="ow">in</span> <span class="n">myBlob1</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span>
