@@ -25,7 +25,7 @@ P(w_n|w_1,w_2,w_3,\ldots,w_{n-1}) = \frac{\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)}{\#
 \label{eq:condprobest} \tag{1}
 $$
 
-where $\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)$ is the frequency of N-gram $(w_1,w_2,w_3,\ldots,w_{n-1},w_n)$ and $\#(w_1,w_2,w_3,\ldots,w_{n-1})$ is the frequency of N-gram $(w_1,w_2,w_3,\ldots,w_{n-1})$.
+where $\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)$ is the frequency of N-gram $(w_1,w_2,w_3,\ldots,w_{n-1},w_n)$ and $\#(w_1,w_2,w_3,\ldots,w_{n-1})$ is the frequency of (N-1)-gram $(w_1,w_2,w_3,\ldots,w_{n-1})$.
 
 ### Applications of language models
 
@@ -57,7 +57,7 @@ Try to decode the text in the figure below:
 
 Did you get it? If so, the reason for your success is that humans exploit context to infer missing knowledge.
 
-In the example above context is given by surrounding characters, word-length, similarity of characters etc. Applications of N-gram language models understand context to be the $(N-1)$ previous words. The obvious question is then *What is a suitable value for N?*. Certainly, the larger $N$, the more context is integrated and the larger the knowledge. However, with an increasing $N$ the probability that all N-grams appear often enough in the training-corpus, such that the conditional probabilities are robust, decreases. Moreover, the memory required to save the probabilistic model increases.
+In the example above context is given by surrounding characters, word-length, similarity of characters etc. Applications of N-gram language models understand context to be the $(N-1)$ previous words. The obvious question is then *What is a suitable value for N?* Certainly, the larger $N$, the more context is integrated and the larger the knowledge. However, with an increasing $N$ the probability that all N-grams appear often enough in the training-corpus, such that the conditional probabilities are robust, decreases. Moreover, the memory required to save the probabilistic model increases.
 
 ### Probabilities for arbitrary word-sequences
 

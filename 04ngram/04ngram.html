@@ -282,6 +282,11 @@
      10.4. CNN, LSTM and Attention for IMDB Movie Review classification
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07neuralnetworks/attention.html">
+     10.5. Sequence-To-Sequence, Attention, Transformer
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -454,7 +459,7 @@ P(w_n|w_1,w_2,w_3,\ldots,w_{n-1})
 P(w_n|w_1,w_2,w_3,\ldots,w_{n-1}) = \frac{\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)}{\#(w_1,w_2,w_3,\ldots,w_{n-1})}
 \label{eq:condprobest} \tag{1}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)\)</span> is the frequency of N-gram <span class="math notranslate nohighlight">\((w_1,w_2,w_3,\ldots,w_{n-1},w_n)\)</span> and <span class="math notranslate nohighlight">\(\#(w_1,w_2,w_3,\ldots,w_{n-1})\)</span> is the frequency of N-gram <span class="math notranslate nohighlight">\((w_1,w_2,w_3,\ldots,w_{n-1})\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)\)</span> is the frequency of N-gram <span class="math notranslate nohighlight">\((w_1,w_2,w_3,\ldots,w_{n-1},w_n)\)</span> and <span class="math notranslate nohighlight">\(\#(w_1,w_2,w_3,\ldots,w_{n-1})\)</span> is the frequency of (N-1)-gram <span class="math notranslate nohighlight">\((w_1,w_2,w_3,\ldots,w_{n-1})\)</span>.</p>
 </div>
 <div class="section" id="applications-of-language-models">
 <h2><span class="section-number">4.2. </span>Applications of language models<a class="headerlink" href="#applications-of-language-models" title="Permalink to this headline">¶</a></h2>
@@ -482,7 +487,7 @@ P(w_n|w_1,w_2,w_3,\ldots,w_{n-1}) = \frac{\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)}{\#
 <figcaption><b>Figure:</b>The capability to infer from context enables us to decode strongly corrupted text</figcaption>
 </figure>
 <p>Did you get it? If so, the reason for your success is that humans exploit context to infer missing knowledge.</p>
-<p>In the example above context is given by surrounding characters, word-length, similarity of characters etc. Applications of N-gram language models understand context to be the <span class="math notranslate nohighlight">\((N-1)\)</span> previous words. The obvious question is then <em>What is a suitable value for N?</em>. Certainly, the larger <span class="math notranslate nohighlight">\(N\)</span>, the more context is integrated and the larger the knowledge. However, with an increasing <span class="math notranslate nohighlight">\(N\)</span> the probability that all N-grams appear often enough in the training-corpus, such that the conditional probabilities are robust, decreases. Moreover, the memory required to save the probabilistic model increases.</p>
+<p>In the example above context is given by surrounding characters, word-length, similarity of characters etc. Applications of N-gram language models understand context to be the <span class="math notranslate nohighlight">\((N-1)\)</span> previous words. The obvious question is then <em>What is a suitable value for N?</em> Certainly, the larger <span class="math notranslate nohighlight">\(N\)</span>, the more context is integrated and the larger the knowledge. However, with an increasing <span class="math notranslate nohighlight">\(N\)</span> the probability that all N-grams appear often enough in the training-corpus, such that the conditional probabilities are robust, decreases. Moreover, the memory required to save the probabilistic model increases.</p>
 </div>
 <div class="section" id="probabilities-for-arbitrary-word-sequences">
 <h2><span class="section-number">4.4. </span>Probabilities for arbitrary word-sequences<a class="headerlink" href="#probabilities-for-arbitrary-word-sequences" title="Permalink to this headline">¶</a></h2>
