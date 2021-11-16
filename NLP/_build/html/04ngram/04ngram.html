@@ -487,7 +487,7 @@ P(w_n|w_1,w_2,w_3,\ldots,w_{n-1}) = \frac{\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)}{\#
 <figcaption><b>Figure:</b>The capability to infer from context enables us to decode strongly corrupted text</figcaption>
 </figure>
 <p>Did you get it? If so, the reason for your success is that humans exploit context to infer missing knowledge.</p>
-<p>In the example above context is given by surrounding characters, word-length, similarity of characters etc. Applications of N-gram language models understand context to be the <span class="math notranslate nohighlight">\((N-1)\)</span> previous words. The obvious question is then <em>What is a suitable value for N?</em> Certainly, the larger <span class="math notranslate nohighlight">\(N\)</span>, the more context is integrated and the larger the knowledge. However, with an increasing <span class="math notranslate nohighlight">\(N\)</span> the probability that all N-grams appear often enough in the training-corpus, such that the conditional probabilities are robust, decreases. Moreover, the memory required to save the probabilistic model increases.</p>
+<p>In the example above context is given by surrounding characters, word-length, similarity of characters etc. Applications of N-gram language models understand context to be the <span class="math notranslate nohighlight">\((N-1)\)</span> previous words. The obvious question is then <em>What is a suitable value for N?</em> Certainly, the larger the value of <span class="math notranslate nohighlight">\(N\)</span>, the more context is integrated and the larger the knowledge. However, with an increasing <span class="math notranslate nohighlight">\(N\)</span> the probability that all N-grams appear often enough in the training-corpus, such that the conditional probabilities are robust, decreases. Moreover, the memory required to save the probabilistic model increases.</p>
 </div>
 <div class="section" id="probabilities-for-arbitrary-word-sequences">
 <h2><span class="section-number">4.4. </span>Probabilities for arbitrary word-sequences<a class="headerlink" href="#probabilities-for-arbitrary-word-sequences" title="Permalink to this headline">¶</a></h2>
@@ -557,7 +557,17 @@ P(the)
 </div>
 <div class="section" id="laplace-smoothing">
 <h3><span class="section-number">4.5.2. </span>Laplace Smoothing<a class="headerlink" href="#laplace-smoothing" title="Permalink to this headline">¶</a></h3>
-<p>A trivial method to avoid that conditional probabilities, which are calculated as in equation <span class="math notranslate nohighlight">\(\eqref{eq:condprobest}\)</span> is to just <span class="math notranslate nohighlight">\(add 1\)</span> to the nominator. I.e. instead of <span class="math notranslate nohighlight">\(\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)\)</span> we use <span class="math notranslate nohighlight">\(\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)+1\)</span> in the nominator. By adding such a bias of 1, we implictly assume, that each possible <span class="math notranslate nohighlight">\(n-gram\)</span> appears one times more than it’s actual frequency in the corpus. With this assumption, how much more <span class="math notranslate nohighlight">\(n-grams\)</span> with the same first <span class="math notranslate nohighlight">\((n-1)\)</span> words do we then have in this <em>virtually extended corpus</em>? Since each word of the vocabulary, can be the last word of a <span class="math notranslate nohighlight">\(n\)</span>-gram with fixed subsequence <span class="math notranslate nohighlight">\((w_1,w_2,w_3,\ldots,w_{n-1})\)</span>, the answer is <span class="math notranslate nohighlight">\(\mid V \mid\)</span>, the number of different words in the vocabulary. This value must be added to the denominator for calculating the <strong>Laplace-Smoothed conditional Probability</strong>:</p>
+<p>A trivial method to avoid that conditional probabilities, which are calculated as in equation <span class="math notranslate nohighlight">\(\eqref{eq:condprobest}\)</span> is to just <strong>add 1</strong> to the nominator. I.e. instead of</p>
+<div class="math notranslate nohighlight">
+\[
+\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)
+\]</div>
+<p>we use</p>
+<div class="math notranslate nohighlight">
+\[
+\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)+1
+\]</div>
+<p>in the nominator. By adding such a bias of 1, we implictly assume, that each possible <em>n-gram</em> appears one times more than it’s actual frequency in the corpus. With this assumption, how much more <em>n-grams</em> with the same first <span class="math notranslate nohighlight">\((n-1)\)</span> words do we then have in this <em>virtually extended corpus</em>? Since each word of the vocabulary, can be the last word of a <span class="math notranslate nohighlight">\(n\)</span>-gram with fixed subsequence <span class="math notranslate nohighlight">\((w_1,w_2,w_3,\ldots,w_{n-1})\)</span>, the answer is <span class="math notranslate nohighlight">\(\mid V \mid\)</span>, the number of different words in the vocabulary. This value must be added to the denominator for calculating the <strong>Laplace-Smoothed conditional Probability</strong>:</p>
 <div class="math notranslate nohighlight">
 \[
 P_{L}(w_n|w_1,w_2,w_3,\ldots,w_{n-1}) = \frac{\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)+1}{\#(w_1,w_2,w_3,\ldots,w_{n-1})+\mid V \mid}
@@ -594,7 +604,7 @@ P(black)= \frac{1}{18}.
 \]</div>
 <p>More interesting is the question:</p>
 <ul class="simple">
-<li><p><strong>What is the Probability, that the next ball (<em>object</em>) has an so far unseen color (<em>species</em>)?</strong></p></li>
+<li><p><strong>What is the probability, that the next ball (<em>object</em>) has a so far unseen color (<em>species</em>)?</strong></p></li>
 </ul>
 <p>Good-Turing’s assumption to answer this question is:</p>
 <ul class="simple">
@@ -603,33 +613,33 @@ P(black)= \frac{1}{18}.
 <p>In the example above the frequency of colors, which have been seen only once so far is 3. Hence, the probability that the next drawn ball has a so far unseen color is</p>
 <div class="math notranslate nohighlight">
 \[
-P(unseen)=\frac{3}{18}
+P_{GT}(unseen)=\frac{3}{18}
 \]</div>
 <p>For the general definition we use the following notation:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(R_x\)</span> indicates how often species <span class="math notranslate nohighlight">\(x\)</span> has been observed so far</p></li>
-<li><p><span class="math notranslate nohighlight">\(N_r\)</span> indicates the the number of species, which has been seen <span class="math notranslate nohighlight">\(r\)</span> times so far</p></li>
+<li><p><span class="math notranslate nohighlight">\(N_r\)</span> indicates the number of species, which has been seen <span class="math notranslate nohighlight">\(r\)</span> times so far</p></li>
 <li><p><span class="math notranslate nohighlight">\(Z\)</span> is the number of total observations so far</p></li>
 </ul>
-<p>With this notation, we can reformulate the Good-Turing assumption to be <span class="math notranslate nohighlight">\(N_0 := N_1\)</span>. Moreover, the number of total observations so far, can be calculated as follows:</p>
+<p>The number of total observations so far, can be calculated as follows:</p>
 <div class="math notranslate nohighlight">
 \[
 Z = \sum\limits_{r=1}^{\infty}N_r \cdot r.
 \label{eq:sumGT} \tag{4}
 \]</div>
-<p>The probability that the next drawn <em>object</em> has a so far unseen <em>species</em> is</p>
+<p>In general, the probability that the next drawn <em>object</em> has a so far unseen <em>species</em> is</p>
 <div class="math notranslate nohighlight">
 \[
 P_{GT}(unseen)=\frac{N_1}{Z}
 \label{eq:punseen} \tag{5}
 \]</div>
-<p>and if we know the number of so far unseen species <span class="math notranslate nohighlight">\(N_0\)</span>, than also the probability for a concrete so far unseen species can be calculated to be</p>
+<p>and if we know the number of so far unseen species <span class="math notranslate nohighlight">\(N_0\)</span>, then also the probability for a concrete so far unseen species can be calculated to be</p>
 <div class="math notranslate nohighlight">
 \[
 P_{GT}(x)=\frac{N_1}{N_0 \cdot Z},
 \label{eq:punsingle} \tag{6}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(x\)</span> is a so far unseen species. With respect to the example above, if we know that <em>yellow</em> and <em>orange</em> are the only so far unseen colors (<em>species</em>), then the probability that the next drawn ball is orange would be</p>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> is a concrete so far unseen species. With respect to the example above, if we know that <em>yellow</em> and <em>orange</em> are the only so far unseen colors (<em>species</em>), then the probability that the next drawn ball is orange would be</p>
 <div class="math notranslate nohighlight">
 \[
 P(x)=\frac{3}{2 \cdot 18} = \frac{1}{12}
@@ -683,7 +693,7 @@ N_0 = \mid V \mid^{N} - \sum\limits_{r=1}^{\infty}N_r \cdot r .
 <li><p>the method of estimating the conditional probabilities, e.g. Maximum-Likelihood, Laplace, Good-Turing, …</p></li>
 </ul>
 <p>Subject of this subsection is the evaluation of language models. If we have a trained language model, how can we assess it’s quality? Or similarly: if we have trained several different language models, how can we determine the best one?</p>
-<p>In general evaluation of language models can be categorized into <em>intrinsic</em> and <em>extrinsic</em> evaluation. In the case of <strong>extrinsic evaluation</strong>, the lanugage model is not evaluated directly in an isolated manner. Instead the language model is integrated into the application, e.g. speech recognition, translation, automatic correction, and the quality of the application is determined in an end-to-end manner. However, <strong>Intrinsic evaluation</strong> is application-independend. It calculates a metric, which depends only on the language model itself. In this subsection, only intrinsic evaluation is addressed.</p>
+<p>In general evaluation of language models can be categorized into <em>intrinsic</em> and <em>extrinsic</em> evaluation. In the case of <strong>extrinsic evaluation</strong>, the lanugage model is not evaluated directly in an isolated manner. Instead the language model is integrated into the application, e.g. speech recognition, translation, automatic correction, and the quality of the application is determined in an end-to-end manner. However, <strong>intrinsic evaluation</strong> is application-independent. It calculates a metric, which depends only on the language model itself. In this subsection, only intrinsic evaluation is addressed.</p>
 <p>As usual in the context of Machine Learning, the following datasets (corpora) must be distinguished</p>
 <ul class="simple">
 <li><p><strong>Training</strong> data: The data applied for learning a model</p></li>
@@ -697,7 +707,7 @@ N_0 = \mid V \mid^{N} - \sum\limits_{r=1}^{\infty}N_r \cdot r .
 \[
 PP(W)=\sqrt[N]{\frac{1}{P(w_1 w_2 w_3 \ldots w_N)}}. 
 \]</div>
-<p>By applying the Chain-rule (which is also applicable in general), we have:</p>
+<p>By applying the <em>chain-rule</em> we obtain:</p>
 <div class="math notranslate nohighlight">
 \[
 PP(W)=\sqrt[N]{\prod\limits_{i=1}^N \frac{1}{P(w_i | w_1 w_2 \ldots w_{i-1})}}

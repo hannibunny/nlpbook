@@ -57,7 +57,7 @@ Try to decode the text in the figure below:
 
 Did you get it? If so, the reason for your success is that humans exploit context to infer missing knowledge.
 
-In the example above context is given by surrounding characters, word-length, similarity of characters etc. Applications of N-gram language models understand context to be the $(N-1)$ previous words. The obvious question is then *What is a suitable value for N?* Certainly, the larger $N$, the more context is integrated and the larger the knowledge. However, with an increasing $N$ the probability that all N-grams appear often enough in the training-corpus, such that the conditional probabilities are robust, decreases. Moreover, the memory required to save the probabilistic model increases.
+In the example above context is given by surrounding characters, word-length, similarity of characters etc. Applications of N-gram language models understand context to be the $(N-1)$ previous words. The obvious question is then *What is a suitable value for N?* Certainly, the larger the value of $N$, the more context is integrated and the larger the knowledge. However, with an increasing $N$ the probability that all N-grams appear often enough in the training-corpus, such that the conditional probabilities are robust, decreases. Moreover, the memory required to save the probabilistic model increases.
 
 ### Probabilities for arbitrary word-sequences
 
@@ -134,7 +134,19 @@ A trained N-gram language model consists of conditional probabilities, determine
 
 #### Laplace Smoothing
 
-A trivial method to avoid that conditional probabilities, which are calculated as in equation $\eqref{eq:condprobest}$ is to just $add 1$ to the nominator. I.e. instead of $\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)$ we use $\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)+1$ in the nominator. By adding such a bias of 1, we implictly assume, that each possible $n-gram$ appears one times more than it's actual frequency in the corpus. With this assumption, how much more $n-grams$ with the same first $(n-1)$ words do we then have in this *virtually extended corpus*? Since each word of the vocabulary, can be the last word of a $n$-gram with fixed subsequence $(w_1,w_2,w_3,\ldots,w_{n-1})$, the answer is $\mid V \mid$, the number of different words in the vocabulary. This value must be added to the denominator for calculating the **Laplace-Smoothed conditional Probability**:
+A trivial method to avoid that conditional probabilities, which are calculated as in equation $\eqref{eq:condprobest}$ is to just **add 1** to the nominator. I.e. instead of 
+
+$$
+\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)
+$$
+ 
+we use 
+
+$$
+\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)+1
+$$
+
+in the nominator. By adding such a bias of 1, we implictly assume, that each possible *n-gram* appears one times more than it's actual frequency in the corpus. With this assumption, how much more *n-grams* with the same first $(n-1)$ words do we then have in this *virtually extended corpus*? Since each word of the vocabulary, can be the last word of a $n$-gram with fixed subsequence $(w_1,w_2,w_3,\ldots,w_{n-1})$, the answer is $\mid V \mid$, the number of different words in the vocabulary. This value must be added to the denominator for calculating the **Laplace-Smoothed conditional Probability**:
  
 $$
 P_{L}(w_n|w_1,w_2,w_3,\ldots,w_{n-1}) = \frac{\#(w_1,w_2,w_3,\ldots,w_{n-1},w_n)+1}{\#(w_1,w_2,w_3,\ldots,w_{n-1})+\mid V \mid}
@@ -177,7 +189,7 @@ $$
 
 More interesting is the question:
 
-* **What is the Probability, that the next ball (*object*) has an so far unseen color (*species*)?**
+* **What is the probability, that the next ball (*object*) has a so far unseen color (*species*)?**
 
 Good-Turing's assumption to answer this question is:
 
@@ -186,37 +198,38 @@ Good-Turing's assumption to answer this question is:
 In the example above the frequency of colors, which have been seen only once so far is 3. Hence, the probability that the next drawn ball has a so far unseen color is
 
 $$
-P(unseen)=\frac{3}{18}
+P_{GT}(unseen)=\frac{3}{18}
 $$
 
 For the general definition we use the following notation:
 
 * $R_x$ indicates how often species $x$ has been observed so far
-* $N_r$ indicates the the number of species, which has been seen $r$ times so far
+* $N_r$ indicates the number of species, which has been seen $r$ times so far
 * $Z$ is the number of total observations so far
 
-With this notation, we can reformulate the Good-Turing assumption to be $N_0 := N_1$. Moreover, the number of total observations so far, can be calculated as follows:
+
+The number of total observations so far, can be calculated as follows:
 
 $$
 Z = \sum\limits_{r=1}^{\infty}N_r \cdot r.
 \label{eq:sumGT} \tag{4}
 $$ 
 
-The probability that the next drawn *object* has a so far unseen *species* is
+In general, the probability that the next drawn *object* has a so far unseen *species* is
 
 $$
 P_{GT}(unseen)=\frac{N_1}{Z}
 \label{eq:punseen} \tag{5}
 $$
 
-and if we know the number of so far unseen species $N_0$, than also the probability for a concrete so far unseen species can be calculated to be
+and if we know the number of so far unseen species $N_0$, then also the probability for a concrete so far unseen species can be calculated to be
 
 $$
 P_{GT}(x)=\frac{N_1}{N_0 \cdot Z},
 \label{eq:punsingle} \tag{6}
 $$  
 
-where $x$ is a so far unseen species. With respect to the example above, if we know that *yellow* and *orange* are the only so far unseen colors (*species*), then the probability that the next drawn ball is orange would be
+where $x$ is a concrete so far unseen species. With respect to the example above, if we know that *yellow* and *orange* are the only so far unseen colors (*species*), then the probability that the next drawn ball is orange would be
 
 $$
 P(x)=\frac{3}{2 \cdot 18} = \frac{1}{12}
@@ -281,7 +294,7 @@ N-Gram language models differ in
 
 Subject of this subsection is the evaluation of language models. If we have a trained language model, how can we assess it's quality? Or similarly: if we have trained several different language models, how can we determine the best one? 
 
-In general evaluation of language models can be categorized into *intrinsic* and *extrinsic* evaluation. In the case of **extrinsic evaluation**, the lanugage model is not evaluated directly in an isolated manner. Instead the language model is integrated into the application, e.g. speech recognition, translation, automatic correction, and the quality of the application is determined in an end-to-end manner. However, **Intrinsic evaluation** is application-independend. It calculates a metric, which depends only on the language model itself. In this subsection, only intrinsic evaluation is addressed. 
+In general evaluation of language models can be categorized into *intrinsic* and *extrinsic* evaluation. In the case of **extrinsic evaluation**, the lanugage model is not evaluated directly in an isolated manner. Instead the language model is integrated into the application, e.g. speech recognition, translation, automatic correction, and the quality of the application is determined in an end-to-end manner. However, **intrinsic evaluation** is application-independent. It calculates a metric, which depends only on the language model itself. In this subsection, only intrinsic evaluation is addressed. 
 
 As usual in the context of Machine Learning, the following datasets (corpora) must be distinguished
 
@@ -299,7 +312,7 @@ $$
 PP(W)=\sqrt[N]{\frac{1}{P(w_1 w_2 w_3 \ldots w_N)}}. 
 $$
 
-By applying the Chain-rule (which is also applicable in general), we have:
+By applying the *chain-rule* we obtain:
 
 $$
 PP(W)=\sqrt[N]{\prod\limits_{i=1}^N \frac{1}{P(w_i | w_1 w_2 \ldots w_{i-1})}}
