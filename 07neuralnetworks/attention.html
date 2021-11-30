@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10.5. Sequence-To-Sequence, Attention, Transformer &#8212; Natural Language Processing Lecture</title>
+    <title>9.5. Sequence-To-Sequence, Attention, Transformer &#8212; Natural Language Processing Lecture</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11. References" href="../referenceSection.html" />
-    <link rel="prev" title="10.4. CNN, LSTM and Attention for IMDB Movie Review classification" href="04CNN.html" />
+    <link rel="next" title="10. References" href="../referenceSection.html" />
+    <link rel="prev" title="9.4. CNN, LSTM and Attention for IMDB Movie Review classification" href="04CNN.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -188,24 +188,9 @@
    4. N-Gram Language Model
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../05representations/05representations.html">
-   5. Vector Representations of Words and Documents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../05representations/01WordEmbeddingImplementation.html">
-   6. Applying Word-Embeddings
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../05representations/02gensimDocModelSimple.html">
-   7. Document models and similarity
-  </a>
- </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../05representations/05topicextraction.html">
-   8. Topic Extraction
+  <a class="reference internal" href="../05representations/05representationsintro.html">
+   5. Vector Representations of Words and Documents
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
@@ -214,20 +199,25 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05representations/05lsi.html">
-     8.1. Latent Semantic Indexing (LSI)
+    <a class="reference internal" href="../05representations/05representations.html">
+     5.1. Vector Space Model
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05representations/02LatentSemanticIndexing.html">
-     8.2. Implementation of Topic Extraction and Document Clustering
+    <a class="reference internal" href="../05representations/01WordEmbeddingImplementation.html">
+     5.3. Applying Word-Embeddings
     </a>
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05representations/02gensimDocModelSimple.html">
+   6. Document models and similarity
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../06classification/06classification.html">
-   9. Text Classification
+  <a class="reference internal" href="../05representations/05topicextraction.html">
+   7. Topic Extraction
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -236,62 +226,84 @@
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../05representations/05lsi.html">
+     7.1. Latent Semantic Indexing (LSI)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05representations/02LatentSemanticIndexing.html">
+     7.2. Implementation of Topic Extraction and Document Clustering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06classification/06classification.html">
+   8. Text Classification
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
     <a class="reference internal" href="../06classification/06classificationMetrics.html">
-     9.1. Validation of Classifiers
+     8.1. Validation of Classifiers
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../06classification/07classificationNaiveBayes.html">
-     9.2. Naive Bayes Text Classification
+     8.2. Naive Bayes Text Classification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../06classification/FakeNewsClassification.html">
-     9.3. Text Classification Application: Fake News detection
+     8.3. Text Classification Application: Fake News detection
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="07neuralnetworks.html">
-   10. Neural Networks
+   9. Neural Networks
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01NeuralNets.html">
-     10.1. Neural Networks Introduction
+     9.1. Neural Networks Introduction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="02RecurrentNeuralNetworks.html">
-     10.2. Recurrent Neural Networks
+     9.2. Recurrent Neural Networks
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03ConvolutionNeuralNetworks.html">
-     10.3. Convolutional Neural Networks
+     9.3. Convolutional Neural Networks
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="04CNN.html">
-     10.4. CNN, LSTM and Attention for IMDB Movie Review classification
+     9.4. CNN, LSTM and Attention for IMDB Movie Review classification
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     10.5. Sequence-To-Sequence, Attention, Transformer
+     9.5. Sequence-To-Sequence, Attention, Transformer
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../referenceSection.html">
-   11. References
+   10. References
   </a>
  </li>
 </ul>
@@ -367,95 +379,95 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sequence-to-sequence">
-   10.5.1. Sequence-To-Sequence
+   9.5.1. Sequence-To-Sequence
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#simple-architecture-for-aligned-sequences">
-     10.5.1.1. Simple Architecture for aligned Sequences
+     9.5.1.1. Simple Architecture for aligned Sequences
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#encoder-decoder-architectures">
-     10.5.1.2. Encoder-Decoder Architectures
+     9.5.1.2. Encoder-Decoder Architectures
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#attention">
-   10.5.2. Attention
+   9.5.2. Attention
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#concept-of-attention">
-     10.5.2.1. Concept of Attention
+     9.5.2.1. Concept of Attention
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#attention-in-neural-networks">
-     10.5.2.2. Attention in Neural Networks
+     9.5.2.2. Attention in Neural Networks
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#transformer">
-   10.5.3. Transformer
+   9.5.3. Transformer
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#motivation">
-     10.5.3.1. Motivation
+     9.5.3.1. Motivation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#self-attention">
-     10.5.3.2. Self Attention
+     9.5.3.2. Self Attention
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#contextual-embeddings">
-       10.5.3.2.1. Contextual Embeddings
+       9.5.3.2.1. Contextual Embeddings
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#queries-keys-and-values">
-       10.5.3.2.2. Queries, Keys and Values
+       9.5.3.2.2. Queries, Keys and Values
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#multi-head-attention-and-positional-encoding">
-       10.5.3.2.3. Multi-Head Attention and Positional Encoding
+       9.5.3.2.3. Multi-Head Attention and Positional Encoding
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#building-transformers-from-self-attention-layers">
-     10.5.3.3. Building Transformers from Self-Attention-Layers
+     9.5.3.3. Building Transformers from Self-Attention-Layers
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bert">
-   10.5.4. BERT
+   9.5.4. BERT
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bert-pre-training">
-     10.5.4.1. BERT Pre-Training
+     9.5.4.1. BERT Pre-Training
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bert-fine-tuning">
-     10.5.4.2. BERT Fine-Tuning
+     9.5.4.2. BERT Fine-Tuning
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#contextual-embeddings-from-bert">
-     10.5.4.3. Contextual Embeddings from BERT
+     9.5.4.3. Contextual Embeddings from BERT
     </a>
    </li>
   </ul>
@@ -472,9 +484,9 @@
               <div>
                 
   <div class="section" id="sequence-to-sequence-attention-transformer">
-<h1><span class="section-number">10.5. </span>Sequence-To-Sequence, Attention, Transformer<a class="headerlink" href="#sequence-to-sequence-attention-transformer" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">9.5. </span>Sequence-To-Sequence, Attention, Transformer<a class="headerlink" href="#sequence-to-sequence-attention-transformer" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="sequence-to-sequence">
-<h2><span class="section-number">10.5.1. </span>Sequence-To-Sequence<a class="headerlink" href="#sequence-to-sequence" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.5.1. </span>Sequence-To-Sequence<a class="headerlink" href="#sequence-to-sequence" title="Permalink to this headline">¶</a></h2>
 <p>In the context of Machine Learning a sequence is an ordered data structure, whose successive elements are somehow correlated.</p>
 <p><strong>Examples:</strong></p>
 <ul class="simple">
@@ -496,7 +508,7 @@
 </ul>
 <div class="figure align-center" id="kontext">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/KontextBeimLesen.jpeg"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/KontextBeimLesen.jpeg" src="https://maucher.home.hdm-stuttgart.de/Pics/KontextBeimLesen.jpeg" style="width: 300pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.1 </span><span class="caption-text">Understand by integration of contextual information.</span><a class="headerlink" href="#kontext" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.1 </span><span class="caption-text">Understand by integration of contextual information.</span><a class="headerlink" href="#kontext" title="Permalink to this image">¶</a></p>
 </div>
 <p>The crucial property of sequences is the correlation between the individual datapoints. This means that for each element (datapoint) of the sequence, information is not only provided by it’s individual feature-vector, but also by the neighboring datapoints. For each element of the sequence, the neighboring elements are called <strong>context</strong> and we can understand an individual element by taking in account</p>
 <ul class="simple">
@@ -513,7 +525,7 @@
 <p>The lengths of input- and output sequence need not be the same.</p>
 <p>Applications of Seq2Seq models are e.g. Language Models (LM) of Machine Translation.</p>
 <div class="section" id="simple-architecture-for-aligned-sequences">
-<h3><span class="section-number">10.5.1.1. </span>Simple Architecture for aligned Sequences<a class="headerlink" href="#simple-architecture-for-aligned-sequences" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.5.1.1. </span>Simple Architecture for aligned Sequences<a class="headerlink" href="#simple-architecture-for-aligned-sequences" title="Permalink to this headline">¶</a></h3>
 <p>The simplest architecture for a Sequence-To-Sequence consists of an input layer, an RNN layer and a Dense layer (with a softmax activation). Such an architecture is depicted in the time-unfolded representation in figure <a class="reference internal" href="#simplernn"><span class="std std-ref">Simple architecture for aligned sequences</span></a>.</p>
 <p>The hidden states <span class="math notranslate nohighlight">\(h_i\)</span> are calculated by</p>
 <div class="math notranslate nohighlight">
@@ -533,16 +545,16 @@ p(x_t \mid x_{t-1}, \ldots , x_1).
 <p>In this way a language model can be implemented. Language models allow to predict a target word from the context words (neighbouring words).</p>
 <div class="figure align-center" id="simplernn">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/many2manyLanguageModel.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/many2manyLanguageModel.png" src="https://maucher.home.hdm-stuttgart.de/Pics/many2manyLanguageModel.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.2 </span><span class="caption-text">Simple Seq2Seq architecture for alligned input- and output sequence. The input-sequence is processed (green) by a Recurrent Neural layer (Vanilla RNN, LSTM, GRU, etc.) and the hidden states (blue) at the output of the Recurrent layer are passed to a dense layer with softmax-activation. The output sequence (red) is alligned to the input sequence in the sense that each <span class="math notranslate nohighlight">\(y_i\)</span> corresponds to <span class="math notranslate nohighlight">\(x_i\)</span>. This also implies that both sequences have the same length.</span><a class="headerlink" href="#simplernn" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.2 </span><span class="caption-text">Simple Seq2Seq architecture for alligned input- and output sequence. The input-sequence is processed (green) by a Recurrent Neural layer (Vanilla RNN, LSTM, GRU, etc.) and the hidden states (blue) at the output of the Recurrent layer are passed to a dense layer with softmax-activation. The output sequence (red) is alligned to the input sequence in the sense that each <span class="math notranslate nohighlight">\(y_i\)</span> corresponds to <span class="math notranslate nohighlight">\(x_i\)</span>. This also implies that both sequences have the same length.</span><a class="headerlink" href="#simplernn" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="encoder-decoder-architectures">
-<h3><span class="section-number">10.5.1.2. </span>Encoder-Decoder Architectures<a class="headerlink" href="#encoder-decoder-architectures" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.5.1.2. </span>Encoder-Decoder Architectures<a class="headerlink" href="#encoder-decoder-architectures" title="Permalink to this headline">¶</a></h3>
 <p>In an Encoder-Decoder architecture, the Encoder maps the input sequence <span class="math notranslate nohighlight">\(\mathbf{x}=(x_1,x_2,\ldots x_{T_x})\)</span> to an intermediate representation, also called <strong>context vector, <span class="math notranslate nohighlight">\(\mathbf{c}\)</span></strong>. The entire information of the sequences is compressed in this vector. The context vector is applied as input to the Decoder, which outputs a sequence <span class="math notranslate nohighlight">\(\mathbf{y}=(y_1,y_2,\ldots y_{T_y})\)</span>. With this architecture the input- and output-sequence need not be alligned.</p>
 <p>There exists a phletora of different Seq2Seq Encoder-Decoder architectures. Here, we first refer to one of the first architectures, introduced by Cho et al in <span id="id3">[<a class="reference internal" href="../referenceSection.html#id18">CvMG+14</a>]</span>.</p>
 <div class="figure align-center" id="seqmt">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/manyToManyAutoencoderV2.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/manyToManyAutoencoderV2.png" src="https://maucher.home.hdm-stuttgart.de/Pics/manyToManyAutoencoderV2.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.3 </span><span class="caption-text">Seq2Seq Architecture as introduced in <span id="id4">[<a class="reference internal" href="../referenceSection.html#id18">CvMG+14</a>]</span>. Applicable e.g. for Machine Translation.</span><a class="headerlink" href="#seqmt" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.3 </span><span class="caption-text">Seq2Seq Architecture as introduced in <span id="id4">[<a class="reference internal" href="../referenceSection.html#id18">CvMG+14</a>]</span>. Applicable e.g. for Machine Translation.</span><a class="headerlink" href="#seqmt" title="Permalink to this image">¶</a></p>
 </div>
 <p>As depicted in <a class="reference internal" href="#seqmt"><span class="std std-ref">image Seq2Seq-Encoder-Decoder</span></a>, the encoder processes the input sequence and compresses the information into a fixed-length <strong>context vector c</strong>. For example if the input-sequence are the words of a sentence, the context vector is also called sentence embedding. In general the context-vector is calculated by</p>
 <div class="math notranslate nohighlight">
@@ -601,21 +613,21 @@ Moreover, for long sequences, the single fixed length context vextor \textbf{c} 
 </div>
 </div>
 <div class="section" id="attention">
-<h2><span class="section-number">10.5.2. </span>Attention<a class="headerlink" href="#attention" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.5.2. </span>Attention<a class="headerlink" href="#attention" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="concept-of-attention">
-<h3><span class="section-number">10.5.2.1. </span>Concept of Attention<a class="headerlink" href="#concept-of-attention" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.5.2.1. </span>Concept of Attention<a class="headerlink" href="#concept-of-attention" title="Permalink to this headline">¶</a></h3>
 <p>Attention is a well known concept in human recognition. Given a new input, the human brain <strong>focuses on a essential region</strong>, which is scanned with high resolution. After scanning this region, other <strong>relevant regions are inferred and scanned</strong>. In this way fast recognition without scanning the entire input in detail can be realized. Examples of attention in visual recognition and in reading are given in the images below.</p>
 <div class="figure align-center" id="attentionvisual">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/attentionhorse.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/attentionhorse.png" src="https://maucher.home.hdm-stuttgart.de/Pics/attentionhorse.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.4 </span><span class="caption-text">Attention in visual recognition: In this example attention is first focused on the mouth. With this first perception alone the object can not be recognized. Then attention is focused on something around the mouth. After seeing the ears the object can be recognized to be a horse.</span><a class="headerlink" href="#attentionvisual" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.4 </span><span class="caption-text">Attention in visual recognition: In this example attention is first focused on the mouth. With this first perception alone the object can not be recognized. Then attention is focused on something around the mouth. After seeing the ears the object can be recognized to be a horse.</span><a class="headerlink" href="#attentionvisual" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="attentiontext">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/attentionText.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/attentionText.png" src="https://maucher.home.hdm-stuttgart.de/Pics/attentionText.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.5 </span><span class="caption-text">Attention in reading: When we read <em>horse</em>, we expect to encounter a verb, which is associated to horse. When we read <em>jumped</em>, we expect to encounter a word, which is associated to horse and jumped. When we read <em>hurt</em>, we expect to encounter a word, which is associated to jumped and hurt.</span><a class="headerlink" href="#attentiontext" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.5 </span><span class="caption-text">Attention in reading: When we read <em>horse</em>, we expect to encounter a verb, which is associated to horse. When we read <em>jumped</em>, we expect to encounter a word, which is associated to horse and jumped. When we read <em>hurt</em>, we expect to encounter a word, which is associated to jumped and hurt.</span><a class="headerlink" href="#attentiontext" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="attention-in-neural-networks">
-<h3><span class="section-number">10.5.2.2. </span>Attention in Neural Networks<a class="headerlink" href="#attention-in-neural-networks" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.5.2.2. </span>Attention in Neural Networks<a class="headerlink" href="#attention-in-neural-networks" title="Permalink to this headline">¶</a></h3>
 <p>In Neural Networks the concept of attention has been introduced in <span id="id5">[<a class="reference internal" href="../referenceSection.html#id17">BCB15</a>]</span>. The main goal was to solve the drawback of Recurrent Neural Networks (RNNs), to be weak in learning long-term-dependencies in sequences. Even though LSTMs or GRUs are better than Vanilla RNNs in this point, they still suffer from the fact that the calculated hidden-state (the compact sequence representation) contains more information from the last few inputs, than from inputs from far behind.</p>
 <p>In <strong>attention layers</strong> the hidden states of all time-steps have an equal chance to contribute to the representation of the entire sequence. The <strong>relevance of the individual elements</strong> for the entire sequence-representation is <strong>learned</strong>.</p>
 <div class="figure align-center" id="attentionuni">
@@ -623,13 +635,13 @@ Moreover, for long sequences, the single fixed length context vextor \textbf{c} 
 </div>
 <div class="figure align-center" id="attentionbi">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/attentionBiDir.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/attentionBiDir.png" src="https://maucher.home.hdm-stuttgart.de/Pics/attentionBiDir.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.6 </span><span class="caption-text">Attention layer on top of a unidirectional (top) and unidirectional (bottom) RNN, respectively. For each time-step a context vector <span class="math notranslate nohighlight">\(c(i)\)</span> is calculated as a linear combination of all inputs over the entire sequence.</span><a class="headerlink" href="#attentionbi" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.6 </span><span class="caption-text">Attention layer on top of a unidirectional (top) and unidirectional (bottom) RNN, respectively. For each time-step a context vector <span class="math notranslate nohighlight">\(c(i)\)</span> is calculated as a linear combination of all inputs over the entire sequence.</span><a class="headerlink" href="#attentionbi" title="Permalink to this image">¶</a></p>
 </div>
 <p>As sketched in the image above, in an attention layer, for each time-step a context vector <span class="math notranslate nohighlight">\(c(i)\)</span> is calculated as a linear combination of all inputs over the entire sequence. The coefficients of the linear combination, <span class="math notranslate nohighlight">\(a_{i,j}\)</span> are learned from training data. In contrast to usual weights <span class="math notranslate nohighlight">\(w_{i,j}\)</span> in a neural network, these coefficients vary with the current input. A high value of <span class="math notranslate nohighlight">\(a_{i,j}\)</span> means that for calculating the <span class="math notranslate nohighlight">\(i.th\)</span> context vector <span class="math notranslate nohighlight">\(c(i)\)</span>, in the current input the <span class="math notranslate nohighlight">\(j.th\)</span> element is important - or <em>attention is focused on the j.th input</em>.</p>
 <p>An Attention layer can be integrated into a Seq2Seq-Encoder-Decoder architecture as sketched in the image below. Of course, there are many other ways to embed attention layers in Neural Networks, but here we first focus on the sketched architecture.</p>
 <div class="figure align-center" id="attentionencdec">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/manyToManyAttention.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/manyToManyAttention.png" src="https://maucher.home.hdm-stuttgart.de/Pics/manyToManyAttention.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.7 </span><span class="caption-text">Attention layer in an Seq2Seq-Encoder-Decoder, applicable e.g. for language modelling or machine translation.</span><a class="headerlink" href="#attentionencdec" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.7 </span><span class="caption-text">Attention layer in an Seq2Seq-Encoder-Decoder, applicable e.g. for language modelling or machine translation.</span><a class="headerlink" href="#attentionencdec" title="Permalink to this image">¶</a></p>
 </div>
 <p>In an architecture like depicted above, the <strong>Decoder</strong> is trained to predict the probability-distribution for the next word <span class="math notranslate nohighlight">\(y_i\)</span>, given the context vector <span class="math notranslate nohighlight">\(c_i\)</span> and all the previously predicted words <span class="math notranslate nohighlight">\(\lbrace y_1,\ldots,y_{i-1}\rbrace\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -674,18 +686,18 @@ a_{j} = \frac{\exp(e_{j})}{\sum_{k=1}^{T_x}\exp(e_{k})}%, \quad e_{j}=a(h_{e,j})
 \]</div>
 <div class="figure align-center" id="attentioncoeffs">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/attentionWeights.PNG"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/attentionWeights.PNG" src="https://maucher.home.hdm-stuttgart.de/Pics/attentionWeights.PNG" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.8 </span><span class="caption-text">Scoring function <span class="math notranslate nohighlight">\(a()\)</span> realized by a MLP with softmax-activation at the output. Here, the attention layer is not embedded in as Seq2Seq Encoder-Decoder architecture, but in a Feed-Forward Neural Network. Image Source: <span id="id7">[<a class="reference internal" href="../referenceSection.html#id16">RE16</a>]</span>.</span><a class="headerlink" href="#attentioncoeffs" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.8 </span><span class="caption-text">Scoring function <span class="math notranslate nohighlight">\(a()\)</span> realized by a MLP with softmax-activation at the output. Here, the attention layer is not embedded in as Seq2Seq Encoder-Decoder architecture, but in a Feed-Forward Neural Network. Image Source: <span id="id7">[<a class="reference internal" href="../referenceSection.html#id16">RE16</a>]</span>.</span><a class="headerlink" href="#attentioncoeffs" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
 <div class="section" id="transformer">
-<h2><span class="section-number">10.5.3. </span>Transformer<a class="headerlink" href="#transformer" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.5.3. </span>Transformer<a class="headerlink" href="#transformer" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="motivation">
-<h3><span class="section-number">10.5.3.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.5.3.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h3>
 <p>Deep Learning needs huge amounts of training data and correspondingly high processing effort for training. In order to cope with this processing complexity, GPUs/TPUs must be applied. However, GPUs and TPUs yield higher training speed, if operations can be <strong>parallelized</strong>. The drawback of RNNs (of any type) is that the recurrent connections can not be parallelized. <strong>Transformers</strong> <span id="id8">[<a class="reference internal" href="../referenceSection.html#id15">VSP+17</a>]</span> exploit only <strong>Self-Attention</strong>, without recurrent connections. So they they can be trained efficiently on GPUs. In this section first the concept of Self-Attention is described. Then Transformer architectures are presented.</p>
 </div>
 <div class="section" id="self-attention">
-<h3><span class="section-number">10.5.3.2. </span>Self Attention<a class="headerlink" href="#self-attention" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.5.3.2. </span>Self Attention<a class="headerlink" href="#self-attention" title="Permalink to this headline">¶</a></h3>
 <p>As described above, in the Attention Layer }</p>
 <div class="math notranslate nohighlight">
 \[
@@ -704,20 +716,20 @@ e_{i,j}=a(h_{i},h_{j})
 </ul>
 <div class="figure align-center" id="selfattention1">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention1.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention1.png" src="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention1.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.9 </span><span class="caption-text">Calculation of <span class="math notranslate nohighlight">\(y_1\)</span>.</span><a class="headerlink" href="#selfattention1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.9 </span><span class="caption-text">Calculation of <span class="math notranslate nohighlight">\(y_1\)</span>.</span><a class="headerlink" href="#selfattention1" title="Permalink to this image">¶</a></p>
 <div class="legend">
 <div class="figure align-center" id="selfattention2">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention2.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention2.png" src="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention2.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.10 </span><span class="caption-text">Calculation of Self-Attention outputs <span class="math notranslate nohighlight">\(y_1\)</span> (top) and <span class="math notranslate nohighlight">\(y_2\)</span> (bottom), respectively.</span><a class="headerlink" href="#selfattention2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.10 </span><span class="caption-text">Calculation of Self-Attention outputs <span class="math notranslate nohighlight">\(y_1\)</span> (top) and <span class="math notranslate nohighlight">\(y_2\)</span> (bottom), respectively.</span><a class="headerlink" href="#selfattention2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
 <div class="section" id="contextual-embeddings">
-<h4><span class="section-number">10.5.3.2.1. </span>Contextual Embeddings<a class="headerlink" href="#contextual-embeddings" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">9.5.3.2.1. </span>Contextual Embeddings<a class="headerlink" href="#contextual-embeddings" title="Permalink to this headline">¶</a></h4>
 <p>What is the meaning of the outputs of a Self-Attention layer? To answer this question, we focus on applications, where the inputs to the network <span class="math notranslate nohighlight">\(x_i\)</span> are sequences of words. In this case, words are commonly represented by their embedding vectors (e.g. Word2Vec, Glove, Fasttext, etc.). The <strong>drawback of Word Embeddings</strong> is that they are <strong>context free</strong>. E.g. the word <strong>tree</strong> has an unique word embedding, independent of the context (tree as natural object or tree as a special type of graph). On the other hand, the elements <span class="math notranslate nohighlight">\(y_i\)</span> of the Self-Attention-Layer output <span class="math notranslate nohighlight">\(\mathbf{y}=(y_1,y_2,\ldots y_{T})\)</span> can be considerd to be contextual word embeddings! The representation <span class="math notranslate nohighlight">\(y_i\)</span> is a contextual embedding of the input word <span class="math notranslate nohighlight">\(x_i\)</span> in the given context.</p>
 </div>
 <div class="section" id="queries-keys-and-values">
-<h4><span class="section-number">10.5.3.2.2. </span>Queries, Keys and Values<a class="headerlink" href="#queries-keys-and-values" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">9.5.3.2.2. </span>Queries, Keys and Values<a class="headerlink" href="#queries-keys-and-values" title="Permalink to this headline">¶</a></h4>
 <p>As depicted in <a class="reference internal" href="#selfattention2"><span class="std std-ref">figure Self-Attention</span></a>, each input vector <span class="math notranslate nohighlight">\(x_i\)</span> is used in <strong>3 different roles</strong> in the Self Attention operation:</p>
 <ul class="simple">
 <li><p><strong>Query:</strong> It is compared to every other vector to establish the weights for its own output <span class="math notranslate nohighlight">\(y_i\)</span></p></li>
@@ -749,7 +761,7 @@ v_i=W_q x_i
 \]</div>
 <p>Applying these three representations the outputs <span class="math notranslate nohighlight">\(y_i\)</span> are calculated as follows:</p>
 <div class="math notranslate nohighlight" id="equation-qkv1">
-<span class="eqno">(10.1)<a class="headerlink" href="#equation-qkv1" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(9.1)<a class="headerlink" href="#equation-qkv1" title="Permalink to this equation">¶</a></span>\[\begin{split}
 a'_{i,j} &amp; = &amp; q_i^T k_j \\
 a_{i,j} &amp; = &amp; softmax(a'_{i,j})  \\
 y_i &amp; = &amp; \sum_j a_{i,j} v_j  
@@ -757,9 +769,9 @@ y_i &amp; = &amp; \sum_j a_{i,j} v_j
 <p>The image below visualizes this calculation:</p>
 <div class="figure align-center" id="selfattentionqkv">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention1qkv.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention1qkv.png" src="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention1qkv.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.11 </span><span class="caption-text">Calculation of Self-Attention outputs <span class="math notranslate nohighlight">\(y_1\)</span> from queries, keys and values of the input-sequence</span><a class="headerlink" href="#selfattentionqkv" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.11 </span><span class="caption-text">Calculation of Self-Attention outputs <span class="math notranslate nohighlight">\(y_1\)</span> from queries, keys and values of the input-sequence</span><a class="headerlink" href="#selfattentionqkv" title="Permalink to this image">¶</a></p>
 </div>
-<p>In the calculation, defined in <a class="reference internal" href="#equation-qkv1">(10.1)</a>, the problem is that the softmax-function is sensitive to large input values in the sense that for large inputs most of the softmax outputs are close to 0 and the corresponding gradients are also very small. The effect is very slow learning adaptations. In order to circumvent this, the inputs to the softmax are normalized:</p>
+<p>In the calculation, defined in <a class="reference internal" href="#equation-qkv1">(9.1)</a>, the problem is that the softmax-function is sensitive to large input values in the sense that for large inputs most of the softmax outputs are close to 0 and the corresponding gradients are also very small. The effect is very slow learning adaptations. In order to circumvent this, the inputs to the softmax are normalized:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 a'_{i,j} &amp; = &amp; \frac{q_i^T k_j}{\sqrt{d}} \\
@@ -767,7 +779,7 @@ a_{i,j} &amp; = &amp; softmax(a'_{i,j})
 \end{split}\]</div>
 </div>
 <div class="section" id="multi-head-attention-and-positional-encoding">
-<h4><span class="section-number">10.5.3.2.3. </span>Multi-Head Attention and Positional Encoding<a class="headerlink" href="#multi-head-attention-and-positional-encoding" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">9.5.3.2.3. </span>Multi-Head Attention and Positional Encoding<a class="headerlink" href="#multi-head-attention-and-positional-encoding" title="Permalink to this headline">¶</a></h4>
 <p>A drawback of the approach as introduced so far, is that the input-tokens are processed as <strong>unordered set</strong>, i.e. order-information is ignored. This implies that for any pair of input-tokens <span class="math notranslate nohighlight">\(x_i, x_j\)</span> query <span class="math notranslate nohighlight">\(q\)</span> and key <span class="math notranslate nohighlight">\(k\)</span> and thus their correlation-score <span class="math notranslate nohighlight">\(a_{i,j}\)</span> is the same. However, in some contexts their correlation can be strong, whereas in others it may be weak. Moreover, the output <span class="math notranslate nohighlight">\(y_{passed}\)</span> for the input <strong>Bob passed the ball to Tim</strong> would be the same as the output <span class="math notranslate nohighlight">\(y_{passed}\)</span> for the input <em>Tim passed the ball to Bob</em>. These problems can be circumvented by <em>Multi-Head-Attention</em> and <em>Positional Encoding</em>.</p>
 <p><strong>Multi-Headed Self-Attention</strong> provides an additional degree of freedom in the sense, that multiple (query,key,value) triples for each pair of positions <span class="math notranslate nohighlight">\((i,j)\)</span> can be learned. For each position <span class="math notranslate nohighlight">\(i\)</span>, multiple <span class="math notranslate nohighlight">\(y_i\)</span> are calculated, by applying the attention mechanism, as introduced above, <span class="math notranslate nohighlight">\(h\)</span> times in parallel. Each of the <span class="math notranslate nohighlight">\(h\)</span> elements is called an <em>attention head</em>. Each attention head applies its own matrices <span class="math notranslate nohighlight">\(W_q^r, W_k^r, W_v^r\)</span> for calculating individual queries <span class="math notranslate nohighlight">\(q^r\)</span>, keys <span class="math notranslate nohighlight">\(k^r\)</span> and values <span class="math notranslate nohighlight">\(v^r\)</span>, which are combined to the output:</p>
 <div class="math notranslate nohighlight">
@@ -795,56 +807,56 @@ a_{i,j} &amp; = &amp; softmax(a'_{i,j})
 </ul>
 <div class="figure align-center" id="singlehead">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention1qkv.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention1qkv.png" src="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention1qkv.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.12 </span><span class="caption-text">Single-Head Self-Attention: Calculation of first element <span class="math notranslate nohighlight">\(y_1\)</span> in output sequence.</span><a class="headerlink" href="#singlehead" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.12 </span><span class="caption-text">Single-Head Self-Attention: Calculation of first element <span class="math notranslate nohighlight">\(y_1\)</span> in output sequence.</span><a class="headerlink" href="#singlehead" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="multihead">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention1qkvMultipleHeads.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention1qkvMultipleHeads.png" src="https://maucher.home.hdm-stuttgart.de/Pics/selfAttention1qkvMultipleHeads.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.13 </span><span class="caption-text">Multi-Head Self-Attention: Combination of the individual heads to the overall output.</span><a class="headerlink" href="#multihead" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.13 </span><span class="caption-text">Multi-Head Self-Attention: Combination of the individual heads to the overall output.</span><a class="headerlink" href="#multihead" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Positional Encoding:</strong> In order to embed information to distinguish different locations of a word within a sequence, a <strong>positonal-encoding-vector</strong> is added to the word-embedding vector <span class="math notranslate nohighlight">\(x_i\)</span>. Certainly, each position <span class="math notranslate nohighlight">\(i\)</span> has it’s own positional encoding vector.</p>
 <div class="figure align-center" id="positionalencoding">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/positionalEncoding1.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/positionalEncoding1.png" src="https://maucher.home.hdm-stuttgart.de/Pics/positionalEncoding1.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.14 </span><span class="caption-text">Add location-specific positional encoding vector to word-embedding vector <span class="math notranslate nohighlight">\(x_i\)</span>. Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#positionalencoding" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.14 </span><span class="caption-text">Add location-specific positional encoding vector to word-embedding vector <span class="math notranslate nohighlight">\(x_i\)</span>. Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#positionalencoding" title="Permalink to this image">¶</a></p>
 </div>
 <p>The vectors for positional encoding are designed such that the similiarity of two vectors decreases with increasing distance between the positions of the tokens to which they are added. This is illustrated in the image below:</p>
 <div class="figure align-center" id="positionalencoding2">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/positionalEncoding2.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/positionalEncoding2.png" src="https://maucher.home.hdm-stuttgart.de/Pics/positionalEncoding2.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.15 </span><span class="caption-text">Positional Encoding: To each position within the sequence a unique <em>positional-encoding-vector</em> is assigned. As can be seen the euclidean distance between vectors for further away positions is larger than the distance between vectors, which belong to positions close to each other.  <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#positionalencoding2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.15 </span><span class="caption-text">Positional Encoding: To each position within the sequence a unique <em>positional-encoding-vector</em> is assigned. As can be seen the euclidean distance between vectors for further away positions is larger than the distance between vectors, which belong to positions close to each other.  <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#positionalencoding2" title="Permalink to this image">¶</a></p>
 </div>
 <p>For the two-word example sentence <em>Thinking Machines</em> and for the case of a single head, the calculations done in the Self-Attention block, as specified in
 <a class="reference internal" href="#singlehead"><span class="std std-ref">Image Singlehead Self-attention</span></a>, are sketched in the image below. In this example postional encoding has been omitted for sake of simplicity.</p>
 <div class="figure align-center" id="encoderblockexample">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/transformerSelfAttentionDetail.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/transformerSelfAttentionDetail.png" src="https://maucher.home.hdm-stuttgart.de/Pics/transformerSelfAttentionDetail.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.16 </span><span class="caption-text">Example: Singlehead Self-Attention for the two-words sequence <em>Thinking Machines</em> . Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#encoderblockexample" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.16 </span><span class="caption-text">Example: Singlehead Self-Attention for the two-words sequence <em>Thinking Machines</em> . Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#encoderblockexample" title="Permalink to this image">¶</a></p>
 </div>
 <p>Instead of calculating the outputs <span class="math notranslate nohighlight">\(z_i\)</span>s of a single head individually all of them can be calculated simultanously by matrix multiplication:</p>
 <div class="figure align-center" id="selfattentionmatrix">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/selfattentionmatrix.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/selfattentionmatrix.png" src="https://maucher.home.hdm-stuttgart.de/Pics/selfattentionmatrix.png" style="width: 300pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.17 </span><span class="caption-text">Calculating all Self-Attention outputs <span class="math notranslate nohighlight">\(z_i\)</span> by matrix-multiplication (Single head). Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#selfattentionmatrix" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.17 </span><span class="caption-text">Calculating all Self-Attention outputs <span class="math notranslate nohighlight">\(z_i\)</span> by matrix-multiplication (Single head). Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#selfattentionmatrix" title="Permalink to this image">¶</a></p>
 </div>
 <p>And for Multi-Head Self-Attention the overall calculation is as follows:</p>
 <div class="figure align-center" id="transformermultihead">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/transformerMultiHead.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/transformerMultiHead.png" src="https://maucher.home.hdm-stuttgart.de/Pics/transformerMultiHead.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.18 </span><span class="caption-text">Calculating all Self-Attention outputs <span class="math notranslate nohighlight">\(z_i\)</span> by matrix-multiplication (Single head). Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#transformermultihead" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.18 </span><span class="caption-text">Calculating all Self-Attention outputs <span class="math notranslate nohighlight">\(z_i\)</span> by matrix-multiplication (Single head). Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#transformermultihead" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
 <div class="section" id="building-transformers-from-self-attention-layers">
-<h3><span class="section-number">10.5.3.3. </span>Building Transformers from Self-Attention-Layers<a class="headerlink" href="#building-transformers-from-self-attention-layers" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.5.3.3. </span>Building Transformers from Self-Attention-Layers<a class="headerlink" href="#building-transformers-from-self-attention-layers" title="Permalink to this headline">¶</a></h3>
 <p>As depicted in the image below, a Transformer in general consists of an Encoder and an Decoder stack. The Encoder is a stack of Encoder-blocks. The Decoder is a stack of Decoder-blocks. Both, Encoder- and Decoder-blocks are Transformer blocks. In general a <strong>Transformer Block</strong> is defined to be <strong>any architecture, designed to process a connected set of units - such as the tokens in a sequence or the pixels in an image - where the only interaction between units is through self-attention.</strong></p>
 <div class="figure align-center" id="stack">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/transformerStack.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/transformerStack.png" src="https://maucher.home.hdm-stuttgart.de/Pics/transformerStack.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.19 </span><span class="caption-text">Encoder- and Decoder-Stack of a Transformer. Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#stack" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.19 </span><span class="caption-text">Encoder- and Decoder-Stack of a Transformer. Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#stack" title="Permalink to this image">¶</a></p>
 </div>
 <p>A typical Encoder block is depicted in the image below. In this image the <em>Self-Attention</em> module is the same as already depicted in <a class="reference internal" href="#multihead"><span class="std std-ref">Image Multihead Self-attention</span></a>. The outputs <span class="math notranslate nohighlight">\(z_i\)</span> of the Self-Attention module are exactly the contextual embeddings, which has been denoted by <span class="math notranslate nohighlight">\(y_i\)</span> in <a class="reference internal" href="#multihead"><span class="std std-ref">Image Multihead Self-attention</span></a>. Each of the outputs <span class="math notranslate nohighlight">\(z_i\)</span> is passed to a Multi-Layer Perceptron (MLP). The outputs of the MLP are the new representations <span class="math notranslate nohighlight">\(r_i\)</span> (one for each input token). These outputs <span class="math notranslate nohighlight">\(r_i\)</span> constitute the inputs <span class="math notranslate nohighlight">\(x_i\)</span> to the next Encoder block.</p>
 <div class="figure align-center" id="encoderblock">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/transformerEncoder1.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/transformerEncoder1.png" src="https://maucher.home.hdm-stuttgart.de/Pics/transformerEncoder1.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.20 </span><span class="caption-text">Encoder Block - simple variant: Self-Attention Layer followed by Feed Forward Network. Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#encoderblock" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.20 </span><span class="caption-text">Encoder Block - simple variant: Self-Attention Layer followed by Feed Forward Network. Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#encoderblock" title="Permalink to this image">¶</a></p>
 </div>
 <p>The image above depicts a simle variant of an Encoder block, consisting only of Self-Attention and a Feed Forward Neural Network. A more complex and more practical option is shown in the image below. Here, short-cut connections from the Encoder-block input to the output of the Self-Attention Layer are implemented. The concept of such short-cuts have been introduced and analysed in the context of Resnet (<span id="id9">[<a class="reference internal" href="../referenceSection.html#id14">HZRS15</a>]</span>). Moreover, the sum of the Encoder-block input and the output of the Self-Attention Layer is layer-normalized (see <span id="id10">[<a class="reference internal" href="../referenceSection.html#id13">BKH16</a>]</span>), before it is passed to the Feed Forward Net.</p>
 <div class="figure align-center" id="norm">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/normalisationEncoder.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/normalisationEncoder.png" src="https://maucher.home.hdm-stuttgart.de/Pics/normalisationEncoder.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.21 </span><span class="caption-text">Encoder Block - practical variant: Short-Cut Connections and Layer Normalisation are applied in addition to Self-Attention and Feed Forward Network. Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#norm" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.21 </span><span class="caption-text">Encoder Block - practical variant: Short-Cut Connections and Layer Normalisation are applied in addition to Self-Attention and Feed Forward Network. Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#norm" title="Permalink to this image">¶</a></p>
 </div>
 <p>Image <a class="reference internal" href="#decoder"><span class="std std-ref">Encoder-Decoder</span></a> illustrates the modules of the Decoder block and the linking of Encoder and Decoder. As can be seen a Decoder block integrates two types of attention:</p>
 <ul class="simple">
@@ -855,17 +867,17 @@ a_{i,j} &amp; = &amp; softmax(a'_{i,j})
 <p>In the alternative <strong>Beam Search</strong> not only the most probable word in each time step is predicted, but the most probable <em>B</em> words can be predicted and applied in the input of next time-step. The parameter <span class="math notranslate nohighlight">\(B\)</span> is called <em>Beamsize</em>.</p>
 <div class="figure align-center" id="decoder">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/transformerEncoderDecoder1.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/transformerEncoderDecoder1.png" src="https://maucher.home.hdm-stuttgart.de/Pics/transformerEncoderDecoder1.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.22 </span><span class="caption-text">Encoder- and Decoder Stack in a Transformer <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#decoder" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.22 </span><span class="caption-text">Encoder- and Decoder Stack in a Transformer <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#decoder" title="Permalink to this image">¶</a></p>
 </div>
 <p>In the image below the iterative prediction of the tokens of the target-sequence is illustrated. In iteration <span class="math notranslate nohighlight">\(i=4\)</span> the <span class="math notranslate nohighlight">\(4.th\)</span> target token must be predicted. For this the decoder takes as input the <span class="math notranslate nohighlight">\(i-1=3\)</span> previous estimations and the keys and the values from the Encoder stack.</p>
 <div class="figure align-center" id="transpredict">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/transformerPrediction.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/transformerPrediction.png" src="https://maucher.home.hdm-stuttgart.de/Pics/transformerPrediction.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.23 </span><span class="caption-text">Prediction of the 4.th target word, given the 3 previously predictions . Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#transpredict" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.23 </span><span class="caption-text">Prediction of the 4.th target word, given the 3 previously predictions . Image source: <a class="reference external" href="http://jalammar.github.io/illustrated-transformer">http://jalammar.github.io/illustrated-transformer</a></span><a class="headerlink" href="#transpredict" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
 <div class="section" id="bert">
-<h2><span class="section-number">10.5.4. </span>BERT<a class="headerlink" href="#bert" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.5.4. </span>BERT<a class="headerlink" href="#bert" title="Permalink to this headline">¶</a></h2>
 <p>BERT (Bidirectional Encoder Representations from Transformers) has been introduced in <span id="id12">[<a class="reference internal" href="../referenceSection.html#id12">DCLT19</a>]</span>. BERT is a Transformer. As described above, Transformers often contain an Encoder- and a Decoder-Stack. However, since BERT primarily constitutes a Language Model (LM), it only consists of an Encoder. When it was published in 2019, BERT achieved state-of-the-art or even better performance in 11 NLP tasks, including the GLUE benchmark<a class="footnote-reference brackets" href="#fa4" id="id13">3</a>. Pre-trained BERT models can be downloaded, e.g. from <a class="reference external" href="https://github.com/google-research/bert#pre-trained-models">Google’s Github repo</a>, and easily be adapted and fine-tuned for custom NLP tasks.</p>
 <p>BERT’s main innovation is that it defines a Transformer, which bi-directionally learns a Language Model. As sketched in image <a class="reference internal" href="#bertcompare"><span class="std std-ref">Comparison with GPT-1 and Elmo</span></a>, previous Deep Neural Network LM, where either</p>
 <ul class="simple">
@@ -875,16 +887,16 @@ a_{i,j} &amp; = &amp; softmax(a'_{i,j})
 <p>BERT learns bi-directional relations in text, by a training approach, which is known from <strong>Denoising Autoencoders</strong>: The input to the network is corrupted (in BERT tokens are masked out) and the network is trained such that its output is the original (non-corrupted) input.</p>
 <div class="figure align-center" id="bertcompare">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/BERTcomparison.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/BERTcomparison.png" src="https://maucher.home.hdm-stuttgart.de/Pics/BERTcomparison.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.24 </span><span class="caption-text">Prediction of the 4.th target word, given the 3 previously predictions. Image source: <span id="id14">[<a class="reference internal" href="../referenceSection.html#id12">DCLT19</a>]</span></span><a class="headerlink" href="#bertcompare" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.24 </span><span class="caption-text">Prediction of the 4.th target word, given the 3 previously predictions. Image source: <span id="id14">[<a class="reference internal" href="../referenceSection.html#id12">DCLT19</a>]</span></span><a class="headerlink" href="#bertcompare" title="Permalink to this image">¶</a></p>
 </div>
 <p>BERT training is separated into 2 stages: Pre-Training and Fine-Tuning. During Pre-Training, the model is trained on unlabeled data for the tasks Masked Language Model (MLM) and Next Sentence Prediction (NSP). Fine-Tuning starts with the parameters, that have been learned in Pre-Training. There exists different downstream tasks such as <em>Question-Answering, Named-Entity-Recognition</em> or <em>Multi Natural Language Inference</em>, for which BERT’s parameters can be fine-tuned. Depending on the Downstream task, the BERT architecutre must be slightly adapted for Fine-Tuning.</p>
 <div class="figure align-center" id="berttraining">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/BERTpreTrainFineTune.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/BERTpreTrainFineTune.png" src="https://maucher.home.hdm-stuttgart.de/Pics/BERTpreTrainFineTune.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.25 </span><span class="caption-text">BERT: Pretraining on tasks Masked Language Model and Next Sentence Prediction, followed by task-specific Fine-Tuning. Image source: <span id="id15">[<a class="reference internal" href="../referenceSection.html#id12">DCLT19</a>]</span></span><a class="headerlink" href="#berttraining" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.25 </span><span class="caption-text">BERT: Pretraining on tasks Masked Language Model and Next Sentence Prediction, followed by task-specific Fine-Tuning. Image source: <span id="id15">[<a class="reference internal" href="../referenceSection.html#id12">DCLT19</a>]</span></span><a class="headerlink" href="#berttraining" title="Permalink to this image">¶</a></p>
 </div>
 <p>In BERT, tokens are not words, but word-pieces. This yields a better <em>out-of-vocabulary-robustness</em>.</p>
 <div class="section" id="bert-pre-training">
-<h3><span class="section-number">10.5.4.1. </span>BERT Pre-Training<a class="headerlink" href="#bert-pre-training" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.5.4.1. </span>BERT Pre-Training<a class="headerlink" href="#bert-pre-training" title="Permalink to this headline">¶</a></h3>
 <p><strong>Masked Language Model (MLM):</strong> For this <span class="math notranslate nohighlight">\(15\%\)</span> of the input tokens are masked at random. Since the <span class="math notranslate nohighlight">\([ MASK ]\)</span> token is not known in finetuning not all masked tokens are replaced by this marker. Instead</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(80\%\)</span> of the masked tokens are replaced by <span class="math notranslate nohighlight">\([ MASK ]\)</span></p></li>
@@ -902,12 +914,12 @@ These masked tokens are predicted by passing the final hidden vectors, which bel
 </ul>
 <div class="figure align-center" id="id17">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/BERTinput.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/BERTinput.png" src="https://maucher.home.hdm-stuttgart.de/Pics/BERTinput.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.26 </span><span class="caption-text">Input of sentence pairs to BERT Encoder stack. Segment Embedding is applied to indicate first or second sentence. Image source: <span id="id16">[<a class="reference internal" href="../referenceSection.html#id12">DCLT19</a>]</span></span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.26 </span><span class="caption-text">Input of sentence pairs to BERT Encoder stack. Segment Embedding is applied to indicate first or second sentence. Image source: <span id="id16">[<a class="reference internal" href="../referenceSection.html#id12">DCLT19</a>]</span></span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
 </div>
 <p>For the NSP task a classifier is trained, which distinguishes <em>successive sentences</em> and <em>non-successive sentences</em>. For this the output of the <span class="math notranslate nohighlight">\([CLS]\)</span> token is passed to a binary classification layer. The purpose of adding such Pre-Training is that many NLP tasks such as Question-Answering (QA) and Natural Language Inference (NLI) need to understand relationships between sentences.</p>
 </div>
 <div class="section" id="bert-fine-tuning">
-<h3><span class="section-number">10.5.4.2. </span>BERT Fine-Tuning<a class="headerlink" href="#bert-fine-tuning" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.5.4.2. </span>BERT Fine-Tuning<a class="headerlink" href="#bert-fine-tuning" title="Permalink to this headline">¶</a></h3>
 <p>For each downstream NLP task, task-specific inputs and outputs are applied to fine-tune all parameters end-to-end. For this minor task-specific adaptations at the input- and output of the architecture are required.</p>
 <ul class="simple">
 <li><p><strong>Classification tasks</strong> such as sentiment analysis are done similarly to NSP, by adding a classification layer on top of the Transformer output for the [CLS] token.</p></li>
@@ -916,15 +928,15 @@ These masked tokens are predicted by passing the final hidden vectors, which bel
 </ul>
 <div class="figure align-center" id="bertfinetune">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/BERTfinetuning.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/BERTfinetuning.png" src="https://maucher.home.hdm-stuttgart.de/Pics/BERTfinetuning.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.27 </span><span class="caption-text">BERT Fine-Tuning. Image source: <span id="id18">[<a class="reference internal" href="../referenceSection.html#id12">DCLT19</a>]</span></span><a class="headerlink" href="#bertfinetune" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.27 </span><span class="caption-text">BERT Fine-Tuning. Image source: <span id="id18">[<a class="reference internal" href="../referenceSection.html#id12">DCLT19</a>]</span></span><a class="headerlink" href="#bertfinetune" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="contextual-embeddings-from-bert">
-<h3><span class="section-number">10.5.4.3. </span>Contextual Embeddings from BERT<a class="headerlink" href="#contextual-embeddings-from-bert" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.5.4.3. </span>Contextual Embeddings from BERT<a class="headerlink" href="#contextual-embeddings-from-bert" title="Permalink to this headline">¶</a></h3>
 <p>Instead of fine-tuning, the pretrained token representations from any level of the BERT-Stack can be applied as <strong>contextual word embedding</strong> in any NLP task. Which representation is best depends on the concrete task.</p>
 <div class="figure align-center" id="id20">
 <a class="reference internal image-reference" href="https://maucher.home.hdm-stuttgart.de/Pics/BERTfeatureExtraction.png"><img alt="https://maucher.home.hdm-stuttgart.de/Pics/BERTfeatureExtraction.png" src="https://maucher.home.hdm-stuttgart.de/Pics/BERTfeatureExtraction.png" style="width: 400pt;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.28 </span><span class="caption-text">Contextual Embeddings from BERT. Image source: <span id="id19">[<a class="reference internal" href="../referenceSection.html#id12">DCLT19</a>]</span></span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.28 </span><span class="caption-text">Contextual Embeddings from BERT. Image source: <span id="id19">[<a class="reference internal" href="../referenceSection.html#id12">DCLT19</a>]</span></span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
 </div>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
@@ -967,8 +979,8 @@ These masked tokens are predicted by passing the final hidden vectors, which bel
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="04CNN.html" title="previous page"><span class="section-number">10.4. </span>CNN, LSTM and Attention for IMDB Movie Review classification</a>
-    <a class='right-next' id="next-link" href="../referenceSection.html" title="next page"><span class="section-number">11. </span>References</a>
+    <a class='left-prev' id="prev-link" href="04CNN.html" title="previous page"><span class="section-number">9.4. </span>CNN, LSTM and Attention for IMDB Movie Review classification</a>
+    <a class='right-next' id="next-link" href="../referenceSection.html" title="next page"><span class="section-number">10. </span>References</a>
 
         </div>
         
