@@ -263,7 +263,10 @@ BoW representation of documents and the One-Hot-Encoding of single words, as des
 2. Semantic relations between words are not modelled. This means that in this model there is no information about the fact that word *car* is more related to word *vehicle* than to word *lake*. 
 3. In the BoW-model of documents word order is totally ignored. E.g. the model can not distinguish if word *not* appeared immediately before word *good* or before word *bad*.  
 
-All of these drawbacks can be solved by applying *Distributional Semantic models* to map words into numeric vectors and by the way the resulting *Word Empeddings* are passed e.g. to the input of Recurrent Neural Networks, Convolutional Neural Networks or Transformers (see later chapters of this lecture). 
+All of these drawbacks can be solved by
+* applying *Distributional Semantic Models* for caluclating better vector-representations of words
+* pass these vector-representations of words to the input of neural network architectures such as Recurrent Neural Networks (RNNs), Convolutional Neural Networks (CNNs) or Transformers (see later chapters of this lecture).
+
 
 (dsm-label)=
 ## Distributional Semantic Models
@@ -273,12 +276,12 @@ The linguistic theory of distributional semantics is based on the hypothesis, th
 *You shall know a word by the company it keeps*
 
 
-Since computers can easily determine the co-occurrence statistics of words in large corpora the theory of distributional semantics provides a promising opportunity to automatically learn semantic relations. The learned semantic representations are called **Distributional Semantic models (DSM)**. **They represent each word as a numerical vector, such that words, which appear frequently in similar contexts, are represented by similar vectors.** In the figure below the arrow represents the DSM. Since there are many different DSMs there a many different approaches to implement this transformation from the hypothesis of distributional semantics to the word space. 
+Since computers can easily determine the co-occurrence statistics of words in large corpora the theory of distributional semantics provides a promising opportunity to automatically learn semantic relations. The learned semantic representations are called **Distributional Semantic Models (DSM)**. **They represent each word as a numerical vector, such that words, which appear frequently in similar contexts, are represented by similar vectors.** In the figure below the arrow represents the DSM. Since there are many different DSMs there are many different approaches to implement this transformation from the hypothesis of distributional semantics to the word-vector-space. 
 
 
 <figure align="center">
 <img width="500" src="https://maucher.home.hdm-stuttgart.de/Pics/semanticsInWordSpace.png">
-<figcaption>Mapping the hypothesis of distributional semantics to a word space</figcaption>
+<figcaption>Mapping the hypothesis of distributional semantics to a word-vector-space</figcaption>
 </figure>
 
 
@@ -287,7 +290,7 @@ The field of DSMs can be categorized into the classes **count-based models** and
 
 ### Count-based DSM
 
-DSMs map words to numeric vectors, such that semantically related words, i.e. words which appear frequently in a similar context, have similar numeric vectors. The first question which arises from this definition is *What is context?* In all DSMs, introduced in this lecture, the context of a target word $w$ is considered to be the sequence of $L$ previous and $L$ following words, where the *context-length* $L$ is a parameter.
+**DSMs map words to numeric vectors, such that semantically related words, i.e. words which appear frequently in a similar context, have similar numeric vectors.** The first question which arises from this definition is *What is context?* In all DSMs, introduced in this lecture, the context of a target word $w$ is considered to be the sequence of $L$ previous and $L$ following words, where the *context-length* $L$ is a parameter.
 
 I.e. in the word-sequence
 
@@ -321,7 +324,7 @@ In order to determine this matrix a large corpus of contigous text is required. 
 
 Assume that the (unrealistically small) corpus is 
 
-K = [The dusty road ends nowhere. The dusty track ends there.*
+K = *The dusty road ends nowhere. The dusty track ends there.*
 
 For a (unrealistically small) context length of $L=2$ the word-co-occurence matrix is:
 
@@ -368,9 +371,9 @@ Count-based DSMs differ in the following parameters:
     preprocessing techniques yield different word-context matrices.
 
 -   **Weighting Scheme:** The entries $w_{ij}$ in the word-context
-    matrix somehow measure the association between word $i$ and context
-    $j$. In the most simple case $w_{ij}$ is just the frequency of
-    context $j$ in the context of word $i$. However, many different
+    matrix somehow measure the association between target-word $i$ and context-word
+    $j$. In the most simple case $w_{ij}$ is just the frequency of word
+    $j$ in the context of word $i$. However, many different
     alternatives for defining the entries in the *word-co-occuruence-matrix* exist. For example
 	
 	* the **conditional probability** $P(c_j|w_i)$, which is determined by

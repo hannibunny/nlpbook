@@ -838,22 +838,26 @@ d_P(\underline{a},\underline{b})= 1-s_P(\underline{a},\underline{b}).
 <li><p>Semantic relations between words are not modelled. This means that in this model there is no information about the fact that word <em>car</em> is more related to word <em>vehicle</em> than to word <em>lake</em>.</p></li>
 <li><p>In the BoW-model of documents word order is totally ignored. E.g. the model can not distinguish if word <em>not</em> appeared immediately before word <em>good</em> or before word <em>bad</em>.</p></li>
 </ol>
-<p>All of these drawbacks can be solved by applying <em>Distributional Semantic models</em> to map words into numeric vectors and by the way the resulting <em>Word Empeddings</em> are passed e.g. to the input of Recurrent Neural Networks, Convolutional Neural Networks or Transformers (see later chapters of this lecture).</p>
+<p>All of these drawbacks can be solved by</p>
+<ul class="simple">
+<li><p>applying <em>Distributional Semantic Models</em> for caluclating better vector-representations of words</p></li>
+<li><p>pass these vector-representations of words to the input of neural network architectures such as Recurrent Neural Networks (RNNs), Convolutional Neural Networks (CNNs) or Transformers (see later chapters of this lecture).</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="distributional-semantic-models">
 <span id="dsm-label"></span><h2><span class="section-number">5.2. </span>Distributional Semantic Models<a class="headerlink" href="#distributional-semantic-models" title="Permalink to this headline">¶</a></h2>
 <p>The linguistic theory of distributional semantics is based on the hypothesis, that words, which occur in similar contexts, have similar meaning. J.R. Firth formulated this assumption in his famous sentence <span id="id2">[<a class="reference internal" href="../referenceSection.html#id7">Fir57</a>]</span>:</p>
 <p><em>You shall know a word by the company it keeps</em></p>
-<p>Since computers can easily determine the co-occurrence statistics of words in large corpora the theory of distributional semantics provides a promising opportunity to automatically learn semantic relations. The learned semantic representations are called <strong>Distributional Semantic models (DSM)</strong>. <strong>They represent each word as a numerical vector, such that words, which appear frequently in similar contexts, are represented by similar vectors.</strong> In the figure below the arrow represents the DSM. Since there are many different DSMs there a many different approaches to implement this transformation from the hypothesis of distributional semantics to the word space.</p>
+<p>Since computers can easily determine the co-occurrence statistics of words in large corpora the theory of distributional semantics provides a promising opportunity to automatically learn semantic relations. The learned semantic representations are called <strong>Distributional Semantic Models (DSM)</strong>. <strong>They represent each word as a numerical vector, such that words, which appear frequently in similar contexts, are represented by similar vectors.</strong> In the figure below the arrow represents the DSM. Since there are many different DSMs there are many different approaches to implement this transformation from the hypothesis of distributional semantics to the word-vector-space.</p>
 <figure align="center">
 <img width="500" src="https://maucher.home.hdm-stuttgart.de/Pics/semanticsInWordSpace.png">
-<figcaption>Mapping the hypothesis of distributional semantics to a word space</figcaption>
+<figcaption>Mapping the hypothesis of distributional semantics to a word-vector-space</figcaption>
 </figure>
 <p>The field of DSMs can be categorized into the classes <strong>count-based models</strong> and <strong>prediction-based models</strong>. Recently, considerable attention has been focused on the question which of these classes is superior <span id="id3">[<a class="reference internal" href="../referenceSection.html#id8">PSM14</a>]</span>.</p>
 <div class="section" id="count-based-dsm">
 <h3><span class="section-number">5.2.1. </span>Count-based DSM<a class="headerlink" href="#count-based-dsm" title="Permalink to this headline">¶</a></h3>
-<p>DSMs map words to numeric vectors, such that semantically related words, i.e. words which appear frequently in a similar context, have similar numeric vectors. The first question which arises from this definition is <em>What is context?</em> In all DSMs, introduced in this lecture, the context of a target word <span class="math notranslate nohighlight">\(w\)</span> is considered to be the sequence of <span class="math notranslate nohighlight">\(L\)</span> previous and <span class="math notranslate nohighlight">\(L\)</span> following words, where the <em>context-length</em> <span class="math notranslate nohighlight">\(L\)</span> is a parameter.</p>
+<p><strong>DSMs map words to numeric vectors, such that semantically related words, i.e. words which appear frequently in a similar context, have similar numeric vectors.</strong> The first question which arises from this definition is <em>What is context?</em> In all DSMs, introduced in this lecture, the context of a target word <span class="math notranslate nohighlight">\(w\)</span> is considered to be the sequence of <span class="math notranslate nohighlight">\(L\)</span> previous and <span class="math notranslate nohighlight">\(L\)</span> following words, where the <em>context-length</em> <span class="math notranslate nohighlight">\(L\)</span> is a parameter.</p>
 <p>I.e. in the word-sequence</p>
 <div class="math notranslate nohighlight">
 \[
@@ -874,7 +878,7 @@ d_P(\underline{a},\underline{b})= 1-s_P(\underline{a},\underline{b}).
 <div class="dropdown admonition">
 <p class="admonition-title">Example: Word-Co-Occurence Matrix</p>
 <p>Assume that the (unrealistically small) corpus is</p>
-<p>K = [The dusty road ends nowhere. The dusty track ends there.*</p>
+<p>K = <em>The dusty road ends nowhere. The dusty track ends there.</em></p>
 <p>For a (unrealistically small) context length of <span class="math notranslate nohighlight">\(L=2\)</span> the word-co-occurence matrix is:</p>
 <figure align="center">
 <img width="600" src="https://maucher.home.hdm-stuttgart.de/Pics/cooccurenceMatrixExample.png">
@@ -910,9 +914,9 @@ stop-word-filtering, high-frequency cut-off, normalisation,
 lemmatization can be applied to the given corpus. Different
 preprocessing techniques yield different word-context matrices.</p></li>
 <li><p><strong>Weighting Scheme:</strong> The entries <span class="math notranslate nohighlight">\(w_{ij}\)</span> in the word-context
-matrix somehow measure the association between word <span class="math notranslate nohighlight">\(i\)</span> and context
-<span class="math notranslate nohighlight">\(j\)</span>. In the most simple case <span class="math notranslate nohighlight">\(w_{ij}\)</span> is just the frequency of
-context <span class="math notranslate nohighlight">\(j\)</span> in the context of word <span class="math notranslate nohighlight">\(i\)</span>. However, many different
+matrix somehow measure the association between target-word <span class="math notranslate nohighlight">\(i\)</span> and context-word
+<span class="math notranslate nohighlight">\(j\)</span>. In the most simple case <span class="math notranslate nohighlight">\(w_{ij}\)</span> is just the frequency of word
+<span class="math notranslate nohighlight">\(j\)</span> in the context of word <span class="math notranslate nohighlight">\(i\)</span>. However, many different
 alternatives for defining the entries in the <em>word-co-occuruence-matrix</em> exist. For example</p>
 <ul class="simple">
 <li><p>the <strong>conditional probability</strong> <span class="math notranslate nohighlight">\(P(c_j|w_i)\)</span>, which is determined by</p></li>
