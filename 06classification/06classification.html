@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. Text Classification &#8212; Natural Language Processing Lecture</title>
+    <title>7. Text Classification &#8212; Natural Language Processing Lecture</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8.1. Validation of Classifiers" href="06classificationMetrics.html" />
-    <link rel="prev" title="7.2. Implementation of Topic Extraction and Document Clustering" href="../05representations/02LatentSemanticIndexing.html" />
+    <link rel="next" title="7.1. Validation of Classifiers" href="06classificationMetrics.html" />
+    <link rel="prev" title="6.2. Implementation of Topic Extraction and Document Clustering" href="../05representations/02LatentSemanticIndexing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -204,20 +204,20 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../05representations/02gensimDocModelSimple.html">
+     5.3. Implementation of BoWs
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../05representations/01WordEmbeddingImplementation.html">
-     5.3. Applying Word-Embeddings
+     5.4. Implementation of Word-Embeddings
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../05representations/02gensimDocModelSimple.html">
-   6. Document models and similarity
-  </a>
- </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../05representations/05topicextraction.html">
-   7. Topic Extraction
+   6. Topic Extraction
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -227,19 +227,19 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../05representations/05lsi.html">
-     7.1. Latent Semantic Indexing (LSI)
+     6.1. Latent Semantic Indexing (LSI)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05representations/02LatentSemanticIndexing.html">
-     7.2. Implementation of Topic Extraction and Document Clustering
+     6.2. Implementation of Topic Extraction and Document Clustering
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   8. Text Classification
+   7. Text Classification
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -249,24 +249,24 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="06classificationMetrics.html">
-     8.1. Validation of Classifiers
+     7.1. Validation of Classifiers
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="07classificationNaiveBayes.html">
-     8.2. Naive Bayes Text Classification
+     7.2. Naive Bayes Text Classification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="FakeNewsClassification.html">
-     8.3. Text Classification Application: Fake News detection
+     7.3. Text Classification Application: Fake News detection
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../07neuralnetworks/07neuralnetworks.html">
-   9. Neural Networks
+   8. Neural Networks
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
@@ -276,34 +276,34 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/01NeuralNets.html">
-     9.1. Neural Networks Introduction
+     8.1. Neural Networks Introduction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/02RecurrentNeuralNetworks.html">
-     9.2. Recurrent Neural Networks
+     8.2. Recurrent Neural Networks
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/03ConvolutionNeuralNetworks.html">
-     9.3. Convolutional Neural Networks
+     8.3. Convolutional Neural Networks
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/04CNN.html">
-     9.4. CNN, LSTM and Attention for IMDB Movie Review classification
+     8.4. CNN, LSTM and Attention for IMDB Movie Review classification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/attention.html">
-     9.5. Sequence-To-Sequence, Attention, Transformer
+     8.5. Sequence-To-Sequence, Attention, Transformer
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../referenceSection.html">
-   10. References
+   9. References
   </a>
  </li>
 </ul>
@@ -381,7 +381,7 @@
               <div>
                 
   <div class="section" id="text-classification">
-<h1><span class="section-number">8. </span>Text Classification<a class="headerlink" href="#text-classification" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">7. </span>Text Classification<a class="headerlink" href="#text-classification" title="Permalink to this headline">¶</a></h1>
 <p>Many NLP tasks apply classification of texts. A given sequence of words, e.g. a sentence, utterance, question, section or document must be assigned to a pre-defined classes, e.g. sentiment, question-type, intend, document-type etc. A prominent category of document-classification is Spam-Filtering. Here the input-text is usually an Email and the classes to which this input must be assigned are spam and non-spam.</p>
 <p>As many other NLP tasks, text-classification can be realized by implementing a rule-based or a data-based approach (see <a class="reference internal" href="../intro.html"><span class="doc">Introduction</span></a> ). Since today data-based approaches nearly always outperform rule-based approaches, we just consider data-based approaches here. Data-based document-classification is realized by <strong>Supervised Machine Learning</strong>.</p>
 <p>The general concept of Supervised Machine Learning is depicted in the figure below.</p>
@@ -426,8 +426,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../05representations/02LatentSemanticIndexing.html" title="previous page"><span class="section-number">7.2. </span>Implementation of Topic Extraction and Document Clustering</a>
-    <a class='right-next' id="next-link" href="06classificationMetrics.html" title="next page"><span class="section-number">8.1. </span>Validation of Classifiers</a>
+    <a class='left-prev' id="prev-link" href="../05representations/02LatentSemanticIndexing.html" title="previous page"><span class="section-number">6.2. </span>Implementation of Topic Extraction and Document Clustering</a>
+    <a class='right-next' id="next-link" href="06classificationMetrics.html" title="next page"><span class="section-number">7.1. </span>Validation of Classifiers</a>
 
         </div>
         

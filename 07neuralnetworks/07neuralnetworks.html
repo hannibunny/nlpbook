@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>9. Neural Networks &#8212; Natural Language Processing Lecture</title>
+    <title>8. Neural Networks &#8212; Natural Language Processing Lecture</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="9.1. Neural Networks Introduction" href="01NeuralNets.html" />
-    <link rel="prev" title="8.3. Text Classification Application: Fake News detection" href="../06classification/FakeNewsClassification.html" />
+    <link rel="next" title="8.1. Neural Networks Introduction" href="01NeuralNets.html" />
+    <link rel="prev" title="7.3. Text Classification Application: Fake News detection" href="../06classification/FakeNewsClassification.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -204,20 +204,20 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../05representations/02gensimDocModelSimple.html">
+     5.3. Implementation of BoWs
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../05representations/01WordEmbeddingImplementation.html">
-     5.3. Applying Word-Embeddings
+     5.4. Implementation of Word-Embeddings
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../05representations/02gensimDocModelSimple.html">
-   6. Document models and similarity
-  </a>
- </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../05representations/05topicextraction.html">
-   7. Topic Extraction
+   6. Topic Extraction
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -227,19 +227,19 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../05representations/05lsi.html">
-     7.1. Latent Semantic Indexing (LSI)
+     6.1. Latent Semantic Indexing (LSI)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05representations/02LatentSemanticIndexing.html">
-     7.2. Implementation of Topic Extraction and Document Clustering
+     6.2. Implementation of Topic Extraction and Document Clustering
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../06classification/06classification.html">
-   8. Text Classification
+   7. Text Classification
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -249,24 +249,24 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../06classification/06classificationMetrics.html">
-     8.1. Validation of Classifiers
+     7.1. Validation of Classifiers
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../06classification/07classificationNaiveBayes.html">
-     8.2. Naive Bayes Text Classification
+     7.2. Naive Bayes Text Classification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../06classification/FakeNewsClassification.html">
-     8.3. Text Classification Application: Fake News detection
+     7.3. Text Classification Application: Fake News detection
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   9. Neural Networks
+   8. Neural Networks
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
@@ -276,34 +276,34 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="01NeuralNets.html">
-     9.1. Neural Networks Introduction
+     8.1. Neural Networks Introduction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="02RecurrentNeuralNetworks.html">
-     9.2. Recurrent Neural Networks
+     8.2. Recurrent Neural Networks
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03ConvolutionNeuralNetworks.html">
-     9.3. Convolutional Neural Networks
+     8.3. Convolutional Neural Networks
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="04CNN.html">
-     9.4. CNN, LSTM and Attention for IMDB Movie Review classification
+     8.4. CNN, LSTM and Attention for IMDB Movie Review classification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="attention.html">
-     9.5. Sequence-To-Sequence, Attention, Transformer
+     8.5. Sequence-To-Sequence, Attention, Transformer
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../referenceSection.html">
-   10. References
+   9. References
   </a>
  </li>
 </ul>
@@ -381,7 +381,7 @@
               <div>
                 
   <div class="section" id="neural-networks">
-<h1><span class="section-number">9. </span>Neural Networks<a class="headerlink" href="#neural-networks" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">8. </span>Neural Networks<a class="headerlink" href="#neural-networks" title="Permalink to this headline">¶</a></h1>
 <p>Recently, Deep Neural Networks has revolutionalized wide areas of computer science. Today, applications like object recognition, face recognition, semantic segmentation, speech recognition, etc. achieve a significantly improved accuracy, since they are implemented as Deep Neural Networks. This is particularly true for NLP applications such as text classification, automatic translation, intent recognition, named entity recognition and so on.</p>
 <p>In this chapter first the basics of <strong>conventional neural networks (Single- and Multi-Layer Perceptron)</strong> are introduced in <a class="reference internal" href="01NeuralNets.html"><span class="doc">Neural Networks Introduction</span></a>. In <a class="reference internal" href="02RecurrentNeuralNetworks.html"><span class="doc">Recurrent Neural Networks</span></a> different types of <strong>recurrent neural networks (RNN)</strong> are described. The most important type of deep neural network, the so called <strong>Convolutional Neural Network (CNN)</strong>, is subject of <a class="reference internal" href="03ConvolutionNeuralNetworks.html"><span class="doc">Convolutional Neural Networks</span></a>.</p>
 <p>Implementations of CNNs and LSTMs for document classification are shown in <a class="reference internal" href="04CNN.html"><span class="doc">CNN, LSTM and Attention for IMDB Movie Review classification</span></a>.</p>
@@ -414,8 +414,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../06classification/FakeNewsClassification.html" title="previous page"><span class="section-number">8.3. </span>Text Classification Application: Fake News detection</a>
-    <a class='right-next' id="next-link" href="01NeuralNets.html" title="next page"><span class="section-number">9.1. </span>Neural Networks Introduction</a>
+    <a class='left-prev' id="prev-link" href="../06classification/FakeNewsClassification.html" title="previous page"><span class="section-number">7.3. </span>Text Classification Application: Fake News detection</a>
+    <a class='right-next' id="next-link" href="01NeuralNets.html" title="next page"><span class="section-number">8.1. </span>Neural Networks Introduction</a>
 
         </div>
         
