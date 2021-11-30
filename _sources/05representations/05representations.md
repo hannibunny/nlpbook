@@ -8,7 +8,7 @@ All ML-algorithms require a numeric representation at their input, usually a fix
 How to represent texts, i.e. sequences of words, punctuation marks..., as a numeric vector of constant length?
 ```
 
-In this section first the general notion of **Vector Space Model** is introduced. Then the most common type of vector space model for text, the so called **Bag-Of-Word (PoW)** model is described. In the extreme case of single-word-texts the BoW melts down to the **One-Hot-Encoding** of words. The pros and cons of these conventional representations are discussed. Another method to represent words as numerical vectors is constituted by **Distributional Semantic Models (DSMs)**. The currently very popular **Word Embeddings** belong to the class of DSMs. **Word Embeddings** are numerical word representations, which are learned by *Neural Networks*. Even though they have been considered before, the 2013 milestone paper {cite}`NIPS2013_5021` introduced two very efficient methods to learn meaningful Word Embeddings. Since then Word Embeddings have revolutionized NLP.
+In this section first the general notion of **Vector Space Model** is introduced. Then the most common type of vector space model for text, the so called **Bag-Of-Word (BoW)** model is described. In the extreme case of single-word-texts the BoW melts down to the **One-Hot-Encoding** of words. The pros and cons of these conventional representations are discussed. Another method to represent words as numerical vectors is constituted by **Distributional Semantic Models (DSMs)**. The currently very popular **Word Embeddings** belong to the class of DSMs. **Word Embeddings** are numerical word representations, which are learned by *Neural Networks*. Even though they have been considered before, the 2013 milestone paper {cite}`NIPS2013_5021` introduced two very efficient methods to learn meaningful Word Embeddings. Since then Word Embeddings have revolutionized NLP.
 
 ## Vector Space Model
 
@@ -59,7 +59,7 @@ In this example the words in the matrix have been alphabetically ordered. This i
 
 ### Bag-of-Word Variants
 
-The entries of the BoW-matrix, as introduced above, are the **term-frequencies**. I.e. the entry in row $i$, column $j$, $tf(i,j)$ determines how often the term (word) of column $j$, appears in document $j$. 
+The entries of the BoW-matrix, as introduced above, are the **term-frequencies**. I.e. the entry in row $i$, column $j$, $tf(i,j)$ determines how often the term (word) of column $j$, appears in document $i$. 
 
 Another option is the **binary BoW**. Here, the binary entry in row $i$, column $j$ just indicates if term $j$ appears in document $i$. The entry has value 1 if the term appears at least once, otherwise it is 0.
 
@@ -189,12 +189,17 @@ The solution to this problem is
 * either normalize all vectors - document vectors and query-vector - to unique length,
 * or apply another distance measure
 
-The standard similarity-measure for BoW vectors is the **Cosine Similarity**, which is calculated as defined in the table below. The table also contains the definition of the corresponding distance-measure. Moreover, a bunch of other distance- and similarity measures, which are frequently applied in NLP tasks, are listed in the table.  
+The standard similarity-measure for BoW vectors is the **Cosine Similarity** $s_C(\underline{a},\underline{b})$, which is calculated as follows:
 
+$$
+s_C(\underline{a},\underline{b})=\frac{\underline{a} \cdot \underline{b}^T}{\left| \left| \underline{a} \right| \right| \ \cdot \ \left| \left| \underline{b} \right| \right|} 
+$$
 
-<figure align="center">
-<img width="700" src="https://maucher.home.hdm-stuttgart.de/Pics/distanceMeasures.png">
-</figure> 
+From the cosine-similarity measure the cosine-distance can be calculated as follows:
+
+$$
+d_C(\underline{a},\underline{b})= 1-s_C(\underline{a},\underline{b}).
+$$
 
 
 For the query-example above, the Cosine-Similarities are:
@@ -217,7 +222,37 @@ $$
 s_C(\underline{q},\underline{d}_3)=\frac{0 \cdot 1 + 0 \cdot 1 + 1 \cdot 0 + 1 \cdot 0}{\sqrt{2} \cdot \sqrt{2}} = \frac{0}{2} = 0
 $$
 
-These calculated similarities match our subjective expectation: The similarity between document 3 and query q is 0 (the lowest possible value), since they have no word in common. The similarity between document 2 and the query q is close to the maximum similarity-value of 1, since both query-words appear with a high frequency in this document.
+These calculated similarities match our subjective expectation: The similarity between document 3 and query $q$ is 0 (the lowest possible value), since they have no word in common. The similarity between document 2 and the query q is close to the maximum similarity-value of 1, since both query-words appear with a high frequency in this document.
+
+Another similarity measure is the **Pearson Correlation** $s_P(\underline{a},\underline{b})$. The Pearson correlation coefficient measures linearity, i.e. its maximum value of $s_P(\underline{a},\underline{b})=1$ is obtained, if there is a linear correlation between the two vectors. Pearson correlation is calculated as follows:
+
+$$
+s_P(\underline{a},\underline{b})=\frac{\underline{a}_d \cdot \underline{b}_d^T}{\left| \left| \underline{a}_d \right| \right| \ \cdot \ \left| \left| \underline{b}_d \right| \right|},  
+$$   
+
+where
+
+$$
+\underline{a}_d=(a_1-\overline{a}, \ a_2-\overline{a}, \ldots , a_n-\overline{a})
+$$
+
+and 
+
+$$
+\underline{b}_d=(b_1-\overline{b}, \ b_2-\overline{b}, \ldots , b_n-\overline{b})
+$$
+
+and 
+
+$\overline{a}$ is the mean over the components in $\underline{a}$ and $\overline{b}$ is the mean over the components in $\underline{b}$. 
+
+The corresponding distance measure is:
+
+$$
+d_P(\underline{a},\underline{b})= 1-s_P(\underline{a},\underline{b}).
+$$
+
+There exists much more distance- and similarity-measures, see e.g. [scipy.spatial.distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html#) or [Distance Measures in Data Science](https://towardsdatascience.com/9-distance-measures-in-data-science-918109d069fa).
 
 (bowdrawbacks)=
 ### BoW Drawbacks

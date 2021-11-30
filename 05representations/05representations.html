@@ -467,7 +467,7 @@
 <p class="admonition-title">Question:</p>
 <p>How to represent texts, i.e. sequences of words, punctuation marks…, as a numeric vector of constant length?</p>
 </div>
-<p>In this section first the general notion of <strong>Vector Space Model</strong> is introduced. Then the most common type of vector space model for text, the so called <strong>Bag-Of-Word (PoW)</strong> model is described. In the extreme case of single-word-texts the BoW melts down to the <strong>One-Hot-Encoding</strong> of words. The pros and cons of these conventional representations are discussed. Another method to represent words as numerical vectors is constituted by <strong>Distributional Semantic Models (DSMs)</strong>. The currently very popular <strong>Word Embeddings</strong> belong to the class of DSMs. <strong>Word Embeddings</strong> are numerical word representations, which are learned by <em>Neural Networks</em>. Even though they have been considered before, the 2013 milestone paper <span id="id1">[<a class="reference internal" href="../referenceSection.html#id6">MSC+13</a>]</span> introduced two very efficient methods to learn meaningful Word Embeddings. Since then Word Embeddings have revolutionized NLP.</p>
+<p>In this section first the general notion of <strong>Vector Space Model</strong> is introduced. Then the most common type of vector space model for text, the so called <strong>Bag-Of-Word (BoW)</strong> model is described. In the extreme case of single-word-texts the BoW melts down to the <strong>One-Hot-Encoding</strong> of words. The pros and cons of these conventional representations are discussed. Another method to represent words as numerical vectors is constituted by <strong>Distributional Semantic Models (DSMs)</strong>. The currently very popular <strong>Word Embeddings</strong> belong to the class of DSMs. <strong>Word Embeddings</strong> are numerical word representations, which are learned by <em>Neural Networks</em>. Even though they have been considered before, the 2013 milestone paper <span id="id1">[<a class="reference internal" href="../referenceSection.html#id6">MSC+13</a>]</span> introduced two very efficient methods to learn meaningful Word Embeddings. Since then Word Embeddings have revolutionized NLP.</p>
 <div class="section" id="vector-space-model">
 <h2><span class="section-number">5.1. </span>Vector Space Model<a class="headerlink" href="#vector-space-model" title="Permalink to this headline">¶</a></h2>
 <p>Vector Space Models map arbitrary inputs to numeric vectors of fixed length. For a given task, you are free to define a set of <span class="math notranslate nohighlight">\(N\)</span> relevant features, which can be extracted from the input. Each of the <span class="math notranslate nohighlight">\(N\)</span>-feature extraction functions returns how often the corresponding feature appears in the input. Each component of the vector-representation belongs to one feature and the value at this component is the count of this feature in the input.</p>
@@ -542,7 +542,7 @@
 </div>
 <div class="section" id="bag-of-word-variants">
 <h3><span class="section-number">5.1.2. </span>Bag-of-Word Variants<a class="headerlink" href="#bag-of-word-variants" title="Permalink to this headline">¶</a></h3>
-<p>The entries of the BoW-matrix, as introduced above, are the <strong>term-frequencies</strong>. I.e. the entry in row <span class="math notranslate nohighlight">\(i\)</span>, column <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(tf(i,j)\)</span> determines how often the term (word) of column <span class="math notranslate nohighlight">\(j\)</span>, appears in document <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>The entries of the BoW-matrix, as introduced above, are the <strong>term-frequencies</strong>. I.e. the entry in row <span class="math notranslate nohighlight">\(i\)</span>, column <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(tf(i,j)\)</span> determines how often the term (word) of column <span class="math notranslate nohighlight">\(j\)</span>, appears in document <span class="math notranslate nohighlight">\(i\)</span>.</p>
 <p>Another option is the <strong>binary BoW</strong>. Here, the binary entry in row <span class="math notranslate nohighlight">\(i\)</span>, column <span class="math notranslate nohighlight">\(j\)</span> just indicates if term <span class="math notranslate nohighlight">\(j\)</span> appears in document <span class="math notranslate nohighlight">\(i\)</span>. The entry has value 1 if the term appears at least once, otherwise it is 0.</p>
 <p><strong>TF-IDF BoW:</strong> The drawback of using term-frequency <span class="math notranslate nohighlight">\(tf(i,j)\)</span> as matrix entries is that all terms are weighted similarly, in particular rare words such as words with a <strong>strong semantic focus</strong> are weighted in the same way as very frequent words, such as articles. <em>TF-IDF</em> is a weighted term frequency (TF). The weights are the <em>inverse document frequencies (IDF)</em>. Actually, there are different definitions for the calculation of TF-IDF. A common definition is</p>
 <div class="math notranslate nohighlight">
@@ -779,10 +779,16 @@ d_E(\underline{q},\underline{d}_3)=\sqrt{(0-1)^2+(0-1)^2+(1-0)^2+(1-0)^2} = \sqr
 <li><p>either normalize all vectors - document vectors and query-vector - to unique length,</p></li>
 <li><p>or apply another distance measure</p></li>
 </ul>
-<p>The standard similarity-measure for BoW vectors is the <strong>Cosine Similarity</strong>, which is calculated as defined in the table below. The table also contains the definition of the corresponding distance-measure. Moreover, a bunch of other distance- and similarity measures, which are frequently applied in NLP tasks, are listed in the table.</p>
-<figure align="center">
-<img width="700" src="https://maucher.home.hdm-stuttgart.de/Pics/distanceMeasures.png">
-</figure> 
+<p>The standard similarity-measure for BoW vectors is the <strong>Cosine Similarity</strong> <span class="math notranslate nohighlight">\(s_C(\underline{a},\underline{b})\)</span>, which is calculated as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+s_C(\underline{a},\underline{b})=\frac{\underline{a} \cdot \underline{b}^T}{\left| \left| \underline{a} \right| \right| \ \cdot \ \left| \left| \underline{b} \right| \right|} 
+\]</div>
+<p>From the cosine-similarity measure the cosine-distance can be calculated as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+d_C(\underline{a},\underline{b})= 1-s_C(\underline{a},\underline{b}).
+\]</div>
 <p>For the query-example above, the Cosine-Similarities are:</p>
 <p>Cosine Similarity between query and document 2:</p>
 <div class="math notranslate nohighlight">
@@ -799,7 +805,30 @@ s_C(\underline{q},\underline{d}_2)=\frac{4 \cdot 1 + 5 \cdot 1 + 0 \cdot 0 + 0 \
 \[
 s_C(\underline{q},\underline{d}_3)=\frac{0 \cdot 1 + 0 \cdot 1 + 1 \cdot 0 + 1 \cdot 0}{\sqrt{2} \cdot \sqrt{2}} = \frac{0}{2} = 0
 \]</div>
-<p>These calculated similarities match our subjective expectation: The similarity between document 3 and query q is 0 (the lowest possible value), since they have no word in common. The similarity between document 2 and the query q is close to the maximum similarity-value of 1, since both query-words appear with a high frequency in this document.</p>
+<p>These calculated similarities match our subjective expectation: The similarity between document 3 and query <span class="math notranslate nohighlight">\(q\)</span> is 0 (the lowest possible value), since they have no word in common. The similarity between document 2 and the query q is close to the maximum similarity-value of 1, since both query-words appear with a high frequency in this document.</p>
+<p>Another similarity measure is the <strong>Pearson Correlation</strong> <span class="math notranslate nohighlight">\(s_P(\underline{a},\underline{b})\)</span>. The Pearson correlation coefficient measures linearity, i.e. its maximum value of <span class="math notranslate nohighlight">\(s_P(\underline{a},\underline{b})=1\)</span> is obtained, if there is a linear correlation between the two vectors. Pearson correlation is calculated as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+s_P(\underline{a},\underline{b})=\frac{\underline{a}_d \cdot \underline{b}_d^T}{\left| \left| \underline{a}_d \right| \right| \ \cdot \ \left| \left| \underline{b}_d \right| \right|},  
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\underline{a}_d=(a_1-\overline{a}, \ a_2-\overline{a}, \ldots , a_n-\overline{a})
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\underline{b}_d=(b_1-\overline{b}, \ b_2-\overline{b}, \ldots , b_n-\overline{b})
+\]</div>
+<p>and</p>
+<p><span class="math notranslate nohighlight">\(\overline{a}\)</span> is the mean over the components in <span class="math notranslate nohighlight">\(\underline{a}\)</span> and <span class="math notranslate nohighlight">\(\overline{b}\)</span> is the mean over the components in <span class="math notranslate nohighlight">\(\underline{b}\)</span>.</p>
+<p>The corresponding distance measure is:</p>
+<div class="math notranslate nohighlight">
+\[
+d_P(\underline{a},\underline{b})= 1-s_P(\underline{a},\underline{b}).
+\]</div>
+<p>There exists much more distance- and similarity-measures, see e.g. <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.distance.html">scipy.spatial.distance</a> or <a class="reference external" href="https://towardsdatascience.com/9-distance-measures-in-data-science-918109d069fa">Distance Measures in Data Science</a>.</p>
 </div>
 <div class="section" id="bow-drawbacks">
 <span id="bowdrawbacks"></span><h3><span class="section-number">5.1.5. </span>BoW Drawbacks<a class="headerlink" href="#bow-drawbacks" title="Permalink to this headline">¶</a></h3>
