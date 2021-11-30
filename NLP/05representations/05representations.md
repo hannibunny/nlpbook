@@ -1,15 +1,3 @@
-# Vector Representations of Words and Documents
-
-As described in the {doc}`../intro`, many NLP tasks can either be solved in a rule-based or in a data-based approach. Data-based approaches increasingly yield better results than rule-based approaches. At the heart of data-based approaches is a Machine Learning algorithm, which learns a model from available training data. This model can then be applied e.g. for Document Classification, Sentiment Analysis, Named-Entity-Recognition, Intent-Recognition, Automatic translation and many other NLP tasks.
-
-All ML-algorithms require a numeric representation at their input, usually a fixed-length numeric vector. In the context of NLP the input is usually text. The crucial question is then:
-
-```{admonition} Question:
-How to represent texts, i.e. sequences of words, punctuation marks..., as a numeric vector of constant length?
-```
-
-In this section first the general notion of **Vector Space Model** is introduced. Then the most common type of vector space model for text, the so called **Bag-Of-Word (PoW)** model is described. In the extreme case of single-word-texts the BoW melts down to the **One-Hot-Encoding** of words. The pros and cons of these conventional representations are discussed. Another method to represent words as numerical vectors is constituted by **Distributional Semantic Models (DSMs)**. The currently very popular **Word Embeddings** belong to the class of DSMs. **Word Embeddings** are numerical word representations, which are learned by *Neural Networks*. Even though they have been considered before, the 2013 milestone paper {cite}`NIPS2013_5021` introduced two very efficient methods to learn meaningful Word Embeddings. Since then Word Embeddings have revolutionized NLP.
-
 ## Vector Space Model
 
 Vector Space Models map arbitrary inputs to numeric vectors of fixed length. For a given task, you are free to define a set of $N$ relevant features, which can be extracted from the input. Each of the $N$-feature extraction functions returns how often the corresponding feature appears in the input. Each component of the vector-representation belongs to one feature and the value at this component is the count of this feature in the input.
@@ -59,7 +47,7 @@ In this example the words in the matrix have been alphabetically ordered. This i
 
 ### Bag-of-Word Variants
 
-The entries of the BoW-matrix, as introduced above, are the **term-frequencies**. I.e. the entry in row $i$, column $j$, $tf(i,j)$ determines how often the term (word) of column $j$, appears in document $j$. 
+The entries of the BoW-matrix, as introduced above, are the **term-frequencies**. I.e. the entry in row $i$, column $j$, $tf(i,j)$ determines how often the term (word) of column $j$, appears in document $i$. 
 
 Another option is the **binary BoW**. Here, the binary entry in row $i$, column $j$ just indicates if term $j$ appears in document $i$. The entry has value 1 if the term appears at least once, otherwise it is 0.
 
@@ -189,12 +177,17 @@ The solution to this problem is
 * either normalize all vectors - document vectors and query-vector - to unique length,
 * or apply another distance measure
 
-The standard similarity-measure for BoW vectors is the **Cosine Similarity**, which is calculated as defined in the table below. The table also contains the definition of the corresponding distance-measure. Moreover, a bunch of other distance- and similarity measures, which are frequently applied in NLP tasks, are listed in the table.  
+The standard similarity-measure for BoW vectors is the **Cosine Similarity** $s_C(\underline{a},\underline{b})$, which is calculated as follows:
 
+$$
+s_C(\underline{a},\underline{b})=\frac{\underline{a} \cdot \underline{b}^T}{\left| \left| \underline{a} \right| \right| \ \cdot \ \left| \left| \underline{b} \right| \right|} 
+$$
 
-<figure align="center">
-<img width="700" src="https://maucher.home.hdm-stuttgart.de/Pics/distanceMeasures.png">
-</figure> 
+From the cosine-similarity measure the cosine-distance can be calculated as follows:
+
+$$
+d_C(\underline{a},\underline{b})= 1-s_C(\underline{a},\underline{b}).
+$$
 
 
 For the query-example above, the Cosine-Similarities are:
@@ -217,7 +210,37 @@ $$
 s_C(\underline{q},\underline{d}_3)=\frac{0 \cdot 1 + 0 \cdot 1 + 1 \cdot 0 + 1 \cdot 0}{\sqrt{2} \cdot \sqrt{2}} = \frac{0}{2} = 0
 $$
 
-These calculated similarities match our subjective expectation: The similarity between document 3 and query q is 0 (the lowest possible value), since they have no word in common. The similarity between document 2 and the query q is close to the maximum similarity-value of 1, since both query-words appear with a high frequency in this document.
+These calculated similarities match our subjective expectation: The similarity between document 3 and query $q$ is 0 (the lowest possible value), since they have no word in common. The similarity between document 2 and the query q is close to the maximum similarity-value of 1, since both query-words appear with a high frequency in this document.
+
+Another similarity measure is the **Pearson Correlation** $s_P(\underline{a},\underline{b})$. The Pearson correlation coefficient measures linearity, i.e. its maximum value of $s_P(\underline{a},\underline{b})=1$ is obtained, if there is a linear correlation between the two vectors. Pearson correlation is calculated as follows:
+
+$$
+s_P(\underline{a},\underline{b})=\frac{\underline{a}_d \cdot \underline{b}_d^T}{\left| \left| \underline{a}_d \right| \right| \ \cdot \ \left| \left| \underline{b}_d \right| \right|},  
+$$   
+
+where
+
+$$
+\underline{a}_d=(a_1-\overline{a}, \ a_2-\overline{a}, \ldots , a_n-\overline{a})
+$$
+
+and 
+
+$$
+\underline{b}_d=(b_1-\overline{b}, \ b_2-\overline{b}, \ldots , b_n-\overline{b})
+$$
+
+and 
+
+$\overline{a}$ is the mean over the components in $\underline{a}$ and $\overline{b}$ is the mean over the components in $\underline{b}$. 
+
+The corresponding distance measure is:
+
+$$
+d_P(\underline{a},\underline{b})= 1-s_P(\underline{a},\underline{b}).
+$$
+
+There exists much more distance- and similarity-measures, see e.g. [scipy.spatial.distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html#) or [Distance Measures in Data Science](https://towardsdatascience.com/9-distance-measures-in-data-science-918109d069fa).
 
 (bowdrawbacks)=
 ### BoW Drawbacks
@@ -228,7 +251,10 @@ BoW representation of documents and the One-Hot-Encoding of single words, as des
 2. Semantic relations between words are not modelled. This means that in this model there is no information about the fact that word *car* is more related to word *vehicle* than to word *lake*. 
 3. In the BoW-model of documents word order is totally ignored. E.g. the model can not distinguish if word *not* appeared immediately before word *good* or before word *bad*.  
 
-All of these drawbacks can be solved by applying *Distributional Semantic models* to map words into numeric vectors and by the way the resulting *Word Empeddings* are passed e.g. to the input of Recurrent Neural Networks, Convolutional Neural Networks or Transformers (see later chapters of this lecture). 
+All of these drawbacks can be solved by
+* applying *Distributional Semantic Models* for caluclating better vector-representations of words
+* pass these vector-representations of words to the input of neural network architectures such as Recurrent Neural Networks (RNNs), Convolutional Neural Networks (CNNs) or Transformers (see later chapters of this lecture).
+
 
 (dsm-label)=
 ## Distributional Semantic Models
@@ -238,12 +264,12 @@ The linguistic theory of distributional semantics is based on the hypothesis, th
 *You shall know a word by the company it keeps*
 
 
-Since computers can easily determine the co-occurrence statistics of words in large corpora the theory of distributional semantics provides a promising opportunity to automatically learn semantic relations. The learned semantic representations are called **Distributional Semantic models (DSM)**. **They represent each word as a numerical vector, such that words, which appear frequently in similar contexts, are represented by similar vectors.** In the figure below the arrow represents the DSM. Since there are many different DSMs there a many different approaches to implement this transformation from the hypothesis of distributional semantics to the word space. 
+Since computers can easily determine the co-occurrence statistics of words in large corpora the theory of distributional semantics provides a promising opportunity to automatically learn semantic relations. The learned semantic representations are called **Distributional Semantic Models (DSM)**. **They represent each word as a numerical vector, such that words, which appear frequently in similar contexts, are represented by similar vectors.** In the figure below the arrow represents the DSM. Since there are many different DSMs there are many different approaches to implement this transformation from the hypothesis of distributional semantics to the word-vector-space. 
 
 
 <figure align="center">
 <img width="500" src="https://maucher.home.hdm-stuttgart.de/Pics/semanticsInWordSpace.png">
-<figcaption>Mapping the hypothesis of distributional semantics to a word space</figcaption>
+<figcaption>Mapping the hypothesis of distributional semantics to a word-vector-space</figcaption>
 </figure>
 
 
@@ -252,7 +278,7 @@ The field of DSMs can be categorized into the classes **count-based models** and
 
 ### Count-based DSM
 
-DSMs map words to numeric vectors, such that semantically related words, i.e. words which appear frequently in a similar context, have similar numeric vectors. The first question which arises from this definition is *What is context?* In all DSMs, introduced in this lecture, the context of a target word $w$ is considered to be the sequence of $L$ previous and $L$ following words, where the *context-length* $L$ is a parameter.
+**DSMs map words to numeric vectors, such that semantically related words, i.e. words which appear frequently in a similar context, have similar numeric vectors.** The first question which arises from this definition is *What is context?* In all DSMs, introduced in this lecture, the context of a target word $w$ is considered to be the sequence of $L$ previous and $L$ following words, where the *context-length* $L$ is a parameter.
 
 I.e. in the word-sequence
 
@@ -286,7 +312,7 @@ In order to determine this matrix a large corpus of contigous text is required. 
 
 Assume that the (unrealistically small) corpus is 
 
-K = [The dusty road ends nowhere. The dusty track ends there.*
+K = *The dusty road ends nowhere. The dusty track ends there.*
 
 For a (unrealistically small) context length of $L=2$ the word-co-occurence matrix is:
 
@@ -333,9 +359,9 @@ Count-based DSMs differ in the following parameters:
     preprocessing techniques yield different word-context matrices.
 
 -   **Weighting Scheme:** The entries $w_{ij}$ in the word-context
-    matrix somehow measure the association between word $i$ and context
-    $j$. In the most simple case $w_{ij}$ is just the frequency of
-    context $j$ in the context of word $i$. However, many different
+    matrix somehow measure the association between target-word $i$ and context-word
+    $j$. In the most simple case $w_{ij}$ is just the frequency of word
+    $j$ in the context of word $i$. However, many different
     alternatives for defining the entries in the *word-co-occuruence-matrix* exist. For example
 	
 	* the **conditional probability** $P(c_j|w_i)$, which is determined by

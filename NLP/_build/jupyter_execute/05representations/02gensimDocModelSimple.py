@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Document models and similarity
+# # Implementation of BoWs
 # 
 # - Author:      Johannes Maucher
 # - Last update: 05.11.2020

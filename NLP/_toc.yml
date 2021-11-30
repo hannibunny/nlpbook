@@ -21,9 +21,11 @@ sections:
   - file: 03postagging/01tagsetsAndAlgorithms
   - file: 03postagging/02PosTagging.ipynb
 - file: 04ngram/04ngram
-- file: 05representations/05representations
-- file: 05representations/01WordEmbeddingImplementation.ipynb
-- file: 05representations/02gensimDocModelSimple.ipynb
+- file: 05representations/05representationsintro
+  sections:
+  - file: 05representations/05representations
+  - file: 05representations/02gensimDocModelSimple.ipynb
+  - file: 05representations/01WordEmbeddingImplementation.ipynb
 - file: 05representations/05topicextraction
   sections:
   - file: 05representations/05lsi

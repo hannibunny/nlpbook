@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5. Vector Representations of Words and Documents &#8212; Natural Language Processing Lecture</title>
+    <title>5.1. Vector Space Model &#8212; Natural Language Processing Lecture</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Applying Word-Embeddings" href="01WordEmbeddingImplementation.html" />
-    <link rel="prev" title="4. N-Gram Language Model" href="../04ngram/04ngram.html" />
+    <link rel="next" title="5.3. Applying Word-Embeddings" href="01WordEmbeddingImplementation.html" />
+    <link rel="prev" title="5. Vector Representations of Words and Documents" href="05representationsintro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -188,46 +188,36 @@
    4. N-Gram Language Model
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="05representationsintro.html">
    5. Vector Representations of Words and Documents
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01WordEmbeddingImplementation.html">
-   6. Applying Word-Embeddings
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="02gensimDocModelSimple.html">
-   7. Document models and similarity
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="05topicextraction.html">
-   8. Topic Extraction
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05lsi.html">
-     8.1. Latent Semantic Indexing (LSI)
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     5.1. Vector Space Model
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02LatentSemanticIndexing.html">
-     8.2. Implementation of Topic Extraction and Document Clustering
+    <a class="reference internal" href="01WordEmbeddingImplementation.html">
+     5.3. Applying Word-Embeddings
     </a>
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02gensimDocModelSimple.html">
+   6. Document models and similarity
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../06classification/06classification.html">
-   9. Text Classification
+  <a class="reference internal" href="05topicextraction.html">
+   7. Topic Extraction
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -236,25 +226,20 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06classification/06classificationMetrics.html">
-     9.1. Validation of Classifiers
+    <a class="reference internal" href="05lsi.html">
+     7.1. Latent Semantic Indexing (LSI)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06classification/07classificationNaiveBayes.html">
-     9.2. Naive Bayes Text Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../06classification/FakeNewsClassification.html">
-     9.3. Text Classification Application: Fake News detection
+    <a class="reference internal" href="02LatentSemanticIndexing.html">
+     7.2. Implementation of Topic Extraction and Document Clustering
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../07neuralnetworks/07neuralnetworks.html">
-   10. Neural Networks
+  <a class="reference internal" href="../06classification/06classification.html">
+   8. Text Classification
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -263,35 +248,62 @@
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../06classification/06classificationMetrics.html">
+     8.1. Validation of Classifiers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06classification/07classificationNaiveBayes.html">
+     8.2. Naive Bayes Text Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06classification/FakeNewsClassification.html">
+     8.3. Text Classification Application: Fake News detection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../07neuralnetworks/07neuralnetworks.html">
+   9. Neural Networks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/01NeuralNets.html">
-     10.1. Neural Networks Introduction
+     9.1. Neural Networks Introduction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/02RecurrentNeuralNetworks.html">
-     10.2. Recurrent Neural Networks
+     9.2. Recurrent Neural Networks
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/03ConvolutionNeuralNetworks.html">
-     10.3. Convolutional Neural Networks
+     9.3. Convolutional Neural Networks
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/04CNN.html">
-     10.4. CNN, LSTM and Attention for IMDB Movie Review classification
+     9.4. CNN, LSTM and Attention for IMDB Movie Review classification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/attention.html">
-     10.5. Sequence-To-Sequence, Attention, Transformer
+     9.5. Sequence-To-Sequence, Attention, Transformer
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../referenceSection.html">
-   11. References
+   10. References
   </a>
  </li>
 </ul>
@@ -365,83 +377,83 @@
             </div>
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vector-space-model">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
    5.1. Vector Space Model
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bag-of-word-model">
      5.1.1. Bag-of-Word Model
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bag-of-word-variants">
      5.1.2. Bag-of-Word Variants
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#one-hot-encoding-of-words">
      5.1.3. One-Hot-Encoding of Words
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bow-based-document-similarity">
      5.1.4. BoW-based document similarity
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bow-drawbacks">
      5.1.5. BoW Drawbacks
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#distributional-semantic-models">
    5.2. Distributional Semantic Models
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#count-based-dsm">
      5.2.1. Count-based DSM
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#variants-of-count-based-dsms">
        5.2.1.1. Variants of count-based DSMs
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#prediction-based-dsm">
      5.2.2. Prediction-based DSM
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#continous-bag-of-words-cbow">
        5.2.2.1. Continous Bag-Of-Words (CBOW)
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#skip-gram">
        5.2.2.2. Skip-Gram
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#glove">
        5.2.2.3. GloVe
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#fasttext">
        5.2.2.4. FastText
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dsm-downstream-tasks">
      5.2.3. DSM Downstream tasks
     </a>
@@ -459,17 +471,8 @@
         
               <div>
                 
-  <div class="section" id="vector-representations-of-words-and-documents">
-<h1><span class="section-number">5. </span>Vector Representations of Words and Documents<a class="headerlink" href="#vector-representations-of-words-and-documents" title="Permalink to this headline">¶</a></h1>
-<p>As described in the <a class="reference internal" href="../intro.html"><span class="doc">Introduction</span></a>, many NLP tasks can either be solved in a rule-based or in a data-based approach. Data-based approaches increasingly yield better results than rule-based approaches. At the heart of data-based approaches is a Machine Learning algorithm, which learns a model from available training data. This model can then be applied e.g. for Document Classification, Sentiment Analysis, Named-Entity-Recognition, Intent-Recognition, Automatic translation and many other NLP tasks.</p>
-<p>All ML-algorithms require a numeric representation at their input, usually a fixed-length numeric vector. In the context of NLP the input is usually text. The crucial question is then:</p>
-<div class="admonition-question admonition">
-<p class="admonition-title">Question:</p>
-<p>How to represent texts, i.e. sequences of words, punctuation marks…, as a numeric vector of constant length?</p>
-</div>
-<p>In this section first the general notion of <strong>Vector Space Model</strong> is introduced. Then the most common type of vector space model for text, the so called <strong>Bag-Of-Word (PoW)</strong> model is described. In the extreme case of single-word-texts the BoW melts down to the <strong>One-Hot-Encoding</strong> of words. The pros and cons of these conventional representations are discussed. Another method to represent words as numerical vectors is constituted by <strong>Distributional Semantic Models (DSMs)</strong>. The currently very popular <strong>Word Embeddings</strong> belong to the class of DSMs. <strong>Word Embeddings</strong> are numerical word representations, which are learned by <em>Neural Networks</em>. Even though they have been considered before, the 2013 milestone paper <span id="id1">[<a class="reference internal" href="../referenceSection.html#id6">MSC+13</a>]</span> introduced two very efficient methods to learn meaningful Word Embeddings. Since then Word Embeddings have revolutionized NLP.</p>
-<div class="section" id="vector-space-model">
-<h2><span class="section-number">5.1. </span>Vector Space Model<a class="headerlink" href="#vector-space-model" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="vector-space-model">
+<h1><span class="section-number">5.1. </span>Vector Space Model<a class="headerlink" href="#vector-space-model" title="Permalink to this headline">¶</a></h1>
 <p>Vector Space Models map arbitrary inputs to numeric vectors of fixed length. For a given task, you are free to define a set of <span class="math notranslate nohighlight">\(N\)</span> relevant features, which can be extracted from the input. Each of the <span class="math notranslate nohighlight">\(N\)</span>-feature extraction functions returns how often the corresponding feature appears in the input. Each component of the vector-representation belongs to one feature and the value at this component is the count of this feature in the input.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Example: Vector Space Model in General</p>
@@ -488,7 +491,7 @@
 \]</div>
 </div>
 <div class="section" id="bag-of-word-model">
-<h3><span class="section-number">5.1.1. </span>Bag-of-Word Model<a class="headerlink" href="#bag-of-word-model" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">5.1.1. </span>Bag-of-Word Model<a class="headerlink" href="#bag-of-word-model" title="Permalink to this headline">¶</a></h2>
 <p>In the general case the vector space model implies a vector, whose components are the frequencies of pre-defined features in the given input. In the special case of text (=documents), a vector space model is applied, where the features are defined to be all words of the vocabulary <span class="math notranslate nohighlight">\(V\)</span>. I.e. each component in the resulting vector corresponds to a word <span class="math notranslate nohighlight">\(w \in V\)</span> and the value of the component is the frequency of this word in the given document. This vector space model for texts is the so called <strong>Bag of Words (BoW)</strong> model and the frequency of a word in a given document is denoted <strong>term-frequency</strong>. Accordingly a set of documents is modelled by a <strong>Bag of Words matrix</strong>, whose rows belong to documents and whose columns belong to words.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Example: Bag of Word matrix</p>
@@ -541,8 +544,8 @@
 </div>
 </div>
 <div class="section" id="bag-of-word-variants">
-<h3><span class="section-number">5.1.2. </span>Bag-of-Word Variants<a class="headerlink" href="#bag-of-word-variants" title="Permalink to this headline">¶</a></h3>
-<p>The entries of the BoW-matrix, as introduced above, are the <strong>term-frequencies</strong>. I.e. the entry in row <span class="math notranslate nohighlight">\(i\)</span>, column <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(tf(i,j)\)</span> determines how often the term (word) of column <span class="math notranslate nohighlight">\(j\)</span>, appears in document <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<h2><span class="section-number">5.1.2. </span>Bag-of-Word Variants<a class="headerlink" href="#bag-of-word-variants" title="Permalink to this headline">¶</a></h2>
+<p>The entries of the BoW-matrix, as introduced above, are the <strong>term-frequencies</strong>. I.e. the entry in row <span class="math notranslate nohighlight">\(i\)</span>, column <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(tf(i,j)\)</span> determines how often the term (word) of column <span class="math notranslate nohighlight">\(j\)</span>, appears in document <span class="math notranslate nohighlight">\(i\)</span>.</p>
 <p>Another option is the <strong>binary BoW</strong>. Here, the binary entry in row <span class="math notranslate nohighlight">\(i\)</span>, column <span class="math notranslate nohighlight">\(j\)</span> just indicates if term <span class="math notranslate nohighlight">\(j\)</span> appears in document <span class="math notranslate nohighlight">\(i\)</span>. The entry has value 1 if the term appears at least once, otherwise it is 0.</p>
 <p><strong>TF-IDF BoW:</strong> The drawback of using term-frequency <span class="math notranslate nohighlight">\(tf(i,j)\)</span> as matrix entries is that all terms are weighted similarly, in particular rare words such as words with a <strong>strong semantic focus</strong> are weighted in the same way as very frequent words, such as articles. <em>TF-IDF</em> is a weighted term frequency (TF). The weights are the <em>inverse document frequencies (IDF)</em>. Actually, there are different definitions for the calculation of TF-IDF. A common definition is</p>
 <div class="math notranslate nohighlight">
@@ -557,7 +560,7 @@
 <p>i.e. such words are disregarded in a BoW with TF-IDF entries. Otherwise, words with a very strong semantic focus usually appear in only a few documents. Then the small value of <span class="math notranslate nohighlight">\(df_j\)</span> yields a low <em>IDF</em>, i.e. the term-frequency of such a word is weighted strongly.</p>
 </div>
 <div class="section" id="one-hot-encoding-of-words">
-<h3><span class="section-number">5.1.3. </span>One-Hot-Encoding of Words<a class="headerlink" href="#one-hot-encoding-of-words" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">5.1.3. </span>One-Hot-Encoding of Words<a class="headerlink" href="#one-hot-encoding-of-words" title="Permalink to this headline">¶</a></h2>
 <p>In the extreme case of <em>documents</em>, which contain only a single word, the corresponding <em>tf</em>-based BoW-vector, has only one component of value 1 (in the column, which belongs to this word), all other entries are zero. This is actually a common conventional numeric encoding of words, the so called <em>One-Hot-Encoding</em>.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Example: One-Hot-Encoding of words</p>
@@ -686,7 +689,7 @@ V=(\mbox{all, and, at, boys, girls, home, kids, not, stay}).
 </div>
 </div>
 <div class="section" id="bow-based-document-similarity">
-<h3><span class="section-number">5.1.4. </span>BoW-based document similarity<a class="headerlink" href="#bow-based-document-similarity" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">5.1.4. </span>BoW-based document similarity<a class="headerlink" href="#bow-based-document-similarity" title="Permalink to this headline">¶</a></h2>
 <p>Numeric vector presentation of documents are not only required for Machine-Learning based NLP tasks. Another important application category is <strong>Information Retrieval (IR)</strong>. Information Retrieval deals with algorithms and models for searching information in large document collections. Web-search like <span class="xref myst">www.google.com</span> is only one example for IR. In such document-search applications the user defines a <strong>query</strong>, usually in terms of one or more words. The task of the IR system is then to</p>
 <ul class="simple">
 <li><p>return relevant documents, which match the query</p></li>
@@ -779,10 +782,16 @@ d_E(\underline{q},\underline{d}_3)=\sqrt{(0-1)^2+(0-1)^2+(1-0)^2+(1-0)^2} = \sqr
 <li><p>either normalize all vectors - document vectors and query-vector - to unique length,</p></li>
 <li><p>or apply another distance measure</p></li>
 </ul>
-<p>The standard similarity-measure for BoW vectors is the <strong>Cosine Similarity</strong>, which is calculated as defined in the table below. The table also contains the definition of the corresponding distance-measure. Moreover, a bunch of other distance- and similarity measures, which are frequently applied in NLP tasks, are listed in the table.</p>
-<figure align="center">
-<img width="700" src="https://maucher.home.hdm-stuttgart.de/Pics/distanceMeasures.png">
-</figure> 
+<p>The standard similarity-measure for BoW vectors is the <strong>Cosine Similarity</strong> <span class="math notranslate nohighlight">\(s_C(\underline{a},\underline{b})\)</span>, which is calculated as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+s_C(\underline{a},\underline{b})=\frac{\underline{a} \cdot \underline{b}^T}{\left| \left| \underline{a} \right| \right| \ \cdot \ \left| \left| \underline{b} \right| \right|} 
+\]</div>
+<p>From the cosine-similarity measure the cosine-distance can be calculated as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+d_C(\underline{a},\underline{b})= 1-s_C(\underline{a},\underline{b}).
+\]</div>
 <p>For the query-example above, the Cosine-Similarities are:</p>
 <p>Cosine Similarity between query and document 2:</p>
 <div class="math notranslate nohighlight">
@@ -799,32 +808,59 @@ s_C(\underline{q},\underline{d}_2)=\frac{4 \cdot 1 + 5 \cdot 1 + 0 \cdot 0 + 0 \
 \[
 s_C(\underline{q},\underline{d}_3)=\frac{0 \cdot 1 + 0 \cdot 1 + 1 \cdot 0 + 1 \cdot 0}{\sqrt{2} \cdot \sqrt{2}} = \frac{0}{2} = 0
 \]</div>
-<p>These calculated similarities match our subjective expectation: The similarity between document 3 and query q is 0 (the lowest possible value), since they have no word in common. The similarity between document 2 and the query q is close to the maximum similarity-value of 1, since both query-words appear with a high frequency in this document.</p>
+<p>These calculated similarities match our subjective expectation: The similarity between document 3 and query <span class="math notranslate nohighlight">\(q\)</span> is 0 (the lowest possible value), since they have no word in common. The similarity between document 2 and the query q is close to the maximum similarity-value of 1, since both query-words appear with a high frequency in this document.</p>
+<p>Another similarity measure is the <strong>Pearson Correlation</strong> <span class="math notranslate nohighlight">\(s_P(\underline{a},\underline{b})\)</span>. The Pearson correlation coefficient measures linearity, i.e. its maximum value of <span class="math notranslate nohighlight">\(s_P(\underline{a},\underline{b})=1\)</span> is obtained, if there is a linear correlation between the two vectors. Pearson correlation is calculated as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+s_P(\underline{a},\underline{b})=\frac{\underline{a}_d \cdot \underline{b}_d^T}{\left| \left| \underline{a}_d \right| \right| \ \cdot \ \left| \left| \underline{b}_d \right| \right|},  
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\underline{a}_d=(a_1-\overline{a}, \ a_2-\overline{a}, \ldots , a_n-\overline{a})
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\underline{b}_d=(b_1-\overline{b}, \ b_2-\overline{b}, \ldots , b_n-\overline{b})
+\]</div>
+<p>and</p>
+<p><span class="math notranslate nohighlight">\(\overline{a}\)</span> is the mean over the components in <span class="math notranslate nohighlight">\(\underline{a}\)</span> and <span class="math notranslate nohighlight">\(\overline{b}\)</span> is the mean over the components in <span class="math notranslate nohighlight">\(\underline{b}\)</span>.</p>
+<p>The corresponding distance measure is:</p>
+<div class="math notranslate nohighlight">
+\[
+d_P(\underline{a},\underline{b})= 1-s_P(\underline{a},\underline{b}).
+\]</div>
+<p>There exists much more distance- and similarity-measures, see e.g. <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.distance.html">scipy.spatial.distance</a> or <a class="reference external" href="https://towardsdatascience.com/9-distance-measures-in-data-science-918109d069fa">Distance Measures in Data Science</a>.</p>
 </div>
 <div class="section" id="bow-drawbacks">
-<span id="bowdrawbacks"></span><h3><span class="section-number">5.1.5. </span>BoW Drawbacks<a class="headerlink" href="#bow-drawbacks" title="Permalink to this headline">¶</a></h3>
+<span id="bowdrawbacks"></span><h2><span class="section-number">5.1.5. </span>BoW Drawbacks<a class="headerlink" href="#bow-drawbacks" title="Permalink to this headline">¶</a></h2>
 <p>BoW representation of documents and the One-Hot-Encoding of single words, as described above, are methods to map words and documents to numeric vectors, which can be applied as input for arbitrary Machine Learning algorithms. Hovever, these representations suffer from crucial drawbacks:</p>
 <ol class="simple">
 <li><p>The vectors are usually very long - there length is given by the number of words in the vocabulary. Moreover, the vectors are quite sparse, since the set of words appearing in one document is usually only a very small part of the set of all words in the vocabulary.</p></li>
 <li><p>Semantic relations between words are not modelled. This means that in this model there is no information about the fact that word <em>car</em> is more related to word <em>vehicle</em> than to word <em>lake</em>.</p></li>
 <li><p>In the BoW-model of documents word order is totally ignored. E.g. the model can not distinguish if word <em>not</em> appeared immediately before word <em>good</em> or before word <em>bad</em>.</p></li>
 </ol>
-<p>All of these drawbacks can be solved by applying <em>Distributional Semantic models</em> to map words into numeric vectors and by the way the resulting <em>Word Empeddings</em> are passed e.g. to the input of Recurrent Neural Networks, Convolutional Neural Networks or Transformers (see later chapters of this lecture).</p>
+<p>All of these drawbacks can be solved by</p>
+<ul class="simple">
+<li><p>applying <em>Distributional Semantic Models</em> for caluclating better vector-representations of words</p></li>
+<li><p>pass these vector-representations of words to the input of neural network architectures such as Recurrent Neural Networks (RNNs), Convolutional Neural Networks (CNNs) or Transformers (see later chapters of this lecture).</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="distributional-semantic-models">
-<span id="dsm-label"></span><h2><span class="section-number">5.2. </span>Distributional Semantic Models<a class="headerlink" href="#distributional-semantic-models" title="Permalink to this headline">¶</a></h2>
-<p>The linguistic theory of distributional semantics is based on the hypothesis, that words, which occur in similar contexts, have similar meaning. J.R. Firth formulated this assumption in his famous sentence <span id="id2">[<a class="reference internal" href="../referenceSection.html#id7">Fir57</a>]</span>:</p>
+<h1><span class="section-number">5.2. </span>Distributional Semantic Models<a class="headerlink" href="#distributional-semantic-models" title="Permalink to this headline">¶</a></h1>
+<p>The linguistic theory of distributional semantics is based on the hypothesis, that words, which occur in similar contexts, have similar meaning. J.R. Firth formulated this assumption in his famous sentence <span id="id1">[<a class="reference internal" href="../referenceSection.html#id7">Fir57</a>]</span>:</p>
 <p><em>You shall know a word by the company it keeps</em></p>
-<p>Since computers can easily determine the co-occurrence statistics of words in large corpora the theory of distributional semantics provides a promising opportunity to automatically learn semantic relations. The learned semantic representations are called <strong>Distributional Semantic models (DSM)</strong>. <strong>They represent each word as a numerical vector, such that words, which appear frequently in similar contexts, are represented by similar vectors.</strong> In the figure below the arrow represents the DSM. Since there are many different DSMs there a many different approaches to implement this transformation from the hypothesis of distributional semantics to the word space.</p>
+<p>Since computers can easily determine the co-occurrence statistics of words in large corpora the theory of distributional semantics provides a promising opportunity to automatically learn semantic relations. The learned semantic representations are called <strong>Distributional Semantic Models (DSM)</strong>. <strong>They represent each word as a numerical vector, such that words, which appear frequently in similar contexts, are represented by similar vectors.</strong> In the figure below the arrow represents the DSM. Since there are many different DSMs there are many different approaches to implement this transformation from the hypothesis of distributional semantics to the word-vector-space.</p>
 <figure align="center">
 <img width="500" src="https://maucher.home.hdm-stuttgart.de/Pics/semanticsInWordSpace.png">
-<figcaption>Mapping the hypothesis of distributional semantics to a word space</figcaption>
+<figcaption>Mapping the hypothesis of distributional semantics to a word-vector-space</figcaption>
 </figure>
-<p>The field of DSMs can be categorized into the classes <strong>count-based models</strong> and <strong>prediction-based models</strong>. Recently, considerable attention has been focused on the question which of these classes is superior <span id="id3">[<a class="reference internal" href="../referenceSection.html#id8">PSM14</a>]</span>.</p>
+<p>The field of DSMs can be categorized into the classes <strong>count-based models</strong> and <strong>prediction-based models</strong>. Recently, considerable attention has been focused on the question which of these classes is superior <span id="id2">[<a class="reference internal" href="../referenceSection.html#id8">PSM14</a>]</span>.</p>
 <div class="section" id="count-based-dsm">
-<h3><span class="section-number">5.2.1. </span>Count-based DSM<a class="headerlink" href="#count-based-dsm" title="Permalink to this headline">¶</a></h3>
-<p>DSMs map words to numeric vectors, such that semantically related words, i.e. words which appear frequently in a similar context, have similar numeric vectors. The first question which arises from this definition is <em>What is context?</em> In all DSMs, introduced in this lecture, the context of a target word <span class="math notranslate nohighlight">\(w\)</span> is considered to be the sequence of <span class="math notranslate nohighlight">\(L\)</span> previous and <span class="math notranslate nohighlight">\(L\)</span> following words, where the <em>context-length</em> <span class="math notranslate nohighlight">\(L\)</span> is a parameter.</p>
+<h2><span class="section-number">5.2.1. </span>Count-based DSM<a class="headerlink" href="#count-based-dsm" title="Permalink to this headline">¶</a></h2>
+<p><strong>DSMs map words to numeric vectors, such that semantically related words, i.e. words which appear frequently in a similar context, have similar numeric vectors.</strong> The first question which arises from this definition is <em>What is context?</em> In all DSMs, introduced in this lecture, the context of a target word <span class="math notranslate nohighlight">\(w\)</span> is considered to be the sequence of <span class="math notranslate nohighlight">\(L\)</span> previous and <span class="math notranslate nohighlight">\(L\)</span> following words, where the <em>context-length</em> <span class="math notranslate nohighlight">\(L\)</span> is a parameter.</p>
 <p>I.e. in the word-sequence</p>
 <div class="math notranslate nohighlight">
 \[
@@ -836,7 +872,7 @@ s_C(\underline{q},\underline{d}_3)=\frac{0 \cdot 1 + 0 \cdot 1 + 1 \cdot 0 + 1 \
 \left\{(w_i,w_{i+j})\right\}, \, j \in \{-L,\ldots,-1,1,\ldots,L\}
 \]</div>
 <p>is the corresponding <em>set of word-context-pairs</em> w.r.t. target word <span class="math notranslate nohighlight">\(w_i\)</span>.</p>
-<p>The most common numeric vector representation of count-based DSMs can be derived from the <strong>Word-Co-Occurence</strong> matrix. In this matrix each row belongs to a target-word and each column belongs to a context word. Hence, the matrix has usually <span class="math notranslate nohighlight">\(\mid V \mid\)</span> rows and the same amount of columns<a class="footnote-reference brackets" href="#f1" id="id4">1</a>. In this matrix the entry in row <span class="math notranslate nohighlight">\(i\)</span>, column <span class="math notranslate nohighlight">\(j\)</span> is the number of times context word <span class="math notranslate nohighlight">\(c_j\)</span> appears in the context of target word <span class="math notranslate nohighlight">\(w_i\)</span>. This frequency is denoted by <span class="math notranslate nohighlight">\(\#(w_i,c_j)\)</span>. The structure of such a word-co-occurence matrix is given below:</p>
+<p>The most common numeric vector representation of count-based DSMs can be derived from the <strong>Word-Co-Occurence</strong> matrix. In this matrix each row belongs to a target-word and each column belongs to a context word. Hence, the matrix has usually <span class="math notranslate nohighlight">\(\mid V \mid\)</span> rows and the same amount of columns<a class="footnote-reference brackets" href="#f1" id="id3">1</a>. In this matrix the entry in row <span class="math notranslate nohighlight">\(i\)</span>, column <span class="math notranslate nohighlight">\(j\)</span> is the number of times context word <span class="math notranslate nohighlight">\(c_j\)</span> appears in the context of target word <span class="math notranslate nohighlight">\(w_i\)</span>. This frequency is denoted by <span class="math notranslate nohighlight">\(\#(w_i,c_j)\)</span>. The structure of such a word-co-occurence matrix is given below:</p>
 <figure align="center">
 <img width="600" src="https://maucher.home.hdm-stuttgart.de/Pics/cooccurenceMatrix.png">
 <figcaption>Word-Cooccurence-Matrix</figcaption>
@@ -845,7 +881,7 @@ s_C(\underline{q},\underline{d}_3)=\frac{0 \cdot 1 + 0 \cdot 1 + 1 \cdot 0 + 1 \
 <div class="dropdown admonition">
 <p class="admonition-title">Example: Word-Co-Occurence Matrix</p>
 <p>Assume that the (unrealistically small) corpus is</p>
-<p>K = [The dusty road ends nowhere. The dusty track ends there.*</p>
+<p>K = <em>The dusty road ends nowhere. The dusty track ends there.</em></p>
 <p>For a (unrealistically small) context length of <span class="math notranslate nohighlight">\(L=2\)</span> the word-co-occurence matrix is:</p>
 <figure align="center">
 <img width="600" src="https://maucher.home.hdm-stuttgart.de/Pics/cooccurenceMatrixExample.png">
@@ -865,7 +901,7 @@ s_C(\underline{q},\underline{d}_3)=\frac{0 \cdot 1 + 0 \cdot 1 + 1 \cdot 0 + 1 \
 </div>
 <p>With respect to the drawbacks of BoW-vectors as mentioned in subsection <a class="reference internal" href="#bowdrawbacks"><span class="std std-ref">BoW Drawbacks</span></a>, the count-based DSM-vectors provide the important advantage of modelling semantic relations between words: Pairs of semantically related words are closer to each other, than unrelated words. However, the count-based DSM vectors, as introduced so far, still suffer from the drawback of <em>long and sparse vectors</em>. This drawback can be eliminated by applying a <strong>dimensionality reduction</strong> such as <em>Principal Component Analysis (PCA)</em> or <em>Singular Value Decomposition (SVD)</em>, which are introduced later on in this lecture.</p>
 <div class="section" id="variants-of-count-based-dsms">
-<h4><span class="section-number">5.2.1.1. </span>Variants of count-based DSMs<a class="headerlink" href="#variants-of-count-based-dsms" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">5.2.1.1. </span>Variants of count-based DSMs<a class="headerlink" href="#variants-of-count-based-dsms" title="Permalink to this headline">¶</a></h3>
 <p>Count-based DSMs differ in the following parameters:</p>
 <ul>
 <li><p><strong>Context-Modelling:</strong> In any case the rows in the word-context
@@ -881,9 +917,9 @@ stop-word-filtering, high-frequency cut-off, normalisation,
 lemmatization can be applied to the given corpus. Different
 preprocessing techniques yield different word-context matrices.</p></li>
 <li><p><strong>Weighting Scheme:</strong> The entries <span class="math notranslate nohighlight">\(w_{ij}\)</span> in the word-context
-matrix somehow measure the association between word <span class="math notranslate nohighlight">\(i\)</span> and context
-<span class="math notranslate nohighlight">\(j\)</span>. In the most simple case <span class="math notranslate nohighlight">\(w_{ij}\)</span> is just the frequency of
-context <span class="math notranslate nohighlight">\(j\)</span> in the context of word <span class="math notranslate nohighlight">\(i\)</span>. However, many different
+matrix somehow measure the association between target-word <span class="math notranslate nohighlight">\(i\)</span> and context-word
+<span class="math notranslate nohighlight">\(j\)</span>. In the most simple case <span class="math notranslate nohighlight">\(w_{ij}\)</span> is just the frequency of word
+<span class="math notranslate nohighlight">\(j\)</span> in the context of word <span class="math notranslate nohighlight">\(i\)</span>. However, many different
 alternatives for defining the entries in the <em>word-co-occuruence-matrix</em> exist. For example</p>
 <ul class="simple">
 <li><p>the <strong>conditional probability</strong> <span class="math notranslate nohighlight">\(P(c_j|w_i)\)</span>, which is determined by</p></li>
@@ -926,10 +962,10 @@ similarity measure.</p></li>
 </div>
 </div>
 <div class="section" id="prediction-based-dsm">
-<h3><span class="section-number">5.2.2. </span>Prediction-based DSM<a class="headerlink" href="#prediction-based-dsm" title="Permalink to this headline">¶</a></h3>
-<p>In 2013 Mikolov et al. published their milestone-paper <em>Efficient Estimation of Word Representations in Vector Space</em> <span id="id5">[<a class="reference internal" href="../referenceSection.html#id6">MSC+13</a>]</span>. They proposed quite simple neural network architectures to efficiently create DSM word-embeddings: CBOW and Skipgram. These architectures are better known as <strong>Word2Vec</strong>. In both techniques neural networks are trained for a pseudo-task. After training, the network itself is usually not of interest. However, the learned weights in the input-layer constitute the word-embeddings, which can then be applied for a large field of NLP-tasks, e.g. document classification.</p>
+<h2><span class="section-number">5.2.2. </span>Prediction-based DSM<a class="headerlink" href="#prediction-based-dsm" title="Permalink to this headline">¶</a></h2>
+<p>In 2013 Mikolov et al. published their milestone-paper <em>Efficient Estimation of Word Representations in Vector Space</em> <span id="id4">[<a class="reference internal" href="../referenceSection.html#id6">MSC+13</a>]</span>. They proposed quite simple neural network architectures to efficiently create DSM word-embeddings: CBOW and Skipgram. These architectures are better known as <strong>Word2Vec</strong>. In both techniques neural networks are trained for a pseudo-task. After training, the network itself is usually not of interest. However, the learned weights in the input-layer constitute the word-embeddings, which can then be applied for a large field of NLP-tasks, e.g. document classification.</p>
 <div class="section" id="continous-bag-of-words-cbow">
-<h4><span class="section-number">5.2.2.1. </span>Continous Bag-Of-Words (CBOW)<a class="headerlink" href="#continous-bag-of-words-cbow" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">5.2.2.1. </span>Continous Bag-Of-Words (CBOW)<a class="headerlink" href="#continous-bag-of-words-cbow" title="Permalink to this headline">¶</a></h3>
 <p>The idea of CBOW is to predict the target word <span class="math notranslate nohighlight">\(w_i\)</span>, given the <span class="math notranslate nohighlight">\(N\)</span> context-words <span class="math notranslate nohighlight">\(w_{i-N/2},\ldots, w_{i-1}, \quad w_{i+1}, w_{i+N/2}\)</span>.
 In order to learn such a predictor a large but unlabeled corpus is required. The extraction of training-samples from a corpus is sketched in the picture below:</p>
 <figure align="center">
@@ -949,7 +985,7 @@ In order to learn such a predictor a large but unlabeled corpus is required. The
 <p>After training the CBOW-network the vector representation of word <span class="math notranslate nohighlight">\(w\)</span> are the weights from the one-hot encoded word <span class="math notranslate nohighlight">\(w\)</span> at the input of the network to the neurons in the projection-layer. I.e. the number of neurons in the projection layer define the length of the word-embedding.</p>
 </div>
 <div class="section" id="skip-gram">
-<h4><span class="section-number">5.2.2.2. </span>Skip-Gram<a class="headerlink" href="#skip-gram" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">5.2.2.2. </span>Skip-Gram<a class="headerlink" href="#skip-gram" title="Permalink to this headline">¶</a></h3>
 <p>Skip-Gram is similar to CBOW, but has a reversed prediction process: For a given target word at the input, the Skip-Gram model predicts words, which are likely in the context of this target word. Again, the context is defined by the <span class="math notranslate nohighlight">\(N\)</span> neighbouring words. The extraction of training-samples from a corpus is sketched in the picture below:</p>
 <figure align="center">
 <img width="600" src="https://maucher.home.hdm-stuttgart.de/Pics/skipGramTrainSamples.png">
@@ -967,13 +1003,13 @@ In order to learn such a predictor a large but unlabeled corpus is required. The
 </figure>
 </div>
 <div class="section" id="glove">
-<h4><span class="section-number">5.2.2.3. </span>GloVe<a class="headerlink" href="#glove" title="Permalink to this headline">¶</a></h4>
-<p>In light of the two different approaches of DSMs, count-based and prediction-based models, Pennington et al developed in <span id="id6">[<a class="reference internal" href="../referenceSection.html#id8">PSM14</a>]</span> an approach called <em>Global Vectors</em>, which claims to combine the advantages of both DSM types. The advantage of count-based models is that they capture global co-occurrence statistics. Prediction based models do not operate on the global co-occurence statistics, but scan context windows across the entire corpus. On the other hand prediction-based models demonstrated in many evaluations that they are capable to learn linguistic patterns as linear relationships between the word vectors, indicating a vector space structure, which reflects linguistic semantics.</p>
-<p>GloVe integrates the advantages of both approaches by minimizing a loss function, which is a weighted least-square function, that contains the difference between the scalar-product of a word vector <span class="math notranslate nohighlight">\(w_i\)</span> and a context vector <span class="math notranslate nohighlight">\(\tilde{w}_j\)</span> and the logarithm of the word-cooccruence-matrix-entry <span class="math notranslate nohighlight">\(\#(w_i,c_j)\)</span> (see <span id="id7">[<a class="reference internal" href="../referenceSection.html#id8">PSM14</a>]</span> for more details).</p>
+<h3><span class="section-number">5.2.2.3. </span>GloVe<a class="headerlink" href="#glove" title="Permalink to this headline">¶</a></h3>
+<p>In light of the two different approaches of DSMs, count-based and prediction-based models, Pennington et al developed in <span id="id5">[<a class="reference internal" href="../referenceSection.html#id8">PSM14</a>]</span> an approach called <em>Global Vectors</em>, which claims to combine the advantages of both DSM types. The advantage of count-based models is that they capture global co-occurrence statistics. Prediction based models do not operate on the global co-occurence statistics, but scan context windows across the entire corpus. On the other hand prediction-based models demonstrated in many evaluations that they are capable to learn linguistic patterns as linear relationships between the word vectors, indicating a vector space structure, which reflects linguistic semantics.</p>
+<p>GloVe integrates the advantages of both approaches by minimizing a loss function, which is a weighted least-square function, that contains the difference between the scalar-product of a word vector <span class="math notranslate nohighlight">\(w_i\)</span> and a context vector <span class="math notranslate nohighlight">\(\tilde{w}_j\)</span> and the logarithm of the word-cooccruence-matrix-entry <span class="math notranslate nohighlight">\(\#(w_i,c_j)\)</span> (see <span id="id6">[<a class="reference internal" href="../referenceSection.html#id8">PSM14</a>]</span> for more details).</p>
 </div>
 <div class="section" id="fasttext">
-<h4><span class="section-number">5.2.2.4. </span>FastText<a class="headerlink" href="#fasttext" title="Permalink to this headline">¶</a></h4>
-<p>Another word embedding model is <strong>fastText</strong> from Facebook, which was introduced in 2017 <span id="id8">[<a class="reference internal" href="../referenceSection.html#id9">BGJM16</a>]</span> <a class="footnote-reference brackets" href="#f2" id="id9">2</a>. fastText is based on the Skipgram architecture, but instead using at the input the words itself, it applies character-sequences of length <span class="math notranslate nohighlight">\(n\)</span> (n-grams on character-level). For example for $n=3, the word <em>fastText</em> would be presented as the following set of character-level 3-grams:</p>
+<h3><span class="section-number">5.2.2.4. </span>FastText<a class="headerlink" href="#fasttext" title="Permalink to this headline">¶</a></h3>
+<p>Another word embedding model is <strong>fastText</strong> from Facebook, which was introduced in 2017 <span id="id7">[<a class="reference internal" href="../referenceSection.html#id9">BGJM16</a>]</span> <a class="footnote-reference brackets" href="#f2" id="id8">2</a>. fastText is based on the Skipgram architecture, but instead using at the input the words itself, it applies character-sequences of length <span class="math notranslate nohighlight">\(n\)</span> (n-grams on character-level). For example for $n=3, the word <em>fastText</em> would be presented as the following set of character-level 3-grams:</p>
 <div class="math notranslate nohighlight">
 \[
 fas, ast, stT, tTe, Tex, ext 
@@ -987,24 +1023,24 @@ fas, ast, stT, tTe, Tex, ext
 </div>
 </div>
 <div class="section" id="dsm-downstream-tasks">
-<h3><span class="section-number">5.2.3. </span>DSM Downstream tasks<a class="headerlink" href="#dsm-downstream-tasks" title="Permalink to this headline">¶</a></h3>
-<p>By applying DSM one can reliably determine for a given query word a set of semantically or syntactically related word by nearest-neighbour search in a vector space. In the picture below (Source: <span id="id10">[<a class="reference internal" href="../referenceSection.html#id11">CWB+11</a>]</span>) for some query words (in the topmost row of the table), the words, whose vectors are closest to the vector of the query-word are listed. For example, the word-vectors, which are closest to the vector of <em>France</em> are: <em>Austria, Belgium, Germany, …</em></p>
+<h2><span class="section-number">5.2.3. </span>DSM Downstream tasks<a class="headerlink" href="#dsm-downstream-tasks" title="Permalink to this headline">¶</a></h2>
+<p>By applying DSM one can reliably determine for a given query word a set of semantically or syntactically related word by nearest-neighbour search in a vector space. In the picture below (Source: <span id="id9">[<a class="reference internal" href="../referenceSection.html#id11">CWB+11</a>]</span>) for some query words (in the topmost row of the table), the words, whose vectors are closest to the vector of the query-word are listed. For example, the word-vectors, which are closest to the vector of <em>France</em> are: <em>Austria, Belgium, Germany, …</em></p>
 <figure align="center">
 <img width="600" src="https://maucher.home.hdm-stuttgart.de/Pics/wordNeighbours.PNG">
 <figcaption>Each column contains the nearest neighbours of the topmos word of the column</figcaption>
 </figure>
-<p>Moreover, as shown in the picture below (Source: <span id="id11">[<a class="reference internal" href="../referenceSection.html#id6">MSC+13</a>]</span>), also semantic relations between pairs of words can be determined, by subtracting one vector from the other. For example subtracting the vector for <em>man</em> from the vector of <em>woman</em> is another vector, which represents the <strong>female-male-relation</strong>. Adding this vector to the vector of <em>king</em> results in the vector of <em>queen</em>. Hence word embeddings can solve questions like <em>men ist to woman as queen is to?</em> <a class="footnote-reference brackets" href="#f3" id="id12">3</a>.</p>
+<p>Moreover, as shown in the picture below (Source: <span id="id10">[<a class="reference internal" href="../referenceSection.html#id6">MSC+13</a>]</span>), also semantic relations between pairs of words can be determined, by subtracting one vector from the other. For example subtracting the vector for <em>man</em> from the vector of <em>woman</em> is another vector, which represents the <strong>female-male-relation</strong>. Adding this vector to the vector of <em>king</em> results in the vector of <em>queen</em>. Hence word embeddings can solve questions like <em>men ist to woman as queen is to?</em> <a class="footnote-reference brackets" href="#f3" id="id11">3</a>.</p>
 <figure align="center">
 <img width="600" src="https://maucher.home.hdm-stuttgart.de/Pics/wordRelations.PNG">
 <figcaption>Prediction-based DSM are also able to model relations.</figcaption>
 </figure>
-<p>The ability to model semantic similarity and semantic relations has made Word-Embedings an essential building block for many NLP applications (<em>downstream tasks</em>) <span id="id13">[<a class="reference internal" href="../referenceSection.html#id10">Bak18</a>]</span>, e.g.</p>
+<p>The ability to model semantic similarity and semantic relations has made Word-Embedings an essential building block for many NLP applications (<em>downstream tasks</em>) <span id="id12">[<a class="reference internal" href="../referenceSection.html#id10">Bak18</a>]</span>, e.g.</p>
 <ul class="simple">
 <li><p>Noun Phrase Chunking</p></li>
 <li><p>Named Entity Recognition (NER)</p></li>
 <li><p>Sentiment Analysis: Determine sentiment in sentences and text</p></li>
 <li><p>Syntax Parsing: Determine the syntax tree of a sentence</p></li>
-<li><p>Semantic Role Labeling (SRL): see e.g. <span id="id14">[<a class="reference internal" href="../referenceSection.html#id2">JM09</a>]</span> for a definition of semantic roles</p></li>
+<li><p>Semantic Role Labeling (SRL): see e.g. <span id="id13">[<a class="reference internal" href="../referenceSection.html#id2">JM09</a>]</span> for a definition of semantic roles</p></li>
 <li><p>Negation Scope Detection</p></li>
 <li><p>POS-Tagging</p></li>
 <li><p>Text Classification</p></li>
@@ -1013,20 +1049,19 @@ fas, ast, stT, tTe, Tex, ext
 <li><p>Textual Entailment Detection: Determine if some a text-part is an entailment of another</p></li>
 <li><p>Automatic Translation</p></li>
 </ul>
-<p>All in all, since their breakthrough in 2013 (<span id="id15">[<a class="reference internal" href="../referenceSection.html#id6">MSC+13</a>]</span>), prediction based Word-Embeddings have revolutionized many NLP applications.</p>
+<p>All in all, since their breakthrough in 2013 (<span id="id14">[<a class="reference internal" href="../referenceSection.html#id6">MSC+13</a>]</span>), prediction based Word-Embeddings have revolutionized many NLP applications.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
-<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
 <dd><p>One may have different vocabularies for target-words (<span class="math notranslate nohighlight">\(V_W\)</span>) and context-words (<span class="math notranslate nohighlight">\(V_C\)</span>). However, often they coincide, i.e. <span class="math notranslate nohighlight">\(V = V_W=V_C\)</span>.</p>
 </dd>
-<dt class="label" id="f2"><span class="brackets"><a class="fn-backref" href="#id9">2</a></span></dt>
+<dt class="label" id="f2"><span class="brackets"><a class="fn-backref" href="#id8">2</a></span></dt>
 <dd><p>Actually fastText has been introduced already in 2016, but not as a Word-Embedding, but as a text classifier. In 2017 it has been adapted as a word-embedding.</p>
 </dd>
-<dt class="label" id="f3"><span class="brackets"><a class="fn-backref" href="#id12">3</a></span></dt>
+<dt class="label" id="f3"><span class="brackets"><a class="fn-backref" href="#id11">3</a></span></dt>
 <dd><p>It has been shown that such <em>relations</em> can be determined by prediction-based DSMs, but not with conventional count-based DSMs.</p>
 </dd>
 </dl>
-</div>
 </div>
 </div>
 
@@ -1055,8 +1090,8 @@ fas, ast, stT, tTe, Tex, ext
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../04ngram/04ngram.html" title="previous page"><span class="section-number">4. </span>N-Gram Language Model</a>
-    <a class='right-next' id="next-link" href="01WordEmbeddingImplementation.html" title="next page"><span class="section-number">6. </span>Applying Word-Embeddings</a>
+    <a class='left-prev' id="prev-link" href="05representationsintro.html" title="previous page"><span class="section-number">5. </span>Vector Representations of Words and Documents</a>
+    <a class='right-next' id="next-link" href="01WordEmbeddingImplementation.html" title="next page"><span class="section-number">5.3. </span>Applying Word-Embeddings</a>
 
         </div>
         

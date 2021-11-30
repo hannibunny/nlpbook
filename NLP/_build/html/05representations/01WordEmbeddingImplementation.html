@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6. Applying Word-Embeddings &#8212; Natural Language Processing Lecture</title>
+    <title>5.4. Implementation of Word-Embeddings &#8212; Natural Language Processing Lecture</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Document models and similarity" href="02gensimDocModelSimple.html" />
-    <link rel="prev" title="5. Vector Representations of Words and Documents" href="05representations.html" />
+    <link rel="next" title="6. Topic Extraction" href="05topicextraction.html" />
+    <link rel="prev" title="5.3. Implementation of BoWs" href="02gensimDocModelSimple.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -188,46 +188,36 @@
    4. N-Gram Language Model
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05representations.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="05representationsintro.html">
    5. Vector Representations of Words and Documents
   </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   6. Applying Word-Embeddings
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="02gensimDocModelSimple.html">
-   7. Document models and similarity
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="05topicextraction.html">
-   8. Topic Extraction
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="05lsi.html">
-     8.1. Latent Semantic Indexing (LSI)
+    <a class="reference internal" href="05representations.html">
+     5.1. Vector Space Model
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02LatentSemanticIndexing.html">
-     8.2. Implementation of Topic Extraction and Document Clustering
+    <a class="reference internal" href="02gensimDocModelSimple.html">
+     5.3. Implementation of BoWs
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     5.4. Implementation of Word-Embeddings
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../06classification/06classification.html">
-   9. Text Classification
+  <a class="reference internal" href="05topicextraction.html">
+   6. Topic Extraction
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -236,25 +226,20 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06classification/06classificationMetrics.html">
-     9.1. Validation of Classifiers
+    <a class="reference internal" href="05lsi.html">
+     6.1. Latent Semantic Indexing (LSI)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06classification/07classificationNaiveBayes.html">
-     9.2. Naive Bayes Text Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../06classification/FakeNewsClassification.html">
-     9.3. Text Classification Application: Fake News detection
+    <a class="reference internal" href="02LatentSemanticIndexing.html">
+     6.2. Implementation of Topic Extraction and Document Clustering
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../07neuralnetworks/07neuralnetworks.html">
-   10. Neural Networks
+  <a class="reference internal" href="../06classification/06classification.html">
+   7. Text Classification
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -263,35 +248,62 @@
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../06classification/06classificationMetrics.html">
+     7.1. Validation of Classifiers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06classification/07classificationNaiveBayes.html">
+     7.2. Naive Bayes Text Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06classification/FakeNewsClassification.html">
+     7.3. Text Classification Application: Fake News detection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../07neuralnetworks/07neuralnetworks.html">
+   8. Neural Networks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/01NeuralNets.html">
-     10.1. Neural Networks Introduction
+     8.1. Neural Networks Introduction
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/02RecurrentNeuralNetworks.html">
-     10.2. Recurrent Neural Networks
+     8.2. Recurrent Neural Networks
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/03ConvolutionNeuralNetworks.html">
-     10.3. Convolutional Neural Networks
+     8.3. Convolutional Neural Networks
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/04CNN.html">
-     10.4. CNN, LSTM and Attention for IMDB Movie Review classification
+     8.4. CNN, LSTM and Attention for IMDB Movie Review classification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../07neuralnetworks/attention.html">
-     10.5. Sequence-To-Sequence, Attention, Transformer
+     8.5. Sequence-To-Sequence, Attention, Transformer
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../referenceSection.html">
-   11. References
+   9. References
   </a>
  </li>
 </ul>
@@ -384,39 +396,39 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#apply-pre-trained-word-embeddings">
-   6.1. Apply Pre-Trained Word-Embeddings
+   5.4.1. Apply Pre-Trained Word-Embeddings
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fasttext">
-     6.1.1. FastText
+     5.4.1.1. FastText
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#glove">
-     6.1.2. GloVe
+     5.4.1.2. GloVe
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualisation-of-word-vectors">
-   6.2. Visualisation of Word-Vectors
+   5.4.2. Visualisation of Word-Vectors
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#train-word-embedding">
-   6.3. Train Word Embedding
+   5.4.3. Train Word Embedding
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#download-and-extract-wikipedia-dump">
-     6.3.1. Download and Extract Wikipedia Dump
+     5.4.3.1. Download and Extract Wikipedia Dump
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#training-or-loading-of-a-cbow-model">
-     6.3.2. Training or Loading of a CBOW model
+     5.4.3.2. Training or Loading of a CBOW model
     </a>
    </li>
   </ul>
@@ -432,8 +444,8 @@
         
               <div>
                 
-  <div class="section" id="applying-word-embeddings">
-<h1><span class="section-number">6. </span>Applying Word-Embeddings<a class="headerlink" href="#applying-word-embeddings" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="implementation-of-word-embeddings">
+<h1><span class="section-number">5.4. </span>Implementation of Word-Embeddings<a class="headerlink" href="#implementation-of-word-embeddings" title="Permalink to this headline">¶</a></h1>
 <p>There are different options to work with Word-Embeddings:</p>
 <ol class="simple">
 <li><p>Trained Word-Embeddings can be downloaded from the web. These Word-Embeddings differ in</p>
@@ -448,9 +460,9 @@
 </ol>
 <p>In this notebook option 1 and 2 are demonstrated. Option 3 is applied in a later lecture</p>
 <div class="section" id="apply-pre-trained-word-embeddings">
-<h2><span class="section-number">6.1. </span>Apply Pre-Trained Word-Embeddings<a class="headerlink" href="#apply-pre-trained-word-embeddings" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.4.1. </span>Apply Pre-Trained Word-Embeddings<a class="headerlink" href="#apply-pre-trained-word-embeddings" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="fasttext">
-<h3><span class="section-number">6.1.1. </span>FastText<a class="headerlink" href="#fasttext" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.1.1. </span>FastText<a class="headerlink" href="#fasttext" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://fasttext.cc">FastText project</a> provides word-embeddings for 157 different languages, trained on <a class="reference external" href="https://commoncrawl.org/">Common Crawl</a> and <a class="reference external" href="https://www.wikipedia.org/">Wikipedia</a>. These word embeddings can easily be downloaded and imported to Python. The <code class="docutils literal notranslate"><span class="pre">KeyedVectors</span></code>-class of <a class="reference external" href="https://radimrehurek.com/gensim/">gensim</a> can be applied for the import. This class also provides many useful tools, e.g. an index to fastly find the vector of an arbitrary word or function to calculate similarities between word-vectors. Some of these tools will be demonstrated below:</p>
 <p>After downloading word embeddings from <a class="reference external" href="https://fasttext.cc/docs/en/english-vectors.html">FastText</a> they can be imported into a <code class="docutils literal notranslate"><span class="pre">KeyedVectors</span></code>-object from gensim as follows:</p>
 <div class="cell docutils container">
@@ -619,7 +631,7 @@ Dimension of a word vector: 300
 </div>
 </div>
 <div class="section" id="glove">
-<h3><span class="section-number">6.1.2. </span>GloVe<a class="headerlink" href="#glove" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.1.2. </span>GloVe<a class="headerlink" href="#glove" title="Permalink to this headline">¶</a></h3>
 <p>As described <a class="reference internal" href="05representations.html"><span class="doc std std-doc">before</span></a> GloVe constitutes another method for calculating Word-Embbedings. Pre-trained GloVe vectors can be downloaded from
 <a class="reference external" href="https://nlp.stanford.edu/projects/glove/">Glove</a> and imported into Python. However, gensim already provides a downloader for several word-embeddings, including GloVe embeddings of different length and different training-data.</p>
 <p>The corpora and embeddings, which are available via the gensim downloader, can be queried as follows:</p>
@@ -834,7 +846,7 @@ Dimension of a word vector: 300
 </div>
 </div>
 <div class="section" id="visualisation-of-word-vectors">
-<h2><span class="section-number">6.2. </span>Visualisation of Word-Vectors<a class="headerlink" href="#visualisation-of-word-vectors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.4.2. </span>Visualisation of Word-Vectors<a class="headerlink" href="#visualisation-of-word-vectors" title="Permalink to this headline">¶</a></h2>
 <p>Typical lengths of DSM word vectors are in the range between 50 and 300. In the FastText example above vectors of length 300 have been applied. The applied GloVe vectors had a length of 100. In any case they can not directly be visualised. However, methods to reduce the dimensionality of vectors in such a way, that their overall spatial distribution is maintained as much as possible can be applied to transform word vectors into 2-dimensional space. In the code cells below this is demonstrated by applying <strong>TSNE</strong>, the most prominent technique to transform word-vectors into 2-dimensional space:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -874,10 +886,10 @@ Dimension of a word vector: 300
 <p>This simple visualisation already indicates, that the vectors of similar words are closer to each other, than the vectors of unrelated words.</p>
 </div>
 <div class="section" id="train-word-embedding">
-<h2><span class="section-number">6.3. </span>Train Word Embedding<a class="headerlink" href="#train-word-embedding" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.4.3. </span>Train Word Embedding<a class="headerlink" href="#train-word-embedding" title="Permalink to this headline">¶</a></h2>
 <p>In this section it is demonstrated how <a class="reference external" href="https://radimrehurek.com/gensim/">gensim</a> can be applied to train a Word2Vec (either CBOW or Skipgram) embedding from an arbitrary corpus. In this demo the applied training corpus is the complete English Wikipedia dump.</p>
 <div class="section" id="download-and-extract-wikipedia-dump">
-<h3><span class="section-number">6.3.1. </span>Download and Extract Wikipedia Dump<a class="headerlink" href="#download-and-extract-wikipedia-dump" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.3.1. </span>Download and Extract Wikipedia Dump<a class="headerlink" href="#download-and-extract-wikipedia-dump" title="Permalink to this headline">¶</a></h3>
 <p>Wikipedia dumps can be downloaded from <a class="reference external" href="https://dumps.wikimedia.org/other/wikibase/wikidatawiki/">here</a>. After downloading the dump the most convenient way to extract and clean the text is to apply the <a class="reference external" href="https://github.com/attardi/wikiextractor">WikiExtractor</a>. This tool generates plain text from a Wikipedia database dump, discarding any other information or annotation present in Wikipedia pages, such as images, tables, references and lists.
 The output is stored in a number of files of similar size in a given directory.</p>
 <p>The class <code class="docutils literal notranslate"><span class="pre">MySentences</span></code>, as defined in the following code-cell, extracts from all directories and files under <code class="docutils literal notranslate"><span class="pre">dirnameP</span></code> the sentences in a format, which can be processed by the applied gensim model.</p>
@@ -931,7 +943,7 @@ The output is stored in a number of files of similar size in a given directory.<
 </div>
 </div>
 <div class="section" id="training-or-loading-of-a-cbow-model">
-<h3><span class="section-number">6.3.2. </span>Training or Loading of a CBOW model<a class="headerlink" href="#training-or-loading-of-a-cbow-model" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.3.2. </span>Training or Loading of a CBOW model<a class="headerlink" href="#training-or-loading-of-a-cbow-model" title="Permalink to this headline">¶</a></h3>
 <p>In the following code cell a name for the word2vec-model is specified. If the specified directory already contains a model with the specified name, it is loaded. Otherwise, it is generated and saved under the specified name. A <strong>skipgram-model</strong> can be generated in the same way. In this case <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">word2vec.Word2Vec(sentences,size=200,sorted_vocab=1)</span></code> has to be replaced by <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">word2vec.Word2Vec(sentences,size=200,sorted_vocab=1,sg=1)</span></code>.
 See <a class="reference external" href="https://radimrehurek.com/gensim/models/word2vec.html">gensim model.Word2Vec documentation</a> for the configuration of more parameters.</p>
 <blockquote>
@@ -1059,8 +1071,8 @@ Applied context length for generating the model:  5
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="05representations.html" title="previous page"><span class="section-number">5. </span>Vector Representations of Words and Documents</a>
-    <a class='right-next' id="next-link" href="02gensimDocModelSimple.html" title="next page"><span class="section-number">7. </span>Document models and similarity</a>
+    <a class='left-prev' id="prev-link" href="02gensimDocModelSimple.html" title="previous page"><span class="section-number">5.3. </span>Implementation of BoWs</a>
+    <a class='right-next' id="next-link" href="05topicextraction.html" title="next page"><span class="section-number">6. </span>Topic Extraction</a>
 
         </div>
         

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Applying Word-Embeddings
+# # Implementation of Word-Embeddings
 # 
 
 # There are different options to work with Word-Embeddings:

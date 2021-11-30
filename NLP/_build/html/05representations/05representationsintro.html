@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7.1. Validation of Classifiers &#8212; Natural Language Processing Lecture</title>
+    <title>5. Vector Representations of Words and Documents &#8212; Natural Language Processing Lecture</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7.2. Naive Bayes Text Classification" href="07classificationNaiveBayes.html" />
-    <link rel="prev" title="7. Text Classification" href="06classification.html" />
+    <link rel="next" title="5.1. Vector Space Model" href="05representations.html" />
+    <link rel="prev" title="4. N-Gram Language Model" href="../04ngram/04ngram.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -188,35 +188,35 @@
    4. N-Gram Language Model
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../05representations/05representationsintro.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    5. Vector Representations of Words and Documents
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05representations/05representations.html">
+    <a class="reference internal" href="05representations.html">
      5.1. Vector Space Model
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05representations/02gensimDocModelSimple.html">
+    <a class="reference internal" href="02gensimDocModelSimple.html">
      5.3. Implementation of BoWs
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05representations/01WordEmbeddingImplementation.html">
+    <a class="reference internal" href="01WordEmbeddingImplementation.html">
      5.4. Implementation of Word-Embeddings
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../05representations/05topicextraction.html">
+  <a class="reference internal" href="05topicextraction.html">
    6. Topic Extraction
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
@@ -226,39 +226,39 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05representations/05lsi.html">
+    <a class="reference internal" href="05lsi.html">
      6.1. Latent Semantic Indexing (LSI)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05representations/02LatentSemanticIndexing.html">
+    <a class="reference internal" href="02LatentSemanticIndexing.html">
      6.2. Implementation of Topic Extraction and Document Clustering
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="06classification.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06classification/06classification.html">
    7. Text Classification
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06classification/06classificationMetrics.html">
      7.1. Validation of Classifiers
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="07classificationNaiveBayes.html">
+    <a class="reference internal" href="../06classification/07classificationNaiveBayes.html">
      7.2. Naive Bayes Text Classification
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="FakeNewsClassification.html">
+    <a class="reference internal" href="../06classification/FakeNewsClassification.html">
      7.3. Text Classification Application: Fake News detection
     </a>
    </li>
@@ -347,9 +347,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/06classification/06classificationMetrics.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/05representations/05representationsintro.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -367,61 +367,11 @@
 
             <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/06classification/06classificationMetrics.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#confusion-matrix">
-   7.1.1. Confusion matrix
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#accuracy">
-   7.1.2. Accuracy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recall">
-   7.1.3. Recall
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#precision">
-   7.1.4. Precision
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#f1-score">
-   7.1.5. F1-Score
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -430,129 +380,16 @@
         
               <div>
                 
-  <div class="section" id="validation-of-classifiers">
-<h1><span class="section-number">7.1. </span>Validation of Classifiers<a class="headerlink" href="#validation-of-classifiers" title="Permalink to this headline">¶</a></h1>
-<img src="http://maucher.home.hdm-stuttgart.de/Pics/SupervisedLearningSchemaValidation.png" style="width:700px" align="center"><p>Text classification is part of supervised Machine Learning (ML). As depicted in the picture above, supervised ML relies on labeled data - not only for training, but also for model testing. It is important that training- and test-datasets are disjoint.</p>
-<p>Once a model is trained, it is applied on test-data and calculates predictions for the test-data input. Since for test-data also the true label (output) is known, these true labels can be compared with the predicted labels. Based on this comparison, different  <strong>metrics</strong> for classifier evaluations can be calculated. The most important classifier metrics are described below.</p>
-<p>Assume that for 10 test-data samples the true and predicted labels (class-indeces) are as listed in the table below:</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:center head"><p>True Label</p></th>
-<th class="text-align:center head"><p>Predicted Label</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:center"><p>0</p></td>
-<td class="text-align:center"><p>0</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>0</p></td>
-<td class="text-align:center"><p>1</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>1</p></td>
-<td class="text-align:center"><p>1</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>1</p></td>
-<td class="text-align:center"><p>1</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>1</p></td>
-<td class="text-align:center"><p>0</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>0</p></td>
-<td class="text-align:center"><p>0</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>1</p></td>
-<td class="text-align:center"><p>0</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>0</p></td>
-<td class="text-align:center"><p>0</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>0</p></td>
-<td class="text-align:center"><p>0</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>0</p></td>
-<td class="text-align:center"><p>0</p></td>
-</tr>
-</tbody>
-</table>
-<p>All of the metrics described below, can be calculated from this comparison.</p>
-<div class="section" id="confusion-matrix">
-<h2><span class="section-number">7.1.1. </span>Confusion matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">¶</a></h2>
-<p>The confusion matrix contains for each pair of classes <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>, the number of class <span class="math notranslate nohighlight">\(i\)</span> elements, which have been predicted to be class <span class="math notranslate nohighlight">\(j\)</span>. Usually, each row corresponds to a true-class label and each column corresponds to a predicted class label.</p>
-<p>In the general 2-class confusion matrix, depicted below, the class labels are <span class="math notranslate nohighlight">\(P\)</span> (positive) and <span class="math notranslate nohighlight">\(N\)</span>. The matrix entries are then</p>
-<ul class="simple">
-<li><p><strong>TP (True Positives):</strong> Number of samples, which belong to class <span class="math notranslate nohighlight">\(P\)</span>
-and have correctly been predicted to be class <span class="math notranslate nohighlight">\(P\)</span></p></li>
-<li><p><strong>TN (True Negative):</strong> Number of samples, which belong to class <span class="math notranslate nohighlight">\(N\)</span>
-and have correctly been predicted to be class <span class="math notranslate nohighlight">\(N\)</span></p></li>
-<li><p><strong>FP (False Positives):</strong> Number of samples, which belong to class <span class="math notranslate nohighlight">\(N\)</span>
-but have falsely been predicted to be class <span class="math notranslate nohighlight">\(P\)</span></p></li>
-<li><p><strong>FN (False Negatives):</strong> Number of samples, which belong to class <span class="math notranslate nohighlight">\(P\)</span>
-but have falsely been predicted to be class <span class="math notranslate nohighlight">\(N\)</span></p></li>
-</ul>
-<img src="http://maucher.home.hdm-stuttgart.de/Pics/confusionMatrixTN.png" style="width:200px" align="center">
-<p>For the given example of predicted and true class labels the confusion matrix is:</p>
-<img src="http://maucher.home.hdm-stuttgart.de/Pics/confusionMatrixExample.png" style="width:200px" align="center">
+  <div class="section" id="vector-representations-of-words-and-documents">
+<h1><span class="section-number">5. </span>Vector Representations of Words and Documents<a class="headerlink" href="#vector-representations-of-words-and-documents" title="Permalink to this headline">¶</a></h1>
+<p>As described in the <a class="reference internal" href="../intro.html"><span class="doc">Introduction</span></a>, many NLP tasks can either be solved in a rule-based or in a data-based approach. Data-based approaches increasingly yield better results than rule-based approaches. At the heart of data-based approaches is a Machine Learning algorithm, which learns a model from available training data. Such models can be learned for a wide variety of e.g. for Document Classification, Sentiment Analysis, Named-Entity-Recognition, Intent-Recognition, Question-Answering, Automatic translation and many others.</p>
+<p>All ML-algorithms require a numeric representation at their input, usually a fixed-length numeric vector. In the context of NLP the input is usually text. The crucial question is then:</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question:</p>
+<p>How to represent texts, i.e. sequences of words, punctuation marks…, as a numeric vector of constant length?</p>
 </div>
-<div class="section" id="accuracy">
-<h2><span class="section-number">7.1.2. </span>Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this headline">¶</a></h2>
-<p>Accuracy is the ratio of correct predictions among all predictions. For the 2-class problem and the labels <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(N\)</span>, accuracy can be calculated from the entries of the confusion matrix:</p>
-<div class="math notranslate nohighlight">
-\[
-Acc =\frac{TP+TN}{TP+TN+FP+FN}
-\]</div>
-<p>In the example the accuracy is
-$<span class="math notranslate nohighlight">\(
-Acc =\frac{5+2}{5+2+1+2}=0.7
-\)</span>$</p>
-</div>
-<div class="section" id="recall">
-<h2><span class="section-number">7.1.3. </span>Recall<a class="headerlink" href="#recall" title="Permalink to this headline">¶</a></h2>
-<p>The recall of class <span class="math notranslate nohighlight">\(i\)</span> is the ratio of correctly predicted class <span class="math notranslate nohighlight">\(i\)</span> elements, among all elements, which truly belong to class <span class="math notranslate nohighlight">\(i\)</span>. The recall of class <span class="math notranslate nohighlight">\(P\)</span> is:</p>
-<div class="math notranslate nohighlight">
-\[
-Rec_P =\frac{TP}{TP+FN}
-\]</div>
-<p>and for class <span class="math notranslate nohighlight">\(N\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-Rec_N =\frac{TN}{TN+FP}
-\]</div>
-<p>In the example:</p>
-<div class="math notranslate nohighlight">
-\[
-Rec_1=\frac{2}{4} \quad \mbox{ and } \quad Rec_0=\frac{5}{6}
-\]</div>
-</div>
-<div class="section" id="precision">
-<h2><span class="section-number">7.1.4. </span>Precision<a class="headerlink" href="#precision" title="Permalink to this headline">¶</a></h2>
-<p>The precision of class <span class="math notranslate nohighlight">\(i\)</span> is the ratio of true class <span class="math notranslate nohighlight">\(i\)</span> elements, among all elements, which have been predicted to be class <span class="math notranslate nohighlight">\(i\)</span>. The precision of class <span class="math notranslate nohighlight">\(P\)</span> is:</p>
-<div class="math notranslate nohighlight">
-\[
-Pre_P =\frac{TP}{TP+FP}
-\]</div>
-<p>and for class <span class="math notranslate nohighlight">\(N\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-Pre_N =\frac{TN}{TN+FN}
-\]</div>
-<p>In the example:</p>
-<div class="math notranslate nohighlight">
-\[
-Pre_1=\frac{2}{3}  \quad \mbox{ and } \quad Pre_0=\frac{5}{7}
-\]</div>
-</div>
-<div class="section" id="f1-score">
-<h2><span class="section-number">7.1.5. </span>F1-Score<a class="headerlink" href="#f1-score" title="Permalink to this headline">¶</a></h2>
-<p>The F1-score of a class <span class="math notranslate nohighlight">\(i\)</span> is the harmonic mean of this class’ precision and recall:</p>
-<div class="math notranslate nohighlight">
-\[
-F1_i = 2 \cdot \frac{Pre_i \cdot Rec_i}{Pre_i + Rec_i}
-\]</div>
-<p>In the example:</p>
-<div class="math notranslate nohighlight">
-\[
-F1_1= 2 \cdot \frac{\frac{2}{4} \frac{2}{3}}{\frac{2}{4} + \frac{2}{3}}  \quad \mbox{ and } \quad F1_0= 2 \cdot \frac{\frac{5}{6} \frac{5}{7}}{\frac{5}{6} + \frac{5}{7}} 
-\]</div>
+<p>In this section first the general notion of <strong>Vector Space Model</strong> is introduced. Then the most common type of vector space model for text, the so called <strong>Bag-Of-Word (BoW)</strong> model is described. In the extreme case of single-word-texts the BoW melts down to the <strong>One-Hot-Encoding</strong> of words. The pros and cons of these conventional representations are discussed. Another method to represent words as numerical vectors is constituted by <strong>Distributional Semantic Models (DSMs)</strong>. The currently very popular <strong>Word Embeddings</strong> belong to the class of DSMs. <strong>Word Embeddings</strong> are numerical word representations, which are learned by <em>Neural Networks</em>. Even though they have been considered before, the 2013 milestone paper <span id="id1">[<a class="reference internal" href="../referenceSection.html#id6">MSC+13</a>]</span> introduced two very efficient methods to learn meaningful Word Embeddings. Since then Word Embeddings have revolutionized NLP.</p>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -569,7 +406,7 @@ F1_1= 2 \cdot \frac{\frac{2}{4} \frac{2}{3}}{\frac{2}{4} + \frac{2}{3}}  \quad \
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./06classification"
+            path: "./05representations"
         },
         predefinedOutput: true
     }
@@ -581,8 +418,8 @@ F1_1= 2 \cdot \frac{\frac{2}{4} \frac{2}{3}}{\frac{2}{4} + \frac{2}{3}}  \quad \
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="06classification.html" title="previous page"><span class="section-number">7. </span>Text Classification</a>
-    <a class='right-next' id="next-link" href="07classificationNaiveBayes.html" title="next page"><span class="section-number">7.2. </span>Naive Bayes Text Classification</a>
+    <a class='left-prev' id="prev-link" href="../04ngram/04ngram.html" title="previous page"><span class="section-number">4. </span>N-Gram Language Model</a>
+    <a class='right-next' id="next-link" href="05representations.html" title="next page"><span class="section-number">5.1. </span>Vector Space Model</a>
 
         </div>
         
