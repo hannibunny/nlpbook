@@ -4,7 +4,7 @@
 # # Implementation of Topic Extraction and Document Clustering
 # 
 # - Author:      Johannes Maucher
-# - Last update: 05.11.2020
+# - Last update: 14.12.2021
 # 
 # This notebook demonstrates how [gensim](http://radimrehurek.com/gensim/) can be applied for *Latent Semantic Indexing (LSI)*. In LSI a set of abstract topics (features), which are latent in a set of simple texts, is calculated. Then the documents are described and visualised with respect to these abstract features. The notebook is an adoption of the corresponding [gensim LSI tutorial](http://radimrehurek.com/gensim/tut2.html). 
 
@@ -12,6 +12,12 @@
 # A list of very small documents is defined. From the corresponding BoW (Bag of Words) representation all stopwords and all words, which appear only once are removed. The resulting cleaned BoW models of all documents are printed below.  
 
 # In[1]:
+
+
+#!pip install --upgrade gensim
+
+
+# In[2]:
 
 
 from gensim import corpora, models, similarities
@@ -43,29 +49,33 @@ for t in texts:
 # ## Dictionaries and Corpora
 # The words of the cleaned documents constitute a dictionary, which is persistently saved in the file *deerwester.dict*. The dictionary-method *token2id* displays the dictionary indes of each word.
 
-# In[2]:
+# In[3]:
 
 
 dictionary = corpora.Dictionary(texts)
 dictionary.save('deerwester.dict') # store the dictionary, for future reference
-print(dictionary)
 print(dictionary.token2id)
 
 
 # Next, a corpus is generated, which is a very efficient representation of the cleaned documents. In the corpus each word is represented by it's index in the dictionary. The corpus is persistently saved to file *deerwester.mm*.
 
-# In[3]:
+# In[4]:
 
 
 corpus = [dictionary.doc2bow(text) for text in texts]
 corpora.MmCorpus.serialize('deerwester.mm', corpus) # store to disk, for later use
+
+
+# In[5]:
+
+
 for c in corpus:
     print(c)
 
 
 # The following code snippet demonstrates how a dictionary and a corpus can be loaded into the python program.
 
-# In[4]:
+# In[6]:
 
 
 dictionary = corpora.Dictionary.load('deerwester.dict')
@@ -77,11 +87,48 @@ for c in corpus:
 # ## TF-IDF Model of the corpus
 # A tf-idf model is generated from the cleaned documents of the corpus and all corpus documents are represented by the vector of tf-idf values of their words.
 
-# In[5]:
+# ### TF-IDF Model without document-vector normalisation
+
+# In[7]:
 
 
-tfidf = models.TfidfModel(corpus)
-corpus_tfidf = tfidf[corpus]
+tfidf = models.TfidfModel(corpus,normalize=False)  # generate a transformation object and fit it to the corpus documents
+corpus_tfidf = tfidf[corpus] # apply the transformation to all corpus documents
+for doc in corpus_tfidf:
+    print(doc)
+
+
+# Transform a new document to tf-idf vector. The new document in this example consists of the words 
+# * *computer (index 0)*, 
+# * *human (index 1)* 
+# * 2 times the word *system (index 5)*:
+
+# In[8]:
+
+
+newDoc=[(0,1),(1,1),(5,2)]
+newTFIDF=tfidf[newDoc]
+print(newTFIDF)
+
+
+# Verify that log2 is applied in the tf-idf calculation:
+
+# In[9]:
+
+
+import numpy as np
+np.log2(9/2)
+
+
+# ### TF-IDF Model with document-vector normalisation
+
+# In general it is better to normalise the document vectors, such that each vector has a length of $1$. By applying document normalisation the obtained vectors are *independent* of document length.
+
+# In[10]:
+
+
+tfidf = models.TfidfModel(corpus,normalize=True)  # generate a transformation object and fit it to the corpus documents
+corpus_tfidf = tfidf[corpus] # apply the transformation to all corpus documents
 for doc in corpus_tfidf:
     print(doc)
 
@@ -89,7 +136,7 @@ for doc in corpus_tfidf:
 # ## LSI Model of the corpus
 # A Latent Semantic Indexing (LSI) model is generated from the given documents. The number of topics that shall be extracted is selected to be two in this example:
 
-# In[6]:
+# In[11]:
 
 
 lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=2) # initialize an LSI transformation
@@ -99,7 +146,7 @@ lsi.print_topics(2)
 
 # As shown below, each document is described in the new 2-dimensional space. The dimensions represent the two extracted topics.
 
-# In[7]:
+# In[12]:
 
 
 x=[]
@@ -114,7 +161,7 @@ for doc in corpus_lsi: # both bow->tfidf and tfidf->lsi transformations are actu
 
 # The documents can be plotted in the new 2-dimensional space. In this space the documents are clearly partitioned into 2 clusters, each representing one of the 2 topics.
 
-# In[8]:
+# In[13]:
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -134,7 +181,7 @@ plt.show()
 
 # LSI models can be saved to and loaded from files: 
 
-# In[9]:
+# In[14]:
 
 
 lsi.save('model.lsi') # same for tfidf, lda, ...

@@ -81,7 +81,7 @@ As can be seen in this 2-dimensional vector space document 2 and 3 are described
 
 As sketched in the matrix above, the new dimensions in the 2-dimensional space, do not belong to single words, but to topics and each topic is represented by a list of words, which frequently appear in the documents, which belong to this topic. More accurate: The new dimensions (topics) in the $k$-dimensional space are linear combinations of the old dimensions (words) in the $n$-dimensional space.
 
-Note that this implies a different understanding of *semantically related words*, than the concept implied by {ref}`dsm-label`. In DSMs two words are semantically related, if they frequently appear in the same context, where context is given by the surrounding words. In LSI two words are "semantically related", if they frequently appear in the same documents.
+Note that this implies a different understanding of *semantically related words*, than the concept implied by Distributional Semantic Models (DSM). In DSMs two words are semantically related, if they frequently appear in the same context, where context is given by the surrounding words. In LSI two words are "semantically related", if they frequently appear in the same documents.
 
 Latent Semantic Indexing (LSI) applies **Singular Value Decomposition (SVD)** for calculating the low-dimensional topic space {cite}`Manning2000`. SVD calculates a factorisation of the term-by-document matrix $\mathbf{A}$:
 
@@ -269,7 +269,7 @@ As mentioned earlier document-vectors are often normed to unique-length. These n
 <figcaption>Representations of normed documents and normed query vector in latent semantic space</figcaption>
 </figure>
 
-As can be seen the documents belonging to the topic *vehicles* are located in an other region of the latent semantic space than the documents, which refer to the topic *space*. Morover, the query-vector, which contains *space*-words is in the region of *space*-documents.
+As can be seen the documents belonging to the topic *vehicles* are located in an other region of the latent semantic space than the documents, which refer to the topic *space*. Moreover, the query-vector, which contains *space*-words is in the region of *space*-documents.
 
 ```python
 
