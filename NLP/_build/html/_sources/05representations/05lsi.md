@@ -60,7 +60,7 @@ d6 \\
 \right)
 $$
 
-In the Inverted-Index each column represents a document. Each column is an $n$-dimensional vector, where $n$ is the number of words in the corpus. Hence, each document can be considered as a point in the n-dimensional space. LSI defines a transformation from this $n$-dimensional space into a $k$-dimensional space, where $k$ is usually much smaller than $n$. The representation of the documents in this new $k$-dimensional space is such that, documents which refer to the same topics, have similar k-dimensional vectors (are nearby points in the $k$-dimensional space). 
+In the Inverted-Index each column represents a document. Each column is an $t$-dimensional vector, where $t$ is the number of different words in the corpus. Hence, each document can be considered as a point in the t-dimensional space. LSI defines a transformation from this $t$-dimensional space into a $k$-dimensional space, where $k$ is usually much smaller than $t$. The representation of the documents in this new $k$-dimensional space is such that, documents which refer to the same topics, have similar k-dimensional vectors (are nearby points in the $k$-dimensional space). 
 
 For example the 2-dimensional space, the 6 documents of the example may have the following representations:[^f1]
 
@@ -79,9 +79,9 @@ $$
 
 As can be seen in this 2-dimensional vector space document 2 and 3 are described by the same vector $(1,0)$, even though in the original 6-dimensional space their vectors are orthogonal to each other, because these documents have no word in common.
 
-As sketched in the matrix above, the new dimensions in the 2-dimensional space, do not belong to single words, but to topics and each topic is represented by a list of words, which frequently appear in the documents, which belong to this topic. More accurate: The new dimensions (topics) in the $k$-dimensional space are linear combinations of the old dimensions (words) in the $n$-dimensional space.
+As sketched in the matrix above, the new dimensions in the 2-dimensional space, do not belong to single words, but to topics and each topic is represented by a list of words, which frequently appear in the documents, which belong to this topic. More accurate: The new dimensions (topics) in the $k$-dimensional space are linear combinations of the old dimensions (words) in the $t$-dimensional space.
 
-Note that this implies a different understanding of *semantically related words*, than the concept implied by Distributional Semantic Models (DSM). In DSMs two words are semantically related, if they frequently appear in the same context, where context is given by the surrounding words. In LSI two words are "semantically related", if they frequently appear in the same documents.
+Note that this implies a different understanding of *semantically related words*, than the concept implied by Distributional Semantic Models (DSM). In DSMs two words are semantically related, if they frequently appear in the same context, where context is given by the surrounding words. **In LSI two words are *semantically related*, if they frequently appear in documents with similar words**.
 
 Latent Semantic Indexing (LSI) applies **Singular Value Decomposition (SVD)** for calculating the low-dimensional topic space {cite}`Manning2000`. SVD calculates a factorisation of the term-by-document matrix $\mathbf{A}$:
 
@@ -162,7 +162,7 @@ As indicated by the subscripts of the matrix-factors in {eq}`svd-factors`
 
 The lower-dimensional space is now obtained by
 
-1. Select the number of dimensions $k$ of the lower-dimensional space. Note that $t$ is the number of topics, that shall be distinguished.
+1. Select the number of dimensions $k$ of the lower-dimensional space. Note that $k$ is the number of topics, that shall be distinguished.
 2. Keep the first $k$ columns of matrix $T$ and remove the other $n-k$ columns to obtain the reduced matrix $T'$. Silmilarly, keep the first $k$ rows and the first $k$ columns of matrix $S$ to obtain the reduced matrix $S'$ and keep the first $k$ columns of matrix $D$ and to obtain the reduced matrix $D'$.
 
 
