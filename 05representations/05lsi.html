@@ -455,7 +455,7 @@ d6 \\
 \end{split}\]</div>
 <p>As can be seen in this 2-dimensional vector space document 2 and 3 are described by the same vector <span class="math notranslate nohighlight">\((1,0)\)</span>, even though in the original 6-dimensional space their vectors are orthogonal to each other, because these documents have no word in common.</p>
 <p>As sketched in the matrix above, the new dimensions in the 2-dimensional space, do not belong to single words, but to topics and each topic is represented by a list of words, which frequently appear in the documents, which belong to this topic. More accurate: The new dimensions (topics) in the <span class="math notranslate nohighlight">\(k\)</span>-dimensional space are linear combinations of the old dimensions (words) in the <span class="math notranslate nohighlight">\(n\)</span>-dimensional space.</p>
-<p>Note that this implies a different understanding of <em>semantically related words</em>, than the concept implied by <span class="xref std std-ref">dsm-label</span>. In DSMs two words are semantically related, if they frequently appear in the same context, where context is given by the surrounding words. In LSI two words are “semantically related”, if they frequently appear in the same documents.</p>
+<p>Note that this implies a different understanding of <em>semantically related words</em>, than the concept implied by Distributional Semantic Models (DSM). In DSMs two words are semantically related, if they frequently appear in the same context, where context is given by the surrounding words. In LSI two words are “semantically related”, if they frequently appear in the same documents.</p>
 <p>Latent Semantic Indexing (LSI) applies <strong>Singular Value Decomposition (SVD)</strong> for calculating the low-dimensional topic space <span id="id3">[<a class="reference internal" href="../referenceSection.html#id3">MS00</a>]</span>. SVD calculates a factorisation of the term-by-document matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-svd-factors">
 <span class="eqno">(6.1)<a class="headerlink" href="#equation-svd-factors" title="Permalink to this equation">¶</a></span>\[
@@ -632,7 +632,7 @@ T'^T \cdot q^T =
 <img width="400" src="https://maucher.home.hdm-stuttgart.de/Pics/docsQueryNormedIn2dimSpace.png">
 <figcaption>Representations of normed documents and normed query vector in latent semantic space</figcaption>
 </figure>
-<p>As can be seen the documents belonging to the topic <em>vehicles</em> are located in an other region of the latent semantic space than the documents, which refer to the topic <em>space</em>. Morover, the query-vector, which contains <em>space</em>-words is in the region of <em>space</em>-documents.</p>
+<p>As can be seen the documents belonging to the topic <em>vehicles</em> are located in an other region of the latent semantic space than the documents, which refer to the topic <em>space</em>. Moreover, the query-vector, which contains <em>space</em>-words is in the region of <em>space</em>-documents.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
