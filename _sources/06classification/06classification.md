@@ -20,5 +20,10 @@ In the **conventional approach** for text-classification the numeric vector, whi
 * apply sequences of **word-embeddings** instead of BoW-vectors at the input of the ML-algorithm
 * **(Deep) Neural Networks** such as Convolutional Neural Networks (CNNs) or Recurrent Neural Networks (RNN) of different flavors, such as Simple RNN, LSTM or GRU.
 
+<figure align="center">
+<img width="800" src="https://maucher.home.hdm-stuttgart.de/Pics/overAllPicture.png">
+<figcaption>From the conventional approach (BoW and conventional ML) to Word Embeddings and Deep Neural Networks</figcaption>
+</figure>
+
 In this chapter one frequently used conventional approach - Naive Bayes Classification - is introduced. Deep Neural Network solutions are presented in later chapters.  
 
