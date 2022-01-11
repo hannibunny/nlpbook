@@ -512,11 +512,11 @@
 </div>
 <p>The crucial property of sequences is the correlation between the individual datapoints. This means that for each element (datapoint) of the sequence, information is not only provided by it’s individual feature-vector, but also by the neighboring datapoints. For each element of the sequence, the neighboring elements are called <strong>context</strong> and we can understand an individual element by taking in account</p>
 <ul class="simple">
-<li><p>it’s feature vector</p></li>
+<li><p>its feature vector</p></li>
 <li><p>the contextual information, provided by the neighbours</p></li>
 </ul>
 <p>For this type of sequential data, Machine Learning algorithms should learn models, which regard not only individual feature vectors, but also contextual information. For example <a class="reference internal" href="02RecurrentNeuralNetworks.html"><span class="doc std std-doc">Recurrent Networks (RNN)</span></a> are capable to do so. In this section more complex ML architectures, suitable for sequential data will be described. Some of these architectures integrate RNNs. More recent architectures, <em>Transformers</em>, model the correlations within sequences not by RNNs but by <em>Attention</em>. Both, Attention and the integration of Attention in Transformers will be described in this section.</p>
-<p>As already mentioned in section <a class="reference internal" href="02RecurrentNeuralNetworks.html"><span class="doc std std-doc">Recurrent Networks (RNN)</span></a>, ML algorithms, which take sequential data at their input, either output one element per sequence (many-to-one) or a sequence of elements (many-to-many). The latter is the same as sSequence-To-Sequence learning.</p>
+<p>As already mentioned in section <a class="reference internal" href="02RecurrentNeuralNetworks.html"><span class="doc std std-doc">Recurrent Networks (RNN)</span></a>, ML algorithms, which take sequential data at their input, either output one element per sequence (many-to-one) or a sequence of elements (many-to-many). The latter is the same as Sequence-To-Sequence learning.</p>
 <p>Sequence-To-Sequence (Seq2Seq) models (<span id="id1">[<a class="reference internal" href="../referenceSection.html#id18">CvMG+14</a>]</span>, <span id="id2">[<a class="reference internal" href="../referenceSection.html#id19">SVL14</a>]</span>) map</p>
 <ul class="simple">
 <li><p>input sequences <span class="math notranslate nohighlight">\(\mathbf{x}=(x_1,x_2,\ldots x_{T_x})\)</span></p></li>
