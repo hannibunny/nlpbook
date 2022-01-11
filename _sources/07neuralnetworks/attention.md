@@ -149,7 +149,7 @@ Training data consists of $N$ pairs $T=\lbrace(\mathbf{x}^{(j)}, \mathbf{y}^{(j)
 
 **Drawbacks of Seq2Seq Encoder-Decoder:**
 The Decoder estimates one word after another and applies the estimated word at time $i$ as an input for estimating the next word at time $i+1$. As soon as one estimate is wrong, the successive step perceives an erroneous input, which may cause the next erroneous output and so on. Such error-propagations can not be avoided in this type of Seq2Seq Encoder-Decoder architectures. 
-Moreover, for long sequences, the single fixed length context vextor \textbf{c} encodes information from the last part of the sequence quite well, but may have **forgotten** information from the early parts.
+Moreover, for long sequences, the single fixed length context vextor **c** encodes information from the last part of the sequence quite well, but may have **forgotten** information from the early parts.
 
 These drawbacks motivated the concept of **Attention**.
 

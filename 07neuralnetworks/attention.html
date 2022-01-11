@@ -608,7 +608,7 @@ h_{d,i} = k(y_{i-1},h_{d,i-1},c) \quad  \forall i \in [1,T],
 </ol>
 <p><strong>Drawbacks of Seq2Seq Encoder-Decoder:</strong>
 The Decoder estimates one word after another and applies the estimated word at time <span class="math notranslate nohighlight">\(i\)</span> as an input for estimating the next word at time <span class="math notranslate nohighlight">\(i+1\)</span>. As soon as one estimate is wrong, the successive step perceives an erroneous input, which may cause the next erroneous output and so on. Such error-propagations can not be avoided in this type of Seq2Seq Encoder-Decoder architectures.
-Moreover, for long sequences, the single fixed length context vextor \textbf{c} encodes information from the last part of the sequence quite well, but may have <strong>forgotten</strong> information from the early parts.</p>
+Moreover, for long sequences, the single fixed length context vextor <strong>c</strong> encodes information from the last part of the sequence quite well, but may have <strong>forgotten</strong> information from the early parts.</p>
 <p>These drawbacks motivated the concept of <strong>Attention</strong>.</p>
 </div>
 </div>
